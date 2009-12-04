@@ -1,0 +1,86 @@
+#
+# Top level Makefile for Mulberry Libs
+#
+# Compatibility: GNU
+#
+# $Date$
+# $Revision$
+#
+
+.PHONY: all clean distclean jxinit jxuninit
+
+DIRS = CICalendar vCard XMLLib
+
+OS := $(shell /bin/uname -s)
+CPU := $(shell /bin/uname -m)
+
+# set this variable to something non empty to skip the time
+# consuming make recursion into JX (if it is already built
+# there is no reason to go through this again and again)
+SKIPJX =
+
+all: jx
+	for dir in $(DIRS); do \
+		$(MAKE) -C $$dir $@ || exit 1; \
+	done
+
+jx: jxinit
+	if test -n "$(SKIPJX)" ; then \
+		echo "Skipping build of JX as requested."; \
+	else \
+		case $(OS) in  \
+			Linux)  \
+				case $(CPU) in  \
+					ppc)  \
+						$(MAKE) J_BUILD_BOTH_LIB=1 -C JX linuxppc2000 \
+					;; \
+					i686|i86pc)  \
+						$(MAKE) J_BUILD_BOTH_LIB=1 -C JX linux_intel \
+					;; \
+				esac  \
+			;; \
+		    	SunOS) \
+				$(MAKE) J_BUILD_BOTH_LIB=1 -C JX sunos5.8-g++ \
+                        ;; \
+		esac ; \
+	fi
+
+clean:
+	$(MAKE) -C JX clean
+	for dir in $(DIRS); do \
+		$(MAKE) -C $$dir $@; \
+	done
+	$(MAKE) jxuninit
+
+distclean:
+	$(MAKE) -C JX clean
+	for dir in $(DIRS); do \
+		$(MAKE) -C $$dir $@; \
+	done
+	$(MAKE) jxuninit
+
+
+jxinit: jxuninit
+	(cd JX/include; \
+	 ln -sf ../libjcore/code jcore; \
+	 ln -sf ../libjx/code jx; \
+	 ln -sf ../libjx/image jximage; \
+	 ln -sf ../libjx/strings jxstrings)
+	(cd JX/lib; \
+	 ln -sf ../ACE/ACE_wrappers/ace/libACE.a libACE-5_4_7.a; \
+	 ln -sf ../ACE/ACE_wrappers/ace/libACE.so libACE-5_4_7.so; \
+	 ln -sf ../ACE/ACE_wrappers/ace/libACE.so.5.4.7 libACE.so.5.4.7; \
+	 ln -sf ../libjcore/libjcore-2_5_0.a libjcore-2_5_0.a; \
+	 ln -sf ../libjcore/libjcore-2_5_0.so libjcore-2_5_0.so; \
+	 ln -sf ../libjx/libjx-2_5_0.a libjx-2_5_0.a; \
+	 ln -sf ../libjx/libjx-2_5_0.so libjx-2_5_0.so)
+	touch JX/ACE/ACE_wrappers/ace/Svc_Conf_l.cpp
+
+jxuninit:
+	rm -f JX/include/jcore JX/include/jx \
+	      JX/include/jximage JX/include/jxstrings
+	rm -f JX/lib/libACE-5_4_7.a JX/lib/libACE-5_4_7.a \
+	      JX/lib/libACE-5_4_7.so JX/lib/libACE.so.5.4.7 \
+	      JX/lib/libjcore-2_5_0.a JX/lib/libjcore-2_5_0.so \
+	      JX/lib/libjx-2_5_0.a JX/lib/libjx-2_5_0.so
+
