@@ -1,0 +1,326 @@
+Mulberry Change History (Win32)
+
+v2.0.5 : 26-Oct-2000
+Major Changes
+*Added support for SSL/TLS encryption of network connections.
+
+Minor Changes
+*Identity edit dialog controls are now enabled/disabled based on the state of the corresponding 'Active' checkbox.
+*User ID & passwords fields enlarged to allow for user ids that include domain information.
+*A new warning alert appears when attempting to disconnect without any mail accounts set for disconnected operations.
+*Now preference (on by default) to do auto-expansion/collapse of message parts list when suitable attachments are present.
+*Added new option for PGP verify success alert.
+*MIME to file extension mapping won't replace an extension that is valid according to the registry.
+
+Fixes
+*Fixed bug in causing a crash when default identity From address was not active.
+*Fixed bug with quote colours not being saved when changed.
+*Fixed bug causing failure to remember flat/hierarchic state of local/POP3 display hierarchies.
+*Fixed bug with failure to decode multiple embedded UU-encoded attachments.
+*Fixed bug causing errors with IMAP servers returning zero-length literals.
+*Fixed bug with radio controls in connect/disconnect dialog..
+*Fixed bug with line end format when generating UU encoded attachments.
+*Fixed bug with failure to honor cancel button in alert when quitting with items in SMTP queue.
+*Fixed bug causing a crash when attempting password changing with poppassd.
+*Fixed bug with parsing whitespace inside of bracketed URLs.
+*Fixed bugs with PGP interoperability with format=flowed messages.
+*Fixed bug with ACAP address books with specific types of ACAP servers.
+
+v2.0.4 : 18-Aug-2000
+Fixes
+*Fixed bug in admin code when remote server is used and email address is locked.
+
+v2.0.3 : 14-Jul-2000
+Fixes
+*Fixed bug with error during specific IMSP address stores.
+*Fixed bug with unneeded SEARCH when opening a mailbox that would cause problems with IMAP2bis servers.
+*Fixed text of server parse error alert.
+*Fixed problem with log files being created in the wrong directory.
+
+v2.0.2 : 10-Jul-2000
+Minor Changes
+*'Addresses to count as mine' now accepts '*' as a match to zero or more arbitrary characters at that position.
+
+Fixes
+*Fixed bug with inactive New button in address book manager window when local address books are locked out.
+*Fixed bug with tabbing between address and group tables and initial focus in address book window.
+*Fixed bug with missing Copy command in address search results.
+*Fixed bug with local mailbox paths in Win95 being messed up by change to working directory.
+*Fixed bug where new address books that failed to be created were still marked for nick-name resolution etc.
+*Fixed bug with addressbook lookup in ACAP.
+*Fixed bug with group duplication after editing in a local address book.
+*Fixed bug causing a crash when server sends some specific broken protocol.
+*Fixed bug with missing default copy to with single accounts.
+*Fixed bug with Copy To menu off-by-two when copying via an account sub-menu.
+*Fixed bug causing occasional crash after changing the cabinet settings in preferences dialog.
+*Fixed bug with ACAP authentication.
+*Fixed bug with disconnect playback that could result inthe wrong mailbox being selected under particular circumstances.
+*Fixed bug with strict SMTP servers refusing to accept connections when the local machine's host name cannot be determined.
+*Fixed bug with clicking in hierarchy expansion in lists that are horizontally scrolled.
+*Fixed bug with Reset to Default command with open message or draft windows.
+*Fixed bug with multiple format=flowed parameters when sending a message previously saved as a draft to a mailbox.
+
+v2.0.1 : 19-Jun-2000
+Minor Changes
+*option-click on a mailbox row will auto-match to the properties of the currently selected rows based on the column category that's clicked on. This is currently limited to address, subject, thread and date columns.
+*Content-Disposition is now displayed in message parts property dialogs.
+*Now adds all default copy-to mailboxes in any identities to the copy to menu when it hits the 'Too many mailboxes' limit.
+*Now re-opens mailboxes that were open before a connect or disconnect operation. Window stacking order is not remembered.
+*Password dialog now shows the authentication mechanism that will be used.
+*Added new mailbox cache preference to control when the 'Full Sort' alert is triggered - defaults to 100 messages.
+*Added radio buttons to new address dialog to specify creation of 'personal' or 'global' remote address book. The 'personal' choice automatically adds the user id prefix to the name entered, and is the default.
+*Added transparent support for the non-standard AUTH=LOGIN authentication mechanism.
+*Now prevents users from accidently writing someone else's preferences back over their own when quitting - mostly relevant when using Kererbos authentication where tickets can timeout.
+
+Fixes
+*Fixed bug with missing MIME-Version header in local messages.
+*Fixed missing Config plugin support.
+*Fixed bug with LDIF/Communicator Adbk import and line-end formats.
+*Fixed bug causing corrupt cached message indices when copying a message from a POP3 INBOX twice.
+*Fixed bug causing a crash when dragging files into a draft message body on Win2K.
+*Fixed bug with remote prefs upgrade from v1.x not writing back all upgraded prefs.
+*Fixed bug with UU-decoding detecting the wrong start to uu data.
+*Fixed bug with message window styles being lost on text after printing.
+*Fixed bug with mailbox listing for disconected support when using a UW-style server.
+*Fixed bug with copy-to mailboxes failing to work when they only appear in the Subscribed list and not in any display hierarchy.
+*Fixed bug with LDAP Notes search being disabled.
+*Fixed bug causing a crash when renaming the path to a local mailbox/adbk that Mulberry is using.
+*Fixed bug with extra blank page being printed with some Win2K printer drivers.
+*Fixed bug with disconnected partial messages missing the MIME-Version header.
+*Fixed bug with menu breaks when tiling a menu across the screen with a non-default menu item font size.
+*Fixed bug with failure to properly recognise multiple SMTP AUTH and AUTH= responses.
+*Fixed bug with missing organisation display in splash screen.
+*Fixed bug with incorrect registration test in installer when using Admin Tool to register at install time.
+*Fixed bugs in DIGEST-MD5 plugin.
+
+v2.0 : 30-Mar-2000
+Major Changes
+
+-General
+*Mulberry now supports local and POP3 mail accounts.
+*IMAP accounts can work in disconnected mode - using fully synchronising playback.
+*New 'Disconnect...' menu command to switch between disconnected and online.
+*Disconnection can control modem dial/hangup.
+*Full set of user options available for controlling disconnecting and re-connecting.
+*Mulberry now supports disconnected preferences.
+*Mulberry now supports disconnected address books with basic synchronisation.
+*SMTP sending now operates in the background.
+*Added SMTP Queue window for manipulating SMTP queues.
+*New 'automatic' local address book storage allowing local address books to be used even when closed.
+*Authentication plugins are now dynamic.
+*Added DIGEST-MD5 authentication capability.
+*Added NTLM authentication capability.
+*Added PGP inline and OpenPGP support.
+*Added 'Expand Address' command to do address expansion in a draft window address field.
+*Added MAPI support via external dll (available from website).
+
+-Preferences
+*Preferences merged for all OS'es.
+*Compound preferences are now backwards and forwards compatible with respect to additions in future releases.
+*Single IMSP default options set for all OS'es.
+*Multiple window states now saved in a single prefs set for each screen size and OS used.
+*Added 'Security' panel for controlling security plugins (e.g. PGP).
+*Added new Mailbox 'Disconnected' panel.
+*Added multiple alert styles which can be applied to different cabinets.
+
+-Identities
+*Can now inherit from any identity - not just the default identity.
+*Added new 'Outgoing' section.
+*Can specify default To, CC and Bcc addresses in Outgoing section which get added to drafts using that identity.
+*Added support for requesting DSN's in Outgoing section.
+*Added 'Security' section for controlling signing and encryption of messages sent with that identity.
+*Added 'Also Copy Original Message' to Options section to have the corresponding checkbox in a draft window automatically set when that identity is chosen.
+*Identities can now be re-ordered via drag and drop in the preferences dialog.
+
+-Server Window
+*New 'Auto Synchronise' cabinet for specifying which mailboxes are to be synchronised on disconnect.
+*Added 'Size' column for display of mailbox size.
+*Mailbox properties dialog: added controls to support new options.
+*New icons to represent servers for different account types.
+*New icons for local and disconnected mailboxes.
+
+-Mailbox Window
+*New state icon to show online, local and disconnected mailbox state.
+*Added 'Disconnected' column to indicate state of messages in disconnected cache.
+
+-Message Window
+*Added new control to collapse/expand header area.
+*Added new icon used in parts table to indicate a message part in a disconnected mailbox that has not yet been locally cached.
+*Parts table can now be displayed flat (the new default) or fully hierarchic as controlled by a new button. The state is saved in prefs.
+*Message windows can now be reused with option-double-click opening a message. Behaviour can be toggled with a new preference.
+*Added a new preference option to have the first message/rfc822 in a multipart/digest open automatically when the its message is opened.
+
+-Draft Window
+*Added new control to collapse/expand header area.
+*Added sign and encrypt buttons (only displayed when security plugin installed).
+
+Minor Changes
+*Added commands to Windows menu to facilitate expanding and collapsing of various window areas.
+*Added Print command to text area context menus.
+*Logging dialog allows disconnected playback operations to be logged.
+*Can now type characters in server window to select items in the list.
+*ACL panel now includes mailbox popup and 'Apply to All' to enable batch ACL setting.
+*Added 'Recipient' and 'Correspondent' search criteria items.
+*Originator-Info header is no longer sent by default. Admins have to explicitly turn this on if required.
+*New draft title and file name is now based on the subject of the draft.
+*Search Hierarchy has been renamed to Display Hierarchy and menus/UI reorganised.
+*Added new menu commands for manipulating cabinets.
+*Removed 'goto' button in mailbox window and replaced with two new menu commands.
+*IMSP address book opening time reduced.
+*The full format of date is displayed in the message window date sent field.
+*Added URL Seen colour and style to prefs.
+*When saving a draft to the IMAP server as a draft, 'unspecified-recipients' is no longer added to the To field when there are no addresses specified.
+*Added 'Entire Message' search criteria to allow searching of both the header and body.
+*When forwarding a message from a message window, the quotation is now determined by any selection in the message window (can include headers if shown).
+*Added 'quick selection' buttons to reply addressing dialog.
+*Added new warning dialog when using the delete mailbox command on a cabinet item.
+*Can now change a MIME parts disposition on outgoing mail.
+*Can now append drafts to a mailbox from which parts of the draft were obtained.
+*Spelling dictionary is now stored using a relative path if its in the Mulberry directory.
+*Can now edit bounced message subject.
+*Moved tab and wrapping checkboxes in Outgoing prefs panel.
+*Group edit dialog enlarged.
+*Can now have Copy To popup default to 'Choose Later' by turning on copying, but leaving the mailbox name empty.
+*Single selection in the New Messages cabinet is now moved to the next mailbox in that cabinet if the selected mailbox is removed.
+*Edit and delete of display hierarchies can now only be done via menu commands.
+*Now alerts the user on startup when there is less than a week to go in demo mode or beta expiry.
+*Can now register unregistered copy from the About Box.
+*LDAP search now only asks for the attributes needed, unless putting them in the Notes field.
+*Added basic format=flowed support.
+*Added new preference to have tied identities triggered when the 'New Draft' command or 'Draft' button is used when appropriate.
+*The browse for mailboxes dialog is now resizable and remembers its size and position.
+*Can now copy sub-messages (digest contents) to any mailbox.
+*Now generates an alert on startup or restart if any form of protocol logging is turned on, and allows it to be turned off.
+*Added new Admin option to turn off protocol logging.
+*Now remembers the last preference panel selected.
+*Added command key equivalent for Open Mailboxes command.
+*New option to have draft messages opened from a mailbox deleted when the draft is sent or saved again.
+*Can optionally prevent deletion of drafts if they have the important flag set.
+*Changed format of X-Mailer header to be similar to News' User-Agent header and removed display of serial number.
+*Message window parts list automatically expands if there are no displayable parts and suitable text is displayed in the message body area.
+*Copy Now command is active for a selection in the mailbox window and results in a mailbox Choose dialog for copying.
+*Switched Details and Options buttons in Mailbox properties dialog so that Options is the first one shown.
+*When a connection is rejected, the IP address cache for that server is now reset .
+*LDAP searches now recognise multiple values for certain attribute types.
+*Added 'None' button to the mailbox browse dialog when saving a copy of sent mail.
+*AppleDouble parts in flat mode now display the type/subtype of the data sub-part of the multipart.
+*Added 'New Address Book' dialog for creating a new address book and setting the various address book options. Defaults to nick-names and searches on.
+*Auto-creation of default IMSP address book now sets address book options.
+
+Fixes
+*Fixed bug with 'Copy INBOX Messages being Replied to'.
+*Fixed bugs when unseen messages are treated as 'new'.
+*Fixed bugs with hierarchic New Messages cabinet.
+*Fixed bugs when deleting a mailbox with a sub-hierarchy.
+*Fixed bugs when closing/quitting while searching.
+*Fixed bug in base64 decoding.
+*Fixed bug with adding a mailbox to a cabinet with only a folder in it.
+*Fixed bug with logout failing to refresh server window row.
+*Fixed bug with AppleDouble part size calculation for admin limits.
+*Fixed bugs in dot-stuffing attachments from an IMAP server being sent directly over SMTP.
+*Fixed bugs with runs of MIME-encoded non-ascii headers.
+*Fixed bug with timezone offset generation for Hawaii.
+*Fixed bugs with spell checker refusing to delete or add certain words.
+*Fixed bug in base64 decoding of ISO-8859-1 text.
+*Fixed bugs related to address search window state saving and loading from prefs.
+*Fixed bugs with enabling/disabling copy controls in the message window.
+*Fixed bug when mailbox was set to expunge on close and mark seen on close.
+*Fixed bug in which favourite button in server window column would not work for cabinet items.
+*Fixed bug in generating folded MIME-encoded non-ascii headers.
+*Fixed bug with non-OS specific spell check dictionary location preference.
+*Fixed bug with log files failing to be flushed after every entry.
+*Fixed bug with default filename when saving messages while reading in the same message window.
+*Fixed bug when attempting to save a draft with a subject that contains illegal characters in the OS's filesystem.
+*Fixed bug with crash when typing a tab in the address search window.
+*Fixed bug in which deleting a mailbox would also remove any wildcard cabinet items that matched it.
+*Fixed a bug in which renamed cabinet items were not actually renamed in the preferences.
+*Fixed bug with failure to honor Content-Disposition filename parameter.
+*Fixed bug with empty lines in identity X-Headers.
+*Fixed bug with reply/forward quoting text with lines that start with spaces or tabs that exceed the wrap length.
+*Fixed bug with handling illegal '&' characters in HTML.
+*Fixed bug with tab selection of next new mailbox in server window.
+*Fixed bug with disabled edit menu items in address search text field.
+*Fixed bug with restoring window size of an address book with the group list hidden.
+*Fixed bug with tooltips appearing when a window was iconised in MDI mode.
+*Fixed bug with cross-platform password encryption/decryption.
+*Fixed bug causing a crash when a file from the Explorer is dragged into a draft window.
+*Fixed bug with draft and message window bottom split pane being sized down to zero height.
+*Fixed bug with mailbox browse dialog with a single server and display hierarchy.
+*Fixed bug with incorrect error message when an authentication fails due to a missing plugin.
+*Fixed bug where drag and drop message copy would not do a delete the second time.
+*Fixed bug where adding a new text part to a bounce would select the wrong part.
+*Fixed bug with zero width columns being read from preferences.
+*Fixed bug when starting up without any preferences and attempting to use IMSP.
+*Fixed bug with <AREA> tag in HTML.
+*Fixed bug in which selection was not moved to center of mailbox window when sorting changed.
+*Fixed bug with window positioning in MDI mode when TaskBar was at the top.
+*Fixed bug with persistence of watch cursor when doing manual new mail check.
+*Fixed bug in which addresses used in drag and drop were not filtered for 'smart' addresses.
+*Fixed bug causing a crash when network connection dies during Properties on a network address book.
+*Fixed bug with count of parts when parts table is flat.
+*Fixed bugs with converting line-ends in c-style escaped address fields.
+*Fixed bugs with mailbox window updating when sorting by flag.
+*Fixed bug in draft saving when admin lock was turned on.
+*Fixed bug with Name column delete in addressbook manager window.
+*Fixed bug with incorrect text display of a message containing no displayable parts.
+*Fixed bug with selection scroll to center in mailbox window.
+*Fixed bug in page setup in which 'Print Setup' dialog appeared instead of 'Page Setup'.
+*Fixed bug with drag selection of text in main text areas.
+*Fixed bug with MIME encoded 8-bit headers that contained a comma.
+*Fixed bug with failure to generate new mail alerts for open mailboxes.
+*Fixed bug in which attached text files would be hard-wrapped when sent.
+*Fixed bug with sharing violation errors with attachments open elsewhere.
+*Fixed bug that could cause a crash after changing preferences and then using a local address book.
+*Fixed bug with long initial connect times when used on a machine on a LAN using NAT.
+*Fixed bug in which editing an identity would lose tied identity links to mailboxes.
+*Fixed bug with failure to read spelling preferences.
+*Fixed bug with inactive copy to defaulting to choose later.
+*Fixed bug with formatting of string list preferences.
+*Fixed bug with creation of mailboxes with illegal names starting with directory separator character.
+*Fixed various issues related to reverse DNS lookup delays.
+*Fixed bug with incorrect encoding of 8-bit MIME parameters.
+*Fixed bug with different print size for captions and text with same font and size.
+*Fixed bug with multiline print captions overwriting text area.
+*Fixed bug with crash when using Find dialog.
+*Fixed bug with URL activation when URL is at the very end of a message with no line break after it.
+*Fixed bug causing a crash when quoted-printable encoding is used on a binary file.
+*Fixed bug causing a crash when base64 encoding is used with the wrap length set to less than 76 characters.
+*Fixed processing of subject & body items in extended mailto URL handling.
+*Fixed bug with wrapping of long subjects in the header.
+*Fixed bug causing a crash when attempting to drag a cabinet in the server window.
+*Fixed bug with line-end conversion in non-text parts that Mulberry displays as text.
+*Fixed parsing of LDAP mail attribute to work with RFC822-style address with comments.
+*Fixed rare bug in IMAP error recovery code that could cause a crash if server returned illegal IMAP protocol.
+*Fixed bug with Mailbox Create command acting on a Cabinet.
+*Fixed bug with Search criteria popups not being initialised when switching between some criteria types.
+*Fixed bug causing a crash when switching from a set of preferences with a remote prefs account to one without.
+*Fixed bug with quoted-printable decoding of non-text parts.
+*Fixed bug with context menus not having the right menu item state.
+*Fixed bug causing a crash when sending a draft with no parts.
+*Fixed bugs with print captions when a requested address field is empty.
+*Fixed bug with failure to quit when writing IMSP prefs fails.
+*Fixed bug with text between <STYLE> tags in HTML appearing in messages.
+*Fixed bug with NULL characters in message body resulting in truncated text display.
+*Fixed bug with crash when using Find dialog.
+*Fixed bug with crash caused by corrupt address book manager window state.
+*Fixed bug with failure of menu shortcuts in message window text area.
+*Fixed bug with cabinet items whose account name contains a directory separator character.
+*Fixed bug with missing flag menu shortcuts.
+*Fixed bug with 'leaked' connections when viewing message search results.
+*Fixed bug with maximised MDI child message and draft windows not refreshing properly.
+*Fixed bug with automatic horizontal scrolling while typing in draft window.
+*Fixed bug in parsing capability response.
+*Fixed quoted printable decode bug with non-text attachments.
+*Fixed bug with clickable empty URLs.
+*Fixed bug with using certain menu shortcuts with non-English keyboard layouts.
+*Fixed bug with copy to mailboxes not being renamed when an account is renamed, for identities other than the default.
+*Fixed bug with failure to properly select the first new message when opening a mailbox sorted by something other than message number.
+*Fixed bug with generation of spurious </PRE> tag in HTML drafts.
+*Fixed bug causing a crash when initialisation of app fails.
+*Fixed bug with scroll position updating of message window parts table.
+*Fixed bug with incorrect page setup being used when printing from a mailbox window.
+*Fixed bug causing display update problems when deleting an address book.
+*Fixed bug causing a crash when quitting with an open single server window.
+*Fixed bug causing a crash when a URL was clicked or double-clicked.
+*Fixed bug with messed up mailbox hierarchy display when the first subscribed mailbox is not at the top of its hierarchy.
+*Fixed bug with duplicate addresses appearing after message drag and drop onto address book manager item.

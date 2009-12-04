@@ -1,0 +1,16 @@
+-suffix .cp
+
+@DIGESTMD5Plugin.so
+-prefix sources/
+CDIGESTMD5PluginDLL
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CAuthPluginDLL
+kbase64
+os_dep
+-prefix ../../Sources_Common/Utilities/
+CStringUtils
+-prefix ../CRAM-MD5/sources/md5/
+.c hmac-md5
+.c md5c

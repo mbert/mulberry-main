@@ -1,0 +1,13 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Table Classes/UTableHelpers.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Table Classes/UTableHelpers.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Table Classes/UTableHelpers.h	(working copy)
+@@ -114,6 +114,8 @@
+ 								const STableCell		&inCell) const = 0;
+ 	virtual	STableCell	GetFirstSelectedCell() const = 0;
+ 	virtual	TableIndexT	GetFirstSelectedRow() const = 0;
++	virtual	STableCell	GetLastSelectedCell() const = 0;
++	virtual	TableIndexT	GetLastSelectedRow() const = 0;
+ 
+ 	virtual void		SelectCell(
+ 								const STableCell		&inCell) = 0;

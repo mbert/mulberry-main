@@ -1,0 +1,247 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF419AAA0AE9ABB700E19592 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419AA60AE9ABB700E19592 /* os_dep.cp */; };
+		AF419AAC0AE9ABB700E19592 /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A9F0AE9ABB700E19592 /* PluginDLLmain.cp */; };
+		AF419AAD0AE9ABB700E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419AA00AE9ABB700E19592 /* CPluginDLL.cp */; };
+		AF419AAF0AE9ABB700E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419AA20AE9ABB700E19592 /* CAdbkIOPluginDLL.cp */; };
+		AF419AB10AE9ABB700E19592 /* CEudoraAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419AA40AE9ABB700E19592 /* CEudoraAdbkIOPluginDLL.cp */; };
+		AF419AB30AE9ABB700E19592 /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419AA80AE9ABB700E19592 /* CStringUtils.cp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF419A9A0AE9ABB600E19592 /* EudoraAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EudoraAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF419A9F0AE9ABB700E19592 /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AF419AA00AE9ABB700E19592 /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419AA10AE9ABB700E19592 /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419AA20AE9ABB700E19592 /* CAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CAdbkIOPluginDLL.cp; path = ../Common/CAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419AA30AE9ABB700E19592 /* CAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAdbkIOPluginDLL.h; path = ../Common/CAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419AA40AE9ABB700E19592 /* CEudoraAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CEudoraAdbkIOPluginDLL.cp; path = sources/CEudoraAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419AA50AE9ABB700E19592 /* CEudoraAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CEudoraAdbkIOPluginDLL.h; path = sources/CEudoraAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419AA60AE9ABB700E19592 /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
+		AF419AA70AE9ABB700E19592 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
+		AF419AA80AE9ABB700E19592 /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
+		AF419AA90AE9ABB700E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AF419AB70AE9ABB700E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		AF419AB90AE9ABB700E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AF419ABD0AE9ABB700E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF419A970AE9ABB600E19592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF419A8D0AE9ABB600E19592 = {
+			isa = PBXGroup;
+			children = (
+				AF419A9E0AE9ABB700E19592 /* Main */,
+				AF419AB50AE9ABB700E19592 /* Imported Files */,
+				AF419AB60AE9ABB700E19592 /* Frameworks */,
+				AF419A9B0AE9ABB600E19592 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF419A9B0AE9ABB600E19592 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF419A9A0AE9ABB600E19592 /* EudoraAdbkIO.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF419A9E0AE9ABB700E19592 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AF419A9F0AE9ABB700E19592 /* PluginDLLmain.cp */,
+				AF419AA10AE9ABB700E19592 /* CPluginDLL.h */,
+				AF419AA00AE9ABB700E19592 /* CPluginDLL.cp */,
+				AF419AA30AE9ABB700E19592 /* CAdbkIOPluginDLL.h */,
+				AF419AA20AE9ABB700E19592 /* CAdbkIOPluginDLL.cp */,
+				AF419AA50AE9ABB700E19592 /* CEudoraAdbkIOPluginDLL.h */,
+				AF419AA40AE9ABB700E19592 /* CEudoraAdbkIOPluginDLL.cp */,
+				AF419AA70AE9ABB700E19592 /* os_dep.h */,
+				AF419AA60AE9ABB700E19592 /* os_dep.cp */,
+				AF419AA90AE9ABB700E19592 /* CStringUtils.h */,
+				AF419AA80AE9ABB700E19592 /* CStringUtils.cp */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AF419AB50AE9ABB700E19592 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF419AB90AE9ABB700E19592 /* PluginDLLmain.h */,
+				AF419ABD0AE9ABB700E19592 /* CPluginInfo.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AF419AB60AE9ABB700E19592 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF419AB70AE9ABB700E19592 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF419A990AE9ABB600E19592 /* Eudora MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF419A9C0AE9ABB700E19592 /* Build configuration list for PBXNativeTarget "Eudora MachO" */;
+			buildPhases = (
+				AF419A950AE9ABB600E19592 /* Sources */,
+				AF419A960AE9ABB600E19592 /* Resources */,
+				AF419A970AE9ABB600E19592 /* Frameworks */,
+				AF419A980AE9ABB600E19592 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Eudora MachO";
+			productName = "Eudora MachO";
+			productReference = AF419A9A0AE9ABB600E19592 /* EudoraAdbkIO.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF419A8F0AE9ABB600E19592 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AF419A900AE9ABB600E19592 /* Build configuration list for PBXProject "EudoraAdbkIO" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AF419A8D0AE9ABB600E19592;
+			productRefGroup = AF419A9B0AE9ABB600E19592 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF419A990AE9ABB600E19592 /* Eudora MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF419A960AE9ABB600E19592 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AF419A980AE9ABB600E19592 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF419A950AE9ABB600E19592 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF419AAA0AE9ABB700E19592 /* os_dep.cp in Sources */,
+				AF419AAC0AE9ABB700E19592 /* PluginDLLmain.cp in Sources */,
+				AF419AAD0AE9ABB700E19592 /* CPluginDLL.cp in Sources */,
+				AF419AAF0AE9ABB700E19592 /* CAdbkIOPluginDLL.cp in Sources */,
+				AF419AB10AE9ABB700E19592 /* CEudoraAdbkIOPluginDLL.cp in Sources */,
+				AF419AB30AE9ABB700E19592 /* CStringUtils.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AF419A910AE9ABB600E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AF419A9D0AE9ABB700E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = EudoraAdbkIO;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF419A900AE9ABB600E19592 /* Build configuration list for PBXProject "EudoraAdbkIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF419A910AE9ABB600E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AF419A9C0AE9ABB700E19592 /* Build configuration list for PBXNativeTarget "Eudora MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF419A9D0AE9ABB700E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF419A8F0AE9ABB600E19592 /* Project object */;
+}

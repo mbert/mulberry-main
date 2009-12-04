@@ -1,0 +1,97 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFileStream.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFileStream.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFileStream.cp	(working copy)
+@@ -31,7 +31,7 @@
+ //	Construct a FileStream from a Toolbox File System Specification
+ 
+ LFileStream::LFileStream(
+-	const FSSpec&	inFileSpec)
++	const PPx::FSObject&	inFileSpec)
+ 
+ 	: LFile(inFileSpec)
+ {
+@@ -50,7 +50,7 @@
+ LFileStream::LFileStream(
+ 	AliasHandle		inAlias,
+ 	Boolean&		outWasChanged,
+-	FSSpec*			inFromFile)
++	PPx::FSObject*	inFromFile)
+ 
+ 	: LFile(inAlias, outWasChanged, inFromFile)
+ {
+@@ -89,7 +89,7 @@
+ 		inOffset = -inOffset;
+ 	}
+ 
+-	OSErr	err = ::SetFPos(GetDataForkRefNum(), inFromWhere, inOffset);
++	OSStatus err = ::FSSetForkPosition(GetDataForkRefNum(), fsFromStart, inOffset);
+ 	ThrowIfOSErr_(err);
+ }
+ 
+@@ -104,10 +104,10 @@
+ SInt32
+ LFileStream::GetMarker() const
+ {
+-	SInt32	theMarker;
+-	OSErr	err = ::GetFPos(GetDataForkRefNum(), &theMarker);
++	SInt64 forkPos;
++	OSStatus err = ::FSGetForkPosition(GetDataForkRefNum(), &forkPos);
+ 	ThrowIfOSErr_(err);
+-	return theMarker;
++	return forkPos;
+ }
+ 
+ 
+@@ -120,7 +120,7 @@
+ LFileStream::SetLength(
+ 	SInt32	inLength)
+ {
+-	OSErr	err = ::SetEOF(GetDataForkRefNum(), inLength);
++	OSStatus	err = ::FSSetForkSize(GetDataForkRefNum(), fsFromStart, inLength);
+ 	ThrowIfOSErr_(err);
+ 	LStream::SetLength(inLength);
+ }
+@@ -134,10 +134,10 @@
+ SInt32
+ LFileStream::GetLength() const
+ {
+-	SInt32	theLength;
+-	OSErr	err = ::GetEOF(GetDataForkRefNum(), &theLength);
++	SInt64		forkSize;
++	OSStatus	err = ::FSGetForkSize(GetDataForkRefNum(), &forkSize);
+ 	ThrowIfOSErr_(err);
+-	return theLength;
++	return forkSize;
+ }
+ 
+ 
+@@ -154,7 +154,12 @@
+ 	const void*		inBuffer,
+ 	SInt32&			ioByteCount)
+ {
+-	return ::FSWrite(GetDataForkRefNum(), &ioByteCount, inBuffer);
++	ByteCount bytesWritten;
++	OSStatus err = ::FSWriteFork(GetDataForkRefNum(), fsFromMark, 0,
++									ioByteCount, inBuffer, &bytesWritten);
++	ioByteCount = bytesWritten;
++
++	return err;
+ }
+ 
+ 
+@@ -171,7 +176,13 @@
+ 	void*		outBuffer,
+ 	SInt32&		ioByteCount)
+ {
+-	return ::FSRead(GetDataForkRefNum(), &ioByteCount, outBuffer);
++	ByteCount bytesRead;
++	OSStatus err = ::FSReadFork(GetDataForkRefNum(), fsFromMark, 0,
++								ioByteCount, outBuffer, &bytesRead);
++
++	ioByteCount = bytesRead;
++
++	return err;
+ }
+ 
+ 

@@ -1,0 +1,33 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UExtractFromAEDesc.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UExtractFromAEDesc.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UExtractFromAEDesc.h	(working copy)
+@@ -50,6 +50,8 @@
+ 	
+ 	void	TheFSSpec	(const AEDesc& inDesc, FSSpec& outFSSpec);
+ 	
++	void	TheFSRef	(const AEDesc& inDesc, FSRef& outFSRef);
++	
+ 	void	ThePString	(const AEDesc&	inDesc,
+ 						 StringPtr		outString,
+ 						 SInt32			inMaxSize = 256);
+@@ -216,6 +218,19 @@
+ }
+ 
+ 
++// ---------------------------------------------------------------------------
++//	¥ TheFSRef
++// ---------------------------------------------------------------------------
++
++inline void
++UExtractFromAEDesc::TheFSRef(
++	const AEDesc&	inDesc,
++	FSRef&			outValue)
++{
++	TheData(inDesc, typeFSRef, &outValue, sizeof(FSRef));
++}
++
++
+ PP_End_Namespace_PowerPlant
+ 
+ 

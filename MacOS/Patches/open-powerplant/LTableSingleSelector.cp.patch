@@ -1,0 +1,36 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableSingleSelector.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableSingleSelector.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableSingleSelector.cp	(working copy)
+@@ -80,6 +80,31 @@
+ 	return mSelectedCell.row;
+ }
+ 
++// ---------------------------------------------------------------------------
++//	¥ GetLastSelectedCell
++// ---------------------------------------------------------------------------
++//	Return the last selected cell, defined as the min row & col (closest to
++//  top-left corner)
++
++STableCell
++LTableSingleSelector::GetLastSelectedCell() const
++{
++	return mSelectedCell;
++}
++
++
++// ---------------------------------------------------------------------------
++//	¥ GetLastSelectedRow
++// ---------------------------------------------------------------------------
++//	Return the last selected cell's row, defined as the min row & col (closest to
++//  top-left corner)
++
++TableIndexT
++LTableSingleSelector::GetLastSelectedRow() const
++{
++	return mSelectedCell.row;
++}
++
+ #pragma mark --- Selecting ---
+ 
+ // ---------------------------------------------------------------------------

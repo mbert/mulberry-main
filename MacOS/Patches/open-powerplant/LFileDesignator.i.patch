@@ -1,0 +1,29 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Standard Dialogs/LFileDesignator.i
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Standard Dialogs/LFileDesignator.i	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Standard Dialogs/LFileDesignator.i	(working copy)
+@@ -37,19 +37,19 @@
+ 	void				SetFileCreator(
+ 								OSType				inFileCreator);
+ 
+-	NavDialogOptions*	GetDialogOptions();
++	NavDialogCreationOptions*	GetDialogOptions();
+ 
+ 	void				SetDefaultLocation(
+-								const FSSpec&		inFileSpec,
+-								bool				inSelectIt);
++								const PPx::FSObject&	inFileSpec,
++								bool					inSelectIt);
+ 
+ 	bool				AskDesignateFile(
+-								ConstStringPtr		inDefaultName);
++								CFStringRef			inDefaultName);
+ 
+ 	bool				IsValid() const;
+ 
+ 	void				GetFileSpec(
+-								FSSpec&				outFileSpec) const;
++								PPx::FSObject&		outFileSpec) const;
+ 
+ 	bool				IsReplacing() const;
+ 

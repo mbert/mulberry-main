@@ -1,0 +1,19 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFileStream.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFileStream.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFileStream.h	(working copy)
+@@ -29,12 +29,12 @@
+ public:
+ 							LFileStream();
+ 
+-							LFileStream( const FSSpec& inFileSpec );
++							LFileStream( const PPx::FSObject& inFileSpec );
+ 
+ 							LFileStream(
+ 									AliasHandle		inAlias,
+ 									Boolean&		outWasChanged,
+-									FSSpec*			inFromFile = nil);
++									PPx::FSObject*	inFromFile = nil);
+ 
+ 	virtual					~LFileStream();
+ 

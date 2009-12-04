@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFBD94360AD9BC9400DD4C86 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD93FF0AD9BC9400DD4C86 /* os_dep.cp */; };
+		AFBD94370AD9BC9400DD4C86 /* os_dep.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94000AD9BC9400DD4C86 /* os_dep.h */; };
+		AFBD94380AD9BC9400DD4C86 /* base64.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD941B0AD9BC9400DD4C86 /* base64.cp */; };
+		AFBD94390AD9BC9400DD4C86 /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD941C0AD9BC9400DD4C86 /* base64.h */; };
+		AFBD943A0AD9BC9400DD4C86 /* cdstring.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD941F0AD9BC9400DD4C86 /* cdstring.cp */; };
+		AFBD943B0AD9BC9400DD4C86 /* cdstring.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94200AD9BC9400DD4C86 /* cdstring.h */; };
+		AFBD943C0AD9BC9400DD4C86 /* char_stream.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94230AD9BC9400DD4C86 /* char_stream.cp */; };
+		AFBD943D0AD9BC9400DD4C86 /* char_stream.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94240AD9BC9400DD4C86 /* char_stream.h */; };
+		AFBD943E0AD9BC9400DD4C86 /* diriterator.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94250AD9BC9400DD4C86 /* diriterator.cp */; };
+		AFBD943F0AD9BC9400DD4C86 /* diriterator.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94260AD9BC9400DD4C86 /* diriterator.h */; };
+		AFBD94400AD9BC9400DD4C86 /* encrypt.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94270AD9BC9400DD4C86 /* encrypt.cp */; };
+		AFBD94410AD9BC9400DD4C86 /* encrypt.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94280AD9BC9400DD4C86 /* encrypt.h */; };
+		AFBD94420AD9BC9400DD4C86 /* md5c.c in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94290AD9BC9400DD4C86 /* md5c.c */; };
+		AFBD94430AD9BC9400DD4C86 /* CCharSpecials.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD942A0AD9BC9400DD4C86 /* CCharSpecials.cp */; };
+		AFBD94440AD9BC9400DD4C86 /* CCharSpecials.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD942B0AD9BC9400DD4C86 /* CCharSpecials.h */; };
+		AFBD94450AD9BC9400DD4C86 /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD942C0AD9BC9400DD4C86 /* CStringUtils.cp */; };
+		AFBD94460AD9BC9400DD4C86 /* CStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD942D0AD9BC9400DD4C86 /* CStringUtils.h */; };
+		AFBD94470AD9BC9400DD4C86 /* strfind.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94300AD9BC9400DD4C86 /* strfind.cp */; };
+		AFBD94480AD9BC9400DD4C86 /* strfind.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94310AD9BC9400DD4C86 /* strfind.h */; };
+		AFBD94490AD9BC9400DD4C86 /* CASCII.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD940A0AD9BC9400DD4C86 /* CASCII.cp */; };
+		AFBD944A0AD9BC9400DD4C86 /* CASCII.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD940B0AD9BC9400DD4C86 /* CASCII.h */; };
+		AFBD944B0AD9BC9400DD4C86 /* CConverterOneByte.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD940C0AD9BC9400DD4C86 /* CConverterOneByte.cp */; };
+		AFBD944C0AD9BC9400DD4C86 /* CConverterOneByte.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD940D0AD9BC9400DD4C86 /* CConverterOneByte.h */; };
+		AFBD944D0AD9BC9400DD4C86 /* COneByteCharsets.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD940E0AD9BC9400DD4C86 /* COneByteCharsets.h */; };
+		AFBD944E0AD9BC9400DD4C86 /* CUCS2.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94120AD9BC9400DD4C86 /* CUCS2.cp */; };
+		AFBD944F0AD9BC9400DD4C86 /* CUCS2.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94130AD9BC9400DD4C86 /* CUCS2.h */; };
+		AFBD94500AD9BC9400DD4C86 /* CUCS4.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94140AD9BC9400DD4C86 /* CUCS4.cp */; };
+		AFBD94510AD9BC9400DD4C86 /* CUCS4.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94150AD9BC9400DD4C86 /* CUCS4.h */; };
+		AFBD94520AD9BC9400DD4C86 /* CUTF8.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94160AD9BC9400DD4C86 /* CUTF8.cp */; };
+		AFBD94530AD9BC9400DD4C86 /* CUTF8.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94170AD9BC9400DD4C86 /* CUTF8.h */; };
+		AFBD94540AD9BC9400DD4C86 /* CUTF16.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94180AD9BC9400DD4C86 /* CUTF16.cp */; };
+		AFBD94550AD9BC9400DD4C86 /* CUTF16.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94190AD9BC9400DD4C86 /* CUTF16.h */; };
+		AFBD94560AD9BC9400DD4C86 /* CConverterBase.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94070AD9BC9400DD4C86 /* CConverterBase.cp */; };
+		AFBD94570AD9BC9400DD4C86 /* CConverterBase.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94080AD9BC9400DD4C86 /* CConverterBase.h */; };
+		AFBD94580AD9BC9400DD4C86 /* CCharsetCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94030AD9BC9400DD4C86 /* CCharsetCodes.h */; };
+		AFBD94590AD9BC9400DD4C86 /* CCharsetManager.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94040AD9BC9400DD4C86 /* CCharsetManager.cp */; };
+		AFBD945A0AD9BC9400DD4C86 /* CCharsetManager.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94050AD9BC9400DD4C86 /* CCharsetManager.h */; };
+		AFBD945B0AD9BC9400DD4C86 /* CURL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94330AD9BC9400DD4C86 /* CURL.cp */; };
+		AFBD945C0AD9BC9400DD4C86 /* CURL.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94340AD9BC9400DD4C86 /* CURL.h */; };
+		AFBD945D0AD9BC9400DD4C86 /* quotedprintable.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD941D0AD9BC9400DD4C86 /* quotedprintable.cp */; };
+		AFBD945E0AD9BC9400DD4C86 /* quotedprintable.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD941E0AD9BC9400DD4C86 /* quotedprintable.h */; };
+		AFBD94600AD9BC9400DD4C86 /* cdustring.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD94210AD9BC9400DD4C86 /* cdustring.cp */; };
+		AFBD94610AD9BC9400DD4C86 /* cdustring.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94220AD9BC9400DD4C86 /* cdustring.h */; };
+		AFBD94620AD9BC9400DD4C86 /* CUStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD942E0AD9BC9400DD4C86 /* CUStringUtils.cp */; };
+		AFBD94630AD9BC9400DD4C86 /* CUStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD942F0AD9BC9400DD4C86 /* CUStringUtils.h */; };
+		AFBD94680AD9BC9A00DD4C86 /* LString.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94670AD9BC9A00DD4C86 /* LString.h */; };
+		AFBD946A0AD9BC9C00DD4C86 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94690AD9BC9C00DD4C86 /* md5.h */; };
+		AFBD946C0AD9BC9C00DD4C86 /* HResourceMap.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD946B0AD9BC9C00DD4C86 /* HResourceMap.h */; };
+		AFBD946E0AD9BC9C00DD4C86 /* CGeneralException.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD946D0AD9BC9C00DD4C86 /* CGeneralException.h */; };
+		AFBD94720AD9BC9C00DD4C86 /* CGB2312.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94710AD9BC9C00DD4C86 /* CGB2312.h */; };
+		AFBD94740AD9BC9C00DD4C86 /* CBig5.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94730AD9BC9C00DD4C86 /* CBig5.h */; };
+		AFBD94760AD9BC9C00DD4C86 /* CJIS_0201.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94750AD9BC9C00DD4C86 /* CJIS_0201.h */; };
+		AFBD94780AD9BC9C00DD4C86 /* CJIS_0208.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94770AD9BC9C00DD4C86 /* CJIS_0208.h */; };
+		AFBD947A0AD9BC9C00DD4C86 /* CSJIS.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94790AD9BC9C00DD4C86 /* CSJIS.h */; };
+		AFBD947C0AD9BC9C00DD4C86 /* CKSC_5601_1987.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD947B0AD9BC9C00DD4C86 /* CKSC_5601_1987.h */; };
+		AFBD947E0AD9BC9C00DD4C86 /* CISO2022_CN.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD947D0AD9BC9C00DD4C86 /* CISO2022_CN.h */; };
+		AFBD94800AD9BC9C00DD4C86 /* CISO2022_JP.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD947F0AD9BC9C00DD4C86 /* CISO2022_JP.h */; };
+		AFBD94820AD9BC9C00DD4C86 /* CISO2022_KR.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94810AD9BC9C00DD4C86 /* CISO2022_KR.h */; };
+		AFBD94840AD9BC9C00DD4C86 /* CMacJapanese.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94830AD9BC9C00DD4C86 /* CMacJapanese.h */; };
+		AFBD94860AD9BC9C00DD4C86 /* CMacSimpChinese.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94850AD9BC9C00DD4C86 /* CMacSimpChinese.h */; };
+		AFBD94880AD9BC9D00DD4C86 /* CMacTradChinese.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94870AD9BC9C00DD4C86 /* CMacTradChinese.h */; };
+		AFBD948A0AD9BC9D00DD4C86 /* CMacKorean.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94890AD9BC9D00DD4C86 /* CMacKorean.h */; };
+		AFBD948C0AD9BC9D00DD4C86 /* CCharsetData.cp in Headers */ = {isa = PBXBuildFile; fileRef = AFBD948B0AD9BC9D00DD4C86 /* CCharsetData.cp */; };
+		AFBD948F0AD9BC9D00DD4C86 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */; };
+		AFBD94930AD9BC9D00DD4C86 /* PP_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94920AD9BC9D00DD4C86 /* PP_Prefix.h */; };
+		AFBD94950AD9BC9D00DD4C86 /* CCJKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94940AD9BC9D00DD4C86 /* CCJKBase.h */; };
+		AFBD94990AD9BC9E00DD4C86 /* PP_Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94980AD9BC9E00DD4C86 /* PP_Macros.h */; };
+		AFBD949B0AD9BC9E00DD4C86 /* PP_Types.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD949A0AD9BC9E00DD4C86 /* PP_Types.h */; };
+		AFBD949F0AD9BC9E00DD4C86 /* UException.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD949E0AD9BC9E00DD4C86 /* UException.h */; };
+		AFBD94A10AD9BC9E00DD4C86 /* PP_Requirements.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94A00AD9BC9E00DD4C86 /* PP_Requirements.h */; };
+		AFBD94A30AD9BC9E00DD4C86 /* UDebugging.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94A20AD9BC9E00DD4C86 /* UDebugging.h */; };
+		AFBD94A50AD9BC9E00DD4C86 /* LException.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94A40AD9BC9E00DD4C86 /* LException.h */; };
+		AFDD7FDE0C41445F00DE5877 /* PP_Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD949C0AD9BC9E00DD4C86 /* PP_Constants.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AFBD93FB0AD9BC9400DD4C86 /* libPluginLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPluginLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFBD93FF0AD9BC9400DD4C86 /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94000AD9BC9400DD4C86 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
+		AFBD94030AD9BC9400DD4C86 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
+		AFBD94040AD9BC9400DD4C86 /* CCharsetManager.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CCharsetManager.cp; path = ../../Sources_Common/i18n/Charsets/CCharsetManager.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94050AD9BC9400DD4C86 /* CCharsetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetManager.h; path = ../../Sources_Common/i18n/Charsets/CCharsetManager.h; sourceTree = SOURCE_ROOT; };
+		AFBD94070AD9BC9400DD4C86 /* CConverterBase.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CConverterBase.cp; path = ../../Sources_Common/i18n/Charsets/Converters/CConverterBase.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94080AD9BC9400DD4C86 /* CConverterBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CConverterBase.h; path = ../../Sources_Common/i18n/Charsets/Converters/CConverterBase.h; sourceTree = SOURCE_ROOT; };
+		AFBD940A0AD9BC9400DD4C86 /* CASCII.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CASCII.cp; path = ../../Sources_Common/i18n/Charsets/Converters/OneByte/CASCII.cp; sourceTree = SOURCE_ROOT; };
+		AFBD940B0AD9BC9400DD4C86 /* CASCII.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CASCII.h; path = ../../Sources_Common/i18n/Charsets/Converters/OneByte/CASCII.h; sourceTree = SOURCE_ROOT; };
+		AFBD940C0AD9BC9400DD4C86 /* CConverterOneByte.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CConverterOneByte.cp; path = ../../Sources_Common/i18n/Charsets/Converters/OneByte/CConverterOneByte.cp; sourceTree = SOURCE_ROOT; };
+		AFBD940D0AD9BC9400DD4C86 /* CConverterOneByte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CConverterOneByte.h; path = ../../Sources_Common/i18n/Charsets/Converters/OneByte/CConverterOneByte.h; sourceTree = SOURCE_ROOT; };
+		AFBD940E0AD9BC9400DD4C86 /* COneByteCharsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = COneByteCharsets.h; path = ../../Sources_Common/i18n/Charsets/Converters/OneByte/COneByteCharsets.h; sourceTree = SOURCE_ROOT; };
+		AFBD94120AD9BC9400DD4C86 /* CUCS2.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CUCS2.cp; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUCS2.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94130AD9BC9400DD4C86 /* CUCS2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CUCS2.h; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUCS2.h; sourceTree = SOURCE_ROOT; };
+		AFBD94140AD9BC9400DD4C86 /* CUCS4.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CUCS4.cp; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUCS4.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94150AD9BC9400DD4C86 /* CUCS4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CUCS4.h; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUCS4.h; sourceTree = SOURCE_ROOT; };
+		AFBD94160AD9BC9400DD4C86 /* CUTF8.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CUTF8.cp; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUTF8.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94170AD9BC9400DD4C86 /* CUTF8.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CUTF8.h; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUTF8.h; sourceTree = SOURCE_ROOT; };
+		AFBD94180AD9BC9400DD4C86 /* CUTF16.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CUTF16.cp; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUTF16.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94190AD9BC9400DD4C86 /* CUTF16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CUTF16.h; path = ../../Sources_Common/i18n/Charsets/Converters/Unicode/CUTF16.h; sourceTree = SOURCE_ROOT; };
+		AFBD941B0AD9BC9400DD4C86 /* base64.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = base64.cp; path = ../../Sources_Common/Utilities/base64.cp; sourceTree = SOURCE_ROOT; };
+		AFBD941C0AD9BC9400DD4C86 /* base64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = base64.h; path = ../../Sources_Common/Utilities/base64.h; sourceTree = SOURCE_ROOT; };
+		AFBD941D0AD9BC9400DD4C86 /* quotedprintable.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = quotedprintable.cp; path = ../../Sources_Common/Utilities/quotedprintable.cp; sourceTree = SOURCE_ROOT; };
+		AFBD941E0AD9BC9400DD4C86 /* quotedprintable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = quotedprintable.h; path = ../../Sources_Common/Utilities/quotedprintable.h; sourceTree = SOURCE_ROOT; };
+		AFBD941F0AD9BC9400DD4C86 /* cdstring.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cdstring.cp; path = ../../Sources_Common/Utilities/cdstring.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94200AD9BC9400DD4C86 /* cdstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdstring.h; path = ../../Sources_Common/Utilities/cdstring.h; sourceTree = SOURCE_ROOT; };
+		AFBD94210AD9BC9400DD4C86 /* cdustring.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cdustring.cp; path = ../../Sources_Common/Utilities/cdustring.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94220AD9BC9400DD4C86 /* cdustring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdustring.h; path = ../../Sources_Common/Utilities/cdustring.h; sourceTree = SOURCE_ROOT; };
+		AFBD94230AD9BC9400DD4C86 /* char_stream.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = char_stream.cp; path = ../../Sources_Common/Utilities/char_stream.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94240AD9BC9400DD4C86 /* char_stream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = char_stream.h; path = ../../Sources_Common/Utilities/char_stream.h; sourceTree = SOURCE_ROOT; };
+		AFBD94250AD9BC9400DD4C86 /* diriterator.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = diriterator.cp; path = ../../Sources_Common/Utilities/diriterator.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94260AD9BC9400DD4C86 /* diriterator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = diriterator.h; path = ../../Sources_Common/Utilities/diriterator.h; sourceTree = SOURCE_ROOT; };
+		AFBD94270AD9BC9400DD4C86 /* encrypt.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = encrypt.cp; path = ../../Sources_Common/Utilities/encrypt.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94280AD9BC9400DD4C86 /* encrypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = encrypt.h; path = ../../Sources_Common/Utilities/encrypt.h; sourceTree = SOURCE_ROOT; };
+		AFBD94290AD9BC9400DD4C86 /* md5c.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = md5c.c; path = "../CRAM-MD5/sources/md5/md5c.c"; sourceTree = SOURCE_ROOT; };
+		AFBD942A0AD9BC9400DD4C86 /* CCharSpecials.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CCharSpecials.cp; path = ../../Sources_Common/Utilities/CCharSpecials.cp; sourceTree = SOURCE_ROOT; };
+		AFBD942B0AD9BC9400DD4C86 /* CCharSpecials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharSpecials.h; path = ../../Sources_Common/Utilities/CCharSpecials.h; sourceTree = SOURCE_ROOT; };
+		AFBD942C0AD9BC9400DD4C86 /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
+		AFBD942D0AD9BC9400DD4C86 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AFBD942E0AD9BC9400DD4C86 /* CUStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CUStringUtils.cp; path = ../../Sources_Common/Utilities/CUStringUtils.cp; sourceTree = SOURCE_ROOT; };
+		AFBD942F0AD9BC9400DD4C86 /* CUStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CUStringUtils.h; path = ../../Sources_Common/Utilities/CUStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AFBD94300AD9BC9400DD4C86 /* strfind.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = strfind.cp; path = ../../Sources_Common/Utilities/strfind.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94310AD9BC9400DD4C86 /* strfind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = strfind.h; path = ../../Sources_Common/Utilities/strfind.h; sourceTree = SOURCE_ROOT; };
+		AFBD94330AD9BC9400DD4C86 /* CURL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CURL.cp; path = ../../Sources_Common/Mail/URLs/CURL.cp; sourceTree = SOURCE_ROOT; };
+		AFBD94340AD9BC9400DD4C86 /* CURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CURL.h; path = ../../Sources_Common/Mail/URLs/CURL.h; sourceTree = SOURCE_ROOT; };
+		AFBD94670AD9BC9A00DD4C86 /* LString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LString.h; path = "../../../Libraries/open-powerplant/PowerPlant/Support Classes/LString.h"; sourceTree = SOURCE_ROOT; };
+		AFBD94690AD9BC9C00DD4C86 /* md5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = md5.h; path = "../CRAM-MD5/sources/md5/md5.h"; sourceTree = SOURCE_ROOT; };
+		AFBD946B0AD9BC9C00DD4C86 /* HResourceMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HResourceMap.h; path = ../Common/HResourceMap.h; sourceTree = SOURCE_ROOT; };
+		AFBD946D0AD9BC9C00DD4C86 /* CGeneralException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CGeneralException.h; path = ../../Sources_Common/Utilities/CGeneralException.h; sourceTree = SOURCE_ROOT; };
+		AFBD946F0AD9BC9C00DD4C86 /* MoreFilesX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AFBD94710AD9BC9C00DD4C86 /* CGB2312.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CGB2312.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CGB2312.h; sourceTree = SOURCE_ROOT; };
+		AFBD94730AD9BC9C00DD4C86 /* CBig5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CBig5.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CBig5.h; sourceTree = SOURCE_ROOT; };
+		AFBD94750AD9BC9C00DD4C86 /* CJIS_0201.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CJIS_0201.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CJIS_0201.h; sourceTree = SOURCE_ROOT; };
+		AFBD94770AD9BC9C00DD4C86 /* CJIS_0208.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CJIS_0208.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CJIS_0208.h; sourceTree = SOURCE_ROOT; };
+		AFBD94790AD9BC9C00DD4C86 /* CSJIS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSJIS.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CSJIS.h; sourceTree = SOURCE_ROOT; };
+		AFBD947B0AD9BC9C00DD4C86 /* CKSC_5601_1987.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CKSC_5601_1987.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CKSC_5601_1987.h; sourceTree = SOURCE_ROOT; };
+		AFBD947D0AD9BC9C00DD4C86 /* CISO2022_CN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CISO2022_CN.h; path = ../../Sources_Common/i18n/Charsets/Converters/ISO2022/CISO2022_CN.h; sourceTree = SOURCE_ROOT; };
+		AFBD947F0AD9BC9C00DD4C86 /* CISO2022_JP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CISO2022_JP.h; path = ../../Sources_Common/i18n/Charsets/Converters/ISO2022/CISO2022_JP.h; sourceTree = SOURCE_ROOT; };
+		AFBD94810AD9BC9C00DD4C86 /* CISO2022_KR.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CISO2022_KR.h; path = ../../Sources_Common/i18n/Charsets/Converters/ISO2022/CISO2022_KR.h; sourceTree = SOURCE_ROOT; };
+		AFBD94830AD9BC9C00DD4C86 /* CMacJapanese.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacJapanese.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacJapanese.h; sourceTree = SOURCE_ROOT; };
+		AFBD94850AD9BC9C00DD4C86 /* CMacSimpChinese.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacSimpChinese.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacSimpChinese.h; sourceTree = SOURCE_ROOT; };
+		AFBD94870AD9BC9C00DD4C86 /* CMacTradChinese.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacTradChinese.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacTradChinese.h; sourceTree = SOURCE_ROOT; };
+		AFBD94890AD9BC9D00DD4C86 /* CMacKorean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacKorean.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacKorean.h; sourceTree = SOURCE_ROOT; };
+		AFBD948B0AD9BC9D00DD4C86 /* CCharsetData.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CCharsetData.cp; path = ../../Sources_Common/i18n/Charsets/CCharsetData.cp; sourceTree = SOURCE_ROOT; };
+		AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		AFBD94920AD9BC9D00DD4C86 /* PP_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Prefix.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Prefix.h"; sourceTree = SOURCE_ROOT; };
+		AFBD94940AD9BC9D00DD4C86 /* CCJKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCJKBase.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CCJKBase.h; sourceTree = SOURCE_ROOT; };
+		AFBD94980AD9BC9E00DD4C86 /* PP_Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Macros.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Macros.h"; sourceTree = SOURCE_ROOT; };
+		AFBD949A0AD9BC9E00DD4C86 /* PP_Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Types.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Types.h"; sourceTree = SOURCE_ROOT; };
+		AFBD949C0AD9BC9E00DD4C86 /* PP_Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Constants.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Constants.h"; sourceTree = SOURCE_ROOT; };
+		AFBD949E0AD9BC9E00DD4C86 /* UException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UException.h; path = "../../../Libraries/open-powerplant/PowerPlant/Utility Classes/UException.h"; sourceTree = SOURCE_ROOT; };
+		AFBD94A00AD9BC9E00DD4C86 /* PP_Requirements.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Requirements.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Requirements.h"; sourceTree = SOURCE_ROOT; };
+		AFBD94A20AD9BC9E00DD4C86 /* UDebugging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UDebugging.h; path = "../../../Libraries/open-powerplant/PowerPlant/Utility Classes/UDebugging.h"; sourceTree = SOURCE_ROOT; };
+		AFBD94A40AD9BC9E00DD4C86 /* LException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LException.h; path = "../../../Libraries/open-powerplant/PowerPlant/Support Classes/LException.h"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFBD93F80AD9BC9400DD4C86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBD948F0AD9BC9D00DD4C86 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFBD93EE0AD9BC9400DD4C86 = {
+			isa = PBXGroup;
+			children = (
+				AFBD94000AD9BC9400DD4C86 /* os_dep.h */,
+				AFBD93FF0AD9BC9400DD4C86 /* os_dep.cp */,
+				AFBD94010AD9BC9400DD4C86 /* i18n */,
+				AFBD941A0AD9BC9400DD4C86 /* Utils */,
+				AFBD94320AD9BC9400DD4C86 /* Others */,
+				AFBD94640AD9BC9A00DD4C86 /* Imported Files */,
+				AFBD948D0AD9BC9D00DD4C86 /* Frameworks */,
+				AFBD93FC0AD9BC9400DD4C86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFBD93FC0AD9BC9400DD4C86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD93FB0AD9BC9400DD4C86 /* libPluginLibrary.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFBD94010AD9BC9400DD4C86 /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD94020AD9BC9400DD4C86 /* Charsets */,
+			);
+			name = i18n;
+			sourceTree = "<group>";
+		};
+		AFBD94020AD9BC9400DD4C86 /* Charsets */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD94030AD9BC9400DD4C86 /* CCharsetCodes.h */,
+				AFBD94050AD9BC9400DD4C86 /* CCharsetManager.h */,
+				AFBD94040AD9BC9400DD4C86 /* CCharsetManager.cp */,
+				AFBD94060AD9BC9400DD4C86 /* Converters */,
+			);
+			name = Charsets;
+			sourceTree = "<group>";
+		};
+		AFBD94060AD9BC9400DD4C86 /* Converters */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD94080AD9BC9400DD4C86 /* CConverterBase.h */,
+				AFBD94070AD9BC9400DD4C86 /* CConverterBase.cp */,
+				AFBD94090AD9BC9400DD4C86 /* OneByte */,
+				AFBD940F0AD9BC9400DD4C86 /* TwoByte */,
+				AFBD94100AD9BC9400DD4C86 /* ISO2022 */,
+				AFBD94110AD9BC9400DD4C86 /* Unicode */,
+			);
+			name = Converters;
+			sourceTree = "<group>";
+		};
+		AFBD94090AD9BC9400DD4C86 /* OneByte */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD940B0AD9BC9400DD4C86 /* CASCII.h */,
+				AFBD940A0AD9BC9400DD4C86 /* CASCII.cp */,
+				AFBD940D0AD9BC9400DD4C86 /* CConverterOneByte.h */,
+				AFBD940C0AD9BC9400DD4C86 /* CConverterOneByte.cp */,
+				AFBD940E0AD9BC9400DD4C86 /* COneByteCharsets.h */,
+			);
+			name = OneByte;
+			sourceTree = "<group>";
+		};
+		AFBD940F0AD9BC9400DD4C86 /* TwoByte */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TwoByte;
+			sourceTree = "<group>";
+		};
+		AFBD94100AD9BC9400DD4C86 /* ISO2022 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ISO2022;
+			sourceTree = "<group>";
+		};
+		AFBD94110AD9BC9400DD4C86 /* Unicode */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD94130AD9BC9400DD4C86 /* CUCS2.h */,
+				AFBD94120AD9BC9400DD4C86 /* CUCS2.cp */,
+				AFBD94150AD9BC9400DD4C86 /* CUCS4.h */,
+				AFBD94140AD9BC9400DD4C86 /* CUCS4.cp */,
+				AFBD94170AD9BC9400DD4C86 /* CUTF8.h */,
+				AFBD94160AD9BC9400DD4C86 /* CUTF8.cp */,
+				AFBD94190AD9BC9400DD4C86 /* CUTF16.h */,
+				AFBD94180AD9BC9400DD4C86 /* CUTF16.cp */,
+			);
+			name = Unicode;
+			sourceTree = "<group>";
+		};
+		AFBD941A0AD9BC9400DD4C86 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD941C0AD9BC9400DD4C86 /* base64.h */,
+				AFBD941B0AD9BC9400DD4C86 /* base64.cp */,
+				AFBD941E0AD9BC9400DD4C86 /* quotedprintable.h */,
+				AFBD941D0AD9BC9400DD4C86 /* quotedprintable.cp */,
+				AFBD94200AD9BC9400DD4C86 /* cdstring.h */,
+				AFBD941F0AD9BC9400DD4C86 /* cdstring.cp */,
+				AFBD94220AD9BC9400DD4C86 /* cdustring.h */,
+				AFBD94210AD9BC9400DD4C86 /* cdustring.cp */,
+				AFBD94240AD9BC9400DD4C86 /* char_stream.h */,
+				AFBD94230AD9BC9400DD4C86 /* char_stream.cp */,
+				AFBD94260AD9BC9400DD4C86 /* diriterator.h */,
+				AFBD94250AD9BC9400DD4C86 /* diriterator.cp */,
+				AFBD94280AD9BC9400DD4C86 /* encrypt.h */,
+				AFBD94270AD9BC9400DD4C86 /* encrypt.cp */,
+				AFBD94290AD9BC9400DD4C86 /* md5c.c */,
+				AFBD942B0AD9BC9400DD4C86 /* CCharSpecials.h */,
+				AFBD942A0AD9BC9400DD4C86 /* CCharSpecials.cp */,
+				AFBD942D0AD9BC9400DD4C86 /* CStringUtils.h */,
+				AFBD942C0AD9BC9400DD4C86 /* CStringUtils.cp */,
+				AFBD942F0AD9BC9400DD4C86 /* CUStringUtils.h */,
+				AFBD942E0AD9BC9400DD4C86 /* CUStringUtils.cp */,
+				AFBD94310AD9BC9400DD4C86 /* strfind.h */,
+				AFBD94300AD9BC9400DD4C86 /* strfind.cp */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		AFBD94320AD9BC9400DD4C86 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD94340AD9BC9400DD4C86 /* CURL.h */,
+				AFBD94330AD9BC9400DD4C86 /* CURL.cp */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
+		AFBD94640AD9BC9A00DD4C86 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD94670AD9BC9A00DD4C86 /* LString.h */,
+				AFBD94690AD9BC9C00DD4C86 /* md5.h */,
+				AFBD946B0AD9BC9C00DD4C86 /* HResourceMap.h */,
+				AFBD946D0AD9BC9C00DD4C86 /* CGeneralException.h */,
+				AFBD946F0AD9BC9C00DD4C86 /* MoreFilesX.h */,
+				AFBD94710AD9BC9C00DD4C86 /* CGB2312.h */,
+				AFBD94730AD9BC9C00DD4C86 /* CBig5.h */,
+				AFBD94750AD9BC9C00DD4C86 /* CJIS_0201.h */,
+				AFBD94770AD9BC9C00DD4C86 /* CJIS_0208.h */,
+				AFBD94790AD9BC9C00DD4C86 /* CSJIS.h */,
+				AFBD947B0AD9BC9C00DD4C86 /* CKSC_5601_1987.h */,
+				AFBD947D0AD9BC9C00DD4C86 /* CISO2022_CN.h */,
+				AFBD947F0AD9BC9C00DD4C86 /* CISO2022_JP.h */,
+				AFBD94810AD9BC9C00DD4C86 /* CISO2022_KR.h */,
+				AFBD94830AD9BC9C00DD4C86 /* CMacJapanese.h */,
+				AFBD94850AD9BC9C00DD4C86 /* CMacSimpChinese.h */,
+				AFBD94870AD9BC9C00DD4C86 /* CMacTradChinese.h */,
+				AFBD94890AD9BC9D00DD4C86 /* CMacKorean.h */,
+				AFBD948B0AD9BC9D00DD4C86 /* CCharsetData.cp */,
+				AFBD94920AD9BC9D00DD4C86 /* PP_Prefix.h */,
+				AFBD94940AD9BC9D00DD4C86 /* CCJKBase.h */,
+				AFBD94980AD9BC9E00DD4C86 /* PP_Macros.h */,
+				AFBD949A0AD9BC9E00DD4C86 /* PP_Types.h */,
+				AFBD949C0AD9BC9E00DD4C86 /* PP_Constants.h */,
+				AFBD949E0AD9BC9E00DD4C86 /* UException.h */,
+				AFBD94A00AD9BC9E00DD4C86 /* PP_Requirements.h */,
+				AFBD94A20AD9BC9E00DD4C86 /* UDebugging.h */,
+				AFBD94A40AD9BC9E00DD4C86 /* LException.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AFBD948D0AD9BC9D00DD4C86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AFBD93F50AD9BC9400DD4C86 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBD94370AD9BC9400DD4C86 /* os_dep.h in Headers */,
+				AFBD94390AD9BC9400DD4C86 /* base64.h in Headers */,
+				AFBD943B0AD9BC9400DD4C86 /* cdstring.h in Headers */,
+				AFBD943D0AD9BC9400DD4C86 /* char_stream.h in Headers */,
+				AFBD943F0AD9BC9400DD4C86 /* diriterator.h in Headers */,
+				AFBD94410AD9BC9400DD4C86 /* encrypt.h in Headers */,
+				AFBD94440AD9BC9400DD4C86 /* CCharSpecials.h in Headers */,
+				AFBD94460AD9BC9400DD4C86 /* CStringUtils.h in Headers */,
+				AFBD94480AD9BC9400DD4C86 /* strfind.h in Headers */,
+				AFBD944A0AD9BC9400DD4C86 /* CASCII.h in Headers */,
+				AFBD944C0AD9BC9400DD4C86 /* CConverterOneByte.h in Headers */,
+				AFBD944D0AD9BC9400DD4C86 /* COneByteCharsets.h in Headers */,
+				AFBD944F0AD9BC9400DD4C86 /* CUCS2.h in Headers */,
+				AFBD94510AD9BC9400DD4C86 /* CUCS4.h in Headers */,
+				AFBD94530AD9BC9400DD4C86 /* CUTF8.h in Headers */,
+				AFBD94550AD9BC9400DD4C86 /* CUTF16.h in Headers */,
+				AFBD94570AD9BC9400DD4C86 /* CConverterBase.h in Headers */,
+				AFBD94580AD9BC9400DD4C86 /* CCharsetCodes.h in Headers */,
+				AFBD945A0AD9BC9400DD4C86 /* CCharsetManager.h in Headers */,
+				AFBD945C0AD9BC9400DD4C86 /* CURL.h in Headers */,
+				AFBD945E0AD9BC9400DD4C86 /* quotedprintable.h in Headers */,
+				AFBD94610AD9BC9400DD4C86 /* cdustring.h in Headers */,
+				AFBD94630AD9BC9400DD4C86 /* CUStringUtils.h in Headers */,
+				AFBD94680AD9BC9A00DD4C86 /* LString.h in Headers */,
+				AFBD946A0AD9BC9C00DD4C86 /* md5.h in Headers */,
+				AFBD946C0AD9BC9C00DD4C86 /* HResourceMap.h in Headers */,
+				AFBD946E0AD9BC9C00DD4C86 /* CGeneralException.h in Headers */,
+				AFBD94720AD9BC9C00DD4C86 /* CGB2312.h in Headers */,
+				AFBD94740AD9BC9C00DD4C86 /* CBig5.h in Headers */,
+				AFBD94760AD9BC9C00DD4C86 /* CJIS_0201.h in Headers */,
+				AFBD94780AD9BC9C00DD4C86 /* CJIS_0208.h in Headers */,
+				AFBD947A0AD9BC9C00DD4C86 /* CSJIS.h in Headers */,
+				AFBD947C0AD9BC9C00DD4C86 /* CKSC_5601_1987.h in Headers */,
+				AFBD947E0AD9BC9C00DD4C86 /* CISO2022_CN.h in Headers */,
+				AFBD94800AD9BC9C00DD4C86 /* CISO2022_JP.h in Headers */,
+				AFBD94820AD9BC9C00DD4C86 /* CISO2022_KR.h in Headers */,
+				AFBD94840AD9BC9C00DD4C86 /* CMacJapanese.h in Headers */,
+				AFBD94860AD9BC9C00DD4C86 /* CMacSimpChinese.h in Headers */,
+				AFBD94880AD9BC9D00DD4C86 /* CMacTradChinese.h in Headers */,
+				AFBD948A0AD9BC9D00DD4C86 /* CMacKorean.h in Headers */,
+				AFBD948C0AD9BC9D00DD4C86 /* CCharsetData.cp in Headers */,
+				AFBD94930AD9BC9D00DD4C86 /* PP_Prefix.h in Headers */,
+				AFBD94950AD9BC9D00DD4C86 /* CCJKBase.h in Headers */,
+				AFBD94990AD9BC9E00DD4C86 /* PP_Macros.h in Headers */,
+				AFBD949B0AD9BC9E00DD4C86 /* PP_Types.h in Headers */,
+				AFBD949F0AD9BC9E00DD4C86 /* UException.h in Headers */,
+				AFBD94A10AD9BC9E00DD4C86 /* PP_Requirements.h in Headers */,
+				AFBD94A30AD9BC9E00DD4C86 /* UDebugging.h in Headers */,
+				AFBD94A50AD9BC9E00DD4C86 /* LException.h in Headers */,
+				AFDD7FDE0C41445F00DE5877 /* PP_Constants.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AFBD93FA0AD9BC9400DD4C86 /* PluginLibrary MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFBD93FD0AD9BC9400DD4C86 /* Build configuration list for PBXNativeTarget "PluginLibrary MachO" */;
+			buildPhases = (
+				AFBD93F50AD9BC9400DD4C86 /* Headers */,
+				AFBD93F60AD9BC9400DD4C86 /* Sources */,
+				AFBD93F70AD9BC9400DD4C86 /* Resources */,
+				AFBD93F80AD9BC9400DD4C86 /* Frameworks */,
+				AFBD93F90AD9BC9400DD4C86 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PluginLibrary MachO";
+			productName = "PluginLibrary MachO";
+			productReference = AFBD93FB0AD9BC9400DD4C86 /* libPluginLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFBD93F00AD9BC9400DD4C86 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AFBD93F10AD9BC9400DD4C86 /* Build configuration list for PBXProject "PluginLibrary" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AFBD93EE0AD9BC9400DD4C86;
+			productRefGroup = AFBD93FC0AD9BC9400DD4C86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFBD93FA0AD9BC9400DD4C86 /* PluginLibrary MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFBD93F70AD9BC9400DD4C86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AFBD93F90AD9BC9400DD4C86 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFBD93F60AD9BC9400DD4C86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBD94360AD9BC9400DD4C86 /* os_dep.cp in Sources */,
+				AFBD94380AD9BC9400DD4C86 /* base64.cp in Sources */,
+				AFBD943A0AD9BC9400DD4C86 /* cdstring.cp in Sources */,
+				AFBD943C0AD9BC9400DD4C86 /* char_stream.cp in Sources */,
+				AFBD943E0AD9BC9400DD4C86 /* diriterator.cp in Sources */,
+				AFBD94400AD9BC9400DD4C86 /* encrypt.cp in Sources */,
+				AFBD94420AD9BC9400DD4C86 /* md5c.c in Sources */,
+				AFBD94430AD9BC9400DD4C86 /* CCharSpecials.cp in Sources */,
+				AFBD94450AD9BC9400DD4C86 /* CStringUtils.cp in Sources */,
+				AFBD94470AD9BC9400DD4C86 /* strfind.cp in Sources */,
+				AFBD94490AD9BC9400DD4C86 /* CASCII.cp in Sources */,
+				AFBD944B0AD9BC9400DD4C86 /* CConverterOneByte.cp in Sources */,
+				AFBD944E0AD9BC9400DD4C86 /* CUCS2.cp in Sources */,
+				AFBD94500AD9BC9400DD4C86 /* CUCS4.cp in Sources */,
+				AFBD94520AD9BC9400DD4C86 /* CUTF8.cp in Sources */,
+				AFBD94540AD9BC9400DD4C86 /* CUTF16.cp in Sources */,
+				AFBD94560AD9BC9400DD4C86 /* CConverterBase.cp in Sources */,
+				AFBD94590AD9BC9400DD4C86 /* CCharsetManager.cp in Sources */,
+				AFBD945B0AD9BC9400DD4C86 /* CURL.cp in Sources */,
+				AFBD945D0AD9BC9400DD4C86 /* quotedprintable.cp in Sources */,
+				AFBD94600AD9BC9400DD4C86 /* cdustring.cp in Sources */,
+				AFBD94620AD9BC9400DD4C86 /* CUStringUtils.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AFBD93F20AD9BC9400DD4C86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AFBD93FE0AD9BC9400DD4C86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				CONFIGURATION_BUILD_DIR = .;
+				EXECUTABLE_EXTENSION = a;
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = PluginLibrary;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFBD93F10AD9BC9400DD4C86 /* Build configuration list for PBXProject "PluginLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBD93F20AD9BC9400DD4C86 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AFBD93FD0AD9BC9400DD4C86 /* Build configuration list for PBXNativeTarget "PluginLibrary MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBD93FE0AD9BC9400DD4C86 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFBD93F00AD9BC9400DD4C86 /* Project object */;
+}

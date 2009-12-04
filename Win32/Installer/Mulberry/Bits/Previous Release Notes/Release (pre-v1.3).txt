@@ -1,0 +1,62 @@
+Mulberry Change History (Win32)
+
+v1.2.3 : 29-August-1997
+Minor Changes
+*If a SELECT command fails, the user will be prompted for creation of the mailbox.
+*The default 'Copy To' and 'Move To' mailboxes will be automatically created on login if they are filled in in the multi-user preferences and they don't exist and the user is using the multi-user prefs (not their own prefs).
+*If the default 'Copy To' or 'Move To' mailboxes do not exist when logging in, the user will be alerted (assuming the conditions in the point above are not met).
+*If the current 'Copy To' mailbox does not exist, the user will be alerted whenever a new draft is created (either as a new draft or a reply, forward etc).
+*Added 'Decode Embedded UU' menu command to 'Message' menu.
+*'Copy To' mailbox can now be 'INBOX'.
+
+Fixes
+*Fixed a bug in which draft messages saved to disk would be truncated to a line length of 128 when opened (the original file was not touched).
+*Fixed problems with dragging addresses from the address book to an address field in a draft window that would sometimes result in addresses being lost when the field did nick-name resolution.
+*Fixed problems with window positions being messed up when closing with one or more windows minimised or maximised.
+*Fixed bug in UU decode.
+*Fixed bug in preventing copy of read messages from INBOX when it is closed.
+
+v1.2.2 : 19-June-1997
+Minor Changes
+*Changed behaviour of 'Copy to Mailbox' so that if the first entry in 'Places to Search for Mailboxes' in the Network prefs is '*', the popup in the draft window will be correctly setup.
+*Removed redundant 'Copy Attachments' checkbox from Outgoing prefs panel.
+*Replaced numeric network error codes with textual description.
+*Changed behaviour of 'Places to Search…' entries so that now, if an entry ends in '*' or '%' the directory separator is not automatically appended. Thus putting '~/Mail' in this field will result in a mailbox list of '~/Mail/*' ie all mailboxes and sub-hierarchies in '~/Mail/'. Using '~/Mail/%' will match only the first level of hierarchy in '~/Mail/'.
+
+Fixes
+*Fixed a bug that would cause message sending to fail if DNS lookup of local machine name failed.
+*Fixed a bug that would cause a crash if an open message window's message were expunged.
+*Fixed a bug that would cause a crash if a message with an empty address list is displayed in a mailbox window.
+*Fixed bug in which header text would be corrupted after a message was deleted but 'Allow Deleted Messages to be Opened' was on.
+*Fixed a bug that would cause a crash if a misformed RFC1522 header appeared in a message.
+*Fixed a bug that would prevent hierarchies appearing in the 'Create Mailbox' dialog.
+*Fixed some minor display problems with button titles in prefs panels.
+*Fixed a crash that could occur if the password field is left empty when attempting to login.
+*Fixed some minor bugs with importing pine address books.
+
+v1.2.1 (Special Customer Release Only) : 24-May-1997
+Major changes (Only available in this version, other versions will not have these features)
+*Added code to lock 'From:' field as test for customer.
+*This version is pre-registered for Customer.
+
+Minor Changes
+*Changing the user ID now forces server to logout and prevents sending mail until new user ID has been validated by successful logon.
+*Change to server address now invalidates sending mail until successful login.
+*A failure to login now invalidates sending mail until successful login.
+*Changed draft window so that the Copy To mailbox is correctly restored when logging back into the server when 'Remember Chosen Copy Mailbox' is off.
+*Changed format of multipart boundary string.
+
+Fixes
+*Fixed a bug in which attachments went into the wrong hierarchy if a multipart or message attachment higher in the list was collapsed.
+*Fixed bug in which SMTP error response text was not being shown in error dialog.
+*Fixed a bug that could cause a crash when importing a pine address book with duplicate email addresses.
+*Fixed bug in which daylight savings was not taken into account in date of messages being sent.
+*Fixed bug in which lowercase hex digits in quoted-printable text were incorrectly decoded.
+*Add All button now works in file attach dialog.
+*Fixed bug that would allow file text part's diamond button in draft window to be clicked.
+*Fixed a bug that would prevent '\' characters being quoted in outgoing mail addresses.
+*Fixed bug that would sometimes cause UID value to be displayed instead of message size.
+*Fixed bug that would cause 'Override MIME with' popup to be incorrectly set.
+
+v1.2 : 09-May-1997
+*First full release.

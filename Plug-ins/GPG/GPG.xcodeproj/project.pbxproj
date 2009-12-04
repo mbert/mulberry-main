@@ -1,0 +1,262 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF8AAE660AE5C83700A94FD4 /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8AAE5C0AE5C83700A94FD4 /* PluginDLLmain.cp */; };
+		AF8AAE670AE5C83700A94FD4 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8AAE5D0AE5C83700A94FD4 /* CPluginDLL.cp */; };
+		AF8AAE690AE5C83700A94FD4 /* CSecurityPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8AAE5F0AE5C83700A94FD4 /* CSecurityPluginDLL.cp */; };
+		AF8AAE6B0AE5C83700A94FD4 /* CGPGPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8AAE610AE5C83700A94FD4 /* CGPGPluginDLL.cp */; };
+		AF8AAE810AE5C83B00A94FD4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8AAE800AE5C83B00A94FD4 /* Carbon.framework */; };
+		AF8AAE8D0AE5C83B00A94FD4 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8AAE8C0AE5C83B00A94FD4 /* CoreFoundation.framework */; };
+		AF8AAEB70AE5CB2200A94FD4 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8AAEB60AE5CB2200A94FD4 /* libPluginLibrary.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF8AAE570AE5C83600A94FD4 /* GPG.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPG.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF8AAE5C0AE5C83700A94FD4 /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AF8AAE5D0AE5C83700A94FD4 /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF8AAE5E0AE5C83700A94FD4 /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE5F0AE5C83700A94FD4 /* CSecurityPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CSecurityPluginDLL.cp; path = ../Common/CSecurityPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF8AAE600AE5C83700A94FD4 /* CSecurityPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSecurityPluginDLL.h; path = ../Common/CSecurityPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE610AE5C83700A94FD4 /* CGPGPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CGPGPluginDLL.cp; path = sources/CGPGPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF8AAE620AE5C83700A94FD4 /* CGPGPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CGPGPluginDLL.h; path = sources/CGPGPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE710AE5C83A00A94FD4 /* cdstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdstring.h; path = ../../Sources_Common/Utilities/cdstring.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE730AE5C83B00A94FD4 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE770AE5C83B00A94FD4 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE790AE5C83B00A94FD4 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE7D0AE5C83B00A94FD4 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
+		AF8AAE800AE5C83B00A94FD4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		AF8AAE8C0AE5C83B00A94FD4 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		AF8AAEAC0AE5CA2900A94FD4 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AF8AAEB60AE5CB2200A94FD4 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF8AAE520AE5C83600A94FD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF8AAE810AE5C83B00A94FD4 /* Carbon.framework in Frameworks */,
+				AF8AAE8D0AE5C83B00A94FD4 /* CoreFoundation.framework in Frameworks */,
+				AF8AAEB70AE5CB2200A94FD4 /* libPluginLibrary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF8AAE480AE5C83600A94FD4 = {
+			isa = PBXGroup;
+			children = (
+				AF8AAE5B0AE5C83700A94FD4 /* Main */,
+				AF8AAE630AE5C83700A94FD4 /* Resources */,
+				AF8AAE700AE5C83A00A94FD4 /* Imported Files */,
+				AF8AAE7F0AE5C83B00A94FD4 /* Frameworks */,
+				AF8AAE580AE5C83600A94FD4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF8AAE580AE5C83600A94FD4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF8AAE570AE5C83600A94FD4 /* GPG.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF8AAE5B0AE5C83700A94FD4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AF8AAE5C0AE5C83700A94FD4 /* PluginDLLmain.cp */,
+				AF8AAE5E0AE5C83700A94FD4 /* CPluginDLL.h */,
+				AF8AAE5D0AE5C83700A94FD4 /* CPluginDLL.cp */,
+				AF8AAE600AE5C83700A94FD4 /* CSecurityPluginDLL.h */,
+				AF8AAE5F0AE5C83700A94FD4 /* CSecurityPluginDLL.cp */,
+				AF8AAE620AE5C83700A94FD4 /* CGPGPluginDLL.h */,
+				AF8AAE610AE5C83700A94FD4 /* CGPGPluginDLL.cp */,
+				AF8AAEB60AE5CB2200A94FD4 /* libPluginLibrary.a */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AF8AAE630AE5C83700A94FD4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AF8AAE700AE5C83A00A94FD4 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF8AAEAC0AE5CA2900A94FD4 /* MoreFilesX.h */,
+				AF8AAE710AE5C83A00A94FD4 /* cdstring.h */,
+				AF8AAE730AE5C83B00A94FD4 /* PluginDLLmain.h */,
+				AF8AAE770AE5C83B00A94FD4 /* CStringUtils.h */,
+				AF8AAE790AE5C83B00A94FD4 /* CPluginInfo.h */,
+				AF8AAE7D0AE5C83B00A94FD4 /* CCharsetCodes.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AF8AAE7F0AE5C83B00A94FD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF8AAE800AE5C83B00A94FD4 /* Carbon.framework */,
+				AF8AAE8C0AE5C83B00A94FD4 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF8AAE540AE5C83600A94FD4 /* GPG MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF8AAE590AE5C83600A94FD4 /* Build configuration list for PBXNativeTarget "GPG MachO" */;
+			buildPhases = (
+				AF8AAE500AE5C83600A94FD4 /* Sources */,
+				AF8AAE510AE5C83600A94FD4 /* Resources */,
+				AF8AAE520AE5C83600A94FD4 /* Frameworks */,
+				AF8AAE530AE5C83600A94FD4 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GPG MachO";
+			productName = "GPG MachO";
+			productReference = AF8AAE570AE5C83600A94FD4 /* GPG.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF8AAE4A0AE5C83600A94FD4 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AF8AAE4B0AE5C83600A94FD4 /* Build configuration list for PBXProject "GPG" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AF8AAE480AE5C83600A94FD4;
+			productRefGroup = AF8AAE580AE5C83600A94FD4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF8AAE540AE5C83600A94FD4 /* GPG MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF8AAE510AE5C83600A94FD4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AF8AAE530AE5C83600A94FD4 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF8AAE500AE5C83600A94FD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF8AAE660AE5C83700A94FD4 /* PluginDLLmain.cp in Sources */,
+				AF8AAE670AE5C83700A94FD4 /* CPluginDLL.cp in Sources */,
+				AF8AAE690AE5C83700A94FD4 /* CSecurityPluginDLL.cp in Sources */,
+				AF8AAE6B0AE5C83700A94FD4 /* CGPGPluginDLL.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AF8AAE4C0AE5C83600A94FD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AF8AAE5A0AE5C83600A94FD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = NO;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
+				OTHER_CFLAGS = "-fno-inline";
+				PREBINDING = YES;
+				PRODUCT_NAME = GPG;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF8AAE4B0AE5C83600A94FD4 /* Build configuration list for PBXProject "GPG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF8AAE4C0AE5C83600A94FD4 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AF8AAE590AE5C83600A94FD4 /* Build configuration list for PBXNativeTarget "GPG MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF8AAE5A0AE5C83600A94FD4 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF8AAE4A0AE5C83600A94FD4 /* Project object */;
+}

@@ -1,0 +1,41 @@
+#########################################
+### 
+###      M A K E F I L E
+###
+###
+###
+
+
+
+# compiler flags ------------------------------
+
+include ../include/stl.mak
+
+BIN = .obj
+
+SSL_ROOT = /usr/local/ssl
+SSL_INC = ${SSL_ROOT}/include
+SSL_LIBS = ${SSL_ROOT}/lib
+
+LOADLIBES := ../PluginLibrary/PluginLib.a ${LOADLIBES}
+
+CINCS = \
+-I../../Linux/Sources/Utilities \
+-I../../Sources_Common/Utilities \
+-I../../Sources_Common/i18n/Charsets \
+-I../../Sources_Common/Mail/URLs \
+-I../../Sources_Common/Plugins/SSL \
+-I../CRAM-MD5/sources/md5 \
+-I../Common \
+-I./sources \
+-I${SSL_INC}
+
+LOADLIBES := ${LOADLIBES} -ldl
+
+VPATH := sources:\
+		../Common:\
+		../../Sources_Common/Plugins/SSL
+		
+$.${BIN}/%.o %.o: %.cp
+	@ echo "    ---- Compiling $< (C++)"
+	 $(CPP) $(CFLAGS) -c -o $@ $<

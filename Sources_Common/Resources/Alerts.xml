@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+
+<!-- General -->
+	<string id="Alerts::General::OSERR">Error = %d\n</string>
+
+    <string id="Alerts::General::DemoWarn">You are running Mulberry in demonstration mode. To purchase a licensed copy, email\n\n'sales@mulberrymail.com'\n\nor look at\n\n'http://www.mulberrymail.com'.</string>
+    <string id="Alerts::General::SendDemoWarn">You are running Mulberry in demonstration mode. This will be shown in the header of your message. To purchase a licensed copy, email\n\n'sales@mulberrymail.com'\n\nor look at\n\n'http://www.mulberrymail.com'.</string>
+
+	<string id="Alerts::General::NewMailArrived">New email has arrived for you.</string>
+
+	<string id="Alerts::General::DefaultMailto">Do you want to make Mulberry your default email client?</string>
+	<string id="Alerts::General::DefaultWebcal">Do you want to make Mulberry your default web calendar client?</string>
+	<string id="Alerts::General::DoOnStartup">Don't do this check on Startup</string>
+
+	<string id="Alerts::General::NoPrefsRun">Mulberry is quitting as there are no valid preferences. See your network supervisor to get suitable preferences.</string>
+	<string id="Alerts::General::NoMoreTime">This copy of Mulberry has expired. Please visit our website at http://www.mulberrymail.com for an update.</string>
+	<string id="Alerts::General::NoDemoTime">The demonstration period has expired. Email\n\n'sales@mulberrymail.com'\n\nfor further information.</string>
+	<string id="Alerts::General::Timeleft">There are %d days left for this demonstration version of Mulberry.</string>
+	<string id="Alerts::General::BetaTimeleft">There are %d days left before this beta version of Mulberry expires. Please visit our website at http://www.mulberrymail.com for an update.</string>
+	<string id="Alerts::General::IllegalCopy">The registration details provided are invalid. Please enter the correct registration details.</string>
+	<string id="Alerts::General::IllegalPlugin">The plugin registration is incorrect.</string>
+	<string id="Alerts::General::IllegalPluginExpired">The demo period for the plugin '%s' has expired. Please register this plugin, otherwise it cannot be used.</string>
+	<string id="Alerts::General::IllegalPluginVersion">The plugin '%s' does not match the current version of Mulberry. Please reinstall the plugin using the installer that matches the current version of Mulberry.</string>
+	<string id="Alerts::General::IllegalPluginCryptoVersion">The plugin '%s' does not match the current version of Mulberry. Please reinstall the plugin using the cryptographic installer that matches the current version of Mulberry.</string>
+	<string id="Alerts::General::ChooseCryptoPluginTitle">Security Plugin Choice</string>
+	<string id="Alerts::General::ChooseCryptoPluginDesc">Choose the default Security Plugin to use for Sign &amp; Encrypt operations:</string>
+    <string id="Alerts::General::PreferredPlugin_Missing"> (Not Loaded)</string>
+	<string id="Alerts::General::InvalidPrefsInFile">The preferences stored in the file are not valid. This file cannot be used.</string>
+	<string id="Alerts::General::GetRealName">Enter your Real Name:</string>
+	<string id="Alerts::General::GetRealName_Title">Real Name Dialog</string>
+	<string id="Alerts::General::LoggingInsecure">Protocol logging is turned on. This may store passwords and details of messages you read and send in clear text in local files on disk. Do you want to allow protocol logging to continue for this session of Mulberry?</string>
+	<string id="Alerts::General::ReallyQuitSMTPHeldItems">There are draft messages on hold in one of the SMTP Queues. Do you really want to quit Mulberry without sending these drafts?</string>
+	<string id="Alerts::General::ReallyDisconnectSMTPHeldItems">There are draft messages on hold in one of the SMTP Queues. Do you really want to disconnect without sending these drafts?</string>
+	<string id="Alerts::General::ViewAttachmentsStillOpen">The attachments listed below are still open in other applications. Do you want to quit Mulberry, leaving these temporary files on disk?\n\n%s</string>
+	<string id="Alerts::General::DireSSLCertError">WARNING: The certificate you are about to accept has several severe errors associated with it. There is no guarantee of real security when talking to the server. Do you really want to use this certificate?</string>
+	<string id="Alerts::General::CertificateImportError">Could not import certificate: </string>
+	<string id="Alerts::General::ConnectionsReset">Mulberry has detected that your computer has woken from sleep. Existing connections to servers will be re-established, if possible. Make sure that your network is correctly setup before continuing.</string>
+	<string id="Alerts::General::ConnectionsResetDisconnect">Mulberry has detected that your computer has woken from sleep. Existing connections to servers will be re-established, if possible. Make sure that your network is correctly setup before continuing. Alternatively, you can switch directly into Disconnected mode if network connectivity has been lost.</string>
+	<string id="Alerts::General::ConnectionsRecover">Recovering active network connections…</string>
+	<string id="Alerts::General::FileError">accessing: </string>
+	<string id="Alerts::General::GetPassphrase">Enter your Encrypted Keyring Passphrase:</string>
+	<string id="Alerts::General::GetPassphrase_Title">Passphrase Dialog</string>
+
+<!-- Admin -->
+	<string id="Alerts::Admin::PreventAddress">There are too many addresses listed in the 'To', 'CC' and 'Bcc' fields of this draft. It cannot be sent.</string>
+	<string id="Alerts::Admin::PreventSize">This draft is too large to be sent.</string>
+	<string id="Alerts::Admin::PreventProduct">The number of addresses in the 'To', 'CC' and 'Bcc' fields combined with the size of the draft being sent is too large. It cannot be sent.</string>
+	<string id="Alerts::Admin::WarningAddress">There are too many addresses listed in the 'To', 'CC' and 'Bcc' fields of this draft. You can still send it, but consider reducing the number of addressees.</string>
+	<string id="Alerts::Admin::WarningSize">This draft is large. You can still send it, but consider reducing its size by removing attachments.</string>
+	<string id="Alerts::Admin::WarningProduct">The number of addresses in the 'To', 'CC' and 'Bcc' fields combined with the size of the draft being sent is large. It cannot be sent. You can still send it, but consider reducing the number of addressees or its size by removing attachments.</string>
+
+<!-- Playback -->
+	<string id="Alerts::Playback::UIDVALIDITY_SELECT">The 'UIDValidity' of mailbox '%s' has changed. Synchronisation of this mailbox cannot be done.</string>
+	<string id="Alerts::Playback::UIDVALIDITY_DELETE">The 'UIDValidity' of mailbox '%s' has changed, but it was deleted while disconnected. Do you want to delete it on the server anyway?</string>
+	<string id="Alerts::Playback::UIDVALIDITY_RENAME">The 'UIDValidity' of mailbox '%s' has changed, but it was renamed while disconnected. Do you want to rename it on the server anyway?</string>
+	<string id="Alerts::Playback::UIDVALIDITY_SUBSCRIBE">The 'UIDValidity' of mailbox '%s' has changed, but it was subscribed while disconnected. Do you want to subscribe it on the server anyway?</string>
+	<string id="Alerts::Playback::UIDVALIDITY_UNSUBSCRIBE">The 'UIDValidity' of mailbox '%s' has changed, but it was unsubscribed while disconnected. Do you want to unsubscribed it on the server anyway?</string>
+	<string id="Alerts::Playback::LOCALMAILBOX_MISSING">Cannot synchronise the mailbox '%s' because the disconnected mailbox is missing.</string>
+
+<!-- Plugins -->
+	<stringarray id="Alerts::Plugins::Type">
+		<string>Unknown</string>
+		<string>Address Import/Export</string>
+		<string>Mailbox Import/Export</string>
+		<string>Network Authentication</string>
+		<string>Secure Messaging</string>
+		<string>Spelling</string>
+		<string>Password Change</string>
+		<string>Email Merge</string>
+		<string>Configuration</string>
+		<string>Secure Communications</string>
+	</stringarray>
+    <string id="Alerts::Plugins::ModeRegistered">Registered</string>
+    <string id="Alerts::Plugins::ModeDemo">Demo</string>
+    <string id="Alerts::Plugins::ModeUnregistered">Registration not required</string>
+
+<!-- Disconnect Dialog -->
+	<string id="Alerts::Disconnect::NoDisconnectedCaution">There are no email accounts setup for disconnected operations. Your email will not be available if you disconnect. Do you really want to disconnect?\n\n(If you disconnect, you will need to use the Connect command to see your email again.)</string>
+
+<!-- Preferences -->
+	<string id="Alerts::Preferences::OpenRemoteTitle">Open Remote Preferences</string>
+	<string id="Alerts::Preferences::OpenRemoteDesc">Remote Preference Sets:</string>
+	<string id="Alerts::Preferences::OpenRemoteButton">Open</string>
+	<string id="Alerts::Preferences::SaveAsRemoteTitle">Save Remote Preferences As</string>
+	<string id="Alerts::Preferences::SaveAsRemoteDesc">Remote Preference Sets:</string>
+	<string id="Alerts::Preferences::SaveAsRemoteText">Save As:</string>
+	<string id="Alerts::Preferences::SaveAsRemoteButton">Save As</string>
+	<string id="Alerts::Preferences::DeleteIdsTitle">Delete Identities</string>
+	<string id="Alerts::Preferences::DeleteIdsDesc">Identities:</string>
+	<string id="Alerts::Preferences::DeleteIdsButton">Delete</string>
+
+	<string id="Alerts::Preferences::RenameSet">Rename Remote Preferences Set to:</string>
+	<string id="Alerts::Preferences::DuplicateRenameSet">You cannot rename this remote preference set to one that already exists. Choose a different name.</string>
+	<string id="Alerts::Preferences::DuplicateSaveAsSet">Do you want to overwrite the preference set '%s' with the new one?</string>
+	<string id="Alerts::Preferences::RenameAccount">Rename Account as:</string>
+	<string id="Alerts::Preferences::RenameAccountTitle">Rename Account Dialog</string>
+	<string id="Alerts::Preferences::DeleteAccount">Do you really want to delete the current account?</string>
+	<string id="Alerts::Preferences::EmptyAccountName">You must enter an account name</string>
+	<string id="Alerts::Preferences::DuplicateAccountName">The account name is already used for another account of that type. Please use a unique name.</string>
+	<string id="Alerts::Preferences::NoRemoteAccount">There are no remote accounts available. Please setup a remote account in the 'Accounts' panel.</string>
+	<string id="Alerts::Preferences::NoDeleteRemoteAccount">You cannot delete the remote options account while the preferences are set to be saved remotely. Switch the preferences to 'Local' before deleting this account.</string>
+	<string id="Alerts::Preferences::NoIdentityName">You must enter a name for this identity.</string>
+	<string id="Alerts::Preferences::NewAlertStyleName">New Alert Style:</string>
+	<string id="Alerts::Preferences::EmptyAlertStyleName">You must enter an alert style name.</string>
+	<string id="Alerts::Preferences::DuplicateAlertStyleName">The alert style name is already assigned. Please use a unique name.</string>
+	<string id="Alerts::Preferences::RenameAlertStyle">Rename Alert Style as:</string>
+	<string id="Alerts::Preferences::NoDeleteAlertStyle">You cannot delete the remaining alert style. There must be at least one alert style.</string>
+	<string id="Alerts::Preferences::DeleteAlertStyle">Do you really want to delete this alert style?</string>
+
+	<string id="Alerts::Preferences::Invalid_MailAccount">There are no email accounts. You must have at least one email account correctly setup so that you can receive email.</string>
+	<string id="Alerts::Preferences::Invalid_AccountName">The account name for the email account '%s' contains a ':' character. Email account names cannot contain any ':' characters. Please remove all ':' characters from the email account name.</string>
+	<string id="Alerts::Preferences::Invalid_IMAPServerIP">The 'Server' field in the email account '%s' is empty. Please specify a valid server address in this field.</string>
+	<string id="Alerts::Preferences::Invalid_SMTPAccount">There are no SMTP accounts. You must have at least one SMTP account correctly setup so that you can send email.</string>
+	<string id="Alerts::Preferences::Invalid_SMTPServerIP">The 'Server' field in the SMTP account '%s' is empty. Please specify a valid server address in this field.</string>
+	<string id="Alerts::Preferences::Invalid_RemoteServerIP">The 'Server' field in the remote options account '%s' is empty. Please specify a valid server address in this field.</string>
+	<string id="Alerts::Preferences::Invalid_AddressServerIP">The 'Server' field in the address account '%s' is empty. Please specify a valid server address in this field.</string>
+	<string id="Alerts::Preferences::Invalid_DefaultIdentity">There are no identities set. There must be at least one identity which is used as the default.</string>
+	<string id="Alerts::Preferences::Invalid_DefaultIdentitySMTP">The 'SMTP Account' field of the default identity '%s' is empty or not valid. Please choose a valid SMTP account in this field.</string>
+	<string id="Alerts::Preferences::Invalid_DefaultIdentityFrom">The 'Email' field in the 'From' section of the default identity '%s' is empty. Please specify your valid email address in this field.</string>
+	<string id="Alerts::Preferences::Invalid_KerberosRealm">The 'Realm' field in the Kerberos authentication section of the email account '%s' is empty. Please specify a value for this field.</string>
+	<string id="Alerts::Preferences::Invalid_SaveCreator">The 'Extension for Saved Messages' field in the 'Message' Preferences is invalid. Please specify a three character file extension.</string>
+	<string id="Alerts::Preferences::Invalid_MoveBoxName">The 'Move to Mailbox' field in the 'Mailbox' Preferences is empty. Please specify a value for this field or turn off 'Move Read Messages in INBOX' in the 'Mailbox' Preferences.</string>
+	<string id="Alerts::Preferences::Invalid_MoveBoxDup">You cannot have the 'Move to Mailbox' field set to 'INBOX' in the 'Mailbox' Preferences. Please specify a different value for this field or turn off 'Move Read Messages in INBOX' in the 'Mailbox' Preferences.</string>
+
+	<string id="Alerts::Preferences::CannotSavePrefs">The Preferences could not be saved.  Any changes you made to them will not be saved if you quit Mulberry.</string>
+	<string id="Alerts::Preferences::CannotReadPrefs">The Preferences could not be read.  Previous changes you made to them cannot be recovered.  A default set will be used instead.</string>
+	<string id="Alerts::Preferences::OldVersPrefs">You are opening an old version of the Preferences file. Do you want to update the file to the new version format?</string>
+	<string id="Alerts::Preferences::ReallyReplacePrefs">Do you really want to replace the current preferences? This will logoff the current server and close all its windows.</string>
+	<string id="Alerts::Preferences::UIDReplacePrefs">The user id used to read the current set of remote preferences is different from your current user id. Any changes to the current preferences will not be saved.</string>
+
+	<string id="Alerts::Preferences::InvalidIMAPLabel">One or more of the IMAP labels is not valid. IMAP labels cannot be empty, must not contain non-ASCII characters, and must not start with a '\' character, and can contain only a limited set of punctuation characters.</string>
+
+<!-- Server Window -->
+	<string id="Alerts::Server::ReallyDelete">Do you really want to delete the selected mailboxes?\n\n%s</string>
+	<string id="Alerts::Server::NoDeleteINBOX">You cannot delete the INBOX.</string>
+	<string id="Alerts::Server::RenameAs">Rename mailbox as...</string>
+	<string id="Alerts::Server::ReallyChangeWD">Do you really want to change the directories to search for mailboxes? This will close any open mailboxes or messages and recreate the mailbox list.</string>
+	<string id="Alerts::Server::DuplicateCreate">The mailbox to be created already exists.</string>
+	<string id="Alerts::Server::DuplicateRename">You cannot rename this mailbox to one that already exists. Choose a different name.</string>
+	<string id="Alerts::Server::ReallyClearDisconnect">Do you really want to clear the selected mailboxes from the disconnected cache?</string>
+	<string id="Alerts::Server::MissingOpenMailbox">The chosen mailbox cannot be found.</string>
+	<string id="Alerts::Server::PuntUnseen">Do you really want to mark as seen all the messages in the selected mailboxes?</string>
+	<string id="Alerts::Server::NewFavouriteTitle">Cabinet Name</string>
+	<string id="Alerts::Server::NewFavourite">Enter a name for the cabinet:</string>
+	<string id="Alerts::Server::DeleteFavourite">Do you really want to delete the selected cabinets and remove all their contents?</string>
+	<string id="Alerts::Server::RenameFavouriteItemTitle">Cabinet item</string>
+	<string id="Alerts::Server::RenameFavouriteItem">Rename cabinet item:</string>
+	<string id="Alerts::Server::DeleteFavouriteItems">Do you really want to remove the selected cabinet items?</string>
+	<string id="Alerts::Server::NewHierarchyTitle">Display hierarchy path</string>
+	<string id="Alerts::Server::NewHierarchy">Change display hierarchy path to:</string>
+	<string id="Alerts::Server::DeleteHierarchy">Do you really want to remove the selected display hierarchies?</string>
+	<string id="Alerts::Server::DeleteAclWarn">Do you really want to delete the selected access control items? This action is not undoable.</string>
+	<string id="Alerts::Server::SaveStyle">Save Style as:</string>
+	<string id="Alerts::Server::DeleteACLTitle">Delete ACL Styles</string>
+	<string id="Alerts::Server::DeleteACLDesc">ACL Styles:</string>
+	<string id="Alerts::Server::DeleteACLButton">Delete</string>
+
+<!-- Mailbox Window -->
+	<string id="Alerts::Mailbox::NoClearMailbox">The seen messages in the INBOX cannot be copied to the specified mailbox because it does not exist. Please create the mailbox to copy to first.</string>
+	<string id="Alerts::Mailbox::NoCloseMailbox">You cannot close this mailbox because some of its messages are in use in a draft window. You must finish composing the draft and either close it or send it before this mailbox can be closed.</string>
+	<string id="Alerts::Mailbox::MailboxRollover">Do you want to view the next mailbox with recent messages?</string>
+	<string id="Alerts::Mailbox::NoMailboxRollover">There are no more recent messages in any mailbox.</string>
+	<string id="Alerts::Mailbox::IllegalMessageNum">The message number %s does not exist.</string>
+	<string id="Alerts::Mailbox::NotViewedMessageNum">The message with number %s is not in the current set of messages on view. To see this message, switch the view mode to 'All' and then try again.</string>
+	<string id="Alerts::Mailbox::MailboxBusy">The mailbox '%s' is being used in another operation. Try again later.</string>
+	<string id="Alerts::Mailbox::RenameSubstitute">Change Mailbox Display Name:</string>
+
+<!-- SMTP Window -->
+	<string id="Alerts::SMTP::Queues">Outgoing Message Queues: </string>
+	<string id="Alerts::SMTP::QueuesEnabled">Enabled</string>
+	<string id="Alerts::SMTP::QueuesDisabled">Disabled</string>
+
+<!-- Search Window -->
+	<string id="Alerts::Search::SaveStyleAsTitle">Save Search Style</string>
+	<string id="Alerts::Search::SaveStyleAs">Enter the name for the new search style:</string>
+	<string id="Alerts::Search::DeleteStyleTitle">Delete Search Style</string>
+	<string id="Alerts::Search::DeleteStyleDesc">Select Search Styles to Delete:</string>
+	<string id="Alerts::Search::DeleteStyleButton">Delete</string>
+
+<!-- Rules Window -->
+	<string id="Alerts::Rules::REALLYDELETE">Do you really want to delete the selected rules?</string>
+	<string id="Alerts::Rules::NEW_SCRIPT">New Script</string>
+	<string id="Alerts::Rules::EDIT_SCRIPT">Rename Script</string>
+	<string id="Alerts::Rules::DELETE_SCRIPT">Do you really want to delete the selected scripts?</string>
+	<string id="Alerts::Rules::DELETE_SCRIPTRULE">Do you really want to remove the selected rules from their scripts?</string>
+	<string id="Alerts::Rules::DELETE_SCRIPTANDRULE">Do you really want to delete or remove the selected items?</string>
+	<string id="Alerts::Rules::INVALIDIMPORTACTIONS">Some of the imported rules contain actions that refer to mailboxes that cannot currently be found. Please double-check all imported rules to make sure any references to mailboxes (used for copying or moving) are valid for the current set of email accounts.</string>
+
+	<string id="Alerts::Rules::RULES_TITLE">Rules</string>
+	<string id="Alerts::Rules::TARGETS_TITLE">Triggers</string>
+	<string id="Alerts::Rules::SCRIPTS_TITLE">Scripts</string>
+
+<!-- Message Window -->
+	<string id="Alerts::Message::SaveMsgAsPrompt">Save message as...</string>
+	<string id="Alerts::Message::WarnSize">The message you are about to open is large (%s bytes). Do you still want to open it?</string>
+	<string id="Alerts::Message::DecodeBinHex">Decoding BinHex attachments...</string>
+	<string id="Alerts::Message::DecodeUU">Decoding UU attachments...</string>
+	<string id="Alerts::Message::NoSave">while saving a message.</string>
+	<string id="Alerts::Message::NoCopyToSame">This message cannot be copied because it is already in the chosen mailbox.</string>
+	<string id="Alerts::Message::MissingCopyTo">The chosen mailbox cannot be found. Please make sure this mailbox exists and it appears in the server window.</string>
+	<string id="Alerts::Message::MessageRollover">Do you want to view the first recent message in the next mailbox which contains a recent message?</string>
+	<string id="Alerts::Message::MessageHasAttachments">This message has some attachments. To see the attachments, expand the parts table by clicking on the 'twist-down' arrow next to the number of parts.</string>
+	<string id="Alerts::Message::CannotDownload">Some of the selected attachments are blocked for downloading.</string>
+	<string id="Alerts::Message::UNKNOWN_CRYPTO">Mulberry is unable to handle this cryptographic format: '%s'. Make sure you have the appropriate secure messaging plug-ins installed if you want to process this type of message.</string>
+	<string id="Alerts::Message::UNKNOWN_CRYPTO_SHORT">Cannot handle type: '%s'.</string>
+	<string id="Alerts::Message::CannotReject">The message cannot be rejected as it does not contain the required headers needed to generate the reject message.</string>
+	<string id="Alerts::Message::CannotMDNSent">The message requested that a read receipt be sent back to the sender. However, the mailbox '%s' does not support saving the receipt sent status, so an auto-generated receipt cannot be sent.</string>
+
+<!-- Letter Window -->
+	<string id="Alerts::Letter::UnqualifiedToAddr">The text '%s' in the 'To:' field is neither a complete email address nor a name from your open address books. To complete the address, add a domain (e.g. '@xxx.yyy.zzz') or set 'Default Domain for Outgoing Email' in the 'Network' Preferences.</string>
+	<string id="Alerts::Letter::UnqualifiedCcAddr">The text '%s' in the 'Cc:' field is neither a complete email address nor a name from your open address books. To complete the address, add a domain (e.g. '@xxx.yyy.zzz') or set 'Default Domain for Outgoing Email' in the 'Network' Preferences.</string>
+	<string id="Alerts::Letter::UnqualifiedBccAddr">The text '%s' in the 'Bcc:' field is neither a complete email address nor a name from your open address books. To complete the address, add a domain (e.g. '@xxx.yyy.zzz') or set 'Default Domain for Outgoing Email' in the 'Network' Preferences.</string>
+	<string id="Alerts::Letter::IllegalToAddr">The text '%s' in the 'To:' field is an illegal email address. This message cannot be sent.</string>
+	<string id="Alerts::Letter::IllegalCcAddr">The text '%s' in the 'Cc:' field is an illegal email address. This message cannot be sent.</string>
+	<string id="Alerts::Letter::IllegalBccAddr">The text '%s' in the 'Bcc:' field is an illegal email address. This message cannot be sent.</string>
+
+	<string id="Alerts::Letter::MissingAttachments">Some words in the message being sent imply that attachments should be present, but none are. Do you want to send this draft now without attachments?</string>
+	<string id="Alerts::Letter::MissingAttachmentsDontShow">Don't do attachment check from now on</string>
+	<string id="Alerts::Letter::UnencryptedSend">You are responding to messages whose content was originally encrypted, but your response is not encrypted. Do you want to send this draft now without using encryption?</string>
+	<string id="Alerts::Letter::UnencryptedSendDontShow">Don't do encryption check from now on</string>
+
+	<string id="Alerts::Letter::AddressDisplay_Title">Choose an Address</string>
+	<string id="Alerts::Letter::AddressDisplay_Desc">Choose an Address:</string>
+
+	<string id="Alerts::Letter::EmptyAddr">No addresses are specified in either the 'To:', 'Cc:' or 'Bcc' fields. Please specify at least one email address in any of these fields.</string>
+	<string id="Alerts::Letter::EmptySubject">The 'Subject:' field is empty. Do you want to send the message?</string>
+	<string id="Alerts::Letter::EmptyText">You have not typed any text or added any attachments. Do you want to send the message?</string>
+	<string id="Alerts::Letter::NoAttachments">Nothing</string>
+	<string id="Alerts::Letter::NoAuthenticate">You cannot send email until you have successfully logged on to the server at least once since Mulberry was started up.</string>
+	<string id="Alerts::Letter::MixedFileTableSelection">The selection in the parts list cannot be edited/viewed because it contains a mixture of parts that can be changed and parts that cannot be changed.</string>
+	<string id="Alerts::Letter::NoLetterOpen">while opening a draft message.</string>
+	<string id="Alerts::Letter::NoLetterRevert">while reverting a draft message.</string>
+	<string id="Alerts::Letter::NoLetterImport">while importing a text file into a draft message.</string>
+	<string id="Alerts::Letter::NoLetterSave">while saving a draft message.</string>
+	<string id="Alerts::Letter::NoTempLetterOpen">while reading a temporary draft message.</string>
+	<string id="Alerts::Letter::NoTempLetterSave">while saving a temporary draft message.</string>
+	<string id="Alerts::Letter::MissingAppendToSend">The current 'Copy To' mailbox could not be found. This draft cannot be sent. Please specify a valid 'Copy To' mailbox or choose 'None'.</string>
+	<string id="Alerts::Letter::MissingAppendTo">The chosen mailbox cannot be found. Please make sure this mailbox exists and it appears in the server window.</string>
+	<string id="Alerts::Letter::PostSendFailure">This draft has been successfully sent, but an error has occurred while doing post-processing.</string>
+	<string id="Alerts::Letter::SendHeld">This draft has been added to the outgoing message queue, but the queue is currently disabled. The message will not be sent until the outgoing message queue is enabled.</string>
+	<string id="Alerts::Letter::NoTextWarning">There are no editable text parts in this draft. This text is not editable and will not be sent. To add a text part, use the 'New Text Part' menu item in the 'Draft' menu.</string>
+	<string id="Alerts::Letter::BounceWarning">All the parts of the message being redirected are attached as shown in the attachments table above. This text is not editable and will not be sent. To add additional text parts, use the 'New Text Part' menu item in the 'Draft' menu.</string>
+	<string id="Alerts::Letter::WarnLoseFormatting">Changing to a plain text style will lose all formatting data in the current styled text. Do you still want to change it?</string>
+
+<!-- Macro Edit -->
+    <string id="Alerts::MacroEdit::DuplicateName">The macro name '%s' is already being used. Please choose a different one.</string>
+
+<!-- Address Book -->
+    <string id="Alerts::Adbk::ReallyDelete">Do you really want to delete the selected address books?</string>
+    <string id="Alerts::Adbk::OpenError">The address book could not be opened because </string>
+    <string id="Alerts::Adbk::RevertError">The address book could not be reverted because </string>
+    <string id="Alerts::Adbk::SaveError">The address book could not be saved because </string>
+    <string id="Alerts::Adbk::ExportError">The address book could not be exported because </string>
+    <string id="Alerts::Adbk::RenameError">The address book could not be renamed because </string>
+    <string id="Alerts::Adbk::DeleteError">The address book could not be deleted because </string>
+    <string id="Alerts::Adbk::RecursionLimit">There are too many levels of groups included within other groups for Mulberry to resolve all of them. You may have a group included within the group list more than once at different levels.</string>
+    <string id="Alerts::Adbk::CloseDeactivate">Closing the address book means that the address and group nick-names will no longer be available for use. Do you really want to close this address book?</string>
+    <string id="Alerts::Adbk::DeleteAddressSameGroup">You can only delete addresses within the same group.</string>
+    <string id="Alerts::Adbk::NoSearch">Address searching cannot take place because there are no address books marked for searching, or no alternative address lookup protocols specified.</string>
+    <string id="Alerts::Adbk::NoLocalFound">The local address book '%s' could not be found. Do you want to remove it from the list of address books to open on startup?</string>
+	<string id="Alerts::Adbk::ReallyClearDisconnect">Do you really want to clear the selected address books from the disconnected cache?</string>
+	<string id="Alerts::Adbk::WarnImportExport">To import or export addresses you must have an address book window open and on top.</string>
+	<string id="Alerts::Adbk::MissingCaptureAdbk">No address books are available for storing captured addresses. Please go to the Preference dialog's Address panel and select an address book there for capturing to.</string>
+	<string id="Alerts::Adbk::FailedCaptureAdbk">Address capture failed.</string>
+
+    <string id="Alerts::Adbk::RenameTitle">Rename Dialog</string>
+	<string id="Alerts::Adbk::Rename">Rename Address Book as:</string>
+
+<!-- User Password -->
+	<string id="Alerts::UserPswd::IMAPLOGIN">Login to IMAP Server:</string>
+	<string id="Alerts::UserPswd::POP3LOGIN">Login to POP3 Server:</string>
+	<string id="Alerts::UserPswd::SMTPLOGIN">Login to SMTP Server:</string>
+	<string id="Alerts::UserPswd::PREFSLOGIN">Login to Remote Preferences Server:</string>
+	<string id="Alerts::UserPswd::ADBKLOGIN">Login to Address Book Server:</string>
+	<string id="Alerts::UserPswd::LDAPLOGIN">Login to LDAP Server:</string>
+	<string id="Alerts::UserPswd::MANAGESIEVELOGIN">Login to ManageSIEVE Server:</string>
+	<string id="Alerts::UserPswd::REMOTECALENDARLOGIN">Login to Calendar Server:</string>
+	<string id="Alerts::UserPswd::IMAPCHANGE">Change Password for IMAP server:</string>
+	<string id="Alerts::UserPswd::POP3CHANGE">Change Password for POP3 server:</string>
+	<string id="Alerts::UserPswd::SMTPCHANGE">Change Password for SMTP Server:</string>
+	<string id="Alerts::UserPswd::PREFSCHANGE">Change Password for Preferences Server:</string>
+	<string id="Alerts::UserPswd::ADBKCHANGE">Change Password for Address Book Server:</string>
+	<string id="Alerts::UserPswd::LDAPCHANGE">Change Password for LDAP Server:</string>
+	<string id="Alerts::UserPswd::MANAGESIEVECHANGE">Change Password for ManageSIEVE Server:</string>
+	<string id="Alerts::UserPswd::NewPasswordMismatch">The new passwords do not match. Please retype them.</string>
+	<string id="Alerts::UserPswd::ChangePasswordNone">There are no available accounts that can have their passwords changed.</string>
+
+<!-- Attachments -->
+	<string id="Alerts::Attachments::DownloadLaunchAsk">Do you want to open '%s' with the application '%s'?</string>
+	<string id="Alerts::Attachments::DownloadDirFail">The default download directory could not be found. Please reset it in the 'Attachment' preferences panel.</string>
+    <string id="Alerts::Attachments::BinHexNoEncode">Could not encode to BinHex because of an error.</string>
+    <string id="Alerts::Attachments::BinHexNoDecode">Could not decode to BinHex because of an error.</string>
+    <string id="Alerts::Attachments::BinHexIllegalCode">An illegal character was found in the BinHex file. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexStrTooLong">The length of the filename encoded in the BinHex file is greater than 63. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexNoStrNull">The filename encoded in the BinHex file does not contain a trailing null character. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexWrongHeadCRC">The header in the BinHex file is corrupt. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexWrongDataCRC">The data fork of the decoded BinHex file is corrupt. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexWrongRsrcCRC">The resource fork of the decoded BinHex file is corrupt. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexNoTerminator">The BinHex file did not end with the correct termination character. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexNoMore">The BinHex file being decoded is missing characters at the end. Decoding cannot continue.</string>
+    <string id="Alerts::Attachments::BinHexNoFile">The BinHex file being decoded could not be created because </string>
+    <string id="Alerts::Attachments::FilterNoFile">The file being downloaded could not be created because </string>
+
+</stringlist>

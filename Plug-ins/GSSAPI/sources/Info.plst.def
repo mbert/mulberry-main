@@ -1,0 +1,1 @@
+#define kAppName GSSAPI#define kBundleIdentifier com.mulberrymail.mulberry.plugins.gssapi

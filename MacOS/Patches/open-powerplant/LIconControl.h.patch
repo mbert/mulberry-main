@@ -1,0 +1,33 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LIconControl.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LIconControl.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LIconControl.h	(working copy)
+@@ -12,6 +12,8 @@
+ #include <LControlPane.h>
+ #include <Icons.h>
+ 
++#include <Sticns.h>
++
+ #if PP_Uses_Pragma_Import
+ 	#pragma import on
+ #endif
+@@ -20,7 +22,8 @@
+ 
+ // ---------------------------------------------------------------------------
+ 
+-class	LIconControl : public LControlPane {
++class	LIconControl : public LControlPane,
++						public Sticns {
+ public:
+ 	enum { class_ID		= FOUR_CHAR_CODE('ictl'),
+ 		   imp_class_ID	= FOUR_CHAR_CODE('iicl') };
+@@ -46,6 +49,9 @@
+ 
+ 	IconTransformType	GetIconTransform() const;
+ 
++	virtual	void		SetResourceID(
++									  ResIDT		inResID);
++
+ protected:
+ 	virtual void		HotSpotResult( SInt16 inHotSpot );
+ };

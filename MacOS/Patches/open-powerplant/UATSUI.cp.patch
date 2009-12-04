@@ -1,0 +1,45 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Text Classes/UATSUI.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Text Classes/UATSUI.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Text Classes/UATSUI.cp	(working copy)
+@@ -533,7 +533,7 @@
+ 	do {
+ 		lineStart = lineBreak;
+ 	
+-		::ATSUBreakLine( mTextLayout,
++		OSStatus status = ::ATSUBreakLine( mTextLayout,
+ 						 lineStart,
+ 						 inLineWidth,
+ 						 true,
+@@ -577,13 +577,14 @@
+ 												   
+ 									// Allocate and fill array of soft line
+ 									//   break offsets
+-	outLineBreaks = new UniCharArrayOffset[breakCount];
++	outLineBreaks = new UniCharArrayOffset[breakCount + 1];
+ 	
+ 	status = ::ATSUGetSoftLineBreaks( mTextLayout, kATSUFromTextBeginning,
+ 												   kATSUToTextEnd,
+ 												   breakCount,
+ 												   outLineBreaks,
+ 												   &breakCount );
++	outLineBreaks[breakCount] = 0;
+ 	
+ 	outLineCount = breakCount + 1;	// Lines of text is one more than the
+ 									//   number of line breaks
+@@ -660,6 +661,7 @@
+ 		ATSUTextMeasurement	vertCoord;
+ 		coords.QDToATSU(inLeftCoord, vert, horizCoord, vertCoord);
+ 		
++		OSStatus	status =
+ 		::ATSUDrawText( mTextLayout, lineStart,
+ 									 lineLength,
+ 									 horizCoord,
+@@ -687,6 +689,7 @@
+ 	ATSUTextMeasurement	vertCoord;
+ 	coords.QDToATSU(inHoriz, inVert, horizCoord, vertCoord);
+ 
++	OSStatus	status =
+ 	::ATSUDrawText(mTextLayout, inLineOffset, inLineLength, horizCoord, vertCoord);
+ }
+ 

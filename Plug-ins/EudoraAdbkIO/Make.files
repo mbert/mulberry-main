@@ -1,0 +1,12 @@
+-suffix .cp
+
+@EudoraAdbkIOPlugin.so
+-prefix sources/
+CEudoraAdbkIOPluginDLL
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CAdbkIOPluginDLL
+os_dep
+-prefix ../../Sources_Common/Utilities/
+CStringUtils

@@ -1,0 +1,63 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFile.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFile.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/File and Stream Classes/LFile.h	(working copy)
+@@ -16,6 +16,8 @@
+ #include <Aliases.h>
+ #include <Script.h>
+ 
++#include <PPxFSObject.h>
++
+ #if PP_Uses_Pragma_Import
+ 	#pragma import on
+ #endif
+@@ -28,23 +30,23 @@
+ public:
+ 						LFile();
+ 
+-						LFile( const FSSpec& inFileSpec );
++						LFile( const PPx::FSObject& inFileSpec );
+ 
+ 						LFile(	AliasHandle			inAlias,
+ 								Boolean&			outWasChanged,
+-								FSSpec*				inFromFile = nil);
++								PPx::FSObject*		inFromFile = nil);
+ 
+ 	virtual				~LFile();
+ 
+-	void				GetSpecifier( FSSpec& outFileSpec ) const;
++	void				GetSpecifier( PPx::FSObject& outFileSpec ) const;
+ 
+-	virtual void		SetSpecifier( const FSSpec& inFileSpec );
++	virtual void		SetSpecifier( const PPx::FSObject& inFileSpec );
+ 
+-	bool				UsesSpecifier( const FSSpec& inFileSpec ) const;
++	bool				UsesSpecifier( const PPx::FSObject& inFileSpec ) const;
+ 	
+ 	bool				SpecifierExists() const;
+ 
+-	virtual AliasHandle	MakeAlias( FSSpec* inFromFile = nil );
++	virtual AliasHandle	MakeAlias( PPx::FSObject* inFromFile = nil );
+ 
+ 	virtual void		CreateNewFile(
+ 								OSType				inCreator,
+@@ -78,8 +80,8 @@
+ 							}
+ 
+ 	static bool			EqualFileSpec(
+-								const FSSpec		&inFileSpecA,
+-								const FSSpec		&inFileSpecB);
++								const PPx::FSObject		&inFileSpecA,
++								const PPx::FSObject		&inFileSpecB);
+ 
+ 
+ 									// refNum for a data or resource
+@@ -87,7 +89,7 @@
+ 	static const SInt16	refNum_Undefined	= -1;
+ 
+ protected:
+-	FSSpec			mMacFileSpec;
++	PPx::FSObject	mMacFileRef;
+ 	SInt16			mDataForkRefNum;
+ 	SInt16			mResourceForkRefNum;
+ 

@@ -1,0 +1,248 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF4199080AE9A3C500E19592 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199040AE9A3C400E19592 /* os_dep.cp */; };
+		AF41990A0AE9A3C500E19592 /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198FD0AE9A3C400E19592 /* PluginDLLmain.cp */; };
+		AF41990B0AE9A3C500E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198FE0AE9A3C400E19592 /* CPluginDLL.cp */; };
+		AF41990D0AE9A3C500E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199000AE9A3C400E19592 /* CAdbkIOPluginDLL.cp */; };
+		AF41990F0AE9A3C500E19592 /* CQuickmailProAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199020AE9A3C400E19592 /* CQuickmailProAdbkIOPluginDLL.cp */; };
+		AF4199110AE9A3C500E19592 /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199060AE9A3C500E19592 /* CStringUtils.cp */; };
+		AF4199160AE9A3C500E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4199150AE9A3C500E19592 /* Carbon.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF4198F80AE9A3C400E19592 /* QuickmailProAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickmailProAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF4198FD0AE9A3C400E19592 /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AF4198FE0AE9A3C400E19592 /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF4198FF0AE9A3C400E19592 /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF4199000AE9A3C400E19592 /* CAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CAdbkIOPluginDLL.cp; path = ../Common/CAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF4199010AE9A3C400E19592 /* CAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAdbkIOPluginDLL.h; path = ../Common/CAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF4199020AE9A3C400E19592 /* CQuickmailProAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CQuickmailProAdbkIOPluginDLL.cp; path = sources/CQuickmailProAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF4199030AE9A3C400E19592 /* CQuickmailProAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CQuickmailProAdbkIOPluginDLL.h; path = sources/CQuickmailProAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF4199040AE9A3C400E19592 /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
+		AF4199050AE9A3C400E19592 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
+		AF4199060AE9A3C500E19592 /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
+		AF4199070AE9A3C500E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AF4199150AE9A3C500E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		AF4199170AE9A3C500E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AF41991B0AE9A3C500E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF4198F50AE9A3C400E19592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF4199160AE9A3C500E19592 /* Carbon.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF4198EB0AE9A3C400E19592 = {
+			isa = PBXGroup;
+			children = (
+				AF4198FC0AE9A3C400E19592 /* Main */,
+				AF4199130AE9A3C500E19592 /* Imported Files */,
+				AF4199140AE9A3C500E19592 /* Frameworks */,
+				AF4198F90AE9A3C400E19592 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF4198F90AE9A3C400E19592 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF4198F80AE9A3C400E19592 /* QuickmailProAdbkIO.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF4198FC0AE9A3C400E19592 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AF4198FD0AE9A3C400E19592 /* PluginDLLmain.cp */,
+				AF4198FF0AE9A3C400E19592 /* CPluginDLL.h */,
+				AF4198FE0AE9A3C400E19592 /* CPluginDLL.cp */,
+				AF4199010AE9A3C400E19592 /* CAdbkIOPluginDLL.h */,
+				AF4199000AE9A3C400E19592 /* CAdbkIOPluginDLL.cp */,
+				AF4199030AE9A3C400E19592 /* CQuickmailProAdbkIOPluginDLL.h */,
+				AF4199020AE9A3C400E19592 /* CQuickmailProAdbkIOPluginDLL.cp */,
+				AF4199050AE9A3C400E19592 /* os_dep.h */,
+				AF4199040AE9A3C400E19592 /* os_dep.cp */,
+				AF4199070AE9A3C500E19592 /* CStringUtils.h */,
+				AF4199060AE9A3C500E19592 /* CStringUtils.cp */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AF4199130AE9A3C500E19592 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF4199170AE9A3C500E19592 /* PluginDLLmain.h */,
+				AF41991B0AE9A3C500E19592 /* CPluginInfo.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AF4199140AE9A3C500E19592 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF4199150AE9A3C500E19592 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF4198F70AE9A3C400E19592 /* QuickmailPro MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF4198FA0AE9A3C400E19592 /* Build configuration list for PBXNativeTarget "QuickmailPro MachO" */;
+			buildPhases = (
+				AF4198F30AE9A3C400E19592 /* Sources */,
+				AF4198F40AE9A3C400E19592 /* Resources */,
+				AF4198F50AE9A3C400E19592 /* Frameworks */,
+				AF4198F60AE9A3C400E19592 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "QuickmailPro MachO";
+			productName = "QuickmailPro MachO";
+			productReference = AF4198F80AE9A3C400E19592 /* QuickmailProAdbkIO.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF4198ED0AE9A3C400E19592 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AF4198EE0AE9A3C400E19592 /* Build configuration list for PBXProject "QuickmailProAdbkIO" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AF4198EB0AE9A3C400E19592;
+			productRefGroup = AF4198F90AE9A3C400E19592 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF4198F70AE9A3C400E19592 /* QuickmailPro MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF4198F40AE9A3C400E19592 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AF4198F60AE9A3C400E19592 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF4198F30AE9A3C400E19592 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF4199080AE9A3C500E19592 /* os_dep.cp in Sources */,
+				AF41990A0AE9A3C500E19592 /* PluginDLLmain.cp in Sources */,
+				AF41990B0AE9A3C500E19592 /* CPluginDLL.cp in Sources */,
+				AF41990D0AE9A3C500E19592 /* CAdbkIOPluginDLL.cp in Sources */,
+				AF41990F0AE9A3C500E19592 /* CQuickmailProAdbkIOPluginDLL.cp in Sources */,
+				AF4199110AE9A3C500E19592 /* CStringUtils.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AF4198EF0AE9A3C400E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AF4198FB0AE9A3C400E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = QuickmailProAdbkIO;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF4198EE0AE9A3C400E19592 /* Build configuration list for PBXProject "QuickmailProAdbkIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF4198EF0AE9A3C400E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AF4198FA0AE9A3C400E19592 /* Build configuration list for PBXNativeTarget "QuickmailPro MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF4198FB0AE9A3C400E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF4198ED0AE9A3C400E19592 /* Project object */;
+}

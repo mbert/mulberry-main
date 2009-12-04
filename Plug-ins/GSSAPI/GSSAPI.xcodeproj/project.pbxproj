@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFD93BAC0AE5ADFB007F506F /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93BA30AE5ADFB007F506F /* os_dep.cp */; };
+		AFD93BAD0AE5ADFC007F506F /* os_dep.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BA40AE5ADFB007F506F /* os_dep.h */; };
+		AFD93BAE0AE5ADFC007F506F /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93B9C0AE5ADFB007F506F /* PluginDLLmain.cp */; };
+		AFD93BAF0AE5ADFC007F506F /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93B9D0AE5ADFB007F506F /* CPluginDLL.cp */; };
+		AFD93BB00AE5ADFC007F506F /* CPluginDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93B9E0AE5ADFB007F506F /* CPluginDLL.h */; };
+		AFD93BB10AE5ADFC007F506F /* CAuthPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93B9F0AE5ADFB007F506F /* CAuthPluginDLL.cp */; };
+		AFD93BB20AE5ADFC007F506F /* CAuthPluginDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BA00AE5ADFB007F506F /* CAuthPluginDLL.h */; };
+		AFD93BB30AE5ADFC007F506F /* CGSSAPIPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93BA10AE5ADFB007F506F /* CGSSAPIPluginDLL.cp */; };
+		AFD93BB40AE5ADFC007F506F /* CGSSAPIPluginDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BA20AE5ADFB007F506F /* CGSSAPIPluginDLL.h */; };
+		AFD93BB50AE5ADFC007F506F /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93BA50AE5ADFB007F506F /* CStringUtils.cp */; };
+		AFD93BB60AE5ADFC007F506F /* CStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BA60AE5ADFB007F506F /* CStringUtils.h */; };
+		AFD93BB70AE5ADFC007F506F /* kbase64.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93BA70AE5ADFB007F506F /* kbase64.cp */; };
+		AFD93BB80AE5ADFC007F506F /* kbase64.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BA80AE5ADFB007F506F /* kbase64.h */; };
+		AFD93BBD0AE5ADFF007F506F /* PluginDLLmain.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BBC0AE5ADFF007F506F /* PluginDLLmain.h */; };
+		AFD93BC10AE5ADFF007F506F /* CPluginInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BC00AE5ADFF007F506F /* CPluginInfo.h */; };
+		AFD93BC80AE5ADFF007F506F /* Kerberos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93BC70AE5ADFF007F506F /* Kerberos.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AFD93B970AE5ADFB007F506F /* GSSAPI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSSAPI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD93B9C0AE5ADFB007F506F /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AFD93B9D0AE5ADFB007F506F /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFD93B9E0AE5ADFB007F506F /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFD93B9F0AE5ADFB007F506F /* CAuthPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CAuthPluginDLL.cp; path = ../Common/CAuthPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFD93BA00AE5ADFB007F506F /* CAuthPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAuthPluginDLL.h; path = ../Common/CAuthPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFD93BA10AE5ADFB007F506F /* CGSSAPIPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CGSSAPIPluginDLL.cp; path = sources/CGSSAPIPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFD93BA20AE5ADFB007F506F /* CGSSAPIPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CGSSAPIPluginDLL.h; path = sources/CGSSAPIPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFD93BA30AE5ADFB007F506F /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
+		AFD93BA40AE5ADFB007F506F /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
+		AFD93BA50AE5ADFB007F506F /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
+		AFD93BA60AE5ADFB007F506F /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AFD93BA70AE5ADFB007F506F /* kbase64.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = kbase64.cp; path = ../Common/kbase64.cp; sourceTree = SOURCE_ROOT; };
+		AFD93BA80AE5ADFB007F506F /* kbase64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = kbase64.h; path = ../Common/kbase64.h; sourceTree = SOURCE_ROOT; };
+		AFD93BBC0AE5ADFF007F506F /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AFD93BC00AE5ADFF007F506F /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AFD93BC70AE5ADFF007F506F /* Kerberos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kerberos.framework; path = /System/Library/Frameworks/Kerberos.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFD93B940AE5ADFB007F506F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD93BC80AE5ADFF007F506F /* Kerberos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFD93B8A0AE5ADFB007F506F = {
+			isa = PBXGroup;
+			children = (
+				AFD93B9B0AE5ADFB007F506F /* Main */,
+				AFD93BA90AE5ADFB007F506F /* Resources */,
+				AFD93BBB0AE5ADFF007F506F /* Imported Files */,
+				AFD93BC60AE5ADFF007F506F /* Frameworks */,
+				AFD93B980AE5ADFB007F506F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFD93B980AE5ADFB007F506F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93B970AE5ADFB007F506F /* GSSAPI.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFD93B9B0AE5ADFB007F506F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93B9C0AE5ADFB007F506F /* PluginDLLmain.cp */,
+				AFD93B9E0AE5ADFB007F506F /* CPluginDLL.h */,
+				AFD93B9D0AE5ADFB007F506F /* CPluginDLL.cp */,
+				AFD93BA00AE5ADFB007F506F /* CAuthPluginDLL.h */,
+				AFD93B9F0AE5ADFB007F506F /* CAuthPluginDLL.cp */,
+				AFD93BA20AE5ADFB007F506F /* CGSSAPIPluginDLL.h */,
+				AFD93BA10AE5ADFB007F506F /* CGSSAPIPluginDLL.cp */,
+				AFD93BA40AE5ADFB007F506F /* os_dep.h */,
+				AFD93BA30AE5ADFB007F506F /* os_dep.cp */,
+				AFD93BA60AE5ADFB007F506F /* CStringUtils.h */,
+				AFD93BA50AE5ADFB007F506F /* CStringUtils.cp */,
+				AFD93BA80AE5ADFB007F506F /* kbase64.h */,
+				AFD93BA70AE5ADFB007F506F /* kbase64.cp */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AFD93BA90AE5ADFB007F506F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AFD93BBB0AE5ADFF007F506F /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93BBC0AE5ADFF007F506F /* PluginDLLmain.h */,
+				AFD93BC00AE5ADFF007F506F /* CPluginInfo.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AFD93BC60AE5ADFF007F506F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93BC70AE5ADFF007F506F /* Kerberos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AFD93B910AE5ADFB007F506F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD93BAD0AE5ADFC007F506F /* os_dep.h in Headers */,
+				AFD93BB00AE5ADFC007F506F /* CPluginDLL.h in Headers */,
+				AFD93BB20AE5ADFC007F506F /* CAuthPluginDLL.h in Headers */,
+				AFD93BB40AE5ADFC007F506F /* CGSSAPIPluginDLL.h in Headers */,
+				AFD93BB60AE5ADFC007F506F /* CStringUtils.h in Headers */,
+				AFD93BB80AE5ADFC007F506F /* kbase64.h in Headers */,
+				AFD93BBD0AE5ADFF007F506F /* PluginDLLmain.h in Headers */,
+				AFD93BC10AE5ADFF007F506F /* CPluginInfo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AFD93B960AE5ADFB007F506F /* GSSAPI MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFD93B990AE5ADFB007F506F /* Build configuration list for PBXNativeTarget "GSSAPI MachO" */;
+			buildPhases = (
+				AFD93B910AE5ADFB007F506F /* Headers */,
+				AFD93B920AE5ADFB007F506F /* Sources */,
+				AFD93B930AE5ADFB007F506F /* Resources */,
+				AFD93B940AE5ADFB007F506F /* Frameworks */,
+				AFD93B950AE5ADFB007F506F /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GSSAPI MachO";
+			productName = "GSSAPI MachO";
+			productReference = AFD93B970AE5ADFB007F506F /* GSSAPI.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFD93B8C0AE5ADFB007F506F /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AFD93B8D0AE5ADFB007F506F /* Build configuration list for PBXProject "GSSAPI" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AFD93B8A0AE5ADFB007F506F;
+			productRefGroup = AFD93B980AE5ADFB007F506F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFD93B960AE5ADFB007F506F /* GSSAPI MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFD93B930AE5ADFB007F506F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AFD93B950AE5ADFB007F506F /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFD93B920AE5ADFB007F506F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD93BAC0AE5ADFB007F506F /* os_dep.cp in Sources */,
+				AFD93BAE0AE5ADFC007F506F /* PluginDLLmain.cp in Sources */,
+				AFD93BAF0AE5ADFC007F506F /* CPluginDLL.cp in Sources */,
+				AFD93BB10AE5ADFC007F506F /* CAuthPluginDLL.cp in Sources */,
+				AFD93BB30AE5ADFC007F506F /* CGSSAPIPluginDLL.cp in Sources */,
+				AFD93BB50AE5ADFC007F506F /* CStringUtils.cp in Sources */,
+				AFD93BB70AE5ADFC007F506F /* kbase64.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AFD93B8E0AE5ADFB007F506F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AFD93B9A0AE5ADFB007F506F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = GSSAPI;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFD93B8D0AE5ADFB007F506F /* Build configuration list for PBXProject "GSSAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD93B8E0AE5ADFB007F506F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AFD93B990AE5ADFB007F506F /* Build configuration list for PBXNativeTarget "GSSAPI MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD93B9A0AE5ADFB007F506F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFD93B8C0AE5ADFB007F506F /* Project object */;
+}

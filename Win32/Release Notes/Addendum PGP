@@ -1,0 +1,116 @@
+Mulberry Addendum for PGP
+
+* Using PGP in Mulberry *
+
+In order to use PGP with Mulberry you must have the the Network Associates PGP
+5 or 6 package installed on your host machine. The Mulberry PGP installer will
+then add PGP5 and PGP6 plugins to the Plug-ins folder and update the installed
+copy of Mulberry to make it 'aware' of the plugins.
+
+The PGP desktop software is used to handle all key managements functions. Users
+of Mulberry will need to be familiar with this software.
+
+When PGP and the plugins are correctly installed, one PGP plugin item will
+appear in the 'About Plugins' dialog in Mulberry. When this occurs, Mulberry
+will enable some new UI items that allow you to use PGP:
+
+1) Verify/Decrypt menu command in the Messages menu. This is used to manually
+verify or decrypt a PGP signed or encrypted message. It can be used with either
+'inline' or 'PGP/MIME' styled messages (see below for more about these types of
+messages).
+
+2) Sign and Encrypt buttons are added to the draft window to the right of the
+subject line. Turning this on or off will result in a signed and/or encrypted
+message.
+
+There are some new preference options:
+
+1) The Security panel in the Preferences dialog allows control over various
+options:
+
+'Use MIME Multipart Security' - When turned on, Mulberry will generate
+'PGP/MIME' style messages when sending email. When turned off, Mulberry will
+generate 'inline' style messages when sending email.
+
+'Always Encrypt to Self' - When turned on, Mulberry will encrypt messages to
+the From address in a draft's selected identity. This ensures that the sender
+of the message (i.e. you) can also decrypt any copy you keep of it. When turned
+off, Mulberry only encrypts the message to the recipients specified in the
+draft's address fields.
+
+'Cache Passphrase while Running' - When turned on, Mulberry will store in
+memory any passphrases you use to sign or decrypt messages and use them
+whenever the passphrase is again needed for a key. When turned off, Mulberry
+does not store passphrases.
+
+'Verify Signed Messages when Opened' - When turned on, Mulberry will attempt to
+automatically verify a 'PGP/MIME' signed message when the message is opened.
+When turned off, automatic message verification does not take place.
+
+'Decrypt Signed Messages when Opened' - When turned on, Mulberry will attempt
+to automatically decrypt a 'PGP/MIME' encrypted message when the message is
+opened. When turned off, automatic message decryption does not take place.
+
+2) The Identity edit dialog now contains new Security options:
+
+'Sign Messages' - When turned on, selecting the corresponding identity in a
+draft message will automatically turn on the 'Sign' button in the draft window.
+When turned off, selecting the corresponding identity in a draft message will
+automatically turn off the 'Sign' button in the draft window.
+
+'Encrypt Messages' - When turned on, selecting the corresponding identity in a
+draft message will automatically turn on the 'Encrypt' button in the draft
+window. When turned off, selecting the corresponding identity in a draft
+message will automatically turn off the 'Encrypt' button in the draft window.
+
+'Sign with Key:' - Allows a choice of which key to use when this identity is
+selected in a draft being signed.
+
+'Default Key' - the default identity's From address is used to find the key.
+'From Address' - the current identity's From  address is used to find the key.
+'Reply-to Address' - the current identity's Reply-to  address is used to find
+the key. 'Sender Address' - the current identity's Sender  address is used to
+find the key. 'Other Key' - allows the user to specify an arbitrary email
+address to be used to find the key.
+
+* Understanding PGP in email *
+
+PGP allows arbitrary data to be 'signed' and/or 'encrypted' using public key
+cryptography. In public key cryptography a user generates a public key/private
+key pair. The public key is then made generally available (usually via a 'key
+server'), while the private key is kept secret and can only be accessed by
+entering a secret passphrase that the user can choose.
+
+When signing a message, the user signs it with their private key. This requires
+entering the passphrase to 'unlock' the private key. PGP will then scan the
+data being signed and create a 'hash' of the input data. The hash value is
+unique for different input data, so that a small change in the input data will
+produce a vastly different hash value. The hash value is then encrypted with
+the private key.
+
+When verifying a message, the encrypted hash value is first decrypted using the
+author's public key. Then PGP calculates the hash of the received message data
+and compares it with the decrypted value. If they match, the message is
+guaranteed to be unchanged, if they don't then then message content has been
+altered, either by accident or deliberately, in transit. In addition, if
+verified, then the author of the message is indeed the 'owner' of the public
+key used to verify the message. Thus message integrity and authorship can be
+confirmed by signing a mesage.
+
+When encrypting a message, the user encrypts it using the public keys of the
+recipients. Each recipient of the encrypted message can then use their private
+key (after unlocking it with their passphrase) to decrypt the message,
+recovering the original content. The encrypted message cannot be read by anyone
+else.
+
+Messages can be both signed and encrypted so that the content remains secret,
+but the recipients can verify the content as authentic.
+
+There are two styles in which PGP messages can be generated. The old style
+'inline' method uses PGP to generate a block of PGP data which is then sent.
+The new style 'PGP/MIME' method adds extra MIME parts to the message to
+indicate the signature or encrypted data. Mulberry can use IMAP to determine
+PGP/MIME messages so this is the preferred format.
+
+--Cyrusoft International, Inc.
+September 1999.

@@ -1,0 +1,13 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/LHierarchyTable.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/LHierarchyTable.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/LHierarchyTable.cp	(working copy)
+@@ -688,7 +688,7 @@
+ 			::MacPtInRect(inMouseDown.whereLocal, &flagRect)) {
+ 										// Click is inside DropFlag
+ 			FocusDraw();
+-			ApplyForeAndBackColors();
++			//ApplyForeAndBackColors();
+ 			Boolean	expanded = mCollapsableTree->IsExpanded(woRow);
+ 			if (LDropFlag::TrackClick(flagRect, inMouseDown.whereLocal,
+ 									expanded)) {

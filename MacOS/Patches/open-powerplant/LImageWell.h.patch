@@ -1,0 +1,23 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LImageWell.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LImageWell.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LImageWell.h	(working copy)
+@@ -12,6 +12,8 @@
+ #include <LControlView.h>
+ #include <Appearance.h>
+ 
++#include "Sticns.h"
++
+ #if PP_Uses_Pragma_Import
+ 	#pragma import on
+ #endif
+@@ -20,7 +22,8 @@
+ 
+ // ---------------------------------------------------------------------------
+ 
+-class	LImageWell : public LControlView {
++class	LImageWell : public LControlView,
++						public Sticns {
+ public:
+ 	enum { class_ID		= FOUR_CHAR_CODE('iwel'),
+ 		   imp_class_ID	= FOUR_CHAR_CODE('iiwl') };

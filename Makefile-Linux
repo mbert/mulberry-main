@@ -1,0 +1,57 @@
+jxinit:
+	(cd Libraries/JX/include; \
+	 ln -sf ../libjcore/code jcore; \
+	 ln -sf ../libjx/code jx; \
+	 ln -sf ../libjx/image jximage; \
+	 ln -sf ../libjx/strings jxstrings)
+	(cd Libraries/JX/lib; \
+	 ln -sf ../ACE/ACE_wrappers/ace/libACE.a libACE-5_4_7.a; \
+	 ln -sf ../ACE/ACE_wrappers/ace/libACE.so libACE-5_4_7.so; \
+	 ln -sf ../ACE/ACE_wrappers/ace/libACE.so.5.4.7 libACE.so.5.4.7; \
+	 ln -sf ../libjcore/libjcore-2_5_0.a libjcore-2_5_0.a; \
+	 ln -sf ../libjcore/libjcore-2_5_0.so libjcore-2_5_0.so; \
+	 ln -sf ../libjx/libjx-2_5_0.a libjx-2_5_0.a; \
+	 ln -sf ../libjx/libjx-2_5_0.so libjx-2_5_0.so)
+	touch Libraries/JX/ACE/ACE_wrappers/ace/Svc_Conf_l.cpp
+
+mulberryinit:
+	(cd Linux; ./links.sh)
+
+mulberrymakemake:
+	if { test ! -f Linux/Makefile; } then \
+		(cd Linux; ../Libraries/JX/bin/makemake) \
+	fi \
+
+update:
+	(svn update)
+
+buildjx:
+	(cd Libraries/JX; ./build)
+
+updatemulberry:
+	(cd Build; ${MAKE} svn)
+
+buildmulberry: mulberrymakemake
+	(cd Build; ${MAKE} static)
+
+buildmulberryapp: mulberrymakemake
+	(cd Build; ${MAKE} app)
+
+buildmulberryplugins:
+	(cd Build; ${MAKE} plugins)
+
+install:
+	(cd Build; ${MAKE} install)
+	
+init: jxinit mulberryinit
+
+build: buildjx buildmulberry
+
+update: updatejx updatemulberry
+
+runit:
+	(cd Linux; ./mulberry &)
+
+run: update build runit
+
+all: init build install

@@ -1,0 +1,36 @@
+/* XPM */
+static char *Toolbar24Down[] =
+{
+/* width height ncolors chars_per_pixel */
+"7 24 4 1",
+/* colors */
+"A c #FFFFFFFFFFFF",
+"B c #CECECECECECE",
+"C c #8C8C8C8C8C8C",
+"D c #63636363CECE",
+/* pixels */
+"DDDDDDD",
+"BDDDDDB",
+"BBDDDBB",
+"BBBDBBB",
+"BBBBBBB",
+"BABBABB",
+"BBCBBCB",
+"BBBBBBB",
+"BABBABB",
+"BBCBBCB",
+"BBBBBBB",
+"BABBABB",
+"BBCBBCB",
+"BBBBBBB",
+"BABBABB",
+"BBCBBCB",
+"BBBBBBB",
+"BABBABB",
+"BBCBBCB",
+"BBBBBBB",
+"BABBABB",
+"BBCBBCB",
+"BBBBBBB",
+"BBBBBBB",
+};

@@ -1,0 +1,4 @@
+# Change the value here to best match the build system description.
+# This string is included in the tgz file name.
+
+ARCHIVE_SUFFIX := linux

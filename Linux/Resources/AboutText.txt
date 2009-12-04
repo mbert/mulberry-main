@@ -1,0 +1,7 @@
+const char* cAboutText = 
+"Mulberry\256 is an an email and calendar client for MacOS, Win32 and UNIX based computers.\n"
+"\n"
+"http://www.mulberrymail.com\n"
+"mailto:mulberry@mulberrymail.com\n"
+"\n"
+"Mulberry\256 is Copyright: Cyrus Daboo, 2006-2009. All Rights Reserved.";

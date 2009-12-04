@@ -1,0 +1,606 @@
+Mulberry Changes (Win32)
+
+v1.4.5 : 23-November-1999
+Fixes
+*Fixed bug which allowed local drafts to be saved when quitting with admin option to lock out local drafts turned on.
+
+v1.4.5b1 : 4-November-1999
+Minor Changes
+*IMSP address book opening time reduced.
+*Can now edit bounced message subject.
+
+Fixes
+*Fixed bug with AppleDouble part size calculation for admin limits.
+*Fixed bug with spaces in the name MIME part attachments.
+*Fixed bug in which identity popup would not have delete item enabled.
+*Fixed bug with timezone offset generation for Hawaii.
+*Fixed bugs with spell checker refusing to delete or add certain words.
+*Fixed bug in base64 decoding of ISO-8859-1 text.
+*Fixed bugs related to address search window state saving and loading from prefs.
+*Fixed bug with default filename when saving messages while reading in the same message window.
+*Fixed bug with crash when typing a tab in the address search window.
+*Fixed bug with failure to honor Content-Disposition filename parameter.
+*Fixed bug with reply/forward quoting text with lines that start with spaces or tabs that exceed the wrap length.
+*Fixed bug with disabled edit menu items in address search text field.
+*Fixed bug with restoring window size of an address book with the group list hidden.
+*Fixed bug with tooltips appearing when a window was iconised in MDI mode.
+*Fixed bug causing a crash when a file from the Explorer is dragged into a draft window.
+*Fixed bug with draft and message window bottom split pane being sized down to zero height.
+*Fixed bug where drag and drop message copy would not do a delete the second time.
+*Fixed bug where adding a new text part to a bounce would select the wrong part.
+*Fixed bug with connection failure alerts being on-screen for longer than the tickle interval.
+
+v1.4.4 : 7-July-1999
+Minor Changes
+*Added Eudora4 address book import/export plugin.
+
+Fixes
+*Fixed bug with Eudora address book import/export plugin.
+*Fixed bug causing a crash when cancelling the Open Mailbox dialog.
+
+v1.4.4b2 : 28-June-1999
+Admin Changes
+*Changed Configuration plugin to allow multiple calls into Mulberry for setting prefs.
+*Changed Configuration plugin to allow plugin to turn off multi-user dialog.
+
+Minor Changes
+*Added Print item to message and draft text area context menus.
+*Added tooltips to all UI widgets in major windows.
+
+Fixes
+*Fixed problems with WinHelp indexing to wrong pages.
+*Fixed bug with font menu/popup on Win98.
+*Fixed bug with window positioning when taskbar is on the left side of the monitor.
+*Fixed bug causing a crash if multiple clicks on the main window close button occur.
+*Fixed bug with base64 decoding of text attachments.
+*Fixed bug with error during remote address operations.
+*Fixed various bugs relating to handling of remote options sets.
+*Fixed bug causing address import/export failure when MDI windows are maximised.
+*Fixed bug causing duplicate mailbox/directory items to appear after creating a draft.
+*Fixed bug causing a crash when server closes its connection early during logout.
+*Fixed bug with quotes and non-ascii characters when attaching files.
+
+v1.4.4b1 : 27-May-1999
+Admin Changes
+*Added support for site-dependent Configuration plugin.
+
+Minor Changes
+*Added Navigation Services support.
+*Left arrow in hierarchy table moves up to the parent after collapsing the currently selected row.
+
+Fixes
+*Fixed bug with clicking into background window.
+*Fixed bugs when unseen messages are treated as new.
+*Fixed bugs with hierarchical display of New Messages cabinet.
+*Fixed bug caused when server responds with empty envelope.
+*Fixed bug with tracking of column titles when changing sort order.
+
+v1.4.3 : 5-May-1999
+
+v1.4.3b3 : 4-May-1999
+Admin Changes
+*SMTP server choice now included in multiple server choice in multiuser dialog.
+
+v1.4.3b2 : 28-Apr-1999
+Admin Changes
+*Can now specify multiple comma delimited server addresses to have server choice popup appear in multi-user login dialog.
+
+Fixes
+*Appending a draft to an IMAP server now clears the 'dirty' state of the draft.
+*Can no longer delete accounts when locked by admin.
+*Fixed bug causing a crash when changing server details in prefs while a reply draft exists.
+*Fixed bug causing a crash for wildcard cabinet items in mailbox popups.
+*Fixed bug that allowed all remote prefs accounts to be deleted while prefs set to remote.
+*Fixed bug with K4 reverse lookups for sites that don't use CNAME entries in their DNS records.
+*Fixed bug with sort by match in mailbox window.
+*Fixed bug with text that appears in reply/forward/print captions for Smart Address.
+*Fixed bug with initial focus on edit field in address search window.
+*Fixed bug with initial focus on edit field in message search window.
+*Fixed bug with K4 plugin error message reporting.
+*Fixed bug causing crash when using PLAIN authentication with ACAP servers.
+*Fixed bug causing crash when switching between new messages in mailboxes.
+*Fixed bug with select all command in address book window.
+*Fixed bug causing corruption of address book manager list when deleting multiple remote address books.
+*Fixed bug with missing fields when dragging an address from the address search window into an address book.
+*Fixed bug with insertion of default font name in enriched and html drafts.
+*Fixed bug causing a crash when reading messages which contains null characters.
+*Fixed bug with loss of focus when a message window address field expands while moving between messages.
+*Fixed bug with mailbox listing on IMAP2bis servers.
+*Fixed bug with 'Reply...' commands default to 'Reply' only when used in a mailbox window.
+
+v1.4.2.1 : 12-Mar-1999
+Minor Changes
+*Modified Kerberos V4 plugin to accept raw K4 realm as user-specified server principal.
+
+Fixes
+*Fixed bug with smart print caption item not displaying title.
+*Fixed bug with dependency on IE4.
+*Fixed various bugs with address dragging.
+*Fixed control title clipping in spell options dialog.
+*Fixed bug causing a crash if e.g. 'INBOX*' were used in a copy to cabinet.
+*Fixed bug setting initial admin controlled email address.
+*Fixed various spell checker bugs.
+*Fixed bug with POPPASSD server disconnect before client quit.
+
+v1.4.2 : 1-Mar-1999
+Minor Changes
+*Added mark seen on close keyboard shortcut.
+*Changed icon for next message button when message in the last in its mailbox.
+
+Fixes
+*Fixed bug with doing a replace all with replacment text the same as find text.
+*Fixed bug with read-only bounce text being overwritten by signature.
+*Fixed bug with failure to deallocate network socket resources.
+*Fixed bug with entering multiple addresses in identity edit dialog.
+*Fixed bug with expunge on close failing to update server window status.
+*Fixed bug in which mailbox rename would not update the mailbox popup menus.
+*Fixed bug causing crash when open message is expunged by another client.
+*Fixed bug with HTML generation when using centered text.
+*Fixed bug with HTML generator not using HTML character entity names.
+*Fixed bug causing a crash when changing a part in a draft to a message/rfc822.
+*Fixed a number of minor memory leaks.
+
+v1.4.2b3 : 16-Feb-1999
+Minor Changes
+*Added password changing plugins to do POPPASSD and URL(web) based password changing.
+
+Admin Changes
+*New admin options for controlling use of password changing plugins (see GUI AdminToolkit).
+*Can now disable use of BOTH local AND remote prefs to prevent saving of prefs to ANY location. Instead, prefs changes only last for the current Mulberry session.
+
+Fixes
+*Fixed bug with open cabinets ending up with disabled mailboxes after app startup.
+*Refresh command in Mailbox menu now active when Subscribed is selected.
+*Fixed bug with keyboard focus for remote prefs set choice dialog.
+*Fixed bug causing authentication of remote addressbook servers to always end up as plain.
+*Fixed bug with attempting to connect to non-existent server not generating an error.
+*Added caps lock indicator to password dialog.
+*Fixed bug with message window scroll bar not sizing properly.
+*Fixed bug with window focus after a dialog or alert in SDI mode.
+*Fixed bug in which new mail alert would appear sometime after opening INBOX.
+*Fixed bug with using the last message number in the Go To message dialog.
+*Fixed bug causing a crash when dial-up attempt fails after double-clicking a mailbox.
+
+v1.4.2b2 : 2-Feb-1999
+Minor Changes
+*Now get choice of remote preference sets when starting up from remote prefs and multiple sets exist.
+*Quoted text can now have different colours for up to five levels of quotation as set in preferences dialog.
+*Can now specify a default identity for each mail account that gets applied to draft messages when replying or forwarding from that account.
+*Can now specify separate default identities for any mailbox so that replying/forwarding messages in that mailbox will use the mailbox specific identity, rather than the account default. 
+*Cabinet items no longer need corresponding entries in the server hierarchy, enabling mailboxes to be manipulated without having to create specific search hierarchies.
+*Can now drag and drop servers in main server window to reorder mail accounts.
+
+Admin Changes
+*New admin option to prevent Mulberry from quitting when the Quit command is used, allowing Mulberry to be 'recycled' for use by the next user.
+*Can now include prefix in the locked email domain field to allow auto generation of '+' addressed email addresses.
+
+Fixes
+*Fixed handling of cc/bcc/body items in extended mailto URLs.
+*Read-mail preference name changed to avoid clash with v1.3 value.
+*Fixed varius underlying bugs with calculating number of new messages in server display when mailbox is open.
+*No longer records expanded/collapsed state of hierarchies when using the server browse dialog.
+*Fixed crash when refreshing a hierarchy with its last mailbox open.
+*Fixed crash when replying/forwarding a message with a line containing spaces at the start that exceeds the wrap length.
+*Fixed bug with esc key in some dialogs doing OK instead of Cancel.
+*Drag and drop move of a mailbox now renames correspdoning cabinet entries.
+*When opening a message with multiple text parts, the first one shown will be the first one with more than four characters. Makes forwarded messages from AOL users easier to read.
+*No longer inserts default signature when opening a draft message from within a mailbox.
+*Fixed window activation when trying to drag from a background mailbox window.
+*Clicking the space to the right of a URL at the end of a line or split across a line no longer result in the URL being launched.
+*Fixed bug wih changes to Open at option in Mailbox prefs panel not being remembered.
+*Fixed bug preventing directories from being renamed.
+*Fixed bug in which display would not correctly update after renaming a mailbox/directory that contained other mailboxes.
+*Fixed bug causing crash when doing spell replace with an empty replace word.
+*Fixed bug with creating mailboxes in newly created search hierarchy.
+*Fixed bug causing a crash when spell checking certain words just before sending.
+*Read next button now active for last message in mailbox.
+*Cycling from a read-only mailbox to a read-write mailbox now correctly enables the delete buttons in the message window.
+*Fixed bug causing loss of server address when switching into Simple prefs panel with A Kerberos authenticated server.
+
+v1.4.2b1 : 6-Jan-1999
+Minor Changes
+*Revised ACAP options data model to improve performance.
+
+Fixes
+*Fixed ANONYMOUS, CRAM-MD5 and KERBEROS_V4 logins to ACAP options.
+
+v1.4.1 : 1-Dec-1998
+
+v1.4.1b5 : 20-Nov-1998
+Fixes
+*Fixed address book login at startup conversion from v1.3.
+*Fixed identity name conversion from v1.3 with empty real name.
+*Fixed bug on errorrecovery when cancelling a mailbox open.
+*Puts 'unspecified-recipients:;' in To field when sending/appending if To and Cc are empty in a the draft, but Bcc is not.
+
+v1.4.1b4 : 19-Nov-1998
+Minor Changes
+*Added admin option to allow upgrade from v1.3 to substitute use of CRAM-MD5 or K4 authentication in IMAP, IMSP or ACAP server accounts.
+
+Fixes
+*Fixed multi-user login problem when using remote prefs and default email address option.
+*Recently used mailboxes now correctly ordered in mailbox popups.
+
+v1.4.1b3 : 18-Nov-1998
+Fixes
+*Fixed multi-user login problem when using Kerberos V4 without locking the return address.
+*Fixed bug when cancelling SMTP name lookup and subsequent failure to use SMTP.
+*Fixed bug in which Refresh Subscribed while logged off would cause a crash.
+
+v1.4.1b2 : 17-Nov-1998
+Fixes
+*Fixed problem with save/restore of certain preference values containing *[] characters.
+*Fixed multi-user login problem when using Kerberos V4.
+*Fixed thread deadlock problem when status line updates.
+
+v1.4.1b1 : 12-Nov-1998
+Fixes
+*Fixed email address admin startup problem.
+*Fixed crash when editing preferences with an open mailbox.
+*Fixed occasional Error -19278 when expunging.
+*Fixed crash when clicking on Current User row in ACL table.
+*Fixed crash when expunging a message with an open message/rfc822 message window.
+*Fixed crash when clicking buttons in Set Captions dialog in prefs.
+*Fixed crash with initial preference setup when using cabinets.
+*Fixed thread deadlock problem when new mail arrives while attempting to read the next message.
+*Fixed preference upgrade alert to ignore fixes (e.g. no alert for v1.4 -> v1.4.1).
+
+v1.4 : 8-Oct-1998
+Minor Changes
+*Added requote command to draft menu.
+*Added support for viewing all attachments with a single application.
+
+Fixes
+*Fixed focus problem when expanded a draft address field.
+*Now recognises URLs with 'URL:' prefix.
+*Fixed problems with creating mailboxes in a single account and with a single search hierarchy.
+*Fixed crash when creating a mailbox out of an existing directory item.
+*Default mailbox window size now has sort button visible.
+*Fixed bug with HTML display and relative font sizes.
+*Fixed bounce and forward of message/rfc822 parts.
+*Fixed problems with unseen and recent counts in server window.
+*Fixed bug in which messages were deleted after a failed copy (via drag and drop).
+*Fixed bug causing a crash when a draft was open and a connection was reset.
+*Fixed some Pine import problems.
+*LDAP attribute matching now case-insensitive.
+
+v1.4b4 : 17-Sep-1998
+Fixes
+*Fixed problem with startup from registry preferences.
+*Fixed problem with crash when opening a mailbox.
+*Fixed problem with older versions of IMAP2bis server.
+*Fixed problems with anonymous IMAP logins.
+*Fixed problem with DNS lookup of local machine.
+*Fixed problem of multi-user config startup with Kerberos authentication.
+*Fixed problem with crash when switching out of Simple prefs panel when primary IMAP account was set to Kerberos authentication.
+
+v1.4b3 : 10-Sep-1998
+Minor Changes
+*Content-Disposition header now generated.
+*LDAP root can be 'parameterised' using %1, %2 etc, with substitutions made at search time by specifying parameters after the search item with ';' separators.
+*Reogranisation of Mailbox and Outgoing preference panels. Each now has a two-page tab panel.
+*Mailbox window preferences are only saved if they are different from the default window state.
+*Added new Admin option to prompt for quit when user logs out of all IMAP servers.
+*URLs now hilite and flash when clicked.
+*New messages are tested against any match criteria when they arrived and only displayed if they match the current criteria and view filtering is on.
+
+Fixes
+*Delete and next now closes message window if not moving to the next new mailbox.
+*Fixed crash when quitting with an open draft.
+*Quit now does expunge on close, if selected.
+*Fixed numerous bugs with mailbox creation.
+*Colour choice dialog now correctly initialised.
+*Fixed crash when attempting to send an attachment open and locked by another application.
+*Draft window attachment indicator now updates correctly as parts are added and removed.
+*Various mailbox commands now active for cabinet items.
+*Tabs and return key now work in search criteria fields.
+*Text no longer displays over scrollbar in message window.
+*HTML BLOCKQUOTE tag now results in text shown with the quotation text style set in the prefs.
+*Incorrect default download directory now results in an error message when an attachment is downloaded.
+*Drag and drop copy now copies all messages, not just cached messages.
+*Fixed bugs with incorrect removal of preference sets on IMSP server.
+*Fixed bug with empty file extension field.
+*Spell check of a single word no longer attempt to capitalise the word.
+*Can subscribe/unsubscribe direct from mailbox window.
+*DNS lookups now done asynchronously and can be cancelled.
+*Fixed Kerberos V4 default name option.
+*Fixed Kerberos V4 startup with initial KClient dialog for login.
+*Fixed bug with expunging matched messages and switching into match mode without an update.
+
+v1.4b2 : 21-Aug-1998
+Minor Changes
+*Added preference to turn off empty subject warning on draft send.
+*Added preference to turn off automatic switch to next mailbox with new messages.
+*Added preference to toggle draft flag on message append to mailbox.
+*SMTP now available before IMAP login. Admin option will force old behaviour requiring  an IMAP login first.
+
+Fixes
+*Fixed crash when using NT4 without IE4.
+*Fixed bug with inability to close preference dialog after identity edit.
+*Selected search sets in match popup now remember when mailbox reopened.
+*Fixed bug with inability to edit certain IMSP groups.
+*Fixed bug when replying/forwarding a message with a single non-text attachment.
+*Fixed bug with multiple clicks on Single and Advanced buttons in preferences.
+*Fixed bug in which account panel changes were lost after cancelling delete or rename dialogs.
+*Fixed bugs with use of expunged messages in drafts.
+*Fixed bug causing crash when opening a mailbox from the search dialog.
+*Delete/rename of mailbox now updates all matching mailboxes wherever they appear in the hierarchy.
+*Fixed bug causing a crash when closing a newly created, subscribed mailbox.
+*Creating a mailbox using 'Full Path' now puts it into first matching hierarchy.
+*Fixed update problem with draft window when not inserting signature when its opened.
+*Fixed bug in which undiscovered mailboxes were not checked for new mail.
+*Server browse dialog now allows multiple selection when used from search window.
+*Fixed bugs with operations on mailboxes in subscribed hierarchy.
+*Popup menu history items now immediately reset when history number changed in preferences.
+*Fixed bug with creating a subdirectory.
+*Can now delete directories.
+*Fixed various longstanding new mail alert bugs.
+*Fixed bug in which mailboxes in multiple hierarchies would be checked more than once.
+*Enabled recursive server-to-server mailbox copies when dragging over a directory.
+*Smart address column now refreshed in open mailbox window when preferences change.
+*Fixed bug when using 'Fewer Items' in search window.
+*Fixed missing copy/paste functions in search window criteria items.
+*Fixed behaviour when SMTP AUTH not available or AUTH mechanism not supported.
+
+v1.4b1 : 10-Aug-1998
+Fixes
+*Fixed problem with Kerberos and IMSP default logins.
+*Fixed bug with cursor position in new draft windows.
+*Fixed problems relating to Copy To and Append To missing mailboxes.
+*Fixed window position problems when switching from large to small monitor size.
+*Fixed problem with opening a mailbox not sorted by number when the number of messages was less than the intial cache size.
+*Fixed problems with auto-selecting mailbox in the Browse dialog.
+*Fixed problem with alert after cancelling the Browse dialog.
+*Fixed performance problems with searching large mailboxes for the next new message.
+*Fixed problem with unselected LDAP accounts being searched when IP addresses were the same.
+*Fixed problem with switched menu items in Match menu.
+*Fixed problem with failed MIME content lookup and missing file suffix.
+*Fixed problem with error during an expunge when a non-matched message was open on screen.
+*Fixed problem with IMSP sets not being saved if started up directly from IMSP default set.
+*Fixed problem with keyboard shortcut for Copy & Next menu command.
+*Fixed crash caused when recycling a mailbox window between mailboxes on different servers.
+*Fixed problem with need to specify account name in Copy To field in Simple prefs panel.
+*Fixed drag and drop auto-expand problem when scrolling.
+*Fixed all remaining buffer overflow issues.
+
+v1.4a8 : 25-Jul-1998
+Minor Changes
+*Can now have Kerberos plugin determine the server principal automatically.
+*SMTP AUTH support added. SMTP account panel now has an Authenticate panel.
+*Default IMSP address book auto-created if it does not exist.
+*Default Copy To mailbox item added to Simple prefs panel.
+*Sent mail or drafts appended to a mailbox now include any Bcc addresses in a Bcc header field. This field is not generated for mail sent via SMTP.
+
+Fixes
+*Fixed problems with exporting into Communicator format address book.
+*Fixed various multiple password dialog box problems.
+*Taskbar icon now dissappears after mouse-up.
+*Fixed problem with marking messages seen for mailbox in server window.
+*Fixed various problems related to message caching and sort order/method.
+*Fixed Compoase As popup menu by removing Plain Wrapped item.
+*Fixed problems with server window display on startup.
+*Fixed problems with IMAP4 (as opposed to IMAP4rev1) servers.
+*Search hierarchy prefix now removed from Copy To menu if only one search hierarchy and only one mail account.
+*Last search item in Match popup now not reset when switching from Match to All.
+*New message in newly opened mailbox now scrolled to the top.
+*Fixed various problems with Copy To/APpend To menus/popups when using the corresponding cabinets.
+*Fixed server window referesh problem when deleting mailboxes.
+*Fixed problems with inter/intra-server mailbox-to-mailbox copying.
+*Fixed problems with starting up by double-clicking a Mulberry file.
+*Removed dependency on new version of CommCtrl32.dll.
+*Connection now reused when moving between new mail mailboxes.
+*Fixed excessive caching problems when moving between new mail mailboxes.
+*Fixed blank mailbox items appearing when connecting to UW-style server.
+
+v1.4a7 : 16-Jul-1998
+Major Changes
+*Combined MDI/SDI version. Can toggle between MDI/SDI via prefs (requires app restart for changes to take effect). Can choose multiple or single taskbar entries in SDI mode.
+
+Minor Changes
+*Added option to allow blank line to be automatically added before the signature text.
+*Can now have the same LDAP attribute appear in more than one Mulberry field when doing an LDAP search.
+*Logging options dialog added. Hold down the alt key while selecting the Preferences item in the File menu.
+*Add draft window hard wrap option. Default can be set in the preferences and new popup item in the draft window can be used to toggle between wrap to window size and wrap to line length.
+*Added navigation buttons to message windows showing a message/rfc822 that is part of a multipart/digest.
+*Print, reply and forward caption dialogs now have two panes for header and footer. Print captions can be applied to messages or drafts by clicking a radio button.
+*Spacebar in mailbox window will page down the message list.
+*Closing a local address book now gives the option of hiding it. Local address books can be open hidden if set to open at startup.
+*Can now automatically descover the hierarchy character for IMAP4 and IMAP4rev1 servers.
+*Added NAMEPSACE extension support via 'Automatic Hierarchy List' option in IMAP account panel. Hierarchies decovered from the NAMESPACE response can be auto inserted as search hierarchies in the server window if not already present.
+*Server window will now revert to v1.3 look and feel when only a single server is in use and only a single search hierarchy is specified. The single search hierarchy is edited via the server properties dialog.
+*Added CC field to print/reply and forward configurable caption. For reply and forward, if CC is the only '%' field on a line (with other text) and the CC field is empty, then the entire line will not be inserted.
+*Switched to using new 'official' Originator-Info message header (draft in Last Call with the IETF at the moment) X-Authenticated-By. The encryption scheme for hiding user id and password information is not yet complete.
+*Can now cancel updating of a preference file when opening it.
+*Added button to bottom of mailbox window to allow a 'cache all' operation or a 'goto message' operation.
+*Switching a mailbox to a sort method other than number will give the user the option of caching all the messages and then doing the sort, or only sorting the existing cached messages, if some message are not cached. This will also occur when opeing a mailbox into a sort other than by number.
+*Message list resorted everytime new messages are cached.
+
+Admin Changes
+*Added admin option to prevent use of local address books (no saving/opening).
+*Added admin option to prevent use of local drafts (no saving/opening).
+*Added admin options to control generation of new Originator-Info header.
+*Added admin option to prompt user for their real name on startup. This includes a new multi-user dialog with a 'Real Name' field, if this option is on.
+*Added admin option to restrict sizes of draft messages. Can set warning and prevention limits for total number of addressees (To, CC and Bcc), total size of attachments, size based on the product of attachment size and total addressees. Exceeding anyone of these will trigger the warning (the draft can still be sent) or prevention (sending of the draft is forbidden).
+*Added admin option to prevent downloading of admin defined MIME types, which can use pattern match (e.g. block all images with 'image/*').
+*Added admin opption to control use of MDI/SDI toggle. Can prevent users from changing this option and can force Mulberry to either MDI or SDI.
+
+Fixes
+*Fixed navigating messages with maximised message window.
+*Fixed crash when KClient dlls are not installed and Kerberos plugin is present.
+*Fixed crash that occurs after three or four LDAP searches.
+*Fixed occasional bug in Kerberos server challenge.
+*Fixed crash that could occur when trying to create a mailbox as a sub-mailbox of INBOX.
+*Fixed bug with servers with no directory separators.
+*Only a single instance of the app will be used when launching mailto URLs from errant browsers.
+*Missing open at startup checkbox added to mailbox properties dialog.
+*Login/logout button start now correctly matches selection.
+*Fixed crashed caused by illegal server response to LIST command.
+*Fixed crash when searching an open address  book on a field that is empty in some of the addresses in the address book.
+
+v1.4a6 : 23-Jun-1998
+Minor Changes
+*Redesigned LDAP account panel to allow for authentication and to allow all Mulberry address book fields to be mapped to LDAP attributes.
+*Address searching LDAP servers now adds an extra popup to select which servers are searched.
+*LDAP searches can be done on any LDAP attribute as mapped in the preferences.
+*Address search window now remembers the state of all items
+*Can specify separate fonts for printing plain text messages and for the print headers and footers.
+*Can configure the text that appears in print headers or footers which can be different for incoming or outgoing messages.
+*Can configure the text used at the start and end of quoted reply messages of forwarded messages.
+*New view options to coerce the message window to interpret the message using a specific text format or with a fixed width font.
+*Added complete set of new mail alert capabilities.
+*Added new icon for mailbox window Attachments column that indicates a multipart/alternative text message with no other attachments.
+*Added new icon next to parts counter in message and draft windows as an extra cue that attachments are present.
+*Added new alert capability used to signal when a message with attachments is opened.
+*Can now specify in the preferences whether Unseen and/or Recent flags are used to determine 'new' messages.
+*Added Advanced/Simple option to preferences dialog.
+*Added 'Create New' button to reply addressing dialog to allow a empty draft addressed to the selected addresses to be created.
+*Added 'Open after Login' cabinet to have mailboxes opened after logging in to a server.
+*Now automatically checks for new mail when started.
+
+Fixes
+*Fixed bug causing crash when using spacebar in last message in a mailbox.
+*Fixed crash when switching to Match view with some selected messages.
+*Rename and other mailbox commands no longer active when a server is selected.
+*INBOX now added to Check Favourites for first time users.
+*Threaded searching now works with Kerberos or CRAM-MD5 plugins after authentication plugin API was made thread safe.
+*Changes to functionality of Draft button in message window - now always creates an empty draft with no addressees.
+*INBOX can now be used as the root for creating new mailboxes when supported by the server.
+*Search window now correct size in SDI version.
+*Expunge button now activated when opening a mailbox with deleted messages.
+*Message window scrollbar now correctly sized when first opened.
+*Mailbox window context menu no longer corrupted.
+*Expanded/collpased state of server hierarchy in server window now preserved.
+*Selecting messages using the 'Select' popup now operates on all messages. Will do a search on the server if some messages are not currently cached.
+*Fixed bug when dragging textual address to address book window.
+
+v1.4a5 : 09-Jun-1998
+Major Changes
+*Added text Find and Replace options for message (Find only) and draft windows.
+*Added various text manipulation options for draft window, related to quoting, wrapping etc.
+*Changed mailbox window to add extra buttons and to support new features.
+*Virtual scrollbar message caching controlled by options in the Mailbox preferences.
+*Added view filtering capability to mailbox window to allow subsets of messages to be quickly defined and viewed based on simple search criteria.
+*Added full message searching capability, including multi-threaded simultaneous multi-mailbox searching.
+*Sets of search criteria can be saved to form building blocks for more complicated searches or used in view filtering.
+
+Minor Changes
+*Updated splash screen and about box bitmaps.
+*Added some extra context menus items to various windows.
+*Reorganised 'Display' and 'Formatting' prefs panels into 'Display' and 'Fonts'.
+*Can now turn off server table row background colours.
+*Reply and forward quotes can now be any length, not just a single character.
+
+Fixes
+*Address sorting is now case insensitive.
+*Header button now active for message/rfc822 part display.
+*Can now unsusbcribe to a mailbox previously subscribed to in the same session.
+*Can do 'Properties' on mailboxes on logged out servers without receiving error messages.
+*Creating a mailbox now reveals the correct mailbox in the server window.
+*Account name is now prefixed to mailbox window title if there is more than one account.
+*Can now create a mailbox at the top level of a search hierarchy.
+*Fixed bug in extended mailto URL handling.
+
+v1.4a4 : 05-May-1998
+Minor Changes
+*Now generates an 'In-Reply-To' header when replying to messages.
+*INBOX added to 'Check Favourites' for newly created accounts.
+*First release of CRAM-MD5 authentication plugin.
+
+Fixes
+*Mailbox list menus now reset by changes to preferences, even during execution of preferences dialog.
+*Non-active items in identities will now default to the values set in the default identity.
+*Selected message preserved when doing Read Next/Previous Block.
+*Fixed bug with initialising address book manager window.
+*Sender identity address cannot be set to 'multiple'.
+*Changed terminolgy in Kerberos authentication panel.
+*Sort column and order now remembered for mailbox windows.
+*Kerberos now works with IMSP and ACAP servers.
+*Removed IMSP server error suppression for buggy IMSP server (server patch now available).
+*Other unreported bugs fixed too.
+
+v1.4a3 : 24-April-1998
+Minor Changes
+*Double-clicking changes: server - opens single server window, user cabinet - edits title, search hierarchy - edit search path, cabinet item - opens if mailbox, edits if wildcard.
+*Server window button reorganisation.
+
+Fixes
+*Preference conversions problems fixed.
+*Can create mailbox at selected server hierarchy.
+*New mail period now saved/restored.
+*Match user id & password now saved/restored.
+*Properties now works on cabinet items.
+*Problems of incorrect mailbox resolution when a cabinet was set to display hierarchic now fixed.
+*Remote on startup now works.
+*Wildcard cabinet matching no longer matches directories.
+*Fixed problems with account renaming.
+*Login/logout buttons now active in address book manager window.
+*Fixed bugs with drag and drop copying of mailboxes within the same server and between servers.
+*Major improvement to performance when listing large numbers of mailboxes when wildcard cabinet items are present.
+*Many other unreported bugs fixed.
+
+v1.4a2 : 15-April-1998
+Major Changes
+
+-Multiple Accounts
+*Mulberry now supports multiple IMAP, SMTP, IMSP address book and LDAP address search accounts.
+*Accounts can be on the same server (with different user ids) or on different servers.
+*All accounts are configured in the same way from the same preference panel.
+*Identities can now be configured to use different SMTP servers by creating different SMTP accounts.
+
+-Authentication Plugins
+*Support for authentication plugin architecture - requires server support too.
+*Listed methods: 'Plain Text' (as previously - always available), 'CRAM-MD5' (available via plugin) and 'Kerberos V4' (available via plugin).
+*Kerberos V4 plugin shipped with this release. Works with KClient on Mac OS & Win32. Authman/KClientman support for Mac OS coming soon.
+
+-Server Window
+*Now supports fully hierarchic mailbox display.
+*User can toggle between flat or hierarchic display.
+*Initially only lists top-level hierarchy and automatically lists mailboxes as sub-hierarchies are expanded.
+*Can refresh any hierarchy independently of the rest.
+*'Main' server window displays all mailbox accounts in their own hierarchy.
+*Separate server windows for each account can also be opened.
+*Can now add 'Places to Search' hierarchies directly from server window.
+*Adding 'Places to Search' is done via 'Mailbox Search' dialog with criteria popup menu choice.
+*Full drag and drop support for moving and copying mailboxes, even between servers, and for reordering search hierarchies.
+*User-defined text styles and background colouring to differentiate items in the list.
+
+-Mailbox Cabinets
+*Built-in and user-defined mailbox 'cabinets' available to allow grouping of mailboxes from any account.
+*Built-in cabinets for: favourite mailboxes, subscribed mailboxes, mailboxes for use in copy to menus, mailboxes for use in append to menus, mailboxes to have messages marked as seen on close, and mailboxes containing recent messages.
+*Can create unlimited user-defined cabinets.
+*Cabinet display can be toggled by popup menu.
+*Some built-in cabinets will except maibox name patterns with wildcards to match a particular set of mailboxes from any location.
+
+-Copy To/Append To menus
+*Can now define two different sets of mailboxes to display in 'Copy To' or 'Append To' main menus or popups to reduce their size.
+*Sets are defined by adding items to a cabinet.
+*Can choose whether to display the entire mailbox list or the cabinet sub-set in each menu via a preference.
+*When displaying cabinets, the last few mailboxes used for the corresponding operation are remembered and appended to the menu. The number remembered is configured via the preferences.
+*Added 'Choose' option to each main menu and popup to allow browsing for mailbox with hierarchic view.
+*Can create a mailbox during browse operation.
+
+-New mail checking
+*Checking of favourites is now done in a separate thread so as not to interfer with user actions.
+*New mail notification now configured in its own preference panel. Options will be expanded in next alpha release.
+
+-ACAP
+*Preliminary support for ACAP remote options. This is intended for use by server developers only. Please contact us for more information.
+
+Minor Changes
+*Rows in all hierarchic tables can be expanded or collapsed with right or left arrow keys respectively.
+*Rollover of recent messages: when tabbing at the end of a mailbox will get a dialog asking whther to go to the next mailbox with recent messages.
+*Rollover of recent messages: option-tab in a mailbox will go to the next mailbox with recent messages.
+*Rollover of recent messages: spacebar in the last message in a mailbox will go to the next recent message in the corresponding mailbox.
+*Added 'Date Received' column to mailbox window.
+*Added 'Mark Contents Seen' command to have any unseen messages in a mailbox marked as seen. Can be automated by cabinet.
+*Can edit identities directly from the draft window via the popup.
+*Open and create mailbox commands always available.
+*Can choose to use real TAB characters when composing messages, or fake them with spaces as before.
+
+Fixes
+*Signature insert when changing identities no longer adds extra character.
+*Address book manager window stays hidden after quit and restart.
+*Address search window now always appears when search command selected.
+*Window flashing whiole opening fixed.
+*Occasional redraw problem with server window fixed.
+*Fixed bug in handling HTML messages with lots of tags.

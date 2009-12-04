@@ -1,0 +1,14 @@
+-suffix .cp
+
+@vCardAdbkIOPlugin.so
+-prefix sources/
+CVCardAdbkIOPluginDLL
+CVCardEngine
+CVCard
+-prefix ../PluginLibrary/
+.a PluginLib
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CAdbkIOPluginDLL
+os_dep

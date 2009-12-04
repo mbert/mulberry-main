@@ -1,0 +1,18 @@
+#!/bin/sh
+
+./makeresxpm < icons.rc > xpms.res
+./makeresxpminit < icons.rc > xpms.cp
+#./makeresxpm < icons_unix.rc >> xpms.res
+#./makeresxpminit < icons_unix.rc >> xpms.cp
+
+./makeresico < icons_ico.rc > icos.res
+./makeresicoinit < icons_ico.rc > icos.cp
+./makeresico < icons_ico_unix.rc >> icos.res
+./makeresicoinit < icons_ico_unix.rc >> icos.cp
+
+./makeresstring < Mulberrytxt.rc > string.res
+./makeresstringinit < Mulberrytxt.rc > stringinit.cp
+./makeresstring < MulberryUnix.rc >> string.res
+./makeresstringinit < MulberryUnix.rc >> stringinit.cp
+./makeresstring < MulberryTips.rc2 >> string.res
+./makeresstringinit < MulberryTips.rc2 >> stringinit.cp

@@ -1,0 +1,67 @@
+DEV_HOME := .
+MULBERRY_HOME := ${DEV_HOME}/Mulberry
+LIBRARIES_HOME := ${DEV_HOME}/Libraries
+POWERPLANT_HOME := ${LIBRARIES_HOME}/open-powerplant
+
+SVN_ROOT := http://svn.mulberrymail.com
+SVN_MULBERRY := ${SVN_ROOT}/mulberry
+SVN_POWERPLANT := https://open-powerplant.svn.sourceforge.net/svnroot/open-powerplant/trunk
+
+# Plugins to build
+BUILD_PLUGINS := PluginLibrary CommunicatorAdbkIO CRAM-MD5 DIGEST-MD5 \
+			Eudora4AdbkIO EudoraAdbkIO GPG GSSAPI Kerberos \
+			NetscapeAdbkIO OEAdbkIO PGP PineAdbkIO QuickmailAdbkIO \
+			QuickmailProAdbkIO SMIME SSL vCardAdbkIO
+
+APP_TARGET := $(shell \
+   if { uname -p | egrep 'powerpc' > /dev/null; } \
+   then { echo "Debug"; } \
+   else { echo "Debug x86"; } fi)
+
+libraries:
+	mkdir ${LIBRARIES_HOME}
+
+ppsrc: libraries
+	svn checkout ${SVN_POWERPLANT} ${POWERPLANT_HOME};
+
+otherlibs: libraries
+	(cd ${LIBRARIES_HOME}; \
+	 curl -O http://developer.apple.com/samplecode/MoreFiles/MoreFiles.zip; \
+	 unzip MoreFiles.zip; \
+	 rm MoreFiles.zip; \
+	 curl -O http://developer.apple.com/samplecode/MoreFilesX/MoreFilesX.zip; \
+	 unzip MoreFilesX.zip; \
+	 rm MoreFilesX.zip)
+
+mulberrysrc:
+	svn checkout ${SVN_MULBERRY}/Mulberry/branches/v4.1d1 Mulberry
+
+patchpp:
+	(cd ${MULBERRY_HOME}/MacOS/Patches; \
+	 ./patchapply.py)
+
+updatepp:
+	(cd ${POWERPLANT_HOME}; svn update)
+
+updatemulberry:
+	(cd ${MULBERRY_HOME}; svn update)
+
+init: ppsrc otherlibs mulberrysrc patchpp
+
+buildplugins:
+	@for PLUGIN in $(BUILD_PLUGINS); do \
+		echo "-->Building $$PLUGIN"; \
+		xcodebuild -project Mulberry/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj; \
+		echo "" ;\
+	done
+
+buildapp:
+	echo "-->Building Mulberry ${APP_TARGET}"
+	xcodebuild -project Mulberry/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}"
+	
+build: buildplugins buildapp
+	echo "Built Mulberry"
+
+update: updatemulberry
+
+all: init build

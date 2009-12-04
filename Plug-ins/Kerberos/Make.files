@@ -1,0 +1,13 @@
+-suffix .cp
+
+@KerberosPlugin.so
+-prefix sources/
+CKerberosPluginDLL
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CAuthPluginDLL
+kbase64
+os_dep
+-prefix ../../Sources_Common/Utilities/
+CStringUtils

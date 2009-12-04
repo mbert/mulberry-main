@@ -1,0 +1,12 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/AM Implementations/LAMPopupButtonImp.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/AM Implementations/LAMPopupButtonImp.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/AM Implementations/LAMPopupButtonImp.cp	(working copy)
+@@ -148,6 +148,7 @@
+ 	if (menuH == LMenuController::GetEmptyMenuH()) {
+ 		mControlPane->Draw(nil);
+ 	}
++	Refresh();
+ }
+ #endif
+ 

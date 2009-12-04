@@ -1,0 +1,141 @@
+Mulberry Change History (Unix)
+
+v4.0.8 : 21-Feb-2007
+Minor Changes
+*Add option to automatically adjust timezones to new US rules as of
+March 2007.
+*Update built-in timezones to new rules for March 2007.
+
+v4.0.7 : 11-Dec-2006
+Minor Changes
+*bcc header will now appear in message pane summary headers if present
+(ticket #157).
+
+Fixes
+*Fixed bug with corrupt IMSP address entries preventing replies/forwards
+(ticket #155).
+*Fixed bug where copying to a mailbox with only 'a' rights would result
+in an error after a successful copy (ticket #134).
+*Fixed bug with parsing calendar lists from some CalDAV servers (ticket
+#133).
+*Fixed bug with drag and drop in server pane (ticket #87).
+
+v4.0.6 : 20-Sep-2006
+Minor Changes
+*Number of messages to be expunged now reported in alert (ticket #74).
+
+Fixes
+*Fixed bug with incorrect panels being shown when clicking prefs buttons
+(ticket #15).
+*Fixed bug with incorrect online FAQ url (ticket #18).
+*Fixed bug with format=flowed delsp option (ticket #5).
+*Fixed bug with incorrect wrapping of References header (ticket #37).
+*Fixed bug with Resources not being looked up in alternate locations
+(ticket #63).
+*Fixed bug with deleting attendees from new event/todo dialog (ticket
+#4).
+*Fixed bug with monthly recurring events not appearing in January
+(ticket #10).
+*Fixed bug with postscript printing with fonts with spaced in their name
+(ticket #76).
+*Fixed bug with utf8 locale and display of dates (ticket #32).
+*Fixed bug with crash on quit (ticket #46).
+*Fixed bug with non-ascii character input (ticket #31 & #75).
+
+v4.0.5 : 1-Aug-2006
+Major Changes
+*Now under new ownership.
+*Registration requirement removed - Mulberry is now free.
+*Added support for local, http/webcal, WebDAV & CalDAV based
+calendaring.
+*Improved unicode support, including two-byte script support with
+appropriate fonts installed.
+*Anti-aliased text on systems supporting the Xft library.
+*Completely new set of 'modern' icons.
+*Configurable toolbars.
+*Mailbox pane quick search option.
+*Basic calendar scheduling via email (iMIP) support added.
+*New Draft window layout with simple Attachments list option instead of
+full parts.
+*Draft window now supports per-draft custom identity.
+
+Minor Changes
+*Various HCI changes to clean-up UI.
+*Added new button in mailbox Details dialog to force rebuild of local
+mailbox data.
+*Added 'All' rules toolbar button.
+*Added new 'Selection Only' search criteria for rules to ensure manually
+applied rule will only operate on selected messages.
+*Added support RFC2231 encoding of MIME parameters.
+*Bounce command renamed to Redirect.
+*Spelling Options moved into preferences dialog.
+*New buttons added to address book pane for clearer operation.
+*Added option to switch back to iso-8859-x encoding of outbound
+messages.
+*Can now edit the to-do/task completed date.
+*Calendar name now used as attachment name when attaching a whole
+calendar to a message.
+*Added option to turn off LDAP lookups if a match in a local address
+book has been found.
+*Improved 8-bit header display fallback.
+*Added option to only display identity name in identity popup in draft
+window.
+*Added new option to do automatic connect when waking from sleep if
+active network adapter is found.
+*IMAP label names can now be customised.
+*New quick search active icon indicator added.
+*Calendar accounts can be dragged in calendar store view to re-order
+them.
+*New admin tool for v4.
+*Added new option to scroll mailbox pane to show new unseen messages.
+*Message size warning alert now includes the numeric size of the
+message.
+*Added draft auto-save/recovery feature.
+*Attachments and files can be dragged into draft text to attach to
+draft.
+
+Fixes
+*Fixed bug with =5F in q-p encoded MIME headers.
+*Fixed bug with illegal sieve syntax when using grouped search criteria.
+*Fixed bug with failure to display unicode names in menus.
+*Fixed bug with missing HTML4 entity mappings.
+*Fixed bug with URL copy to clipboard.
+*Fixed bug with improper transfer of real name when using admin
+configured version.
+*Fixed bug with inability to send when SMTP account is not properly set
+in identity.
+*Fixed bug with copy/paste on little endian systems.
+*Fixed bug with Resources directory locations.
+*Fixed bug with empty tooltips in mailbox pane.
+*Fixed bug with generated HTML AHREFs.
+*Fixed bug with gpg v1.4 and key names.
+*Fixed bug with parsing URLs in HTML.
+*Fixed bug with keyboard shortcuts for 3-pane modes.
+*Fixed bug with useless preferences upgrade alert.
+*Fixed bug with failure to parse broken MIME parameter lists.
+*Fixed bug with address expansion of non-email addressees.
+*Fixed bug with crash when sending empty message.
+*Fixed bug with duplicate capture addresses.
+*Fixed bug with inline decrypt/verify not changing message text.
+*Fixed bug with crashes when replying/forwarding messages when the
+original message mailbox is reset.
+*Fixed bug with missing spelling plugin causing a crash in preferences
+dialog.
+*Fixed bug when dealing with x509 certs with multiple email addresses.
+*Fixed Bug with return key in dialogs.
+*Fixed bug with crash when creating multiple text macros.
+*Fixed bug with loss of mailbox display when switch between mailboxes
+with different columns.
+*Fixed bug with Match From me causing a crash.
+*Fixed bug with missing xml tag at start of xml document.
+*Fixed bug with auto-adjust of dialog widths and heights.
+*Fixed bug with crash when opening Match dialog.
+*Fixed bug with 'm' shortcut in mailbox panes.
+*Fixed bug causing a crash after closing at least one mailbox window.
+*Fixed bug with failure to print message bodies.
+*Fixed bug with a crash when sending a message.
+*Fixed bug with address book pane state not being saved.
+*Fixed bug with grey background on prints.
+*Fixed bug with 3-pane focus after switching email/contact/calendar
+modes.
+*Fixed bug with middle button paste.

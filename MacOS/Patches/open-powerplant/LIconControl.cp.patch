@@ -1,0 +1,39 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LIconControl.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LIconControl.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LIconControl.cp	(working copy)
+@@ -24,7 +24,8 @@
+ 	LStream*	inStream,
+ 	ClassIDT	inImpID)
+ 
+-	: LControlPane(inStream, inImpID)
++	: LControlPane(inStream, inImpID),
++		Sticns(this, kControlContentIconSuiteRes, mValue)
+ {
+ 	IconAlignmentType	alignment;
+ 	*inStream >> alignment;
+@@ -47,7 +48,8 @@
+ 	ClassIDT			inImpID)
+ 
+ 	: LControlPane(inPaneInfo, inImpID, inControlKind,
+-			Str_Empty, 0, inValueMessage, inResID)
++			Str_Empty, 0, inValueMessage, inResID),
++		Sticns(this, kControlContentIconSuiteRes, mValue)
+ {
+ 	mValue = 0;
+ }
+@@ -116,6 +118,14 @@
+ }
+ 
+ 
++void
++LIconControl::SetResourceID(
++							ResIDT	inResID)
++{
++	if (!Sticns::Load(this, kControlContentIconSuiteRes, inResID))
++		SetDataTag(0, kControlIconResourceIDTag, sizeof(SInt16), &inResID);
++}
++
+ // ---------------------------------------------------------------------------
+ //	¥ HotSpotResult												   [protected]
+ // ---------------------------------------------------------------------------

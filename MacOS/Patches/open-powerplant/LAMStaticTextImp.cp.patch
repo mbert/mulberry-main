@@ -1,0 +1,16 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/AM Implementations/LAMStaticTextImp.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/AM Implementations/LAMStaticTextImp.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/AM Implementations/LAMStaticTextImp.cp	(working copy)
+@@ -218,9 +218,9 @@
+ 		delete[] textBuffer;
+ 								
+ 		SignalIfOSErr_(err);
++	}
+ 		
+-		mControlPane->Refresh();
+-	}
++	mControlPane->Refresh();
+ }
+ 
+ #endif

@@ -1,0 +1,34 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UAppleEventsMgr.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UAppleEventsMgr.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UAppleEventsMgr.h	(working copy)
+@@ -138,6 +138,8 @@
+ 
+ 			StAEDescriptor(const FSSpec& inFileSpec);
+ 
++			StAEDescriptor(const FSRef& inFileSpec);
++
+ 			~StAEDescriptor();
+ 
+ 
+@@ -176,6 +178,11 @@
+ 								return Assign(inFileSpec);
+ 							}
+ 
++	StAEDescriptor&		operator = (const FSRef& inFileSpec)
++							{
++								return Assign(inFileSpec);
++							}
++
+ 	StAEDescriptor&		Assign(const StAEDescriptor& inOriginal);
+ 
+ 	StAEDescriptor&		Assign(Boolean inBoolean);
+@@ -190,6 +197,8 @@
+ 
+ 	StAEDescriptor&		Assign(const FSSpec& inFileSpec);
+ 
++	StAEDescriptor&		Assign(const FSRef& inFileSpec);
++
+ 	void	Dispose();
+ 
+ 	bool	IsNull() const			{ return (mDesc.descriptorType == typeNull); }

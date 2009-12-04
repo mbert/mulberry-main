@@ -1,0 +1,237 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF419C920AEA6B9E00E19592 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419C900AEA6B9E00E19592 /* os_dep.cp */; };
+		AF419C940AEA6B9E00E19592 /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419C8B0AEA6B9E00E19592 /* PluginDLLmain.cp */; };
+		AF419C950AEA6B9E00E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419C8C0AEA6B9E00E19592 /* CPluginDLL.cp */; };
+		AF419C970AEA6B9E00E19592 /* CSSLPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419C8E0AEA6B9E00E19592 /* CSSLPluginDLL.cp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF419C860AEA6B9E00E19592 /* SSL.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSL.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF419C8B0AEA6B9E00E19592 /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AF419C8C0AEA6B9E00E19592 /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419C8D0AEA6B9E00E19592 /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419C8E0AEA6B9E00E19592 /* CSSLPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CSSLPluginDLL.cp; path = sources/CSSLPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419C8F0AEA6B9E00E19592 /* CSSLPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSSLPluginDLL.h; path = sources/CSSLPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419C900AEA6B9E00E19592 /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
+		AF419C910AEA6B9E00E19592 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
+		AF419C9A0AEA6B9F00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AF419C9E0AEA6B9F00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AF419CA00AEA6B9F00E19592 /* CSSLRand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSSLRand.h; path = sources/CSSLRand.h; sourceTree = SOURCE_ROOT; };
+		AF419CA30AEA6B9F00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF419C830AEA6B9E00E19592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF419C790AEA6B9D00E19592 = {
+			isa = PBXGroup;
+			children = (
+				AF419C8A0AEA6B9E00E19592 /* Main */,
+				AF419C990AEA6B9F00E19592 /* Imported Files */,
+				AF419CA20AEA6B9F00E19592 /* Frameworks */,
+				AF419C870AEA6B9E00E19592 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF419C870AEA6B9E00E19592 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF419C860AEA6B9E00E19592 /* SSL.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF419C8A0AEA6B9E00E19592 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AF419C8B0AEA6B9E00E19592 /* PluginDLLmain.cp */,
+				AF419C8D0AEA6B9E00E19592 /* CPluginDLL.h */,
+				AF419C8C0AEA6B9E00E19592 /* CPluginDLL.cp */,
+				AF419C8F0AEA6B9E00E19592 /* CSSLPluginDLL.h */,
+				AF419C8E0AEA6B9E00E19592 /* CSSLPluginDLL.cp */,
+				AF419C910AEA6B9E00E19592 /* os_dep.h */,
+				AF419C900AEA6B9E00E19592 /* os_dep.cp */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AF419C990AEA6B9F00E19592 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF419C9A0AEA6B9F00E19592 /* PluginDLLmain.h */,
+				AF419C9E0AEA6B9F00E19592 /* CPluginInfo.h */,
+				AF419CA00AEA6B9F00E19592 /* CSSLRand.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AF419CA20AEA6B9F00E19592 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF419CA30AEA6B9F00E19592 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF419C850AEA6B9E00E19592 /* SSL MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF419C880AEA6B9E00E19592 /* Build configuration list for PBXNativeTarget "SSL MachO" */;
+			buildPhases = (
+				AF419C810AEA6B9E00E19592 /* Sources */,
+				AF419C820AEA6B9E00E19592 /* Resources */,
+				AF419C830AEA6B9E00E19592 /* Frameworks */,
+				AF419C840AEA6B9E00E19592 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SSL MachO";
+			productName = "SSL MachO";
+			productReference = AF419C860AEA6B9E00E19592 /* SSL.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF419C7B0AEA6B9D00E19592 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AF419C7C0AEA6B9D00E19592 /* Build configuration list for PBXProject "SSL" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AF419C790AEA6B9D00E19592;
+			productRefGroup = AF419C870AEA6B9E00E19592 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF419C850AEA6B9E00E19592 /* SSL MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF419C820AEA6B9E00E19592 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AF419C840AEA6B9E00E19592 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF419C810AEA6B9E00E19592 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF419C920AEA6B9E00E19592 /* os_dep.cp in Sources */,
+				AF419C940AEA6B9E00E19592 /* PluginDLLmain.cp in Sources */,
+				AF419C950AEA6B9E00E19592 /* CPluginDLL.cp in Sources */,
+				AF419C970AEA6B9E00E19592 /* CSSLPluginDLL.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AF419C7D0AEA6B9D00E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AF419C890AEA6B9E00E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = NO;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = SSL;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF419C7C0AEA6B9D00E19592 /* Build configuration list for PBXProject "SSL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF419C7D0AEA6B9D00E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AF419C880AEA6B9E00E19592 /* Build configuration list for PBXNativeTarget "SSL MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF419C890AEA6B9E00E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF419C7B0AEA6B9D00E19592 /* Project object */;
+}

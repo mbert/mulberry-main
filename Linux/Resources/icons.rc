@@ -1,0 +1,5 @@
+IDB_LOGO						ICON	DISCARDABLE		../Sources/icons/About3.xpm
+IDB_SPLASH						ICON	DISCARDABLE		../Sources/icons/Splash3.xpm
+IDB_SPLITTERVERT        		ICON	DISCARDABLE		../Sources/icons/SplitterVert.xpm
+IDB_SPLITTERHORIZ       		ICON	DISCARDABLE		../Sources/icons/SplitterHoriz.xpm
+IDI_DEFAULT						ICON	DISCARDABLE		../Sources/icons/UnknownIcon.xpm

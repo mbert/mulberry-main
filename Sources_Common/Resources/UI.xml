@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+
+<!-- General -->
+    <string id="UI::General::Redo">Redo</string>
+    <string id="UI::General::Undo">Undo</string>
+
+<!-- User/Pswd -->
+	<string id="UI::UserPswd::Insecure">Insecure: Plain Text</string>
+	<string id="UI::UserPswd::Secure">Secure: SSL</string>
+
+<!-- Multi-user Dialog -->
+	<string id="UI::MU::AuthMethod">%s authentication will be used.</string>
+
+<!-- Disconnect Dialog -->
+	<string id="UI::Disconnect::Connect">Connect Dialog</string>
+	<string id="UI::Disconnect::Disconnect">Disconnect Dialog</string>
+
+<!-- Preferences -->
+	<string id="UI::Preferences::AccountIMAPMailbox">IMAP Mailbox</string>
+	<string id="UI::Preferences::AccountPOP3Mailbox">POP3 Mailbox</string>
+	<string id="UI::Preferences::AccountLocalMailbox">Local Mailbox</string>
+	<string id="UI::Preferences::AccountSMTPSendMail">SMTP Send Email</string>
+	<string id="UI::Preferences::AccountWebDAVOptions">WebDAV Options</string>
+	<string id="UI::Preferences::AccountIMSPOptions">IMSP Options</string>
+	<string id="UI::Preferences::AccountACAPOptions">ACAP Options</string>
+	<string id="UI::Preferences::AccountCardDAVAddressBooks">CardDAV Address Books</string>
+	<string id="UI::Preferences::AccountIMSPAddressBooks">IMSP Address Books</string>
+	<string id="UI::Preferences::AccountACAPAddressBooks">ACAP Address Books</string>
+	<string id="UI::Preferences::AccountLDAPAddressSearch">LDAP Address Search</string>
+	<string id="UI::Preferences::AccountManageSIEVE">SIEVE Filtering - Manage SIEVE</string>
+	<string id="UI::Preferences::AccountCalDAVCalendar">CalDAV Calendar</string>
+	<string id="UI::Preferences::AccountWebDAVCalendar">WebDAV Calendar</string>
+	<string id="UI::Preferences::DefaultPrefsFileName">Mulberry Prefs</string>
+	<string id="UI::Preferences::Title">Preferences: </string>
+	<string id="UI::Preferences::RemoteTitle">Remote Preferences: </string>
+	<string id="UI::Preferences::DefaultTitle">Default</string>
+	<string id="UI::Preferences::NoTitle">No File</string>
+	<string id="UI::Preferences::SaveAsPrompt">Save Preferences as...</string>
+
+	<stringarray id="UI::Preferences::MIMETypeMap">
+		<string>Always</string>
+		<string>Ask</string>
+		<string>Never</string>
+	</stringarray>
+
+<!-- 3-Pane Window -->
+	<string id="UI::3Pane::NoMailboxesOpen">No Mailboxes are Open</string>
+
+<!-- Calendar Window -->
+	<string id="UI::Calendar::EventEdit">Edit</string>
+	<string id="UI::Calendar::ReadOnly">   (Read-Only)</string>
+	<string id="UI::Calendar::SubscribedTitle">Subscribed Calendars</string>
+	<string id="UI::Calendar::AlertDisplay">Calendar Alarm: </string>
+
+<!-- Calendar Properties -->
+	<string id="UI::CalendarProp::Title">Calendar: </string>
+	<string id="UI::CalendarProp::MultiTitle">Calendars</string>
+	<string id="UI::CalendarProp::ServerTitle">Server: </string>
+	<string id="UI::CalendarProp::StateOpen">Open</string>
+	<string id="UI::CalendarProp::StateSubs">Subscribed</string>
+	<string id="UI::CalendarProp::LocalSync">Local Calendar</string>
+	<string id="UI::CalendarProp::NoSync">Calendar has not been synchronised</string>
+	<string id="UI::CalendarProp::CannotSync">Account not enabled for synchronisation.</string>
+	<string id="UI::CalendarProp::MultipleWebcals">This field is only enabled when checking details on a single web calendar.</string>
+	<string id="UI::CalendarProp::ACLPrincipal::All">&lt;&lt;All Users&gt;&gt;</string>
+	<string id="UI::CalendarProp::ACLPrincipal::Authenticated">&lt;&lt;Any Authenticated User&gt;&gt;</string>
+	<string id="UI::CalendarProp::ACLPrincipal::Unauthenticated">&lt;&lt;Any Anonymous User&gt;&gt;</string>
+	<string id="UI::CalendarProp::ACLPrincipal::Property">&lt;&lt;Server Property&gt;&gt;</string>
+	<string id="UI::CalendarProp::ACLPrincipal::Self">&lt;&lt;Self&gt;&gt;</string>
+
+<!-- Server Window -->
+	<string id="UI::Server::Title">Servers</string>
+	<string id="UI::Server::Subscribed">Subscribed</string>
+	<string id="UI::Server::TitleConnected"> (Connected)</string>
+	<string id="UI::Server::TitleDisconnected"> (Disconnected)</string>
+	<string id="UI::Server::TitleOffline"> (Offline)</string>
+
+	<stringarray id="UI::Server::CabinetItems">
+		<string>Check Favourite</string>
+		<string>Open after Login</string>
+		<string>Copy Messages to</string>
+		<string>Copy Drafts to</string>
+		<string>Mark Seen on Close</string>
+		<string>Auto Synchronise</string>
+		<string>New Messages</string>
+		<string>Subscribed</string>
+	</stringarray>
+
+<!-- Mailbox Properties -->
+	<string id="UI::MailboxProp::Title">Mailbox: </string>
+	<string id="UI::MailboxProp::MultiTitle">Mailboxes</string>
+	<string id="UI::MailboxProp::ServerTitle">Server: </string>
+	<string id="UI::MailboxProp::StateOpen">Open</string>
+	<string id="UI::MailboxProp::StateSubs">Subscribed</string>
+	<string id="UI::MailboxProp::StateNoInfs">No Hierarchy</string>
+	<string id="UI::MailboxProp::StateNoSel">Cannot Open</string>
+	<string id="UI::MailboxProp::StateMark">Interesting</string>
+	<string id="UI::MailboxProp::CurrentUser">Current User:</string>
+	<string id="UI::ServerProp::Secure">Secure - TLS/SSL encryption</string>
+	<string id="UI::ServerProp::NotSecure">Not secure - plain text data</string>
+
+<!-- Namespace -->
+	<string id="UI::Namespace::Personal">Personal</string>
+	<string id="UI::Namespace::Shared">Shared</string>
+	<string id="UI::Namespace::Public">Public</string>
+	<string id="UI::Namespace::Entire">&lt;&lt;Entire Hierarchy&gt;&gt;</string>
+	<string id="UI::Namespace::Help1">Mulberry needs to know where to look for mailboxes on your IMAP server. The server suggestions below, are mailbox locations suggested by your server. You can use any of these by clicking the button to the left of each entry. You can enter other mailbox locations in the text area below the server suggestions, one on each line. You can also add mailbox locations later, if you want.</string>
+	<string id="UI::Namespace::Help2">Mulberry needs to know where to look for mailboxes on your IMAP server. You can enter mailbox locations in the text area below, one on each line. You can also add mailbox locations later, if you want.</string>
+
+<!-- Mailbox Window -->
+	<string id="UI::Mailbox::ReadOnlyMailbox">   (Read-Only)</string>
+
+	<string id="UI::MailboxTips::FAKE">This item represents the parent of\na message thread that is not\ncurrently available in this mailbox.\nAs such it is not a real message, so\nyou cannot open it or change flags etc.</string>
+	<string id="UI::MailboxTips::SENTTO">Sent to: </string>
+	<string id="UI::MailboxTips::SENTBY">Sent by: </string>
+	<string id="UI::MailboxTips::DATESENT">Date Sent: </string>
+	<string id="UI::MailboxTips::DATERECEIVED">Date Received: </string>
+	<string id="UI::MailboxTips::NUMBER">Message Number: </string>
+	<string id="UI::MailboxTips::SIGNED">Message is cryptographically signed</string>
+	<string id="UI::MailboxTips::ENCRYPTED">Message is encrypted</string>
+	<string id="UI::MailboxTips::ALTERNATIVE">Message is styled text with plain text alternative</string>
+	<string id="UI::MailboxTips::ATTACHMENTS">Message has attachments</string>
+	<string id="UI::MailboxTips::NOATTACHMENTS">Message has no attachments</string>
+	<string id="UI::MailboxTips::MATCHED">Message is currently matched</string>
+	<string id="UI::MailboxTips::NOTMATCHED">Message is not currently matched</string>
+	<string id="UI::MailboxTips::CACHED">Message is fully cached locally</string>
+	<string id="UI::MailboxTips::PARTIALCACHED">Message is partially cached locally</string>
+	<string id="UI::MailboxTips::NOTCACHED">Message is not cached locally</string>
+	<string id="UI::MailboxTips::IS">Message is: </string>
+	<string id="UI::MailboxTips::UNSEEN">Unseen</string>
+	<string id="UI::MailboxTips::SEEN">Seen</string>
+	<string id="UI::MailboxTips::IMPORTANT"> and Important</string>
+	<string id="UI::MailboxTips::DELETED"> and Deleted</string>
+	<string id="UI::MailboxTips::DRAFT"> and a Draft</string>
+	<string id="UI::MailboxTips::ANSWERED"> and Answered</string>
+	<string id="UI::MailboxTips::RECENT"> and Recent</string>
+	<string id="UI::MailboxTips::MDNSENT"> and Read Receipt Sent</string>
+	<string id="UI::MailboxTips::PARTS">Number of parts: </string>
+	<string id="UI::MailboxTips::SIZE">Size: </string>
+	<string id="UI::MailboxTips::FULLSYNC">Fully Synchronised</string>
+	<string id="UI::MailboxTips::PARTIALSYNC">Partially Synchronised</string>
+	<string id="UI::MailboxTips::NOTSYNC">Not Synchronised</string>
+	<string id="UI::MailboxTips::LABELS">Labels: </string>
+
+<!-- Search Window -->
+
+<!-- Message Window -->
+	<string id="UI::Message::MessageNumber">Message %d of %d</string>
+	<string id="UI::Message::MessageNumberBig">Message %d/%d</string>
+	<string id="UI::Message::SubMessage">Attached Message</string>
+	<string id="UI::Message::DigestMessage">Digest %d of %d</string>
+	<string id="UI::Message::NoSubject">No Subject</string>
+	<string id="UI::Message::PartsContentFlat">Content-Type (Flat)</string>
+	<string id="UI::Message::PartsContentHierarchic">Content-Type (Hierarchic)</string>
+	<string id="UI::Message::NoDisplayablePart">This message does not contain any parts that Mulberry can display.\n\nThe parts list above shows all the parts in this message, and these can be saved to disk and viewed externally if so desired.</string>
+	<string id="UI::Message::MessageVerifyOK">Signature verified as good.</string>
+
+	<string id="UI::ReplyChoose::ReplyTo">Reply-to</string>
+	<string id="UI::ReplyChoose::From">From</string>
+	<string id="UI::ReplyChoose::Sender">Sender</string>
+	<string id="UI::ReplyChoose::To">To</string>
+	<string id="UI::ReplyChoose::Cc">Cc</string>
+
+<!-- Letter Window -->
+
+	<stringarray id="UI::Letter::EncodeMode">
+		<string>None</string>
+		<string>Text</string>
+		<string>BinHex4</string>
+		<string>UU</string>
+		<string>AppleSingle</string>
+		<string>AppleDouble</string>
+		<string>Automatic</string>
+	</stringarray>
+	<string id="UI::Letter::NoRecipients">None specified</string>
+	<string id="UI::Letter::AdditionalRecipients">  (and %ld others)</string>
+
+<!-- Address Book Manager Window -->
+    <string id="UI::AdbkMgr::AddressBooks">Address Books</string>
+    <string id="UI::AdbkMgr::OSAddressBooks">OS Address Books</string>
+    <string id="UI::AdbkMgr::Others">Others</string>
+    <string id="UI::AdbkMgr::Local">Local</string>
+
+<!-- Address Book Window -->
+    <string id="UI::Adbk::AddressNew_Redo">Redo New Address</string>
+    <string id="UI::Adbk::AddressNew_Undo">Undo New Address</string>
+    <string id="UI::Adbk::AddressEdit_Redo">Redo Address Changes</string>
+    <string id="UI::Adbk::AddressEdit_Undo">Undo Address Changes</string>
+    <string id="UI::Adbk::AddressDelete_Redo">Redo Address Delete</string>
+    <string id="UI::Adbk::AddressDelete_Undo">Undo Address Delete</string>
+    <string id="UI::Adbk::GroupNew_Redo">Redo New Group</string>
+    <string id="UI::Adbk::GroupNew_Undo">Undo New Group</string>
+    <string id="UI::Adbk::GroupEdit_Redo">Redo Group Changes</string>
+    <string id="UI::Adbk::GroupEdit_Undo">Undo Group Changes</string>
+    <string id="UI::Adbk::GroupDelete_Redo">Redo Group Delete</string>
+    <string id="UI::Adbk::GroupDelete_Undo">Undo Group Delete</string>
+
+<!-- Address Book Properties -->
+    <string id="UI::AdbkProps::Title">Address Book: </string>
+    <string id="UI::AdbkProps::MultiTitle">Address Books</string>
+    <string id="UI::AdbkProps::StateLocal">Local</string>
+
+<!-- Table Titles -->
+	<stringarray id="UI::Titles::MIMETypeMap">
+		<string>MIME Type/Subtype</string>
+		<string>Extension</string>
+		<string>Open</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::Server">
+		<string>State</string>
+		<string>Name</string>
+		<string>Total</string>
+		<string>New</string>
+		<string>Unseen</string>
+		<string>Check</string>
+		<string>Size</string>
+	</stringarray>
+
+	<string id="UI::Titles::ACL">Name</string>
+
+	<stringarray id="UI::Titles::Quota">
+		<string>Name</string>
+		<string>Current</string>
+		<string>Maximum</string>
+		<string>% Used</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::Namespace">
+		<string>On</string>
+		<string>Mailbox Location</string>
+		<string>Type</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::Mailbox">
+		<string>To</string>
+		<string>From</string>
+		<string>Reply To</string>
+		<string>Sender</string>
+		<string>Cc</string>
+		<string>Subject</string>
+		<string>Thread</string>
+		<string>Date Sent</string>
+		<string>Date Received</string>
+		<string>Size</string>
+		<string>!</string>
+		<string>#</string>
+		<string>From / To</string>
+		<string>*</string>
+		<string>Parts</string>
+		<string>?</string>
+		<string>^</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::Rules">
+		<string>Rules</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::Targets">
+		<string>Triggers</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::Scripts">
+		<string>Scripts</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::MessageParts">
+		<string>0</string>
+		<string>0</string>
+		<string>Content-Type (Flat)</string>
+		<string>Size</string>
+		<string>Name</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::ReplyChoose">
+		<string>To</string>
+		<string>Cc</string>
+		<string>Bcc</string>
+		<string>Address</string>
+		<string>Originally</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::LetterParts">
+		<string>0</string>
+		<string>0</string>
+		<string>Content-Type</string>
+		<string>Name</string>
+		<string>Size</string>
+		<string>Encoding</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::LetterAttachments">
+		<string>Name</string>
+		<string>Size</string>
+		<string>Content-Type</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::MacroEdit">
+		<string>Name</string>
+		<string>Expand to</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::AdbkManager">
+		<string>Name</string>
+		<string>Open</string>
+		<string>Resolve</string>
+		<string>Search</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::AddrSearch">
+		<string>Full Name</string>
+		<string>Full Name</string>
+		<string>Nick-Name</string>
+		<string>Email Address</string>
+		<string>Company</string>
+		<string>Address</string>
+		<string>Phone Work</string>
+		<string>Phone Home</string>
+		<string>Fax</string>
+		<string>URLs</string>
+		<string>Notes</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::CalendarStore">
+		<string>Name</string>
+		<string>Subscribe</string>
+		<string>Colour</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::CalendarSummary">
+		<string></string>
+		<string>Date</string>
+		<string>Time</string>
+		<string>Summary</string>
+		<string>Status</string>
+		<string>Calendar</string>
+	</stringarray>
+
+	<stringarray id="UI::Titles::CalendarAttendees">
+		<string>Name</string>
+		<string>Participation Role</string>
+		<string>Participation Status</string>
+	</stringarray>
+
+</stringlist>

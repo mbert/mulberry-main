@@ -1,0 +1,152 @@
+#########################################
+### 
+###      M A K E F I L E
+###
+###
+###
+
+
+
+# compiler flags ------------------------------
+
+JX_ROOT = ../Libraries/JX
+ACE_ROOT = ${JX_ROOT}/ACE/ACE_wrappers
+export JXLAYOUTDIR = ${JX_ROOT}/programs/jxlayout
+
+SSL_INC = -I/usr/include/openssl
+
+HAS_GNUG_3 := $(shell \
+   if { $(CXX) --version | egrep '3\.2' > /dev/null; } \
+   then { echo 1; } \
+   else { echo 0; } fi)
+
+HAS_GNUG_4 := $(shell \
+   if { $(CXX) --version | egrep '4\.1' > /dev/null; } \
+   then { echo 1; } \
+   else { echo 0; } fi)
+
+ifeq ($(HAS_GNUG_4),1)
+# Do nothing
+STL_INC := -fpermissive -Wno-deprecated
+#else
+ifeq ($(HAS_GNUG_3),1)
+#STL_INC := -Wno-deprecated -I${DEV_ROOT}/STLport/stlport
+else
+#STL_INC := -nostdinc++ -I${DEV_ROOT}/STLport/stlport
+endif
+#STL_LIB = -L${DEV_ROOT}/STLport/lib -lstlport_gcc
+endif
+
+#These shouldn't have to be changed
+JX_MAKE_INCLUDE_DIR = ${JX_ROOT}/include/make
+JX_INC = -I${JX_ROOT}/include/jcore \
+			-I${JX_ROOT}/include/jx \
+			-I${JX_ROOT}/include/jximage \
+			-I${ACE_ROOT} \
+			${J_INCLUDE_FREETYPE}
+JX_LDFLAGS = -L${JX_ROOT}/lib -L${ACE_ROOT}/ace
+
+include ${JX_MAKE_INCLUDE_DIR}/jx_constants
+include ${JX_MAKE_INCLUDE_DIR}/jx_config
+
+ifneq (${BUILD_NODEBUG},1)
+DFLAGS := -g
+endif
+
+CPP = g++
+CC = g++
+LINKER = ${CPP}
+CFLAGS = ${STL_INC} ${J_RAW_SYSTEM_STUFF} -Wall -Wcast-align -Wno-multichar -Wno-unused \
+	-Wno-unknown-pragmas -Wno-non-virtual-dtor -Wno-ctor-dtor-privacy\
+	${DFLAGS} -include Sources/Mulberry_Prefix.h ${MULINCS} ${SSL_INC} -D_REENTRANT 
+
+ifeq (${BUILD_STATIC},1)
+LINK_STATIC = -Wl,-Bstatic
+LINK_DYNAMIC = -Wl,-Bdynamic
+endif
+EXTRA_LINKS = -lpthread -ldl
+ifeq ($(shell if [ -f /usr/lib/librt.so ]; then echo 1; else echo 0; fi),1)
+	EXTRA_LINKS := ${EXTRA_LINKS} -lrt
+endif
+ifeq ($(shell if [ -f /usr/lib/libgen.so ]; then echo 1; else echo 0; fi),1)
+        EXTRA_LINKS := ${EXTRA_LINKS} -lgen
+endif
+ifeq (${OSTYPE},solaris)
+        EXTRA_LINKS := ${EXTRA_LINKS} -nodefaultlibs -lc -lm -lgcc
+endif
+ifeq ($(shell if [ -f /usr/lib/libresolv.so ]; then echo 1; else echo 0; fi),1)
+	EXTRA_LINKS := ${EXTRA_LINKS} -lresolv
+endif
+
+
+JXLINK =	${JX_LDFLAGS} \
+			${LINK_STATIC} \
+				-ljx-${JX_LIB_VERSION} \
+				-ljcore-${JX_LIB_VERSION} \
+				-lACE-${ACE_LIB_VERSION} \
+			${LINK_DYNAMIC} \
+			${J_X11_LIBS} \
+			-lldap -llber \
+			-lssl -lcrypto \
+			${LINK_STATIC} \
+				${STL_LIB} \
+			${LINK_DYNAMIC} \
+			${EXTRA_LINKS}
+
+DEPENDFLAGS = ${CFLAGS}
+MAKEMAKE = makemake
+$./%.o %.o: %.cp
+	@ echo "    ---- Compiling $< (C++)"
+	 $(CPP) $(CFLAGS) -c -o $@ $<
+  
+$./%.h %.h: %.fd
+	@ echo "    ---- Generating $< from resource (jxlayout)"
+	jxlayout -cs .cp -cp $(@D) $<
+
+MULINCS = ${JX_INC} -I./Resources \
+-I./Help \
+-I./Sources \
+-I./Includes \
+-I./Sources/Utilities \
+-I../Sources_Common \
+-I../Sources_Common/Utilities \
+-I../Libraries/CICalendar/Source \
+-I../Libraries/vCard/Source \
+-I../Libraries/XMLLib/Source
+
+
+LDFLAGS = -L/usr/X11R6/lib
+
+LOADLIBES = ${JXLINK}
+
+#all: mulberry
+
+static:
+	@${MAKE} "BUILD_STATIC=1" all
+nodebug:
+	@${MAKE} "BUILD_NODEBUG=1" all
+staticnodebug:
+	@${MAKE} "BUILD_STATIC=1" "BUILD_NODEBUG=1" all
+
+Sources/Support/HResourceMap.o: Sources/Support/HResourceMap.cp Resources/xpms.res Resources/xpms.cp
+
+Resources/xmps.res: resources/iconlist.txt
+	Resources/makeresxpms < Resources/iconlist.txt > Resources/xpms.res
+
+Resources/xmps.cp: resources/iconlist.txt
+	Resources/makeresinitxpms < Resources/iconlist.txt > Resources/xpms.cp
+
+../Plug-ins/CRAM-MD5/sources/md5/md5c.o: ../Plug-ins/CRAM-MD5/sources/md5/md5c.c ../Plug-ins/CRAM-MD5/sources/md5/md5.h
+	 $(CC) -c -o $@ $<
+
+#
+# string data
+#
+
+.PHONY : strings
+strings:
+ifneq (${COMPILE_STRINGS},0)
+	${JX_ROOT}/bin/compile_jstrings ${JX_ROOT}/libjx/strings/* \
+      --code kJXCoreDefaultStringData Sources/Support/jxStringData.h
+endif
+	 

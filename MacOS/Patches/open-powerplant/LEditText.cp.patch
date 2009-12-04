@@ -1,0 +1,14 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LEditText.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LEditText.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LEditText.cp	(working copy)
+@@ -1034,7 +1034,8 @@
+ 
+ 	switch (inCommand) {
+ 
+-		case cmd_Undo: {
++		case cmd_Undo:
++		case cmd_Redo: {	// CD: Added to support separate Undo/Redo
+ 
+ 				// !!! Warning !!!
+ 				// Although we set the bulleted text qdProcs before performing

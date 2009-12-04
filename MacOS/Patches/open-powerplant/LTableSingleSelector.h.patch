@@ -1,0 +1,15 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableSingleSelector.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableSingleSelector.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableSingleSelector.h	(working copy)
+@@ -33,6 +33,10 @@
+ 	
+ 	virtual	TableIndexT	GetFirstSelectedRow() const;
+ 	
++	virtual	STableCell	GetLastSelectedCell() const;
++	
++	virtual	TableIndexT	GetLastSelectedRow() const;
++	
+ 	virtual void		SelectCell( const STableCell& inCell );
+ 	
+ 	virtual void		SelectAllCells();

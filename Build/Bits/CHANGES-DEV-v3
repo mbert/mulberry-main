@@ -1,0 +1,882 @@
+Mulberry Change History (Unix)
+
+v3.1.6 : 25-June-2004
+Minor Changes
+*Added admin option to allow display of SSL connection state in startup
+dialog (on by default).
+
+Fixes
+*Fixed bug with activation  of Update Match command.
+*Fixed bug with with inability to manipluate logging options when
+logging disabled on startup.
+*Fixed bug with incorrect recent count after connection recovery.
+
+v3.1.5 : 26-May-2004
+Minor Changes
+*Added -extras command line option to specify alternate directory
+for mailcap, mime.type and url.helpers files.
+
+Fixes
+*Fixed bug with forward options/vacation options dialogs not
+responding to return/escape keyboard shortcuts.
+*Fixed bug with forward action using reply quoting preferences.
+*Fixed bug with failure to mark messages as seen when closing a
+mailbox with expunge on close.
+
+v3.1.4 : 21-May-2004
+Fixes
+*Fixed bug with crash when manually decrypting in preview pane.
+*Fixed bug with double-escaping of characters in HTML quoted text.
+*Fixed bug with colouring of <!-- ... --> HTML comment tags.
+*Fixed bug causing an error when saving a sent copy of a forwarded
+message back to the original mailbox in disconnected mode.
+*Fixed bug causing a crash when doing some header manipulation.
+*Fixed bug with failure to display renamed mailbox names in dynamic
+tabs.
+*Fixed bug with single quotes in mailcap files.
+*Fixed bug with SIEVE require statements.
+*Fixed bug with some SIEVE actions reverting to keep when edited.
+*Fixed bug with failure to use server threading if only
+THREAD=REFERENCES is advertised.
+*Fixed bug with failure to update Window menu titles when message window
+changes.
+*Fixed bug causing a crash when replying and immediately clicking the
+mouse in the reply text.
+*Fixed bug with non-ascii characters in PGP passphrase.
+*Fixed bug with improper determination of normalised subject for
+matching.
+*Fixed bug with failure to reset message background colour in some
+cases.
+*Fixed bug with enriched->html conversion.
+*Fixed bug with search dialog criteria change not hidden appropriate
+items.
+*Fixed bug with doubling of blank lines when converting plain->enriched.
+*Fixed bug with files being left open when local mailbox error occurs.
+*Fixed bug with seen flag changing when restoring a message preview via
+tab switch.
+*Fixed bug with improper background colours in HTML.
+*Fixed bug with multiple addresses in mailto URLs.
+
+v3.1.3 : 22-April-2004
+Minor Changes
+*Draft parts expands when forwarding a message that results in more
+than one part.
+*Added support for SIEVE vacation action.
+*Added new context menu for clicks on URLs.
+*Added new preference to set a minimum font size for use in displaying
+styled text.
+*Added new preference to prevent styling of text for html or enriched
+messages displayed in the Formatted mode.
+*No longer breaks long lines without spaces when wrapping message text.
+*Added option to forward options dialog to allow choice of quoting
+selected text or entire text.
+*Styled text is preserved when replying or forwarding as styled text.
+*SMTP account in identities can now be inherited.
+
+Fixes
+*Fixed bug with DIGEST-MD5 with IMSP.
+*Fixed bug with failure to handle single quotes in mailcap files.
+*Fixed bug with extra sort/thread operation when closing a mailbox.
+*Fixed bug with IMAP errors when recovering from connection failure
+and mailbox has shrunk.
+*Fixed bug with SIEVE matches comparator not being saved/restored
+properly.
+*Fixed bug with failure to select PGP or GPG properly when
+decrypting/verifying.
+*Fixed bug with extra decode of HTML URLs.
+*Fixed bug with crash after displaying SIEVE rules as script elements.
+*Fixed bug with failure to properly display [image] indicators in HTML.
+*Fixed bug with double address resolution when tabbing out of address
+field.
+*Fixed bug causing a crash when using Mulberry Support item in Help menu.
+*Fixed bug with failure to do content-transfer decoding on PGP signature
+parts.
+*Fixed bugs with text/enriched display and generation.
+*Fixed bug with failure to quickyl stop new mail checking when quitting.
+*Fixed bug with duplicate message-ids when messages are sent rapidly one
+after another.
+*Fixed bug with alert dialogs clipping long text strings.
+*Fixed bug with occasional loss of screen redraws.
+*Fixed bug with crash when printing a draft.
+
+v3.1.2 : 13-February-2004
+Fixes
+*Fixed bug with status window not being properly removed.
+*Fixed bug with corrupt character in ManageSIEVE status info.
+*Fixed bug causing an occasional crash when sending.
+*Fixed bug with incorrect server name being tested against SSL
+certificate when Kerberos or GSSAPI is in use.
+*Fixed bug with long SMTP send causing failures when entering
+disconnected mode.
+
+v3.1.1 : 16-January-2004
+Minor Changes
+*Added admin option to configure support email address.
+*Added admin option for Kerberos V4 -> GSSAPI upgrade.
+*Added mailbox tab popup menu options for saving/restoring entire tab
+list.
+*Added mailbox tab popup option to local all tabs.
+*Added admin option to allow crypto plugin pre-registration.
+*Added option to remove plugin when registration prompt appears.
+*Changed text on 'Waiting for Network' dialog.
+*Added warning when files are attached via an extended mailto URL.
+*Added option to message pane context menu to view the current part
+externally.
+
+Fixes
+*Fixed bug with local mailbox line end characters not being set via
+prefs.
+*Fixed bug with fgailure to downgrade to LDAPv2 when LDAPv3 fails.
+*Fixed bug with draft button not honoring tied identity when mailbox
+hierarchy selected in server pane.
+*Fixed bug with hang when using STARTTLS with ACAP.
+*Fixed bug with spurious crashes in server pane.
+*Fixed bug with crash when replying to a message with no viewable parts.
+*Fixed bug with failure to inherit tied identities for new drafts in
+server pane.
+*Fixed bug with SIEVE 'starts with' comparator not being restored from
+prefs.
+*Fixed bug with failure to update Window menu items when switching
+connected state.
+*Fixed bug with spell-as-you-type offset errors when text block is
+inserted.
+*Fixed bug with failure to open IMSP address books when address has ]
+character in it.
+*Fixed bug with certificate address comparisons when server address has
+a port number in it in the prefs.
+*Fixed bug with messed up mailbox hierarchy when switching between
+3-pane and 1-pane modes.
+*Fixed bug with disconnected use of IMSP prefs when IMSP account name is
+not the default.
+*Fixed bug with search window focussing.
+*Fixed bug with middle-button paste not doing smart URL <...>.
+*Fixed bug with failure to open mailboxes on a locked volume (e.g. CD).
+*Fixed bug with SIEVE reject action being lost when read back from
+prefs.
+
+v3.1 : 5-November-2003
+Minor Changes
+*Added new keyboard shortcut for switching between Mail and Contacts in
+3-pane window.
+
+Fixes
+*Fixed matching key shortcuts.
+*Fixed bug with encrypted to value showing all uids in keys.
+*Fixed bug with cabinet Add button in disconnect dialog.
+*Fixed bug with message headers not showing after decryption.
+*Fixed bug causing a crash when parsing a local message with a MIME part
+header contains a ' ' before the ':'.
+*Fixed bug with non-MIME encrypt+sign operations.
+*Fixed bug with address book preview state not being remembered.
+*Fixed bug with all mailbox windows being closed when logging out of one
+account.
+*Fixed bug with help viewer not using url.handlers entry for http URLs.
+*Fixed bug with copy to mailbox menu showing wrong info.
+*Fixed bug with Edit/Cut in address/group not remvoing selected items.
+*Fixed bug with missing edit items in address/group context menu.
+*Fixed bug with failure to display CC/Bcc fields in drafts opened from
+disk.
+*Fixed bug with address fields expanding when there was no change to the
+contents.
+
+v3.1b9 : 24-October-2003
+Minor Changes
+*New key shortcuts for entire thread operations and matching.
+*Names of mailboxes are now displayed in mailbox delete alert.
+*Added new preference to turn off single key shortcuts.
+*Added new preference for warning when marking all messages as seen.
+
+Fixes
+*Fixed bug with tied identities when using reply addressing dialog to
+create a new draft.
+*Fixed bug with mailbox list display corruption when creating certain
+subscribed mailboxes.
+*Fixed bug with single key shortcuts operating when modifier keys are
+also used.
+*Fixed bug with failure to clear certificat errors when restarting SSL
+connection.
+*Fixed bug with file name extension for imported authorities
+certifcates.
+*Fixed bug with SSL plugin failing on certain Solaris systems.
+*Fixed bug with perpetual loop when failure occurs whilst opening a
+mailbox.
+*Fixed bug with sieve script textual edit mode.
+*Fixed bug with crash on quit when disconnected address book operations
+are pending.
+*Fixed bug with crashes when chaging the content of groups in an address
+book.
+*Fixed bug with failure to consider all user ids in a PGP key when
+matching with From address.
+
+v3.1b8 : 26-September-2003
+Minor Changes
+*Added more single key shortcuts for panes including pane focus cycling.
+*Added new option to prevent new message preview when first opening a
+mailbox.
+
+Fixes
+*Fixed bug with select all menu title.
+*Fixed bug with address copy/paste between address books.
+*Fixed bug with failure to preserve copy to mailboxes in drafts saved to
+disk.
+*Fixed bug with incorrect mapping of LDAP attributes.
+*Fixed bug causing a crash when first running and creating a draft.
+*Fixed bug with pkcs#12 certificate chain imports.
+
+v3.1b7 : 12-September-2003
+Minor Changes
+*Added single key shortcuts for commands in mailbox pane.
+*Added rules import/export capability.
+*Added ability to create nested (parenthesized) search sub-expressions
+within a single search.
+*Search window is now resizeable.
+*Rules dialog window is now resizeable.
+*Added optional alert to allow replies to be converted into non-replies
+(new thread), if the reply subject was changed.
+*Added preference to control whether logs are overwritten on startup.
+
+Fixes
+*Fixed bug with local directory create failures.
+*Fixed bug with rewrapping of flowed text.
+*Fixed bug with handling certificate expiration updates.
+*Fixed bug with matched messages changing when new mail arrives.
+*Fixed bug with crash when turning on logging.
+*Fixed bug with client certificate authentication that fails.
+*Fixed bug with crash when closing some dialogs via window title close
+button.
+*Fixed bug with is within/is not within search criteria selection.
+*Fixed bug with filtering whilst editing rules.
+*Fixed bug with incorrect button names for caution alerts.
+*Fixed bug with locating PGP8 keyrings.
+*Fixed bug with attachment missing warning on bounced messages.
+*Fixed bug with decoding CR/LFs embedded in quoted-printable or base64
+data.
+*Fixed bug with corrupt message display after deleting a message and
+then showing its header.
+*Fixed bug with attachment missing warning triggering off quoted text.
+*Fixed bug with server state column not showing correct new message
+state.
+*Fixed bug with failure to allow crypto passphrase to be re-entered
+after it fails the first time.
+*Fixed bug with encrypted & signed messages that do not use
+multipart/signed.
+*Fixed bug with messages being displayed before new mail filtering
+operations have completed.
+*Fixed bug with performance of opening large mailboxes with some unseen
+messages in them.
+*Fixed bug with failure to include root certificate in S/MIME cert
+chain.
+*Fixed bug with processing of decrypted messages which contain
+message/rfc822 parts.
+
+v3.1b6 : 15-August-2003
+Minor Changes
+*Decrypt/verify information is now redisplayed when a message is
+redisplayed.
+*Command key down during startup will result in connect/disconnect
+prompt.
+*Now displays a warning when try to respond to an encrypted message
+without encrypting the response.
+*Added missing attachment warning when certain words (set via
+preferences) are detected in a draft (text or subject) but no
+attachments are present.
+*Added checkbox to some Ok/Cancel alerts to change the preference
+controlling whether that alert appears.
+
+Fixes
+*Fixed bug with Exchange server and Blackberry use.
+*Fixed bug with fds leaking into exec'd processes.
+*Fixed bug with crypto operations when forwarding using message/rfc822.
+*Fixed bug with misleading terminology in address book column popup.
+*Fixed bug causing a crash when trying t decrypt an S/MIME message when
+no private key is found.
+*Fixed bug with email address being used as display name in address
+headers.
+*Fixed bug with PGP-MIME option affecting S/MIME.
+*Fixed bug with missing crypto info when using GPG.
+*Fixed bug with illegal sequence numbers when expunge occurs in a rule.
+*Fixed bug causing a crash when rules are edited whilst rules are being
+executed.
+*Fixed bug with creation of local mailbox preventing certain operations
+on that mailbox.
+*Fixed bug with failure to locate private keys when signing with S/MIME
+without first having done some other S/MIME operation.
+*Fixed bug with failure to handle relative HTML anchors.
+*Fixed bug with failure to display progress when downloading POP
+messages.
+*Fixed bug with failure to include intermediate CAs in S/MIME signed
+messages.
+*Fixed bug with incorrect charset descriptor in draft parts properties
+dialog.
+*Fixed bug with extra blank lines being added to the end of a Send Again
+draft.
+*Fixed bug with Xlib async error when rule executes a copy/move
+operation.
+
+v3.1b5 : 25-July-2003
+Minor Changes
+*Added new address book column/sort to allow for proper sorting of names
+in Last, First format.
+*Percent progress indicator for large attachment downoads now displayed
+in status line.
+*Improved behaviour of name sorting in address books.
+
+Fixes
+*Fixed bugs with importing private key certificates.
+*Fixed bug with failure to verify large signed messages.
+*Fixed bug with failure verify/decrypt message/rfc822 parts.
+*Fixed bug with failure to show raw message data on message/rfc822
+parts.
+*Fixed bug with label search criteria not being read back from the
+preferences properly.
+*Fixed bug with server row background colour being turned off by the
+wrong preference.
+*Fixed bug with forward/bounce breaking digital signatures.
+*Fixed bug with incorrect labels on Preferred Plugin menu in Security
+prefs panel.
+*Fixed bug with failure to allow mailbox properties on directory
+objects.
+*Fixed bug with crash when changing text alignment with no text in a
+draft.
+*Fixed bug with insertion of unwanted blank lines when auto-signature
+insert is off.
+*Fixed bug with failure to save/restore address book window state.
+*Fixed bug with failure to display HTML content when </HEAD> tag was
+missing.
+*Fixed bug with address/group list expand/collapse splitter
+repositioning.
+*Fixed bug with failure to change tab name when mailbox is renamed.
+*Fixed bug with occasional crash on exit on Solaris.
+*Fixed bug with failure to account for port numbers in server addresses
+when admin locked domain option is used.
+*Fixed bug with seen flag being set in a raw message preview, even
+though seen flag chage is turned off.
+*Fixed bug in which window title changes dd not update Window menu
+items.
+*Fixed bug with ACAP address expansions/search returning a child address
+book name.
+
+v3.1b4 : 11-July-2003
+Minor Changes
+*Local mailboxes with arbitrary line end formats can now be used without
+the need to set the format popup in the local account preferences.
+*Styled text composition now enabled.
+*Added new option to allow mailbox tied identity to be automatically
+inherited by child mailboxes.
+*Added option to allow searches to negate search set criteria.
+
+Fixes
+*Fixed bug with use of Anonymous in account prefs authentication.
+*Fixed bug with message copies failing silently.
+*Fixed bug with failure to display SMTP account name in SMTP network
+error alerts.
+*Fixed bug in which account preferences would get stuck when an SSL
+client cert was selected.
+*Fixed bug with failure to include certificate chain in SMIME signed
+messages.
+*Fixed bug with failure to generate and process signed & encrypted SMIME
+messages.
+*Fixed bug with failure to extract certificate altSubject for comparison
+with From address.
+*Fixed bug with unwanted sort/thread when opening a mailbox with a Match
+applied.
+*Fixed bug with certificate import not recognising text files with
+arbitrary line ends.
+*Fixed bug with support message generating garbled support info when
+styled text composition is the default.
+
+v3.1b3 : 26-June-2003
+Minor Changes
+*Added preference to allow default sign crypto plugin to be chosen.
+*Added certificate manager dialog for importing, viewing, deleting
+certificates.
+*Now shows full email address in detailed tooltips.
+
+Fixes
+*Fixed bug with ispell preventing exit.
+*Fixed bug with LDAP SSL crashes.
+*Fixed bug with failure to remember status window state.
+*Fixed bug with table shift-select in mailbox pane.
+*Fixed bug with failure to disable label change commands when server
+does not support labels.
+
+v3.1b2 : 13-June-2003
+Fixes
+*Fixed bug with mailbox list processing.
+*Fixed bug with crash when SSL is not present.
+*Fixed bug with failure to fallback to LDAPv2.
+*Fixed bug with incorrect cert directory location being used.
+
+v3.1b1 : 11-June-2003
+Major Changes
+*Added S/MIME plugin for S/MIME cryptography support.
+*Added PGP8 plugin for PGP Corp.s PGP v8 release.
+*Added support for SSL client-side certificate authentication.
+*Updated to LDAPv3 with SSL support.
+*Added support for up to 8 user-defined labels on messages.
+
+Minor Changes
+*Added synchronisation state information to mailbox Details dialog.
+*Added synchronisation state information to detailed message tooltips.
+*Added Admin Toolkit option for disabling of Reject command.
+*Added mailbox name to expunge confirmation alert.
+*Changed date representation for timezone adjusted display to use %c
+specifier.
+*Added quick select buttons to addressing dialog used in the address
+book.
+*Added new option to close a message when deleted even when open deleted
+message option is on.
+*Added new print captions option to automatically print a set of summary
+headers at the top of the first printed page.
+*Added new 'first name' items to reply/forward attribution templates.
+*Added option to automatically remove sig-dashed sigantures from reply
+quotations.
+*Added option to automatically insert sig-dashes into all signatures
+when inserted into a draft.
+*Added shift-space shortcut to scroll back in message preview pane.
+*Added Close Others command to mailbox tabs menu.
+*Draft parts pane now auto-expands and selects newly attached items.
+*Added Admin Toolkit option to allow auto-creation of arbitrary
+mailboxes.
+*Now automatically strips off trailing ':' if used in Header search
+criterion.
+*Can now negate Header search criterion by prepending a '!' to the
+header name.
+*Now scrolls when HTML relative/internal links are clicked.
+*Added support for getting signatures from files.
+*Mailbox tabs now display an icon when mailbox has new mail.
+*Added new verify/decrypt result pane to message pane.
+
+Fixes
+*Fixed bug with parts expanding and becoming visible in preview even
+though parts display is turned off.
+*Fixed bug with failure to rename local mailbox directories.
+*Fixed bug with reply address choice when using broken IMAP servers.
+*Fixed bug with incorrect icon in ManageSIEVE password dialog.
+*Fixed bug causing a crash when connection loss occurs whilst reply
+addressing dialog is displayed.
+*Fixed bug with failure to activate Write button in rules manager
+toolbar.
+*Fixed bug with failure to properly display open state of all instances
+of a mailbox in the server pane.
+*Fixed bug with thread contention on Solaris.
+*Fixed bug with DIGEST-MD5 authentication and ACAP.
+*Fixed bug with parsing ACAP entries.
+*Fixed bug with selection in both single and group lists in address book
+being used to address a new draft.
+*Fixed bug with crash when quitting after displaying a mailbox
+sub-hierarchy.
+*Fixed bug with failure to properly replace all when spelling.
+*Fixed bug in which remote account creation was allowed even when remote
+prefs was disabled via Admin Toolkit.
+*Fixed bug with modification of clipboard when doing smart URL paste.
+*Fixed bug with colout of menu items on 16-bit colour displays.
+*Fixed bug with failure to properly initialise search window when it is
+first displayed.
+*Fixed bug with parsing certain font specs resulting in incorrect font
+sizes being available in the prefs.
+*Fixed bug with 1-pane server window being left behind after switching
+into 3-pane mode.
+*Fixed bug with focus being left on empty preview pane when a message is
+removed.
+
+v3.0.3: 14-March-2003
+Fixes
+*Fixed DIGEST-MD5 authentication with ManageSIEVE.
+*Fixed bug with doubled address book list after logging out then logging
+in to address book server.
+*Fixed bug causing a crash when accepting different SSL certificates
+with the same subject.
+*Fixed bug with down-arrow changing horizontal scroll position.
+*Fixed bug with parsing borken protocol from certain IMAP servers.
+*Fixed bug with mailbox pane focus being lost when going to the next
+mailbox with new mail.
+*Fixed bugs with refreshing address book lists.
+*Fixed bug with loss of previewed address changes when logging out of
+address server.
+*Fixed bug with failure to properly store and recover address book
+sorting preferences.
+*Fixed bug causing a crash when connection is lost whilist creating a
+reply draft.
+*Fixed bug with intial selection of new message not working in Match
+mode.
+*Fixed bug with unicode and utf8 support for vCards.
+*Fixed bug with failure to remove mailboxes from New Messages cabinet
+when there 'new' count goes to zero.
+*Fixed bug with spell-as-you-type when pasting text.
+*Fixed bug with spell-as-you-type hiliting when backspacing to a
+misspelled word.
+*Fixed bug causing a crash when new mail check occurs on a set of
+mailboxes being closed.
+*Fixed bug with spell-as-you-type crash with auto-correct words at the
+very end of the text.
+*Fixed bug with unseen counter not being properly reset when marking all
+messages as seen.
+*Fixed bug with incorrect charset for Euro character.
+
+v3.0.2: 28-February-2003
+Fixes
+*Fix to always expand single address protocol.
+*Fixed bug with failed copy to mailbox if initial account is logged out.
+*Fixed bug with failed macro expand key pass-through.
+*Fixed bug with crash when auto-send rule executes on startup.
+*Fixed bug with display hierarchy removal with open mailbox.
+*Fixed bug with crash when deleting IMSP account in local prefs.
+*Fixed bug with parts expand grabbing focus.
+*Fixed bug with alert preferences cabinet popup value not being
+remembered.
+*Fixed bug with duplicate remote preferences set names.
+*Fixed bug with sasl authentication with ManageSIEVE.
+*Fixed various spell-as-you-type bugs.
+*Fixed bug with bogus status when opening a local address book.
+*Fixed bug with crash when Draft button used with address book without a
+selection.
+*Fixed bug with up/down arrow keys when multiple selection exists.
+*Fixed bug with copy/move sometimes operating twice.
+*Fixed bug with failure to do connection recovery when sent-mail copy is
+done.
+*Fixed bug causing a crash when power suspend event arrives whilst
+quitting.
+*Fixed bug causing a crash when replying/forwarding a message with wrap
+length set to zero.
+*Fixed bug with failure to properly set SMTP server in identity when
+servers are locked via Admin tool.
+*Fixed bug with incorrect items in address account popup in address book
+create dialog.
+*Fixed bugs with IMAP4 servers and rules.
+*Fixed bug with failure to create all directories required for user
+certs.
+*Fixed bug with empty ACAP entry being treated as a valid address.
+*Fixed bug with processing of curly quotes.
+*Fixed bugs with handling of mailbox main and popup menus.
+*Fixed bug with failure to focus on server pane when all mailboxes are
+closed.
+*Fixed bug with stuck message pane scrollbar after printing.
+*Fixed bug with failure to properly handle shift-page/home/end keys in
+text areas.
+*Fixed bug with list jitter when dragging and drpping items.
+*Fixed bug with inactive copy to menu items
+*Fixed bug with failure to update toolbar state when selection changes
+and mailbox window is in the background.
+*Fixed bug causing a crash when parsing specific message/rfc822 parts.
+*Fixed bug with display of message/rfc822 parts in draft window parts
+list.
+*Fixed bug with failure to enable SMTP server address when admin option
+allows that to be edited when other server addresses are locked out.
+
+v3.0.1: 29-January-2003
+Fixes
+*Fixed bug with PSpell plugn - switched back to ISpell.
+*Fixed bug with failure to allow dictionary choice.
+*Fixed bug with failure to refresh address book manager window when
+opened.
+*Fixed bug with crash when refrshing an address account in the address
+book manager pane.
+*Fixed bug with inoperative Match button.
+*Fixed bug with inactive Delete item in draft window parts table context
+menu.
+*Fixed bug causing a crash when forwarding messages using certain
+character sets.
+*Fixed bug with crash when opening an address book direct from disk.
+
+v3.0b12 : 21-January-2003
+Minor
+*Added new PSpell plugin to allow spelling with older aspell
+distributions.
+
+Fixes
+*Fixed bug with message window toolbar activation.
+*Fixed bug with handling of message/rfc822 parts.
+*Fixed bug with search set popup sometimes not working.
+*Fixed bug with failure to remember message window copy to popup button
+setting.
+
+v3.0b11 : 17-January-2003
+Major
+*Added spell-as-you-type capability to draft window.
+
+Minor
+*Added additional attachment classification icons to mailbox pane.
+
+Fixes
+*Fixed bug with button activation when message preview is active.
+*Fixed bug with LDIF import.
+*Fixed bug with flashing URL tooltip.
+*Fixed bug with key choice dialog closing when modifier key is pressed.
+*Fixed bug with mailbox and message toolbar button activation.
+*Fixed bug with failure to delete some rules from triggers.
+
+v3.0b10 : 24-December-2002
+Minor
+*Added options to allow automatic address capture when reading or
+repsonding to a message.
+*Added support for ManageSIEVE protocol for uploading SIEVE scripts.
+*Added smart URL paste option that will automatically add <...>
+delimiters around any text pasted into a draft that is recognised as
+being only a URL.
+
+Fixes
+*Fixed bug with failure to show detailed tooltips and URL tooltips.
+*Fixed bug with reverse sorted local mailbox selection preservation when
+new mail arrives.
+*Fixed bug with LDAP expansion using empty attributes.
+*Fixed bug with failure to save/restore preview pane splitter position
+in mailbox and address book windows.
+*Fixed bug with failure to save/restore account expansion state in
+address book manager pane.
+*Fixed bug with quoting of headers when forwarding.
+*Fixed bug causing occasional crash after editing preferences when a
+particular address book account was active.
+*Fixed bug with failure to properly refresh address book column when the
+column type was changed.
+*Fixed bug with blank address book preview area.
+*Fixed bug causing an occasional crash when using certain message
+sorting criteria.
+*Fixed bug with behaviour of draft save dialog.
+*Fixed bug with rules window splitter and button focus.
+*Fixed bug with incorrect SIEVE script syntax for multiple addresses.
+*Fixed bug with use of shift-tab as default for text macro expansion.
+*Fixed bug with failure to decode %xx's in URLs displayed as tooltips.
+*Fixed bug with failure to do MIME decoding of mailto URLs.
+*Fixed bug with failure to restore address book manager window state.
+*Fixed bug with active Page Setup and Print commands in address book
+pane.
+*Fixed bug with failure of address import/export in standalone address
+book window.
+*Fixed bug with failure to properly active toolbar after message reply.
+
+v3.0b9 : 26-November-2002
+Minor
+*Added limited support for utf-8 decode in header fields and text
+bodies.
+
+Fixes
+*Fixed bug with address search address edit dialog not allowing
+selections.
+*Fixed bug with disconnect/connect operation taking place on logged out
+accounts.
+*Fixed bug with crash when spelling checking a preview pane close to the
+top of the screen.
+*Fixed bugs with connection loss in check mail thread.
+*Fixed bug with use of recipient/correspondent is me search criteria
+causing crash when writing preferences.
+*Fixed bug causing a crash when sending and connection loss occurs on
+copy to operation.
+*Fixed bug where logout of one account with an active mailbox tab would
+cause all other mailbox tabs to close.
+*Fixed bug with some message menu commands not executing on the mailbox
+pane or preview pane that is active.
+*Fixed bug with multithreaded X-windows behaviour.
+*Fixed bug causing a crash when deleting an account with an open
+mailbox.
+*Fixed bug with allowing user to enter whitespace before or after
+nick-names.
+*Fixed bug with failure of new mail rules to be triggered on POP3
+checks.
+*Fixed bug with failure to properly refresh triggers list when new
+trigger is added.
+*Fixed bug causing a crash when a large number of messages are used with
+Make Rules command.
+*Fixed bug with empty 3-pane contacts list after changing to new set of
+preferences.
+*Fixed bug with Match last search item getting stuck on.
+*Fixed bug with error alerts accumulating on POP3 check failures.
+*Fixed bug causing a crash when SMTP queue window display with no active
+queues.
+*Fixed bug with POP3 server check triggering when appending to POP3
+INBOX.
+*Fixed bug with text macro line end conversions for different OS's.
+*Fixed bug with text macro edit dialog.
+*Fixed bug with LDAP expansion being attempted when disconnected.
+*Fixed bug with inactive Save button in draft window toolbar.
+
+v3.0a5 : 29-October-2002
+Minor Changes
+*File menu Close command can now be used to close mailbox preview in
+3-pane window.
+*Address book create dialog now has account popup for use when no
+address book is initially selected.
+*Protocol logs are now stored in a Logs directory and can optionally be
+stored in the User Documents directory as opposed to the Application
+directory.
+*Added new keyboard shortcut for Bounce command.
+*Preview pane now responds to tab and delete keys to act on the message.
+*Tabs are now always visible when enabled when one or more mailboxes are
+tabbed.
+*Added manual Capture Address capability via menu command and new
+preferences options.
+*Added Update Current Match command to allow quick refresh of matched
+messages.
+*Copy to choose dialog when sending a draft now includes an option to
+save the chosen mailbox as the default for that future use.
+*Shift-spacebar can be used to move to previous message.
+*New preferences to control the direction of message processing
+independent of sort order.
+*New Search date match for 'within' and 'not within'.
+*Support for SMTP SIZE extension to avoid sending messages the server
+will reject.
+*New preferences to have draft CC & Bcc address fields visible by
+default.
+*New identity option to automatically choose the identity based on
+addresses in a message being responded to.
+*New option to pause network activity while computer is asleep and to
+recover connections or switch into disconnected mode when computer
+wakes.
+
+Fixes
+*Fixed bug with new address book button activation.
+*Fixed bug with failure to remember Match state.
+*Fixed bug with tab in draft subject going into hidden parts field.
+*Fixed bug with failure to properly close app when main window is
+closed.
+*Fixed bug with selecting addresses in address book by typing.
+*Fixed bug with failure to select addresses using nick-names when
+typing.
+*Fixed bug with failure to properly expand address text which contains
+spaces.
+*Fixed bug where startup would fail if MDI socket left behind after
+previous crash.
+*Fixed bug with selection skipping over deleted messages doing a preview
+of the skipped messages.
+*Fixed bug with message window header expand/collapse failing to update
+text display.
+*Fixed bug with bugus IMAP search commands being used when non-default
+sorting/threading in use.
+*Fixed bug with superflous server search when tabbing to next new
+message.
+*Fixed bug with mailbox browse dialog having active OK button when no
+selection is present.
+*Fixed bug with failure to active new address/new group buttons at all
+times.
+*Fixed bug with failure to activate commands when the address caption
+area of a message preview has the focus.
+*Fixed bug causing all tabs to be removed when deleting a mailbox open
+in a tab.
+*Fixed bug with incorrect focus on preview when the previewed message is
+expunged.
+*Fixed bug with failure to launch multipart/applefile attachments.
+*Fixed bug with failure to display connected/disconnected state in
+3-pane window title.
+*Fixed bug with 3-pane window options not being properly set when
+switching into 3-pane mode from separate windows mode.
+*Fixed bug with failure to open address books on startup.
+*Fixed bug with address list key-type selection going past an exact
+match.
+*Fixed bug with spell check using entire text when a selection is
+present.
+*Fixed bug with copy to popup in draft missing None item.
+*Fixed bug with failure to warn about message size when doing a crypto
+operation.
+*Fixed bug with crashes when sending a message with no text.
+*Fixed bug with SMTP account popup in queue window not changing the
+actual queue on view.
+*Fixed bug with font size choice in font size popups.
+*Fixed bug with active SMTP enable button in disconnected mode.
+*Fixed bug with falure to properly quote temp file used for external
+editing.
+*Fixed bug with Search Set popup in search window.
+*Fixed bug causing a crash when selecting one address book after
+another.
+*Fixed bug with reverse sorting button not working.
+*Fixed bug with flat/hierarchic toggle button not working.
+*Fixed bug with incorrect content transfer encoding header on encrypted
+parts.
+*Fixed bug with crash after preferences dialog when open at startup
+address books exist.
+*Fixed bug causing a crash when local address books are visible after
+changing preferences.
+*Fixed bug with ACL Apply to all on logged out mailbox.
+*Fixed bug with crashes when message window closes itself.
+*Fixed bug with crash when deleting an open mailbox.
+*Fixed bug with new address book splitter pos set to obscure single
+address list.
+*Fixed bug with crash on initial (no prefs) startup.
+*Fixed bug in which new mail checks whilst application is in the
+background would stop after the first one detects new mail.
+*Fixed so that mailboxes on broken IMAP servers that do not allow SEARCH
+can be opened.
+*Fixed bug with mailbox ACLs when switching to a mailbox that does not
+have an active ACL set.
+*Fixed bug with Apply Rule action reseting mailbox selection to the
+wrong set of messages after some are removed.
+*Fixed bug causing a crash when quitting with certain address books
+open.
+*Fixed bug with layout in create address book dialog.
+*Fixed bug with splitter panes allowing split panes to be set to a size
+smaller than the required minimum.
+*Fixed bug causing an ocasional crash when quitting and new mail is
+detected while shutting down.
+*Fixed bug with failure to have Copy to default to Choose for new users.
+*Fixed bug with alt/option click on Match button.
+*Fixed bug with new mail notifications on tabbed mailbox.
+*Fixed bug with illegal syntax in IMAP date searches.
+*Fixed bug with date control in search criteria not conforming to locale
+ordering of day and month.
+*Fixed bug with search/rules dialog window resizing.
+*Fixed bug with forward rule causing a crash if message parts are
+visible.
+*Fixed bug with message preview stopping after display hierarchy
+refresh.
+*Fixed bug with failure to preview message when it is undeleted.
+*Fixed bug in which closing of multiple tabbed mailboxes could cause a
+freeze.
+*Fixed bug to prevent locked tabs from being closed via Close All.
+*Fixed bug in which To/CC/Bcc addresses in an identity could be lost for
+certain types of drafts.
+*Fixed bug with File menu Close command closing a locked tab.
+*Fixed bug with preview scroll position being reset when new mail
+arrives.
+*Fixed bug where forces mailbox close could cause a freeze.
+*Fixed bugs with recovery from connection failures, including network
+configuration changes.
+*Fixed bug with duplicate addresses appearing when editing local address
+book contents.
+*Fixed bug when disconnecting with an open mailbox in an account not
+enabled for disconnected support.
+*Fixed bug with address book synchronisation.
+*Fixed bug causing a crash when viewing an empty message.
+*Fixed bug with failure to properly update seen count on some open
+mailboxes.
+
+v3.0a4 : 6-September-2002
+Major Changes
+*Major revisions to UI in all windows.
+*Each window has a proper toolbar UI.
+*Toolbar display options are configurable.
+*Now has a new 3-pane UI option.
+*Can toggle between 3-pane and single pane mode on the fly.
+*3-pane layout can be controlled separately for mail and contacts.
+*Comprehensive options to allow control over what user actions trigger a
+preview or ‘full’ view.
+*Mailbox and address book windows have preview panes.
+*Redesigned address book window with single address list sorting and
+column changing.
+*Text macro facility with configurable keystroke for quick insert of
+commonly used text.
+*Now has support for generating and processing read receipt requests.
+*Tabbed mailbox pane in 3-pane window to allow multiple mailboxes to be
+quickly viewed in 3-pane mode. Context-menu on tab allows it to be moved
+around or closed, shift-click closes it. Tab state is remembered when
+quitting and restarting.
+*Added external editor capability to Draft window.
+
+Minor Changes
+*New Help menu items for support.
+*Tooltips on server and mailbox list items.
+*Added Reject command for sending DSN failures back to message
+originator.
+*IMAP append now preserves the date received value of the message being
+appended.
+*Added Print and Save rule actions for filtering.
+*New option to suppress display of recent mailbox state unless mailbox
+also has unseen messages.
+*Added text size zoom up/down buttons to message view.
+*Added option to allow displayed dates to be adjusted to the local
+timezone.
+*Added option to message pane to allow nested quotes above a certain
+depth to be hidden.
+*Subject format for forwarded messages can now be set via preferences.
+*Added new alert to allow user to choose whether local mailbox reparse
+is done when Mulberry detects modtime changes on the local files.
+*Added vCard address book import/export plugin. Can read vCard v2.1/v3.0
+formatted data, will always write vCard v3.0 formatted data.

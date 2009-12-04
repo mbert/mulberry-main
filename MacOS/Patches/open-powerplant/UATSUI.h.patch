@@ -1,0 +1,13 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Text Classes/UATSUI.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Text Classes/UATSUI.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Text Classes/UATSUI.h	(working copy)
+@@ -48,7 +48,7 @@
+ 						
+ 						LATSUIStyle( const LATSUIStyle& inOriginal );
+ 						
+-						~LATSUIStyle();
++	virtual				~LATSUIStyle();
+ 						
+ 	operator			ATSUStyle() const;
+ 						

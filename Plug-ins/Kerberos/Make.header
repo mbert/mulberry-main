@@ -1,0 +1,37 @@
+#########################################
+### 
+###      M A K E F I L E
+###
+###
+###
+
+
+
+# compiler flags ------------------------------
+
+include ../include/stl.mak
+
+BIN = .obj
+
+KRBINCS = -I/usr/include/kerberosIV
+KRBLIBS = -lkrb4 -ldes425
+
+CINCS = \
+-I../Common \
+-I../../Sources_Common/Utilities \
+-I./sources \
+ ${KRBINCS}
+
+LOADLIBES := ${KRBLIBS} ${LOADLIBES} -lresolv
+
+VPATH := sources:\
+		../Common:\
+		../../Sources_Common/Utilities:\
+		../../Sources_Common/Mail/Charsets:\
+		../../Sources_Common/Mail/URLs:\
+		../CRAM-MD5/sources/md5
+		
+$.${BIN}/%.o %.o: %.cp
+	@ echo "    ---- Compiling $< (C++)"
+	 $(CPP) $(CFLAGS) -c -o $@ $<
+

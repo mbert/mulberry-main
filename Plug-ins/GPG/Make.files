@@ -1,0 +1,12 @@
+-suffix .cp
+
+@GPGPlugin.so
+-prefix sources/
+CGPGPluginDLL
+-prefix ../PluginLibrary/
+.a PluginLib
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CSecurityPluginDLL
+os_dep

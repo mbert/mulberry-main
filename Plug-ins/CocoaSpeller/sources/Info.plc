@@ -1,0 +1,1 @@
+/* *  Copyright © 2002 Metrowerks Corporation.  All Rights Reserved. * *  Questions and comments to: *       <mailto:support@metrowerks.com> *       <http://www.metrowerks.com/> */#define kAppName "Spellex"#define kBundleIdentifier "com.cyrusoft.mulberry.plugins.spellex"

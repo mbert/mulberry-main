@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+
+<!-- Buttons -->
+	<string id="ErrorDialog::Btn::OK">OK</string>
+	<string id="ErrorDialog::Btn::Cancel">Cancel</string>
+	<string id="ErrorDialog::Btn::Yes">Yes</string>
+	<string id="ErrorDialog::Btn::No">No</string>
+	<string id="ErrorDialog::Btn::ServerCloseQuit">Quit</string>
+	<string id="ErrorDialog::Btn::ServerCloseClose">Close</string>
+	<string id="ErrorDialog::Btn::ServerCloseLogout">Logout</string>
+	<string id="ErrorDialog::Btn::Expunge">Expunge</string>
+	<string id="ErrorDialog::Btn::CloseWithoutExpunge">Close Only</string>
+	<string id="ErrorDialog::Btn::ClearINBOX">Yes</string>
+	<string id="ErrorDialog::Btn::CloseWithoutClear">Close Only</string>
+	<string id="ErrorDialog::Btn::LetterServerLogon">Logon</string>
+	<string id="ErrorDialog::Btn::LetterClose">Close Draft</string>
+	<string id="ErrorDialog::Btn::LetterLeaveOpen">Leave Open</string>
+	<string id="ErrorDialog::Btn::MessageMulti">Multiple</string>
+	<string id="ErrorDialog::Btn::MessageSingle">Single</string>
+	<string id="ErrorDialog::Btn::FullSort">Full Sort</string>
+	<string id="ErrorDialog::Btn::CurrentSort">Current</string>
+	<string id="ErrorDialog::Btn::Disconnected">Disconnected</string>
+	<string id="ErrorDialog::Btn::Connected">Connected</string>
+	<string id="ErrorDialog::Btn::Wait">Wait</string>
+	<string id="ErrorDialog::Btn::Postpone">Postpone</string>
+	<string id="ErrorDialog::Btn::Remove">Remove</string>
+	<string id="ErrorDialog::Btn::Delete">Delete</string>
+	<string id="ErrorDialog::Btn::Continue">Continue</string>
+	<string id="ErrorDialog::Btn::Reparse">Rebuild</string>
+	<string id="ErrorDialog::Btn::Disconnect">Disconnect</string>
+	<string id="ErrorDialog::Btn::RulesMergeRulesOnly">Merge</string>
+	<string id="ErrorDialog::Btn::RulesMergeAll">All</string>
+	<string id="ErrorDialog::Btn::RulesMergeReplace">Replace</string>
+	<string id="ErrorDialog::Btn::RulesMergeKeep">Keep</string>
+	<string id="ErrorDialog::Btn::RulesMergeEntireSet">Entire Set</string>
+	<string id="ErrorDialog::Btn::RulesMergeSelection">Selection</string>
+	<string id="ErrorDialog::Btn::LetterSendAsReply">Send Reply</string>
+	<string id="ErrorDialog::Btn::LetterSendAsOriginal">Send New</string>
+
+	<string id="ErrorDialog::Btn::ChangeAllEvents">Change All Events</string>
+	<string id="ErrorDialog::Btn::ChangeThisEvent">Change Only This Event</string>
+	<string id="ErrorDialog::Btn::ChangeThisFutureEvent">Change This and Future Events</string>
+	<string id="ErrorDialog::Btn::DeleteAllEvents">Delete All Events</string>
+	<string id="ErrorDialog::Btn::DeleteThisEvent">Delete Only This Event</string>
+	<string id="ErrorDialog::Btn::DeleteThisFutureEvent">Delete This and Future Events</string>
+
+	<string id="ErrorDialog::Btn::ImportCalendarMergeExisting">Merge</string>
+	<string id="ErrorDialog::Btn::ImportCalendarReplaceExisting">Replace</string>
+	<string id="ErrorDialog::Btn::ImportCalendarChoose">Choose</string>
+	<string id="ErrorDialog::Btn::ImportCalendarCreate">Create New</string>
+	
+	<string id="ErrorDialog::Btn::iTIPAcceptRSVP">Accept with RSVP</string>
+	<string id="ErrorDialog::Btn::iTIPAcceptNoRSVP">Accept without RSVP</string>
+	<string id="ErrorDialog::Btn::iTIPAccept">Accept</string>
+	<string id="ErrorDialog::Btn::iTIPReject">Reject</string>
+	<string id="ErrorDialog::Btn::iTIPIgnore">Ignore</string>
+	
+<!-- Title -->
+
+	<string id="ErrorDialog::Title::Error">Error</string>
+	<string id="ErrorDialog::Title::Note">Note</string>
+	<string id="ErrorDialog::Title::Warning">Warning</string>
+	
+<!-- Messages -->
+	<string id="ErrorDialog::Text::ServerClose">Do you want to quit Mulberry or just close the server window without quitting?</string>
+	<string id="ErrorDialog::Text::ServerLogoutQuit">To clear all of your personal settings when logging out you must quit Mulberry. Do you want to quit Mulberry or just logout from the server without quitting?</string>
+	<string id="ErrorDialog::Text::ExpungeManual">Do you really want to expunge (permanently remove) %s deleted messages from the mailbox '%s'?</string>
+	<string id="ErrorDialog::Text::ExpungeOnClose">Do you really want to expunge (permanently remove) %s deleted messages from the mailbox '%s' before closing?</string>
+	<string id="ErrorDialog::Text::ClearINBOX">Closing the INBOX will move the seen messages to another mailbox and expunge those and any deleted messages. Do you really want to do this?</string>
+	<string id="ErrorDialog::Text::ClearINBOXDeleted">Closing the INBOX will move the seen messages to another mailbox and expunge those and the currently deleted messages. Do you really want to expunge the messages currently marked as deleted?</string>
+	<string id="ErrorDialog::Text::NoClearMailbox">The seen messages in the INBOX cannot be copied to the specified mailbox because it does not exist. Please create the mailbox to copy to first.</string>
+	<string id="ErrorDialog::Text::NoCloseMailbox">You cannot close this mailbox because some of its messages are in use in a draft window. You must finish composing the draft and either close it or send it before this mailbox can be closed.</string>
+	<string id="ErrorDialog::Text::LetterServerLogon">This message was sent correctly but it cannot be copied to the IMAP server because you are not logged on to it. Do you want to try and logon?</string>
+	<string id="ErrorDialog::Text::MultiSave">Do you want to save the selected messages in a single file or as multiple files, one for each message?</string>
+	<string id="ErrorDialog::Text::MultiReply">Do you want to reply to the selected messages with a single reply or multiple replies, one for each message?</string>
+	<string id="ErrorDialog::Text::MultiForward">Do you want to forward the selected messages as a single message or multiple messages, one for each selected message?</string>
+	<string id="ErrorDialog::Text::MultiDraft">Do you want to create a single draft for each selected message or multiple drafts, one for each selected message?</string>
+	<string id="ErrorDialog::Text::CachedSort">Some information needed to sort all the messages is unavailable. Do you want to download the missing message information and then do a full sort, or just sort the currently available messages?</string>
+	<string id="ErrorDialog::Text::NoLocalDraftSave">Saving of drafts to local disks is not available. To keep a copy of this draft, click 'Cancel' then save it in a mailbox. To close the draft without saving it, click 'Close' - the contents of the draft will be lost.</string>
+	<string id="ErrorDialog::Text::PromptDisconnect">Do you want to start this session in disconnected mode?</string>
+	<string id="ErrorDialog::Text::PromptWaitPostpone">There are active messages waiting to be sent in the SMTP queues. Do you want to wait for these messages to be sent before quitting or postpone sending them until Mulberry is next used?</string>
+	<string id="ErrorDialog::Text::DeleteMboxOrFavourite">Do you want to delete the mailbox on the server, or just remove the selected cabinet items?</string>
+	<string id="ErrorDialog::Text::MailboxBusy">The mailbox '%s' is being used in another operation. Try again later.</string>
+	<string id="ErrorDialog::Text::ReparseLocal">The mailbox '%s' may have changed since it was last used. Information about the mailbox may need to be rebuilt. To stop the current operation, click 'Cancel'. To continue without rebuilding, click 'Continue'. To continue after rebuilding, click 'Rebuild'.</string>
+	<string id="ErrorDialog::Text::RulesMergeImportType">Do you want to replace the entire set of rules and triggers or scripts with the imported set, or do you want to only merge the new set of rules with the existing ones?</string>
+	<string id="ErrorDialog::Text::RulesMerge">Some of the rules being imported have the same name as existing rules. Do you want to replace the existing rules with the new ones of the same name, or do you want to keep the existing rules and add the new ones changing them to use a different name?</string>
+	<string id="ErrorDialog::Text::RulesMergeExportType">Do you want to export only the selected rules, or the entire set of rules and triggers or scripts?</string>
+	<string id="ErrorDialog::Text::WarnReplySubject">The subject of this reply was changed. Do you want to send this message as if it were a reply to the original messages (the same thread of discussion), or send it as a new message (new thread of discussion)?</string>
+	<string id="ErrorDialog::Text::WarnMailtoFiles">A mailto URL has added a local file on disk to an outgoing message. Please double-check the attachments in the draft and verify they are files you want to send to the intended recipient, and not files that should be kept private.</string>
+	<string id="ErrorDialog::Text::ChangeRecurEvent">The event being changed is one event in a set of recurring events. Do you want to change this event only, or change this event and all future events, or change all events in the recurring set?</string>
+	<string id="ErrorDialog::Text::DeleteRecurEvent">The event being deleted is one event in a set of recurring events. Do you want to delete this event only, or delete this event and all future events, or delete all events in the recurring set?</string>
+	<string id="ErrorDialog::Text::DeleteEvent">Do you want to delete this event?</string>
+	<string id="ErrorDialog::Text::ImportCalendarSelection">Do you want to import into the calendar '%s' and merge with the existing data or completely replace the existing data, or create a new calendar to import into?</string>
+	<string id="ErrorDialog::Text::ImportCalendarNoSelection">Do you want to choose a calendar to import into, or create a new calendar to import into?</string>
+	<string id="ErrorDialog::Text::iTIPHandleRequestABCDE">An event request has been detected. Do you want to accept the event and send a reply to the organiser, or accept the event without sending a reply, or reject the event and let the organiser know, or ignore the event completely?</string>
+	<string id="ErrorDialog::Text::iTIPHandleRequestABCDF">An event request has been detected, but it conflicts with existing events. Do you want to accept the event with the conflict and send a reply to the organiser, or accept the event with the conflict and not send a reply, or reject the event and let the organiser know, or ignore the event completely?</string>
+	<string id="ErrorDialog::Text::iTIPHandleRequestBDE">An event request has been detected, and no reply is required. Do you want to accept the event, or ignore the event?</string>
+	<string id="ErrorDialog::Text::iTIPHandleRequestBDF">An event request has been detected, but it conflicts with existing events and no reply is required. Do you want to accept the event with the conflict, or ignore the event?</string>
+	<string id="ErrorDialog::Text::iCalendarEDSTUpgrade">Timezones listed below need to be updated to the new extended daylight saving time rules for the US and other countries starting in March 2007. Do you want to upgrade the timezones now?%s</string>
+
+	<string id="ErrorDialog::Text::UnqualifiedToAddr">The text '%s' in the 'To:' field is neither a complete email address nor a name from your open address books. To complete the address, add a domain (e.g. '@xxx.yyy.zzz') or set 'Default Domain for Outgoing Email' in the 'Network' Preferences."</string>
+	<string id="ErrorDialog::Text::UnqualifiedCcAddr">The text '%s' in the 'Cc:' field is neither a complete email address nor a name from your open address books. To complete the address, add a domain (e.g. '@xxx.yyy.zzz') or set 'Default Domain for Outgoing Email' in the 'Network' Preferences."</string>
+	<string id="ErrorDialog::Text::UnqualifiedBccAddr">The text '%s' in the 'Bcc:' field is neither a complete email address nor a name from your open address books. To complete the address, add a domain (e.g. '@xxx.yyy.zzz') or set 'Default Domain for Outgoing Email' in the 'Network' Preferences."</string>
+	<string id="ErrorDialog::Text::IllegalToAddr">The text '%s' in the 'To:' field is an illegal email address. This message cannot be sent."</string>
+	<string id="ErrorDialog::Text::IllegalCcAddr">The text '%s' in the 'Cc:' field is an illegal email address. This message cannot be sent."</string>
+	<string id="ErrorDialog::Text::IllegalBccAddr">The text '%s' in the 'Bcc:' field is an illegal email address. This message cannot be sent."</string>
+
+</stringlist>

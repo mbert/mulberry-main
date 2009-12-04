@@ -1,0 +1,197 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableMultiRowSelector.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableMultiRowSelector.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableMultiRowSelector.cp	(working copy)
+@@ -101,8 +101,48 @@
+ 	return ret;
+ }
+ 
++// ---------------------------------------------------------------------------
++//	¥ GetLastSelectedCell
++// ---------------------------------------------------------------------------
++//	Return the last selected cell, defined as the min row & col (closest to
++//  top-left corner)
+ 
++STableCell
++LTableMultiRowSelector::GetLastSelectedCell() const
++{
++	Point ret = {0,0};
++	if (!::EmptyRgn(mSelectionRgn)) {
++		Rect	rb;
++		::GetRegionBounds(mSelectionRgn, &rb);
++
++		ret.v = rb.bottom - 1;
++		ret.h = 1;
++	}
++	return STableCell(ret);
++}
++
++
++
+ // ---------------------------------------------------------------------------
++//	¥ GetLastSelectedRow
++// ---------------------------------------------------------------------------
++//	Return the last selected cell's row, defined as the min row & col (closest to
++//  top-left corner)
++
++TableIndexT
++LTableMultiRowSelector::GetLastSelectedRow() const
++{
++	TableIndexT ret = 0;	// no selection
++	if (!::EmptyRgn(mSelectionRgn)) {
++		Rect	rb;
++		::GetRegionBounds(mSelectionRgn, &rb);
++		ret = rb.bottom - 1;
++	}
++	return ret;
++}
++
++
++// ---------------------------------------------------------------------------
+ //	¥ SelectCell
+ // ---------------------------------------------------------------------------
+ //	Select the specified Cell
+@@ -133,6 +173,7 @@
+ void
+ LTableMultiRowSelector::SelectAllCells()
+ {
++#if 0
+ 	TableIndexT	rows, cols;
+ 	mTableView->GetTableSize(rows, cols);
+ 
+@@ -141,6 +182,34 @@
+ 		mTableView->HiliteSelection(mTableView->IsActive(), true);
+ 		mTableView->SelectionChanged();
+ 	}
++#else
++	TableIndexT	rows, cols;
++	mTableView->GetTableSize(rows, cols);
++	
++	if ((rows > 0) && (cols > 0)) {			// Table has some cells
++		// Create new rgn
++		RgnHandle all_hilite = ::NewRgn();
++		::SetRectRgn(all_hilite, 1, 1, cols + 1, rows + 1);
++
++		// Determine difference
++		RgnHandle diff_hilite = ::NewRgn();
++		::DiffRgn(all_hilite, mSelectionRgn, diff_hilite);
++		
++		// Dump old region and replace with difference
++		::DisposeRgn(mSelectionRgn);
++		mSelectionRgn = diff_hilite;
++
++		// Do hilite of new selected cells
++		mAnchorCell.SetCell(1, 1);
++		mTableView->HiliteSelection(mTableView->IsActive(), true);
++		
++		// Restore region and dump diff
++		mSelectionRgn = all_hilite;
++		::DisposeRgn(diff_hilite);
++
++		mTableView->SelectionChanged();
++	}
++#endif
+ }
+ 
+ 
+@@ -155,6 +224,7 @@
+ 	const STableCell	&inCellA,
+ 	const STableCell	&inCellB)
+ {
++#if 0
+ 	TableIndexT	left, top, right, bottom;
+ 	left = 1;
+ 	right = 2;
+@@ -170,8 +240,44 @@
+ 
+ 	mTableView->HiliteSelection(mTableView->IsActive(), true);
+ 	mTableView->SelectionChanged();
++#else
++	TableIndexT	left, top, right, bottom;
++	left = 1;
++	right = 2;	
++	if (inCellA.row < inCellB.row) {
++		top = inCellA.row;
++		bottom = inCellB.row + 1;
++	} else {
++		top = inCellB.row;
++		bottom = inCellA.row + 1;
+ }
+ 
++	// Create new rgn
++	RgnHandle old_hilite = mSelectionRgn;
++	RgnHandle new_hilite = ::NewRgn();
++	::SetRectRgn(new_hilite, left, top, right, bottom);
++	
++	// Determine difference for unhilite
++	RgnHandle diff_hilite = ::NewRgn();
++	mSelectionRgn = diff_hilite;
++	::DiffRgn(old_hilite, new_hilite, diff_hilite);
++	
++	mTableView->HiliteSelection(mTableView->IsActive(), false);
++	
++	// Determine difference for hilite
++	::DiffRgn(new_hilite, old_hilite, diff_hilite);
++
++	mTableView->HiliteSelection(mTableView->IsActive(), true);
++	
++	// Restore region and dump unwanted
++	mSelectionRgn = new_hilite;
++	::DisposeRgn(diff_hilite);
++	::DisposeRgn(old_hilite);
++
++	mTableView->SelectionChanged();
++#endif
++}
++
+ #pragma mark --- Unselecting ---
+ 
+ // ---------------------------------------------------------------------------
+@@ -243,7 +349,7 @@
+ 			}
+ 
+ 		} else {					//   Extend selection from anchor cell
+-			UnselectAllCells();
++			//UnselectAllCells();
+ 			SelectCellBlock(mAnchorCell, inCell);
+ 		}
+ 
+@@ -320,7 +426,7 @@
+ 				// a lot of flashing. But it works, and we'll
+ 				// implement a better algorithm in the future.
+ 
+-				UnselectAllCells();
++				//UnselectAllCells();
+ 				SelectCellBlock(mAnchorCell, hitCell);
+ 
+ 				currCell = hitCell;
+@@ -434,6 +540,18 @@
+ 	TableIndexT rows, cols;					// Get dimensions of Table
+ 	mTableView->GetTableSize(rows, cols);
+ 
++	// Added by CD - must alert table if removed row was selected
++	bool sel_changed = false;
++	{
++		Rect rmv = {inFromRow, 1, inFromRow + inHowMany, (SInt16) cols + 1};
++		RgnHandle	rmvRgn = ::NewRgn();
++		::RectRgn(rmvRgn, &rmv);
++		::SectRgn(mSelectionRgn, rmvRgn, rmvRgn);
++		if (!::EmptyRgn(rmvRgn))
++			sel_changed = true;
++		::DisposeRgn(rmvRgn);
++	}
++
+ 	RgnHandle	aboveRgn = ::NewRgn();		// Part above deletion row
+ 	if (inFromRow > 1) {
+ 		::MacSetRectRgn(aboveRgn, 1, 1, (SInt16) (cols + 1), (SInt16) inFromRow);
+@@ -472,6 +590,10 @@
+ 			mAnchorCell.row -= inHowMany;
+ 		}
+ 	}
++	
++	// Added by CD - must alert table if removed row was selected
++	if (sel_changed)
++		mTableView->SelectionChanged();
+ }
+ 
+ 

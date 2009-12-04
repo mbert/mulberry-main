@@ -1,0 +1,66 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableMultiSelector.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableMultiSelector.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Table Classes/LTableMultiSelector.cp	(working copy)
+@@ -120,6 +120,61 @@
+ 	return mSelectionRgn.Bounds().top;
+ }
+ 
++// ---------------------------------------------------------------------------
++//	¥ GetLastSelectedCell
++// ---------------------------------------------------------------------------
++//	Return the last selected cell, defined as the min row & col (closest to
++//  top-left corner)
++//
++//	Returns (0,0) if there is no selection
++
++STableCell
++LTableMultiSelector::GetLastSelectedCell() const
++{
++		// Find first row containing a selected cell
++
++	TableIndexT		selectedRow = GetLastSelectedRow();
++	STableCell		theCell(selectedRow, 0);
++
++	if (selectedRow > 0) {					// Selected Row of zero means
++											//   there's no selection
++
++			// Find first selected cell by scanning across the row
++
++		TableIndexT		numRows, numCols;
++		mTableView->GetTableSize(numRows, numCols);
++		theCell.col = numCols + 1;
++
++		while (--theCell.col > 1) {	// Note that loop stops BEFORE
++											// first column. Row must have
++											// a selection. If no other one
++											// is selected, the first one
++											// must be.
++			if (CellIsSelected(theCell)) {
++				break;
++			}
++		}
++	}
++
++	return theCell;
++}
++
++
++// ---------------------------------------------------------------------------
++//	¥ GetLastSelectedRow
++// ---------------------------------------------------------------------------
++//	Return the last selected cell's row, defined as the min row & col (closest
++//  to top-left corner)
++//
++//	Returns 0 if there is no selection
++
++TableIndexT
++LTableMultiSelector::GetLastSelectedRow() const
++{
++	TableIndexT lastRow = mSelectionRgn.Bounds().bottom;
++	return lastRow > 0 ? lastRow - 1 : 0;
++}
++
+ #pragma mark --- Selecting ---
+ 
+ // ---------------------------------------------------------------------------

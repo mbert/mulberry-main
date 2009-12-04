@@ -1,0 +1,13 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableMultiRowSelector.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableMultiRowSelector.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableMultiRowSelector.h	(working copy)
+@@ -37,6 +37,8 @@
+ 
+ 	virtual	TableIndexT	GetFirstSelectedRow() const;
+ 	virtual	STableCell	GetFirstSelectedCell() const;
++	virtual	TableIndexT	GetLastSelectedRow() const;
++	virtual	STableCell	GetLastSelectedCell() const;
+ 
+ 	virtual void		SelectCell(
+ 								const STableCell		&inCell);

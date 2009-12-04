@@ -1,0 +1,376 @@
+Mulberry Changes (Win32)
+
+v1.3.3.1 : 20-April-1998
+Fixes
+*Fixed bug in modified-UTF7 encoded mailbox names.
+*Fixed bug with occasional server window redraw failing.
+*Fixed bug with malformed URLs in HTML.
+
+v1.3.3 : 6-March-1998
+Fixes
+*Fixed crash when closing About Box.
+*Fixed bug with incorrect display of plugin information in About Plugins dialog.
+*Fixed bug with expunge causing mailbox window to scroll to the top.
+*Typing in the replace field in the spell check dialog now makes the replace button the default.
+*Fixed bug when replacement word would report as an error if capitalisation did not match dictionary entry.
+*Fixed window position bug when launching from a shortcut set to start maximised or minimised.
+*While spell checking, after adding a word to the dictionary and automatica skip all is done.
+*Fixed a bug when attaching a message/rfc822 part from an incoming message to a draft.
+*Will now warn if attempting a manual append to a mailbox that contains a part attached to the draft.
+*Fixed a bug that would cause problems when forwarding messages with message/rfc822 parts on an IMAP2bis server.
+*Now uses 'EXAMINE' command when checking for mail on IMAP2bis and IMAP4 servers.
+*Fixed bug in which user id was not correctly transferred to remote address account preferences on first login to IMSP server.
+*Fixed bug in which Configure.exe would write config information over code in the executable!
+*Fixed bug caused by renaming an open mailbox
+*Fixed bug with auto position of spell check dialog.
+*Fixed bug with handling URLs split across two or more lines.
+*'Spell complete' alert not shown after spell checking when sending mail.
+
+v1.3.3b1 : 23-Febuary-1998
+Major Changes
+*Plugin architecture created. New 'About Plugins…' menu command in Help menu to give details about loaded plugins.
+*Address book import/export converted to plugins.
+*Spell checker plugin: new menu commands in Edit menu to allow spell checking incoming and outgoing message bodies.
+
+Minor Changes
+*Selected messages in a mailbox window remain selected after a change to the window (e.g. after changing sort category or order, or new mail arrival).
+*Changed 'Copy' button in message window to 'Forward' and moved 'Copy' button next to 'Copy To' popup menu.
+*Now uses 'MEMBER' as well as 'MEMBERS' IMSP key to determine address groups created by other applications.
+*When there are no editable text parts, a non-editable message is displayed in the draft window text body area.
+*When bouncing a message, the draft window parts table is automatically expanded and a non-editable warning message displayed in the text body area.
+
+Fixes
+*Fixed bug in which non-ASCII characters did not get correctly converted when composing HTML.
+*Fixed problems with incorrect window focus when opening a draft. This would prevent use of Edit menu keyboard shortcuts.
+*Mulberry will now ask whether you want to remove a local address book from the 'Open at Startup' list if it is not found during startup.
+*Mulberry will now show an alert to indicate successful sending of a message, when a post-send operation (e.g. changing the answered flag) fails, resulting in the draft window remaining open.
+*Fixed problem in which nick-name resolution with an expansion of the address field would cause a click event to be lost.
+
+Changes/Fixes (from v1.4a1)
+*'Add' button in spell check dialog will add the mispelled word.
+*Fixed crash when deleting word from dictionary.
+*Fixed bug causing display update problems when opening a draft message from disk.
+*Added 'Spell on Send' option to allow automatic spell checking when sending a message.
+*Spell checker will now produce a warning if the replacement word is not in the dictionary.
+*Mailbox window selection now correctly preserved during expunge.
+*Added alert on spell check completion.
+
+v1.3.2.2 : 4-February-1998
+
+v1.3.2.2b2 : 30-January-1998
+Fixes
+*Fixed a very rare bug in BinHex decoding.
+
+v1.3.2.2b1 : 29-January-1998
+Fixes
+*Fixed bug in which password dialog would appear after multi-user dialog if admin option to not save passwords was on.
+*Fixed bug in which preference file double-click would launch app but not use the actual file.
+
+v1.3.2.1 : 21-January-1998
+Fixes
+*Fixed bug with incorrect messages being deleted after copying from a mailbox not sorted ascending by number, and for which a new message arrives during the copy process.
+*Fixed bug in which colored text was not displayed in text/enriched messages.
+*Fixed bug causing fatal exception when quitting Mulberry only after it was launched by double-clicking a preference file.
+
+v1.3.2 : 15-January-1998
+Minor Changes
+*Changed password encryption/storage mechanism.
+
+v1.3.2b2 : 11-January-1998
+Minor Changes
+*No longer allows a draft to be copied to a mailbox containing and embedded message in the draft.
+*When forwarding, if the forwarded message contains only a single text part (or a single multipart/alternative consisting of only text) the forwarded message is not attached as a message/rfc822. All other types of forwarded messages are attached as message/rfc822.
+*All registry entries are now removed by uninstaller.
+
+Fixes
+*Uses modified-UTF7 encoding for mailbox names with IMAP4rev1 server.
+*Fixed failure to properly close down network stack.
+*Fixed bug in which obsolete IMAP4 syntax was used with IMAP4rev1 only server.
+*Fixed a bug that would cause a crash if opening a message that is deleted while opening.
+*Fixed bug in which address account names were sometimes lost.
+*Fixed a bug in which a pre-registered copy could not be lauched if no default prefs file existed.
+*Fixed bug in which IMAP flags returned in LIST or LSUB commands were sometimes not being recognised.
+
+v1.3.2b1 : 18-December-1997
+Minor Changes
+*Only IMSP preferences that have changed will get written back to the server.
+*Improved performance (drawing and sorting) of mailbox windows with 'Smart Address' column.
+
+Fixes
+*Fixed improper encoding of '<' in enriched.
+*Automatic moving of read mail from INBOX now works.
+*Fixed update problem with style bar in draft window when switching into styled text from plain.
+*Fixed a problem with dragging groups from an address book.
+*Identity names with quotes were being modified when saved and reopened.
+*Can no longer open the same address book twice.
+*Fixed bug with servers returning incorrect STATUS response.
+*Can now open local prefs file saved with a version of Mulberry that has a locked return address.
+*No longer displays HTML text between <applet>, <comment> and <script> tag pairs.
+*Fixed crash when quitting after opening a prefs file from the Finder while Mulberry was already running.
+*Now always forces file extension of incoming attachments to that determined by MIME type/subtype.
+*Can no longer close a mailbox which contains a message embedded in an open draft message.
+*Fixed problem with IMAP4 servers return FETCH responses during new mail checking.
+*Mailto URLs with '%' escape sequences are now handled correctly.
+*Fixed bug with 'Save Default Window' and server column widths.
+*Fixed bug in which a new identity created via prefs dialog would not appear in draft window popup.
+
+v1.3.1 : 1-December-1997
+Fixes
+*Can have admin option to auto-create mailboxes on without having to use multi-user preferences.
+*Fixed bugs with importing PC-Pine address books.
+*HTML alternative for enriched composed message generated incorrect HTML.
+*2-pixel border added around message and draft body text display.
+*Bounce messages with non us-ascii charsets, or other than 7bit transfer encoding would not generate correct MIME headers.
+*Pine address book import file filter changed to '*.*' to allow PC-Pine address book import.
+
+v1.3.1a3 : 23-November-1997
+Minor Changes
+*Will now append (both after sending and manually) a message to the IMAP server and include all data from file attachments.
+*Added '%' progress indicator to status bar.
+
+Fixes
+*Fixed bug caused by URLs ending in '\'.
+*Fixed bug with empty 'HREF' in URLs in HTML.
+*Fixed bug in which single and group lists in address book window did not repond to keyboard scroll commands.
+*Fixed bug in which forwarding/bouncing messages with some header fields in a different capitalisation than expected, would cause incorrect MIME headers to be generated.
+*Fixed bug in which mailbox window would not take into account sort order when opening at newest/oldest/oldest unseen.
+*Fixed bug in which mailbox window would scroll first unseen message to bottom of window when opening at oldest unseen, obscuring subsequent unseen messages and forcing a manual scrool to see them.
+*Local address books marked for opening at startup are removed from the open at startup list if not present when Mulberry starts up.
+*Fixed bug with incorrect number of recent messages being displayed.
+
+v1.3.1a2 : 21-November-1997
+Fixes
+*Fixed problems with user id not propogating to remote prefs when using multi-user login to remote prefs server.
+*Fixed problem in which 'Old version' alert would appear when a user uses a remote prefs server for the first time.
+
+v1.3.1a1 : 20-November-1997
+Fixes
+*Fixed bug with servers using '\' as mailbox hierarchy separator.
+
+v1.3 : 14-November-1997
+Minor changes
+*'Create in Hierarchy' now the default for 'Create Mailbox' dialog.
+*New LDAP accounts automatically have 'cn' and 'mail' attributes filled in.
+
+Fixes
+*Fixed bug in AppleSingle decoding.
+*Properly handles single quotes in addresses in draft window.
+*Fixed problems with New & Delete items in Identity popup in draft window.
+*Fixed a bug when re-writing message/rfc822 part boundaries in draft attachments.
+*Fixed a bug causing a crash when shift-tabbing out of To field in draft window.
+*Fixed bugs with multipart/appledouble part naming.
+*The 'Default Download Directory' is now terminated with directory separator if missing.
+*Fixed bug relating to encoding URLs with non-ASCII characters in them. Fixes bugs with address books failing to open.
+*Fixed a bug causing a crash if a '&' character appeared in HTML instead of '&amp;'.
+
+v1.3b5 : 5-November-1997
+Fixes
+*Alt key toggle for replying now works for messages in mailbox window.
+*Fixed bug that sometimes caused a crash when importing addresses into a non-empty address book.
+*Divide by zero error fixed in quotas (caused by bug in Netscape server implementation of QUOTA extension).
+*Fixed bug in which hidden draft windows would be created when cancelling addressing dialog generated from address book.
+*Signature is now inserted (if requested) when an extended 'mailto:' URL does not contain any body specification.
+*Can correctly see Simeon-style IMSP groups but cannot change on server (they can be deleted or duplicated into Mulberry-style groups).
+*Fixed a bug causing text changes to be lost in a draft when switching from multipart to single part.
+*Fixed a bug in which the file extension of a saved attachment was not added when the attachment did not have one.
+*Fixed a bug causing a crash when double cmd-. during mailbox open.
+*Fixed a bug causing a crash when switching a draft to enriched when there was no text in the body.
+*Fixed a bug in which dragging a file from the desktop to anywhere in Mulberry caused a new server window to be created and eventually led to a crash.
+*Fixed a bug preventing files dragged to the draft parts table from being added to the attachments list.
+*Fixed a bug in which deleted/renamed address book URL entries in prefs were not removed/changed.
+
+v1.3b4 : 23-October-1997
+Major changes
+*Revision of all administrator options.
+
+Minor changes
+*New option added to LDAP account to allow full set of attributes to be stored in address entry 'Notes' field.
+*Addresses in the search results window can now be edited.
+
+Fixes
+*Fixed various HTML to enriched conversion errors.
+*Duplicate groups are now merged when imported.
+*Fixed crash when merging groups.
+*Fixed a bug that caused the last address in a pine group to be missed.
+*Now uses &nbsp; instead of <PRE> tag for runs of spaces in HTML.
+*Fixed a bug that would cause the 'Read Next Block' menu command to remain disabled when it should not be.
+*Draft window is now 'dirtied' if there are any changes to the parts table.
+*Fixed a bug causing changes to the draft window to be lost when deleting one of two parts.
+*Fixed a bug taht would cause a crash if the server connection was lost and a periodic mail check took place.
+*Fixed a bug that would cause a crash if a change to the state of a mailbox took place while reading in a message.
+*Fixed problems with scroll bars in multiline address edit fields.
+
+Minor changes
+v1.3b3 : 16-October-1997
+
+Minor changes
+*IMSP addresses can now contain non-ASCII chars such as umlauts.
+*If there is only one 'Places to Search' in the prefs, mailbox names will be shown without the hierarchy prefix in the server window and popups.
+*New text style for coloring tags in HTML and enriched 'raw' view.
+*Removed redundant 'Base Font Size'.
+*'Base Font' in Styles preferences now used for enriched as well as HTML display.
+*Single unquoted lines between two quoted lines now have the quotation style applied.
+*Added style change popup to draft window to allow quick switching between composition styles.
+*Messages appended to a mailbox are now marked as seen (not IMAP2bis).
+
+Fixes
+*Fixed a bug that could cause a crash if preferences saved while draft window open with non-default identity selected.
+*Fixed bug causing incorrect highlighting of URLs in HTML.
+*Toggle of address book options (opening, nick-names & searching) now take effect immediately.
+*Fixed a bug causing a crash when replying to a message with a bad date.
+*Fixed a bug causing text to be wrapped to one character less than that specified in prefs.
+*URLs in quotation styled text now appear in URL style.
+*Fixed a bug causing a crash when opening/creating a mailbox that would appear at the end of the server window list.
+*Fixed a bug that could cause a crash when appending a message to an open mailbox a second time.
+*Fixed a bug that would cause a crash when exiting Windows with Mulberry running.
+*Fixed a bug causing a blank page to be ejected from the printer after each print job.
+*Now only launches a single instance when a Mulberry file type is double-clicked or mailto URL launched with Mulberry as the target.
+*mailto URLs launched externally are now parsed for extended information (body & subject).
+*Installer will ask whether to register Mulberry as default mailto URL handler.
+
+v1.3b2 : 9-October-1997
+
+Minor changes
+*Password dialog now selects the password field on opening if there is a user id already set, regardless of the 'Save User ID' setting.
+*'Flags' column in server window now changed to 'State'.
+*'State' icons in server window column changed slightly.
+
+Fixes
+*Fixed bug which would prevent IMAP4rev1 protocol being used with UW server.
+*Fixed bug that would cause socket errors with UW IMAP4/IMAP4rev1 server when using IMAP4 protocol.
+*Fixed bug with incorrect connection close.
+*Fixed bug that would cause quotation styling to take a long time with large messages.
+*Fixed a bug that would cause 'Reply to Sender/From/All' to use address reply choice dialog if preference option was set to show dialog if option key was not down.
+*Identities popup menu was not updated after a change to identities in the prefs.
+*Fixed mailbox popup in identities edit dialog box.
+*Fixed bug that would cause a crash when exiting with a local address book open.
+
+v1.3b1 : 1-October-1997
+
+Major Changes
+
+-ACL & QUOTA
+*Added support for IMAP extensions: 'QUOTA' & 'ACL'.
+
+-Server Window
+*Added a 'Details' button to the server window to display server greeting and capability text.
+*Configurable columns (as in mailbox window) allow flags, mailbox name, total, recent, and unseen message number, and a button for favourite mailboxes to be displayed. Flag and message number columns only display data after the mailbox has been opened or checked (either manually or automatically).
+
+-Mailboxes
+*Now uses a separate connection for each open mailbox.
+*'Check Mail' command now checks for mail in active mailbox window, or selected mailboxes in server window, or just INBOX.
+*Added support for display of Mailbox properties via 'Properties…' menu item in 'Edit' menu. This will display a dialog with three panels, including quota & ACL information, and allow suitable information to be changed.
+*Added 'Check Favourites' menu item to Mailbox menu. 'Check Mail' now means check the currently selected mailboxes in the server window or the mailbox of the top mailbox window. 'Check Favourites' will check the set of mailboxes with 'Check for New Mail' on in the Mailbox properties.
+
+-Remote Preferences
+*Support for remote preferences via IMSP. Preferences dialog has new 'Remote' panel as well as 'Local' and 'Remote' buttons to allow saving to local disk or remote server.
+
+-Remote Address Books
+*Added support for IMSP remote address books (including ACLs). The 'Address' preferences panel has been changed to allow setup of multiple remote address book servers which can use different protocols (IMSP & LDAP for now, ACAP when available).
+*A new 'Address Book Manager' window has been created and the main menu bar reorganised with an 'Addresses' menu to help managing local and remote address book services. Window can be closed (which just hides it) to save screen space.
+*'Properties' command on address books allows particular address books to be opened at startup, used for nick-name resolution and used for searching. Each of these can be set separately.
+
+-Address Book Searching
+*Local and remote address books can now be searched. A new 'Address Search' window is available that allows you to type in a single search criterion and to choose a search method (currently 'Mulberry Address Books' or 'LDAP'). Search results are then presented in the table. The addresses in the results can be used to address a new message, or copied to a new message or an address book.
+*Basic LDAP lookup now supported by configuring an LDAP account in Address preferences. You need to specify a root location for the search as well as entering attribute values to associate with Mulberry address entries.
+
+-Styled Text: Viewing
+*Viewing of text/enriched and text/html now supported.
+*Can choose to view text formatted (ie styled), plain (all formatting removed) and raw (plain but with tags displayed).
+*URLs in text/xxx can be highlighted and clicked to launch (NB requires Internet Config). URL text style set in the preferences.
+*URL schemes can be specified in the preferences to allow easy addition of new schemes as they appear.
+*Header fields can have a style set in prefs panel.
+*Lines starting with the reply or forward quotation character can have a style set in the preferences.
+*Mulberry will correctly choose to display styled part in a multipart/alternative message.
+*Preferences option can be used to force display to plain alternate part when opening a message.
+
+-Styled Text: Editing
+*Editing of text/enriched and text/html now supported.
+*'New Text Part' sub-menu allows choice of plain, enriched or html.
+*Default composition style is set in preferences.
+*Toolbar appears above text display area in draft window to aid styled composition.
+*Can configure Mulberry to automatically generate multpart/alternative if composing enriched or HTML message (this even includes the ability to create three sub-parts for all three supported formats).
+
+-Multiple Identities
+*Support for multiple identities for sending mail. These can be added via a new prefs panel. Identities can then be chosen using a new popup menu in the draft window.
+
+-Miscellaneous
+*Forwarding and bouncing of messages now includes the whole message as a message/rfc822 part so all attachments get sent.
+*Send Again will recreate the whole original message (including all parts) and allow editing of text parts.
+*Draft messages on the server are opened into a new draft window as per Send Again, making template email messages easy to use.
+*Mulberry will now give the choice of acting on all items together or on each item separately when more than one message is selected in a mailbox window. This operation applies to: saving (all messages saved to a single file), forwarding, replying.
+*Added 'Create Digest' command to create multipart/digest based on selected messages in mailbox window.
+
+Minor Changes
+
+-Server Window
+*Dragging messages to a mailbox window or a mailbox in the server window now uses a single copy command for all messages to be copied, rather than one copy command per message.
+*Typing a tab in the server window will select the next mailbox with recent messages.
+
+-Mailbox WIndow
+*Will not allow a mailbox window to be closed if a message (or a part of a message) is being used in a draft (i.e. a reply or a draft with an attached message part).
+*Typing a Tab in the mailbox window will select the next unseen message after the last selected cell.
+*Added 'Parts' and 'Attachments' column options to mailbox window. 'Parts' displays the number, 'Attachments' an icon if more than one.
+*Added 'Select By Flag' menu item to mailbox window context popup.
+*Changed mailbox 'Start Message #' field to edit field plus 'up/down' arrows.
+
+-Message Window
+*Enlarged navigation buttons in message window.
+*Added three 'Copy To' UI items to message window to improve navigation/filing operations.
+
+-Draft WIndow
+
+*INBOX can now be used as the default 'Copy To' mailbox.
+*Quoted-printable encoding now wraps the text to the prescribed length before encoding and sending.
+*Added button and menu items to save the current draft to a mailbox during composition.
+*Added signature insert button to draft window to insert the current identities signature at the insert cursor.
+
+-Miscellaneaous
+*Added 'Save Password' option to prefs.
+*Multi-user preferences can be configured to prevent passwords saved in prefs file.
+*Multi-user preferences can be configured to force the return address domain to always be that specified in the multi-user prefs. Network panel entry is locked out as well.
+*'Copy To' and 'Move To' mailboxes must now be the full pathname to the mailbox. To help with entering this, each field has a popup next to it which shows the current 'known' list of mailboxes and allows a choice.
+*Can specify an empty 'Copy To' mailbox without error to allow 'None' to be default.
+*'Copy To' and 'Move To' mailboxes may be autocreated on first login if using multi-user pereferences. Controlled by admin option.
+*A warning is now issued if the default 'Copy To' and 'Move To' mailboxes are not found when logging in.
+*A warning is now issued when opening a draft message if the 'Copy To' mailbox is not found and copies would be lost.
+*Hooks put in for WinHelp calls. Help button added to most dialogs. Shift-F1/F1 active for main windows.
+*Splash screen added.
+*No longer uses obsolete SUBSCRIBE/UNSUBSCRIBE syntax when connected to IMAP4rev1 server.
+*Now uses IMAP 'Literal+' extension where available.
+*Added 'Reset Default Window' command to 'Windows' menu to allow current window state to be reset to the default for that type of window. This makes it possible to reset individual window states rather than the whole lot using the 'Reset Windows' button in the prefs dialog.
+*Holding down the control key while copying a message will toggle the state of the 'Delete after Copy' option.
+*During a drag operation, the arrow cursor will display a '+' symbol when the operation will result in a 'copy' as opposed to a 'move' (copy and delete original) action.
+*The 'Creator for saved Messages' value now appears as text in prefs files as opposed to a number.
+*Added preference to allow automatic signature insertion to be turned on or off.
+*'Choose' directory button now works in 'Attachments' prefs panel.
+
+-Fixes
+*Fixed bug that would sometimes cause UID value to be displayed instead of message size.
+*Fixed a bug that would prevent hierarchies appearing in the 'Create Mailbox' dialog.
+*Fixed a bug with 'Spaces per Tab' field not being used in draft text area.
+*Fixed a bug that prevented Mulberry prompting the user to save a dirty draft message.
+*Fixed a bug in UU decoding.
+*Fixed a bug that would cause a crash when typing delete with no selection in a mailbox window.
+*Fixed a bug in which maximised or minimised windows on quitting would not be properly restored on next startup.
+*Fixed bug in which addresses dragged to address field could be lost on resolution.
+*Fixed problem with extra mailboxes appearing in server list with recent versions of UW server.
+*INBOX will not move to subscribed folder if subscribed command issued.
+*INBOX is made a valid mailbox when logging in, if it was invalid before.
+*Wrapping of the signature in the preferences would sometimes cause character loss.
+*Fixed bug in which pasting in a draft window would go into the body area rather than the selected address field.
+*Fixed bug in which it looked like Mulberry was always using 100% of the CPU (or as much as it could get) when it actually was not.
+*Fixed a bug in which document registry entries were missing titles causing blank entries in Shell-New popup menu.
+*Fixed a bug that would cause a crash when a part with no data was downloaded.
+*Fixed bug that would cause a crash when sending a message after deleting an editable text part.
+*Fixed a bug in which an illegal 'BODY' response from a server was causing a crash.
+*Fixed a bug in which a newly created, but unedited draft window would ask to be saved when closing it.
+*Fixed bug in which the quoted-printable encoding header was not being used in draft messages appended to a mailbox.
+*Fixed a bug that would cause a crash when sorting an empty mailbox by thread.
+*Fixed a bug that would prevent mailboxes with quotes (or other 'special') characters from being used in Mulberry.
+*Fixed a bug in which a single non-text part message would cause a crash when opened.
+*Fixed various bugs with focus being lost for server and mailbox window lists.
+*Fixed bug in which 'Fetch' progress was not shown in status bar.
+*Fixed a bug in which UU could not be used to encode attachments.
+*The quotation character was not read in correctly when it was empty.
+*Fixed bug in which moving to next message after a delete in mailbox window did not work properly.

@@ -1,0 +1,37 @@
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive 4">
+		<title>Delete Attachments from Messages</title>
+	</head>
+
+	<body bgcolor="#fffffe">
+		<table border="1" cellspacing="0" cellpadding="0" width="75%" bgcolor="#cccccc">
+			<tr height="24">
+				<td height="24" bgcolor="#f4f4f4">
+					<center>
+						<font size="4" face="verdana,arial,sans-serif"><b>The Mulberry FAQ</b></font></center>
+				</td>
+			</tr>
+		</table>
+		<h2><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">How do I delete attachments from messages?</font></h2>
+		<hr>
+		<p><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">IMAP does not provide a way to directly delete attachments from an existing message - once a message is in a mailbox, it cannot be changed (expect for its flags) - only removed in its entirety.</font></p>
+		<p><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">However, there is a way in Mulberry to save a copy of the original message without the attachments you want to remove. Thus you could save the copy and then delete the original message, to effectively delete the attachments. You can use the following procedure to do this:</font></p>
+		<ol>
+			<li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">Select the message you want to remove attachments from in the mailbox pane
+			</font><li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">Use the 'Bounce' command from the Message menu to create a new 'bounce' draft
+			</font><li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">Expand the Parts section in the draft and select each part you want to remove and hit the delete key on the keyboard
+			</font><li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">Select the mailbox that contain the original message via the Copy to popup in the draft (or use the 'Choose' option in the popup)
+			</font><li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">Use the 'Append Now' command in the Draft menu to save the modified 'bounce' draft to the mailbox (NB you may need to hold down the option/alt key when you do that to ensure the message is not saved as a draft - if it is simply remove the Draft flag after its been saved)
+			</font><li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">You can now delete and expunge the original.
+		</font></ol>
+		<p><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">Some things to note about this:</font></p>
+		<ul>
+			<li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">The saved copy will appear at the end of the mailbox when sorted by message number.
+			</font><li><font face="Helvetica, Geneva, Arial, SunSans-Regular, sans-serif">There will be some extra 'Resent-XXX' messages headers in the saved copy, but those won't affect how the message appears in Mulberry, or what happens if you try to reply or forward it.
+		</font></ul>
+	</body>
+
+</html>

@@ -1,0 +1,300 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LDocument.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LDocument.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LDocument.cp	(working copy)
+@@ -128,7 +128,7 @@
+ 			// same as "SaveAs"
+ 
+ 		case cmd_SaveAs: {
+-			FSSpec	fileSpec;
++			PPx::FSObject	fileSpec;
+ 			AskSaveAs(fileSpec, RecordAE_Yes);
+ 			break;
+ 		}
+@@ -271,11 +271,11 @@
+ // ---------------------------------------------------------------------------
+ //	¥ UsesFileSpec													  [public]
+ // ---------------------------------------------------------------------------
+-//	Return whether the Document has a file that uses the specified FSSpec
++//	Return whether the Document has a file that uses the specified FSRef
+ 
+ Boolean
+ LDocument::UsesFileSpec(
+-	const FSSpec&	/* inFileSpec */) const
++	const PPx::FSObject&	/* inFileSpec */) const
+ {
+ 	return false;
+ }
+@@ -316,14 +316,13 @@
+ 
+ Boolean
+ LDocument::AskSaveAs(
+-	FSSpec&		outFSSpec,
+-	Boolean		inRecordIt)
++	PPx::FSObject&	outFSSpec,
++	Boolean			inRecordIt)
+ {
+ 	Boolean		saveOK = false;
+-	Str255		defaultName;
+ 	bool		replacing;
+ 
+-	if ( PP_StandardDialogs::AskSaveFile(GetDescriptor(defaultName),
++	if ( PP_StandardDialogs::AskSaveFile(GetDescriptor(),
+ 										 GetFileType(),
+ 										 outFSSpec,
+ 										 replacing) ) {
+@@ -350,7 +349,7 @@
+ 			}
+ 
+ 			if (replacing) {		// Delete existing file
+-				ThrowIfOSErr_(::FSpDelete(&outFSSpec));
++				outFSSpec.Delete();
+ 			}
+ 
+ 			DoAESave(outFSSpec, fileType_Default);
+@@ -387,9 +386,9 @@
+ LDocument::AttemptClose(
+ 	Boolean		inRecordIt)
+ {
+-	Boolean		closeIt = true;
+-	SInt32		saveOption = kAENo;
+-	FSSpec		fileSpec = {0, 0, "\p"};		// Invalid specifier
++	Boolean			closeIt = true;
++	SInt32			saveOption = kAENo;
++	PPx::FSObject	fileSpec;		// Invalid specifier
+ 	
+ 	if (IsModified()) {
+ 
+@@ -453,7 +452,7 @@
+ 				DoSave();
+ 
+ 			} else {
+-				FSSpec	fileSpec;
++				PPx::FSObject	fileSpec;
+ 				UAppleEventsMgr::InteractWithUser(Throw_Yes);
+ 				allowQuit = AskSaveAs(fileSpec, RecordAE_No);
+ 			}
+@@ -481,9 +480,7 @@
+ bool
+ LDocument::AskConfirmRevert()
+ {
+-	Str255	docName;
+-
+-	return PP_StandardDialogs::AskConfirmRevert(GetDescriptor(docName));
++	return PP_StandardDialogs::AskConfirmRevert(GetDescriptor());
+ }
+ 
+ 
+@@ -499,11 +496,10 @@
+ {
+ 	MakeCurrent();
+ 
+-	Str255	docName;
+ 	LStr255	appName(STRx_Standards, str_ProgramName);
++	PPx::CFString cfstr(appName);
+ 
+-	return PP_StandardDialogs::AskSaveChanges(GetDescriptor(docName),
+-										   appName, inQuitting);
++	return PP_StandardDialogs::AskSaveChanges(GetDescriptor(), cfstr, inQuitting);
+ }
+ 
+ #pragma mark -
+@@ -517,15 +513,15 @@
+ LDocument::DoAEClose(
+ 	const AppleEvent&	inCloseAE)
+ {
+-	OSErr		err;
+-	DescType	theType;
+-	Size		theSize;
+-	FSSpec		fileSpec;
++	OSErr			err;
++	DescType		theType;
++	Size			theSize;
++	FSRef			fileSpec;
+ 
+ 		// Check for optional "file" parameter
+ 
+-	err = ::AEGetParamPtr(&inCloseAE, keyAEFile, typeFSS, &theType,
+-						&fileSpec, sizeof(FSSpec), &theSize);
++	err = ::AEGetParamPtr(&inCloseAE, keyAEFile, typeFSRef, &theType,
++						&fileSpec, sizeof(FSRef), &theSize);
+ 
+ 	bool	hasFileParameter = (err == noErr);
+ 
+@@ -586,9 +582,10 @@
+ 
+ 			// Figure out which file to use to save the document
+ 
++		PPx::FSObject fs(fileSpec);
+ 		if (hasFileParameter) {			// First choice:
+ 										//   File in the Event
+-			DoAESave(fileSpec, fileType_Default);
++			DoAESave(fs, fileType_Default);
+ 
+ 		} else if (IsSpecified()) {		// Second choice:
+ 			DoSave();					//   Save to existing file
+@@ -597,7 +594,7 @@
+ 										//   Ask the user to specify a file.
+ 										//   Canceling aborts the close.
+ 			UAppleEventsMgr::InteractWithUser(Throw_Yes);
+-			closeIt = AskSaveAs(fileSpec, RecordAE_No);
++			closeIt = AskSaveAs(fs, RecordAE_No);
+ 		}
+ 	}
+ 
+@@ -622,12 +619,12 @@
+ 	OSErr		err;
+ 	DescType	theType;
+ 	Size		theSize;
+-	FSSpec		fileSpec;
++	FSRef		fileSpec;
+ 
+ 		// Check for optional "file" parameter
+ 
+-	err = ::AEGetParamPtr(&inSaveAE, keyAEFile, typeFSS, &theType,
+-						&fileSpec, sizeof(FSSpec), &theSize);
++	err = ::AEGetParamPtr(&inSaveAE, keyAEFile, typeFSRef, &theType,
++						&fileSpec, sizeof(FSRef), &theSize);
+ 
+ 	bool	hasFileParameter = (err == noErr);
+ 
+@@ -637,8 +634,9 @@
+ 	err = ::AEGetParamPtr(&inSaveAE, keyAEFileType, typeType,
+ 						&theType, &fileType, sizeof(OSType), &theSize);
+ 
++	PPx::FSObject fs(fileSpec);
+ 	if (hasFileParameter) {
+-		DoAESave(fileSpec, fileType);	// Save using file from event
++		DoAESave(fs, fileType);	// Save using file from event
+ 
+ 	} else if (mIsSpecified) {
+ 		DoSave();						// Save using existing file
+@@ -647,7 +645,7 @@
+ 										//   ask user to specify a file
+ 		UAppleEventsMgr::InteractWithUser(Throw_Yes);
+ 		
+-		if (not AskSaveAs(fileSpec, RecordAE_No)) {
++		if (not AskSaveAs(fs, RecordAE_No)) {
+ 										// User canceling the save means
+ 										//   the AppleEvent failed
+ 			ThrowOSErr_(userCanceledErr);
+@@ -668,7 +666,7 @@
+ 
+ void
+ LDocument::DoAESave(
+-	FSSpec&	/* inFileSpec */,
++	PPx::FSObject&	/* inFileSpec */,
+ 	OSType	/* inFileType */)
+ {
+ }
+@@ -775,11 +773,12 @@
+ 	AEDesc	&inSuperSpecifier,
+ 	AEDesc	&outSelfSpecifier) const
+ {
+-	Str255	docName;
+-	GetDescriptor(docName);
++	PPx::CFString cfstr = GetDescriptor();
++	std::string docName;
++	cfstr.GetString(docName, kCFStringEncodingUTF8);
+ 
+ 	StAEDescriptor	keyData;
+-	OSErr	err = ::AECreateDesc(typeChar, docName + 1, docName[0],
++	OSErr	err = ::AECreateDesc(typeChar, docName.c_str(), docName.length(),
+ 						&keyData.mDesc);
+ 	ThrowIfOSErr_(err);
+ 
+@@ -846,9 +845,10 @@
+ 	switch (inProperty) {
+ 
+ 		case pName: {
+-			Str255	docName;
+-			GetDescriptor(docName);
+-			err = AECreateDesc(typeChar, docName + 1, docName[0],
++			PPx::CFString cfstr = GetDescriptor();
++			std::string docName;
++			cfstr.GetString(docName, kCFStringEncodingUTF8);
++			err = AECreateDesc(typeChar, docName.c_str(), docName.length(),
+ 								&outPropertyDesc);
+ 			break;
+ 		}
+@@ -900,9 +900,9 @@
+ 
+ void
+ LDocument::SendAESaveAs(
+-	FSSpec&		inFileSpec,
+-	OSType		inFileType,
+-	Boolean		inExecute)
++	PPx::FSObject&		inFileSpec,
++	OSType				inFileType,
++	Boolean				inExecute)
+ {
+ 	AppleEvent	theAppleEvent;
+ 	UAppleEventsMgr::MakeAppleEvent(kAECoreSuite, kAESave, theAppleEvent);
+@@ -913,8 +913,8 @@
+ 								&docSpec.mDesc);
+ 	ThrowIfOSErr_(err);
+ 
+-	err = ::AEPutParamPtr(&theAppleEvent, keyAEFile, typeFSS, &inFileSpec,
+-								sizeof(FSSpec));
++	err = ::AEPutParamPtr(&theAppleEvent, keyAEFile, typeFSRef, &inFileSpec.UseRef(),
++								sizeof(FSRef));
+ 	ThrowIfOSErr_(err);
+ 
+ 	if (inFileType != fileType_Default) {
+@@ -933,9 +933,9 @@
+ 
+ void
+ LDocument::SendAEClose(
+-	SInt32		inSaveOption,
+-	FSSpec&		inFileSpec,
+-	Boolean		inExecute)
++	SInt32			inSaveOption,
++	PPx::FSObject&	inFileSpec,
++	Boolean			inExecute)
+ {
+ 										// Create a "clase" AppleEvent
+ 	AppleEvent	theAppleEvent;
+@@ -955,9 +955,9 @@
+ 
+ 										// If we are saving to a valid file,
+ 										//   store the file specifier
+-	if ((inSaveOption == kAEYes) && (inFileSpec.name[0] != 0)) {
+-		err = ::AEPutParamPtr(&theAppleEvent, keyAEFile, typeFSS, &inFileSpec,
+-								sizeof(FSSpec));
++	if ((inSaveOption == kAEYes) && inFileSpec.IsValid()) {
++		err = ::AEPutParamPtr(&theAppleEvent, keyAEFile, typeFSRef, &inFileSpec.UseRef(),
++								sizeof(FSRef));
+ 		ThrowIfOSErr_(err);
+ 	}
+ 
+@@ -972,14 +972,12 @@
+ 
+ LDocument*
+ LDocument::FindNamedDocument(
+-	ConstStringPtr	inName)
++	CFStringRef	inName)
+ {
+ 	TArrayIterator<LDocument*> iterator(sDocumentList);
+ 	LDocument*	theDoc = nil;
+ 	while (iterator.Next(theDoc)) {
+-		Str255	docName;
+-		theDoc->GetDescriptor(docName);
+-		if (::IdenticalString(inName, docName, nil) == 0) {
++		if (theDoc->GetDescriptor().CompareTo(inName) == kCFCompareEqualTo) {
+ 			break;
+ 		}
+ 		theDoc = nil;
+@@ -992,11 +990,11 @@
+ // ---------------------------------------------------------------------------
+ //	¥ FindByFileSpec										 [static] [public]
+ // ---------------------------------------------------------------------------
+-//	Return the Document that uses the specified FSSpec
++//	Return the Document that uses the specified FSRef
+ 
+ LDocument*
+ LDocument::FindByFileSpec(
+-	const FSSpec&	inFileSpec)
++	const PPx::FSObject&	inFileSpec)
+ {
+ 	TArrayIterator<LDocument*> iterator(sDocumentList);
+ 	LDocument*	theDoc = nil;

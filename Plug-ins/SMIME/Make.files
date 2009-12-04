@@ -1,0 +1,12 @@
+-suffix .cp
+
+@SMIMEPlugin.so
+-prefix sources/
+CSMIMEPluginDLL
+-prefix ../PluginLibrary/
+.a PluginLib
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CSecurityPluginDLL
+os_dep

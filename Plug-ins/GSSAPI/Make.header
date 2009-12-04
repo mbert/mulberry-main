@@ -1,0 +1,37 @@
+#########################################
+### 
+###      M A K E F I L E
+###
+###
+###
+
+
+
+# compiler flags ------------------------------
+
+include ../include/nostl.mak
+
+BIN = .obj
+
+KRBINCS = -I/usr/include/gssapi
+KRBLIBS = -lgssapi_krb5 -lkrb5 -lk5crypto -lcom_err
+
+CINCS = \
+-I../Common \
+-I../../Sources_Common/Utilities \
+-I./sources \
+${KRBINCS}
+
+LOADLIBES := ${KRBLIBS} ${LOADLIBES}
+
+VPATH := sources:\
+		../Common:\
+		../../Sources_Common/Utilities:\
+		../../Sources_Common/Mail/Charsets:\
+		../../Sources_Common/Mail/URLs:\
+		../CRAM-MD5/sources/md5
+		
+$.${BIN}/%.o %.o: %.cp
+	@ echo "    ---- Compiling $< (C++)"
+	 $(CPP) $(CFLAGS) -c -o $@ $<
+

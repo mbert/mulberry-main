@@ -1,0 +1,7 @@
+Things to do:
+
+- Fix Build directory Makefile etc to use SVN instead of CVS for access to the code repository.
+- Strip out the ftp/ssh/gpg stuff from Build/Makefile.
+- Update Build/mulberry.spec.
+- Update new install instructions.
+

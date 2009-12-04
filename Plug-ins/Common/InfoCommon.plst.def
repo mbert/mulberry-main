@@ -1,0 +1,3 @@
+#define kPluginVersionNumber v4.0.8
+#define kPluginBundleVersionNumber 4.0.8
+#define kBundleGetInfo Copyright © Cyrus Daboo, 2006-2007.  All rights reserved.

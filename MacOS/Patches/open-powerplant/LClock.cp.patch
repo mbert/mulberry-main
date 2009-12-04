@@ -1,0 +1,13 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LClock.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LClock.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LClock.cp	(working copy)
+@@ -130,7 +130,7 @@
+ 	if (!mIsDisplayOnly) {
+ 
+ 		if (!IsTarget()) {				// Click on Clock makes it the Target
+-			mFocusPart = kControlFocusNoPart;
++			mFocusPart = kControlFocusNextPart;
+ 			SwitchTarget(this);
+ 		}
+ 

@@ -1,0 +1,6 @@
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ADDRESS_NEW_ADDR    "Address"
+    IDE_LETTER_MISSING_EDITOR	"The $EDITOR environment variable is not set, so external editing cannot take place. Either set that variable to your preferred editor and restart Mulberry, or enter the editor application in the Outgoing Preferences panel."
+	IDE_LETTER_FAILED_EDITOR	"Failed to launch the external editor using command '%s'"
+END

@@ -1,0 +1,293 @@
+Mulberry Change History (Unix)
+
+v2.2.1 : 07-May-2002
+Fixes
+*Fixed bug with forward caption preferences not including cc by default.
+*Fixed bug with binhex/uu encoding causing freezes on send.
+*Fixed bug with hidden files appearing in local mailbox lists.
+*Fixed bug with occasional corrupt local copies of attachments.
+*Fixed bug with failure to update mailbox status when it is copied to.
+*Fixed bug with handling broken Applefile attachments.
+*Fixed bug causing occasional crashes when message window is open while connection loss occurs.
+*Fixed bug parsing compose file to get multi-key combinations for accented character typing.
+
+v2.2 : 22-Apr-2002
+Major Changes
+*Major revisions to connection failure handling for more robustness.
+*Now supports address expansion using LDAP - controlled via new LDAP Options panel in Account preferences.
+
+Minor Changes
+*HTML background colour now supported.
+*Now displays IMG ALT tags in place of an image if they exist.
+*Multi-mailbox searching redesigned for performance improvement.
+*New From/To mailbox column icon next to name to indicate message only CC'd to current user.
+*New busy-cancel dialog that appears after five seconds whilst waiting for a network read/write operation or a background thread.
+*Server window title now shows connected/disconnected state.
+
+Fixes
+*Fixed bug with INBOX somtimes appearing as a directory and not a mailbox.
+*Fixed bug with failure to append domain name to hostname when domain not present in hostname.
+*Fixed bug with thread deadlocks not timing out in a sensible fashion.
+*Fixed bug causing a crash when doing 'current' thread sorting and attempting to scroll to bottom of window.
+*Fixed bug causing a crash when logging out of a server with an open mailbox and expunge on close.
+*Fixed bug with failure to launch application after extracting an attachment.
+*Fixed bug thread information loss after replying/forwarding when using thread sorting.
+*Fixed bug with Euro symbol in HTML.
+*Fixed bug causing loss of local mailbox flag information after a crash.
+*Fixed bug casuing a crash when attempting to send a draft which contains a message/rfc822 with no subparts.
+*Fixed bug causing failure to open an IMAP mailbox when MIME content parameters are corrupt.
+*Fixed bug with match state being corrupted after a serach when the mailbox is closed.
+*Fixed bug with Euro character in message headers.
+*Fixed bug with server mismatch error with SSL certs where server address is numeric IP.
+*Fixed bug with failure to properly register passphrase dialog cancel when PGP signing drafts.
+*Fixed bug with new mail alert causing crash when it appears.
+*Fixed bug with SMTP queue window closing when a second queue is chosen.
+*Fixed bug with failure to redraw queue window as message is sent.
+*Fixed bug with failure to encode/decode utf8 with LDAP.
+*Fixed bug with expunge on close with a local mailbox causing loss of flags.
+*Fixed bug with search not opening mailbox with found items.
+*Fixed bug with crash on quit when connection failure occurs whilst quitting.
+*Fixed bug with incorrect fqdn in local hostname.
+*Fixed bug with HTML named colours.
+*Fixed bug with URLs being activated when modifier keys are down whilst clicking.
+*Fixed bug with certain syntax in AHREF tags in HTML.
+*Fixed bug with decoding BinHex data with extra base64 encoding applied to it.
+*Fixed bug with overriding of duplicate mailcap file entries so that the first entry is the one used.
+*Fixed bug with stuffing From lines in local mailboxes.
+*Fixed bug with disconnected playback whilst a local mailbox is open.
+*Fixed bug with untagged responses from certain IMAP servers.
+*Fixed bug with emtpy SEARCH spec error when opening a mailbox.
+*Fixed bug with viewing different attachments with the same name.
+*Fixed bug with failure to reject S/MIME messages when doing auto-verify/decrypt with PGP.
+*Fixed bug with shortcuts in standard file/print dialogs that trigger even without alt/mete key.
+*Fixed bug with superfluous alert appearing after cancelling a spell check.
+*Fixed bug with failure to return LDAP results after sizelimit or timelimit non-fatal error.
+*Fixed bug with allowing certain illegal address formats to be used with drafts.
+*Fixed bug with failure to use binary as opposed to text mode for certain digital signature operations.
+*Fixed bug with expanding an empty email address into all addresses.
+*Fixed bug with subscribed in create dialog when only subscribed hierarchy is present.
+*Fixed bug with Paste Indented using wrong clipboard.
+*Fixed bug with client-side threading when message-ids contain rfc2822 quote artifacts.
+*Fixed bugs with enabling of Reset All/Refresh display hierarchy items.
+*Fixed bug with message body reads on IMAP4/IMAP2bis servers.
+*Fixed bug with EHLO fqdn on multi-homed systems.
+*Fixed bug with addresses/groups with NIL in their names.
+*Fixed bug with improper quoted-printable characters not being ignored.
+*Fixed bug with crash in POPPASSD dialog.
+*Fixed bug with remapping of suffix for file names tarting with '.'.
+*Fixed bug with forward rule action failing to properly attach original message.
+*Fixed bug with generation of illegal charset header in rare cases.
+*Fixed bug with crashes in rules/targets dialog when resized.
+*Fixed bug causing a crash when preferences are changed with rules window open.
+*Fixed bug with rules dialog titles and control names.
+*Fixed bug with text import not handling arbitrary line ends.
+
+v2.1.2 : 07-Dec-2001
+Minor Changes
+*Can now specify realm with DIGEST-MD5 authentication by appending @ and realm to user id.
+*Tab can be used to move to the next searched mailbox with matching messages in the search window mailbox list.
+*Added Add to Draft popup to the address book/search addressing dialog which allows addresses t be added to an existing draft.
+*Now does MIME 1522 decoding of name/filename parameters, and description in MIME headers.
+*Address search window automatically activates a single LDAP server for searching when LDAP search is chosen.
+
+Fixes
+*Fixed bug with failure to convert line ends in text parts with binary encoding.
+*Fixed bug with locked sender address including server port number.
+*Fixed bug where POP3 INBOX looses flag information after crash.
+*Fixed bug with parsing local mailbox that ends with a single 'F'.
+*Fixed bug with certain servers that return a mailbox name when doing a hierarchy delimiter lookup.
+*Fixed with with failure to correctly parse HTML entities specified as hex numbers.
+*Fixed bug causing a crash when selecting certain items in a specific order in the match popup.
+*Fixed bug with mailbox window loosing sync when its the target of a copy/move rule action.
+*Fixed bug causing a crash when sending styled text.
+*Fixed bug when parsing empty HTML tags.
+*Fixed bug with failure to tolerate certain bad rfc822 date formats.
+*Fixed bug preventing accented characters from being typed on certain systems.
+*Fixed bug with selection of inappropriate text parts in multipart/alternative.
+*Fixed bug with incorrect 'Version: 1' text when using PGP/MIME.
+*Fixed bug causing a crash when deleting all multiple parts from a draft.
+*Fixed bug with local mailbox parsing when a message contains a bogus empty last MIME part.
+*Fixed bug causing occasional crash when expunging a mailbox in using thread sorting.
+*Fixed bug with parsing mailcap file.
+*Fixed bug causing occasional crash when an open message window's message is expunged with thread sorting active.
+*Fixed bug causing a crash when ']' used as a quotation character for highlighting.
+
+v2.1.1 : 12-Oct-2001
+Minor Changes
+*Quotations in reply/forward drafts now always appear in date received order.
+*Added Admin kiosk option to disable rules.
+*Can now fully accept invalid SSL certs after extra warning.
+*Added new option for STARTTLS command to allow differentiation between SSLv23 and TLSv1 client hello methods.
+*Added Admin kiosk option to disable the use of local attachments in drafts.
+
+Fixes
+*Fixed bug causing empty i18n MIME headers.
+*Fixed bug with message header line folding occasionaly generating an empty line.
+*Fixed bug with crash when attempting to delete POP3 INBOX.
+*Fixed bug with failure to allow sync operations with mailboxes contain certain characters.
+*Fixed bug causing a crash when local mailbox directory is not accessible.
+*Fixed bug with local directories being created without any permissions set.
+*Fixed bug with activation of subscribe checkbox in mailbox create dialog.
+*Fixed bug with silent failure of open mailbox command when error occurs.
+*Fixed bug with forward options dialog not picking up preferences defaults.
+*Fixed bug with certs being written to certs file multiple times.
+*Fixed bug causing a crash when printing a draft.
+*Fixed bug with use of -u command line switch on Solaris.
+*Fixed bug with auto-sizing of search/rules/preferences windows/dialogs.
+*Fixed bug with failure to allow use of mailboxes on read-only volumes.
+*Fixed bug causing a crash when cache all is cancelled.
+*Fixed bug with GSSAPI not working with IMSP.
+*Fixed bug with choose being used when no copy to selected in Simple prefs panel.
+*Fixed bug with inability to turn off POP3 INBOX checking.
+*Fixed bug with failure to trigger filters when trigger set to Always.
+*Fixed bug with rules preferences always being written to IMSP even when unchanged.
+*Fixed bug with GSSAPI not recovering user id used to get Kerberos tgt.
+*Fixed bug with failure to remember parts split position in message/draft windows.
+
+v2.1 : 28-Aug-2001
+Major Changes
+*Added support for rules: local filters and SIEVE scripts.
+*Added NAMESPACE dialog to do initial hierarchy configuration.
+*Added Reset All display hierarchy command to bring up new NAMESPACE dialog after initial setup.
+*Added support for IMAP SORT extension.
+*Added support for IMAP THREAD extension.
+*Thread sorting now uses References, In-Reply-To and Message-ID headers.
+*Thread column text in mailbox window is indented the appropriate amount when Thread sorting is applied.
+*Attachments can now be 'viewed' as opposed to just saved todisk. This will save viewed attachments to disk in the tempdirectory, and these will be deleted when Mulberry quits.
+*Added new BCC caption option (on by default) that sends a separate message with a textual warning at the top to any bcc recipients. The warning text can be configured via the prefs.
+
+Minor Changes
+*Search window criteria are now inside a scrolling view to allow many criteria without the search window growing too big.
+*Search criteria can now be moved up/down with respect to others.
+*Preference panel re-organisation with some new sub-panels introduced.
+*Changes to the signature text in a draft window will now prevent the signature from being automatically replaced when the identity is changed.
+*Now generates a References header when replying.
+*Added new options and a dialog to allow choice of how a message is forwarded, using a quote, an attachment ot both.
+*Forward options now allow forwarding of the complete original message headers.
+*Added new option to message window formatting popup to view the entire 'raw' contents of a message in the message window, which can be saved or printed in that form.
+*Added Mailbox/Directory choice buttons to Create Mailbox dialog.
+*Added new options and a dialog to allow saving of drafts to either a file or a mailbox when the File menu Save/Save As commands are used.
+*When encrypting, the 'encrypt-to-self' key is now the default signing key.
+*Clicking on an already sorted column title reverses the sort order.
+*Smart reply quoting based on the selection in the original message can now be turned off view a new preference.
+*URL's are not highlighted or clickable if any modifier key is down, allowing URLs to be selected without being triggered.
+*Address Import/Export items are now always active but generate an error message when an address book is not on top.
+*Added another forward option to allow messages to be sent as message/rfc822 (default) or as normal parts
+*Recognised URL text in outgoing HTML now has <A HREF ..>...</A> tags automatically applied.
+*Merged server properties dialog into mailbox properties.
+*Changed Original button in Draft window to Spelling.
+*Added quoting options to the reply addressing dialog.
+*Added an option to control the auto-expansion of address fields in the message window header.
+*Date search/rules criteria now allow is/is not for relative dates.
+*Can now specify the directory for the local SMTP queue files via editing the first SMTP account in the preferences.
+*Added basic default emacs key bindings to text fields.
+*Network related errors now include additional context information (e.g. account name) when displayed to the user.
+*Added shortcut for Include Original menu item.
+*Certain HTML unicode entities (e.g. curly quotes) are now mapped to ascii equivalents.
+*SSL plugin updated to latest openssl release.
+*Now selects the password field when a login fails.
+*Added support for PRINTCMD environment variable which determines the default command to use for printing.
+*Shift-tab now moves to the previous unseen message in a mailbox window.
+*Password dialog now shows the account name as well as the server address.
+
+Fixes
+*Fixed bug with nested IMAP LIST calls when logging in.
+*Fixed bug with signature duplication when using Send Again.
+*Fixed bug woith quotation colours not being read/written to the preferences properly.
+*Fixed bug with failure to match first header when doing message header search in a local mailbox.
+*Fixed bug with failure to authenticate with newer versions of the UW IMAP server.
+*Fixed bug with disconnected playback of COPY operations when the IMAP server does not support UIDPLUS.
+*Fixed bug with message rollover not auto-expanding/collapsing parts table.
+*Fixed bugs with improper handling of <xml> and <!--...--> HTML tags.
+*Fixed local mailbox reconstruct to better cope with date mismatches between mailbox, cache and index files.
+*Fixed bug causing long delays when parsing text/enriched with lots or relative font size changes.
+*Fixed bug with new messages appearing at the bottom of the list when reverse sorted.
+*Fixed bug with Open button remaining inactive in the Open Mailbox dialog.
+*Fixed bug with creation of duplicate local address books.
+*Fixed bug with reverse sorting when moving to the next mailbox with unseen messages.
+*Fixed bug with format=flowed being used for Content-Disposition: attachment.
+*Fixed bug with failure to parse QUOTAROOT response when quota root name is empty.
+*Fixed bug with active subscribe checkbox in Create Mailbox dialog when a POP3 or local account is being used.
+*Fixed bug with wrapping while quoting text when forwarding.
+*Fixed bug with crashes related to recovering local mailbox cache information.
+*Fixed bug with loss of mailbox expansion state after renaming a mailbox.
+*Fixed bug with quoted-printable encoding and interaction with format=flowed.
+*Fixed bug with Send Again including the pgp signature part from the original.
+*Fixed bug with occasional failure to mark messages as seen when opened.
+*Fixed bug with parsing of local mailbox containing messages with broken MIME structure.
+*Fixed bug with failure to do proper thread locking when searching mailboxes.
+*Fixed bugs with failure to do proper thread locking during POP3 checks.
+*Fixed bug with local parsing of zero length message bodies.
+*Fixed bug with failure to use proper message size *recipient count value when usign admin locks.
+*Fixed bug with failure to connect to poppassd server when changing passwords.
+*Fixed bug causing a crash when closing the About/About Plugins dialogs via the title bar.
+*Fixed bug with reversed behaviour of attachment download radio buttons in prefs panel.
+*Fixed bugs with re-opening saved drafts that contain alternative, signed or encrypted data.
+*Fixed bug with SMTP receive line buffer being too small.
+*Fixed bug with focussing on edit fields when draft window defaults to opening with a collpased header.
+*Fixed various bugs related to split window resizing (message, draft, address book).
+*Fixed bug causing a crash when doing an 'Update then Disconnect' with an open mailbox window.
+*Fixed bug with spell checker being active in a draft with no editable part.
+*Fixed bug with incorrect status line details when downloading attachments.
+*Fixed bug with failure to transfer user id into an SMTP account whenusing the admin tool kit configuration process.
+*Fixed bug with smart signature replacement.
+*Fixed bug with AUTH=ANONYMOUS logins.
+*Fixed bug with crashes caused when splitter resizes.
+*Fixed bug with ANONYMOUS login to certain types of server.
+*Fixed bug with ']' cancelling certain dialogs.
+*Fixed bug occasionally causing a crash when switching between mailboxes in the same mailbox window.
+*Fixed bug with tabs not working when num/caps/scroll locks are on.
+*Fixed bug with creating new identities in a draft window.
+*Fixed bug with meaningless numerical errors fro SSL operations.
+*Fixed bug causing a crash when a message window is deleted in a particular way
+*Fixed bug causing reconstruct of local mailbox when a local append operation fails.
+*Fixed bug with base64 encoding when base64 data is of a particular length.
+*Fixed bug causing a crash when switching between mailboxes in thr same window.
+*Fixed bug causing a crash when parsing broken IMAP message structure data.
+*Fixed bug with failure to resolve/expand addresses when Send button is clicked while address field is still active.
+*Fixed bug with failure to reset cached data when a mailbox connection is recovered.
+*Fixed bug with failure to properly disconnect when a login fails.
+*Fixed bug with local rfc822 parsing causing body part lengths to appear shorter than they are.
+*Fixed bug with 'Is not Me' address search option not being properly restored when written and read from preferences.
+*Fixed bug with sig-dashes in quoted-printable messages.
+*Fixed bugs with reverse sorted mailboxes and selection, initial positioning behaviour.
+*Fixed bugs with failure to properly recover from failed POP3 retrieve operations.
+*Fixed bug with decoding of unknown charsets in MIME-encoded headers.
+*Fixed bug with double-click not working in search window mailbox list.
+*Fixed bug with failure to decode format=flowed if Content-Disposition header was not inline.
+*Fixed bug causing a crash when decoding certain UU data.
+*Fixed bug with incorrect alert when using default download directory to save attachments.
+
+v2.0.8 : 15-March-2001
+Fixes
+*Fixed bug with incorrect multi-user login user id being transferred to the email address when certain admin options are configured.
+
+v2.0.7: 12-March-2001
+Minor Changes
+*Added support for spell checking using ISpell.
+*Only a single instance of Mulberry (per-user) will now be launched, allowing mailto URLs to create drafts in an existing running copy of Mulberry without creating a whole new process.
+*Added basic online help that includes the current FAQ page from out website.
+*Added support for AdminTool configuration.
+*Status window now uses the Mulberry application icon when collapsed.
+
+Fixes
+*Fixed bug with draft address parsing when parenthesis are in the phrase.
+*Fixed bug with failure to expand when nick-name expansion is requested.
+*Fixed bug with forward quotation adding an unwanted space when no quote character is set.
+*Fixed bug with case-sensitive smart address testing of the default identity.
+*Fixed bug with Open Addressbook command/button activation.
+*Fixed bug with wildcard cabinet items in the copy to cabinet causing menu lock-up in disconnected mode.
+*Fixed bug with SMTP queue window attempting to open when its locked out.
+*Fixed bug causing a crash when parsing empty tags in styled text.
+*Fixed bug with dealing with disconnected playback when certain operations are missing from the playback log.
+*Fixed bug with parsing URLs that use the new IPv6 URL scheme for specifying a server address.
+*Fixed bug in which a fake drag and drop operation would be triggered in the server window when collapsing a hierarchy while scrolled to the end of the list.
+*Fixed bug with plugin registration failing when plugins are in a read-only directory.
+*Fixed bug with Open Mailbox menu command not being triggered in all windows.
+*Fixed bug causing a crash on startup when a previously configured open on startup local address book no longer exists.
+*Fixed bugs related to improper parsing of the last line of the URL, MIME mapping files.
+*Fixed bug causing a crash on SPARC when an explicit MIME mapping is setup in the preferences.
+*Fixed bug in which single server/display hierarchy Copy To menu was not working.
+
+v2.0.6: 02-February-2001
+* First Release of Unix version.

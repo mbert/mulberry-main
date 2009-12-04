@@ -1,0 +1,348 @@
+/*
+    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+        http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+
+#include "CSummaryTable.h"
+
+#include "CCalendarUtils.h"
+#include "CDrawUtils.h"
+#include "CFontCache.h"
+#include "CMulberryCommon.h"
+#include "CPreferences.h"
+#include "CSummaryEvent.h"
+#include "CSummaryTitleTable.h"
+#include "CTableRowGeometry.h"
+#include "CTableRowSelector.h"
+
+#include <algorithm>
+
+const uint32_t cRowHeight = 18;
+const uint32_t cLinkColumnWidth = 16;
+const uint32_t cDateColumnWidth = 96;
+const uint32_t cTimeColumnWidth = 72;
+const uint32_t cSummaryColumnWidth = 196;
+const uint32_t cStatusColumnWidth = 64;
+const uint32_t cCalendarColumnWidth = 128;
+
+const uint32_t cLinkHOffset = 8;
+const uint32_t cLinkWidth = 4;
+const uint32_t cLinkVOffset = 4;
+const uint32_t cLinkHeight = 16;
+
+BEGIN_MESSAGE_MAP(CSummaryTable, CCalendarTableBase)
+	ON_WM_CREATE()
+END_MESSAGE_MAP()
+
+// ---------------------------------------------------------------------------
+//	CSummaryTable														  [public]
+/**
+	Default constructor */
+
+CSummaryTable::CSummaryTable()
+{
+	mTitles = NULL;
+
+	mTableGeometry = new CTableRowGeometry(this, 128, cRowHeight);
+	
+	// Single selector
+	mTableSelector = new CTableSingleRowSelector(this);
+
+	SetRowSelect(true);
+}
+
+
+// ---------------------------------------------------------------------------
+//	~CSummaryTable														  [public]
+/**
+	Destructor */
+
+CSummaryTable::~CSummaryTable()
+{
+}
+
+#pragma mark -
+
+int CSummaryTable::OnCreate(LPCREATESTRUCT lpCreateStruct)
+{
+	if (CCalendarTableBase::OnCreate(lpCreateStruct) == -1)
+		return -1;
+
+	InsertCols(6, 1, NULL);
+
+	mColumnInfo.push_back(CColumnSpec(eLink, cLinkColumnWidth));
+	mColumnInfo.push_back(CColumnSpec(eDate, cDateColumnWidth));
+	mColumnInfo.push_back(CColumnSpec(eTime, cTimeColumnWidth));
+	mColumnInfo.push_back(CColumnSpec(eSummary, cSummaryColumnWidth));
+	mColumnInfo.push_back(CColumnSpec(eStatus, cStatusColumnWidth));
+	mColumnInfo.push_back(CColumnSpec(eCalendar, cCalendarColumnWidth));
+
+	ResetColumns();
+	
+	return 0;
+}
+
+// Clicked item
+void CSummaryTable::LClickCell(const STableCell& inCell, UINT nFlags)
+{
+	// Ignore clicks on non-events
+	const CSummaryEvent* event = mEvents[inCell.row - 1];
+	if (!event->IsEvent())
+	{
+		return;
+	}
+	
+	CCalendarTableBase::LClickCell(inCell, nFlags);
+	DoSingleClick(inCell, CKeyModifiers(0));
+}
+
+void CSummaryTable::LDblClickCell(const STableCell& inCell, UINT nFlags)
+{
+	// Ignore clicks on non-events
+	const CSummaryEvent* event = mEvents[inCell.row - 1];
+	if (!event->IsEvent())
+	{
+		return;
+	}
+	
+	// Broadcast double-click
+	DoDoubleClick(inCell, CKeyModifiers(0));
+}
+
+void CSummaryTable::DrawCellRange(CDC* pDC, const STableCell& inTopLeftCell, const STableCell& inBottomRightCell)
+{
+	STableCell	cell;
+	
+	for ( cell.row = inTopLeftCell.row;
+		  cell.row <= inBottomRightCell.row;
+		  cell.row++ )
+	{
+		// See whether this is a row item
+		const CSummaryEvent* event = mEvents[cell.row - 1];
+		if (event->IsEvent())
+		{
+			for ( cell.col = inTopLeftCell.col;
+				  cell.col <= inBottomRightCell.col;
+				  cell.col++ )
+			{
+				  
+				CRect	cellRect;
+				GetLocalCellRect(cell, cellRect);
+				DrawCell(pDC, cell, cellRect);
+			}
+		}
+		else
+		{
+			// Draw entire row
+			CRect	rowRect;
+			GetLocalCellRectAlways(STableCell(cell.row, 1), rowRect);
+
+			CRect	cellRect;
+			GetLocalCellRectAlways(STableCell(cell.row, mCols), cellRect);
+			rowRect.right = cellRect.right;
+
+			DrawRow(pDC, cell.row, rowRect);
+		}
+	}
+}
+
+void CSummaryTable::DrawRow(CDC* pDC, TableIndexT row, const CRect& inLocalRect)
+{
+	StDCState save(pDC);
+
+	const CSummaryEvent* event = mEvents[row - 1];
+
+	CDrawUtils::DrawSimpleFrame(pDC, inLocalRect);
+
+	pDC->SetBkColor(CDrawUtils::sGrayColor);
+	::DrawClippedStringUTF8(pDC, event->mSummary, CPoint(inLocalRect.left, inLocalRect.top + mTextOrigin), inLocalRect, eDrawString_Center);
+}
+
+void CSummaryTable::DrawCell(CDC* pDC, const STableCell& inCell, const CRect& inLocalRect)
+{
+	StDCState		save(pDC);
+
+	const CSummaryEvent* event = mEvents[inCell.row - 1];
+
+	CRect adjustedRect = inLocalRect;
+
+	bool link = (mColumnInfo[inCell.col - 1].first == eLink);
+
+	// Do selection background
+	double red = CCalendarUtils::GetRed(event->mColour);
+	double green = CCalendarUtils::GetGreen(event->mColour);
+	double blue = CCalendarUtils::GetBlue(event->mColour);
+	if (CellIsSelected(inCell) && mDrawSelection)
+		CCalendarUtils::UnflattenColours(red, green, blue);
+	pDC->SetBkColor(CCalendarUtils::GetWinColor(red, green, blue));
+	if (!link)
+		pDC->ExtTextOut(adjustedRect.left, adjustedRect.top, ETO_OPAQUE, adjustedRect, _T(""), 0, nil);
+
+	if (!link)
+	{
+		int adjust_bottom = (inCell.row == mRows) ? -1 : 0;
+		int adjust_right = (inCell.col == mCols) ? 1 : 0;
+
+		CPen temp(PS_SOLID, 1, CCalendarUtils::GetWinColor(0.5, 0.5, 0.5));
+		CPen* old_pen = (CPen*) pDC->SelectObject(&temp);
+
+		// Left-side always
+		pDC->MoveTo(adjustedRect.left, adjustedRect.bottom + adjust_bottom);
+		pDC->LineTo(adjustedRect.left, adjustedRect.top);
+
+		// Right-side only for last column
+		if (inCell.col == mCols)
+		{
+			pDC->MoveTo(adjustedRect.right - adjust_right, adjustedRect.top);
+			pDC->LineTo(adjustedRect.right - adjust_right, adjustedRect.bottom + adjust_bottom);
+		}
+
+		// Top-side always
+		{
+			pDC->MoveTo(adjustedRect.left, adjustedRect.top);
+			pDC->LineTo(adjustedRect.right, adjustedRect.top);
+		}
+
+		// Bottom-side only for last row
+		if (inCell.row == mRows)
+		{
+			pDC->MoveTo(adjustedRect.right, adjustedRect.bottom + adjust_bottom);
+			pDC->LineTo(adjustedRect.left, adjustedRect.bottom + adjust_bottom);
+		}
+
+		pDC->SelectObject(old_pen);
+	}
+
+	adjustedRect.DeflateRect(2, 1);
+	adjustedRect.top--;
+	
+	// Get string data for column
+	cdstring text;
+	bool draw_txt = false;
+	EDrawStringAlignment just = eDrawString_Left;
+	switch(mColumnInfo[inCell.col - 1].first)
+	{
+	case eLink:
+		if (event->mDayStart)
+		{
+			pDC->MoveTo(inLocalRect.left + cLinkHOffset + cLinkWidth, inLocalRect.top + cLinkVOffset);
+			pDC->LineTo(inLocalRect.left + cLinkHOffset, inLocalRect.top + cLinkVOffset);
+			pDC->LineTo(inLocalRect.left + cLinkHOffset, (inLocalRect.top + inLocalRect.bottom) / 2);
+		}
+		else
+		{
+			pDC->MoveTo(inLocalRect.left + cLinkHOffset, inLocalRect.top);
+			pDC->LineTo(inLocalRect.left + cLinkHOffset, (inLocalRect.top + inLocalRect.bottom) / 2);
+		}
+		if (event->mDayEnd)
+		{
+			pDC->MoveTo(inLocalRect.left + cLinkHOffset, (inLocalRect.top + inLocalRect.bottom) / 2);
+			pDC->LineTo(inLocalRect.left + cLinkHOffset, inLocalRect.bottom - cLinkVOffset);
+			pDC->LineTo(inLocalRect.left + cLinkHOffset + cLinkWidth + 1, inLocalRect.bottom - cLinkVOffset);
+		}
+		else
+		{
+			pDC->MoveTo(inLocalRect.left + cLinkHOffset, (inLocalRect.top + inLocalRect.bottom) / 2);
+			pDC->LineTo(inLocalRect.left + cLinkHOffset, inLocalRect.bottom);
+		}
+		break;
+	case eDate:
+		text = event->mStartDate;
+		draw_txt = true;
+		just = eDrawString_Right;
+		break;
+	case eTime:
+		text = event->mStartTime;
+		draw_txt = true;
+		just = eDrawString_Right;
+		break;
+	case eSummary:
+		text = event->mSummary;
+		draw_txt = true;
+		break;
+	case eStatus:
+		break;
+	case eCalendar:
+		text = event->mCalendar;
+		draw_txt = true;
+		break;
+	}
+
+	if (draw_txt)
+	{
+		pDC->SetTextColor(CDrawUtils::sBlackColor);
+		pDC->SelectObject(CFontCache::GetListFont());
+		::DrawClippedStringUTF8(pDC, text, CPoint(adjustedRect.left, adjustedRect.top + mTextOrigin), adjustedRect, just);
+	}
+
+	// Strike out if status is cancelled
+	if (!link && event->mCancelled)
+	{
+		CPen temp(PS_SOLID, 1, pDC->GetTextColor());
+		CPen* old_pen = (CPen*) pDC->SelectObject(&temp);
+		pDC->MoveTo(adjustedRect.left, (adjustedRect.top + adjustedRect.bottom)/2);
+		pDC->LineTo(adjustedRect.right, (adjustedRect.top + adjustedRect.bottom)/2);
+		pDC->SelectObject(old_pen);
+	}
+}
+
+// Draw or undraw active hiliting for a Cell
+void CSummaryTable::HiliteCellActively(const STableCell &inCell, Boolean inHilite)
+{
+	// Only if real event
+	const CSummaryEvent* event = mEvents[inCell.row - 1];
+	if (event->IsEvent())
+		CCalendarTableBase::HiliteCellActively(inCell, inHilite);
+}
+
+// Draw or undraw inactive hiliting for a Cell
+void CSummaryTable::HiliteCellInactively(const STableCell &inCell, Boolean inHilite)
+{
+	// Only if real event
+	const CSummaryEvent* event = mEvents[inCell.row - 1];
+	if (event->IsEvent())
+		CCalendarTableBase::HiliteCellInactively(inCell, inHilite);
+}
+
+// Change font in each row
+// We need to add a couple of extra pixels in height for each row to account for special 3-d frames
+void CSummaryTable::ResetFont(CFont* pFont)
+{
+	// Set font in Wnd - no redraw yet
+	SetFont(pFont, false);
+	
+	// Get current DC and calc font metrics
+	TEXTMETRIC tm;
+	{
+		CDC* pDC = GetDC();
+		CFont* old_font = pDC->SelectObject(pFont);
+		pDC->GetTextMetrics(&tm);
+		pDC->SelectObject(old_font);
+		ReleaseDC(pDC);
+	}
+	
+	// Set new row height
+	short height = tm.tmAscent + tm.tmDescent + 4;
+	if (height < 16)
+		height = 16;
+	mTextOrigin = 2;
+
+	// Set icon height
+	mIconOrigin = height/2 - 8;
+	if (mIconOrigin < 0)
+		mIconOrigin = 0;
+
+	SetRowHeight(height, 1, mRows);
+	mTextHeight = height;
+}

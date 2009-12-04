@@ -1,0 +1,12 @@
+-suffix .cp
+
+@PineAdbkIOPlugin.so
+-prefix sources/
+CPineAdbkIOPluginDLL
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CAdbkIOPluginDLL
+os_dep
+-prefix ../../Sources_Common/Utilities/
+CStringUtils

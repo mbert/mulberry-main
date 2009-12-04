@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+<!-- Class specific strings -->
+
+<!-- Common strings -->
+	<string id="::More">More…</string>
+	<string id="::NumberedCalendar">Calendar %ld</string>
+
+<!-- Event tooltip -->
+	<string id="EventTip::Summary">Summary: </string>
+	<string id="EventTip::All Day Event">All Day Event</string>
+	<string id="EventTip::Starts on">Starts on: </string>
+	<string id="EventTip::Ends on">Ends on: </string>
+	<string id="EventTip::Location">Location: </string>
+	<string id="EventTip::Description">Description: </string>
+	<string id="EventTip::Calendar">Calendar: </string>
+	
+<!-- To do tooltip -->
+	<string id="ToDoTip::Summary">Summary: </string>
+	<string id="ToDoTip::No due date">No due date</string>
+	<string id="ToDoTip::Due on">Due on: </string>
+	<string id="ToDoTip::Calendar">Calendar: </string>
+
+<!-- Day Week Table -->
+	<string id="CDayWeekTable::All Day">All Day</string>
+	<string id="CDayWeekTable::Busy">Busy</string>
+	<string id="CDayWeekTable::BlockedBusy">Blocked-out Busy Time</string>
+	<string id="CDayWeekTable::00 am">:00 am</string>
+	<string id="CDayWeekTable::00 pm">:00 pm</string>
+	<string id="CDayWeekTable::00">:00</string>
+
+<!-- Summary Table Bits -->
+	<string id="CSummaryEvent::AllDay">All Day</string>
+	<stringarray id="CSummaryEvent::When">
+		<string>In the Past</string>
+		<string>Earlier this Week</string>
+		<string>Yesterday</string>
+		<string>Today</string>
+		<string>Tomorrow</string>
+		<string>Later this Week</string>
+		<string>Next Week</string>
+		<string>In the Future</string>
+		<string>Week</string>
+		<string>Month</string>
+		<string>Year</string>
+	</stringarray>
+
+<!-- To Do Bits -->
+	<stringarray id="CToDoItem::When">
+		<string></string>
+		<string>Overdue</string>
+		<string>Due Now</string>
+		<string>Due Later</string>
+		<string>Done</string>
+		<string>Cancelled</string>
+		<string>No Tasks</string>
+	</stringarray>
+
+<!-- Calendar Store View/Table Bits -->
+	<string id="CCalendarStoreView::NewCalendarName">Enter the name for a new Calendar:</string>
+	<string id="CCalendarStoreTable::RenameCalendarName">Rename a Calendar:</string>
+	<string id="CCalendarStoreTable::ReallyDeleteCalendar">Do you really want to delete the calendar(s): %s?</string>
+	<string id="CCalendarStoreTable::PickCalendarColour">Choose a colour for displaying items in this calendar:</string>
+	<string id="CCalendarStoreTable::ReallyMoveCalendar">Do you really want to move the selected calendar(s) into the calendar hierarchy: %s?</string>
+	<string id="CCalendarStoreTable::ReallyCopyCalendar">Do you really want to copy the contents of the selected calendar(s) into the calendar: %s?</string>
+	<string id="CCalendarStoreTable::DuplicateCreate">The calendar to be created already exists.</string>
+	<string id="CCalendarStoreTable::NewWebCalendar">Enter the URL for a Web Calendar:</string>
+	<string id="CCalendarStoreTable::DuplicateWebCalendar">The Web Calendar at "%s" is already loaded.</string>
+
+<!-- New Component Dialog Bits -->
+	<string id="CNewComponentDialog::MissingNewCalendar">The chosen calendar no longer exists or is not open. Choose another calendar for this item.</string>
+	<string id="CNewEventDialog::MissingOriginal">The event being edited no longer exists and changes to it cannot be saved.</string>
+	<string id="CNewToDoDialog::MissingOriginal">The task being edited no longer exists and changes to it cannot be saved.</string>
+	<string id="CNewComponentAttendees::ReallyDelete">Do you really want to remove the selected attendees?</string>
+
+<!-- iTIP -->
+	<string id="CITIPProcessor::NoCalendars">There are no active calendars. Please activate a calendar before trying to save incoming calendar requests.</string>
+	<string id="CITIPProcessor::NoData">Could not find any useful calendar data.</string>
+	<string id="CITIPProcessor::ChangedEvent">Do you want to update the event "%s" in calendar "%s"?</string>
+	<string id="CITIPProcessor::ChangedEventDontShow">Update all events in this message.</string>
+	<string id="CITIPProcessor::IgnoredItems">Ignored %s items(s) that are the same or older than existing ones.</string>
+	<string id="CITIPProcessor::ChooseCalendarTitle">Choose Calendar</string>
+	<string id="CITIPProcessor::ChooseCalendar">Choose a Calendar to add the item to:</string>
+	<string id="CITIPProcessor::RequestStatusError">An error was reported for this calendar request: </string>
+	<string id="CITIPProcessor::OrganiserChangedError">The organiser of the incoming calendar reply does not match that in the original request. This calendar reply cannot be handled.</string>
+	<string id="CITIPProcessor::AttendeeCountError">The incoming calendar reply either contains no attendees, or more than one attendee. This calendar reply cannot be handled.</string>
+	<string id="CITIPProcessor::AttendeeMismatchError">The attendee in the incoming calendar reply does not match any attendee in the original request. This calendar reply cannot be handled.</string>
+	<string id="CITIPProcessor::AttendeeStatusChange">The attendee's status has changed from %s to %s: </string>
+	<string id="CITIPProcessor::AttendeeNoStatusChange">There is no status change for the attendee: </string>
+	<string id="CITIPProcessor::RequestSubject">Invitation</string>
+	<string id="CITIPProcessor::ReplySubject">Invitation Response</string>
+	<string id="CITIPProcessor::IMIPDone">Calendar Scheduling Message Sent.</string>
+
+	<string id="CITIPProcessor::Role::Chair">Chair</string>
+	<string id="CITIPProcessor::Role::ReqPart">Required</string>
+	<string id="CITIPProcessor::Role::OptPart">Optional</string>
+	<string id="CITIPProcessor::Role::NonPart">Not participating</string>
+	<string id="CITIPProcessor::Role::Unknown">Unknown</string>
+
+	<string id="CITIPProcessor::PartStat::NeedsAction">Needs Action</string>
+	<string id="CITIPProcessor::PartStat::Accepted">Accepted</string>
+	<string id="CITIPProcessor::PartStat::Declined">Declined</string>
+	<string id="CITIPProcessor::PartStat::Tentative">Tentative</string>
+	<string id="CITIPProcessor::PartStat::Delegated">Delegated</string>
+	<string id="CITIPProcessor::PartStat::Complete">Complete</string>
+	<string id="CITIPProcessor::PartStat::InProcess">In Progress</string>
+	<string id="CITIPProcessor::PartStat::Unknown">Unknown</string>
+
+</stringlist>

@@ -1,0 +1,13 @@
+-suffix .cp
+
+@CommunicatorAdbkIOPlugin.so
+-prefix sources/
+CCommAdbkIOPluginDLL
+.c line64mac
+-prefix ../PluginLibrary/
+.a PluginLib
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CAdbkIOPluginDLL
+os_dep

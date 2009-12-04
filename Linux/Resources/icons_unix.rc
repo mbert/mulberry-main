@@ -1,0 +1,76 @@
+IDI_MAILBOXPROP_OPTIONS	ICON	DISCARDABLE		../Sources/icons/mailbox_options.xpm
+IDI_MAILBOXPROP_GENERAL	ICON	DISCARDABLE		../Sources/icons/mailbox_general.xpm
+IDI_MAILBOXPROP_SERVER	ICON	DISCARDABLE		../Sources/icons/mailbox_server.xpm
+IDI_MAILBOXPROP_ACL		ICON	DISCARDABLE		../Sources/icons/mailbox_acl.xpm
+IDI_MAILBOXPROP_QUOTA	ICON	DISCARDABLE		../Sources/icons/mailbox_quota.xpm
+IDI_PREFS_ACCOUNTS	ICON	DISCARDABLE		../Sources/icons/prefs_accounts.xpm
+IDI_PREFS_ALERTS	ICON	DISCARDABLE		../Sources/icons/prefs_alerts.xpm
+IDI_PREFS_DISPLAY	ICON	DISCARDABLE		../Sources/icons/prefs_display.xpm
+IDI_PREFS_FONTS		ICON	DISCARDABLE		../Sources/icons/prefs_fonts.xpm
+IDI_PREFS_MAILBOX	ICON	DISCARDABLE		../Sources/icons/prefs_mailbox.xpm
+IDI_PREFS_MESSAGE	ICON	DISCARDABLE		../Sources/icons/prefs_message.xpm
+IDI_PREFS_OUTGOING	ICON	DISCARDABLE		../Sources/icons/prefs_outgoing.xpm
+IDI_PREFS_SECURITY	ICON	DISCARDABLE		../Sources/icons/prefs_security.xpm
+IDI_PREFS_IDENTITY	ICON	DISCARDABLE		../Sources/icons/prefs_identities.xpm
+IDI_PREFS_ADDRESSES	ICON	DISCARDABLE		../Sources/icons/prefs_addresses.xpm
+IDI_PREFS_ATTACHMENT	ICON	DISCARDABLE		../Sources/icons/prefs_attachment.xpm
+
+IDI_LOGIN_SMALL               	ICON    DISCARDABLE     ../Sources/icons/LoginSmall.xpm
+IDI_LOGOUT_SMALL				ICON    DISCARDABLE     ../Sources/icons/LogoutSmall.xpm
+IDI_SERVERPROP_SMALL			ICON    DISCARDABLE     ../Sources/icons/ServerPropSmall.xpm
+IDI_SERVER_SEARCHBTN_SMALL    	ICON    DISCARDABLE     ../Sources/icons/ServerSearchBtnSmall.xpm
+IDI_SERVER_CREATEBTN_SMALL    	ICON    DISCARDABLE     ../Sources/icons/ServerCreateBtnSmall.xpm
+IDI_SERVER_CHECKBTN_SMALL     	ICON    DISCARDABLE     ../Sources/icons/ServerCheckBtnSmall.xpm
+IDI_SERVER_VIEWBTN_SMALL      	ICON    DISCARDABLE     ../Sources/icons/ServerViewSmall.xpm
+IDI_MAILBOXDELETE_SMALL       	ICON    DISCARDABLE     ../Sources/icons/MailboxDeleteSmall.xpm
+IDI_MAILBOXEXPUNGE_SMALL     	ICON    DISCARDABLE     ../Sources/icons/MailboxExpungeSmall.xpm
+IDI_MAILBOXNEWMSG_SMALL			ICON    DISCARDABLE     ../Sources/icons/NewMessageSmall.xpm
+IDI_MAILBOXREPLY_SMALL			ICON    DISCARDABLE     ../Sources/icons/MessageReplySmall.xpm
+IDI_MAILBOXFORWARD_SMALL		ICON    DISCARDABLE     ../Sources/icons/MessageForwardSmall.xpm
+IDI_MAILBOXBOUNCE_SMALL			ICON    DISCARDABLE     ../Sources/icons/MessageBounceSmall.xpm
+IDI_MAILBOXCOPY_SMALL			ICON    DISCARDABLE     ../Sources/icons/MessageCopySmall.xpm
+IDI_MAILBOXMATCH_SMALL			ICON    DISCARDABLE     ../Sources/icons/MailboxMatchBtnSmall.xpm
+IDI_MAILBOXSELECTFLAG_SMALL		ICON    DISCARDABLE     ../Sources/icons/SelectByFlagSmall.xpm
+IDI_MAILBOXSEARCH_SMALL			ICON    DISCARDABLE     ../Sources/icons/MailboxSearchSmall.xpm
+
+IDI_SMTPHOLD_SMALL	            ICON    DISCARDABLE     ../Sources/icons/SMTPHoldSmall.xpm
+IDI_SMTPPRIORITY_SMALL	        ICON    DISCARDABLE     ../Sources/icons/SMTPPrioritySmall.xpm
+IDI_SMTPENABLE_SMALL	        ICON    DISCARDABLE     ../Sources/icons/SMTPEnableSmall.xpm
+
+IDI_PRINT_SMALL             	ICON    DISCARDABLE     ../Sources/icons/PrintSmall.xpm
+IDI_DELETENEXT_SMALL            ICON    DISCARDABLE     ../Sources/icons/DeleteNextSmall.xpm
+IDI_PREVMSG_SMALL               ICON    DISCARDABLE     ../Sources/icons/PrevMsgSmall.xpm
+IDI_NEXTMSG_SMALL               ICON    DISCARDABLE     ../Sources/icons/NextMsgSmall.xpm
+IDI_LASTNEXTMSG_SMALL           ICON    DISCARDABLE     ../Sources/icons/LastNextMsgSmall.xpm
+
+IDI_SAVEFILE_SMALL              ICON    DISCARDABLE     ../Sources/icons/SaveSmall.xpm
+IDI_ATTACHFILE_SMALL            ICON    DISCARDABLE     ../Sources/icons/AttachSmall.xpm
+IDI_SPELLING_SMALL              ICON    DISCARDABLE     ../Sources/icons/SpellingSmall.xpm
+IDI_RECEIPT_SMALL               ICON    DISCARDABLE     ../Sources/icons/ReceiptSmall.xpm
+IDI_SIGN_SMALL  		        ICON    DISCARDABLE     ../Sources/icons/SignSmall.xpm
+IDI_ENCRYPT_SMALL               ICON    DISCARDABLE     ../Sources/icons/EncryptSmall.xpm
+IDI_SENDLETTER_SMALL            ICON    DISCARDABLE     ../Sources/icons/SendSmall.xpm
+IDI_EXTERNALEDIT  		        ICON    DISCARDABLE     ../Sources/icons/ExternalEdit.xpm
+IDI_EXTERNALEDIT_SMALL          ICON    DISCARDABLE     ../Sources/icons/ExternalEditSmall.xpm
+
+IDI_ADDRESS_NEW_ADDR		  ICON    DISCARDABLE     ../Sources/icons/ShowSingle.xpm
+
+IDI_ADBK_NEW_BTN_SMALL        ICON    DISCARDABLE     ../Sources/icons/AdbkNewSmall.xpm
+IDI_ADBK_OPEN_BTN_SMALL       ICON    DISCARDABLE     ../Sources/icons/AdbkOpenSmall.xpm
+IDI_ADBK_DELETE_BTN_SMALL     ICON    DISCARDABLE     ../Sources/icons/AdbkDeleteSmall.xpm
+IDI_ADDRESS_NEW_ADDR_SMALL    ICON    DISCARDABLE     ../Sources/icons/ShowSingleSmall.xpm
+IDI_ADDRESS_NEW_GROUP_SMALL   ICON    DISCARDABLE     ../Sources/icons/ShowGroupSmall.xpm
+IDI_ADDRESS_EDIT_SMALL        ICON    DISCARDABLE     ../Sources/icons/NewAddressSmall.xpm
+IDI_ADDRESS_DELETE_SMALL      ICON    DISCARDABLE     ../Sources/icons/DeleteAddressSmall.xpm
+IDI_ADDRESS_SEARCH_SMALL      ICON    DISCARDABLE     ../Sources/icons/SearchAddressSmall.xpm
+
+IDI_MENU_TICKMARK				ICON    DISCARDABLE     ../Sources/icons/MenuTickMark.xpm
+IDI_MENU_BLOBMARK				ICON    DISCARDABLE     ../Sources/icons/MenuBlobMark.xpm
+IDI_MENU_SUBMENU				ICON    DISCARDABLE     ../Sources/icons/MenuSubMenu.xpm
+IDI_MENU_SCROLLUP				ICON    DISCARDABLE     ../Sources/icons/MenuScrollUp.xpm
+IDI_MENU_SCROLLDOWN				ICON    DISCARDABLE     ../Sources/icons/MenuScrollDown.xpm
+
+IDI_SCROLLBAR_UP				ICON    DISCARDABLE     ../Sources/icons/ScrollbarUp.xpm
+IDI_SCROLLBAR_DOWN				ICON    DISCARDABLE     ../Sources/icons/ScrollbarDown.xpm
+IDI_SCROLLBAR_LEFT				ICON    DISCARDABLE     ../Sources/icons/ScrollbarLeft.xpm
+IDI_SCROLLBAR_RIGHT				ICON    DISCARDABLE     ../Sources/icons/ScrollbarRight.xpm

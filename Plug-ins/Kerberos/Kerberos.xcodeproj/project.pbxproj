@@ -1,0 +1,289 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFD93C450AE5B343007F506F /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93C3C0AE5B343007F506F /* os_dep.cp */; };
+		AFD93C460AE5B343007F506F /* os_dep.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C3D0AE5B343007F506F /* os_dep.h */; };
+		AFD93C470AE5B343007F506F /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93C350AE5B343007F506F /* PluginDLLmain.cp */; };
+		AFD93C480AE5B343007F506F /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93C360AE5B343007F506F /* CPluginDLL.cp */; };
+		AFD93C490AE5B343007F506F /* CPluginDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C370AE5B343007F506F /* CPluginDLL.h */; };
+		AFD93C4A0AE5B343007F506F /* CAuthPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93C380AE5B343007F506F /* CAuthPluginDLL.cp */; };
+		AFD93C4B0AE5B343007F506F /* CAuthPluginDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C390AE5B343007F506F /* CAuthPluginDLL.h */; };
+		AFD93C4C0AE5B343007F506F /* CKerberosPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93C3A0AE5B343007F506F /* CKerberosPluginDLL.cp */; };
+		AFD93C4D0AE5B343007F506F /* CKerberosPluginDLL.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C3B0AE5B343007F506F /* CKerberosPluginDLL.h */; };
+		AFD93C4E0AE5B343007F506F /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93C3E0AE5B343007F506F /* CStringUtils.cp */; };
+		AFD93C4F0AE5B343007F506F /* CStringUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C3F0AE5B343007F506F /* CStringUtils.h */; };
+		AFD93C500AE5B343007F506F /* kbase64.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93C400AE5B343007F506F /* kbase64.cp */; };
+		AFD93C510AE5B343007F506F /* kbase64.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C410AE5B343007F506F /* kbase64.h */; };
+		AFD93C560AE5B344007F506F /* PluginDLLmain.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C550AE5B344007F506F /* PluginDLLmain.h */; };
+		AFD93C5A0AE5B344007F506F /* CPluginInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93C590AE5B344007F506F /* CPluginInfo.h */; };
+		AFD93C5F0AE5B344007F506F /* Kerberos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93C5E0AE5B344007F506F /* Kerberos.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AFD93C300AE5B342007F506F /* Kerberos.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Kerberos.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD93C350AE5B343007F506F /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AFD93C360AE5B343007F506F /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFD93C370AE5B343007F506F /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFD93C380AE5B343007F506F /* CAuthPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CAuthPluginDLL.cp; path = ../Common/CAuthPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFD93C390AE5B343007F506F /* CAuthPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAuthPluginDLL.h; path = ../Common/CAuthPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFD93C3A0AE5B343007F506F /* CKerberosPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CKerberosPluginDLL.cp; path = sources/CKerberosPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFD93C3B0AE5B343007F506F /* CKerberosPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CKerberosPluginDLL.h; path = sources/CKerberosPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFD93C3C0AE5B343007F506F /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
+		AFD93C3D0AE5B343007F506F /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
+		AFD93C3E0AE5B343007F506F /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
+		AFD93C3F0AE5B343007F506F /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AFD93C400AE5B343007F506F /* kbase64.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = kbase64.cp; path = ../Common/kbase64.cp; sourceTree = SOURCE_ROOT; };
+		AFD93C410AE5B343007F506F /* kbase64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = kbase64.h; path = ../Common/kbase64.h; sourceTree = SOURCE_ROOT; };
+		AFD93C550AE5B344007F506F /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AFD93C590AE5B344007F506F /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AFD93C5E0AE5B344007F506F /* Kerberos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kerberos.framework; path = /System/Library/Frameworks/Kerberos.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFD93C2D0AE5B342007F506F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD93C5F0AE5B344007F506F /* Kerberos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFD93C230AE5B342007F506F = {
+			isa = PBXGroup;
+			children = (
+				AFD93C340AE5B343007F506F /* Main */,
+				AFD93C420AE5B343007F506F /* Resources */,
+				AFD93C540AE5B344007F506F /* Imported Files */,
+				AFD93C5D0AE5B344007F506F /* Frameworks */,
+				AFD93C310AE5B342007F506F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFD93C310AE5B342007F506F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93C300AE5B342007F506F /* Kerberos.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFD93C340AE5B343007F506F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93C350AE5B343007F506F /* PluginDLLmain.cp */,
+				AFD93C370AE5B343007F506F /* CPluginDLL.h */,
+				AFD93C360AE5B343007F506F /* CPluginDLL.cp */,
+				AFD93C390AE5B343007F506F /* CAuthPluginDLL.h */,
+				AFD93C380AE5B343007F506F /* CAuthPluginDLL.cp */,
+				AFD93C3B0AE5B343007F506F /* CKerberosPluginDLL.h */,
+				AFD93C3A0AE5B343007F506F /* CKerberosPluginDLL.cp */,
+				AFD93C3D0AE5B343007F506F /* os_dep.h */,
+				AFD93C3C0AE5B343007F506F /* os_dep.cp */,
+				AFD93C3F0AE5B343007F506F /* CStringUtils.h */,
+				AFD93C3E0AE5B343007F506F /* CStringUtils.cp */,
+				AFD93C410AE5B343007F506F /* kbase64.h */,
+				AFD93C400AE5B343007F506F /* kbase64.cp */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AFD93C420AE5B343007F506F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AFD93C540AE5B344007F506F /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93C550AE5B344007F506F /* PluginDLLmain.h */,
+				AFD93C590AE5B344007F506F /* CPluginInfo.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AFD93C5D0AE5B344007F506F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFD93C5E0AE5B344007F506F /* Kerberos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		AFD93C2A0AE5B342007F506F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD93C460AE5B343007F506F /* os_dep.h in Headers */,
+				AFD93C490AE5B343007F506F /* CPluginDLL.h in Headers */,
+				AFD93C4B0AE5B343007F506F /* CAuthPluginDLL.h in Headers */,
+				AFD93C4D0AE5B343007F506F /* CKerberosPluginDLL.h in Headers */,
+				AFD93C4F0AE5B343007F506F /* CStringUtils.h in Headers */,
+				AFD93C510AE5B343007F506F /* kbase64.h in Headers */,
+				AFD93C560AE5B344007F506F /* PluginDLLmain.h in Headers */,
+				AFD93C5A0AE5B344007F506F /* CPluginInfo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		AFD93C2F0AE5B342007F506F /* Kerberos MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFD93C320AE5B343007F506F /* Build configuration list for PBXNativeTarget "Kerberos MachO" */;
+			buildPhases = (
+				AFD93C2A0AE5B342007F506F /* Headers */,
+				AFD93C2B0AE5B342007F506F /* Sources */,
+				AFD93C2C0AE5B342007F506F /* Resources */,
+				AFD93C2D0AE5B342007F506F /* Frameworks */,
+				AFD93C2E0AE5B342007F506F /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Kerberos MachO";
+			productName = "Kerberos MachO";
+			productReference = AFD93C300AE5B342007F506F /* Kerberos.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFD93C250AE5B342007F506F /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AFD93C260AE5B342007F506F /* Build configuration list for PBXProject "Kerberos" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AFD93C230AE5B342007F506F;
+			productRefGroup = AFD93C310AE5B342007F506F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFD93C2F0AE5B342007F506F /* Kerberos MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFD93C2C0AE5B342007F506F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AFD93C2E0AE5B342007F506F /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFD93C2B0AE5B342007F506F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFD93C450AE5B343007F506F /* os_dep.cp in Sources */,
+				AFD93C470AE5B343007F506F /* PluginDLLmain.cp in Sources */,
+				AFD93C480AE5B343007F506F /* CPluginDLL.cp in Sources */,
+				AFD93C4A0AE5B343007F506F /* CAuthPluginDLL.cp in Sources */,
+				AFD93C4C0AE5B343007F506F /* CKerberosPluginDLL.cp in Sources */,
+				AFD93C4E0AE5B343007F506F /* CStringUtils.cp in Sources */,
+				AFD93C500AE5B343007F506F /* kbase64.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AFD93C270AE5B342007F506F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AFD93C330AE5B343007F506F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = NO;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = Kerberos;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFD93C260AE5B342007F506F /* Build configuration list for PBXProject "Kerberos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD93C270AE5B342007F506F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AFD93C320AE5B343007F506F /* Build configuration list for PBXNativeTarget "Kerberos MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFD93C330AE5B343007F506F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFD93C250AE5B342007F506F /* Project object */;
+}

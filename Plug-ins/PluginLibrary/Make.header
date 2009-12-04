@@ -1,0 +1,45 @@
+#########################################
+### 
+###      M A K E F I L E
+###
+###
+###
+
+
+
+# compiler flags ------------------------------
+
+include ../include/stl.mak
+
+BIN = .obj
+
+ifeq (${OSTYPE},solaris)
+	LOADLIBES := -lsocket ${LOADLIBES}
+endif
+
+CINCS = \
+-I../../Linux/Sources/Utilities \
+-I../../Sources_Common/Utilities \
+-I../../Sources_Common/i18n/Charsets \
+-I../../Sources_Common/i18n/Charsets/Converters \
+-I../../Sources_Common/i18n/Charsets/Converters/OneByte \
+-I../../Sources_Common/i18n/Charsets/Converters/Unicode \
+-I../../Sources_Common/Mail/URLs \
+-I../CRAM-MD5/sources/md5 \
+-I../Common
+
+VPATH := ../Common:\
+		../../Sources_Common/Utilities:\
+		../../Sources_Common/i18n/Charsets:\
+		../../Sources_Common/i18n/Charsets/Converters:\
+		../../Sources_Common/i18n/Charsets/Converters/OneByte:\
+		../../Sources_Common/i18n/Charsets/Converters/Unicode:\
+		../../Sources_Common/Mail/URLs:\
+		../CRAM-MD5/sources/md5
+		
+$.${BIN}/%.o %.o: %.cp
+	@ echo "    ---- Compiling $< (C++)"
+	 $(CPP) $(CFLAGS) -c -o $@ $<
+
+${BIN}/md5c.o: ../CRAM-MD5/sources/md5/md5c.c ../CRAM-MD5/sources/md5/md5.h
+	 $(CC) -c -o $@ $<

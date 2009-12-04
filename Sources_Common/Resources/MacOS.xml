@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+
+<!-- General -->
+	<string id="Alerts::General::NoInternetConfig">Internet Config could not be started. Some aspects of MIME attachments will not be available. Please make sure Internet Config is correctly installed to gain access to the extra features of Mulberry.</string>
+	<string id="Alerts::General::NoForceInternetConfig">Internet Config is not installed. This version of Mulberry requires that Internet Config is installed on this computer.</string>
+	<string id="Alerts::General::NoSetMap">The time zone information has not been set so Mulberry may produce incorrect time zone information in any message you send. Please make sure you set the correct time zone using the appropriate Control Panel for this computer before sending email.</string>
+	<string id="Alerts::General::WaitGURL">You have requested Mulberry to create a draft message for you. You must fill in the dialog box that appears after this alert before Mulberry can continue.</string>
+
+</stringlist>

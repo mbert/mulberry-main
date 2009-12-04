@@ -1,0 +1,10 @@
+-suffix .cp
+
+@SSLPlugin.so
+-prefix sources/
+CSSLPluginDLL
+.c rndload
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+os_dep

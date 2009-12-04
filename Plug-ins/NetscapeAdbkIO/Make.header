@@ -1,0 +1,33 @@
+#########################################
+### 
+###      M A K E F I L E
+###
+###
+###
+
+
+
+# compiler flags ------------------------------
+
+include ../include/stl.mak
+
+BIN = .obj
+
+LOADLIBES := ../PluginLibrary/PluginLib.a ${LOADLIBES}
+
+CINCS = \
+-I../../Linux/Sources/Utilities \
+-I../../Sources_Common/Utilities \
+-I../../Sources_Common/i18n/Charsets \
+-I../../Sources_Common/Mail \
+-I../../Sources_Common/Mail/URLs \
+-I../Common \
+-I./sources \
+${LDAP_INC}
+
+VPATH := sources:\
+		../Common:
+		
+$.${BIN}/%.o %.o: %.cp
+	@ echo "    ---- Compiling $< (C++)"
+	 $(CPP) $(CFLAGS) -c -o $@ $<

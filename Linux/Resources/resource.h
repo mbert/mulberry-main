@@ -1,0 +1,4217 @@
+/*
+    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+        http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+*/
+
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by Mulberry.rc
+//
+#define IDT_MULTIUSER                   128
+#define IDT_REGISTRATION                129
+
+#define IDV_APPVERSION                  399
+
+#pragma mark ____________________________Dialogs
+
+#define IDD_ABOUTBOX                    400
+#define IDD_ABOUTPLUGINS                401
+#define IDD_PLUGINREGISTER              402
+#define IDD_ERROR                       403
+#define IDD_ERRORDONTSHOW               404
+#define IDD_PASSWORD                    405
+#define IDD_CHANGEPSWDACCT				406
+#define IDD_CHANGEPASSWORD				407
+#define IDD_CREATEMAILBOX               408
+#define IDD_MAILBOXPROP                 409
+#define IDD_OPENMAILBOX                 410
+#define IDD_GETSTRINGDIALOG             411
+#define IDD_REGISTRATION1               412
+#define IDD_REGISTRATION2               413
+#define IDD_DEMOLICENSE                 414
+#define IDD_MULTIUSER                   415
+#define IDD_MULTIUSERREALNAME			416
+#define IDD_CHOOSESERVERSDIALOG			417
+#define IDD_REPLYCHOOSE                 418
+#define IDD_MAILBOXFOOTER				419
+#define IDD_ADDRESSBOOKFOOTER           420
+#define IDD_ADDRESSCHOOSE               421
+#define IDD_EDITADDRESS                 422
+#define IDD_EDITGROUP                   423
+#define IDD_MESSAGEPARTSPROP            424
+#define IDD_FORWARDOPTIONS				425
+#define IDD_MDNPROMPT					426
+#define IDD_SAVEDRAFTCHOOSE				427
+#define IDD_LETTERPARTSPROP             428
+#define IDD_SPLASHBOX                   429
+#define IDD_SPLASHBOXBIG                430
+#define IDD_SMTPFOOTER					431
+#define IDD_CREATEADBK					432
+#define IDD_NAMESPACE					433
+#define IDD_ADDRESSPERSONAL             434
+#define IDD_ADDRESSCONTACT  	        435
+#define IDD_ADDRESSNOTES	            436
+#define IDD_GROUPPREVIEW	            437
+
+#define IDD_3PANE_MAILOPTIONS           440
+#define IDD_3PANE_ADDRESSOPTIONS        441
+#define IDD_3PANE_CALENDAROPTIONS       442
+#define IDD_KEYCHOICE                   443
+
+#define IDD_NEWSEARCHHIER				450
+#define IDD_CABINETENTRY				451
+#define IDD_SERVERBROWSE				452
+#define IDD_SERVERBROWSECOPY			453
+
+#define IDD_MATCHOPTIONS				454
+#define IDD_CACHEMESSAGE				455
+#define IDD_SYNCHRONISE					456
+#define IDD_DISCONNECT					457
+#define IDD_SEARCHOPTIONS				458
+#define IDD_RULESDIALOG 				459
+#define IDD_REPLYACTION                 460
+#define IDD_FORWARDACTION               461
+#define IDD_BOUNCEACTION                462
+#define IDD_REJECTACTION                463
+#define IDD_VACATIONACTION              464
+#define IDD_TARGETSDIALOG				465
+#define IDD_UPLOADSCRIPTDIALOG			466
+
+#define IDD_TEXTLISTCHOICE              470
+
+#define IDD_CANCELDIALOG				471
+#define IDD_PROGRESSDIALOG				472
+
+#define IDD_FINDREPLACE              	474
+
+#define IDD_MACROEDIT					475
+#define IDD_EDITMACRO					476
+
+#define IDD_MAILBOX_GENERAL             480
+#define IDD_MAILBOX_OPTIONS             481
+#define IDD_MAILBOX_SERVER              482
+#define IDD_MAILBOX_ACL                 483
+#define IDD_MAILBOX_QUOTA               484
+#define IDD_NEW_ACL                     485
+#define IDD_NEW_ACL_STYLE               486
+#define IDD_DELETE_ACL_STYLE            487
+#define IDD_ADBK_GENERAL                488
+#define IDD_ADBK_ACL                    489
+
+#define IDD_LOGGING_OPTIONS             490
+
+#define IDD_PREFS_ACCOUNT					500
+#define IDD_PREFS_AUTHENTICATE				501
+#define IDD_PREFS_AUTHENTICATE_PLAIN		502
+#define IDD_PREFS_AUTHENTICATE_CRAMMD5		503
+#define IDD_PREFS_AUTHENTICATE_KERBEROS		504
+#define IDD_PREFS_ACCOUNT_IMAP				505
+#define IDD_PREFS_ACCOUNT_IMAP_Options		506
+#define IDD_PREFS_ACCOUNT_Mail_Extras		507
+#define IDD_PREFS_ACCOUNT_POP3				508
+#define IDD_PREFS_ACCOUNT_POP3_Options		509
+#define IDD_PREFS_ACCOUNT_Local				510
+#define IDD_PREFS_ACCOUNT_Local_Options		511
+#define IDD_PREFS_ACCOUNT_SMTP				512
+#define IDD_PREFS_ACCOUNT_SMTP_Options		513
+#define IDD_PREFS_ACCOUNT_Remote			514
+#define IDD_PREFS_ACCOUNT_Remote_Options	515
+#define IDD_PREFS_ACCOUNT_Remote_Sets		516
+#define IDD_PREFS_ACCOUNT_Adbk				517
+#define IDD_PREFS_ACCOUNT_Adbk_IMSP			518
+#define IDD_PREFS_ACCOUNT_LDAP				519
+#define IDD_PREFS_ACCOUNT_LDAPOPTIONS		520
+#define IDD_PREFS_ACCOUNT_LDAP1				521
+#define IDD_PREFS_ACCOUNT_LDAP2				522
+#define IDD_PREFS_ACCOUNT_SIEVE				523
+#define IDD_PREFS_ACCOUNT_RemoteCalendar			524
+#define IDD_PREFS_ACCOUNT_RemoteCalendar_Options	525
+
+#define IDD_PREFS_ALERTS				526
+#define IDD_PREFS_ALERTS_Message		527
+#define IDD_PREFS_ALERTS_Attachment		528
+
+#define IDD_PREFS_DISPLAY               530
+#define IDD_PREFS_DISPLAY_SERVER		531
+#define IDD_PREFS_DISPLAY_MAILBOX		532
+#define IDD_PREFS_DISPLAY_MESSAGE		533
+#define IDD_PREFS_DISPLAY_LABEL			534
+#define IDD_PREFS_DISPLAY_QUOTES		535
+#define IDD_PREFS_DISPLAY_STYLES		536
+
+#define IDD_PREFS_FORMATTING            540
+
+#define IDD_PREFS_MAILBOX               545
+#define IDD_PREFS_MAILBOX_BASIC			546
+#define IDD_PREFS_MAILBOX_ADVANCED		547
+#define IDD_PREFS_MAILBOX_DISCONNECTED	548
+#define IDD_PREFS_MAILBOX_Options		549
+
+#define IDD_PREFS_MESSAGE               550
+#define IDD_PREFS_MESSAGE_GENERAL		551
+#define IDD_PREFS_MESSAGE_OPTIONS		552
+
+#define IDD_PREFS_LETTER                555
+#define IDD_PREFS_LETTER_GENERAL        556
+#define IDD_PREFS_LETTER_OPTIONS		557
+#define IDD_PREFS_LETTER_STYLED         558
+
+#define IDD_PREFS_SECURITY              559
+
+#define IDD_PREFS_IDENTITY              560
+
+#define IDD_PREFS_ADDRESS               565
+#define IDD_PREFS_ADDRESS_Expansion		566
+#define IDD_PREFS_ADDRESS_Capture		567
+
+#define IDD_PREFS_CALENDAR				568
+
+#define IDD_PREFS_ATTACHMENTS           570
+#define IDD_PREFS_ATTACHMENT_SEND		571
+#define IDD_PREFS_ATTACHMENT_RECEIVE	572
+
+#define IDD_PREFS_SPELLING           	575
+#define IDD_PREFS_SPELLING_OPTIONS		576
+#define IDD_PREFS_SPELLING_SUGGESTIONS	577
+
+#define IDD_PREFS_SIMPLE				579
+
+#define IDD_EDITCAPTION					580
+#define IDD_EDITHEADFOOT                581
+#define IDD_EDITHEADFOOTFILE            582
+#define IDD_PREFS_MAPPINGS              583
+#define IDD_EDIT_MAP                    584
+#define IDD_IDENTITYEDIT                585
+#define IDD_IDENTITY_ADDRESS			586
+#define IDD_IDENTITY_OPTIONS			587
+#define IDD_IDENTITY_OUTGOING			588
+#define IDD_IDENTITY_OUTGOING_ADDRESS	589
+#define IDD_IDENTITY_OUTGOING_DSN		590
+#define IDD_IDENTITY_SECURITY			591
+#define IDD_IDENTITYDELETE              592
+#define IDD_NEWACCOUNT					593
+#define IDD_IMAPLABELS					594
+
+#pragma mark ____________________________Menu Resources
+
+#define IDR_MAINFRAME                   600
+#define IDR_SERVERDOCSDI                601
+#define IDR_MAILBOXDOCSDI               602
+#define IDR_DUMMYDOCSDI					603
+#define IDR_MESSAGEDOCSDI               604
+#define IDR_LETTERDOCSDI                605
+#define IDR_ADDRESSBOOKMANAGERDOCSDI    606
+#define IDR_ADDRESSSEARCHDOCSDI         607
+#define IDR_ADDRESSBOOKDOCSDI           608
+#define IDR_CALENDARSTOREDOCSDI		    609
+#define IDR_CALENDARDOCSDI		        610
+#define IDR_SEARCHDOCSDI	            611
+#define IDR_RULESDOCSDI		            612
+#define IDR_PREFSDOC                    613
+#define IDR_MBXDOC                      614
+#define IDR_MBCDOC                      615
+#define IDR_MBIDOC                      616
+#define IDR_MBRDOC                      617
+
+#define IDR_POPUP_3PANE_LAYOUT			690
+#define IDR_POPUP_3PANE_ITEMSTAB		691
+
+#define IDR_POPUP_SERVER_HEADER         700
+#define IDR_POPUP_ACL_STYLE             701
+#define IDR_POPUP_COPYTOMAILBOXES       702
+#define IDR_POPUP_APPENDTOMAILBOXES     703
+#define IDR_POPUP_MAILBOXES             704
+#define IDR_POPUP_IDENTITY              705
+#define IDR_POPUP_IDENTITY_SIGNWITH		706
+#define IDR_POPUP_MAILBOX_HEADER        707
+#define IDR_POPUP_RULES_HEADER          708
+#define IDR_POPUP_ADBKMANAGER_HEADER    709
+#define IDR_POPUP_ADBK_HEADER           710
+#define IDR_POPUP_ACCOUNTS		        711
+#define IDR_POPUP_ACCOUNTTYPE           712
+#define IDR_POPUP_AUTHENTICATE_METHOD   713
+#define IDR_POPUP_AUTHENTICATE_TLS		714
+#define IDR_POPUP_AUTHENTICATE_TLSCERT	715
+#define IDR_POPUP_PREFERREDPLUGIN		716
+#define IDR_POPUP_TEXTFORMAT            717
+#define IDR_POPUP_QUOTEDEPTH            718
+#define IDR_POPUP_COMPOSEAS             719
+#define IDR_POPUP_FONT                  720
+#define IDR_POPUP_FILEFORMATS			721
+#define IDR_POPUP_ADBK_SOURCE           722
+#define IDR_POPUP_ADBK_SERVERS          723
+#define IDR_POPUP_ADBK_FIELD            724
+#define IDR_POPUP_ADBK_METHOD           725
+#define IDR_POPUP_FIND_HISTORY			726
+#define IDR_POPUP_REPLACE_HISTORY		727
+#define IDR_POPUP_ALERTSTYLES			728
+#define IDR_POPUP_ALERTCABINETS			729
+#define IDR_POPUP_SOUND					730
+#define IDR_POPUP_ALERTCHOICE			731
+#define IDR_POPUP_ADDRESS_ADDTO			732
+
+#define IDR_POPUP_PLUGINS				733
+#define IDR_POPUP_DICTIONARY			734
+#define IDR_POPUP_SPELLERROR			735
+
+#define IDR_POPUP_SERVER_VIEW			736
+#define IDR_POPUP_ACL_MAILBOX			737
+
+#define IDR_POPUP_MAILBOX_DISPLAY		740
+#define IDR_POPUP_MAILBOX_MATCH			741
+#define IDR_POPUP_MAILBOX_SELECTBY		742
+#define IDR_POPUP_MAILBOX_FLAGS			743
+
+#define IDR_POPUP_SMTP_ACCOUNTS			745
+#define IDR_POPUP_IDENTITY_SMTP			746
+#define IDR_POPUP_IDENTITY_INHERIT		747
+
+#define IDR_POPUP_MAILBOX_SEARCH_ACCOUNTS	750
+#define IDR_POPUP_MAILBOX_SEARCH_CRITERIA	751
+#define IDR_POPUP_MAILBOX_WILDCARD_ACCOUNTS	752
+#define IDR_POPUP_MAILBOX_WILDCARD_CRITERIA	753
+
+#define IDR_POPUP_SEARCH_STYLES				754
+#define IDR_POPUP_SEARCH_CABINETS			755
+#define IDR_POPUP_SEARCH_CRITERIA			756
+#define IDR_POPUP_SEARCH_ADDRESSMETHOD		757
+#define IDR_POPUP_SEARCH_DATEMETHOD			758
+#define IDR_POPUP_SEARCH_DATERELMETHOD		759
+#define IDR_POPUP_SEARCH_TEXTMETHOD			760
+#define IDR_POPUP_SEARCH_SIZEMETHOD			761
+#define IDR_POPUP_SEARCH_FLAGMETHOD			762
+#define IDR_POPUP_SEARCH_SEARCHSET			763
+#define IDR_POPUP_SEARCH_SEARCHSETMETHOD	764
+#define IDR_POPUP_SEARCH_SIZE				765
+#define IDR_POPUP_SEARCH_MODE				766
+#define IDR_POPUP_SEARCH_DATEWITHIN			767
+
+#define IDR_POPUP_SIEVE_CRITERIA			768
+#define IDR_POPUP_SIEVE_ADDRESSMETHOD		769
+#define IDR_POPUP_SIEVE_TEXTMETHOD			770
+#define IDR_POPUP_SIEVE_HEADERMETHOD		770
+
+#define IDR_POPUP_MUSERVER					772
+
+#define IDR_POPUP_RULES_TRIGGERS			773
+#define IDR_POPUP_RULES_ACTIONS				774
+#define IDR_POPUP_RULES_ACTIONS_FLAGS		775
+#define IDR_POPUP_SIEVE_ACTIONS				776
+
+#define IDR_POPUP_SCHEDULE					777
+#define IDR_POPUP_TARGETS					778
+
+#define IDR_POPUP_FONTFONT					779
+#define IDR_POPUP_FONTSIZE					780
+#define IDR_POPUP_FONTCOLOR					781
+
+#define IDR_POPUP_CONTEXT_EDIT          	782
+#define IDR_POPUP_CONTEXT_MESSAGE_TEXT  	783
+#define IDR_POPUP_CONTEXT_LETTER_EDIT   	784
+#define IDR_POPUP_CONTEXT_LETTER_ADDRESS	785
+#define IDR_POPUP_CONTEXT_SERVER        	786
+#define IDR_POPUP_CONTEXT_MAILBOX       	787
+#define IDR_POPUP_CONTEXT_MESSAGE_ADDR  	788
+#define IDR_POPUP_CONTEXT_MESSAGE_SUBJ  	789
+#define IDR_POPUP_CONTEXT_MESSAGE_PARTS 	790
+#define IDR_POPUP_CONTEXT_LETTER_PARTS  	791
+#define IDR_POPUP_CONTEXT_ADDRMANAGER   	792
+#define IDR_POPUP_CONTEXT_ADDR_TABLE    	793
+#define IDR_POPUP_CONTEXT_GRP_TABLE     	794
+#define IDR_POPUP_CONTEXT_URL_TEXT			795
+
+#define IDR_POPUP_CONTEXT_TOOLBAR			796
+#define IDR_POPUP_CONTEXT_TOOLBARADD		797
+#define IDR_POPUP_CONTEXT_TOOLBARRULE		798
+
+#pragma mark ____________________________Bitmaps
+
+#define IDB_LOGO                        800
+#define IDB_SPLASH                      801
+#define IDB_ACCOUNTMAILBOX				802
+#define IDB_ACCOUNTSMTP					803
+#define IDB_ACCOUNTREMOTE				804
+#define IDB_ACCOUNTADBK					805
+#define IDB_ACCOUNTADDRSEARCH			806
+#define IDB_ACCOUNTSIEVE				807
+#define IDB_SPLASH_8                    810
+#define IDB_SPLASH_16                   811
+#define IDB_SPLITTERVERT				812
+#define IDB_SPLITTERHORIZ				813
+
+#pragma mark ____________________________Dialog Controls #1
+
+#define IDC_ABOUTTEXT                   900
+#define IDC_ABOUTVERSION                901
+#define IDC_ABOUTSERIAL                 902
+#define IDC_ABOUTLICENSEE               903
+#define IDT_ABOUTTEXT                   904
+#define IDC_ABOUTREGISTER				905
+
+#define IDC_ABOUTPLUGINS_LIST           910
+#define IDC_ABOUTPLUGINS_REGISTER       911
+#define IDC_ABOUTPLUGINS_NAME           912
+#define IDC_ABOUTPLUGINS_VERSION        913
+#define IDC_ABOUTPLUGINS_TYPE           914
+#define IDC_ABOUTPLUGINS_MANUFACTURER   915
+#define IDC_ABOUTPLUGINS_DESCRIPTION    916
+#define IDC_ABOUTPLUGINS_MODE           917
+
+#define IDC_PLUGINREGISTER_REMOVE       920
+#define IDC_PLUGINREGISTER_RUNDEMO      921
+#define IDC_PLUGINREGISTER_NAME         922
+#define IDC_PLUGINREGISTER_VERSION      923
+#define IDC_PLUGINREGISTER_TYPE         924
+#define IDC_PLUGINREGISTER_MANUFACTURER 925
+#define IDC_PLUGINREGISTER_DESCRIPTION  926
+#define IDC_PLUGINREGISTER_REGKEY       927
+
+#define IDC_SPLASHVERSION               950
+#define IDC_SPLASHSERIAL                951
+#define IDC_SPLASHLICENSEE              952
+
+#pragma mark ____________________________File Menu Items
+
+#define IDM_FILE_NEW_DRAFT              960
+#define IDM_FILE_OPEN_MAILBOX           961
+#define IDM_FILE_OPEN_MESSAGE           962
+#define IDM_FILE_OPEN_DRAFT             963
+#define IDM_FILE_IMPORT                 964
+#define IDM_FILE_EXPORT                 965
+#define IDM_FILE_REVERT                 966
+#define IDM_FILE_PREFERENCES            967
+#define IDM_FILE_DISCONNECTED			968
+#define IDM_FILE_OPENSMTPQUEUES			969
+
+#pragma mark ____________________________Edit Menu Items
+
+#define IDM_EDIT_PASTE_INDENTED         970
+#define IDM_EDIT_FIND					971
+#define IDM_EDIT_FINDNEXT				972
+#define IDM_EDIT_FINDNEXTBACK			973
+#define IDM_EDIT_FINDSELECTION			974
+#define IDM_EDIT_FINDSELECTIONBACK		975
+#define IDM_EDIT_REPLACE				976
+#define IDM_EDIT_REPLACEFIND			977
+#define IDM_EDIT_REPLACEFINDBACK		978
+#define IDM_EDIT_REPLACEALL				979
+#define IDM_EDIT_TEXTMACROS             980
+#define IDM_EDIT_PROPERTIES             981
+#define IDM_EDIT_CHANGEPASSWORD			982
+#define IDM_EDIT_SPEAK          		983
+#define IDM_EDIT_SPELLCHECK             984
+
+#define IDM_EDIT_OPENURL				986
+#define IDM_EDIT_COPYURL				987
+
+#pragma mark ____________________________Mailbox Menu Items
+
+#define IDM_MAILBOX_CREATE              990
+#define IDM_MAILBOX_RENAME              991
+#define IDM_MAILBOX_PUNT                992
+#define IDM_MAILBOX_DELETE              993
+#define IDM_MAILBOX_EXPUNGE             994
+#define IDM_MAILBOX_SYNCHRONISE			995
+#define IDM_MAILBOX_CLEARDISCONNECT		996
+#define IDM_MAILBOX_SUBSCRIBE           997
+#define IDM_MAILBOX_UNSUBSCRIBE         998
+#define IDM_MAILBOX_CHECK               999
+#define IDM_MAILBOX_AUTOCHECK           1000
+#define IDM_MAILBOX_GOTO				1001
+#define IDM_MAILBOX_CACHEALL			1002
+#define IDM_MAILBOX_UPDATEMATCH			1004
+#define IDM_MAILBOX_SEARCH              1005
+#define IDM_MAILBOX_SEARCH_AGAIN        1006
+#define IDM_MAILBOX_NEXT_SEARCH         1007
+
+#define IDM_MAILBOX_RULES				1008
+#define IDM_MAILBOX_MAKE_RULE			1009
+
+#define IDM_MAILBOX_NEWSEARCH           1011
+#define IDM_MAILBOX_EDITSEARCH	        1012
+#define IDM_MAILBOX_REMOVESEARCH        1013
+#define IDM_MAILBOX_RESETHIERS			1014
+#define IDM_MAILBOX_REFRESHLIST         1015
+
+#define IDM_MAILBOX_NEWCABINET          1020
+#define IDM_MAILBOX_EDITCABINET	        1021
+#define IDM_MAILBOX_REMOVECABINET       1022
+#define IDM_MAILBOX_ADDWILDCARDITEM     1023
+#define IDM_MAILBOX_EDITWILDCARDITEM	1024
+#define IDM_MAILBOX_REMOVEITEM          1025
+
+#define IDM_SORT_TO                     1030
+#define IDM_SORT_FROM                   1031
+#define IDM_SORT_REPLY_TO               1032
+#define IDM_SORT_SENDER                 1033
+#define IDM_SORT_CC                     1034
+#define IDM_SORT_SUBJECT                1035
+#define IDM_SORT_THREAD                 1036
+#define IDM_SORT_DATE_SENT              1037
+#define IDM_SORT_DATE_RECEIVED			1038
+#define IDM_SORT_SIZE                   1039
+#define IDM_SORT_FLAGS                  1040
+#define IDM_SORT_NUMBER                 1041
+#define IDM_SORT_SMART_ADDRESS          1042
+#define IDM_SORT_ATTACHMENTS            1043
+#define IDM_SORT_PARTS                  1044
+#define IDM_SORT_MATCH                  1045
+#define IDM_SORT_DISCONNECTED			1046
+
+#pragma mark ____________________________Messages Menu Items
+
+#define IDM_MESSAGES_READ_PREV          1050
+#define IDM_MESSAGES_READ_NEXT          1051
+#define IDM_MESSAGES_DELETE_READ        1052
+#define IDM_MESSAGES_COPY_READ          1053
+#define IDM_MESSAGES_REPLY              1054
+#define IDM_MESSAGES_REPLY_SENDER       1055
+#define IDM_MESSAGES_REPLY_FROM         1056
+#define IDM_MESSAGES_REPLY_ALL          1057
+#define IDM_MESSAGES_FORWARD            1058
+#define IDM_MESSAGES_BOUNCE             1059
+#define IDM_MESSAGES_REJECT             1060
+#define IDM_MESSAGES_SEND_AGAIN         1061
+#define IDM_MESSAGES_CREATE_DIGEST      1062
+#define IDM_MESSAGES_COPY_TO            1063
+#define IDM_MESSAGES_COPY_NOW           1064
+#define IDM_MESSAGES_VIEW_PARTS			1065
+#define IDM_MESSAGES_EXTRACT_PARTS      1066
+#define IDM_MESSAGES_DECODE_BINHEX      1067
+#define IDM_MESSAGES_DECODE_UU          1068
+#define IDM_MESSAGES_VERIFY_DECRYPT     1069
+#define IDM_MESSAGES_DELETE             1070
+#define IDM_MESSAGES_SHOW_HEADER        1071
+#define IDM_MESSAGES_COPY_ADDRESS       1072
+#define IDM_MESSAGES_TEXT_FORMAT        1073
+
+#define IDM_FLAGS_SEEN                  1074
+#define IDM_FLAGS_IMPORTANT             1075
+#define IDM_FLAGS_ANSWERED              1076
+#define IDM_FLAGS_DELETED               1077
+#define IDM_FLAGS_DRAFT                 1078
+
+#pragma mark ____________________________Draft Menu Items
+
+#define IDM_DRAFT_INCLUDE               1079
+#define IDM_DRAFT_INSERT_SIGNATURE      1080
+#define IDM_DRAFT_ADD_CC	            1081
+#define IDM_DRAFT_ADD_BCC	            1082
+#define IDM_DRAFT_ATTACH_FILE           1083
+#define IDM_DRAFT_NEW_TEXT_PART         1084
+#define IDM_DRAFT_SEND                  1085
+#define IDM_DRAFT_APPEND_TO             1086
+#define IDM_DRAFT_APPEND_NOW            1087
+#define IDM_DRAFT_COPY_ORIGINAL	        1088
+#define IDM_DRAFT_SIGN					1089
+#define IDM_DRAFT_ENCRYPT				1090
+
+#define IDM_DRAFT_MDNRECEIPT			1091
+#define IDM_DRAFT_DSNSUCCESS			1092
+#define IDM_DRAFT_DSNFAILURE			1093
+#define IDM_DRAFT_DSNDELAY				1094
+#define IDM_DRAFT_DSNFULL				1095
+
+#define IDM_DRAFT_NEW_PLAIN_PART        1096
+#define IDM_DRAFT_NEW_ENRICHED_PART     1097
+#define IDM_DRAFT_NEW_HTML_PART         1098
+
+#define IDM_MULTIPART_MIXED             1099
+#define IDM_MULTIPART_PARALLEL          1100
+#define IDM_MULTIPART_DIGEST            1101
+#define IDM_MULTIPART_ALTERNATIVE       1102
+
+#define IDM_DRAFT_CURRENT_PLAIN        	1103
+#define IDM_DRAFT_CURRENT_PLAIN_WRAPPED 1104
+#define IDM_DRAFT_CURRENT_ENRICHED     	1105
+#define IDM_DRAFT_CURRENT_HTML         	1106
+
+#define IDM_FONT                        1107
+
+#define IDM_SIZE_8                      1108
+#define IDM_SIZE_9                      1109
+#define IDM_SIZE_10                     1110
+#define IDM_SIZE_11                     1111
+#define IDM_SIZE_12                     1112
+#define IDM_SIZE_13                     1113
+#define IDM_SIZE_14                     1114
+#define IDM_SIZE_16                     1115
+#define IDM_SIZE_18                     1116
+#define IDM_SIZE_20                     1117
+#define IDM_SIZE_24                     1118
+
+#define IDM_STYLE_PLAIN                 1119
+#define IDM_STYLE_BOLD                  1120
+#define IDM_STYLE_ITALIC                1121
+#define IDM_STYLE_UNDERLINE             1122
+
+#define IDM_ALIGN_LEFT                  1123
+#define IDM_ALIGN_CENTER                1124
+#define IDM_ALIGN_RIGHT                 1125
+#define IDM_ALIGN_JUSTIFIED             1126
+
+#define IDM_COLOUR_BLACK                1130
+#define IDM_COLOUR_RED                  1131
+#define IDM_COLOUR_GREEN                1132
+#define IDM_COLOUR_BLUE                 1133
+#define IDM_COLOUR_YELLOW               1134
+#define IDM_COLOUR_CYAN                 1135
+#define IDM_COLOUR_MAGENTA              1136
+#define IDM_COLOUR_MULBERRY             1137
+#define IDM_COLOUR_WHITE                1138
+#define IDM_COLOUR_OTHER                1139
+
+#define IDM_TEXT_WRAP_LINES				1140
+#define IDM_TEXT_UNWRAP_LINES			1141
+#define IDM_TEXT_QUOTE_LINES			1142
+#define IDM_TEXT_UNQUOTE_LINES			1143
+#define IDM_TEXT_REQUOTE_LINES			1144
+#define IDM_TEXT_SHIFT_LEFT				1145
+#define IDM_TEXT_SHIFT_RIGHT			1146
+
+#pragma mark ____________________________Addresses Menu Items
+
+#define IDM_ADDR_MANAGER                1150
+#define IDM_ADDR_NEW                    1151
+#define IDM_ADDR_OPEN                   1152
+#define IDM_ADDR_RENAME                 1153
+#define IDM_ADDR_IMPORT                 1154
+#define IDM_ADDR_EXPORT                 1155
+#define IDM_ADDR_DELETE                 1156
+#define IDM_ADDR_LOGIN                  1157
+#define IDM_ADDR_LOGOUT                 1158
+#define IDM_ADDR_REFRESH                1159
+#define IDM_ADDR_SYNC                 	1160
+#define IDM_ADDR_CLEAR_DISCONNECT  		1161
+#define IDM_ADDR_EXPAND                 1162
+#define IDM_ADDR_CAPTURE                1163
+#define IDM_ADDR_SEARCH                 1164
+
+#pragma mark ____________________________Windows Menu Items
+
+#define IDM_WINDOWS_DEFAULT             1165
+#define IDM_WINDOWS_RESET               1166
+#define IDM_WINDOWS_EXPAND_HEADER		1167
+#define IDM_WINDOWS_SHOW_PARTS			1168
+#define IDM_WINDOWS_SHOW_QUICKSEARCH	1169
+
+#define IDM_TOOLBARS_BUTTONS			1171
+#define IDM_TOOLBARS_SMALL				1172
+#define IDM_TOOLBARS_ICONS				1173
+#define IDM_TOOLBARS_CAPTIONS			1174
+#define IDM_TOOLBARS_BOTH				1175
+
+#define IDM_LAYOUT_3PANE				1176
+#define IDM_LAYOUT_SEPARATE				1177
+#define IDM_LAYOUT_LISTVERT				1178
+#define IDM_LAYOUT_LISTHORIZ			1179
+#define IDM_LAYOUT_ITEMSVERT			1180
+#define IDM_LAYOUT_ITEMSHORIZ			1181
+#define IDM_LAYOUT_PREVIEWVERT			1182
+#define IDM_LAYOUT_PREVIEWHORIZ			1183
+#define IDM_LAYOUT_ALLVERT				1184
+#define IDM_LAYOUT_ALLHORIZ				1185
+        
+#define IDM_WINDOWS_SHOWLIST			1186
+#define IDM_WINDOWS_SHOWITEMS			1187
+#define IDM_WINDOWS_SHOWPREVIEW			1188
+#define IDM_WINDOWS_OPTIONS				1189
+
+#pragma mark ____________________________Help Menu Items
+
+#define IDM_PLUGINS_ABOUT               1190
+#define IDM_HELP_DETAILED_TOOLTIPS		1191
+#define IDM_HELP_MULBERRY_ONLINE		1192
+#define IDM_HELP_ONLINE_FAQ				1193
+#define IDM_HELP_CHECK_UPDATES			1194
+#define IDM_HELP_MULBERRY_SUPPORT		1195
+#define IDM_HELP_BUY_MULBERRY			1196
+
+#pragma mark ____________________________Server Title Menu
+
+#define IDM_SERVER_FLAGS                1200
+#define IDM_SERVER_TOTAL                1201
+#define IDM_SERVER_NEW                  1202
+#define IDM_SERVER_UNSEEN               1203
+#define IDM_SERVER_AUTOCHECK            1204
+#define IDM_SERVER_SIZE		            1205
+#define IDM_SERVER_INSERT_AFTER         1206
+#define IDM_SERVER_INSERT_BEFORE        1207
+#define IDM_SERVER_DELETE               1208
+
+#pragma mark ____________________________Mailbox Title Menu
+
+#define IDM_CHANGE_TO                   1210
+#define IDM_CHANGE_FROM                 1211
+#define IDM_CHANGE_REPLY_TO             1212
+#define IDM_CHANGE_SENDER               1213
+#define IDM_CHANGE_CC                   1214
+#define IDM_CHANGE_SUBJECT              1215
+#define IDM_CHANGE_THREAD               1216
+#define IDM_CHANGE_DATE_SENT            1217
+#define IDM_CHANGE_DATE_RECEIVED		1218
+#define IDM_CHANGE_SIZE                 1219
+#define IDM_CHANGE_FLAGS                1220
+#define IDM_CHANGE_NUMBER               1221
+#define IDM_CHANGE_SMART_ADDRESS        1222
+#define IDM_CHANGE_ATTACHMENTS          1223
+#define IDM_CHANGE_PARTS                1224
+#define IDM_CHANGE_MATCH                1225
+#define IDM_CHANGE_DISCONNECTED         1226
+#define IDM_CHANGE_INSERT_AFTER         1227
+#define IDM_CHANGE_INSERT_BEFORE        1228
+#define IDM_CHANGE_DELETE               1229
+
+#pragma mark ____________________________Mailbox Window Popups
+
+#define IDM_MAILBOX_MATCH_NONE         	1240
+#define IDM_MAILBOX_MATCH_LASTSEARCH    1241
+#define IDM_MAILBOX_MATCH_UPDATE        1242
+#define IDM_MAILBOX_MATCH_CONSTRUCTSEARCH 1243
+#define IDM_MAILBOX_MATCH_SEPARATOR1	1244
+#define IDM_MAILBOX_MATCH_NOT         	1245
+#define IDM_MAILBOX_MATCH_OR         	1246
+#define IDM_MAILBOX_MATCH_AND         	1247
+#define IDM_MAILBOX_MATCH_SEPARATOR2	1248
+#define IDM_MAILBOX_MATCH_NEW         	1249
+#define IDM_MAILBOX_MATCH_UNSEEN        1250
+#define IDM_MAILBOX_MATCH_FLAGGED       1251
+#define IDM_MAILBOX_MATCH_ANSWERED      1252
+#define IDM_MAILBOX_MATCH_DELETED       1253
+#define IDM_MAILBOX_MATCH_DRAFT         1254
+#define IDM_MAILBOX_MATCH_SEPARATOR3	1255
+#define IDM_MAILBOX_MATCH_SENTTODAY     1256
+#define IDM_MAILBOX_MATCH_SENTYESTERDAY 1257
+#define IDM_MAILBOX_MATCH_SENTWEEK      1258
+#define IDM_MAILBOX_MATCH_SENT7DAYS     1259
+#define IDM_MAILBOX_MATCH_SEPARATOR4	1260
+#define IDM_MAILBOX_MATCH_SENTBYME      1261
+#define IDM_MAILBOX_MATCH_SENTTOME      1262
+#define IDM_MAILBOX_MATCH_SENTTOLIST    1263
+#define IDM_MAILBOX_MATCH_SEPARATOR5	1264
+#define IDM_MAILBOX_MATCH_SELECTEDTO    1265
+#define IDM_MAILBOX_MATCH_SELECTEDFROM  1266
+#define IDM_MAILBOX_MATCH_SELECTEDSMART 1267
+#define IDM_MAILBOX_MATCH_SELECTEDSUBJECT 1268
+#define IDM_MAILBOX_MATCH_SELECTEDDATE  1269
+#define IDM_MAILBOX_MATCH_SEPARATOR6	1270
+
+#define IDM_SELECT_SEEN                 1280
+#define IDM_SELECT_UNSEEN               1281
+#define IDM_SELECT_IMPORTANT            1282
+#define IDM_SELECT_UNIMPORTANT          1283
+#define IDM_SELECT_ANSWERED             1284
+#define IDM_SELECT_UNANSWERED           1285
+#define IDM_SELECT_DELETED              1286
+#define IDM_SELECT_UNDELETED            1287
+#define IDM_SELECT_DRAFT                1288
+#define IDM_SELECT_NOTDRAFT             1289
+#define IDM_SELECT_MATCH                1290
+#define IDM_SELECT_NONMATCH             1291
+
+#pragma mark ____________________________Search/Wildcard criteria
+#define IDM_MAILBOX_SEARCH_STARTS		1300
+#define IDM_MAILBOX_SEARCH_ENDS			1301
+#define IDM_MAILBOX_SEARCH_CONTAINS		1302
+#define IDM_MAILBOX_SEARCH_IS			1303
+#define IDM_MAILBOX_SEARCH_SUB			1304
+#define IDM_MAILBOX_SEARCH_HIER			1305
+
+#define IDM_MAILBOX_WILDCARD_STARTS		1310
+#define IDM_MAILBOX_WILDCARD_ENDS		1311
+#define IDM_MAILBOX_WILDCARD_CONTAINS	1312
+#define IDM_MAILBOX_WILDCARD_IS			1313
+#define IDM_MAILBOX_WILCARD_ANYWHERE	1314
+#define IDM_MAILBOX_WILDCARD_TOP		1315
+
+#define IDM_MAILBOXES_WILDCARD			1320
+#define IDM_AccountStart				1321
+#define IDM_AccountStop					1399
+
+#define IDM_ACCOUNT_IMAP_MAILBOX		1400
+#define IDM_ACCOUNT_POP3_MAILBOX		1401
+#define IDM_ACCOUNT_LOCAL_MAILBOX		1402
+#define IDM_ACCOUNT_SMTP				1403
+#define IDM_ACCOUNT_IMSP_OPTIONS		1404
+#define IDM_ACCOUNT_ACAP_OPTIONS		1405
+#define IDM_ACCOUNT_IMSP_ADBK			1406
+#define IDM_ACCOUNT_ACAP_ADBK			1407
+#define IDM_ACCOUNT_LDAP				1408
+#define IDM_ACCOUNT_SIEVE				1409
+#define IDM_ACCOUNT_CALDAVCALENDAR		1410
+#define IDM_ACCOUNT_WEBDAVCALENDAR		1411
+
+#define IDM_TEXTFORMAT_FORMAT           1460
+#define IDM_TEXTFORMAT_PLAIN            1461
+#define IDM_TEXTFORMAT_RAW              1462
+#define IDM_TEXTFORMAT_HTML             1463
+#define IDM_TEXTFORMAT_ENRICHED         1464
+#define IDM_TEXTFORMAT_FIXED            1465
+#define IDM_TEXTFORMAT_RFC822			1466
+
+#define IDM_QUOTEDEPTH_ALL				1470
+#define IDM_QUOTEDEPTH_NO				1471
+#define IDM_QUOTEDEPTH_1				1472
+#define IDM_QUOTEDEPTH_2				1473
+#define IDM_QUOTEDEPTH_3				1474
+#define IDM_QUOTEDEPTH_4				1475
+
+#define IDM_CHANGE_NAME                 1500
+#define IDM_CHANGE_NAMELASTFIRST		1501
+#define IDM_CHANGE_NICKNAME             1502
+#define IDM_CHANGE_EMAIL                1503
+#define IDM_CHANGE_COMPANY              1504
+#define IDM_CHANGE_ADDRESS              1505
+#define IDM_CHANGE_PHONEWORK            1506
+#define IDM_CHANGE_PHONEHOME            1507
+#define IDM_CHANGE_FAX                  1508
+#define IDM_CHANGE_URLS                 1509
+#define IDM_CHANGE_NOTES                1510
+
+#pragma mark ____________________________Search Window Popups
+
+#define IDM_SEARCH_CRITERIA_FROM				1600
+#define IDM_SEARCH_CRITERIA_TO					1601
+#define IDM_SEARCH_CRITERIA_CC					1602
+#define IDM_SEARCH_CRITERIA_BCC					1603
+#define IDM_SEARCH_CRITERIA_RECIPIENT			1604
+#define IDM_SEARCH_CRITERIA_CORRESPONDENT		1605
+#define IDM_SEARCH_CRITERIA_SENDER				1606
+#define IDM_SEARCH_CRITERIA_SENT				1607
+#define IDM_SEARCH_CRITERIA_RECEIVED			1608
+#define IDM_SEARCH_CRITERIA_SUBJECT				1609
+#define IDM_SEARCH_CRITERIA_BODY				1610
+#define IDM_SEARCH_CRITERIA_HEADER				1611
+#define IDM_SEARCH_CRITERIA_TEXT				1612
+#define IDM_SEARCH_CRITERIA_SIZE				1613
+#define IDM_SEARCH_CRITERIA_SEPARATOR1			1614
+#define IDM_SEARCH_CRITERIA_RECENT				1615
+#define IDM_SEARCH_CRITERIA_SEEN				1616
+#define IDM_SEARCH_CRITERIA_ANSWERED			1617
+#define IDM_SEARCH_CRITERIA_FLAGGED				1618
+#define IDM_SEARCH_CRITERIA_DELETED				1619
+#define IDM_SEARCH_CRITERIA_DRAFT				1620
+#define IDM_SEARCH_CRITERIA_SEPARATOR2			1621
+#define IDM_SEARCH_CRITERIA_SEPARATOR3			1622
+#define IDM_SEARCH_CRITERIA_GROUP				1623
+#define IDM_SEARCH_CRITERIA_SEPARATOR4			1624
+#define IDM_SEARCH_CRITERIA_SEARCHSET			1625
+#define IDM_SEARCH_CRITERIA_SEPARATOR5			1626
+#define IDM_SEARCH_CRITERIA_ALL 				1627
+#define IDM_SEARCH_CRITERIA_SELECTED 			1628
+
+#define IDM_SEARCH_ADDRESSMETHOD_CONTAINS		1629
+#define IDM_SEARCH_ADDRESSMETHOD_NOTCONTAINS	1630
+#define IDM_SEARCH_ADDRESSMETHOD_ISME			1631
+#define IDM_SEARCH_ADDRESSMETHOD_ISNOTME		1632
+
+#define IDM_SEARCH_DATEMETHOD_BEFORE			1633
+#define IDM_SEARCH_DATEMETHOD_ON				1634
+#define IDM_SEARCH_DATEMETHOD_AFTER				1635
+#define IDM_SEARCH_DATEMETHOD_SEPARATOR1		1636
+#define IDM_SEARCH_DATEMETHOD_IS				1637
+#define IDM_SEARCH_DATEMETHOD_ISNOT				1638
+#define IDM_SEARCH_DATEMETHOD_ISWITHIN			1639
+#define IDM_SEARCH_DATEMETHOD_ISNOTWITHIN		1640
+
+#define IDM_SEARCH_DATERELMETHOD_TODAY			1641
+#define IDM_SEARCH_DATERELMETHOD_YESTERDAY		1642
+#define IDM_SEARCH_DATERELMETHOD_WEEK			1643
+#define IDM_SEARCH_DATERELMETHOD_7DAYS			1644
+#define IDM_SEARCH_DATERELMETHOD_MONTH			1645
+#define IDM_SEARCH_DATERELMETHOD_YEAR			1646
+
+#define IDM_SEARCH_DATEWITHIN_DAYS				1647
+#define IDM_SEARCH_DATEWITHIN_WEEKS				1648
+#define IDM_SEARCH_DATEWITHIN_MONTHS			1649
+#define IDM_SEARCH_DATEWITHIN_YEARS				1650
+
+#define IDM_SEARCH_TEXTMETHOD_CONTAINS			1651
+#define IDM_SEARCH_TEXTMETHOD_NOTCONTAINS		1652
+
+#define IDM_SEARCH_SIZEMETHOD_LARGER			1653
+#define IDM_SEARCH_SIZEMETHOD_SMALLER			1654
+
+#define IDM_SEARCH_FLAGMETHOD_SET				1655
+#define IDM_SEARCH_FLAGMETHOD_UNSET				1656
+
+#define IDM_SEARCH_SIZE_BYTES					1657
+#define IDM_SEARCH_SIZE_KBYTES					1658
+#define IDM_SEARCH_SIZE_MBYTES					1659
+
+#define IDM_SEARCH_SETMETHOD_IS					1660
+#define IDM_SEARCH_SETMETHOD_ISNOT				1661
+
+#define IDM_SEARCH_MODE_OR						1670
+#define IDM_SEARCH_MODE_AND						1671
+
+#define IDM_SIEVE_CRITERIA_FROM					1680
+#define IDM_SIEVE_CRITERIA_TO					1681
+#define IDM_SIEVE_CRITERIA_CC					1682
+#define IDM_SIEVE_CRITERIA_BCC					1683
+#define IDM_SIEVE_CRITERIA_RECIPIENT			1684
+#define IDM_SIEVE_CRITERIA_CORRESPONDENT		1685
+#define IDM_SIEVE_CRITERIA_SENDER				1686
+#define IDM_SIEVE_CRITERIA_SUBJECT				1687
+#define IDM_SIEVE_CRITERIA_HEADER				1688
+#define IDM_SIEVE_CRITERIA_SIZE					1689
+#define IDM_SIEVE_CRITERIA_GROUP				1690
+#define IDM_SIEVE_CRITERIA_ALL					1691
+
+#define IDM_SIEVE_ADDRESSMETHOD_IS				1700
+#define IDM_SIEVE_ADDRESSMETHOD_ISNOT			1701
+#define IDM_SIEVE_ADDRESSMETHOD_CONTAINS		1702
+#define IDM_SIEVE_ADDRESSMETHOD_NOTCONTAINS		1703
+#define IDM_SIEVE_ADDRESSMETHOD_STARTS			1704
+#define IDM_SIEVE_ADDRESSMETHOD_NOTSTARTS		1705
+#define IDM_SIEVE_ADDRESSMETHOD_ENDS			1706
+#define IDM_SIEVE_ADDRESSMETHOD_NOTENDS			1707
+#define IDM_SIEVE_ADDRESSMETHOD_ISME			1708
+#define IDM_SIEVE_ADDRESSMETHOD_ISNOTME			1709
+#define IDM_SIEVE_ADDRESSMETHOD_MATCHED			1710
+#define IDM_SIEVE_ADDRESSMETHOD_NOTMATCHES		1711
+
+#define IDM_SIEVE_TEXTMETHOD_IS					1720
+#define IDM_SIEVE_TEXTMETHOD_ISNOT				1721
+#define IDM_SIEVE_TEXTMETHOD_CONTAINS			1722
+#define IDM_SIEVE_TEXTMETHOD_NOTCONTAINS		1723
+#define IDM_SIEVE_TEXTMETHOD_STARTS				1724
+#define IDM_SIEVE_TEXTMETHOD_NOTSTARTS			1725
+#define IDM_SIEVE_TEXTMETHOD_ENDS				1726
+#define IDM_SIEVE_TEXTMETHOD_NOTENDS			1727
+#define IDM_SIEVE_TEXTMETHOD_MATCHED			1728
+#define IDM_SIEVE_TEXTMETHOD_NOTMATCHES			1729
+
+#define IDM_SIEVE_HEADERMETHOD_IS				1730
+#define IDM_SIEVE_HEADERMETHOD_ISNOT			1731
+#define IDM_SIEVE_HEADERMETHOD_CONTAINS			1732
+#define IDM_SIEVE_HEADERMETHOD_NOTCONTAINS		1733
+#define IDM_SIEVE_HEADERMETHOD_STARTS			1734
+#define IDM_SIEVE_HEADERMETHOD_NOTSTARTS		1735
+#define IDM_SIEVE_HEADERMETHOD_ENDS				1736
+#define IDM_SIEVE_HEADERMETHOD_NOTENDS			1737
+#define IDM_SIEVE_HEADERMETHOD_ISME				1738
+#define IDM_SIEVE_HEADERMETHOD_ISNOTME			1739
+#define IDM_SIEVE_HEADERMETHOD_MATCHED			1740
+#define IDM_SIEVE_HEADERMETHOD_NOTMATCHES		1741
+
+#pragma mark ____________________________Rules Popups
+
+#define IDM_RULES_ACTIONS_SETFLAG				1750
+#define IDM_RULES_ACTIONS_UNSETFLAG				1751
+#define IDM_RULES_ACTIONS_COPY					1752
+#define IDM_RULES_ACTIONS_MOVE					1753
+#define IDM_RULES_ACTIONS_REPLY					1754
+#define IDM_RULES_ACTIONS_FORWARD				1755
+#define IDM_RULES_ACTIONS_BOUNCE				1756
+#define IDM_RULES_ACTIONS_REJECT				1757
+#define IDM_RULES_ACTIONS_EXPUNGE				1758
+#define IDM_RULES_ACTIONS_PRINT					1759
+#define IDM_RULES_ACTIONS_SAVE					1760
+#define IDM_RULES_ACTIONS_SOUND					1761
+#define IDM_RULES_ACTIONS_ALERT					1762
+#define IDM_RULES_ACTIONS_SPEAK					1763
+
+
+#define IDM_SIEVE_ACTIONS_KEEP					1780
+#define IDM_SIEVE_ACTIONS_DISCARD				1781
+#define IDM_SIEVE_ACTIONS_REJECT				1782
+#define IDM_SIEVE_ACTIONS_REDIRECT				1783
+#define IDM_SIEVE_ACTIONS_FILEINTO				1784
+#define IDM_SIEVE_ACTIONS_VACATION				1785
+
+#define IDM_SCHEDULE_NEVER						1790
+#define IDM_SCHEDULE_INCOMING					1791
+#define IDM_SCHEDULE_OPEN						1792
+#define IDM_SCHEDULE_CLOSE						1793
+#define IDM_SCHEDULE_ALWAYS						1794
+
+#define IDM_TARGET_NONE							1795
+#define IDM_TARGET_MAILBOX						1796
+#define IDM_TARGET_CABINET						1797
+#define IDM_TARGET_ACCOUNT						1798
+#define IDM_TARGET_ALL							1799
+
+
+#pragma mark ____________________________Address Search Popups
+
+#define IDM_ADBK_SOURCE_MULBERRY        1800
+#define IDM_ADBK_SOURCE_LDAP            1801
+#define IDM_ADBK_SOURCE_WHOISPP         1802
+#define IDM_ADBK_SOURCE_FINGER          1803
+
+#define IDM_ADBK_FIELD_NAME             1810
+#define IDM_ADBK_FIELD_NICKNAME         1811
+#define IDM_ADBK_FIELD_EMAIL            1812
+#define IDM_ADBK_FIELD_COMPANY          1813
+#define IDM_ADBK_FIELD_ADDRESS          1814
+#define IDM_ADBK_FIELD_PHONEWORK        1815
+#define IDM_ADBK_FIELD_PHONEHOME        1816
+#define IDM_ADBK_FIELD_FAX              1817
+#define IDM_ADBK_FIELD_URLS             1818
+#define IDM_ADBK_FIELD_NOTES            1819
+
+#define IDM_ADBK_METHOD_IS              1820
+#define IDM_ADBK_METHOD_STARTS          1821
+#define IDM_ADBK_METHOD_ENDS            1822
+#define IDM_ADBK_METHOD_CONTAINS        1823
+
+#define IDM_ADDRTYPE_IMSP               1830
+#define IDM_ADDRTYPE_ACAP               1831
+#define IDM_ADDRTYPE_LDAP               1832
+#define IDM_ADDRTYPE_WHOISPP            1833
+#define IDM_ADDRTYPE_FINGER             1834
+
+#define IDC_ERRORBTN1                   1900
+#define IDC_ERRORBTN2                   1901
+#define IDC_ERRORBTN3                   1902
+#define IDC_ERRORBTN4                   1903
+#define IDC_ERRORICON                   1904
+#define IDC_ERRORTEXT                   1905
+#define IDC_ERRORDONTSHOW               1906
+
+#pragma mark ____________________________Server window items
+
+#define IDC_LOGINBTN                    2000
+#define IDC_LOGINTXT                    2001
+#define IDI_LOGIN                       2002
+#define IDI_LOGOUT                      2003
+#define IDC_SERVERTABLE                 2004
+#define IDC_LOGINSTATIC                 2005
+#define IDC_SERVERHEADER                2006
+#define IDC_OPENMAILBOX                 2007
+#define IDC_SERVERSEARCHBTN				2008
+#define IDC_SERVERCREATEBTN				2009
+#define IDC_SERVERREFRESHBTN			2010
+#define IDC_SERVERCABINETPOPUP			2011
+#define IDC_SERVERPROPBTN               2012
+#define IDC_SERVERPROPTXT               2013
+#define IDC_SERVERFLATBTN               2014
+#define IDC_TOOLBARCHECKMAILBOX         2015
+
+#pragma mark ____________________________Server window status icons
+
+#define IDI_SERVERDIR                   2016
+#define IDI_SERVERDIREF                 2017
+#define IDI_SERVERDIRSUBS               2018
+#define IDI_SERVERMAILBOX               2019
+#define IDI_SERVERMAILBOXREF            2020
+#define IDI_SERVERMAILBOXCACHED         2021
+#define IDI_SERVERMAILBOXUNCACHED       2022
+#define IDI_SERVERMAILBOXNO             2023
+#define IDI_SERVERMAILBOXREFNO          2024
+#define IDI_SERVERMAILBOXUNMARKED       2025
+#define IDI_SERVERMAILBOXREFUNMARKED    2026
+#define IDI_SERVERMAILBOXMARKED         2027
+#define IDI_SERVERMAILBOXREFMARKED      2028
+#define IDI_SERVERSEARCHHIER            2029
+#define IDI_SERVERSEARCHHIERREF         2030
+#define IDI_SERVERDISCONNECTED          2031
+#define IDI_SERVERREMOTE                2032
+#define IDI_SERVERLOCAL                 2033
+#define IDI_SERVERPOP3                  2034
+#define IDI_SERVERFAVOURITE             2035
+#define IDI_SERVER_MAILBOX_OPEN         2036
+#define IDI_SERVER_MAILBOX_CLOSENEW     2037
+#define IDI_SERVER_MAILBOX_CLOSECHECK   2038
+#define IDI_SERVER_CALCULATE_SIZE   	2039
+
+#define IDI_SERVER_SEARCHBTN            2040
+#define IDI_SERVER_CREATEBTN            2041
+#define IDI_SERVER_CHECKBTN             2042
+#define IDI_SERVERFLAT                  2043
+#define IDI_SERVERHIERARCHIC            2044
+#define IDI_SERVER_VIEWBTN              2045
+#define IDI_SERVERPROP                  2046
+
+#define IDS_LOGIN                       2050
+#define IDS_LOGOUT                      2051
+#define IDS_CREATE						2052
+#define IDS_CHECK						2053
+#define IDS_CABINET						2054
+#define IDS_NEWSEARCH					2055
+#define IDS_SERVERPROP                  2056
+
+#pragma mark ____________________________Server window titles
+
+#define IDI_SERVER_TITLE_FLAGS          2160
+#define IDI_SERVER_TITLE_TOTAL          2161
+#define IDI_SERVER_TITLE_NEW            2162
+#define IDI_SERVER_TITLE_UNSEEN         2163
+#define IDI_SERVER_TITLE_AUTOCHECK      2164
+
+#pragma mark ____________________________Mailbox properties dialog
+
+#define IDC_MAILBOXGENERAL_NAME         2210
+#define IDC_MAILBOXGENERAL_SERVER       2211
+#define IDC_MAILBOXGENERAL_HIERARCHY    2212
+#define IDC_MAILBOXGENERAL_SEPARATOR    2213
+#define IDC_MAILBOXGENERAL_TOTAL        2214
+#define IDC_MAILBOXGENERAL_RECENT       2215
+#define IDC_MAILBOXGENERAL_UNSEEN       2216
+#define IDC_MAILBOXGENERAL_DELETED      2217
+#define IDC_MAILBOXGENERAL_FULLSYNC     2218
+#define IDC_MAILBOXGENERAL_PARTIALSYNC  2219
+#define IDC_MAILBOXGENERAL_NOTSYNC      2220
+#define IDC_MAILBOXGENERAL_SIZE			2221
+#define IDC_MAILBOXGENERAL_STATUS       2222
+#define IDC_MAILBOXGENERAL_UIDVALIDITY  2223
+#define IDC_MAILBOXGENERAL_SYNCHRONISED	2224
+#define IDC_MAILBOXGENERAL_STATE		2225
+#define IDC_MAILBOXGENERAL_CALCULATE	2226
+
+#define IDC_MAILBOXOPTIONS_STATE			2229
+#define IDC_MAILBOXOPTIONS_CHECKNEW     	2230
+#define IDC_MAILBOXOPTIONS_ALERTSTYLE_POPUP	2231
+#define IDC_MAILBOXOPTIONS_OPEN				2232
+#define IDC_MAILBOXOPTIONS_COPYTO       	2233
+#define IDC_MAILBOXOPTIONS_APPENDTO    		2234
+#define IDC_MAILBOXOPTIONS_PUNT         	2235
+#define IDC_MAILBOXOPTIONS_AUTOSYNC			2236
+#define IDC_MAILBOXOPTIONS_TIEIDENTITY		2237
+#define IDC_MAILBOXOPTIONS_IDENTITYPOPUP 	2238
+#define IDC_MAILBOXOPTIONS_REBUILD			2239
+
+#define IDC_MAILBOXSERVER_STATE		        2240
+#define IDC_MAILBOXSERVER_NAME              2241
+#define IDC_MAILBOXSERVER_TYPE              2242
+#define IDC_MAILBOXSERVER_GREETING          2243
+#define IDC_MAILBOXSERVER_CAPABILITY        2244
+#define IDC_MAILBOXSERVER_CONNECTION	    2245
+#define IDC_MAILBOXSERVER_VIEWCERT		    2246
+
+#define IDI_ACL_LOOKUP                  2250
+#define IDI_ACL_READ                    2251
+#define IDI_ACL_SEEN                    2252
+#define IDI_ACL_WRITE                   2253
+#define IDI_ACL_INSERT                  2254
+#define IDI_ACL_POST                    2255
+#define IDI_ACL_CREATE                  2256
+#define IDI_ACL_DELETE                  2257
+#define IDI_ACL_ADMIN                   2258
+#define IDI_ACL_SET                     2259
+#define IDI_ACL_UNSET                   2260
+
+#define IDC_ACL_LOOKUP                  2250
+#define IDC_ACL_READ                    2251
+#define IDC_ACL_SEEN                    2252
+#define IDC_ACL_WRITE                   2253
+#define IDC_ACL_INSERT                  2254
+#define IDC_ACL_POST                    2255
+#define IDC_ACL_CREATE                  2256
+#define IDC_ACL_DELETE                  2257
+#define IDC_ACL_ADMIN                   2258
+
+#define IDC_MAILBOXACL_TITLES           2260
+#define IDC_MAILBOXACL_TABLE            2261
+#define IDC_MAILBOXACL_NEWUSER          2264
+#define IDC_MAILBOXACL_DELETEUSER       2265
+#define IDC_MAILBOXACL_STYLEPOPUP       2266
+#define IDC_MAILBOXACL_MAILBOXPOPUP		2267
+#define IDC_MAILBOXACL_APPLYALL			2268
+
+#define IDC_NEW_ACL_IDS                 2270
+#define IDC_NEWACL_STYLEPOPUP           2271
+
+#define IDC_NEWACL_BTN1                 2272
+#define IDC_NEWACL_BTN2                 2273
+#define IDC_NEWACL_BTN3                 2274
+#define IDC_NEWACL_BTN4                 2275
+#define IDC_NEWACL_BTN5                 2276
+#define IDC_NEWACL_BTN6                 2277
+#define IDC_NEWACL_BTN7                 2278
+#define IDC_NEWACL_BTN8                 2279
+#define IDC_NEWACL_BTN9                 2280
+
+#define IDC_NEWACLSTYLE_NAME            2284
+#define IDC_ACLSTYLE_TABLE              2285
+#define IDC_DELETEIDENTITY_TABLE        2286
+
+#define IDC_MAILBOXQUOTA_TITLES         2290
+#define IDC_MAILBOXQUOTA_TABLE          2291
+
+#pragma mark ____________________________Password dialog items
+
+#define IDC_USERPSWDICON                2300
+#define IDC_USERPSWDDESCRIPTION         2301
+#define IDC_SERVERNAME                  2302
+#define IDC_USERPSWDAUTHMETHOD          2303
+#define IDC_USERIDEDIT                  2304
+#define IDC_USERIDSTATIC                2305
+#define IDC_PASSWORD                    2306
+#define IDI_USERPSWD_IMAP               2315
+#define IDI_USERPSWD_POP3               2316
+#define IDI_USERPSWD_SMTP               2317
+#define IDI_USERPSWD_PREFS              2318
+#define IDI_USERPSWD_ADBK               2319
+#define IDI_USERPSWD_LDAP               2320
+#define IDI_USERPSWD_MANAGESIEVE		2321
+#define IDI_USERPSWD_REMOTECALENDAR		2322
+#define IDC_USERPSWDCAPSLOCK			2323
+#define IDC_USERPSWDSECURE		        2324
+
+#pragma mark ____________________________Password Change dialog items
+
+#define IDC_CHANEGPSWDACCT_PLUGINPOPUP	2327
+#define IDC_CHANGEPSWDACCT_ACCTPOPUP	2328
+
+#define IDC_CHANGEPSWDICON				2330
+#define IDC_CHANGEPSWDDESCRIPTION		2331
+#define IDC_CHANGEPSWDSERVER			2332
+#define IDC_CHANGEPSWDUSER				2333
+#define IDC_CHANGEPSWDOLD				2334
+#define IDC_CHANGEPSWDNEW1				2335
+#define IDC_CHANGEPSWDNEW2				2336
+#define IDC_CHANGEPSWDCAPSLOCK			2337
+
+#pragma mark ____________________________Open mailbox dialog
+
+#define IDC_OPENMAILBOX_NAME            2416
+#define IDC_OPENMAILBOX_BROWSE			2417
+#define IDC_OPENMAILBOX_ACCOUNT			2418
+
+#pragma mark ____________________________Get string dialog
+
+#define IDC_GETSTRINGNAME               2420
+#define IDC_GETSTRINGTITLE              2421
+#define IDS_RENAMEDIALOG                2428
+#define IDS_RENAMETITLE                 2429
+#define IDS_SAVESETASDIALOG             2431
+#define IDS_SAVESETASTITLE              2432
+#define IDS_NEWADBKDIALOG               2434
+#define IDS_NEWADBKTITLE                2435
+
+#pragma mark ____________________________Namespace Dialog
+#define IDC_NAMESPACE_HELP				2449
+#define IDC_NAMESPACE_SERVER			2450
+#define IDC_NAMESPACECHOICETITLES		2451
+#define IDC_NAMESPACECHOICE				2452
+#define IDC_NAMESPACE_SELECTTITLE		2453
+#define IDC_NAMESPACE_PERSONAL			2454
+#define IDC_NAMESPACE_SHARED			2455
+#define IDC_NAMESPACE_PUBLIC			2456
+#define IDC_NAMESPACE_ALL				2457
+#define IDC_NAMESPACE_NONE				2458
+#define IDC_NAMESPACE_AUTO				2459
+#define IDC_NAMESPACE_PLACESTITLE		2460
+#define IDC_NAMESPACE_PLACES			2461
+
+#pragma mark ____________________________New search Hierarchy
+
+#define IDC_NEWSEARCH_ACCOUNT			2470
+#define IDC_NEWSEARCH_CRITERIA			2471
+#define IDC_NEWSEARCH_TEXT				2472
+#define IDC_NEWSEARCH_FULL				2473
+#define IDC_NEWSEARCH_TOP				2474
+
+#pragma mark ____________________________New Cabinet Entry
+#define IDC_CABINETENTRY_ACCOUNT		2480
+#define IDC_CABINETENTRY_CRITERIA		2481
+#define IDC_CABINETENTRY_TEXT			2482
+
+#pragma mark ____________________________Server Browse dialog
+#define IDC_SERVERBROWSE_CREATE			2485
+#define IDC_BROWSETABLE					2486
+#define IDC_SERVERBROWSE_NOCOPY			2487
+#define IDC_SERVERBROWSE_SETDEFAULT		2488
+
+#pragma mark ____________________________Create mailbox dialog
+#define IDC_CREATEMAILBOX_MAILBOX		2490
+#define IDC_CREATEMAILBOX_DIRECTORY		2491
+#define IDC_CREATEMAILBOX_NAME          2492
+#define IDC_CREATEMAILBOX_FULL          2493
+#define IDC_CREATEMAILBOX_HIER          2494
+#define IDC_CREATEMAILBOX_HIERARCHY     2495
+#define IDC_CREATEMAILBOX_ACCOUNT       2496
+#define IDC_CREATEMAILBOX_ACCOUNTPOPUP  2497
+#define IDC_CREATEMAILBOX_SUBSCRIBE     2498
+
+#pragma mark ____________________________Mailbox Window
+#define IDC_MAILBOXHEADER               2500
+
+#define IDC_MAILBOXNEWMSGBTN            2501
+#define IDI_MAILBOXNEWMSG               2502
+#define IDS_MAILBOXNEWMSGTXT            2503
+
+//#define IDC_MAILBOXREPLYBTN             2504
+#define IDI_MAILBOXREPLY                2504
+#define IDI_MAILBOXREPLYALL				2505
+
+//#define IDS_MAILBOXREPLYTXT             2506
+
+//#define IDC_MAILBOXFORWARDBTN           2507
+#define IDI_MAILBOXFORWARD              2506
+//#define IDS_MAILBOXFORWARDTXT           2509
+
+#define IDI_MAILBOXBOUNCE	            2507
+//#define IDS_MAILBOXBOUNCETXT            2511
+
+#define IDI_MAILBOXREJECT	            2508
+#define IDI_MAILBOXSENDAGAIN            2509
+#define IDI_MAILBOXDIGEST	            2510
+
+#define IDS_MAILBOXPRINTTXT             2512
+
+#define IDC_MAILBOXDELETEBTN            2513
+#define IDI_MAILBOXDELETE               2514
+#define IDI_MAILBOXDELETEPUSHED         2515
+#define IDC_MAILBOXDELETETXT            2516
+
+#define IDC_MAILBOXEXPUNGEBTN           2517
+#define IDI_MAILBOXEXPUNGE              2518
+#define IDS_MAILBOXEXPUNGETXT           2519
+
+#define IDC_MAILBOXSEARCHBTN            2520
+#define IDI_MAILBOXSEARCH               2521
+#define IDS_MAILBOXSEARCHTXT            2522
+
+#define IDC_MAILBOXMATCHBTN				2523
+#define IDC_MAILBOXMATCHOPTIONBTN		2524
+#define IDC_MAILBOXMATCHPOPUP			2525
+#define IDS_MAILBOXMATCHTXT				2526
+#define IDI_MAILBOXMATCH				2527
+#define IDC_MAILBOXSELECTBY				2528
+#define IDS_MAILBOXSELECTBYTXT			2529
+
+#define IDC_MAILBOXCOPYBTN				2530
+#define IDC_MAILBOXCOPYPOPUP			2531
+#define IDI_MAILBOXCOPY					2532
+#define IDC_MAILBOXCOPYCMD				2533
+#define IDC_MAILBOXMOVECMD				2534
+
+#define IDC_MAILBOXSELECTPOPUP			2535
+#define IDI_MAILBOXSELECTFLAG			2536
+#define IDC_MAILBOXCHECKBTN				2537
+#define IDC_MAILBOXDETAILSBTN			2538
+#define IDC_MAILBOXICONSTATE			2539
+
+#define IDC_MAILBOX_THREADSELECTALL		2540
+#define IDC_MAILBOX_THREADMARKSEEN		2541
+#define IDC_MAILBOX_THREADMARKIMPORTANT	2542
+#define IDC_MAILBOX_THREADMARKDELETED	2543
+#define IDC_MAILBOX_THREADSKIP			2544
+
+#define IDC_MAILBOX_MATCHUNSEEN			2545
+#define IDC_MAILBOX_MATCHIMPORTANT		2546
+#define IDC_MAILBOX_MATCHDELETED		2547
+#define IDC_MAILBOX_MATCHSENTTODAY		2548
+#define IDC_MAILBOX_MATCHFROM			2549
+#define IDC_MAILBOX_MATCHSUBJECT		2550
+#define IDC_MAILBOX_MATCHDATE			2551
+
+#define IDS_DELNEXTBTNTITLE				2555
+#define IDS_PREVIOUSBTNTITLE			2556
+#define IDS_NEXTBTNTITLE				2557
+
+#define IDI_MAILBOXTOTAL                2560
+#define IDC_MAILBOXCACHETXT             2561
+#define IDC_MAILBOXTOTALTXT             2562
+#define IDI_MAILBOXUNSEEN               2563
+#define IDC_MAILBOXUNSEENTXT            2564
+#define IDI_MAILBOXDELNUM               2565
+#define IDC_MAILBOXDELNUMTXT            2566
+#define IDI_MAILBOXMATCHNUM  			2567
+#define IDC_MAILBOXMATCHNUMTXT			2568
+
+#define IDC_MAILBOXSORTBTN              2569
+#define IDI_SORTASCENDING               2570
+#define IDI_SORTDESCENDING              2571
+
+#define IDC_MAILBOXREADWRITE            2572
+#define IDI_MAILBOXREADWRITE            2573
+#define IDC_MAILBOXREADONLY             2574
+#define IDI_MAILBOXREADONLY             2575
+
+#define IDC_QUICKSEARCHINDICATOR     	2576
+#define IDC_QUICKSEARCHPOPUP     		2577
+#define IDC_QUICKSEARCHTEXT      		2578
+#define IDC_QUICKSEARCHSAVEDPOPUP      	2579
+#define IDC_QUICKSEARCHPROGRESS  		2580
+#define IDC_QUICKSEARCHCANCEL		    2581
+#define IDI_QUICKSEARCHCANCEL			2582
+
+#define IDC_MAILBOXTITLES               2583
+#define IDC_MAILBOXTABLE                2584
+
+#define IDR_POPUP_QUICKSEARCH			2586
+#define IDM_QUICKSEARCH_FROM			2587
+#define IDM_QUICKSEARCH_TO				2588
+#define IDM_QUICKSEARCH_RECIPIENT		2589
+#define IDM_QUICKSEARCH_CORRESPONDENT	2590
+#define IDM_QUICKSEARCH_SUBJECT			2591
+#define IDM_QUICKSEARCH_BODY			2592
+#define IDM_QUICKSEARCH_SAVEDSEARCH		2593
+
+#define IDR_POPUP_QUICKSEARCH_SAVED		2594
+#define IDM_QUICKSEARCH_CHOOSE			2595
+
+#define IDI_MAILBOX_REMOTE				2595
+#define IDI_MAILBOX_LOCAL				2596
+#define IDI_MAILBOX_POP3				2597
+#define IDI_MAILBOX_DISCONNECTED		2598
+#define IDI_MAILBOX_REMOTESSL			2599
+
+#pragma mark ____________________________Mailbox flags
+#define IDI_FLAG_DELETED                2700
+#define IDI_FLAG_ANSWERED               2701
+#define IDI_FLAG_RECENT                 2702
+#define IDI_FLAG_UNSEEN                 2703
+#define IDI_FLAG_READ                   2704
+#define IDI_FLAG_DRAFT                  2705
+#define IDI_FLAG_ATTACHMENT             2706
+#define IDI_FLAG_CALENDAR               2707
+#define IDI_FLAG_ALTERNATIVE			2708
+#define IDI_FLAG_SIGNED					2709
+#define IDI_FLAG_ENCRYPTED				2710
+#define IDI_FLAG_MATCH                  2711
+#define IDI_FLAG_CACHED                 2712
+#define IDI_FLAG_PARTIAL                2713
+#define IDI_FLAG_PAUSED                 2714
+#define IDI_FLAG_SENDING                2715
+#define IDI_FLAG_SENDERROR              2716
+#define IDI_FLAG_SIGNED_ATTACHMENT              2717
+#define IDI_FLAG_SIGNED_CALENDAR                2718
+#define IDI_FLAG_SIGNED_ALTERNATIVE             2719
+#define IDI_FLAG_SIGNED_ALTERNATIVE_ATTACHMENT	2720
+#define IDI_FLAG_SIGNED_ALTERNATIVE_CALENDAR	2721
+#define IDI_FLAG_ALTERNATIVE_ATTACHMENT         2722
+#define IDI_FLAG_ALTERNATIVE_CALENDAR           2723
+
+#define IDI_FLAG_SMART_FROM             2728
+#define IDI_FLAG_SMART_TO               2729
+#define IDI_FLAG_SMART_CC	            2730
+#define IDI_FLAG_SMART_BCC              2731
+
+#define IDI_FLAG_TITLE             		2732
+
+#define IDI_TITLE_FLAG_TITLE		 	2733
+#define IDI_TITLE_FLAG_ATTACHMENTS   	2734
+#define IDI_TITLE_FLAG_MATCH         	2735
+#define IDI_TITLE_FLAG_DISCONNECTED  	2736
+
+#define IDI_TAB_UNSEEN					2740
+
+#pragma mark ____________________________Mailbox window text
+#define IDS_DISCONNECT_CMD_TEXT         	2800
+#define IDS_CONNECT_CMD_TEXT            	2801
+#define IDS_SELECTALL_CMD_TEXT             	2802
+#define IDS_UNSELECTALL_CMD_TEXT            2803
+#define IDS_DELETE_CMD_TEXT             	2804
+#define IDS_DELETE_MEMECMD_TEXT         	2805
+#define IDS_UNDELETE_CMD_TEXT           	2806
+#define IDS_WARN_PART_SIZE              	2808
+
+#pragma mark ____________________________Match Options Dialog
+#define IDC_MATCHOPTIONS_VIEWALLNOHILIGHT	2820
+#define IDC_MATCHOPTIONS_VIEWALLHILIGHTS	2821
+#define IDC_MATCHOPTIONS_VIEWMATCH			2822
+#define IDC_MATCHOPTIONS_CRITERIA			2823
+#define IDC_MATCHOPTIONS_LASTSEARCH			2824
+#define IDC_MATCHOPTIONS_OR					2825
+#define IDC_MATCHOPTIONS_AND				2826
+#define IDC_MATCHOPTIONS_NOR				2827
+#define IDC_MATCHOPTIONS_NAND				2828
+#define IDC_MATCHOPTIONS_NEW				2829
+#define IDC_MATCHOPTIONS_UNSEEN				2830
+#define IDC_MATCHOPTIONS_IMPORTANT			2831
+#define IDC_MATCHOPTIONS_ANSWERED			2832
+#define IDC_MATCHOPTIONS_DELETED			2833
+#define IDC_MATCHOPTIONS_DRAFT				2834
+#define IDC_MATCHOPTIONS_SENTTODAY			2835
+#define IDC_MATCHOPTIONS_SENTYESTERDAY		2836
+#define IDC_MATCHOPTIONS_SENTWEEK			2837
+#define IDC_MATCHOPTIONS_SENT7DAYS			2838
+#define IDC_MATCHOPTIONS_SENTBYME			2839
+#define IDC_MATCHOPTIONS_SENTTOME			2840
+#define IDC_MATCHOPTIONS_SENTTOLIST			2841
+#define IDC_MATCHOPTIONS_SELECTEDTO			2842
+#define IDC_MATCHOPTIONS_SELECTEDFROM		2843
+#define IDC_MATCHOPTIONS_SELECTEDSMART		2844
+#define IDC_MATCHOPTIONS_SELECTEDSUBJECT	2845
+#define IDC_MATCHOPTIONS_SELECTEDDATE		2846
+#define IDC_MATCHOPTIONS_SEARCHSETS			2847
+#define IDC_MATCHOPTIONS_CLEAR				2848
+
+#pragma mark ____________________________Cache Message Dialog
+#define IDC_CACHEMESSAGE_NUMBER			2880
+
+#pragma mark ____________________________Synchronise Dialog
+#define IDC_SYNCHRONISE_ALL				2890
+#define IDC_SYNCHRONISE_NEW				2891
+#define IDC_SYNCHRONISE_SELECTED		2892
+#define IDC_SYNCHRONISE_FULL			2893
+#define IDC_SYNCHRONISE_BELOW			2894
+#define IDC_SYNCHRONISE_SIZE			2895
+#define IDC_SYNCHRONISE_PARTIAL			2896
+
+#pragma mark ____________________________Disconnect Dialog
+#define IDC_DISCONNECT_CONNECTING		2900
+#define IDC_DISCONNECT_PERMANENT		2901
+#define IDC_DISCONNECT_UPDATE			2902
+#define IDC_DISCONNECT_PLAYBACK			2903
+#define IDC_DISCONNECT_WAIT				2904
+#define IDC_DISCONNECT_DISCONNECTING	2905
+#define IDC_DISCONNECT_ALL				2906
+#define IDC_DISCONNECT_NEW				2907
+#define IDC_DISCONNECT_NONE				2908
+#define IDC_DISCONNECT_SEND				2909
+#define IDC_DISCONNECT_MESSAGE			2910
+#define IDC_DISCONNECT_FULL				2911
+#define IDC_DISCONNECT_BELOW			2912
+#define IDC_DISCONNECT_SIZE				2913
+#define IDC_DISCONNECT_PARTIAL			2914
+#define IDC_DISCONNECT_ADBK				2915
+#define IDC_DISCONNECT_LIST				2916
+#define IDC_DISCONNECT_ADBK1			2917
+#define IDC_DISCONNECT_ADBK2			2918
+#define IDC_DISCONNECT_POP3				2919
+#define IDC_DISCONNECT_SIZE_UNITS				2920
+#define IDC_DISCONNECT_PLAYBACKPROGRESS			2921
+#define IDC_DISCONNECT_PROGRESS_ACCOUNTS_TITLE	2922
+#define IDC_DISCONNECT_PROGRESS_ACCOUNTS		2923
+#define IDC_DISCONNECT_PROGRESS_ITEMS_TITLE		2924
+#define IDC_DISCONNECT_PROGRESS_ITEMS			2925
+
+#pragma mark ____________________________SMTP Window
+#define IDC_SMTPTOTALTXT					2951
+#define IDC_SMTPHEADER						2952
+#define IDC_SMTPHOLD						2954
+#define IDI_SMTPHOLD						2955
+#define IDC_SMTPPRIORITY					2957
+#define IDI_SMTPPRIORITY					2958
+#define IDC_SMTPENABLE						2961
+#define IDI_SMTPENABLE						2962
+#define IDS_ENABLE_CMD_TEXT					2963
+#define IDS_DISABLE_CMD_TEXT				2964
+#define IDS_COPYTO_CMD_TEXT					2665
+#define IDS_MOVETO_CMD_TEXT					2666
+#define IDS_COPYTOMAILBOX_CMD_TEXT			2667
+#define IDS_MOVETOMAILBOX_CMD_TEXT			2668
+#define IDS_COPYNOW_CMD_TEXT				2669
+#define IDS_MOVENOW_CMD_TEXT				2670
+#define IDC_SMTPSECURE                		2973
+
+#pragma mark ____________________________Message Window
+#define IDC_MESSAGEHEADER               3000
+#define IDC_MESSAGENUMBER               3001
+#define IDC_MESSAGEFROMTWISTER          3002
+#define IDC_MESSAGEFROMFIELD            3003
+#define IDC_MESSAGETOTWISTER            3004
+#define IDC_MESSAGETOFIELD              3005
+#define IDC_MESSAGECCTWISTER            3006
+#define IDC_MESSAGECCFIELD              3007
+#define IDC_MESSAGESUBJECT              3008
+#define IDC_MESSAGEDATE                 3009
+
+#define IDC_MESSAGES_DELETE				3020
+#define IDC_MESSAGES_REPLY				3021
+#define IDC_MESSAGES_FORWARD			3022
+#define IDC_MESSAGES_BOUNCE				3023
+#define IDC_MESSAGES_COPY				3024
+#define IDC_MESSAGES_PRINT				3025
+#define IDC_MESSAGES_DELETE_READ		3026
+#define IDC_MESSAGES_COPY_READ			3027
+#define IDC_MESSAGES_READ_PREV			3028
+#define IDC_MESSAGES_READ_NEXT			3029
+
+#define IDC_MESSAGEPARTSHEADER          3030
+#define IDC_MESSAGEPARTSTWISTER         3031
+#define IDC_MESSAGEPARTSFIELD           3032
+#define IDC_MESSAGEPARTSFLATBTN			3033
+#define IDC_MESSAGEPARTSATTACHMENTS     3034
+#define IDC_MESSAGEPARTSALTERNATIVE     3035
+#define IDC_MESSAGEPARTSTABLETITLES     3036
+#define IDC_MESSAGEPARTSTABLE           3037
+
+#define IDC_MESSAGES_SHOW_HEADER		3040
+#define IDC_MESSAGES_TEXT_FORMAT		3041
+#define IDC_MESSAGES_FONTINCREASE		3042
+#define IDC_MESSAGES_FONTDECREASE		3043
+#define IDC_MESSAGES_FONTSCALE			3044
+#define IDC_MESSAGES_QUOTEDEPTHBTN		3045
+
+#define IDC_HANDCURSOR                  3050
+
+#define IDC_MESSAGEPREVIEWCAPTION1		3062
+#define IDC_MESSAGEPREVIEWCAPTION2		3063
+
+#pragma mark ____________________________Message window icons
+#define IDI_PREVMSG                     3100
+#define IDI_PREVMSGPUSHED               3101
+#define IDI_NEXTMSG                     3102
+#define IDI_NEXTMSGPUSHED               3103
+#define IDI_LASTNEXTMSG                 3104
+#define IDI_LASTNEXTMSGPUSHED           3105
+#define IDI_DELETENEXT                  3106
+#define IDI_DELETENEXTPUSHED            3107
+#define IDI_COPYNEXT                    3108
+#define IDI_COPYNEXTPUSHED              3109
+#define IDI_REPLYMSG                    3110
+#define IDI_HEADERMSG                   3111
+#define IDI_FORWARDMSG                  3112
+#define IDI_PRINT		                3113
+#define IDI_MSG_ATTACHMENT          	3114
+#define IDI_MSG_ALTERNATIVE				3115
+#define IDI_FONTINCREASE				3116
+#define IDI_FONTDECREASE				3117
+
+#define IDI_TWISTDOWN                   3150
+#define IDI_TWISTDOWNPUSHED             3151
+#define IDI_TWISTUP                     3152
+#define IDI_TWISTUPPUSHED               3153
+#define IDI_TOOLBAR32UP					3154
+#define IDI_TOOLBAR32DOWN				3155
+#define IDI_TOOLBAR24DOWN				3156
+#define IDI_TOOLBAR_DIVIDER				3157
+#define IDI_TOOLBAR_SPACE				3158
+#define IDI_TOOLBAR_EXPAND				3159
+#define IDI_SHOWLIST					3160
+#define IDI_SHOWITEM					3160
+#define IDI_SHOWPREVIEW					3160
+
+#pragma mark ____________________________Message window text
+#define IDS_SHOWHEADER                  3201
+#define IDS_HIDEHEADER                  3202
+#define IDS_EXPANDHEADER                3203
+#define IDS_COLLAPSEHEADER              3204
+#define IDS_SHOWPARTS                   3205
+#define IDS_HIDEPARTS                   3206
+#define IDS_SHOWQUICKSEARCH             3207
+#define IDS_HIDEQUICKSEARCH             3208
+#define IDS_SHOWLIST                    3209
+#define IDS_HIDELIST                    3210
+#define IDS_SHOWITEMS                   3211
+#define IDS_HIDEITEMS                   3212
+#define IDS_SHOWPREVIEW                 3213
+#define IDS_HIDEPREVIEW                 3214
+#define IDS_REPLYBTNTITLE               3215
+#define IDS_FORWARDBTNTITLE             3216
+#define IDS_MESSAGETOTITLE              3217
+#define IDS_MESSAGEFROMTITLE            3218
+#define IDS_MESSAGECCTITLE              3219
+#define IDS_MESSAGESUBJECTTITLE         3220
+#define IDS_MESSAGEDATETITLE            3221
+#define IDS_MESSAGEPARTSTITLE           3226
+#define IDS_MESSAGECOPYTOTITLE			3227
+
+#pragma mark ____________________________Parts table icons
+#define IDI_DIAMOND                     3300
+#define IDI_DIAMONDTICKED               3301
+#define IDI_DIAMONDHIGHLIGHT            3302
+#define IDI_DIAMONDDISABLE              3303
+#define IDI_SQUARE                      3304
+#define IDI_SQUAREHIGHLIGHT             3305
+#define IDI_TICKMARK                    3306
+#define IDI_MISSINGPART	                3307
+#define IDI_APPLEFILEPART               3308
+#define IDI_MULTIPART                   3309
+#define IDI_MESSAGEPART                 3310
+#define IDI_CALENDARPART                3311
+#define IDI_UNKNOWNFILE                 3312
+
+#define IDI_HIERUP                      3350
+#define IDI_HIERDOWN                    3351
+#define IDI_POPUPBTN                    3352
+
+#pragma mark ____________________________Reply choose dialog
+#define IDC_ADDRESSCHOICETITLES             3400
+#define IDC_ADDRESSCHOICE               	3401
+#define IDC_REPLYCHOOSE_CREATENEW			3402
+#define IDC_REPLYCHOOSE_SELECTREPLYTO		3403
+#define IDC_REPLYCHOOSE_SELECTREPLYALL		3404
+#define IDC_REPLYCHOOSE_SELECTREPLYFROM		3405
+#define IDC_REPLYCHOOSE_SELECTREPLYSENDER	3406
+#define IDC_REPLYCHOOSE_SELECTREPLYNONE		3407
+#define IDC_REPLYCHOOSE_QUOTESELECTION		3408
+#define IDC_REPLYCHOOSE_QUOTEALL			3409
+#define IDC_REPLYCHOOSE_QUOTENONE			3410
+#define IDC_ADDRESSCHOICE_SELECTTO			3411
+#define IDC_ADDRESSCHOICE_SELECTCC			3412
+#define IDC_ADDRESSCHOICE_SELECTBCC			3413
+#define IDC_ADDRESSCHOICE_SELECTNONE		3414
+#define IDC_REPLYCHOOSE_ADDTOPOPUP			3415
+
+#pragma mark ____________________________Message part prop dialog
+#define IDC_MPARTSPROP_NAME             3500
+#define IDC_MPARTSPROP_TYPE             3501
+#define IDC_MPARTSPROP_ENCODING         3502
+#define IDC_MPARTSPROP_ID               3503
+#define IDC_MPARTSPROP_DESCRIPTION      3504
+#define IDC_MPARTSPROP_PARAMS           3505
+#define IDC_MPARTSPROP_OPENWITH         3506
+#define IDC_MPARTSPROP_DISPOSITION		3507
+
+#pragma mark ____________________________Forward options dialog
+#define IDC_FORWARDOPTIONS_QUOTE        	3600
+#define IDC_FORWARDOPTIONS_HEADERS      	3601
+#define IDC_FORWARDOPTIONS_ATTACHMENT   	3602
+#define IDC_FORWARDOPTIONS_RFC822       	3603
+#define IDC_FORWARDOPTIONS_SAVE         	3604
+#define IDC_FORWARDOPTIONS_QUOTESELECTION	3605
+#define IDC_FORWARDOPTIONS_QUOTEALL			3606
+#define IDC_FORWARDOPTIONS_QUOTENONE		3607
+
+#pragma mark ____________________________MDN prompt dialog
+#define IDC_MDNPROMPT_ADDRESS	        3610
+#define IDC_MDNPROMPT_SAVE		        3611
+
+#pragma mark ____________________________Letter window
+#define IDC_LETTERHEADER                4000
+
+#define IDC_LETTER_IDENTITYPOPUP		4002
+#define IDC_LETTER_IDENTITYEDIT			4003
+#define IDC_LETTER_FROMFIELD			4004
+
+#define IDC_LETTERTOTWISTER             4011
+#define IDC_LETTERTOFIELD               4012
+#define IDC_LETTERCCTWISTER             4013
+#define IDC_LETTERCCFIELD               4014
+#define IDC_LETTERBCCTWISTER            4015
+#define IDC_LETTERBCCFIELD              4016
+#define IDC_LETTERSUBJECTFIELD          4017
+#define IDC_LETTERSENTICON				4018
+
+#define IDC_LETTERPARTSHEADER           4030
+#define IDC_LETTERPARTSTWISTER          4031
+#define IDC_LETTERPARTSFIELD			4032
+#define IDC_LETTERPARTSICON           	4033
+#define IDC_LETTERCOPYTOPOPUP           4034
+#define IDC_LETTERAPPENDNOWBTN			4035
+
+#define IDC_LETTERPARTSTABLETITLES      4040
+#define IDC_LETTERPARTSTABLE            4041
+
+#define IDC_LETTER_ENR_BOLD             4060
+#define IDC_LETTER_ENR_ITALIC           4061
+#define IDC_LETTER_ENR_UNDERLINE        4062
+#define IDC_LETTER_ENR_FONT				4063
+#define IDC_LETTER_ENR_SIZE             4064
+#define IDC_LETTER_ENR_COLOR            4065
+#define IDC_LETTER_ENR_LEFT             4066
+#define IDC_LETTER_ENR_CENTER           4067
+#define IDC_LETTER_ENR_RIGHT            4068
+
+#pragma mark ____________________________Letter window icons
+#define IDI_SAVEFILE	                4100
+#define IDI_ATTACHFILE                  4101
+#define IDI_SPELLING                    4102
+#define IDI_RECEIPT	                    4103
+#define IDI_INSERTSIGNATURE             4104
+#define	IDI_ADD_CC						4105
+#define	IDI_ADD_BCC						4106
+#define IDI_SENDLETTER                  4107
+#define IDI_APPEND_NOW                  4108
+#define IDI_COPY_ORIGINAL               4109
+#define IDI_SIGN						4110
+#define IDI_ENCRYPT						4111
+#define IDI_BOLDBTN                     4112
+#define IDI_ITALICBTN                   4113
+#define IDI_UNDERLINEBTN                4114
+#define IDI_ALIGNLEFTBTN                4115
+#define IDI_ALIGNCENTERBTN              4116
+#define IDI_ALIGNRIGHTBTN               4117
+#define IDI_IDENTITYEDIT	            4118
+#define IDI_COLLAPSEHEADER	            4119
+
+#pragma mark ____________________________Letter window text
+#define IDS_NoLetterTitle               4200
+#define IDS_LETTERFROMTITLE    	    	4201
+#define IDS_LETTERRECIPIENTTITLE        4202
+#define IDS_LETTERTOTITLE               4203
+#define IDS_LETTERCCTITLE               4204
+#define IDS_LETTERBCCTITLE              4205
+#define IDS_LETTERSUBJECTTITLE          4206
+#define IDS_LETTER_ADDCC_BTN_TEXT		4207
+#define IDS_LETTER_ADDBCC_BTN_TEXT		4208
+#define IDS_LETTERCOPYTOTITLE           4209
+#define IDS_LETTERPARTSTITLE            4210
+#define IDS_LETTERATTACHEDTITLE         4211
+#define	IDS_LETTER_IMPORTTEXT			4212
+
+#pragma mark ____________________________Save draft dialog
+#define IDC_SAVEDRAFT_TOFILE            4310
+#define IDC_SAVEDRAFT_TOMAILBOX         4311
+#define IDC_SAVEDRAFT_POPUP             4312
+
+#pragma mark ____________________________Letter part prop dialog
+#define IDC_LPARTSPROP_NAME             4350
+#define IDC_LPARTSPROP_TYPE             4351
+#define IDC_LPARTSPROP_SUBTYPE          4352
+#define IDC_LPARTSPROP_ENCODING         4353
+#define IDC_LPARTSPROP_DESCRIPTION      4354
+#define IDC_LPARTSPROP_DISPOSITION      4355
+#define IDC_LPARTSPROP_CHARSET          4356
+#define IDC_LPARTSPROP_CHARSET_TITLE    4357
+
+#pragma mark ____________________________Address Book manager Window
+#define IDC_ADBKMGR_NEW					4420
+#define IDC_ADBKMGR_OPEN				4421
+#define IDC_ADBKMGR_DELETE				4422
+#define IDC_ADBKMGR_PROPERTIES			4423
+#define IDC_ADBKMGR_SEARCH				4424
+
+#define IDM_CHANGE_OPENONSTART          4425
+#define IDM_CHANGE_RESOLVE              4426
+#define IDM_CHANGE_SEARCH               4427
+
+#define IDI_ADBK_NEW_BTN                4430
+#define IDI_ADBK_OPEN_BTN               4431
+#define IDI_ADBK_DELETE_BTN             4432
+
+#define IDI_ADBK_TITLE_OPEN             4440
+#define IDI_ADBK_TITLE_RESOLVE          4441
+#define IDI_ADBK_TITLE_SEARCH           4442
+
+#define IDC_CREATEADBK_NAME				4460
+#define IDC_CREATEADBK_TYPE				4461
+#define IDC_CREATEADBK_PERSONAL			4462
+#define IDC_CREATEADBK_GLOBAL			4463
+#define IDC_CREATEADBK_ACCOUNTTITLE		4464
+#define IDC_CREATEADBK_ACCOUNT       	4465
+#define IDC_CREATEADBK_ACCOUNTPOPUP  	4466
+#define IDC_CREATEADBK_OPENONSTARTUP	4467
+#define IDC_CREATEADBK_USENICKNAMES		4468
+#define IDC_CREATEADBK_USESEARCH		4469
+
+#define IDC_ADBKGENERAL_STATE			4470
+#define IDC_ADBKGENERAL_NAME            4471
+#define IDC_ADBKGENERAL_SERVER          4472
+#define IDC_ADBKGENERAL_TOTAL           4473
+#define IDC_ADBKGENERAL_SINGLE          4474
+#define IDC_ADBKGENERAL_GROUP           4475
+#define IDC_ADBKGENERAL_START           4476
+#define IDC_ADBKGENERAL_NICK            4477
+#define IDC_ADBKGENERAL_SEARCH          4478
+#define IDC_ADBKGENERAL_ADD             4479
+#define IDC_ADBKGENERAL_AUTOSYNC        4480
+
+#define IDC_ADBKACL_TITLES              4490
+#define IDC_ADBKACL_TABLE               4491
+#define IDC_ADBKACL_NEWUSER             4492
+#define IDC_ADBKACL_DELETEUSER          4493
+#define IDC_ADBKACL_STYLEPOPUP          4494
+
+#pragma mark ____________________________Address book window
+#define IDC_ADDRESS_NEWMSG              4500
+#define IDC_ADDRESS_NEW_SINGLE	        4501
+#define IDC_ADDRESS_NEW_GROUP           4502
+#define IDC_ADDRESS_EDIT	            4503
+#define IDC_ADDRESS_DELETE              4504
+#define IDC_ADDRESSTWIST				4505
+#define IDC_ADDRESSNEW					4506
+#define IDC_ADDRESSDRAFT				4507
+#define IDC_GROUPTWIST					4508
+#define IDC_GROUPNEW					4509
+#define IDC_GROUPDRAFT					4510
+#define IDC_ADDRESSESNUMTITLE           4520
+#define IDC_ADDRESSESNUM                4521
+#define IDC_GROUPSNUMTITLE              4522
+#define IDC_GROUPSNUM                   4523
+#define IDC_ADDRESSPREVIEW_TABS			4524
+
+#pragma mark ____________________________Address book window icons
+#define IDI_ADDRESS_NEWMSG              4530
+#define IDI_ADDRESS_NEW_SINGLE	        4531
+#define IDI_ADDRESS_NEW_GROUP           4532
+#define IDI_ADDRESS_EDIT	            4533
+#define IDI_ADDRESS_DELETE              4534
+#define IDI_ADDRESS_FLAG                4535
+#define IDI_GROUP_FLAG                  4536
+#define IDI_ADDRESSFILE                 4537
+#define IDI_ADDRESSFILECACHED           4538
+#define IDI_ADDRESSFILEUNCACHED         4539
+#define IDI_ADDRESS_SEARCH              4540
+#define IDI_ADDRESS_RESULT              4541
+
+#pragma mark ____________________________Address book window text
+#define IDS_ADDRESS_NEWMSG              4550
+#define IDS_ADDRESS_NEW_SINGLE	        4551
+#define IDS_ADDRESS_NEW_GROUP           4552
+#define IDS_ADDRESS_EDIT	            4553
+#define IDS_ADDRESS_DELETE              4554
+#define IDS_HIDEADDRESSES				4555
+#define IDS_SHOWADDRESSES				4556
+#define IDS_HIDEGROUPS					4557
+#define IDS_SHOWGROUPS					4558
+#define IDS_ADDADDRESS					4559
+#define IDS_NEWMESSAGEADDRESS			4560
+
+#pragma mark ____________________________Address book edit dialog
+#define IDC_ADDRESSEDIT_NICKNAME        4800
+#define IDC_ADDRESSEDIT_NAME            4801
+#define IDC_ADDRESSEDIT_EMAIL           4802
+#define IDC_ADDRESSEDIT_COMPANY         4803
+#define IDC_ADDRESSEDIT_PHONEWORK       4804
+#define IDC_ADDRESSEDIT_PHONEHOME       4805
+#define IDC_ADDRESSEDIT_FAX             4806
+#define IDC_ADDRESSEDIT_ADDRESS         4807
+#define IDC_ADDRESSEDIT_URL             4808
+#define IDC_ADDRESSEDIT_NOTES           4809
+
+#pragma mark ____________________________Address book edit dialog
+#define IDC_GROUPEDIT_NICKNAME          4900
+#define IDC_GROUPEDIT_GROUPNAME         4901
+#define IDC_GROUPEDIT_LIST              4902
+#define IDC_GROUPEDIT_SORT              4903
+
+#pragma mark ____________________________Preferences
+#define IDC_PREFSLOCALBTN               5000
+#define IDS_PREFSLOCALBTN               5001
+#define IDC_PREFSREMOTEBTN              5002
+#define IDS_PREFSREMOTEBTN              5003
+#define IDC_PREFSOPENBTN                5004
+#define IDS_PREFSOPENBTN                5005
+#define IDC_PREFSSAVEASBTN              5006
+#define IDS_PREFSSAVEASBTN              5007
+#define IDC_PREFSSAVEDEFAULTBTN         5008
+#define IDS_PREFSSAVEDEFAULTBTN         5009
+#define IDC_PREFSSIMPLEBTN              5010
+#define IDS_PREFSSIMPLEBTN              5011
+#define IDC_PREFSADVANCEDBTN            5012
+#define IDS_PREFSADVANCEDBTN            5013
+#define IDS_PREFSSTORAGEAREA			5014
+
+#pragma mark ____________________________Text List
+#define IDC_TEXTLISTDESCRIPTION         5030
+#define IDC_TEXTLISTNOSEL               5031
+#define IDC_TEXTLISTSINGLESEL           5032
+#define IDC_TEXTLISTMULTISEL            5033
+#define IDC_TEXTLISTENTERDESCRIPTION    5034
+#define IDC_TEXTLISTENTER               5035
+
+#pragma mark ____________________________Cancel
+#define IDC_CANCELTIME					5025
+#define IDC_CANCELDESC					5026
+#define IDC_CANCELPROGRESS				5027
+
+#pragma mark ____________________________Progress
+#define IDC_PROGRESSDESC				5028
+#define IDC_PROGRESSPROGRESS			5029
+
+#pragma mark ____________________________Find & Replace
+#define IDC_FINDREPLACE_FINDTEXT		5040
+#define IDC_FINDREPLACE_FINDPOPUP		5041
+#define IDC_FINDREPLACE_REPLACETEXT		5042
+#define IDC_FINDREPLACE_REPLACEPOPUP	5043
+#define IDC_FINDREPLACE_CASE			5044
+#define IDC_FINDREPLACE_BACK			5045
+#define IDC_FINDREPLACE_WRAP			5046
+#define IDC_FINDREPLACE_WORD			5047
+#define IDC_FINDREPLACE_FINDBTN			5048
+#define IDC_FINDREPLACE_REPLACEBTN		5049
+#define IDC_FINDREPLACE_REPLACEFINDBTN	5050
+#define IDC_FINDREPLACE_REPLACEALLBTN	5051
+
+#pragma mark ____________________________Prefs Accounts
+#define IDC_PREFSACCOUNTS_POPUP					5060
+#define IDC_PREFSACCOUNTS_TYPE					5061
+#define IDC_PREFSACCOUNTS_SERVERIP_TITLE		5062
+#define IDC_PREFSACCOUNTS_SERVERIP				5063
+#define IDC_PREFSACCOUNTS_PANELS				5064
+#define IDC_MATCHUID							5065
+
+#define IDC_NEWACCOUNT_TYPE						5085
+#define IDC_NEWACCOUNT_NAME						5086
+
+#define IDC_PREFS_AUTHENTICATE_PANELS			5095
+#define IDC_PREFS_AUTHENTICATE_POPUP			5096
+#define IDC_PREFS_AUTHENTICATE_TLSGROUP			5097
+#define IDC_PREFS_AUTHENTICATE_TLSPOPUP			5098
+#define IDC_PREFS_AUTHENTICATE_TLSPOPUPTITLE	5099
+#define IDC_PREFS_AUTHENTICATE_USETLSCERT		5100
+#define IDC_PREFS_AUTHENTICATE_TLSCERT			5101
+
+#define IDM_TLSPOPUP_NOSECURITY					5104
+#define IDM_TLSPOPUP_SSLV3						5105
+#define IDM_TLSPOPUP_TLSV1						5106
+#define IDM_TLSPOPUP_TLSBROKEN					5107
+
+#define IDC_PREFS_AUTHENTICATE_PLAIN_UID		5108
+#define IDC_PREFS_AUTHENTICATE_PLAIN_SAVEUSER	5109
+#define IDC_PREFS_AUTHENTICATE_PLAIN_SAVEPSWD	5110
+
+#define IDC_PREFS_AUTHENTICATE_KERBEROS_DEFAULTPRINCIPAL	5111
+#define IDC_PREFS_AUTHENTICATE_KERBEROS_REALM				5112
+#define IDC_PREFS_AUTHENTICATE_KERBEROS_DEFAULTUID			5113
+#define IDC_PREFS_AUTHENTICATE_KERBEROS_UID					5114
+
+#define IDC_PREFS_ACCOUNT_IMAP_TABS				5115
+#define IDC_PREFS_ACCOUNT_IMAP_LOGINATSTART		5116
+#define IDC_PREFS_ACCOUNT_IMAP_DIRSEPARATOR		5117
+#define IDC_PREFS_ACCOUNT_IMAP_AUTOHIERARCHY	5118
+#define IDC_PREFS_ACCOUNT_IMAP_ALLOWDISCONNECT	5119
+
+
+#define IDC_PREFS_ACCOUNT_POP3_TABS				5120
+
+#define IDC_PREFS_ACCOUNT_POP3_LEAVEMAIL		5121
+#define IDC_PREFS_ACCOUNT_POP3_DELETEAFTER		5122
+#define IDC_PREFS_ACCOUNT_POP3_DAYS				5123
+#define IDC_PREFS_ACCOUNT_POP3_DELETEEXPUNGE	5124
+#define IDC_PREFS_ACCOUNT_POP3_USEAPOP			5125
+#define IDC_PREFS_ACCOUNT_POP3_USEMAXSIZE		5126
+#define IDC_PREFS_ACCOUNT_POP3_MAXSIZE			5127
+
+#define IDC_PREFS_ACCOUNT_Local_TABS			5130
+
+#define IDC_PREFS_ACCOUNT_Local_USEDEFAULT			5131
+#define IDC_PREFS_ACCOUNT_Local_SPECIFY				5132
+#define IDC_PREFS_ACCOUNT_Local_PATH				5133
+#define IDC_PREFS_ACCOUNT_Local_CHOOSE				5134
+#define IDC_PREFS_ACCOUNT_Local_RELATIVE			5135
+#define IDC_PREFS_ACCOUNT_Local_ABSOLUTE			5136
+#define IDC_PREFS_ACCOUNT_Local_FILEFORMAT			5137
+#define IDC_PREFS_ACCOUNT_Local_FILEFORMAT_TITLE	5138
+
+#define IDM_FILEFORMAT_AUTOMATIC				5140
+#define IDM_FILEFORMAT_MACOS					5141
+#define IDM_FILEFORMAT_UNIX						5142
+#define IDM_FILEFORMAT_WINDOWS					5143
+
+#define IDC_PREFS_ACCOUNT_EXTRAS_TIEIDENTITY	5145
+#define IDC_PREFS_ACCOUNT_EXTRAS_IDENTITYPOPUP	5146
+
+#define IDC_PREFS_ACCOUNT_SMTP_TABS				5147
+
+#define IDC_PREFS_ACCOUNT_SMTP_UseQueue			5148
+#define IDC_PREFS_ACCOUNT_SMTP_HoldMessages		5149
+
+#define IDC_PREFS_ACCOUNT_REMOTE_TABS			5150
+
+#define IDC_PREFS_ACCOUNT_Remote_UseRemote		5151
+
+#define IDC_PREFS_ACCOUNT_Remote_SetList		5155
+#define IDC_PREFS_ACCOUNT_Remote_RefreshSets	5156
+#define IDC_PREFS_ACCOUNT_Remote_DeleteSet		5157
+#define IDC_PREFS_ACCOUNT_Remote_Renameset		5158
+
+#define IDC_PREFS_ACCOUNT_ADDRESS_TABS			5160
+
+#define IDC_PREFS_ACCOUNT_ADBK_LOGINATSTART		5161
+#define IDC_PREFS_ACCOUNT_ADBK_ALLOWDISCONNECT	5162
+
+#define IDC_LDAPROOT							5165
+#define IDC_LDAPNAME							5166
+#define IDC_LDAPEMAIL							5167
+#define IDC_LDAPNICKNAME						5168
+#define IDC_LDAPADDR							5169
+#define IDC_LDAPCOMPANY							5170
+#define IDC_LDAPWORK							5171
+#define IDC_LDAPHOME							5172
+#define IDC_LDAPFAX								5173
+#define IDC_LDAPURL								5174
+#define IDC_LDAPNOTES							5175
+#define IDC_LDAPPUTNOTES						5176
+#define IDC_LDAPUSEEXPANSION					5177
+#define IDC_LDAPSEARCH							5178
+
+#define IDC_PREFS_ACCOUNT_SIEVE_TABS			5179
+
+#define IDC_PREFS_ACCOUNT_REMOTECAL_TABS		5180
+
+#define IDC_PREFS_ACCOUNT_REMOTECAL_LOGINATSTART	5181
+#define IDC_PREFS_ACCOUNT_REMOTECAL_ALLOWDISCONNECT	5182
+#define IDC_PREFS_ACCOUNT_REMOTECAL_PATH			5183
+
+#pragma mark ____________________________Prefs Alerts
+#define IDC_ALERTS_TABS							5190
+
+#define IDC_PREFS_ALERTS1_STYLEPOPUP			5200
+#define IDC_PREFS_ALERTS1_CHECKNEVER			5201
+#define IDC_PREFS_ALERTS1_CHECKONCE				5202
+#define IDC_PREFS_ALERTS1_CHECKEVERY			5203
+#define IDC_PREFS_ALERTS1_CHECKINTERVAL			5204
+#define IDC_PREFS_ALERTS1_USEALERT				5205
+#define IDC_PREFS_ALERTS1_USEBACKALERT			5206
+#define IDC_PREFS_ALERTS1_SHOWICON				5207
+#define IDC_PREFS_ALERTS1_PLAYSOUND				5208
+#define IDC_PREFS_ALERTS1_SOUNDPOPUP			5209
+#define IDC_PREFS_ALERTS1_SPEAK					5210
+#define IDC_PREFS_ALERTS1_SPEAKTEXT				5211
+#define IDC_PREFS_ALERTS1_OPEN					5212
+#define IDC_PREFS_ALERTS1_NEWMESSAGES			5213
+#define IDC_PREFS_ALERTS1_ALLMESSAGES			5214
+#define IDC_PREFS_ALERTS1_CABINETS				5215
+
+#define IDC_PREFS_ALERTS2_USEALERT				5230
+#define IDC_PREFS_ALERTS2_PLAYSOUND				5231
+#define IDC_PREFS_ALERTS2_SOUNDPOPUP			5232
+#define IDC_PREFS_ALERTS2_SPEAK					5233
+#define IDC_PREFS_ALERTS2_SPEAKTEXT				5234
+
+#pragma mark ____________________________Prefs Display
+#define IDC_DISPLAY_TABS						5240
+#define IDC_DISPLAY_RESET						5241
+#define IDC_DISPLAY_MULTI_ALLOWSHORTCUTS		5242
+#define IDC_DISPLAY_MULTI_TASKBAR				5243
+
+#define IDC_SERVER_LOGGEDIN_COLOUR			5250
+#define IDC_SERVER_LOGGEDIN_BOLD			5251
+#define IDC_SERVER_LOGGEDIN_ITALIC			5252
+#define IDC_SERVER_LOGGEDIN_STRIKE			5253
+#define IDC_SERVER_LOGGEDIN_UNDER			5254
+#define IDC_SERVER_LOGGEDOUT_COLOUR			5255
+#define IDC_SERVER_LOGGEDOUT_BOLD			5256
+#define IDC_SERVER_LOGGEDOUT_ITALIC			5257
+#define IDC_SERVER_LOGGEDOUT_STRIKE			5258
+#define IDC_SERVER_LOGGEDOUT_UNDER			5259
+#define IDC_SERVER_SERVER_COLOUR			5260
+#define IDC_SERVER_CABINET_COLOUR			5261
+#define IDC_SERVER_HIER_COLOUR				5262
+#define IDC_SERVER_USESERVER				5263
+#define IDC_SERVER_USEFAVOURITE				5264
+#define IDC_SERVER_USEHIERARCHY				5265
+
+#define IDC_MBOX_RECENTCOLOUR				5270
+#define IDC_MBOX_RECENTBOLD					5271
+#define IDC_MBOX_RECENTITALIC				5272
+#define IDC_MBOX_RECENTSTRIKE				5273
+#define IDC_MBOX_RECENTUNDER				5274
+#define IDC_MBOX_UNSEENCOLOUR				5275
+#define IDC_MBOX_UNSEENBOLD					5276
+#define IDC_MBOX_UNSEENITALIC				5277
+#define IDC_MBOX_UNSEENSTRIKE				5278
+#define IDC_MBOX_UNSEENUNDER				5279
+#define IDC_MBOX_OPENCOLOUR					5280
+#define IDC_MBOX_OPENBOLD					5281
+#define IDC_MBOX_OPENITALIC					5282
+#define IDC_MBOX_OPENSTRIKE					5283
+#define IDC_MBOX_OPENUNDER					5284
+#define IDC_MBOX_FAVCOLOUR					5285
+#define IDC_MBOX_FAVBOLD					5286
+#define IDC_MBOX_FAVITALIC					5287
+#define IDC_MBOX_FAVSTRIKE					5288
+#define IDC_MBOX_FAVUNDER					5289
+#define IDC_MBOX_CLOSEDCOLOUR				5290
+#define IDC_MBOX_CLOSEDBOLD					5291
+#define IDC_MBOX_CLOSEDITALIC				5292
+#define IDC_MBOX_CLOSEDSTRIKE				5293
+#define IDC_MBOX_CLOSEDUNDER				5294
+#define IDC_MBOX_IGNORERECENT				5295
+
+#define IDC_MSG_UNSEENCOLOUR				5300
+#define IDC_MSG_UNSEENBOLD					5301
+#define IDC_MSG_UNSEENITALIC				5302
+#define IDC_MSG_UNSEENSTRIKE				5303
+#define IDC_MSG_UNSEENUNDER					5304
+#define IDC_MSG_SEENCOLOUR					5305
+#define IDC_MSG_SEENBOLD					5306
+#define IDC_MSG_SEENITALIC					5307
+#define IDC_MSG_SEENSTRIKE					5308
+#define IDC_MSG_SEENUNDER					5309
+#define IDC_MSG_ANSWEREDCOLOUR				5310
+#define IDC_MSG_ANSWEREDBOLD				5311
+#define IDC_MSG_ANSWEREDITALIC				5312
+#define IDC_MSG_ANSWEREDSTRIKE				5313
+#define IDC_MSG_ANSWEREDUNDER				5314
+#define IDC_MSG_IMPORTANTCOLOUR				5315
+#define IDC_MSG_IMPORTANTBOLD				5316
+#define IDC_MSG_IMPORTANTITALIC				5317
+#define IDC_MSG_IMPORTANTSTRIKE				5318
+#define IDC_MSG_IMPORTANTUNDER				5319
+#define IDC_MSG_DELETEDCOLOUR				5320
+#define IDC_MSG_DELETEDBOLD					5321
+#define IDC_MSG_DELETEDITALIC				5322
+#define IDC_MSG_DELETEDSTRIKE				5323
+#define IDC_MSG_DELETEDUNDER				5324
+#define IDC_MSG_MULTIBOLD					5325
+#define IDC_MSG_MULTIITALIC					5326
+#define IDC_MSG_MULTISTRIKE					5327
+#define IDC_MSG_MULTIUNDER					5328
+#define IDC_MSG_MATCHCOLOUR					5329
+#define IDC_MSG_NONMATCHCOLOUR				5330
+#define IDC_MSG_USEMATCH					5331
+#define IDC_MSG_USENONMATCH					5332
+#define IDC_MSG_USELOCALTIMEZONE			5333
+
+#define IDC_PREFSLABEL_LABEL1				6201
+#define IDC_PREFSLABEL_LABEL2				6202
+#define IDC_PREFSLABEL_LABEL3				6203
+#define IDC_PREFSLABEL_LABEL4				6204
+#define IDC_PREFSLABEL_LABEL5				6205
+#define IDC_PREFSLABEL_LABEL6				6206
+#define IDC_PREFSLABEL_LABEL7				6207
+#define IDC_PREFSLABEL_LABEL8				6208
+
+#define IDC_PREFSLABEL_USECOLOR1			6211
+#define IDC_PREFSLABEL_USECOLOR2			6212
+#define IDC_PREFSLABEL_USECOLOR3			6213
+#define IDC_PREFSLABEL_USECOLOR4			6214
+#define IDC_PREFSLABEL_USECOLOR5			6215
+#define IDC_PREFSLABEL_USECOLOR6			6216
+#define IDC_PREFSLABEL_USECOLOR7			6217
+#define IDC_PREFSLABEL_USECOLOR8			6218
+
+#define IDC_PREFSLABEL_COLOR1				6221
+#define IDC_PREFSLABEL_COLOR2				6222
+#define IDC_PREFSLABEL_COLOR3				6223
+#define IDC_PREFSLABEL_COLOR4				6224
+#define IDC_PREFSLABEL_COLOR5				6225
+#define IDC_PREFSLABEL_COLOR6				6226
+#define IDC_PREFSLABEL_COLOR7				6227
+#define IDC_PREFSLABEL_COLOR8				6228
+
+#define IDC_PREFSLABEL_USEBKGND1			6231
+#define IDC_PREFSLABEL_USEBKGND2			6232
+#define IDC_PREFSLABEL_USEBKGND3			6233
+#define IDC_PREFSLABEL_USEBKGND4			6234
+#define IDC_PREFSLABEL_USEBKGND5			6235
+#define IDC_PREFSLABEL_USEBKGND6			6236
+#define IDC_PREFSLABEL_USEBKGND7			6237
+#define IDC_PREFSLABEL_USEBKGND8			6238
+
+#define IDC_PREFSLABEL_BKGND1				6241
+#define IDC_PREFSLABEL_BKGND2				6242
+#define IDC_PREFSLABEL_BKGND3				6243
+#define IDC_PREFSLABEL_BKGND4				6244
+#define IDC_PREFSLABEL_BKGND5				6245
+#define IDC_PREFSLABEL_BKGND6				6246
+#define IDC_PREFSLABEL_BKGND7				6247
+#define IDC_PREFSLABEL_BKGND8				6248
+
+#define IDC_PREFSLABEL_BOLD1				6251
+#define IDC_PREFSLABEL_BOLD2				6252
+#define IDC_PREFSLABEL_BOLD3				6253
+#define IDC_PREFSLABEL_BOLD4				6254
+#define IDC_PREFSLABEL_BOLD5				6255
+#define IDC_PREFSLABEL_BOLD6				6256
+#define IDC_PREFSLABEL_BOLD7				6257
+#define IDC_PREFSLABEL_BOLD8				6258
+
+#define IDC_PREFSLABEL_ITALIC1				6261
+#define IDC_PREFSLABEL_ITALIC2				6262
+#define IDC_PREFSLABEL_ITALIC3				6263
+#define IDC_PREFSLABEL_ITALIC4				6264
+#define IDC_PREFSLABEL_ITALIC5				6265
+#define IDC_PREFSLABEL_ITALIC6				6266
+#define IDC_PREFSLABEL_ITALIC7				6267
+#define IDC_PREFSLABEL_ITALIC8				6268
+
+#define IDC_PREFSLABEL_STRIKE1				6271
+#define IDC_PREFSLABEL_STRIKE2				6272
+#define IDC_PREFSLABEL_STRIKE3				6273
+#define IDC_PREFSLABEL_STRIKE4				6274
+#define IDC_PREFSLABEL_STRIKE5				6275
+#define IDC_PREFSLABEL_STRIKE6				6276
+#define IDC_PREFSLABEL_STRIKE7				6277
+#define IDC_PREFSLABEL_STRIKE8				6278
+
+#define IDC_PREFSLABEL_UNDER1				6281
+#define IDC_PREFSLABEL_UNDER2				6282
+#define IDC_PREFSLABEL_UNDER3				6283
+#define IDC_PREFSLABEL_UNDER4				6284
+#define IDC_PREFSLABEL_UNDER5				6285
+#define IDC_PREFSLABEL_UNDER6				6286
+#define IDC_PREFSLABEL_UNDER7				6287
+#define IDC_PREFSLABEL_UNDER8				6288
+
+#define IDC_PREFSLABEL_IMAPLABELS			6289
+
+#define IDC_IMAPLABELS_NAME1				6290
+#define IDC_IMAPLABELS_NAME2				6291
+#define IDC_IMAPLABELS_NAME3				6292
+#define IDC_IMAPLABELS_NAME4				6293
+#define IDC_IMAPLABELS_NAME5				6294
+#define IDC_IMAPLABELS_NAME6				6295
+#define IDC_IMAPLABELS_NAME7				6296
+#define IDC_IMAPLABELS_NAME8				6297
+
+#define IDC_IMAPLABELS_LABEL1				6300
+#define IDC_IMAPLABELS_LABEL2				6301
+#define IDC_IMAPLABELS_LABEL3				6302
+#define IDC_IMAPLABELS_LABEL4				6303
+#define IDC_IMAPLABELS_LABEL5				6304
+#define IDC_IMAPLABELS_LABEL6				6305
+#define IDC_IMAPLABELS_LABEL7				6306
+#define IDC_IMAPLABELS_LABEL8				6307
+
+#define IDC_QUOTATION1COLOUR             	5340
+#define IDC_QUOTATIONBOLD               	5341
+#define IDC_QUOTATIONITALIC             	5342
+#define IDC_QUOTATIONUNDER              	5343
+#define IDC_QUOTATION2COLOUR             	5344
+#define IDC_QUOTATION3COLOUR             	5345
+#define IDC_QUOTATION4COLOUR             	5346
+#define IDC_QUOTATION5COLOUR             	5347
+#define IDC_USEQUOTATION                    5348
+#define IDC_RECOGNISEQUOTES	            	5349
+
+#define IDC_URLCOLOUR                   	5350
+#define IDC_URLBOLD                     	5351
+#define IDC_URLITALIC                   	5352
+#define IDC_URLUNDER                    	5353
+#define IDC_URLSEENCOLOUR                   5354
+#define IDC_URLSEENBOLD                     5355
+#define IDC_URLSEENITALIC                   5356
+#define IDC_URLSEENUNDER                    5357
+#define IDC_HEADERCOLOUR                	5358
+#define IDC_HEADERBOLD                  	5359
+#define IDC_HEADERITALIC                	5360
+#define IDC_HEADERUNDER                 	5361
+#define IDC_TAGCOLOUR                   	5362
+#define IDC_TAGBOLD                     	5363
+#define IDC_TAGITALIC                   	5364
+#define IDC_TAGUNDER                    	5365
+#define IDC_RECOGNISEURLS               	5366
+
+#pragma mark ____________________________Prefs Fonts
+#define IDC_LISTFONT                  		5370
+#define IDC_LISTFONTSIZE             		5371
+#define IDC_LISTFONTBTN              		5372
+#define IDC_DISPLAYFONT              		5373
+#define IDC_DISPLAYFONTSIZE          		5374
+#define IDC_DISPLAYFONTBTN           		5375
+#define IDC_PRINTERFONT              		5376
+#define IDC_PRINTERFONTSIZE          		5377
+#define IDC_PRINTERFONTBTN           		5378
+#define IDC_CAPTIONFONT              		5379
+#define IDC_CAPTIONFONTSIZE          		5380
+#define IDC_CAPTIONFONTBTN           		5381
+#define IDC_FIXEDFONT                   	5382
+#define IDC_FIXEDFONTSIZE               	5383
+#define IDC_FIXEDFONTBTN               		5384
+#define IDC_HTMLFONT                    	5385
+#define IDC_HTMLFONTSIZE                	5386
+#define IDC_HTMLFONTBTN                 	5387
+#define IDC_MINIMUMFONTPOPUP				5388
+#define IDC_USESTYLEDFONTS					5389
+
+#pragma mark ____________________________Prefs Mailbox
+#define IDC_MAILBOX_TABS					5399
+#define IDC_OPENOLDEST                  	5400
+#define IDC_OPENNEWEST                 		5401
+#define IDC_OPENUNSEEN                  	5402
+#define IDC_NOOPENPREVIEW               	5403
+#define IDC_UNSEENNEW                   	5404
+#define IDC_RECENTNEW                   	5405
+#define IDC_RECENTUNSEENNEW             	5406
+#define IDC_OLDESTTONEWEST					5407
+#define IDC_NEWESTTOOLDEST					5408
+#define IDC_EXPUNGECLOSE                	5409
+#define IDC_WARNEXPUNGE                 	5410
+#define IDC_WARNPUNTUNSEEN                 	5411
+#define IDC_USECOPYTOCABINET            	5412
+#define IDC_USEAPPENDTOCABINET          	5413
+#define IDC_MAXIMUMRECENT               	5414
+#define IDC_MOVEREAD                    	5415
+#define IDC_MOVEMAILBOX                 	5416
+#define IDC_MOVETOPOPUP                 	5417
+#define IDC_WARNMOVE                    	5418
+#define IDC_RLOCACHE                    	5419
+#define IDC_RNOCACHELIMIT               	5420
+#define IDC_RUSEHICACHE                 	5421
+#define IDC_RHICACHE						5422
+#define IDC_RAUTOCACHEINCREMENT				5423
+#define IDC_RINCREMENTBY					5424
+#define IDC_RCACHEINCREMENT					5425
+#define IDC_RSORTCACHE						5426
+#define IDC_LLOCACHE                    	5427
+#define IDC_LNOCACHELIMIT               	5428
+#define IDC_LUSEHICACHE                 	5429
+#define IDC_LHICACHE						5430
+#define IDC_LAUTOCACHEINCREMENT				5431
+#define IDC_LINCREMENTBY					5432
+#define IDC_LCACHEINCREMENT					5433
+#define IDC_LSORTCACHE						5434
+#define IDC_ROLLOVERWARN					5435
+#define IDC_DOROLLOVER						5436
+#define IDC_SCROLLFORUNSEEN					5437
+
+#define IDC_PREFS_MAILBOX_DISCONNECTED_TABS	5438
+
+#define IDC_PROMPTSTARTUPDISCONNECT			5440
+#define IDC_AUTODIAL						5441
+#define IDC_UIDVALIDITYMISMATCH				5442
+#define IDC_USE_OS_LOCATIONS				5443
+#define IDC_SLEEP_RECONNECT					5444
+
+#pragma mark ____________________________Prefs Message
+#define IDC_MESSAGE_TABS					5445
+
+#define IDC_SHOWHEADER                  	5450
+#define IDC_SHOWSTYLEDTEXT	            	5451
+#define IDC_SAVEHEADER      	            5452
+#define IDC_SAVEEXTENSION       	        5453
+#define IDC_DELETECOPY              	    5454
+#define IDC_OPENDELETED                 	5455
+#define IDC_CLOSEDELETED					5456
+#define IDC_OPENREUSE		                5457
+#define IDC_QUOTESELECTION		            5458
+#define IDC_ALWAYSQUOTE  	            	5459
+#define IDC_AUTODIGEST						5460
+#define IDC_EXPANDHEADER					5461
+#define IDC_EXPANDPARTS						5462
+#define IDC_MDNALWAYSSEND					5463
+#define IDC_MDNNEVERSEND					5464
+#define IDC_MDNPROMPTSEND					5465
+
+#define IDC_NOLIMIT                     	5468
+#define IDC_LIMITSIZE                   	5469
+#define IDC_WARNSIZE                    	5470
+#define IDC_REPLYALTDOWN                	5471
+#define IDC_REPLYALTUP                  	5472
+#define IDC_PRINTCAPTION					5473
+#define IDC_PREFSMESSAGE_FORWARDCHOICE		5474
+#define IDC_PREFSMESSAGE_FORWARDOPTIONS		5475
+#define IDC_PREFSMESSAGE_FORWARDQUOTE		5476
+#define IDC_PREFSMESSAGE_FORWARDHEADERS		5477
+#define IDC_PREFSMESSAGE_FORWARDATTACHMENT	5478
+#define IDC_PREFSMESSAGE_FORWARDRFC822		5479
+
+#pragma mark ____________________________Prefs Letter
+#define IDC_LETTER_TABS					5480
+#define IDC_DEFAULTDOMAIN               5481
+#define IDC_SPACESPERTAB                5482
+#define IDC_TABSPACE                    5483
+#define IDC_WRAPLENGTH                  5484
+#define IDC_WRAPTOWINDOW                5485
+#define IDC_INCLUDEPREFIX               5486
+#define IDC_REPLYCAPTION                5487
+#define IDC_STRIPSIGDASHES				5488
+#define IDC_WARNREPLYSUBJECT			5489
+#define IDC_FORWARDPREFIX               5490
+#define IDC_FORWARDCAPTION              5491
+#define IDC_FORWARDSUBJECT				5492
+#define IDC_LTRPRINTCAPTION				5493
+#define IDC_SEPARATEBCC					5494
+#define IDC_BCCCAPTION					5495
+#define IDC_SHOWCC						5496
+#define IDC_SHOWBCC						5497
+
+#define IDC_AUTOINSERTSIG               5498
+#define IDC_BLANKLINE                   5499
+#define IDC_INSERTSIGDASHES				5500
+#define IDC_NOSUBJECTWARN               5501
+#define IDC_DISPLAYATTACHMENTS          5502
+#define IDC_APPENDDRAFT                 5503
+#define IDC_COPYINBOXREPLY              5504
+#define IDC_GENERATESENDER              5505
+#define IDC_COMPOSEAS                   5506
+#define IDC_ENRICHED_PLAIN              5507
+#define IDC_ENRICHED_HTML               5508
+#define IDC_HTML_PLAIN                  5509
+#define IDC_HTML_ENRICHED               5510
+#define IDC_FORMAT_FLOWED				5511
+#define IDC_DELETEORIGINALDRAFT			5512
+#define IDC_TEMPLATEDRAFTS				5513
+#define IDC_SAVEDRAFTTOFILE				5514
+#define IDC_SAVEDRAFTTOMAILBOX			5515
+#define IDC_SAVEDRAFTCHOOSE				5516
+#define IDC_SAVEDRAFTMAILBOXNAME		5517
+#define IDC_SAVEDRAFTMAILBOXPOPUP		5518
+#define IDC_SMARTURLPASTE	            5519
+#define IDC_ALWAYSUNICODE	            5520
+#define IDC_DISPLAYIDENTITYFROM	        5521
+#define IDC_AUTOSAVEDRAFTS	            5522
+#define IDC_AUTOSAVEDRAFTSINTERVAL	    5523
+
+#define IDI_XHEADERLINES                5524
+#define IDI_SIGNATURE                   5525
+
+#define IDC_CAPTION_MYNAME				5526
+#define IDC_CAPTION_MYEMAIL				5527
+#define IDC_CAPTION_MYFULL				5528
+#define IDC_CAPTION_MYFIRST				5529
+#define IDC_CAPTION_SMARTNAME			5530
+#define IDC_CAPTION_SMARTEMAIL			5531
+#define IDC_CAPTION_SMARTFULL			5532
+#define IDC_CAPTION_SMARTFIRST			5533
+#define IDC_CAPTION_FROMNAME			5534
+#define IDC_CAPTION_FROMEMAIL			5535
+#define IDC_CAPTION_FROMFULL			5536
+#define IDC_CAPTION_FROMFIRST			5537
+#define IDC_CAPTION_TONAME				5538
+#define IDC_CAPTION_TOEMAIL				5539
+#define IDC_CAPTION_TOFULL				5540
+#define IDC_CAPTION_TOFIRST				5541
+#define IDC_CAPTION_CCNAME				5542
+#define IDC_CAPTION_CCEMAIL				5543
+#define IDC_CAPTION_CCFULL				5544
+#define IDC_CAPTION_CCFIRST				5545
+#define IDC_CAPTION_SUBJECT				5546
+#define IDC_CAPTION_SENTSHORT			5547
+#define IDC_CAPTION_SENTLONG			5548
+#define IDC_CAPTION_DATENOW				5549
+#define IDC_CAPTION_PAGE				5550
+#define IDC_CAPTION_CURSOR_TOP			5551
+#define IDC_CAPTION_HEADER_MESSAGE		5552
+#define IDC_CAPTION_HEADER_DRAFT		5553
+#define IDC_CAPTION_HEADER_BOX			5554
+#define IDC_CAPTION_PRINT_SUMMARY		5555
+#define IDC_CAPTION_HEADER				5556
+#define IDC_CAPTION_FOOTER_MESSAGE		5557
+#define IDC_CAPTION_FOOTER_DRAFT		5558
+#define IDC_CAPTION_FOOTER_BOX			5559
+#define IDC_CAPTION_FOOTER				5560
+#define IDC_CAPTION_REVERT		        5561
+
+#define IDC_EDITHEADFOOT_USEFILE        5562
+#define IDC_EDITHEADFOOT_USETEXT        5563
+#define IDC_EDITHEADFOOT_FILE           5564
+#define IDC_EDITHEADFOOT_CHOOSE         5565
+#define IDC_EDITHEADFOOT_TEXT           5566
+#define IDC_EDITHEADFOOT_RULER          5567
+#define IDS_FIXEDWIDTHWARN              5568
+
+#pragma mark ____________________________Prefs Security
+#define IDC_PREFERREDPLUGIN             5570
+#define IDC_USEMIMESECURITY             5571
+#define IDC_ENCRYPTSELF                 5572
+#define IDC_CACHEPASSPHRASE             5573
+#define IDC_AUTOVERIFY					5574
+#define IDC_AUTODECRYPT					5575
+#define IDC_WARNUNENCRYPTEDSEND			5576
+#define IDC_USEERRORALERTS				5577
+#define IDC_VERIFYOK_USEALERT			5578
+#define IDC_VERIFYOK_PLAYSOUND			5579
+#define IDC_VERIFYOK_SOUNDPOPUP			5580
+#define IDC_VERIFYOK_SPEAK				5581
+#define IDC_VERIFYOK_SPEAKTEXT			5582
+#define IDC_CERTIFICATES				5583
+
+#define IDM_PREFERREDPLUGIN_PGP			5590
+#define IDM_PREFERREDPLUGIN_GPG			5591
+#define IDM_PREFERREDPLUGIN_SMIME		5592
+
+#pragma mark ____________________________Prefs Identity
+#define IDC_IDENTITIES                  5600
+#define IDC_ADDIDENTITY                 5601
+#define IDC_CHANGEIDENTITY              5602
+#define IDC_DUPLICATEIDENTITY           5603
+#define IDC_DELETEIDENTITY              5604
+#define IDC_CONTEXTTIED					5605
+#define IDC_MSGTIED						5606
+#define IDC_MBOXINHERITTIED				5607
+#define IDC_OUTGOINGADDRESSES           5608
+#define IDC_IDENTITIES_SELECT			5609
+
+#define IDS_IDENTITY_PANEL_FROM			5610
+#define IDS_IDENTITY_PANEL_REPLYTO		5611
+#define IDS_IDENTITY_PANEL_SENDER		5612
+#define IDS_IDENTITY_PANEL_TO			5613
+#define IDS_IDENTITY_PANEL_CC			5614
+#define IDS_IDENTITY_PANEL_BCC			5615
+#define IDS_IDENTITY_PANEL_CALENDAR		5616
+
+#define IDC_IDENTITY_NAME               5616
+#define IDC_SMTPACCOUNTS                5617
+#define IDC_SMTPACCOUNTSINHERIT			5618
+#define IDC_IDENTITY_TABS               5619
+#define IDC_IDENTITY_INHERIT            5620
+
+#define IDC_IDENTITY_TNAME              5621
+#define IDC_IDENTITY_SNAME              5622
+#define IDC_IDENTITY_ACTIVE             5623
+#define IDC_IDENTITY_SINGLE             5624
+#define IDC_IDENTITY_MULTIPLE           5625
+#define IDC_IDENTITY_TEMAIL             5626
+#define IDC_IDENTITY_SEMAIL             5627
+#define IDC_IDENTITY_MADDRESS           5628
+
+#define IDC_IDENTITY_COPYTO_ACTIVE		5629
+#define IDC_IDENTITY_COPYTO				5630
+#define IDC_IDENTITY_COPYTO1			5631
+#define IDC_IDENTITY_COPYTO2			5632
+#define IDC_IDENTITY_COPYTO3			5633
+#define IDC_IDENTITY_COPYTO_POPUP		5634
+#define IDC_IDENTITY_ALSO_COPYTO		5635
+#define IDC_IDENTITY_HEADER_ACTIVE		5636
+#define IDC_IDENTITY_HEADERBTN			5637
+#define IDC_IDENTITY_SIGNATURE_ACTIVE	5638
+#define IDC_IDENTITY_SIGNATUREBTN		5639
+
+#define IDC_IDENTITY_OUTGOING_TABS		5640
+
+#define IDC_IDENTITY_DSN_ACTIVE			5641
+#define IDC_IDENTITY_DSN_USEDSN			5642
+#define IDC_IDENTITY_DSN_SUCCESS		5643
+#define IDC_IDENTITY_DSN_FAILURE		5644
+#define IDC_IDENTITY_DSN_DELAY			5645
+#define IDC_IDENTITY_DSN_FULL			5646
+#define IDC_IDENTITY_DSN_HEADERS		5647
+
+#define IDC_IDENTITY_SECURITY_ACTIVE	5650
+#define IDC_IDENTITY_SIGN				5651
+#define IDC_IDENTITY_ENCRYPT			5652
+#define IDC_IDENTITY_KEY_POPUP			5653
+#define IDC_IDENTITY_KEY_EDIT			5654
+
+#pragma mark ____________________________Prefs Address
+#define IDC_ADDRESSALTDOWN              		5660
+#define IDC_ADDRESSALTUP                		5661
+#define IDC_ADDRESS_TABS						5662
+
+#define IDC_PREFS_ADDRESS_EXPANDNONICKNAMES		5664
+#define IDC_PREFS_ADDRESS_EXPANDFAILEDNICKNAMES	5665
+#define IDC_PREFS_ADDRESS_EXPANDFULLNAME		5666
+#define IDC_PREFS_ADDRESS_EXPANDNICKNAME		5667
+#define IDC_PREFS_ADDRESS_EXPANDEMAIL			5668
+#define IDC_PREFS_ADDRESS_SKIPLDAP				5669
+
+#define IDC_PREFS_ADDRESS_CAPTUREADBK			5670
+#define IDC_PREFS_ADDRESS_CAPTUREADBKPOPUP		5671
+#define IDC_PREFS_ADDRESS_CAPTUREDISPLAYEDIT	5672
+#define IDC_PREFS_ADDRESS_CAPTUREALLOWCHOICE	5673
+#define IDC_PREFS_ADDRESS_CAPTUREREAD			5674
+#define IDC_PREFS_ADDRESS_CAPTURERESPONSE		5675
+#define IDC_PREFS_ADDRESS_CAPTUREFROM			5676
+#define IDC_PREFS_ADDRESS_CAPTURECC				5677
+#define IDC_PREFS_ADDRESS_CATPUREREPLYTO		5678
+#define IDC_PREFS_ADDRESS_CAPTURETO				5679
+
+#pragma mark ____________________________Prefs Calendar
+#define IDC_PREFSCALENDAR_STARTWEEK				5680
+#define IDC_PREFSCALENDAR_SUN					5681
+#define IDC_PREFSCALENDAR_MON					5682
+#define IDC_PREFSCALENDAR_TUE					5683
+#define IDC_PREFSCALENDAR_WED					5684
+#define IDC_PREFSCALENDAR_THU					5685
+#define IDC_PREFSCALENDAR_FRI					5686
+#define IDC_PREFSCALENDAR_SAT					5687
+#define IDC_PREFSCALENDAR_MORNINGSTART			5688
+#define IDC_PREFSCALENDAR_AFTERNOONSTART		5689
+#define IDC_PREFSCALENDAR_EVENINGSTART			5690
+#define IDC_PREFSCALENDAR_AWAKESTART			5691
+#define IDC_PREFSCALENDAR_WORKSTART				5692
+#define IDC_PREFSCALENDAR_MORNINGEND			5693
+#define IDC_PREFSCALENDAR_AFTERNOONEND			5694
+#define IDC_PREFSCALENDAR_EVENINGEND			5695
+#define IDC_PREFSCALENDAR_AWAKEEND				5696
+#define IDC_PREFSCALENDAR_WORKEND				5697
+#define IDC_PREFSCALENDAR_DISPLAYTIMES			5698
+#define IDC_PREFSCALENDAR_ATTACHMENTS			5699
+#define IDC_PREFSCALENDAR_AUTOMATICIMIP			5700
+
+#pragma mark ____________________________Prefs Attachments
+#define IDC_ATTACHMENT_TABS				5710
+
+#define IDC_DEFAULTENCODING             5711
+#define IDC_ENCODEALWAYS                5712
+#define IDC_ENCODEWHENNEEDED            5713
+#define IDC_CHECKDEFAULTMAILTO			5714
+#define IDC_WARNMAILTOFILES				5715
+#define IDC_CHECKDEFAULTWEBCAL			5716
+#define IDC_WARNMISSINGATTACHMENTS		5717
+#define IDC_MISSINGATTACHMENTSUBJECT	5718
+#define IDC_MISSIGNATTACHMENTWORDS		5719
+
+#define IDC_VIEWDOUBLECLICK				5720
+#define IDC_SAVEDOUBLECLICK				5721
+#define IDC_ASKDOWNLOAD                 5722
+#define IDC_USEDOWNLOADDIR              5723
+#define IDC_DOWNLOADDIR                 5724
+#define IDC_CHOOSEDOWNLOADDIR           5725
+#define IDC_ALWAYSLAUNCH                5726
+#define IDC_ASKUSERLAUNCH               5727
+#define IDC_NEVERLAUNCH                 5728
+#define IDC_LAUNCHTEXT                  5729
+#define IDC_SHELLLAUNCH                 5730
+#define IDC_EXPLICITMAPPING             5731
+#define IDI_EXPLICITMAPPING             5732
+
+#define IDI_ACCOUNTMAILBOX              5740
+#define IDI_ACCOUNTSMTP                 5741
+#define IDI_ACCOUNTREMOTE               5742
+#define IDI_ACCOUNTADBK                 5743
+#define IDI_ACCOUNTADDRSEARCH           5744
+#define IDI_ACCOUNTSIEVE		        5745
+
+#define IDC_MAPTITLES                   5750
+#define IDC_MAPTABLE                    5751
+#define IDC_ADDMAP                      5752
+#define IDC_CHANGEMAP                   5753
+#define IDC_DELETEMAP                   5754
+
+#define IDC_EDITMAP_TYPE                5770
+#define IDC_EDITMAP_SUBTYPE             5771
+#define IDC_EDITMAP_SUFFIX              5772
+#define IDC_EDITMAP_ALWAYS              5773
+#define IDC_EDITMAP_ASK                 5774
+#define IDC_EDITMAP_NEVER               5775
+
+#pragma mark ____________________________Prefs Spelling
+#define IDC_SPELLING_TABS				5780
+
+#pragma mark ____________________________Address Search
+#define IDC_SEARCH_SOURCEPOPUP			5800
+#define IDC_SEARCH_SERVERPOPUP			5801
+#define IDC_SEARCH_FIELDPOPUP			5802
+#define IDC_SEARCH_METHODPOPUP			5803
+#define IDC_SEARCHTEXT					5804
+#define IDC_SEARCHBTN					5805
+#define IDC_SEARCHCLEARBTN				5806
+#define IDC_SEARCHNEWMSGBTN				5807
+
+#define IDS_SEARCH                      5808
+#define IDS_CLEAR                       5809
+#define IDS_ADBKSEARCHTITLE1            5810
+#define IDS_ADBKSEARCHTITLE2            5811
+#define IDS_ADBKSEARCHTITLE3			5812
+
+#define IDC_LOGOPTIONS_ENABLE			5855
+#define IDC_LOGOPTIONS_IMAP				5856
+#define IDC_LOGOPTIONS_POP3				5857
+#define IDC_LOGOPTIONS_IMSP				5858
+#define IDC_LOGOPTIONS_ACAP				5859
+#define IDC_LOGOPTIONS_SMTP				5860
+#define IDC_LOGOPTIONS_HTTP				5861
+#define IDC_LOGOPTIONS_PLUGINS			5862
+#define IDC_LOGOPTIONS_FILTERS			5863
+#define IDC_LOGOPTIONS_ERRORS			5864
+#define IDC_LOGOPTIONS_AUTH				5865
+#define IDC_LOGOPTIONS_PLAYBACK			5866
+#define IDC_LOGOPTIONS_OVERWRITE		5867
+#define IDC_LOGOPTIONS_APPLDIR			5868
+#define IDC_LOGOPTIONS_USERDIR			5869
+
+#define IDC_SIMPLE_REALNAME             5900
+#define IDC_SIMPLE_EMAILADDR            5901
+#define IDC_SIMPLE_IMAPUID              5902
+#define IDC_SIMPLE_IMAPIP               5903
+#define IDC_SIMPLE_SERVERIMAP			5904
+#define IDC_SIMPLE_SERVERPOP3			5905
+#define IDC_SIMPLE_SERVERLOCAL			5906
+#define IDC_SIMPLE_SMTPIP               5907
+#define IDC_SIMPLE_CHECKNEVER           5908
+#define IDC_SIMPLE_CHECKEVERY           5909
+#define IDC_SIMPLE_CHECKINTERVAL        5910
+#define IDC_SIMPLE_USEALERT             5911
+#define IDC_SIMPLE_REMEMBERUID          5912
+#define IDC_SIMPLE_REMEMBERPSWD         5913
+#define IDC_SIMPLE_LOGINSTART           5914
+#define IDC_SIMPLE_LEAVEONSERVER		5915
+#define IDC_SIMPLE_SEPARATORTITLE		5916
+#define IDC_SIMPLE_SEPARATOR            5917
+#define IDC_SIMPLE_SIGNATURE            5918
+#define IDC_SIMPLE_COPYTO				5919
+#define IDC_SIMPLE_COPYMAILBOX			5920
+#define IDC_SIMPLE_COPYTOPOPUP			5921
+
+#define IDC_LICENSEE                    6000
+#define IDC_SERIALNUMBER                6001
+#define IDC_ORGANISATION                6002
+#define IDC_REGKEY                      6003
+#define IDC_REGKEY1                     6004
+#define IDC_REGKEY2                     6005
+#define IDC_REGKEY3                     6006
+#define IDC_REGKEY4                     6007
+#define IDC_RUNDEMO                     6008
+#define IDC_DEMOLICENSE                 6009
+#define IDT_DEMOLICENSE                 6010
+
+#define IDC_MUUSERID                    6020
+#define IDC_MUUSERID_TXT				6021
+#define IDC_MUPASSWORD                  6022
+#define IDC_MUPASSWORD_TXT              6023
+#define	IDC_MUSECURE					6024
+#define IDC_MUSECURE_TXT				6025
+#define IDC_MUSERVER                    6026
+#define IDC_MUAUTH						6027
+#define IDC_MUVERSION                   6028
+#define IDC_MUSERIAL                    6029
+#define IDC_MULICENSE                   6030
+#define IDC_MUREALNAME					6031
+#define IDC_MUSERVER_POPUP				6032
+
+#define IDC_CHOOSESERVERSMAIL			6100
+#define IDC_CHOOSESERVERSSMTP			6101
+
+#pragma mark ____________________________Calendar (6300 - 6999)
+
+#define IDR_POPUP_CONTEXT_EVENTITEM		6300
+#define IDR_POPUP_CONTEXT_TODOITEM		6301
+#define IDR_POPUP_CONTEXT_EVENTTABLE	6302
+#define IDR_POPUP_CONTEXT_TODOTABLE		6303
+#define IDR_POPUP_CONTEXT_CALENDARSTORE	6304
+
+// Toolbar
+#define IDC_TOOLBAR_CALENDAR_NEWEVENT		6310
+#define IDC_TOOLBAR_CALENDAR_NEWTODO		6311
+#define IDC_TOOLBAR_CALENDAR_DAY			6312
+#define IDC_TOOLBAR_CALENDAR_WORK			6313
+#define IDC_TOOLBAR_CALENDAR_WEEK			6314
+#define IDC_TOOLBAR_CALENDAR_MONTH			6315
+#define IDC_TOOLBAR_CALENDAR_YEAR			6316
+#define IDC_TOOLBAR_CALENDAR_SUMMARY		6317
+#define IDC_TOOLBAR_CALENDAR_TASKS			6318
+#define IDC_TOOLBAR_CALENDAR_TODAY			6319
+#define IDC_TOOLBAR_CALENDAR_GOTO			6320
+#define IDC_TOOLBAR_CALENDAR_NEWCALENDAR	6321
+
+#define IDI_CALENDAR_NEWEVENT			6330
+#define IDI_CALENDAR_NEWTODO			6331
+#define IDI_CALENDAR_DAY				6332
+#define IDI_CALENDAR_WORK				6333
+#define IDI_CALENDAR_WEEK				6334
+#define IDI_CALENDAR_MONTH				6335
+#define IDI_CALENDAR_YEAR				6336
+#define IDI_CALENDAR_SUMMARY			6337
+#define IDI_CALENDAR_TASKS				6338
+#define IDI_CALENDAR_TODAY				6339
+#define IDI_CALENDAR_GOTO				6340
+#define IDI_CALENDAR_NEWCALENDAR		6341
+
+// Calendar Store
+#define IDR_POPUP_CALENDARSTORE_HEADER		6355
+#define IDM_CALENDARSTORE_SUBSCRIBE			6356
+#define IDM_CALENDARSTORE_COLOUR			6357
+#define IDM_CALENDARSTORE_INSERT_AFTER		6358
+#define IDM_CALENDARSTORE_INSERT_BEFORE		6359
+#define IDM_CALENDARSTORE_DELETE			6360
+
+#define IDI_CALENDARSTORE_TITLE_SUBSCRIBE	6361
+#define IDI_CALENDAR						6362
+#define IDI_CALENDARUNCACHED				6363
+#define IDI_CALENDARWEBCAL					6364
+
+#define IDC_CALENDARSTORE_TABLE				6370
+
+// View bits
+#define IDR_POPUP_TIMEZONE				6400
+#define IDM_TIMEZONE_ANY				6401
+#define IDM_TIMEZONE_UTC				6402
+#define IDM_TIMEZONE_SEPARATOR			6403
+#define IDM_TIMEZONE_FIRST				6404
+
+// Year view
+#define IDC_YEARVIEW_PREV				6410
+#define IDC_YEARVIEW_NEXT				6411
+#define IDC_YEARVIEW_LAYOUT				6412
+#define IDR_POPUP_YEARLAYOUT			6412
+#define IDM_YEARLAYOUT_1_12				6413
+#define IDM_YEARLAYOUT_2_6				6414
+#define IDM_YEARLAYOUT_3_4				6415
+#define IDM_YEARLAYOUT_4_3				6416
+#define IDM_YEARLAYOUT_6_2				6417
+#define IDM_YEARLAYOUT_12_1				6418
+#define IDC_YEARVIEW_TABLE				6419
+
+// Month View
+#define IDC_MONTHVIEW_MONTHMINUS		6420
+#define IDC_MONTHVIEW_MONTHPLUS			6421
+#define IDC_MONTHVIEW_YEARMINUS			6422
+#define IDC_MONTHVIEW_YEARPLUS			6423
+#define IDC_MONTHVIEW_TIMEZONE_POPUP	6424
+#define IDC_MONTHVIEW_TABLE				6425
+#define IDI_TIMEDEVENT					6426
+#define IDI_HASALARM					6427
+#define IDI_ATTENDEE					6428
+#define IDI_DECLINED					6429
+#define IDI_ATTENDEEISME				6430
+#define IDI_NEEDSACTION					6431
+
+// Day-Week View
+#define IDC_DAYVIEW_WEEKPREV			6432
+#define IDC_DAYVIEW_WEEKNEXT			6433
+#define IDC_DAYVIEW_DAYPREV				6434
+#define IDC_DAYVIEW_DAYNEXT				6435
+#define IDC_DAYVIEW_TIMEZONE_POPUP		6436
+#define IDC_DAYVIEW_SCALE_POPUP			6437
+#define IDC_DAYVIEW_RANGE_POPUP			6438
+#define IDC_DAYVIEW_TABLE				6439
+
+#define IDR_POPUP_DAYVIEW_SCALE			6440
+#define IDM_DAYVIEW_SCALE_FIT			6441
+#define IDM_DAYVIEW_SCALE_FULL			6442
+#define IDM_DAYVIEW_SCALE_2				6443
+#define IDM_DAYVIEW_SCALE_3				6444
+#define IDM_DAYVIEW_SCALE_4				6445
+
+#define IDR_POPUP_DAYVIEW_RANGE			6450
+#define IDM_DAYVIEW_RANGE_FULL			6451
+#define IDM_DAYVIEW_RANGE_MORNING		6452
+#define IDM_DAYVIEW_RANGE_AFTERNOON		6453
+#define IDM_DAYVIEW_RANGE_EVENING		6454
+#define IDM_DAYVIEW_RANGE_AWAKE			6455
+#define IDM_DAYVIEW_RANGE_WORK			6456
+
+// Summary View
+#define IDC_SUMMARYVIEW_TIMEZONE_POPUP	6460
+#define IDC_SUMMARYVIEW_RANGE_POPUP		6461
+#define IDR_POPUP_SUMMARYRANGE			6462
+#define IDM_SUMMARYRANGE_TODAY			6462
+#define IDM_SUMMARYRANGE_DAYS			6463
+#define IDM_SUMMARYRANGE_WEEK			6464
+#define IDM_SUMMARYRANGE_WEEKS			6465
+#define IDM_SUMMARYRANGE_MONTH			6466
+#define IDM_SUMMARYRANGE_MONTHS			6467
+#define IDM_SUMMARYRANGE_YEAR			6468
+#define IDM_SUMMARYRANGE_YEARS			6469
+#define IDC_SUMMARYVIEW_TABLE			6470
+
+// To Do View
+#define IDR_POPUP_TODOSHOW				6480
+#define IDS_POPUP_TODOSHOW				6481
+#define IDC_TODOVIEW_SHOW				6482
+#define IDM_TODOSHOW_ALLDUE				6483
+#define IDM_TODOSHOW_ALL				6484
+#define IDM_TODOSHOW_DUETODAY			6485
+#define IDM_TODOSHOW_DUETHISWEEK		6486
+#define IDM_TODOSHOW_OVERDUE			6487
+#define IDC_TODO_TABLE					6488
+#define IDC_TODO_CHECKBOX				6489
+
+// Event/To Do Preview
+#define IDC_EVENTPREVIEW_EDIT			6490
+
+// Properties Dialog
+#define IDD_CALENDAR_OPTIONS             		6500
+#define IDD_CALENDAR_GENERAL             		6501
+#define IDD_CALENDAR_SERVER              		6502
+#define IDD_CALENDAR_WEBCAL              		6503
+#define IDD_CALENDAR_ACL	              		6504
+
+#define IDC_CALENDAROPTIONS_STATE				6510
+#define IDC_CALENDAROPTIONS_SUBSCRIBE			6511
+#define IDC_CALENDAROPTIONS_TIEIDENTITY			6512
+#define IDC_CALENDAROPTIONS_IDENTITYPOPUP		6513
+
+#define	IDC_CALENDARGENERAL_STATE				6515
+#define IDC_CALENDARGENERAL_NAME				6516
+#define IDC_CALENDARGENERAL_SERVER				6517
+#define IDC_CALENDARGENERAL_HIERARCHY			6518
+#define	IDC_CALENDARGENERAL_SEPARATOR			6519
+#define IDC_CALENDARGENERAL_SIZE				6520
+#define IDC_CALENDARGENERAL_CALCULATE			6521
+#define IDC_CALENDARGENERAL_STATUS				6522
+#define IDC_CALENDARGENERAL_SYNCHRONISED		6523
+
+#define IDC_CALENDARSERVER_STATE				6525
+#define IDC_CALENDARSERVER_NAME					6526
+#define IDC_CALENDARSERVER_TYPE					6527
+#define IDC_CALENDARSERVER_GREETING				6528
+#define IDC_CALENDARSERVER_CAPABILITY			6529
+#define IDC_CALENDARSERVER_CONNECTION			6530
+#define IDC_CALENDARSERVER_VIEWCERT				6531
+
+#define IDC_CALENDARWEBCAL_STATE				6534
+#define IDC_CALENDARWEBCAL_URL					6535
+#define IDC_CALENDARWEBCAL_REVERTURL			6536
+#define IDC_CALENDARWEBCAL_ALLOWCHANGES			6537
+#define IDC_CALENDARWEBCAL_AUTOPUBLISH			6538
+#define IDC_CALENDARWEBCAL_REFRESHNEVER			6539
+#define IDC_CALENDARWEBCAL_REFRESHEVERY			6540
+#define IDC_CALENDARWEBCAL_REFRESHINTERVAL		6541
+
+#define IDC_CALENDARACL_CALENDARPOPUP			6542
+#define IDC_CALENDARACL_TITLES					6543
+#define IDC_CALENDARACL_TABLE					6544
+#define IDC_CALENDARACL_NEWUSER					6545
+#define IDC_CALENDARACL_DELETEUSER				6546
+#define IDC_CALENDARACL_STYLEPOPUP				6547
+#define IDC_CALENDARACL_APPLYALL				6548
+
+// New Event/To Do Dialog
+#define IDD_CALENDAR_NEWEVENT					6550
+#define IDC_CALENDAR_NEWEVENT_SUMMARY			6551
+#define IDC_CALENDAR_NEWEVENT_CALENDARPOPUP		6552
+#define IDC_CALENDAR_NEWEVENT_STATUS			6553
+#define IDC_CALENDAR_NEWEVENT_TABS				6554
+#define IDC_CALENDAR_NEWEVENT_ORGANISEREDIT		6555
+
+#define IDR_POPUP_CALENDARS						6556
+#define IDM_POPUP_CALENDARS_FIRST				6557
+
+#define IDD_CALENDAR_NEWTODO					6560
+#define IDC_CALENDAR_NEWTODO_SUMMARY			6561
+#define IDC_CALENDAR_NEWTODO_CALENDARPOPUP		6562
+#define IDC_CALENDAR_NEWTODO_COMPLETED			6563
+#define IDC_CALENDAR_NEWTODO_COMPLETEDON		6564
+#define IDC_CALENDAR_NEWTODO_COMPLETEDNOW		6565
+#define IDC_CALENDAR_NEWTODO_TABS				6566
+#define IDC_CALENDAR_NEWTODO_ORGANISEREDIT		6567
+
+#define IDD_CALENDAR_DATETZSELECT				6570
+#define IDC_CALENDAR_DATETZSELECT_DATE			6571
+#define IDC_CALENDAR_DATETZSELECT_DATECHOOSE	6572
+#define IDC_CALENDAR_DATETZSELECT_TIME			6573
+#define IDC_CALENDAR_DATETZSELECT_TZPOPUP		6574
+
+#define IDD_CALENDAR_DURATIONSELECT				6580
+#define IDC_CALENDAR_DURATIONSELECT_NUMBER		6581
+#define IDC_CALENDAR_DURATIONSELECT_NUMBERSPIN	6582
+#define IDC_CALENDAR_DURATIONSELECT_PERIOD		6583
+#define IDC_CALENDAR_DURATIONSELECT_CAPTION1	6584
+#define IDC_CALENDAR_DURATIONSELECT_HOURS		6585
+#define IDC_CALENDAR_DURATIONSELECT_HOURSSPIN	6586
+#define IDC_CALENDAR_DURATIONSELECT_CAPTION2	6587
+#define IDC_CALENDAR_DURATIONSELECT_MINS		6588
+#define IDC_CALENDAR_DURATIONSELECT_MINSSPIN	6589
+#define IDC_CALENDAR_DURATIONSELECT_CAPTION3	6590
+#define IDC_CALENDAR_DURATIONSELECT_SECS		6591
+#define IDC_CALENDAR_DURATIONSELECT_SECSSPIN	6592
+#define IDC_CALENDAR_DURATIONSELECT_CAPTION4	6593
+
+#define IDR_DURATION_PERIOD_POPUP				6595
+#define IDM_DURATION_PERIOD_DAYS				6596
+#define IDM_DUARTION_PERIOD_WEEKS				6597
+
+#define IDD_CALENDAR_NEWEVENTTIMING				6600
+#define IDC_CALENDAR_NEWEVENTTIMING_ALLDAY		6601
+#define IDC_CALENDAR_NEWEVENTTIMING_STARTS		6602
+#define IDC_CALENDAR_NEWEVENTTIMING_ENDSON		6603
+#define IDC_CALENDAR_NEWEVENTTIMING_DURATIONON	6604
+#define IDC_CALENDAR_NEWEVENTTIMING_ENDS		6605
+#define IDC_CALENDAR_NEWEVENTTIMING_DURATION	6606
+
+#define IDR_NEWEVENT_STATUS_POPUP				6607
+#define IDM_NEWEVENT_STATUS_NONE				6608
+#define IDM_NEWEVENT_STATUS_CONFIRMED			6609
+#define IDM_NEWEVENT_STATUS_TENTATIVE			6610
+#define IDM_NEWEVENT_STATUS_CANCELLED			6611
+
+#define IDD_CALENDAR_NEWTODOTIMING				6610
+#define IDC_CALENDAR_NEWTODOTIMING_ALLDAY		6611
+#define IDC_CALENDAR_NEWTODOTIMING_NODUEDATE	6612
+#define IDC_CALENDAR_NEWTODOTIMING_DUEBY		6613
+#define IDC_CALENDAR_NEWTODOTIMING_STARTSON		6614
+#define IDC_CALENDAR_NEWTODOTIMING_DUE			6615
+#define IDC_CALENDAR_NEWTODOTIMING_STARTS		6616
+#define IDC_CALENDAR_NEWTODOTIMING_DURATION		6617
+
+#define IDD_CALENDAR_NEW_TIMING					6620
+#define IDC_CALENDAR_NEW_TIMING_PANEL			6621
+#define IDC_CALENDAR_NEW_TIMING_REPEATS			6622
+#define IDC_CALENDAR_NEW_TIMING_TABS			6623
+
+#define IDD_CALENDAR_NEW_DESCRIPTION				6630
+#define IDC_CALENDAR_NEW_DESCRIPTION_LOCATION		6631
+#define IDC_CALENDAR_NEW_DESCRIPTION_DESCRIPTION	6632
+
+#define IDD_CALENDAR_REPEAT_SIMPLE				6640
+#define IDC_CALENDAR_REPEAT_INTERVAL			6641
+#define IDC_CALENDAR_REPEAT_INTERVALSPIN		6642
+#define IDC_CALENDAR_REPEAT_FREQ				6643
+#define IDC_CALENDAR_REPEAT_FOREVER				6644
+#define IDC_CALENDAR_REPEAT_COUNT				6645
+#define IDC_CALENDAR_REPEAT_UNTIL				6646
+#define IDC_CALENDAR_REPEAT_COUNTER				6647
+#define IDC_CALENDAR_REPEAT_COUNTERSPIN			6648
+#define IDC_CALENDAR_REPEAT_DATETZ				6649
+
+#define IDR_CALENDAR_REPEAT_FREQ				6650
+#define IDM_CALENDAR_REPEAT_FREQ_YEARS			6651
+#define IDM_CALENDAR_REPEAT_FREQ_MONTHS			6652
+#define IDM_CALENDAR_REPEAT_FREQ_WEEKS			6653
+#define IDM_CALENDAR_REPEAT_FREQ_DAYS			6654
+#define IDM_CALENDAR_REPEAT_FREQ_HOURS			6655
+#define IDM_CALENDAR_REPEAT_FREQ_MINUTES		6656
+#define IDM_CALENDAR_REPEAT_FREQ_SECONDS		6657
+
+#define IDD_CALENDAR_REPEAT_ADVANCED			6660
+#define IDD_CALENDAR_REPEAT_COMPLEX				6661
+#define IDC_CALENDAR_REPEAT_DESCRIPTION			6662
+#define IDC_CALENDAR_REPEAT_EDIT				6663
+
+#define IDD_CALENDAR_NEW_ALARM					6670
+#define IDC_CALENDAR_NEW_ALARM_USE				6671
+#define IDC_CALENDAR_NEW_ALARM_STATUS			6672
+#define	IDC_CALENDAR_NEW_ALARM_ALERTON			6673
+#define IDC_CALENDAR_NEW_ALARM_INTERVALON		6674
+#define	IDC_CALENDAR_NEW_ALARM_ALERT			6675
+#define IDC_CALENDAR_NEW_ALARM_INTERVAL			6676
+#define IDC_CALENDAR_NEW_ALARM_INTERVALPOPUP	6677
+#define IDC_CALENDAR_NEW_ALARM_TABS				6678
+
+#define IDR_ALARM_STATES_POPUP					6680
+#define IDM_ALARM_STATES_ACTIVE					6681
+#define IDM_ALARM_STATES_COMPLETED				6682
+#define IDM_ALARM_STATES_DISABLED				6683
+
+#define IDR_ALARM_INTERVALS_POPUP				6695
+#define IDM_ALARM_INTERVALS_BEFORESTART			6696
+#define IDM_ALARM_INTERVALS_BEFOREEND			6697
+#define IDM_ALARM_INTERVALS_AFTERSTART			6698
+#define IDM_ALARM_INTERVALS_AFTEREND			6699
+
+#define IDR_ALARM_ACTIONS_POPUP					6700
+#define IDM_ALARM_ACTIONS_SOUND					6702
+#define IDM_ALARM_ACTIONS_SPEAK					6703
+#define IDM_ALARM_ACTIONS_ALERT					6704
+#define IDM_ALARM_ACTIONS_EMAIL					6705
+#define IDM_ALARM_ACTIONS_NOTSUPPORTED			6706
+
+#define IDD_CALENDAR_ALARM_BEHAVIOUR				6710
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_ACTION			6711
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_SPEAKTXT		6712
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_MESSAGETXT		6713
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_EMAIL1TXT		6714
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_DESCRIPTION	6715
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_EMAIL2TXT		6716
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_MESSAGE		6717
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_EMAIL3TXT		6718
+#define IDC_CALENDAR_ALARM_BEHAVIOUR_ATTENDEES		6719
+
+#define IDD_CALENDAR_ALARM_REPEATS				6720
+#define IDC_CALENDAR_ALARM_REPEATS_COUNT		6721
+#define IDC_CALENDAR_ALARM_REPEATS_COUNTSPIN	6722
+#define IDC_CALENDAR_ALARM_REPEATS_INTERVAL		6723
+
+#define IDD_CALENDAR_NEW_ATTENDEES				6724
+#define IDC_CALENDAR_ATTENDEES_ADD				6725
+#define IDC_CALENDAR_ATTENDEES_ORGANISER_TITLE	6726
+#define IDC_CALENDAR_ATTENDEES_ORGANISER		6727
+#define IDC_CALENDAR_ATTENDEES_IDENTITY			6728
+#define IDC_CALENDAR_ATTENDEES_TITLES			6729
+#define IDC_CALENDAR_ATTENDEES_LIST				6730
+#define IDC_CALENDAR_ATTENDEES_LISTDBLCLK		6731
+#define IDC_CALENDAR_ATTENDEES_NEW				6732
+#define IDC_CALENDAR_ATTENDEES_CHANGE			6733
+#define IDC_CALENDAR_ATTENDEES_DELETE			6734
+
+#define IDD_CALENDAR_CREATE						6735
+#define IDC_CALENDAR_CREATE_CALENDAR			6736
+#define IDC_CALENDAR_CREATE_DIRECTORY			6737
+#define IDC_CALENDAR_CREATE_NAME				6738
+#define IDC_CALENDAR_CREATE_FULL				6739
+#define IDC_CALENDAR_CREATE_HIER				6740
+#define IDC_CALENDAR_CREATE_HIERARCHY			6741
+#define IDC_CALENDAR_CREATE_ACCOUNT				6742
+#define IDC_CALENDAR_CREATE_ACCOUNTPOPUP		6743
+#define IDC_CALENDAR_CREATE_SUBSCRIBE			6744
+
+#define IDD_CALENDAR_NEWATTENDEE				6745
+#define IDC_CALENDAR_NEWATTENDEE_NAMES			6746
+#define IDC_CALENDAR_NEWATTENDEE_ROLE			6747
+#define IDC_CALENDAR_NEWATTENDEE_STATUS			6748
+#define IDC_CALENDAR_NEWATTENDEE_RSVP			6749
+
+#define IDR_POPUP_ATTENDEE_ROLE					6750
+#define IDM_ROLE_CHAIR							6751
+#define IDM_ROLE_REQUIRED						6752
+#define IDM_ROLE_OPTIONAL						6753
+#define IDM_ROLE_NONE							6754
+
+#define IDR_POPUP_ATTENDEE_STATUS				6755
+#define IDM_STATUS_NEEDS_ACTION					6756
+#define IDM_STATUS_ACCEPTED						6757
+#define IDM_STATUS_DECLINED						6758
+#define IDM_STATUS_TENTATIVE					6759
+#define IDM_STATUS_DELEGATED					6760
+
+#define IDR_POPUP_DAYS							6761
+#define IDM_SUN									6762
+#define IDM_MON									6763
+#define IDM_TUE									6764
+#define IDM_WED									6765
+#define IDM_THU									6766
+#define IDM_FRI									6767
+#define IDM_SAT									6768
+
+#define IDR_POPUP_MONTHS						6770
+#define IDM_MONTH1								6771
+#define IDM_MONTH2								6772
+#define IDM_MONTH3								6773
+#define IDM_MONTH4								6774
+#define IDM_MONTH5								6775
+#define IDM_MONTH6								6776
+#define IDM_MONTH7								6777
+#define IDM_MONTH8								6778
+#define IDM_MONTH9								6779
+#define IDM_MONTH10								6780
+#define IDM_MONTH11								6781
+#define IDM_MONTH12								6782
+
+#define IDR_POPUP_YEARS							6783
+#define IDM_YEAR1								6784
+#define IDM_YEAR2								6785
+#define IDM_YEAR3								6786
+#define IDM_YEAR4								6787
+#define IDM_YEAR5								6788
+#define IDM_YEAR6								6789
+#define IDM_YEAR7								6790
+
+#define IDD_CALENDAR_CHOOSEDATE					6791
+#define IDC_CALENDAR_CHOOSEDATE_PREVYEAR		6792
+#define IDC_CALENDAR_CHOOSEDATE_YEAR			6793
+#define IDC_CALENDAR_CHOOSEDATE_NEXTYEAR		6794
+#define IDC_CALENDAR_CHOOSEDATE_PREVMONTH		6795
+#define IDC_CALENDAR_CHOOSEDATE_MONTH			6796
+#define IDC_CALENDAR_CHOOSEDATE_NEXTMONTH		6797
+#define IDC_CALENDAR_CHOOSEDATE_TABLE			6798
+
+// Recurrence Dialog
+#define IDD_RECURRENCE							6800
+#define IDC_RECURRENCE_FREQ						6801
+#define IDC_RECURRENCE_INTERVAL					6802
+#define IDC_RECURRENCE_INTERVALSPIN				6803
+#define IDC_RECURRENCE_FOREVER					6804
+#define IDC_RECURRENCE_COUNT					6805
+#define IDC_RECURRENCE_UNTIL					6806
+#define IDC_RECURRENCE_COUNTER					6807
+#define IDC_RECURRENCE_COUNTERSPIN				6808
+#define IDC_RECURRENCE_DATETZ					6809
+#define IDC_RECURRENCE_JAN						6810
+#define IDC_RECURRENCE_FEB						6811
+#define IDC_RECURRENCE_MAR						6812
+#define IDC_RECURRENCE_APR						6813
+#define IDC_RECURRENCE_MAY						6814
+#define IDC_RECURRENCE_JUN						6815
+#define IDC_RECURRENCE_JUL						6816
+#define IDC_RECURRENCE_AUG						6817
+#define IDC_RECURRENCE_SEP						6818
+#define IDC_RECURRENCE_OCT						6819
+#define IDC_RECURRENCE_NOV						6820
+#define IDC_RECURRENCE_DEC						6821
+#define IDC_RECURRENCE_DAY1						6822
+#define IDC_RECURRENCE_DAY2						6823
+#define IDC_RECURRENCE_DAY3						6824
+#define IDC_RECURRENCE_DAY4						6825
+#define IDC_RECURRENCE_DAY5						6826
+#define IDC_RECURRENCE_DAY6						6827
+#define IDC_RECURRENCE_DAY7						6828
+#define IDC_RECURRENCE_DAY8						6829
+#define IDC_RECURRENCE_DAY9						6830
+#define IDC_RECURRENCE_DAY10					6831
+#define IDC_RECURRENCE_DAY11					6832
+#define IDC_RECURRENCE_DAY12					6833
+#define IDC_RECURRENCE_DAY13					6834
+#define IDC_RECURRENCE_DAY14					6835
+#define IDC_RECURRENCE_DAY15					6836
+#define IDC_RECURRENCE_DAY16					6837
+#define IDC_RECURRENCE_DAY17					6838
+#define IDC_RECURRENCE_DAY18					6839
+#define IDC_RECURRENCE_DAY19					6840
+#define IDC_RECURRENCE_DAY20					6841
+#define IDC_RECURRENCE_DAY21					6842
+#define IDC_RECURRENCE_DAY22					6843
+#define IDC_RECURRENCE_DAY23					6844
+#define IDC_RECURRENCE_DAY24					6845
+#define IDC_RECURRENCE_DAY25					6846
+#define IDC_RECURRENCE_DAY26					6847
+#define IDC_RECURRENCE_DAY27					6848
+#define IDC_RECURRENCE_DAY28					6849
+#define IDC_RECURRENCE_DAY29					6850
+#define IDC_RECURRENCE_DAY30					6851
+#define IDC_RECURRENCE_DAY31					6852
+#define IDC_RECURRENCE_DAYM1					6853
+#define IDC_RECURRENCE_DAYM2					6854
+#define IDC_RECURRENCE_DAYM3					6855
+#define IDC_RECURRENCE_DAYM4					6856
+#define IDC_RECURRENCE_DAYM5					6857
+#define IDC_RECURRENCE_DAYM6					6858
+#define IDC_RECURRENCE_DAYM7					6859
+#define IDC_RECURRENCE_SUN						6860
+#define IDC_RECURRENCE_MON						6861
+#define IDC_RECURRENCE_TUE						6862
+#define IDC_RECURRENCE_WED						6863
+#define IDC_RECURRENCE_THU						6864
+#define IDC_RECURRENCE_FRI						6865
+#define IDC_RECURRENCE_SAT						6866
+#define IDC_RECURRENCE_OCCURS					6867
+#define IDC_RECURRENCE_OCCURSCAPTION			6868
+#define IDC_RECURRENCE_BYSETPOS					6869
+
+#define IDR_POPUP_BYDAY							6880
+#define IDM_BYDAY_ANYTIME						6881
+#define IDM_BYDAY_1TIME							6882
+#define IDM_BYDAY_2TIME							6883
+#define IDM_BYDAY_3TIME							6884
+#define IDM_BYDAY_4TIME							6885
+#define IDM_BYDAY_2LAST							6886
+#define IDM_BYDAY_1LAST							6887
+
+#define IDR_POPUP_BYSETPOS						6890
+#define IDM_BYSETPOS_ALL						6891
+#define IDM_BYSETPOS_FIRST						6892
+#define IDM_BYSETPOS_LAST						6893
+
+#pragma mark ____________________________Calendar Items
+
+#define IDM_CALENDAR_MANAGER					6900
+#define IDM_CALENDAR_SUBSCRIBED					6901
+#define IDM_CALENDAR_NEW						6902
+#define IDM_CALENDAR_RENAME						6903
+#define IDM_CALENDAR_REFRESH					6904
+#define IDM_CALENDAR_DELETE						6905
+#define IDM_CALENDAR_NEWWEBCAL					6906
+#define IDM_CALENDAR_REFRESHWEBCAL				6907
+#define IDM_CALENDAR_UPLOADWEBCAL				6908
+#define IDM_CALENDAR_NEWEVENT					6909
+#define IDM_CALENDAR_NEWTODO					6910
+#define IDM_CALENDAR_EDITITEM					6911
+#define IDM_CALENDAR_DUPLICATEITEM				6912
+#define IDM_CALENDAR_DELETEITEM					6913
+#define IDM_CALENDAR_GOTO_TODAY					6914
+#define IDM_CALENDAR_GOTO_DATE					6915
+#define IDM_CALENDAR_SENDEMAIL					6916
+#define IDM_CALENDAR_COMPLETEDTODO				6917
+#define IDM_CALENDAR_FREEBUSY					6918
+#define IDM_CALENDAR_INVITEATTENDEES			6919
+
+#pragma mark ____________________________Search Window
+#define IDI_SEARCH_POINTER				7010
+#define IDI_SEARCH_HIT					7011
+#define IDI_SEARCH_MISS					7012
+
+#define IDC_SEARCH_STYLESPOPUP			7015
+#define IDC_SEARCH_MORE					7016
+#define IDC_SEARCH_FEWER				7017
+#define IDC_SEARCH_CLEAR				7018
+#define IDC_SEARCH_SEARCH				7019
+#define IDC_SEARCH_CANCEL				7020
+#define IDC_SEARCH_TWIST				7021
+#define IDC_SEARCH_CABINETPOPUP			7022
+#define IDC_SEARCH_ADDLIST				7023
+#define IDC_SEARCH_CLEARLIST			7024
+#define IDC_SEARCH_OPTIONS				7025
+#define IDC_SEARCH_MAILBOXLIST			7026
+
+#define IDS_SEARCH_STYLESTITLE			7030
+#define IDS_SEARCH_CRITERIATITLE		7031
+#define IDS_SEARCH_MOREBTN				7032
+#define IDS_SEARCH_FEWERBTN				7033
+#define IDS_SEARCH_CLEARBTN				7034
+#define IDS_SEARCH_SEARCHBTN			7035
+#define IDS_SEARCH_CANCELBTN			7036
+#define IDS_SEARCH_MAILBOXLIST			7037
+#define IDS_SEARCH_CABINETSTITLE		7038
+#define IDS_SEARCH_ADDLISTBTN			7039
+#define IDS_SEARCH_CLEARLISTBTN			7040
+#define IDS_SEARCH_OPTIONSBTN			7041
+#define IDS_SEARCH_TOTALTITLE			7042
+#define IDS_SEARCH_FOUNDTITLE			7043
+#define IDS_SEARCH_MESSAGESTITLE		7044
+#define IDS_SEARCH_SHOWCAPTION			7045
+#define IDS_SEARCH_HIDECAPTION			7046
+
+#define IDC_SEARCHCRITERIA_MOVEUP		7050
+#define IDC_SEARCHCRITERIA_MOVEDOWN		7051
+#define IDI_MOVEUP						7052
+#define IDI_MOVEDOWN					7053
+#define IDC_SEARCHCRITERIA_POPUP1		7054
+#define IDC_SEARCHCRITERIA_POPUP2		7055
+#define IDC_SEARCHCRITERIA_POPUP3		7056
+#define IDC_SEARCHCRITERIA_POPUP4		7057
+#define IDC_SEARCHCRITERIA_POPUP5		7058
+#define IDC_SEARCHCRITERIA_POPUP6		7059
+#define IDC_SEARCHCRITERIA_POPUP7		7060
+#define IDC_SEARCHCRITERIA_POPUP8		7061
+#define IDC_SEARCHCRITERIA_TEXT1		7062
+#define IDC_SEARCHCRITERIA_TEXT2		7063
+#define IDC_SEARCHCRITERIA_TEXT3		7064
+#define IDC_SEARCHCRITERIA_DATE			7065
+
+#pragma mark ____________________________Search Options Dialog
+
+#define IDC_SEARCHOPTIONS_MULTI			7070
+#define IDC_SEARCHOPTIONS_MAXIMUM		7071
+#define IDC_SEARCHOPTIONS_LOAD			7072
+#define IDC_SEARCHOPTIONS_OPENFIRST		7073
+
+#pragma mark ____________________________Rules Window
+
+#define IDC_RULES_TABS					7105
+#define IDS_RULES_TAB_LOCAL				7106
+#define IDS_RULES_TAB_SIEVE				7107
+#define IDC_RULESNEWBTN					7108
+#define IDC_RULESNEWTARGETBTN			7109
+#define IDC_RULESNEWSCRIPTSBTN			7110
+#define IDC_RULESEDITBTN				7111
+#define IDC_RULESDELETEBTN				7112
+#define IDC_RULESAPPLYBTN				7113
+#define IDC_RULESGENERATEBTN			7114
+#define IDC_RULESSHOWTRIGGERSBTN		7115
+#define IDI_RULESICON					7116
+#define IDI_TARGETSICON					7117
+#define IDI_SCRIPTSICON					7118
+#define IDS_RULES_NEW_BTN_TEXT			7119
+#define IDS_RULES_NEW_TARGETS_BTN_TEXT	7120
+#define IDS_RULES_NEW_SCRIPTS_BTN_TEXT	7121
+#define IDS_RULES_EDIT_BTN_TEXT			7122
+#define IDS_RULES_DELETE_BTN_TEXT		7123
+#define IDS_RULES_APPLY_BTN_TEXT		7124
+#define IDS_RULES_GENERATE_BTN_TEXT		7125
+#define IDS_RULES_SHOWTRIGGERS_BTN_TEXT	7126
+#define IDI_RULES_NEW_BTN				7128
+#define IDI_RULES_NEW_TARGET_BTN		7129
+#define IDI_RULES_NEW_SCRIPTS_BTN		7130
+#define IDI_RULES_EDIT_BTN				7131
+#define IDI_RULES_DELETE_BTN			7132
+#define IDI_RULES_APPLY_BTN				7133
+#define IDI_RULES_GENERATE_BTN			7134
+#define IDS_RULES_IMPORT				7140
+#define IDS_RULES_EXPORT				7141
+
+#pragma mark ____________________________Rules Dialog
+
+#define IDC_RULESDIALOG_NAME					7200
+#define IDC_RULESDIALOG_TRIGGERS				7201
+#define IDC_RULESDIALOG_EDITSCRIPT				7202
+#define IDC_RULESDIALOG_MORE					7203
+#define IDC_RULESDIALOG_FEWER					7204
+#define IDC_RULESDIALOG_CLEAR					7205
+#define IDC_RULESDIALOG_MOREACTIONS				7206
+#define IDC_RULESDIALOG_FEWERACTIONS			7207
+#define IDC_RULESDIALOG_CLEARACTIONS			7208
+#define IDC_RULESDIALOG_STOP					7209
+
+#define IDS_RULESDIALOG_NAME					7220
+#define IDS_RULESDIALOG_TRIGGERS				7221
+#define IDS_RULESDIALOG_EDITSCRIPT				7222
+#define IDS_RULESDIALOG_ACTIONS					7223
+#define IDS_RULESDIALOG_STOP					7224
+#define IDS_ACTIONS_MOREBTN						7225
+#define	IDS_ACTIONS_FEWERBTN					7226
+#define IDS_ACTIONS_CLEARBTN					7227
+
+#define IDC_RULES_ACTIONS_POPUP1				7230
+#define IDC_RULES_ACTIONS_POPUP2				7231
+#define IDC_RULES_ACTIONS_TEXT					7232
+#define IDC_RULES_ACTIONS_MAILBOXPOPUP			7233
+#define IDC_RULES_ACTIONS_OPTIONS				7234
+#define IDS_RULES_ACTIONS_OPTIONS				7235
+#define IDS_RULES_ACTIONS_SAVESINGLE			7236
+#define IDC_RULES_ACTIONS_SOUNDPOPUP			7237
+
+
+#pragma mark ____________________________Reply Action Dialog
+
+#define IDC_REPLYACTION_REPLYTO         	7300
+#define IDC_REPLYACTION_SENDER          	7301
+#define IDC_REPLYACTION_FROM            	7302
+#define IDC_REPLYACTION_ALL             	7303
+#define IDC_REPLYACTION_QUOTE           	7304
+#define IDC_REPLYACTION_TEXT            	7305
+#define IDC_REPLYACTION_STANDARDIDENTITY	7307
+#define IDC_REPLYACTION_USEIDENTITY     	7308
+#define IDC_REPLYACTION_IDENTITY        	7309
+#define IDC_REPLYACTION_DRAFT           	7310
+
+#pragma mark ____________________________Forward Action Dialog
+
+#define IDC_FORWARDACTION_TO            	7330
+#define IDC_FORWARDACTION_CC            	7331
+#define IDC_FORWARDACTION_BCC           	7332
+#define IDC_FORWARDACTION_ATTACH        	7333
+#define IDC_FORWARDACTION_QUOTE         	7334
+#define IDC_FORWARDACTION_TEXT          	7335
+#define IDC_FORWARDACTION_STANDARDIDENTITY  7336
+#define IDC_FORWARDACTION_USEIDENTITY  		7337
+#define IDC_FORWARDACTION_IDENTITY      	7338
+#define IDC_FORWARDACTION_DRAFT         	7339
+
+#pragma mark ____________________________Bounce Action Dialog
+
+#define IDC_BOUNCEACTION_TO             	7350
+#define IDC_BOUNCEACTION_CC             	7351
+#define IDC_BOUNCEACTION_BCC            	7352
+#define IDC_BOUNCEACTION_STANDARDIDENTITY   7353
+#define IDC_BOUNCEACTION_USEIDENTITY	   	7354
+#define IDC_BOUNCEACTION_IDENTITY       	7355
+#define IDC_BOUNCEACTION_DRAFT          	7356
+
+#pragma mark ____________________________Reject Action Dialog
+
+#define IDC_REJECTACTION_HEADERS         	7360
+#define IDC_REJECTACTION_MESSAGE         	7361
+#define IDC_REJECTACTION_STANDARDIDENTITY	7362
+#define IDC_REJECTACTION_USEIDENTITY     	7363
+#define IDC_REJECTACTION_IDENTITY        	7364
+#define IDC_REJECTACTION_DRAFT           	7365
+
+#pragma mark ____________________________Vacation Action Dialog
+
+#define IDC_VACATIONACTION_DAYS         	7366
+#define IDC_VACATIONACTION_SUBJECT         	7367
+#define IDC_VACATIONACTION_TEXT				7368
+#define IDC_VACATIONACTION_ADDRESSES     	7369
+
+#pragma mark ____________________________Targets Dialog
+#define IDC_TARGETSDIALOG_NAME				7370
+#define IDC_TARGETSDIALOG_ENABLED			7371
+#define IDC_TARGETSDIALOG_ACTIONS			7372
+#define IDC_TARGETSDIALOG_MORETARGETS		7373
+#define IDC_TARGETSDIALOG_FEWERTARGETS		7374
+#define IDC_TARGETSDIALOG_CLEARTARGETS		7375
+
+#define IDS_TARGETSDIALOG_NAME				7380
+#define IDS_TARGETSDIALOG_ENABLED			7381
+#define IDS_TARGETSDIALOG_TRIGGER			7382
+#define IDS_TARGETSDIALOG_APPLY				7383
+#define IDS_TARGETS_MOREBTN					7384
+#define IDS_TARGETS_FEWERBTN				7385
+#define IDS_TARGETS_CLEARBTN				7386
+
+#pragma mark ____________________________Upload Script Dialog
+
+#define IDC_UPLOADSCRIPT_FILE		        7390
+#define IDC_UPLOADSCRIPT_SERVER		        7391
+#define IDC_UPLOADSCRIPT_ACCOUNTPOPUP       7392
+#define IDC_UPLOADSCRIPT_UPLOAD         	7393
+#define IDC_UPLOADSCRIPT_UPLOADACTIVATE		7394
+#define IDC_UPLOADSCRIPT_DELETE     		7395
+
+#pragma mark ____________________________Speech
+#define IDS_SPEAK_SPEAKMESSAGE				7400
+#define IDS_SPEAK_SPEAKSELECTION			7401
+#define IDS_SPEAK_STOPSPEAKING				7402
+#define IDS_SPEAK_DEFAULTALERT				7403
+#define IDS_SPEAK_DEFAULTFROM				7404
+#define IDS_SPEAK_DEFAULTTO					7405
+#define IDS_SPEAK_DEFAULTSUBJECT			7406
+#define IDS_SPEAK_DEFAULTBODY				7407
+#define IDS_SPEAK_DEFAULTEND				7408
+#define IDS_SPEAK_DEFAULTEMPTY				7409
+
+#define IDS_SPEAK_FROM1						7420
+#define IDS_SPEAK_FROMALL					7421
+#define IDS_SPEAK_TO1						7422
+#define IDS_SPEAK_TOALL						7423
+#define IDS_SPEAK_CC1						7424
+#define IDS_SPEAK_CCALL						7425
+#define IDS_SPEAK_DATE						7426
+#define IDS_SPEAK_SUBJECT					7427
+#define IDS_SPEAK_NUMPARTS					7428
+#define IDS_SPEAK_BODYNOHDR					7429
+#define IDS_SPEAK_BODYHDR					7430
+#define IDS_SPEAK_NONE						7431
+
+#pragma mark ____________________________Macros
+#define IDC_MACROEDIT_TITLES				7500
+#define IDC_MACROEDIT_LIST					7501
+#define IDC_MACROEDIT_NEW					7502
+#define IDC_MACROEDIT_EDIT					7503
+#define IDC_MACROEDIT_DELETE				7504
+#define IDC_MACROEDIT_KEY					7505
+#define IDC_MACROEDIT_KEYCHOOSE				7506
+#define IDC_MACROEDIT_SELCHANGE				7507
+#define IDC_MACROEDIT_DBLCLICK				7508
+
+#define IDC_EDITMACRO_NAME					7550
+#define IDC_EDITMACRO_TEXT					7551
+#define IDC_EDITMACRO_RULER					7552
+
+#pragma mark ____________________________3Pane
+#define IDS_WINDOWSSHOWLIST					8000
+#define IDS_WINDOWSHIDELIST					8001
+#define IDS_WINDOWSSHOWITEMS				8002
+#define IDS_WINDOWSHIDEITEMS				8003
+#define IDS_WINDOWSSHOWPREVIEW				8004
+#define IDS_WINDOWSHIDEPREVIEW				8005
+
+#define IDC_3PANE_ZOOM						8010
+#define IDC_3PANE_CLOSE						8011
+#define IDI_3PANE_ZOOM						8012
+#define IDI_3PANE_CLOSE						8013
+
+#define IDC_3PANEACCOUNTS_TABS				8100
+#define IDS_3PANEACCOUNTS_TAB_MAIL			8101
+#define IDS_3PANEACCOUNTS_TAB_CONTACTS		8102
+#define IDS_3PANEACCOUNTS_TAB_CALENDAR		8103
+
+#define IDC_3PANEITEMS_TABS					8110
+#define IDC_3PANEITEMS_CLOSEONE				8111
+
+#define IDI_3PANEPREVIEWMAILBOX				8120
+#define IDI_3PANEPREVIEWADDRESSBOOK			8121
+#define IDI_3PANEPREVIEWMESSAGE				8122
+#define IDI_3PANEPREVIEWADDRESS				8123
+#define IDI_3PANEPREVIEWGROUP				8124
+
+#define IDI_3PANELAYOUTLISTVERT				8150
+#define IDI_3PANELAYOUTLISTHORIZ			8151
+#define IDI_3PANELAYOUTITEMSVERT			8152
+#define IDI_3PANELAYOUTITEMSHORIZ			8153
+#define IDI_3PANELAYOUTPREVIEWVERT			8154
+#define IDI_3PANELAYOUTPREVIEWHORIZ			8155
+#define IDI_3PANELAYOUTALLVERT				8156
+#define IDI_3PANELAYOUTALLHORIZ				8157
+
+#define IDC_3PANETOOLBAR_ZOOM				8200
+#define IDC_3PANETOOLBAR_ZOOMLIST			8201
+#define IDC_3PANETOOLBAR_ZOOMITEMS			8202
+#define IDC_3PANETOOLBAR_ZOOMPREVIEW		8203
+#define IDC_3PANETOOLBAR_SHOWLIST			8204
+#define IDC_3PANETOOLBAR_SHOWITEMS			8205
+#define IDC_3PANETOOLBAR_SHOWPREVIEW		8206
+#define IDS_3PANETOOLBARZOOM				8207
+#define IDS_3PANETOOLBARSHOW				8208
+#define IDS_3PANETOOLBARLIST				8209
+#define IDS_3PANETOOLBARITEMS				8210
+#define IDS_3PANETOOLBARPREVIEW				8211
+#define IDS_WINDOWSSHOWTOOLBAR				8212
+#define IDS_WINDOWSHIDETOOLBAR				8213
+#define IDS_3PANETOOLBARLAYOUT				8214
+
+#define IDM_3PANEITEMSTAB_MOVELEFT			8220
+#define IDM_3PANEITEMSTAB_MOVERIGHT			8221
+#define IDM_3PANEITEMSTAB_MOVESTART			8222
+#define IDM_3PANEITEMSTAB_MOVEEND			8223
+#define IDM_3PANEITEMSTAB_CLOSE				8224
+#define IDM_3PANEITEMSTAB_CLOSEALL			8225
+#define IDM_3PANEITEMSTAB_CLOSEOTHERS		8226
+#define IDM_3PANEITEMSTAB_RENAME			8227
+#define IDM_3PANEITEMSTAB_LOCK				8228
+#define IDM_3PANEITEMSTAB_LOCKALL			8229
+#define IDM_3PANEITEMSTAB_DYNAMIC			8230
+#define IDM_3PANEITEMSTAB_SAVE				8231
+#define IDM_3PANEITEMSTAB_RESTORE			8232
+
+#define IDC_TOOLBAR_SHOWHIDE				8350
+
+#pragma mark ____________________________Window Options Dialog
+
+#define IDC_3PANE_OPTIONS_BTN1          	8400
+#define IDC_3PANE_OPTIONS_BTN2          	8401
+#define IDC_3PANE_OPTIONS_BTN3          	8402
+#define IDC_3PANE_OPTIONS_BTN4          	8403
+#define IDC_3PANE_OPTIONS_BTN5          	8404
+#define IDC_3PANE_OPTIONS_BTN6          	8405
+#define IDC_3PANE_OPTIONS_BTN7          	8406
+#define IDC_3PANE_OPTIONS_BTN8          	8407
+#define IDC_3PANE_OPTIONS_BTN9          	8408
+#define IDC_3PANE_OPTIONS_BTN10          	8409
+#define IDC_3PANE_OPTIONS_BTN11         	8410
+#define IDC_3PANE_OPTIONS_BTN12         	8411
+#define IDC_3PANE_OPTIONS_BTN13         	8412
+#define IDC_3PANE_OPTIONS_BTN14         	8413
+#define IDC_3PANE_OPTIONS_BTN15         	8414
+#define IDC_3PANE_OPTIONS_BTN16         	8415
+#define IDC_3PANE_OPTIONS_KEY1          	8416
+#define IDC_3PANE_OPTIONS_KEY2          	8417
+#define IDC_3PANE_OPTIONS_KEY3          	8418
+#define IDC_3PANE_OPTIONS_KEY4          	8419
+#define IDC_3PANE_OPTIONS_CHOOSE1          	8420
+#define IDC_3PANE_OPTIONS_CHOOSE2          	8421
+#define IDC_3PANE_OPTIONS_CHOOSE3          	8422
+#define IDC_3PANE_OPTIONS_CHOOSE4          	8423
+
+#define IDC_3PANE_MAILOPTIONS_USETABS		8430
+#define IDC_3PANE_MAILOPTIONS_RESTORETABS	8431
+#define IDC_3PANE_MAILOPTIONS_SHOWADDRESS   8432
+#define IDC_3PANE_MAILOPTIONS_SHOWSUMMARY   8433
+#define IDC_3PANE_MAILOPTIONS_SHOWPARTS     8434
+#define IDC_3PANE_MAILOPTIONS_MARKSEEN		8435
+#define IDC_3PANE_MAILOPTIONS_DELAYSEEN		8436
+#define IDC_3PANE_MAILOPTIONS_NOMARKSEEN	8437
+#define IDC_3PANE_MAILOPTIONS_DELAYSECS		8438
+
+#define IDC_3PANE_ADDRESSOPTIONS_SELECT     8440
+
+
+#pragma mark ____________________________Toolbar Commands
+
+#define IDC_TOOLBARNEWLETTER					8500
+#define IDC_TOOLBARNEWLETTEROPTION				8501
+#define IDC_TOOLBARDETAILSBTN					8502
+#define IDC_TOOLBARMAILBOXEXPUNGEBTN			8503
+#define IDC_TOOLBARSEARCHMAILBOXBTN				8504
+#define IDC_TOOLBARMESSAGEREPLYBTN				8505
+#define IDC_TOOLBARMESSAGEREPLYOPTIONBTN		8506
+#define IDC_TOOLBARMESSAGEREPLYALLBTN			8507
+#define IDC_TOOLBARMESSAGEFORWARDBTN			8508
+#define IDC_TOOLBARMESSAGEFORWARDOPTIONBTN		8509
+#define IDC_TOOLBARMESSAGEBOUNCEBTN				8510
+#define IDC_TOOLBARMESSAGEREJECTBTN				8511
+#define IDC_TOOLBARMESSAGESENDAGAINBTN			8512
+#define IDC_TOOLBARMESSAGEDIGESTBTN				8513
+#define IDC_TOOLBARMESSAGECOPYBTN				8514
+#define IDC_TOOLBARMESSAGECOPYOPTIONBTN			8515
+#define IDC_TOOLBARMESSAGECOPYPOPUP				8516
+#define IDC_TOOLBARMESSAGECOPYOPTIONPOPUP		8517
+#define IDC_TOOLBARMESSAGEDELETEBTN				8518
+#define IDC_TOOLBARMESSAGEHEADERBTN				8519
+#define IDC_TOOLBARFILESAVEBTN					8520
+#define IDC_TOOLBARMESSAGEPRINTBTN				8521
+	
+// 3pane window items
+#define IDC_TOOLBARSHOWLIST						8522
+#define IDC_TOOLBARSHOWITEMS					8523
+#define IDC_TOOLBARSHOWPREVIEW					8524
+
+// Server pane items
+#define IDC_TOOLBARSERVERLOGINBTN				8525
+#define IDC_TOOLBARCREATEMAILBOXBTN				8526
+#define IDC_TOOLBARCHECKMAILBOXBTN				8527
+#define IDC_TOOLBARCABINETPOPUP					8528
+	
+// Mailbox pane items
+#define IDC_TOOLBARMAILBOXMATCHBTN				8529
+#define IDC_TOOLBARMAILBOXMATCHOPTIONBTN		8530
+#define IDC_TOOLBARMAILBOXSELECTPOPUP			8531
+#define IDC_TOOLBARMAILBOXAPPLYRULES			8532
+	
+// SMTP Items
+#define IDC_TOOLBARSMTPHOLDBTN					8533
+#define IDC_TOOLBARSMTPPRIORITYBTN				8534
+#define IDC_TOOLBARSMTPACCOUNTSPOPUP			8535
+#define IDC_TOOLBARSMTPENABLEBTN				8536
+	
+// Message
+#define IDC_TOOLBARMESSAGEFLAGSBTN				8537
+#define IDC_TOOLBARMESSAGEDELETENEXTBTN			8538
+#define IDC_TOOLBARMESSAGEPREVIOUSBTN			8539
+#define IDC_TOOLBARMESSAGENEXTBTN				8540
+
+// Letter
+#define IDC_TOOLBARLETTERATTACHBTN				8541
+#define IDC_TOOLBARLETTERSPELLBTN				8542
+#define IDC_TOOLBARLETTERRECEIPTBTN				8543
+#define IDC_TOOLBARLETTERDSNBTN					8544
+#define IDC_TOOLBARLETTERSIGNATUREBTN			8545
+#define IDC_TOOLBARLETTERSIGNPOPUP				8546
+#define IDC_TOOLBARLETTERENCRYPTPOPUP			8547
+#define IDC_TOOLBARLETTERSENDBTN				8548
+#define IDC_TOOLBARLETTERADDCCBTN				8549
+#define IDC_TOOLBARLETTERADDBCCBTN				8550
+#define IDC_TOOLBARLETTERAPPENDNOWBTN			8551
+#define IDC_TOOLBARLETTERAPPENDNOWOPTIONBTN		8552
+#define IDC_TOOLBARLETTERCOPYORIGINALBTN		8553
+
+// Address Book Manager
+#define IDC_TOOLBARADBKMGRNEWBTN				8554
+#define IDC_TOOLBARADBKMGROPENBTN				8555
+#define IDC_TOOLBARADBKMGRDELETEBTN				8556
+#define IDC_TOOLBARADBKMGRSEARCHBTN				8557
+
+// Address Book
+#define IDC_TOOLBARADDRESSBOOKADDRESSBTN		8558
+#define IDC_TOOLBARADDRESSBOOKGROUPBTN			8559
+#define IDC_TOOLBARADDRESSBOOKEDITBTN			8560
+#define IDC_TOOLBARADDRESSBOOKDELETEBTN			8561
+
+// Window
+#define IDC_TOOLBARWINDOWCOLLAPSEHEADERBTN		8562
+
+#pragma mark ____________________________Toolbar Commands
+
+#define IDC_TOOLBAR_BTN1						8800
+
+#define IDM_TOOLBAR_REMOVE						8850
+#define IDM_TOOLBAR_MOVE						8851
+#define IDM_TOOLBAR_RESET						8852
+#define IDM_TOOLBAR_ADD_Start					8900
+#define IDM_TOOLBAR_ADD_End						8949
+#define IDM_TOOLBAR_RULES_All					8950
+#define IDM_TOOLBAR_RULES_Start					8951
+#define IDM_TOOLBAR_RULES_End					8999
+
+#pragma mark ____________________________Undo/redo
+#define IDC_ActionDeleted               9000
+#define IDS_FileTableEdit_REDO          9017
+#define IDS_FileTableEdit_UNDO          9018
+#define IDS_FileTableDelete_REDO        9019
+#define IDS_FileTableDelete_UNDO        9020
+#define IDS_FileTableAdd_REDO           9021
+#define IDS_FileTableAdd_UNDO           9022
+
+#define IDS_NOTIFYICON_TIP				9100
+
+#pragma mark ____________________________Attachments
+#define IDS_AUTOMATIC                   9500
+#define IDS_ENCODING_TEXT               9501
+#define IDS_ENCODING_BINHEX4            9502
+#define IDS_ENCODING_UU                 9503
+#define IDS_ENCODING_AS                 9504
+#define IDS_ENCODING_AD                 9505
+
+#define IDS_DISPOSITION_INLINE			9506
+#define IDS_DISPOSITION_ATTACH			9507
+
+#define IDS_CHARSET_AUTO				9510
+#define IDS_CHARSET_USASCII             9511
+#define IDS_CHARSET_ISO8858_1           9512
+#define IDS_CHARSET_ISO8858_2           9513
+#define IDS_CHARSET_ISO8858_3           9514
+#define IDS_CHARSET_ISO8858_4           9515
+#define IDS_CHARSET_ISO8858_5           9516
+#define IDS_CHARSET_ISO8858_6           9517
+#define IDS_CHARSET_ISO8858_7           9518
+#define IDS_CHARSET_ISO8858_8           9519
+#define IDS_CHARSET_ISO8858_9           9520
+#define IDS_CHARSET_ISO8858_10          9521
+
+#define IDS_TYPE_APPLICATION            9530
+#define IDS_TYPE_AUDIO                  9531
+#define IDS_TYPE_IMAGE                  9532
+#define IDS_TYPE_MESSAGE                9533
+#define IDS_TYPE_MULTIPART              9534
+#define IDS_TYPE_TEXT                   9535
+#define IDS_TYPE_VIDEO                  9536
+
+#define IDS_SUBTYPE_OCTET               9540
+#define IDS_SUBTYPE_POSTSCRIPT          9541
+#define IDS_SUBTYPE_BINHEX4             9542
+#define IDS_SUBTYPE_APPLEFILE           9543
+
+#define IDS_SUBTYPE_BASIC               9550
+
+#define IDS_SUBTYPE_GIF                 9560
+#define IDS_SUBTYPE_JPEG                9561
+
+#define IDS_SUBTYPE_RFC822              9570
+#define IDS_SUBTYPE_PARTIAL             9571
+#define IDS_SUBTYPE_EXTERNAL            9572
+
+#define IDS_SUBTYPE_MIXED               9580
+#define IDS_SUBTYPE_PARALLEL            9581
+#define IDS_SUBTYPE_DIGEST              9582
+#define IDS_SUBTYPE_ALTERNATIVE         9583
+
+#define IDS_SUBTYPE_PLAIN               9590
+#define IDS_SUBTYPE_ENRICHED            9591
+#define IDS_SUBTYPE_HTML                9592
+
+#define IDS_SUBTYPE_MPEG                9600
+#define IDS_SUBTYPE_QT                  9601
+
+#define IDE_LETTER_MissingCopyTo        10212
+#define IDE_MailboxNone                 10214
+#define IDE_TooManyForMenu              10215
+
+#define IDS_OK                          12000
+#define IDS_Cancel                      12001
+#define IDS_Yes                         12002
+#define IDS_No                          12003
+#define IDS_ServerCloseQuit             12004
+#define IDS_ServerCloseClose            12005
+#define IDS_ServerCloseLogout			12006
+#define IDS_Expunge                     12007
+#define IDS_CloseWithoutExpunge         12008
+#define IDS_ClearINBOX                  12009
+#define IDS_CloseWithoutClear           12010
+#define IDS_LetterServerLogon           12011
+#define IDS_LetterClose                 12012
+#define IDS_LetterLeaveOpen             12013
+#define IDS_MessageMulti                12014
+#define IDS_MessageSingle               12015
+#define IDS_FullSort					12016
+#define IDS_CurrentSort					12017
+#define IDS_Disconnected				12018
+#define IDS_Connected					12019
+#define IDS_Wait						12020
+#define IDS_Postpone					12021
+#define IDS_Remove						12022
+#define IDS_Delete						12023
+#define IDS_Continue					12024
+#define IDS_Reparse						12025
+#define IDS_Disconnect					12026
+#define IDS_RulesMergeRulesOnly			12027
+#define IDS_RulesMergeAll				12028
+#define IDS_RulesMergeReplace			12029
+#define IDS_RulesMergeKeep				12030
+#define IDS_RulesMergeEntireSet			12031
+#define IDS_RulesMergeSelection			12032
+#define IDS_LetterSendAsReply			12033
+#define IDS_LetterSendAsOriginal		12034
+
+#define IDS_DialogError                 12500
+#define IDS_DialogNote                  12501
+#define IDS_DialogWarning               12502
+
+#define IDE_ServerClose                 13000
+#define IDE_ServerLogoutQuit			13001
+#define IDE_ExpungeManual               13002
+#define IDE_ExpungeOnClose              13003
+#define IDE_ClearINBOX                  13004
+#define IDE_ClearINBOXDeleted           13005
+#define IDE_LetterServerLogon           13008
+#define IDE_MultiSave                   13009
+#define IDE_MultiReply                  13010
+#define IDE_MultiForward                13011
+#define IDE_MultiDraft                  13012
+#define IDE_CachedSort                  13013
+#define IDE_NoLocalDraftSave			13014
+#define IDE_PromptDisconnect			13015
+#define IDE_PromptWaitPostpone			13016
+#define IDE_DeleteMboxOrFavourite		13017
+#define IDE_ReparseLocal				13019
+#define IDE_RulesMergeImportType		13020
+#define IDE_RulesMerge					13021
+#define IDE_RulesMergeExportType		13022
+#define IDE_WarnReplySubject			13023
+#define IDE_WarnMailtoFiles				13024
+
+#define IDE_ERROR_FILE_NOT_FOUND		13400
+#define IDE_ERROR_PATH_NOT_FOUND		13401
+#define IDE_ERROR_TOO_MANY_OPEN_FILES	13402
+#define IDE_ERROR_ACCESS_DENIED			13403
+#define IDE_ERROR_INVALID_HANDLE		13404
+#define IDE_ERROR_NOT_ENOUGH_MEMORY		13405
+#define IDE_ERROR_OUTOFMEMORY			13406
+#define IDE_ERROR_INVALID_DRIVE			13407
+#define IDE_ERROR_CURRENT_DIRECTORY		13408
+#define IDE_ERROR_WRITE_PROTECT			13409
+#define IDE_ERROR_SHARING_VIOLATION		13410
+#define IDE_ERROR_LOCK_VIOLATION		13411
+#define IDE_ERROR_HANDLE_DISK_FULL		13412
+#define IDE_ERROR_DUP_NAME				13413
+#define IDE_ERROR_OPEN_FAILED			13414
+#define IDE_ERROR_BUFFER_OVERFLOW		13415
+#define IDE_ERROR_DISK_FULL				13416
+#define IDE_ERROR_INVALID_NAME			13417
+#define IDE_ERROR_ALREADY_EXISTS		13418
+#define IDE_ERROR_DIRECTORY				13419
+
+#define IDE_WSAENOTSOCK                 13500
+#define IDE_WSAEOPNOTSUPP               13501
+#define IDE_WSAENETDOWN                 13502
+#define IDE_WSAENETUNREACH              13503
+#define IDE_WSAENETRESET                13504
+#define IDE_WSAECONNABORTED             13505
+#define IDE_WSAECONNRESET               13506
+#define IDE_WSAENOBUFS                  13507
+#define IDE_WSAEISCONN                  13508
+#define IDE_WSAENOTCONN                 13509
+#define IDE_WSAESHUTDOWN                13510
+#define IDE_WSAETIMEDOUT                13511
+#define IDE_WSAECONNREFUSED             13512
+#define IDE_WSAEHOSTDOWN                13513
+#define IDE_WSAEHOSTUNREACH             13514
+#define IDE_WSASYSNOTREADY              13515
+#define IDE_WSANOTINITIALISED           13516
+#define IDE_WSAHOST_NOT_FOUND           13517
+#define IDE_WSATRY_AGAIN                13518
+#define IDE_WSANO_RECOVERY              13519
+#define IDE_WSANO_DATA                  13520
+
+#define IDM_TooManyCopyToMailbox        15000
+#define IDM_CopyToMailboxChoose         15001
+#define IDM_CopyToMailboxStart          15003
+#define IDM_CopyToMailboxEnd            15499
+
+#define IDM_TooManyCopyToPopup          15500
+#define IDM_CopyToPopupNone             15501
+#define IDM_CopyToPopupChoose			15502
+#define IDM_CopyToPopupStart            15504
+#define IDM_CopyToPopupEnd              15999
+
+#define IDM_TooManyAppendToMailbox      16000
+#define IDM_AppendToMailboxChoose       16001
+#define IDM_AppendToMailboxStart        16003
+#define IDM_AppendToMailboxEnd          16499
+
+#define IDM_TooManyAppendToPopup        16500
+#define IDM_AppendToPopupNone           16501
+#define IDM_AppendToPopupChoose			16502
+#define IDM_AppendToPopupStart          16504
+#define IDM_AppendToPopupEnd            16999
+
+#define IDM_AddressCopyStart            17000
+#define IDM_AddressCopyEnd              17199
+
+#define IDM_AddressImportStart          17200
+#define IDM_AddressImportEnd            17299
+#define IDM_AddressExportStart          17300
+#define IDM_AddressExportEnd            17399
+
+#define IDM_ADBK_SERVERS_Start          17400
+#define IDM_ADBK_SERVERS_End            17499
+
+#define IDM_MUSERVEROther		        17500
+#define IDM_MUSERVERStart          		17501
+#define IDM_MUSERVEREnd            		17599
+
+#define IDM_MAILBOXACLStart          	17601
+#define IDM_MAILBOXACLEnd            	17699
+
+#define IDM_ACL_SAVE_STYLE              18000
+#define IDM_ACL_DELETE_STYLE            18001
+#define IDM_ACLStyleStart               18002
+#define IDM_ACLStyleEnd                 18199
+
+#define IDM_IDENTITY_NEW                18200
+#define IDM_IDENTITY_EDIT               18201
+#define IDM_IDENTITY_DELETE             18202
+#define IDM_IDENTITY_CUSTOM             18203
+#define IDM_IDENTITYStart               18204
+#define IDM_IDENTITYEnd                 18399
+
+#define IDM_IDENTITY_DEFAULT_KEY		18400
+#define IDM_IDENTITY_FROM_KEY			18401
+#define IDM_IDENTITY_REPLYTO_KEY		18402
+#define IDM_IDENTITY_SENDER_KEY			18403
+#define IDM_IDENTITY_OTHER_KEY			18404
+
+#define IDM_ACCOUNT_NEW             	18500
+#define IDM_ACCOUNT_RENAME          	18501
+#define IDM_ACCOUNT_DELETE         		18502
+#define IDM_ACCOUNTStart           		18503
+#define IDM_ACCOUNTEnd              	18599
+
+#define IDM_IDENTITY_INHERIT_DEFAULT	18600
+#define IDM_IDENTITY_INHERIT_Start		18601
+#define IDM_IDENTITY_INHERIT_End		18699
+
+#define IDM_ALERTSTYLE_New				19000
+#define IDM_ALERTSTYLE_Rename			19001
+#define IDM_ALERTSTYLE_Delete			19002
+#define IDM_ALERTSTYLE_Start			19003
+#define IDM_ALERTSTYLE_End				19099
+
+#define IDM_ALERTCABINET_Start			19100
+#define IDM_ALERTCABINET_End			19199
+
+#define IDM_AddressAddTo_NewDraft		19200
+#define IDM_AddressAddTo_Start			19202
+#define IDM_AddressAddTo_End			19299
+
+#define IDM_SOUND_Start					20000
+#define IDM_SOUND_End					20299
+
+#define IDM_AUTHENTICATE_METHOD_PLAIN		20300
+#define IDM_AUTHENTICATE_METHOD_ANONYMOUS	20301
+#define IDM_AUTHENTICATE_METHOD_SSL			20302
+#define IDM_AUTHENTICATE_METHOD_LAST		20399
+
+#define IDM_AUTHENTICATE_TLSCERT_Start		20400
+#define IDM_AUTHENTICATE_TLSCERT_End		20499
+
+#define IDM_PswdChangeStart				20500
+#define IDM_PswdChangeStop				20599
+
+#define IDM_DICTIONARYStart				20600
+#define IDM_DICTIONARYStop				20699
+
+#define IDM_SPELL_ERROR_1				20700
+#define IDM_SPELL_ERROR_15				20714
+#define IDM_SPELL_ERROR_ADD				20715
+
+#define IDM_APPLY_RULES_ALL				20800
+#define IDM_APPLY_RULESStart			20801
+#define IDM_APPLY_RULESEnd				20999
+
+#define IDM_FONTStart                   21000
+#define IDM_FONTEnd                     21999
+
+#define IDM_ServerViewNew               22000
+#define IDM_ServerViewStart             22001
+#define IDM_ServerViewEnd               22499
+
+#define IDM_FIND_HISTORY_Start			22500
+#define IDM_FIND_HISTORY_End			22599
+#define IDM_REPLACE_HISTORY_Start		22600
+#define IDM_REPLACE_HISTORY_End			22699
+
+#define IDM_SEARCH_STYLES_SAVEAS		22700
+#define IDM_SEARCH_STYLES_DELETE		22701
+#define IDM_SEARCH_STYLES_SEPARATOR1	22702
+#define IDM_SEARCH_STYLES_Start			22703
+#define IDM_SEARCH_STYLES_End			22999
+
+#define IDM_SEARCH_CABINETS_First		23100
+#define IDM_SEARCH_CABINETS_End			23599
+
+#define IDM_SEARCH_SEARCHMETHOD_Start	23600
+#define IDM_SEARCH_SEARCHMETHOD_End		23699
+
+#define IDM_MAILBOX_MATCH_Start			23700
+#define IDM_MAILBOX_MATCH_Stop			23799
+
+#define IDM_SMTP_ACCOUNTS_Start			23800
+#define IDM_SMTP_ACCOUNTS_Stop			23899
+
+#define IDM_RULESTRIGGERS_Apply			23900
+#define IDM_RULESTRIGGERS_Start			23901
+#define IDM_RULESTRIGGERS_End			23999
+
+#define IDM_FLAGS_LABEL1				24000
+#define IDM_FLAGS_LABEL2				24001
+#define IDM_FLAGS_LABEL3				24002
+#define IDM_FLAGS_LABEL4				24003
+#define IDM_FLAGS_LABEL5				24004
+#define IDM_FLAGS_LABEL6				24005
+#define IDM_FLAGS_LABEL7				24006
+#define IDM_FLAGS_LABEL8				24007
+
+#define IDM_SELECT_LABEL1				24100
+#define IDM_SELECT_LABEL2				24101
+#define IDM_SELECT_LABEL3				24102
+#define IDM_SELECT_LABEL4				24103
+#define IDM_SELECT_LABEL5				24104
+#define IDM_SELECT_LABEL6				24105
+#define IDM_SELECT_LABEL7				24106
+#define IDM_SELECT_LABEL8				24107
+
+#define IDM_SEARCH_CRITERIA_LABEL1		24200
+#define IDM_SEARCH_CRITERIA_LABEL2		24201
+#define IDM_SEARCH_CRITERIA_LABEL3		24202
+#define IDM_SEARCH_CRITERIA_LABEL4		24203
+#define IDM_SEARCH_CRITERIA_LABEL5		24204
+#define IDM_SEARCH_CRITERIA_LABEL6		24205
+#define IDM_SEARCH_CRITERIA_LABEL7		24206
+#define IDM_SEARCH_CRITERIA_LABEL8		24207
+
+#define IDM_RULES_ACTIONS_FLAGSEEN			24300
+#define IDM_RULES_ACTIONS_FLAGIMPORTANT		24301
+#define IDM_RULES_ACTIONS_FLAGANSWERED		24302
+#define IDM_RULES_ACTIONS_FLAGDELETED		24303
+#define IDM_RULES_ACTIONS_FLAGDRAFT			24304
+#define IDM_RULES_ACTIONS_SEPARATOR1		24305
+#define IDM_RULES_ACTIONS_LABEL1			24306
+#define IDM_RULES_ACTIONS_LABEL2			24307
+#define IDM_RULES_ACTIONS_LABEL3			24308
+#define IDM_RULES_ACTIONS_LABEL4			24309
+#define IDM_RULES_ACTIONS_LABEL5			24310
+#define IDM_RULES_ACTIONS_LABEL6			24311
+#define IDM_RULES_ACTIONS_LABEL7			24312
+#define IDM_RULES_ACTIONS_LABEL8			24313
+
+#define IDM_WINDOWS_First				25000
+#define IDM_WINDOWS_Last				25099
+
+#pragma mark ____________________________Security Plugin
+#define IDD_GETPASSPHRASE				26000
+#define IDC_PASSPHRASE1_TEXT			26001
+#define IDC_PASSPHRASE2_TEXT			26002
+#define IDC_PASSPHRASE_KEYPOPUPTITLE	26003
+#define IDC_PASSPHRASE_KEYPOPUP			26004
+#define IDC_PASSPHRASE_HIDETYPING		26005
+
+#pragma mark ____________________________Certificates
+#define IDD_ACCEPTCERT					27000
+#define IDC_ACCEPTCERT_ERRORS			27001
+#define IDC_ACCEPTCERT_CERT				27002
+#define IDC_ACCEPTCERT_ACCEPTSAVE		27003
+
+#define IDD_CERTIFICATEMANAGER			27100
+#define IDC_CERTMGR_RELOAD				27101
+#define IDC_CERTMGR_TABS				27102
+#define IDC_CERTMGR_LIST				27103
+#define IDC_CERTMGR_LISTSELCHANGE		27104
+#define IDC_CERTMGR_LISTDBLCLICK		27105
+#define IDC_CERTMGR_IMPORT				27106
+#define IDC_CERTMGR_VIEW				27107
+#define IDC_CERTMGR_DELETE				27108
+#define IDC_CERTMGR_TOTAL				27109
+#define IDC_CERTMGR_SUBJECT				27110
+#define IDC_CERTMGR_ISSUER				27111
+#define IDC_CERTMGR_NOTBEFORE			27112
+#define IDC_CERTMGR_NOTAFTER			27113
+#define IDC_CERTMGR_FINGERPRINT			27114
+#define IDC_CERTMGR_LOCATION			27115
+#define IDE_ReallyDeleteCertificate		27130
+#define IDS_CERTIFICATES_PERSONAL		27150
+#define IDS_CERTIFICATES_USERS			27151
+#define IDS_CERTIFICATES_SERVERS		27152
+#define IDS_CERTIFICATES_AUTHORITIES	27153
+
+#define IDD_VIEWCERT					27200
+#define IDC_VIEWCERT_CERT				27201
+
+#pragma mark ____________________________Spell Plugin
+#define IDD_SPELL_CHECK                 30000
+#define IDD_SPELL_OPTIONS               30001
+#define IDD_SPELL_ADD                   30002
+#define IDD_SPELL_EDIT                  30003
+#define IDD_SPELL_CHOOSEDICT            30004
+
+#define IDS_SPELL_CannotAddDuplicate    30010
+#define IDS_SPELL_NoMainDictionary		30011
+#define IDS_SPELL_ReplaceNotInDictionary 30012
+#define IDS_SPELL_DoneCheck             30013
+
+#define IDC_SPELLCHECK_ADD              30100
+#define IDC_SPELLCHECK_EDIT             30101
+#define IDC_SPELLCHECK_REPLACE          30102
+#define IDC_SPELLCHECK_SKIP             30103
+#define IDC_SPELLCHECK_REPLACEALL       30104
+#define IDC_SPELLCHECK_SKIPALL          30105
+#define IDC_SPELLCHECK_SUGGESTMORE      30106
+#define IDC_SPELLCHECK_SENDNOW          30108
+#define IDC_SPELLCHECK_OPTIONS          30110
+#define IDC_SPELLCHECK_SUGGEST          30111
+#define IDC_SPELLCHECK_LIST             30112
+#define IDC_SPELLCHECK_DICT             30113
+#define IDC_SPELLCHECK_WORD             30114
+#define IDC_SPELLCHECK_WORDTOP          30115
+#define IDC_SPELLCHECK_WORDBOTTOM       30116
+#define IDC_SPELLCHECK_PAGE             30117
+
+#define IDC_SPELLOPTIONS_ICAP           30200
+#define IDC_SPELLOPTIONS_ACAP           30201
+#define IDC_SPELLOPTIONS_IWNO           30202
+#define IDC_SPELLOPTIONS_IMIX           30203
+#define IDC_SPELLOPTIONS_IDNS           30204
+#define IDC_SPELLOPTIONS_RTWO           30205
+#define IDC_SPELLOPTIONS_CASE           30206
+#define IDC_SPELLOPTIONS_SPHO           30207
+#define IDC_SPELLOPTIONS_STYP           30208
+#define IDC_SPELLOPTIONS_SSPL           30209
+#define IDC_SPELLOPTIONS_AUTO           30210
+#define IDC_SPELLOPTIONS_AUTOPOS        30211
+#define IDC_SPELLOPTIONS_SPELLONSEND    30212
+#define IDC_SPELLOPTIONS_SPELLASYOUTYPE 	30213
+#define IDC_SPELLOPTIONS_SPELLBACKGROUND	30214
+#define IDC_SPELLOPTIONS_SPELLCOLOUR    30215
+#define IDC_SPELLOPTIONS_FAST           30216
+#define IDC_SPELLOPTIONS_MEDIUM         30217
+#define IDC_SPELLOPTIONS_SLOW           30218
+#define IDC_SPELLOPTIONS_DICTPOPUP      30219
+
+#define IDC_SPELLCHOOSEDICT_DICTPOPUP   30250
+
+#define IDC_SPELLADD_CHK1               30300
+#define IDC_SPELLADD_CHK2               30301
+#define IDC_SPELLADD_CHK3               30302
+#define IDC_SPELLADD_CHK4               30303
+#define IDC_SPELLADD_CHK5               30304
+#define IDC_SPELLADD_CHK6               30305
+#define IDC_SPELLADD_CHK7               30306
+#define IDC_SPELLADD_CHK8               30307
+#define IDC_SPELLADD_CHK9               30308
+#define IDC_SPELLADD_CHKA               30309
+#define IDC_SPELLADD_CHKB               30310
+#define IDC_SPELLADD_CHKC               30311
+#define IDC_SPELLADD_CHKD               30312
+#define IDC_SPELLADD_CHKE               30313
+#define IDC_SPELLADD_CHKF               30314
+#define IDC_SPELLADD_CHKG               30315
+#define IDC_SPELLADD_CHKH               30316
+#define IDC_SPELLADD_CHKI               30317
+#define IDC_SPELLADD_CHKJ               30318
+
+#define IDC_SPELLADD_SUG1               30320
+#define IDC_SPELLADD_SUG2               30321
+#define IDC_SPELLADD_SUG3               30322
+#define IDC_SPELLADD_SUG4               30323
+#define IDC_SPELLADD_SUG5               30324
+#define IDC_SPELLADD_SUG6               30325
+#define IDC_SPELLADD_SUG7               30326
+#define IDC_SPELLADD_SUG8               30327
+#define IDC_SPELLADD_SUG9               30328
+#define IDC_SPELLADD_SUGA               30329
+#define IDC_SPELLADD_SUGB               30330
+#define IDC_SPELLADD_SUGC               30331
+#define IDC_SPELLADD_SUGD               30332
+#define IDC_SPELLADD_SUGE               30333
+#define IDC_SPELLADD_SUGF               30334
+#define IDC_SPELLADD_SUGG               30335
+#define IDC_SPELLADD_SUGH               30336
+#define IDC_SPELLADD_SUGI               30337
+#define IDC_SPELLADD_SUGJ               30338
+
+#define IDC_SPELLADD_CAPS               30340
+
+#define IDC_SPELLEDIT_WORD              30400
+#define IDC_SPELLEDIT_ADD               30401
+#define IDC_SPELLEDIT_FIND              30402
+#define IDC_SPELLEDIT_REMOVE            30403
+#define IDC_SPELLEDIT_DICT              30404
+#define IDC_SPELLEDIT_LIST              30405
+#define IDC_SPELLEDIT_WORDTOP           30406
+#define IDC_SPELLEDIT_WORDBOTTOM        30407
+#define IDC_SPELLEDIT_PAGE              30408
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        152
+#define _APS_NEXT_COMMAND_VALUE         32788
+#define _APS_NEXT_CONTROL_VALUE         1089
+#define _APS_NEXT_SYMED_VALUE           108
+#endif
+#endif

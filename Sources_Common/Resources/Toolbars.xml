@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+<!-- Class specific strings -->
+
+<!-- Button titles -->
+	<stringarray id="Toolbar::Titles">
+		<string>Separator</string>
+		<string>Space</string>
+		<string>Expandable Space</string>
+		<string>Draft</string>
+		<string>Details</string>
+		<string>Expunge</string>
+		<string>Search</string>
+		<string>Reply</string>
+		<string>Reply All</string>
+		<string>Forward</string>
+		<string>Redirect</string>
+		<string>Reject</string>
+		<string>Again</string>
+		<string>Digest</string>
+		<string>Copy To</string>
+		<string>Delete</string>
+		<string>Header</string>
+		<string>Save</string>
+		<string>Print</string>
+		<string>List</string>
+		<string>Items</string>
+		<string>Preview</string>
+		<string>Connect</string>
+		<string>Login</string>
+		<string>Create</string>
+		<string>Check</string>
+		<string>Cabinet</string>
+		<string>Match</string>
+		<string>Select</string>
+		<string>Type</string>
+		<string>Rules</string>
+		<string>Hold</string>
+		<string>Priority</string>
+		<string>Accounts</string>
+		<string>Enable</string>
+		<string>Flags</string>
+		<string>Del-Nxt</string>
+		<string>Prev</string>
+		<string>Next</string>
+		<string>Attach</string>
+		<string>Spelling</string>
+		<string>Receipt</string>
+		<string>DSN</string>
+		<string>Insert Sig</string>
+		<string>Sign</string>
+		<string>Encrypt</string>
+		<string>Send</string>
+		<string>Add Cc</string>
+		<string>Add Bcc</string>
+		<string>Append</string>
+		<string>Original</string>
+		<string>Edit</string>
+		<string>New</string>
+		<string>Open</string>
+		<string>Delete</string>
+		<string>Search</string>
+		<string>Single</string>
+		<string>Group</string>
+		<string>Edit</string>
+		<string>Delete</string>
+		<string>Create</string>
+		<string>Event</string>
+		<string>To Do</string>
+		<string>Today</string>
+		<string>Goto</string>
+		<string>Day</string>
+		<string>Work</string>
+		<string>Week</string>
+		<string>Month</string>
+		<string>Year</string>
+		<string>Summary</string>
+		<string>Tasks</string>
+		<string>Header</string>
+	</stringarray>
+	
+<!-- Button descriptions -->
+	<stringarray id="Toolbar::Descriptors">
+		<string>Separator</string>
+		<string>Space</string>
+		<string>Expandable Space</string>
+		<string>Draft</string>
+		<string>Details</string>
+		<string>Expunge</string>
+		<string>Search</string>
+		<string>Reply</string>
+		<string>Reply All</string>
+		<string>Forward</string>
+		<string>Redirect</string>
+		<string>Reject</string>
+		<string>Send Again</string>
+		<string>Create Digest</string>
+		<string>Copy To/Move To</string>
+		<string>Delete</string>
+		<string>Show/Hide Header</string>
+		<string>Save</string>
+		<string>Print</string>
+		<string>Show/Hide List Pane</string>
+		<string>Show/Hide Items Pane</string>
+		<string>Show/Hide Preview Pane</string>
+		<string>Connect/Disconnect</string>
+		<string>Login/Logout</string>
+		<string>Create</string>
+		<string>Check</string>
+		<string>Cabinet</string>
+		<string>Match</string>
+		<string>Select</string>
+		<string>Type of Mailbox</string>
+		<string>Apply Rules</string>
+		<string>Hold/Unhold Messages</string>
+		<string>Change Priority</string>
+		<string>List of Accounts</string>
+		<string>Enable/Disable Queues</string>
+		<string>Change Flags</string>
+		<string>Delete and Read Next</string>
+		<string>Read Previous</string>
+		<string>Read Next</string>
+		<string>Attach</string>
+		<string>Spelling</string>
+		<string>Request Read Receipt</string>
+		<string>Request DSN</string>
+		<string>Insert Signature</string>
+		<string>Sign</string>
+		<string>Encrypt</string>
+		<string>Send</string>
+		<string>Add Cc Address Field</string>
+		<string>Add Bcc Address Field</string>
+		<string>Append Draft Now</string>
+		<string>Also Copy Original Message</string>
+		<string>External Edit</string>
+		<string>New Address Book</string>
+		<string>Open Address Book</string>
+		<string>Delete Address Book</string>
+		<string>Search for Addresses</string>
+		<string>New Address</string>
+		<string>New Group</string>
+		<string>Edit Address/Group</string>
+		<string>Delete Address/Group</string>
+		<string>New Calendar</string>
+		<string>New Event</string>
+		<string>New To Do</string>
+		<string>Show Today</string>
+		<string>Goto Date</string>
+		<string>Day View</string>
+		<string>Work Week View</string>
+		<string>Week View</string>
+		<string>Month View</string>
+		<string>Year View</string>
+		<string>Summary Events View</string>
+		<string>Tasks View</string>
+		<string>Expand/Collapse Window Header</string>
+	</stringarray>
+
+<!-- Other Items -->
+	<string id="CToolbarManager::AllRules">All</string>
+
+</stringlist>

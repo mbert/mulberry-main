@@ -1,0 +1,10 @@
+-suffix .cp
+
+@POPPASSDPlugin.so
+-prefix sources/
+CPOPPASSDPluginDLL
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CPswdChangePluginDLL
+os_dep

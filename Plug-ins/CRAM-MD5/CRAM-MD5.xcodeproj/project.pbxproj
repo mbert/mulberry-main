@@ -1,0 +1,271 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFBD95EF0AD9CA0800DD4C86 /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95D70AD9CA0800DD4C86 /* PluginDLLmain.cp */; };
+		AFBD95F00AD9CA0800DD4C86 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95D80AD9CA0800DD4C86 /* CPluginDLL.cp */; };
+		AFBD95F20AD9CA0800DD4C86 /* CAuthPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95DA0AD9CA0800DD4C86 /* CAuthPluginDLL.cp */; };
+		AFBD95F40AD9CA0800DD4C86 /* CCRAMMD5PluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95DC0AD9CA0800DD4C86 /* CCRAMMD5PluginDLL.cp */; };
+		AFBD95F60AD9CA0800DD4C86 /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95E00AD9CA0800DD4C86 /* CStringUtils.cp */; };
+		AFBD95F80AD9CA0800DD4C86 /* kbase64.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95E20AD9CA0800DD4C86 /* kbase64.cp */; };
+		AFBD95FA0AD9CA0800DD4C86 /* hmac-md5.c in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95E50AD9CA0800DD4C86 /* hmac-md5.c */; };
+		AFBD95FC0AD9CA0800DD4C86 /* md5c.c in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95E70AD9CA0800DD4C86 /* md5c.c */; };
+		AFBD96010AD9CA0800DD4C86 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD95DE0AD9CA0800DD4C86 /* os_dep.cp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AFBD95D20AD9CA0700DD4C86 /* CRAM-MD5.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CRAM-MD5.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFBD95D70AD9CA0800DD4C86 /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AFBD95D80AD9CA0800DD4C86 /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFBD95D90AD9CA0800DD4C86 /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFBD95DA0AD9CA0800DD4C86 /* CAuthPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CAuthPluginDLL.cp; path = ../Common/CAuthPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFBD95DB0AD9CA0800DD4C86 /* CAuthPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAuthPluginDLL.h; path = ../Common/CAuthPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFBD95DC0AD9CA0800DD4C86 /* CCRAMMD5PluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CCRAMMD5PluginDLL.cp; path = sources/CCRAMMD5PluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AFBD95DD0AD9CA0800DD4C86 /* CCRAMMD5PluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCRAMMD5PluginDLL.h; path = sources/CCRAMMD5PluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AFBD95DE0AD9CA0800DD4C86 /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
+		AFBD95DF0AD9CA0800DD4C86 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
+		AFBD95E00AD9CA0800DD4C86 /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
+		AFBD95E10AD9CA0800DD4C86 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AFBD95E20AD9CA0800DD4C86 /* kbase64.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = kbase64.cp; path = ../Common/kbase64.cp; sourceTree = SOURCE_ROOT; };
+		AFBD95E30AD9CA0800DD4C86 /* kbase64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = kbase64.h; path = ../Common/kbase64.h; sourceTree = SOURCE_ROOT; };
+		AFBD95E50AD9CA0800DD4C86 /* hmac-md5.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = "hmac-md5.c"; path = "sources/md5/hmac-md5.c"; sourceTree = SOURCE_ROOT; };
+		AFBD95E60AD9CA0800DD4C86 /* hmac-md5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "hmac-md5.h"; path = "sources/md5/hmac-md5.h"; sourceTree = SOURCE_ROOT; };
+		AFBD95E70AD9CA0800DD4C86 /* md5c.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = md5c.c; path = sources/md5/md5c.c; sourceTree = SOURCE_ROOT; };
+		AFBD96040AD9CA0B00DD4C86 /* md5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = md5.h; path = sources/md5/md5.h; sourceTree = SOURCE_ROOT; };
+		AFBD96060AD9CA0B00DD4C86 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AFBD960A0AD9CA0B00DD4C86 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFBD95CF0AD9CA0700DD4C86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AFBD95C50AD9CA0700DD4C86 = {
+			isa = PBXGroup;
+			children = (
+				AFBD95D60AD9CA0800DD4C86 /* Main */,
+				AFBD95E80AD9CA0800DD4C86 /* Resources */,
+				AFBD96030AD9CA0B00DD4C86 /* Imported Files */,
+				AFBD95D30AD9CA0700DD4C86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFBD95D30AD9CA0700DD4C86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD95D20AD9CA0700DD4C86 /* CRAM-MD5.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFBD95D60AD9CA0800DD4C86 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD95D70AD9CA0800DD4C86 /* PluginDLLmain.cp */,
+				AFBD95D90AD9CA0800DD4C86 /* CPluginDLL.h */,
+				AFBD95D80AD9CA0800DD4C86 /* CPluginDLL.cp */,
+				AFBD95DB0AD9CA0800DD4C86 /* CAuthPluginDLL.h */,
+				AFBD95DA0AD9CA0800DD4C86 /* CAuthPluginDLL.cp */,
+				AFBD95DD0AD9CA0800DD4C86 /* CCRAMMD5PluginDLL.h */,
+				AFBD95DC0AD9CA0800DD4C86 /* CCRAMMD5PluginDLL.cp */,
+				AFBD95DF0AD9CA0800DD4C86 /* os_dep.h */,
+				AFBD95DE0AD9CA0800DD4C86 /* os_dep.cp */,
+				AFBD95E10AD9CA0800DD4C86 /* CStringUtils.h */,
+				AFBD95E00AD9CA0800DD4C86 /* CStringUtils.cp */,
+				AFBD95E30AD9CA0800DD4C86 /* kbase64.h */,
+				AFBD95E20AD9CA0800DD4C86 /* kbase64.cp */,
+				AFBD95E40AD9CA0800DD4C86 /* MD5 */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AFBD95E40AD9CA0800DD4C86 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD95E60AD9CA0800DD4C86 /* hmac-md5.h */,
+				AFBD95E50AD9CA0800DD4C86 /* hmac-md5.c */,
+				AFBD95E70AD9CA0800DD4C86 /* md5c.c */,
+			);
+			name = MD5;
+			sourceTree = "<group>";
+		};
+		AFBD95E80AD9CA0800DD4C86 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AFBD96030AD9CA0B00DD4C86 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD96040AD9CA0B00DD4C86 /* md5.h */,
+				AFBD96060AD9CA0B00DD4C86 /* PluginDLLmain.h */,
+				AFBD960A0AD9CA0B00DD4C86 /* CPluginInfo.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFBD95D10AD9CA0700DD4C86 /* CRAM-MD5 MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFBD95D40AD9CA0800DD4C86 /* Build configuration list for PBXNativeTarget "CRAM-MD5 MachO" */;
+			buildPhases = (
+				AFBD95CD0AD9CA0700DD4C86 /* Sources */,
+				AFBD95CE0AD9CA0700DD4C86 /* Resources */,
+				AFBD95CF0AD9CA0700DD4C86 /* Frameworks */,
+				AFBD95D00AD9CA0700DD4C86 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CRAM-MD5 MachO";
+			productName = "CRAM-MD5 MachO";
+			productReference = AFBD95D20AD9CA0700DD4C86 /* CRAM-MD5.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFBD95C70AD9CA0700DD4C86 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AFBD95C80AD9CA0700DD4C86 /* Build configuration list for PBXProject "CRAM-MD5" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AFBD95C50AD9CA0700DD4C86;
+			productRefGroup = AFBD95D30AD9CA0700DD4C86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFBD95D10AD9CA0700DD4C86 /* CRAM-MD5 MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFBD95CE0AD9CA0700DD4C86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AFBD95D00AD9CA0700DD4C86 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFBD95CD0AD9CA0700DD4C86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFBD95EF0AD9CA0800DD4C86 /* PluginDLLmain.cp in Sources */,
+				AFBD95F00AD9CA0800DD4C86 /* CPluginDLL.cp in Sources */,
+				AFBD95F20AD9CA0800DD4C86 /* CAuthPluginDLL.cp in Sources */,
+				AFBD95F40AD9CA0800DD4C86 /* CCRAMMD5PluginDLL.cp in Sources */,
+				AFBD95F60AD9CA0800DD4C86 /* CStringUtils.cp in Sources */,
+				AFBD95F80AD9CA0800DD4C86 /* kbase64.cp in Sources */,
+				AFBD95FA0AD9CA0800DD4C86 /* hmac-md5.c in Sources */,
+				AFBD95FC0AD9CA0800DD4C86 /* md5c.c in Sources */,
+				AFBD96010AD9CA0800DD4C86 /* os_dep.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AFBD95C90AD9CA0700DD4C86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACH_O_TYPE = mh_bundle;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AFBD95D50AD9CA0800DD4C86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = "CRAM-MD5";
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFBD95C80AD9CA0700DD4C86 /* Build configuration list for PBXProject "CRAM-MD5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBD95C90AD9CA0700DD4C86 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AFBD95D40AD9CA0800DD4C86 /* Build configuration list for PBXNativeTarget "CRAM-MD5 MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFBD95D50AD9CA0800DD4C86 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFBD95C70AD9CA0700DD4C86 /* Project object */;
+}

@@ -1,0 +1,37 @@
+#########################################
+### 
+###      M A K E F I L E
+###
+###
+###
+
+
+
+# compiler flags ------------------------------
+
+include ../include/nostl.mak
+
+BIN = .obj
+
+CINCS = \
+-I../Common \
+-I../../Sources_Common/Utilities \
+-I./sources \
+-I./sources/md5 \
+
+VPATH := sources:\
+		../Common:\
+		../../Sources_Common/Utilities:\
+		../../Sources_Common/Mail/Charsets:\
+		../../Sources_Common/Mail/URLs:\
+		../CRAM-MD5/sources/md5
+		
+$.${BIN}/%.o %.o: %.cp
+	@ echo "    ---- Compiling $< (C++)"
+	 $(CPP) $(CFLAGS) -c -o $@ $<
+
+${BIN}/hmac-md5.o: ../CRAM-MD5/sources/md5/hmac-md5.c ../CRAM-MD5/sources/md5/hmac-md5.h
+	 $(CC) -c -o $@ $<
+
+${BIN}/md5c.o: ../CRAM-MD5/sources/md5/md5c.c ../CRAM-MD5/sources/md5/md5.h
+	 $(CC) -c -o $@ $<

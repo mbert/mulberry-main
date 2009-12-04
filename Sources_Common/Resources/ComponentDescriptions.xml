@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+<!-- Component description strings -->
+
+<!-- Event component -->
+	<string id="EventDescription::HeaderPublish">---- Begin Calendar Event Summary ----</string>
+	<string id="EventDescription::FooterPublish">----  End Calendar Event Summary  ----</string>
+	
+	<string id="EventDescription::HeaderRequest">---- Begin Invitation Summary ----</string>
+	<string id="EventDescription::FooterRequest">----  End Invitation Summary  ----</string>
+	
+	<string id="EventDescription::HeaderReplyAccepted">---- Begin Invitation Acceptance Summary ----</string>
+	<string id="EventDescription::FooterReplyAccepted">----  End Invitation Acceptance Summary  ----</string>
+	
+	<string id="EventDescription::HeaderReplyDeclined">---- Begin Invitation Refusal Summary ----</string>
+	<string id="EventDescription::FooterReplyDeclined">----  End Invitation Refusal Summary  ----</string>
+	
+	<!-- Make sure these line up so that text looks nice -->
+	<string id="EventDescription::Organizer"    >Organizer:   </string>
+	<string id="EventDescription::Summary"      >Summary:     </string>
+	<string id="EventDescription::All Day Event">All Day Event</string>
+	<string id="EventDescription::Recurring"    >This is a Recurring Event</string>
+	<string id="EventDescription::On"           >On:          </string>
+	<string id="EventDescription::Starts"       >Starts:      </string>
+	<string id="EventDescription::Ends"         >Ends:        </string>
+	<string id="EventDescription::Duration"     >Duration:    </string>
+	<string id="EventDescription::Location"     >Location:    </string>
+	<string id="EventDescription::Description"  >Description: </string>
+	<string id="EventDescription::Attendee"     >Attendee:    </string>
+	<string id="EventDescription::Invitation"   >INVITATION REQUEST</string>
+	<string id="EventDescription::Accepted"     >INVITATION ACCEPTED</string>
+	<string id="EventDescription::Declined"     >INVITATION REFUSED</string>
+
+</stringlist>

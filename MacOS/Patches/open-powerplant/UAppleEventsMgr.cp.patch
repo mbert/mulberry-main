@@ -1,0 +1,39 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UAppleEventsMgr.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UAppleEventsMgr.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/AppleEvent Classes/UAppleEventsMgr.cp	(working copy)
+@@ -873,7 +873,14 @@
+ 	Assign(inFileSpec);
+ }
+ 
++StAEDescriptor::StAEDescriptor(
++	const FSRef&	inFileSpec)
++{
++	InitToNull();
++	Assign(inFileSpec);
++}
+ 
++
+ // ---------------------------------------------------------------------------
+ //	¥ ~StAEDescriptor						Destructor				  [public]
+ // ---------------------------------------------------------------------------
+@@ -980,7 +987,19 @@
+ 	return *this;
+ }
+ 
++StAEDescriptor&
++StAEDescriptor::Assign(
++	const FSRef&	inFileSpec)
++{
++	Dispose();
+ 
++	OSErr	err = ::AECreateDesc(typeFSRef, &inFileSpec, sizeof(FSRef), &mDesc);
++	ThrowIfOSErr_(err);
++
++	return *this;
++}
++
++
+ // ---------------------------------------------------------------------------
+ //	¥ Dispose
+ // ---------------------------------------------------------------------------

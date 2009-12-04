@@ -1,0 +1,30 @@
+-suffix .cp
+
+@PluginLib.a
+-prefix ../Common/
+-prefix ../../Sources_Common/Utilities/
+CCharSpecials
+CStringUtils
+CUStringUtils
+cdstring
+cdustring
+base64
+char_stream
+encrypt
+quotedprintable
+-prefix ../../Sources_Common/i18n/Charsets/
+CCharsetManager
+-prefix ../../Sources_Common/i18n/Charsets/Converters/
+CConverterBase
+-prefix ../../Sources_Common/i18n/Charsets/Converters/OneByte/
+CConverterOneByte
+CASCII
+-prefix ../../Sources_Common/i18n/Charsets/Converters/Unicode/
+CUTF8
+CUTF16
+CUCS2
+CUCS4
+-prefix ../../Sources_Common/Mail/URLs/
+CURL
+-prefix ../CRAM-MD5/sources/md5/
+.c md5c

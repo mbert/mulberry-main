@@ -1,0 +1,12 @@
+-suffix .cp
+
+@ASpellPlugin.so
+-prefix sources/
+CASpellPluginDLL
+-prefix ../PluginLibrary/
+.a PluginLib
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CSpellPluginDLL
+os_dep

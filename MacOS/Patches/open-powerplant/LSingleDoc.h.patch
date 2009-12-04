@@ -1,0 +1,16 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LSingleDoc.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LSingleDoc.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LSingleDoc.h	(working copy)
+@@ -34,9 +34,9 @@
+ 
+ 	virtual Boolean		AllowSubRemoval( LCommander* inSub );
+ 
+-	virtual StringPtr	GetDescriptor( Str255 outDescriptor ) const;
++	virtual PPx::CFString	GetDescriptor() const;
+ 
+-	virtual Boolean		UsesFileSpec( const FSSpec& inFileSpec ) const;
++	virtual Boolean		UsesFileSpec( const PPx::FSObject& inFileSpec ) const;
+ 
+ 	virtual void		MakeCurrent();
+ 

@@ -1,0 +1,42 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LBevelButton.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LBevelButton.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Appearance Classes/Appearance Controls/LBevelButton.cp	(working copy)
+@@ -27,7 +27,8 @@
+ 	ClassIDT	inImpID)
+ 
+ 	: LControlPane(inStream),
+-	  LMenuController(this)
++	  LMenuController(this),
++	  Sticns(this, mMaxValue)
+ {
+ 	SInt16		controlKind;
+ 	ResIDT		textTraitsID;
+@@ -47,6 +48,7 @@
+ 	}
+ 
+ 	MakeControlImp(inImpID, controlKind, title, textTraitsID);
++	Sticns::Load(this, mMinValue & 0xFF, mMaxValue);
+ 
+ 	if (menuID != 0) {						// Store our copy of the Menu
+ 		SetMenuID(menuID);
+@@ -110,7 +112,8 @@
+ 	: LControlPane(inPaneInfo, inImpID, inBevelProc,
+ 						inTitle, inTextTraits, inValueMessage,
+ 						0, inBehavior + inContentType, inContentResID),
+-	  LMenuController(this)
++	  LMenuController(this),
++	  Sticns(this, mMinValue & 0xFF, mMaxValue)
+ {
+ 	mBehavior = (SInt16) (inBehavior & 0x00000300);
+ 
+@@ -155,7 +158,8 @@
+ 	: LControlPane(inPaneInfo, inImpID, (SInt16) (inBevelProc + inMenuPlacement),
+ 						inTitle, inTextTraits, inValueMessage,
+ 						MENU_Empty, inContentType, inContentResID),
+-	  LMenuController(this)
++	  LMenuController(this),
++	  Sticns(this, mMinValue & 0xFF, mMaxValue)
+ {
+ 		// We always pass MENU_Empty to the base constructor. This
+ 		// keeps the Toolbox from mucking with our real menu, which

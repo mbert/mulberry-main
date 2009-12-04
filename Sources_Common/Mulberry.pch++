@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2006 Cyrus Daboo.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms are not permitted
+ * without specific prior written permission from Cyrus Daboo.
+ * This software is provided "as is" without express or implied warranty.
+ */
+
+// Precomiled header for speed
+
+#ifdef powerc
+#pragma precompile_target "MulberryPPC.mch"
+#else
+#pragma precompile_target "Mulberry68K.mch"
+#endif
+
+//#define USE_FONTMAPPER
+
+#include "Mulberry_Prefix.h"
+
+#include "os_dep.h"
+
+//#include "CPreferences.h"
+#include "cdstring.h"
+#include "templs.h"
+
+#include "ptrvector.h"
+#include "prefsvector.h"
+
+#include "CGeneralException.h"

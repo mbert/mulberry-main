@@ -1,0 +1,220 @@
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+//                                            1         2         3         4         5         6         7         8         9        10        11        12        13        14        15        16        17        18        19
+//                                   1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_3PANETOOLBAR_ZOOMLIST		"To zoom the pane to full size or back to normal size, click here."
+	IDC_3PANETOOLBAR_ZOOMITEMS		"To zoom the pane to full size or back to normal size, click here."
+	IDC_3PANETOOLBAR_ZOOMPREVIEW	"To zoom the pane to full size or back to normal size, click here."
+	IDC_3PANEACCOUNTS_TABS			"To select the category of information on display in the entire 3-pane window, click on the appropriate tab."
+	IDC_3PANEITEMS_TABS				"To choose a mailbox to display from the list of open mailboxes, click the appropriate tab."
+	IDC_3PANEITEMS_CLOSEONE			"To close the mailbox currently on display, click here."
+	IDC_TOOLBARCHECKMAILBOX			"To check all favourite mailboxes or the active mailbox in the selected mailbox pane, click here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_TOOLBAR_SHOWHIDE			"To expand or collapse the toolbar, click here."
+	IDC_LOGINBTN					"To login to or logout from the server, click here."
+	IDC_SERVERSEARCHBTN				"To create a new display hierarchy or specify a mailbox pattern to match in a cabinet, click here."
+	IDC_SERVERCREATEBTN				"To create a new mailbox, click here."
+	IDC_SERVERREFRESHBTN			"To check favourite mailboxes for new mail, click here."
+	IDC_SERVERCABINETPOPUP			"To create, show or hide cabinets, click here and choose the cabinet to show or hide."
+	IDC_SERVERPROPBTN				"To display information about the selected server or mailbox, click here."
+	IDC_SERVERFLATBTN				"To switch the display of the selected display hierarchy between fully hierarchic list and a flat list, click here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_MAILBOXNEWMSGBTN			"To create a new empty draft message, click here."
+	//IDC_MAILBOXREPLYBTN				"To reply to the selected messages, click here."
+	//IDC_MAILBOXFORWARDBTN			"To forward the selected messages, click here."
+	IDC_MAILBOXCOPYBTN				"To copy or move the selected messages to another mailbox, click here. Click on the right-side to select a destination mailbox from a popup. Click on the left-side to use the last mailbox."
+	IDC_MAILBOXDELETEBTN			"To delete or undelete the selected messages, click here."
+	IDC_MAILBOXEXPUNGEBTN			"To expunge (permanently remove) deleted messages from this mailbox, click here."
+
+	IDC_MAILBOXMATCHBTN				"To select a set of criteria to match messages to, click here."
+	IDC_MAILBOXSELECTPOPUP			"To select all messages that have the corresponding flags set or unset, or that match or do not match the current match criteria, click here."
+
+	IDC_MAILBOXCHECKBTN				"To check this mailbox for new mail, click here."
+	IDC_MAILBOXSEARCHBTN			"To search the messages in this mailbox, click here."
+	IDC_MAILBOXDETAILSBTN			"To display information about the mailbox, click here."
+
+	IDC_MAILBOXSORTBTN				"To switch the display of messages between ascending or descending order, click here."
+
+	IDC_MAILBOXREADWRITE			"This mailbox and the messages it contains can be changed by you."
+	IDC_MAILBOXREADONLY				"This mailbox is 'Read Only' and you cannot make any changes to it or its messages."
+
+	IDC_MAILBOXCACHETXT				"The number of messages for which details are currently available."
+	IDC_MAILBOXTOTALTXT				"The total number of messages in this mailbox."
+	IDC_MAILBOXUNSEENTXT			"The number of unseen messages for which details are currently available."
+	IDC_MAILBOXDELNUMTXT			"The number of deleted messages for which details are currently available."
+	IDC_MAILBOXMATCHNUMTXT			"The number of messages matching the current 'Match' criteria."
+	
+	IDC_MAILBOXICONSTATE			"Indicates the type and status of this mailbox."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_SMTPHOLD					"To stop the selected messages from being sent, while still keeping them in the queue, turn this off."
+	IDC_SMTPPRIORITY				"To have the selected messages processed and sent before other messages higher up in the queue, turn this on."
+
+	IDC_SMTPACCOUNTS				"Select an SMTP server queue to display in this window by clicking here."
+
+	IDC_SMTPENABLE					"To allow processing and sending of messages in the current queue, turn this on."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_SEARCH_STYLESPOPUP			"To save or delete a search set, or to make a search set active, click here."
+	IDC_SEARCH_MORE					"To add another search criterion, click here."
+	IDC_SEARCH_FEWER				"To remove the last search criterion, click here."
+	IDC_SEARCH_CLEAR				"To remove all search criteria, click here."
+	IDC_SEARCH_SEARCH				"To start the search, click here."
+	IDC_SEARCH_CANCEL				"To cancel the current search without losing results for mailboxes already searched, click here.	"
+	IDC_SEARCH_TWIST				"To show or hide the mailbox list area, click here."
+	IDC_SEARCH_CABINETPOPUP			"To add mailboxes contained in a cabinet to the list of mailboxes to search, click here."
+	IDC_SEARCH_ADDLIST				"To add a mailbox to the list of mailboxes to search, click here."
+	IDC_SEARCH_CLEARLIST			"To remove all mailboxes from the list of mailboxes to search, click here."
+	IDC_SEARCH_OPTIONS				"To change options related to searching, click here."
+
+	IDC_SEARCHCRITERIA_POPUP1		"To choose which component of a message to search for, click here."
+	IDC_SEARCHCRITERIA_POPUP2		"To choose how to match the choosen message component, click here."
+	IDC_SEARCHCRITERIA_POPUP3		"To choose the units to use for searching messages by size, click here."
+	IDC_SEARCHCRITERIA_POPUP4		"To choose the boolean operator used with the immediately preceding and immediately following search criteria, click here."
+	IDC_SEARCHCRITERIA_TEXT1		"The text to search for should be entered here."
+	IDC_SEARCHCRITERIA_TEXT2		"The title of the header field to search for should be entered here."
+	IDC_SEARCHCRITERIA_TEXT3		"The numeric size of the message should be entered here, taking into account the choice of units."
+	IDC_SEARCHCRITERIA_DATE			"The date to search with should be entered here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_RULESNEWBTN					"To create a new rule, click here."
+	IDC_RULESNEWTARGETBTN			"To create a new trigger, click here."
+	IDC_RULESNEWSCRIPTSBTN			"To create a new script, click here."
+	IDC_RULESEDITBTN				"To edit the selected rule, trigger, or script, click here."
+	IDC_RULESDELETEBTN				"To delete the selected rules, triggers, or scripts, click here."
+	IDC_RULESAPPLYBTN				"To apply the selected rules to all messages in all open mailboxes, click here."
+	IDC_RULESGENERATEBTN			"To write the selected scripts to disk as text, click here."
+	IDC_RULESSHOWTRIGGERSBTN		"To show or hide the triggers list, click here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_MESSAGEPREVIEWCAPTION1		"Shows address, subject and date summaries for the current message being previewed."
+	IDC_MESSAGEPREVIEWCAPTION2		"Shows address, subject and date summaries for the current message being previewed."
+
+	IDC_MESSAGEFROMTWISTER			"To expand or collpase the address display, click here."
+	IDC_MESSAGEFROMFIELD			"The email address of the sender of this message."
+	IDC_MESSAGETOTWISTER			"To expand or collpase the address display, click here."
+	IDC_MESSAGETOFIELD				"The email address to which this message was sent."
+	IDC_MESSAGECCTWISTER			"To expand or collpase the address display, click here."
+	IDC_MESSAGECCFIELD				"The email address to which this message was copied."
+	IDC_MESSAGESUBJECT				"The subject line of this message."
+	IDC_MESSAGEDATE					"The date the message was sent."
+
+	IDC_MESSAGES_REPLY				"Click to reply either to the Reply-To address, or to addresses chosen from a dialog, based on your Preferences. Any text you have selected will be quoted in your reply."
+	IDC_MESSAGES_FORWARD			"To forward this message on to someone else, click here."
+	IDC_MESSAGES_BOUNCE				"To redirect this message, click here."
+	IDC_MESSAGES_COPY				"To copy or move the message to another mailbox, click here. Click on the right-side to select a destination mailbox from a popup. Click on the left-side to use the last mailbox."
+	IDC_MESSAGES_DELETE				"To delete this message, click here."
+	IDC_MESSAGES_PRINT				"To print this message, click here."
+	IDC_MESSAGES_DELETE_READ		"To delete this message and then display the next message in the mailbox in this window, click here."
+	IDC_MESSAGES_COPY_READ			"To copy this message to the mailbox chosen in the 'Copy To' pop-up menu and then display the next message in the mailbox in this window, click here."
+	IDC_MESSAGES_READ_PREV			"To display the previous message in the mailbox in this window, click here."
+	IDC_MESSAGES_READ_NEXT			"To display the next message in the mailbox in this window, click here."
+
+	IDC_MESSAGEPARTSTWISTER			"To show or hide the list of parts, click here."
+	IDC_MESSAGEPARTSFIELD			"This indicates the number of parts in the message."
+	IDC_MESSAGEPARTSFLATBTN			"To switch the display of the parts list between flat and hierarchic, click here."
+	IDC_MESSAGEPARTSATTACHMENTS		"Indicates that this message contains multiple parts that are not text alternatives."
+	IDC_MESSAGEPARTSALTERNATIVE		"Indicates that this message is comprised of only a set of alternative text parts, each of which represents the same information."
+	IDC_MESSAGES_SHOW_HEADER		"To show or hide the message header, click here."
+	IDC_MESSAGES_TEXT_FORMAT		"To change the styled formatting of the text shown below, click here and choose the formatting option you want."
+	IDC_MESSAGES_FONTINCREASE		"To increase the font size for the displayed text, click here."
+	IDC_MESSAGES_FONTDECREASE		"To decrease the font size for the displayed text, click here."
+	IDC_MESSAGES_FONTSCALE			"Indicates the font size zoom factor."
+	IDC_MESSAGES_QUOTEDEPTHBTN		"To change the level of quoted text on display, click here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_LETTERTOTWISTER				"To expand or collapse the address display, click here."
+	IDC_LETTERTOFIELD				"Enter the email addresses to which you want to send this message. Separate multiple addresses by commas or put each address on a separate line."
+	IDC_LETTERCCTWISTER				"To expand or collapse the address display, click here."
+	IDC_LETTERCCFIELD				"Enter the email addresses which receive a copy of this message. Separate multiple addresses by commas or put each address on a separate line."
+	IDC_LETTERBCCTWISTER			"To expand or collapse the address display, click here."
+	IDC_LETTERBCCFIELD				"Enter the email addresses which receive a copy of this message. Separate multiple addresses by commas or put each address on a separate line."
+
+	IDC_LETTERSUBJECTFIELD			"Enter the subject of the message."
+	
+	IDC_LETTERCOPYTOPOPUP			"The mailbox in which your copy of this message will be saved when the message is sent."
+
+	IDC_LETTERSENTICON				"Indicates that this message has been sent successfully at least once."
+
+	IDC_LETTERPARTSTWISTER			"To show or hide the list of parts, click here."
+	IDC_LETTERPARTSFIELD			"The number of parts in this message. To see the full list of parts use the disclosure button to the left."
+	IDC_LETTERPARTSICON				"Indicates that this draft contains more than one part."
+	IDC_LETTER_IDENTITYPOPUP		"Allows you to change the identity which is used when sending this message."
+
+	IDC_LETTER_ENR_BOLD				"To add or remove bold formatting to the selected text, click here."
+	IDC_LETTER_ENR_ITALIC			"To add or remove italic formatting to the selected text, click here."
+	IDC_LETTER_ENR_UNDERLINE		"To add or remove underlining to the selected text, click here."
+	IDC_LETTER_ENR_FONT				"To change the font of the selected text, click here."
+	IDC_LETTER_ENR_SIZE				"To change the size of the selected text, click here."
+	IDC_LETTER_ENR_COLOR			"To change the colour of the selected text, click here."
+	IDC_LETTER_ENR_LEFT				"To left align the selected text, click here."
+	IDC_LETTER_ENR_CENTER			"To center the selected text, click here."
+	IDC_LETTER_ENR_RIGHT			"To right align the selected text, click here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_ADBKMGR_NEW					"To create a new address book on the selected server or locally, click here."
+	IDC_ADBKMGR_OPEN				"To open the selected address books or choose a local address book to open, click here."
+	IDC_ADBKMGR_DELETE				"To delete the selected address books, click here."
+	IDC_ADBKMGR_PROPERTIES			"To see details about the selected address books, click here."
+	IDC_ADBKMGR_SEARCH				"To search for addresses, click here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_SEARCH_SOURCEPOPUP			"Choose where to do the address search here."
+	IDC_SEARCH_SERVERPOPUP			"Choose which servers to search here."
+	IDC_SEARCH_FIELDPOPUP			"Choose the address field in which to search for the chosen text."
+	IDC_SEARCH_METHODPOPUP			"Choose how to match the text with an address entry here."
+	IDC_SEARCHTEXT					"Enter the text of the item to search for. You can use any number of wildcard '*' characters to find a match."
+	IDC_SEARCHBTN					"To start a search with the chosen parameters, click here."
+	IDC_SEARCHCLEARBTN				"To clear all the search results, click here."
+	IDC_SEARCHNEWMSGBTN				"To create a draft message using the currently selected addresses, click here."
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+	IDC_ADDRESS_NEWMSG				"To create a draft message with the currently selected addresses and groups, click here."
+	IDC_ADDRESS_NEW_SINGLE			"To create a new address, click here."
+	IDC_ADDRESS_NEW_GROUP			"To create a new group click here."
+	IDC_ADDRESS_EDIT				"To edit the selected address or group, click here."
+	IDC_ADDRESS_DELETE				"To delete selected addresses or groups, click here."
+	IDC_ADDRESSTWIST				"To show or hide the list of addresses, click here."
+	IDC_GROUPTWIST					"To show or hide the list of groups, click here."
+	IDC_ADDRESSESNUM				"The number of individual addresses in this address book."
+	IDC_GROUPSNUM					"The number of groups in this address book."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////

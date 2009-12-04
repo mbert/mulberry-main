@@ -1,0 +1,10 @@
+-suffix .cp
+
+@URLPASSDPlugin.so
+-prefix sources/
+CURLPASSDPluginDLL
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CPswdChangePluginDLL
+os_dep

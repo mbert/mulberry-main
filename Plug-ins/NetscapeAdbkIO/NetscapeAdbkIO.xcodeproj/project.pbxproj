@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF419A480AE9AA5C00E19592 /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A400AE9AA5C00E19592 /* PluginDLLmain.cp */; };
+		AF419A490AE9AA5C00E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A410AE9AA5C00E19592 /* CPluginDLL.cp */; };
+		AF419A4B0AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A430AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp */; };
+		AF419A4D0AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A450AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp */; };
+		AF419A4F0AE9AA5C00E19592 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419A470AE9AA5C00E19592 /* libPluginLibrary.a */; };
+		AF419A530AE9AA5E00E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419A520AE9AA5E00E19592 /* Carbon.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF419A3B0AE9AA5B00E19592 /* NetscapeAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetscapeAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF419A400AE9AA5C00E19592 /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
+		AF419A410AE9AA5C00E19592 /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419A420AE9AA5C00E19592 /* CPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginDLL.h; path = ../Common/CPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419A430AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CAdbkIOPluginDLL.cp; path = ../Common/CAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419A440AE9AA5C00E19592 /* CAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAdbkIOPluginDLL.h; path = ../Common/CAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419A450AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CNetscapeAdbkIOPluginDLL.cp; path = sources/CNetscapeAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
+		AF419A460AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CNetscapeAdbkIOPluginDLL.h; path = sources/CNetscapeAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419A470AE9AA5C00E19592 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
+		AF419A520AE9AA5E00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		AF419A540AE9AA5E00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
+		AF419A580AE9AA5E00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AF419A5A0AE9AA5E00E19592 /* cdstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdstring.h; path = ../../Sources_Common/Utilities/cdstring.h; sourceTree = SOURCE_ROOT; };
+		AF419A5C0AE9AA5E00E19592 /* CURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CURL.h; path = ../../Sources_Common/Mail/URLs/CURL.h; sourceTree = SOURCE_ROOT; };
+		AF419A5E0AE9AA5E00E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AF419A600AE9AA5E00E19592 /* HTML_Tags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HTML_Tags.h; path = ../../Sources_Common/Mail/HTML_Tags.h; sourceTree = SOURCE_ROOT; };
+		AF419A640AE9AA5E00E19592 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF419A380AE9AA5B00E19592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF419A530AE9AA5E00E19592 /* Carbon.framework in Frameworks */,
+				AF419A4F0AE9AA5C00E19592 /* libPluginLibrary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF419A2E0AE9AA5B00E19592 = {
+			isa = PBXGroup;
+			children = (
+				AF419A3F0AE9AA5C00E19592 /* Main */,
+				AF419A500AE9AA5E00E19592 /* Imported Files */,
+				AF419A510AE9AA5E00E19592 /* Frameworks */,
+				AF419A3C0AE9AA5B00E19592 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF419A3C0AE9AA5B00E19592 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF419A3B0AE9AA5B00E19592 /* NetscapeAdbkIO.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF419A3F0AE9AA5C00E19592 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AF419A400AE9AA5C00E19592 /* PluginDLLmain.cp */,
+				AF419A420AE9AA5C00E19592 /* CPluginDLL.h */,
+				AF419A410AE9AA5C00E19592 /* CPluginDLL.cp */,
+				AF419A440AE9AA5C00E19592 /* CAdbkIOPluginDLL.h */,
+				AF419A430AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp */,
+				AF419A460AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.h */,
+				AF419A450AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp */,
+				AF419A470AE9AA5C00E19592 /* libPluginLibrary.a */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		AF419A500AE9AA5E00E19592 /* Imported Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF419A540AE9AA5E00E19592 /* PluginDLLmain.h */,
+				AF419A580AE9AA5E00E19592 /* CPluginInfo.h */,
+				AF419A5A0AE9AA5E00E19592 /* cdstring.h */,
+				AF419A5C0AE9AA5E00E19592 /* CURL.h */,
+				AF419A5E0AE9AA5E00E19592 /* CStringUtils.h */,
+				AF419A600AE9AA5E00E19592 /* HTML_Tags.h */,
+				AF419A640AE9AA5E00E19592 /* CCharsetCodes.h */,
+			);
+			name = "Imported Files";
+			sourceTree = "<group>";
+		};
+		AF419A510AE9AA5E00E19592 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF419A520AE9AA5E00E19592 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF419A3A0AE9AA5B00E19592 /* Netscape MachO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF419A3D0AE9AA5C00E19592 /* Build configuration list for PBXNativeTarget "Netscape MachO" */;
+			buildPhases = (
+				AF419A360AE9AA5B00E19592 /* Sources */,
+				AF419A370AE9AA5B00E19592 /* Resources */,
+				AF419A380AE9AA5B00E19592 /* Frameworks */,
+				AF419A390AE9AA5B00E19592 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Netscape MachO";
+			productName = "Netscape MachO";
+			productReference = AF419A3B0AE9AA5B00E19592 /* NetscapeAdbkIO.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF419A300AE9AA5B00E19592 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = AF419A310AE9AA5B00E19592 /* Build configuration list for PBXProject "NetscapeAdbkIO" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = AF419A2E0AE9AA5B00E19592;
+			productRefGroup = AF419A3C0AE9AA5B00E19592 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF419A3A0AE9AA5B00E19592 /* Netscape MachO */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF419A370AE9AA5B00E19592 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		AF419A390AE9AA5B00E19592 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF419A360AE9AA5B00E19592 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF419A480AE9AA5C00E19592 /* PluginDLLmain.cp in Sources */,
+				AF419A490AE9AA5C00E19592 /* CPluginDLL.cp in Sources */,
+				AF419A4B0AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp in Sources */,
+				AF419A4D0AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		AF419A320AE9AA5B00E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		AF419A3E0AE9AA5C00E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = NetscapeAdbkIO;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF419A310AE9AA5B00E19592 /* Build configuration list for PBXProject "NetscapeAdbkIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF419A320AE9AA5B00E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 1;
+			defaultConfigurationName = Debug;
+		};
+		AF419A3D0AE9AA5C00E19592 /* Build configuration list for PBXNativeTarget "Netscape MachO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF419A3E0AE9AA5C00E19592 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF419A300AE9AA5B00E19592 /* Project object */;
+}

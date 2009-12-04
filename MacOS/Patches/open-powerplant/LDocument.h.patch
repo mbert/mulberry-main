@@ -1,0 +1,66 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LDocument.h
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LDocument.h	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LDocument.h	(working copy)
+@@ -11,6 +11,7 @@
+ 
+ #include <LCommander.h>
+ #include <LModelObject.h>
++#include <PPxFSObject.h>
+ #include <UPrinting.h>
+ 
+ #if PP_Uses_Pragma_Import
+@@ -51,16 +52,16 @@
+ 	
+ 	virtual void		SetSpecified( Boolean inSpecified );
+ 
+-	virtual StringPtr	GetDescriptor( Str255 outDescriptor ) const = 0;
++	virtual PPx::CFString	GetDescriptor() const = 0;
+ 
+-	virtual Boolean		UsesFileSpec( const FSSpec& inFileSpec ) const;
++	virtual Boolean		UsesFileSpec( const PPx::FSObject& inFileSpec ) const;
+ 	
+ 	LPrintSpec&			GetPrintSpec();
+ 
+ 	virtual void		MakeCurrent();
+ 
+ 	virtual Boolean		AskSaveAs(
+-								FSSpec			&outFSSpec,
++								PPx::FSObject	&outFSSpec,
+ 								Boolean			inRecordIt);
+ 
+ 	virtual OSType		GetFileType() const;
+@@ -78,7 +79,7 @@
+ 	virtual void		HandleAESave( const AppleEvent& inSaveAE );
+ 
+ 	virtual void		DoAESave(
+-								FSSpec&			inFileSpec,
++								PPx::FSObject&	inFileSpec,
+ 								OSType			inFileType);
+ 
+ 	virtual void		DoSave();
+@@ -111,20 +112,20 @@
+ 			// Sending AppleEvents
+ 
+ 	virtual void		SendAESaveAs(
+-								FSSpec&			inFileSpec,
++								PPx::FSObject&	inFileSpec,
+ 								OSType			inFileType,
+ 								Boolean			inExecute);
+ 
+ 	virtual void		SendAEClose(
+ 								SInt32			inSaveOption,
+-								FSSpec&			inFileSpec,
++								PPx::FSObject&	inFileSpec,
+ 								Boolean			inExecute);
+ 								
+ 		// Accessing list of existing Document objects
+ 
+-	static LDocument*	FindNamedDocument( ConstStringPtr inName );
++	static LDocument*	FindNamedDocument( CFStringRef inName );
+ 
+-	static LDocument*	FindByFileSpec( const FSSpec& inFileSpec );
++	static LDocument*	FindByFileSpec( const PPx::FSObject& inFileSpec );
+ 
+ 	static TArray<LDocument*>& GetDocumentList()
+ 							{

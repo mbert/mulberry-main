@@ -1,0 +1,58 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LSingleDoc.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LSingleDoc.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/Commander Classes/LSingleDoc.cp	(working copy)
+@@ -23,6 +23,8 @@
+ #include <AEObjects.h>
+ #include <AEPackObject.h>
+ 
++#include <SysCFString.h>
++
+ PP_Begin_Namespace_PowerPlant
+ 
+ 
+@@ -111,34 +113,34 @@
+ // ---------------------------------------------------------------------------
+ //	Pass back the name of a Document
+ 
+-StringPtr
+-LSingleDoc::GetDescriptor(
+-	Str255	outDescriptor) const
++PPx::CFString
++LSingleDoc::GetDescriptor() const
+ {
++	PPx::CFString cfstr;
+ 	if ((mFile != nil) && mIsSpecified) {
+-		FSSpec	fileSpec;			// Document name is same as its File
++		PPx::FSObject	fileSpec;			// Document name is same as its File
+ 		mFile->GetSpecifier(fileSpec);
+-		LString::CopyPStr(fileSpec.name, outDescriptor);
++		cfstr = fileSpec.GetName();
+ 
+ 	} else if (mWindow != nil) {	// No File, use name of its Window
+-		mWindow->GetDescriptor(outDescriptor);
++		cfstr = PPx::CFString(mWindow->CopyCFDescriptor(), false);
+ 
+ 	} else {						// No File and No Window
+-		outDescriptor[0] = 0;		//   Document name is empty string
++		//   Document name is empty string
+ 	}
+ 
+-	return outDescriptor;
++	return cfstr;
+ }
+ 
+ 
+ // ---------------------------------------------------------------------------
+ //	¥ UsesFileSpec													  [public]
+ // ---------------------------------------------------------------------------
+-//	Returns whether the Document's File has the given FSSpec
++//	Returns whether the Document's File has the given FSRef
+ 
+ Boolean
+ LSingleDoc::UsesFileSpec(
+-	const FSSpec&	inFileSpec) const
++	const PPx::FSObject&	inFileSpec) const
+ {
+ 	Boolean usesFS = false;
+ 

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleIconFile</key>
+			<string>Pref.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mbp</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry preferences file</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>Pref</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleIconFile</key>
+			<string>AdBk.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mba</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry address book</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>AdBk</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleIconFile</key>
+			<string>Lett.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mbd</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry draft</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>Lett</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>132</string>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry plugin</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>shlb</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleIconFile</key>
+			<string>Mbox.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mbx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry mailbox</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>Mbox</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleIconFile</key>
+			<string>Mbox.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mbc</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry mailbox cache</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>Mcac</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleIconFile</key>
+			<string>Mbox.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mbi</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry mailbox index</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>Mind</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleIconFile</key>
+			<string>Mbox.icns</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mbr</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Mulberry recording</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>Mrec</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
+	<key>CFBundleGetInfoString</key>
+	<string>Mulberry v4.1a1, Copyright © Cyrus Daboo, 2006-2009.  All rights reserved.</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>Mulberry Help</string>
+	<key>CFBundleHelpBookName</key>
+	<string>Mulberry Help</string>
+	<key>CFBundleIconFile</key>
+	<string>Mulberry.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.mulberrymail.mulberry</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Mulberry</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>Mulberry v4.1a1</string>
+	<key>CFBundleSignature</key>
+	<string>Mlby</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Email Address URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mailto</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Webcal URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>webcal</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>4.1a1</string>
+	<key>LSRequiresCarbon</key>
+	<true/>
+</dict>
+</plist>

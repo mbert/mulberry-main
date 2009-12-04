@@ -1,0 +1,16 @@
+-suffix .cp
+
+@CRAMMD5Plugin.so
+-prefix sources/
+CCRAMMD5PluginDLL
+-prefix ../Common/
+PluginDLLmain
+CPluginDLL
+CAuthPluginDLL
+kbase64
+os_dep
+-prefix ../../Sources_Common/Utilities/
+CStringUtils
+-prefix sources/md5/
+.c hmac-md5
+.c md5c

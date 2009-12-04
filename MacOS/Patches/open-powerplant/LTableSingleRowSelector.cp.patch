@@ -1,0 +1,48 @@
+Index: ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableSingleRowSelector.cp
+===================================================================
+--- ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableSingleRowSelector.cp	(revision 15)
++++ ../../Libraries/open-powerplant/PowerPlant/_In Progress/_Table Classes/_More Table Classes/LTableSingleRowSelector.cp	(working copy)
+@@ -80,8 +80,33 @@
+ 	return mSelectedCell.row;
+ }
+ 
++// ---------------------------------------------------------------------------
++//	¥ GetLastSelectedCell
++// ---------------------------------------------------------------------------
++//	Return the last selected cell, defined as the min row & col (closest to
++//  top-left corner)
+ 
++STableCell
++LTableSingleRowSelector::GetLastSelectedCell() const
++{
++	return (mSelectedCell);
++}
++
++
+ // ---------------------------------------------------------------------------
++//	¥ GetlastSelectedRow
++// ---------------------------------------------------------------------------
++//	Return the last selected cell's row, defined as the min row & col (closest to
++//  top-left corner)
++
++TableIndexT
++LTableSingleRowSelector::GetLastSelectedRow() const
++{
++	return mSelectedCell.row;
++}
++
++
++// ---------------------------------------------------------------------------
+ //	¥ SelectCell
+ // ---------------------------------------------------------------------------
+ //	Select the specified Cell
+@@ -284,6 +309,9 @@
+ 
+ 			mSelectedCell.SetCell(0, 0);
+ 
++			// Added by CD to ensure table is kept up to date with selection change
++			mTableView->SelectionChanged();
++
+ 		} else {
+ 
+ 				// Rows before the selected cell are being removed.

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stringlist>
+<!-- Preferences -->
+	<string id="Preferences::LocalCalendarAccount">Local Calendars</string>
+	<string id="Preferences::WebCalendarAccount">Web Calendars</string>
+
+</stringlist>
