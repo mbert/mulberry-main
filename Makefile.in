@@ -1,0 +1,56 @@
+#
+# Top Level Makefile for Mulberry
+#
+# Compatibility: GNU
+#
+# $Date$
+# $Revision$
+#
+
+.PHONY: all clean distclean install uninstall archive
+
+OS_NAME = @OS_NAME@
+PROC_NAME = @PROC_NAME@
+REL_NAME = @REL_NAME@
+RELEASE_DIR = $(OS_NAME)-$(PROC_NAME)-$(REL_NAME)
+ARCHIVE_NAME = mulberry-$(MUL_VERSION)-$(ARCHIVE_SUFFIX)
+INSTALL = @INSTALL@
+PWD := $(shell pwd)
+
+include Build/make.version
+include Build/make.local
+
+all:
+	(cd Linux; ./links.sh)
+	$(MAKE) -C Libraries $@
+	$(MAKE) -C Plug-ins $@
+	$(MAKE) -C Linux $@
+
+install: all
+	$(MAKE) -C Linux $@
+	$(MAKE) -C Plug-ins $@
+	$(MAKE) -C Build $@
+	$(MAKE) -C Sources_Common $@
+
+uninstall:
+	$(MAKE) -C Sources_Common $@
+	$(MAKE) -C Build $@
+	$(MAKE) -C Plug-ins $@
+	$(MAKE) -C Linux $@
+
+distclean:
+	$(MAKE) -C Linux $@
+	$(MAKE) -C Plug-ins $@
+	$(MAKE) -C Libraries $@
+	rm -rf Linux/Includes/*
+
+clean:
+	$(MAKE) -C Linux $@
+	$(MAKE) -C Plug-ins $@
+	$(MAKE) -C Libraries $@
+	rm -rf Linux/Includes/*
+
+archive:
+	rm -rf Build/$(RELEASE_DIR)
+	$(MAKE) BINDIR="$(PWD)/Build/$(RELEASE_DIR)" HELPDIR="$(PWD)/Build/$(RELEASE_DIR)/.mulberry" LIBDIR="$(PWD)/Build/$(RELEASE_DIR)/.mulberry" install
+	cd Build/$(RELEASE_DIR) ; tar cvf $(ARCHIVE_NAME).tar mulberry .mulberry && gzip $(ARCHIVE_NAME).tar

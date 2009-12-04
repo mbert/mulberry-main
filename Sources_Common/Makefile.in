@@ -1,0 +1,25 @@
+# Makefile for Mulberry resources
+#
+# Compatibility: GNU
+#
+# $Date$
+# $Revision$
+#
+
+#
+# Installation dirs...
+#
+prefix = @prefix@
+DESTDIR = @DESTDIR@
+RESOURCES_DIR = $(DESTDIR)$(prefix)/@MULBERRY_DIR@/Resources
+
+INSTALL = @INSTALL@
+
+.PHONY: install uninstall
+
+install:
+	$(INSTALL) -d $(RESOURCES_DIR)
+	$(INSTALL) Resources/* $(RESOURCES_DIR)
+
+uninstall:
+	rm -rf $(RESOURCES_DIR)

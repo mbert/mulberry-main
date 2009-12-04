@@ -1,0 +1,991 @@
+#
+# Makefile for Mulberry
+#
+# Compatibility: GNU
+#
+# $Date$
+# $Revision$
+#
+
+#
+# Installation dirs...
+#
+prefix = @prefix@
+DESTDIR = @DESTDIR@
+BINDIR = $(DESTDIR)$(prefix)/@PROGRAM_DIR@
+
+#
+# tools used for compiling / installing...
+#
+CXX = @CXX@
+AR = @AR@
+STRIP = @STRIP@
+INSTALL = @INSTALL@
+HAS_MM = @HAS_MM@
+PRELINK = @PRELINK@
+O = .o
+E =
+A = .a
+D = .so
+
+#
+# Name of target object files:
+#
+PROGRAM = mulberry$E
+LIBS = ../Libraries/CICalendar/libCICalendar$A ../Libraries/vCard/libvCard$A ../Libraries/XMLLib/libCICalendar$A
+OBJS = \
+	Sources/xmul$O \
+	../Sources_Common/os_dep$O \
+	Sources/Application/General/CMulberryApp$O \
+	Sources/Application/General/CMulberryAppInit$O \
+	Sources/Application/General/CMulberryAppProtect$O \
+	Sources/Application/General/CMulberryCommon$O \
+	Sources/Application/General/CMulberryMDIServer$O \
+	Sources/Application/General/CMulberryWMClass$O \
+	../Sources_Common/Application/General/CSafetySave$O \
+	Sources/Application/General/CSplashScreen$O \
+	Sources/Application/General/CAboutDialog$O \
+	Sources/Application/General/CPeriodicCheck$O \
+	Sources/Application/General/CWindowsMenu$O \
+	Sources/Application/Other_Dialogs/CRegistrationDialog$O \
+	Sources/Application/Other_Dialogs/CChooseServersDialog$O \
+	Sources/Application/Other_Dialogs/CUserPswdDialog$O \
+	Sources/Application/Other_Dialogs/CDisconnectDialog$O \
+	Sources/Application/Other_Dialogs/CDisconnectListPanel$O \
+	Help/CMulberryHelp$O \
+	../Sources_Common/Automation/CActionManager$O \
+	../Sources_Common/Automation/CDataItem$O \
+	Sources/Application/General/CErrorDialog$O \
+	Sources/Application/General/CErrorHandler$O \
+	Sources/Application/General/CNetworkResetError$O \
+	Sources/Application/General/CGetStringDialog$O \
+	../Sources_Common/Application/Preferences/CWindowStates$O \
+	../Sources_Common/Application/Preferences/CWindowStatesXtras$O \
+	../Sources_Common/Application/Preferences/CScreenDimensions$O \
+	../Sources_Common/Application/Preferences/CAdmin$O \
+	../Sources_Common/Application/Preferences/CAdminLock$O \
+	../Sources_Common/Application/Preferences/CPreferences$O \
+	../Sources_Common/Application/Preferences/CPreferencesBits$O \
+	../Sources_Common/Application/Preferences/CPreferencesRW$O \
+	../Sources_Common/Application/Preferences/CPreferencesXtra$O \
+	../Sources_Common/Utilities/prefsvector$O \
+	../Sources_Common/Application/Preferences/CPreferenceKeys$O \
+	../Sources_Common/Application/Preferences/CPreferenceEnum$O \
+	../Sources_Common/Application/Preferences/CRemotePrefsSets$O \
+	../Sources_Common/Application/Preferences/CFutureItems$O \
+	../Sources_Common/Application/Preferences/CAuthenticator$O \
+	../Sources_Common/Application/Preferences/CINETAccount$O \
+	../Sources_Common/Application/Preferences/CMailAccount$O \
+	../Sources_Common/Application/Preferences/CSMTPAccount$O \
+	../Sources_Common/Application/Preferences/CAddressAccount$O \
+	../Sources_Common/Application/Preferences/CManageSIEVEAccount$O \
+	../Sources_Common/Application/Preferences/CCalendarAccount$O \
+	../Sources_Common/Application/Preferences/COptionsAccount$O \
+	../Sources_Common/Application/Preferences/CDayWeekViewTimeRange$O \
+	../Sources_Common/Application/Preferences/COSStringMap$O \
+	../Sources_Common/Application/Preferences/CNotification$O \
+	../Sources_Common/Application/Preferences/CMailNotification$O \
+	../Sources_Common/Application/Preferences/CIdentity$O \
+	../Sources_Common/Application/Preferences/CDSN$O \
+	../Sources_Common/Application/Preferences/CMIMEMap$O \
+	../Sources_Common/Application/Preferences/CFavouriteItem$O \
+	../Sources_Common/Application/Preferences/CDisplayItem$O \
+	../Sources_Common/Application/Preferences/CSearchStyle$O \
+	../Sources_Common/Application/Preferences/CMatchItem$O \
+	../Sources_Common/Application/Preferences/CKeyAction$O \
+	../Sources_Common/Application/Preferences/CTextMacros$O \
+	../Sources_Common/Application/Preferences/CPreferencesFile$O \
+	../Sources_Common/Application/Preferences/COptionsMap$O \
+	../Sources_Common/Application/Preferences/CBlockOptionsMap$O \
+	../Sources_Common/Application/Preferences/CStreamOptionsMap$O \
+	../Sources_Common/Application/Preferences/CStringOptionsMap$O \
+	../Sources_Common/Application/Preferences/CFileOptionsMap$O \
+	../Sources_Common/Application/Preferences/CRemoteOptionsMap$O \
+	Sources/Application/Preferences_Dialog/CLoggingOptionsDialog$O \
+	Sources/Application/Preferences_Dialog/CMultiUserDialog$O \
+	Sources/Application/Preferences_Dialog/CPreferencesDialog$O \
+	Sources/Application/Preferences_Dialog/CPrefsPanel$O \
+	Sources/Application/Preferences_Dialog/CPrefsSimple$O \
+	Sources/Application/Preferences_Dialog/CPrefsAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/CPrefsAccountPanel$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Authentication_Panels/CPrefsAccountAuth$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Authentication_Panels/CPrefsAuthPlainText$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Authentication_Panels/CPrefsAuthKerberos$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Authentication_Panels/CPrefsAuthAnonymous$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/IMAP_Account_Panels/CPrefsMailAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/IMAP_Account_Panels/CPrefsAccountIMAP$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/IMAP_Account_Panels/CPrefsAccountExtras$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/POP3_Account_Panels/CPrefsPOP3Account$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/POP3_Account_Panels/CPrefsAccountPOP3$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Local_Account_Panels/CPrefsLocalAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Local_Account_Panels/CPrefsAccountLocal$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/SMTP_Account_Panels/CPrefsSMTPAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/SMTP_Account_Panels/CPrefsSMTPOptions$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Remote_Account_Panels/CPrefsRemoteAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Remote_Account_Panels/CPrefsRemoteOptions$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Remote_Account_Panels/CPrefsRemoteSets$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Address_Account_Panels/CPrefsAdbkAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Address_Account_Panels/CPrefsAddressIMSP$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Address_Account_Panels/CPrefsAddressLDAPOptions$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Address_Account_Panels/CPrefsAddressLDAP1$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Address_Account_Panels/CPrefsAddressLDAP2$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Address_Account_Panels/CPrefsLDAPAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/SIEVE_Account_Panels/CPrefsSIEVEAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Calendar_Account_Panels/CPrefsRemoteCalendarAccount$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Calendar_Account_Panels/CPrefsAccountRemoteCalendar$O \
+	Sources/Application/Preferences_Dialog/Extras/CCreateAccountDialog$O \
+	Sources/Application/Preferences_Dialog/CPrefsAlerts$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Alerts_Panels/CPrefsAlertsAttachment$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Alerts_Panels/CPrefsAlertsMessage$O \
+	Sources/Application/Preferences_Dialog/CPrefsDisplay$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels/CPrefsDisplayPanel$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels/CPrefsDisplayServer$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels/CPrefsDisplayMailbox$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels/CPrefsDisplayMessage$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels/CPrefsDisplayLabel$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels/CPrefsDisplayQuotes$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels/CPrefsDisplayStyles$O \
+	Sources/Application/Preferences_Dialog/Extras/CIMAPLabelsDialog$O \
+	Sources/Application/Preferences_Dialog/CPrefsFormatting$O \
+	Sources/Application/Preferences_Dialog/CPrefsMailbox$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Mailbox_Panels/CPrefsMailboxBasic$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Mailbox_Panels/CPrefsMailboxAdvanced$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Mailbox_Panels/CPrefsMailboxDisconnected$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Mailbox_Panels/CPrefsMailboxOptions$O \
+	Sources/Application/Preferences_Dialog/CPrefsMessage$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Message_Panels/CPrefsMessageGeneral$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Message_Panels/CPrefsMessageOptions$O \
+	Sources/Application/Preferences_Dialog/CPrefsLetter$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Letter_Panels/CPrefsLetterGeneral$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Letter_Panels/CPrefsLetterOptions$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Letter_Panels/CPrefsLetterStyled$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Letter_Panels/CPrefsLetterEditor$O \
+	Sources/Application/Preferences_Dialog/CPrefsSecurity$O \
+	Sources/Application/Preferences_Dialog/CPrefsIdentities$O \
+	Sources/Application/Preferences_Dialog/Edit_Identities/CEditIdentities$O \
+	Sources/Application/Preferences_Dialog/Edit_Identities/CEditIdentityAddress$O \
+	Sources/Application/Preferences_Dialog/Edit_Identities/CEditIdentityOptions$O \
+	Sources/Application/Preferences_Dialog/Edit_Identities/CEditIdentityOutgoing$O \
+	Sources/Application/Preferences_Dialog/Edit_Identities/CEditIdentityDSN$O \
+	Sources/Application/Preferences_Dialog/Edit_Identities/CEditIdentitySecurity$O \
+	Sources/Application/Letter/CIdentityPopup$O \
+	Sources/Application/Preferences_Dialog/Extras/CPrefsEditCaption$O \
+	Sources/Application/Preferences_Dialog/Extras/CPrefsEditHeadFoot$O \
+	Sources/Application/Preferences_Dialog/CPrefsCalendar$O \
+	Sources/Application/Preferences_Dialog/CPrefsAddress$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Address_Panels/CPrefsAddressExpansion$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Address_Panels/CPrefsAddressCapture$O \
+	Sources/Application/Preferences_Dialog/CPrefsSpelling$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Spelling_Panels/CPrefsSpellingOptions$O \
+	Sources/Application/Preferences_Dialog/CPrefsAttachments$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Attachment_Panels/CPrefsAttachmentsSend$O \
+	Sources/Application/Preferences_Dialog/Sub-panels/Attachment_Panels/CPrefsAttachmentsRecv$O \
+	Sources/Application/Preferences_Dialog/Extras/CPrefsEditMappings$O \
+	Sources/Application/Preferences_Dialog/Extras/CEditMapDialog$O \
+	Sources/Application/Status/CProgress$O \
+	Sources/Application/Status/CStatusWindow$O \
+	Sources/Application/Status/CCancelDialog$O \
+	Sources/Application/Status/CVisualProgress$O \
+	Sources/Application/Three_Pane/C3PaneWindow$O \
+	Sources/Application/Three_Pane/C3PaneMailboxToolbar$O \
+	Sources/Application/Three_Pane/C3PaneAdbkToolbar$O \
+	Sources/Application/Three_Pane/C3PaneCalendarToolbar$O \
+	Sources/Application/Three_Pane/C3PanePanel$O \
+	Sources/Application/Three_Pane/C3PaneMainPanel$O \
+	Sources/Application/Three_Pane/C3PaneParentPanel$O \
+	Sources/Application/Three_Pane/C3PaneViewPanel$O \
+	../Sources_Common/Application/Three_Pane/C3PaneOptions$O \
+	../Sources_Common/Application/Three_Pane/CMailViewOptions$O \
+	../Sources_Common/Application/Three_Pane/CAddressViewOptions$O \
+	../Sources_Common/Application/Three_Pane/CCalendarViewOptions$O \
+	../Sources_Common/Application/Three_Pane/CUserAction$O \
+	Sources/Application/Three_Pane/Accounts/C3PaneAccounts$O \
+	Sources/Application/Three_Pane/Accounts/C3PaneMailAccount$O \
+	Sources/Application/Three_Pane/Accounts/C3PaneContactsAccount$O \
+	Sources/Application/Three_Pane/Accounts/C3PaneCalendarAccount$O \
+	Sources/Application/Three_Pane/Items/C3PaneItems$O \
+	Sources/Application/Three_Pane/Items/C3PaneItemsTabs$O \
+	Sources/Application/Three_Pane/Items/C3PaneMailbox$O \
+	Sources/Application/Three_Pane/Items/C3PaneAddressBook$O \
+	Sources/Application/Three_Pane/Items/C3PaneCalendar$O \
+	Sources/Application/Three_Pane/Preview/C3PanePreview$O \
+	Sources/Application/Three_Pane/Preview/C3PaneMessage$O \
+	Sources/Application/Three_Pane/Preview/C3PaneAddress$O \
+	Sources/Application/Three_Pane/Preview/C3PaneEvent$O \
+	Sources/Application/Three_Pane/Options_Dialog/CWindowOptionsDialog$O \
+	Sources/Application/Three_Pane/Options_Dialog/CUserActionOptions$O \
+	Sources/Application/Three_Pane/Options_Dialog/CCommonViewOptions$O \
+	Sources/Application/Three_Pane/Options_Dialog/CMessagePaneOptions$O \
+	Sources/Application/Three_Pane/Options_Dialog/CAddressPaneOptions$O \
+	Sources/Application/Three_Pane/Options_Dialog/CCalendarPaneOptions$O \
+	Sources/Application/Three_Pane/Options_Dialog/CKeyChoiceDialog$O \
+	Sources/Application/Calendar/Calendar_Properties/CCalendarPropDialog$O \
+	Sources/Application/Calendar/Calendar_Properties/CPropCalendarOptions$O \
+	Sources/Application/Calendar/Calendar_Properties/CPropCalendarGeneral$O \
+	Sources/Application/Calendar/Calendar_Properties/CPropCalendarServer$O \
+	Sources/Application/Calendar/Calendar_Properties/CPropCalendarWebcal$O \
+	Sources/Application/Calendar/Calendar_Properties/CPropCalendarACL$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Store_View/CCalendarStoreWindow$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Store_View/CCalendarStoreView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Calendar_Store_View/CCalendarStoreViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Store_View/CCalendarStoreToolbar$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Store_View/CCalendarStoreTitleTable$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Store_View/CCalendarStoreTable$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Calendar_Store_View/CCalendarStoreTableCommon$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Window/CCalendarWindow$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Calendar_Window/CCalendarWindowCommon$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Window/CCalendarView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Calendar_Window/CCalendarViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Window/CCalendarToolbar$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Window/CCalendarViewBase$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Calendar_Window/CCalendarViewBaseCommon$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Window/CCalendarTableBase$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Window/CCalendarEventTableBase$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Calendar_Window/CCalendarETBaseCommon$O \
+	Sources/Application/Calendar/Calendar_View/Calendar_Window/CCalendarEventBase$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Calendar_Window/CCalendarEventBaseCommon$O \
+	Sources/Application/Calendar/Calendar_View/Year_View/CYearView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Year_View/CYearViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/Year_View/CYearTable$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Year_View/CYearTableCommon$O \
+	Sources/Application/Calendar/Calendar_View/Month_View/CMonthView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Month_View/CMonthViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/Month_View/CMonthIndicator$O \
+	Sources/Application/Calendar/Calendar_View/Month_View/CMonthTitleTable$O \
+	Sources/Application/Calendar/Calendar_View/Month_View/CMonthTable$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Month_View/CMonthTableCommon$O \
+	Sources/Application/Calendar/Calendar_View/Month_View/CMonthEvent$O \
+	Sources/Application/Calendar/Calendar_View/Day_Week_View/CDayWeekView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Day_Week_View/CDayWeekViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/Day_Week_View/CDayWeekTitleTable$O \
+	Sources/Application/Calendar/Calendar_View/Day_Week_View/CDayWeekTable$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Day_Week_View/CDayWeekTableCommon$O \
+	Sources/Application/Calendar/Calendar_View/Day_Week_View/CDayEvent$O \
+	Sources/Application/Calendar/Calendar_View/Summary_View/CSummaryView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Summary_View/CSummaryViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/Summary_View/CSummaryTitleTable$O \
+	Sources/Application/Calendar/Calendar_View/Summary_View/CSummaryTable$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Summary_View/CSummaryTableCommon$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Summary_View/CSummaryEvent$O \
+	Sources/Application/Calendar/Calendar_View/Free_Busy_View/CFreeBusyView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Free_Busy_View/CFreeBusyViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/Free_Busy_View/CFreeBusyTitleTable$O \
+	Sources/Application/Calendar/Calendar_View/Free_Busy_View/CFreeBusyTable$O \
+	../Sources_Common/Application/Calendar/Calendar_View/Free_Busy_View/CFreeBusyTableCommon$O \
+	Sources/Application/Calendar/Calendar_View/ToDo_View/CToDoView$O \
+	../Sources_Common/Application/Calendar/Calendar_View/ToDo_View/CToDoViewCommon$O \
+	Sources/Application/Calendar/Calendar_View/ToDo_View/CToDoTable$O \
+	../Sources_Common/Application/Calendar/Calendar_View/ToDo_View/CToDoTableCommon$O \
+	Sources/Application/Calendar/Calendar_View/ToDo_View/CToDoItem$O \
+	../Sources_Common/Application/Calendar/Calendar_View/ToDo_View/CToDoItemCommon$O \
+	Sources/Application/Calendar/Calendar_View/Event_ToDo_Preview/CEventPreview$O \
+	Sources/Application/Calendar/Component_Editing/CAttendeeTable$O \
+	Sources/Application/Calendar/Component_Editing/CCalendarAddressDisplay$O \
+	Sources/Application/Calendar/Component_Editing/CDateTimeZoneSelect$O \
+	Sources/Application/Calendar/Component_Editing/CDurationSelect$O \
+	Sources/Application/Calendar/Component_Editing/CNewAttendeeDialog$O \
+	Sources/Application/Calendar/Component_Editing/CNewComponentAlarm$O \
+	Sources/Application/Calendar/Component_Editing/CNewComponentAttendees$O \
+	Sources/Application/Calendar/Component_Editing/CNewComponentDetails$O \
+	Sources/Application/Calendar/Component_Editing/CNewComponentDialog$O \
+	Sources/Application/Calendar/Component_Editing/CNewComponentPanel$O \
+	Sources/Application/Calendar/Component_Editing/CNewComponentRepeat$O \
+	Sources/Application/Calendar/Component_Editing/CNewEventDialog$O \
+	Sources/Application/Calendar/Component_Editing/CNewEventTiming$O \
+	Sources/Application/Calendar/Component_Editing/CNewTimingPanel$O \
+	Sources/Application/Calendar/Component_Editing/CNewToDoDialog$O \
+	Sources/Application/Calendar/Component_Editing/CNewToDoTiming$O \
+	Sources/Application/Calendar/Component_Editing/CRecurrenceDialog$O \
+	Sources/Application/Calendar/Dialogs/CCreateCalendarDialog$O \
+	Sources/Application/Calendar/Dialogs/CChooseDateDialog$O \
+	Sources/Application/Calendar/Utilities/CCalendarUtils$O \
+	Sources/Application/Calendar/Utilities/CCalendarPopup$O \
+	Sources/Application/Calendar/Utilities/CTimezonePopup$O \
+	Sources/Application/Calendar/Utilities/CYearPopup$O \
+	Sources/Application/Calendar/Utilities/CMonthPopup$O \
+	Sources/Application/Calendar/Utilities/CNumberEdit$O \
+	Sources/Application/Server/CServerWindow$O \
+	Sources/Application/Server/CServerView$O \
+	../Sources_Common/Application/Server/CServerViewCommon$O \
+	Sources/Application/Server/CServerToolbar$O \
+	Sources/Application/Server/CServerBrowse$O \
+	../Sources_Common/Application/Server/CServerBrowseCommon$O \
+	Sources/Application/Server/CServerTitleTable$O \
+	Sources/Application/Server/CServerTable$O \
+	../Sources_Common/Application/Server/CServerTableCommon$O \
+	Sources/Application/Server/CServerViewPopup$O \
+	Sources/Application/Server/Dialogs/CNewSearchDialog$O \
+	Sources/Application/Server/Dialogs/CNewWildcardDialog$O \
+	Sources/Application/Server/Dialogs/CNamespaceDialog$O \
+	Sources/Application/Server/Browse_Dialog/CBrowseMailboxDialog$O \
+	Sources/Application/Server/Browse_Dialog/CServerBrowseTable$O \
+	Sources/Application/Other_Dialogs/COpenMailboxDialog$O \
+	Sources/Application/Other_Dialogs/CCreateMailboxDialog$O \
+	Sources/Application/Server/Mailbox_Properties/CMailboxPropDialog$O \
+	Sources/Application/Server/Mailbox_Properties/CPropMailboxGeneral$O \
+	Sources/Application/Server/Mailbox_Properties/CPropMailboxOptions$O \
+	Sources/Application/Server/Mailbox_Properties/CPropMailboxServer$O \
+	Sources/Application/Server/Mailbox_Properties/CPropMailboxACL$O \
+	Sources/Application/Server/Mailbox_Properties/CACLTitleTable$O \
+	Sources/Application/Server/Mailbox_Properties/CACLTable$O \
+	Sources/Application/Server/Mailbox_Properties/CACLStylePopup$O \
+	Sources/Application/Server/Mailbox_Properties/CNewACLDialog$O \
+	Sources/Application/Server/Mailbox_Properties/CPropMailboxQuota$O \
+	Sources/Application/Server/Mailbox_Properties/CQuotaTable$O \
+	Sources/Application/Mailbox/CMailboxWindow$O \
+	../Sources_Common/Application/Mailbox/CMailboxWindowCommon$O \
+	Sources/Application/Mailbox/CMailboxView$O \
+	../Sources_Common/Application/Mailbox/CMailboxViewCommon$O \
+	Sources/Application/Mailbox/CMailboxTitleTable$O \
+	Sources/Application/Mailbox/CMailboxTable$O \
+	../Sources_Common/Application/Mailbox/CMailboxTableCommon$O \
+	Sources/Application/Mailbox_Info/CMailboxInfoWindow$O \
+	../Sources_Common/Application/Mailbox_Info/CMailboxInfoWindowCommon$O \
+	Sources/Application/Mailbox_Info/CMailboxInfoView$O \
+	../Sources_Common/Application/Mailbox_Info/CMailboxInfoViewCommon$O \
+	Sources/Application/Mailbox_Info/CMailboxInfoToolbar$O \
+	Sources/Application/Mailbox_Info/CMailboxInfoTable$O \
+	../Sources_Common/Application/Mailbox_Info/CMailboxInfoTableCommon$O \
+	Sources/Application/Mailbox_Info/CSelectPopup$O \
+	Sources/Application/Mailbox_Info/CQuickSearchSavedPopup$O \
+	Sources/Application/Mailbox_Info/CQuickSearchText$O \
+	Sources/Application/Mailbox_Info/CMatchOptionsDialog$O \
+	Sources/Application/Other_Dialogs/CCacheMessageDialog$O \
+	Sources/Application/Other_Dialogs/CSynchroniseDialog$O \
+	Sources/Application/SMTP_Queue/CSMTPWindow$O \
+	../Sources_Common/Application/SMTP_Queue/CSMTPWindowCommon$O \
+	Sources/Application/SMTP_Queue/CSMTPView$O \
+	../Sources_Common/Application/SMTP_Queue/CSMTPViewCommon$O \
+	Sources/Application/SMTP_Queue/CSMTPToolbar$O \
+	Sources/Application/SMTP_Queue/CSMTPTable$O \
+	../Sources_Common/Application/SMTP_Queue/CSMTPTableCommon$O \
+	Sources/Application/SMTP_Queue/CSMTPAccountPopup$O \
+	Sources/Application/Search/CSearchBase$O \
+	Sources/Application/Search/CSearchWindow$O \
+	Sources/Application/Search/CSearchCriteriaContainer$O \
+	Sources/Application/Search/CCriteriaBase$O \
+	Sources/Application/Search/CSearchCriteria$O \
+	Sources/Application/Search/CSearchCriteriaLocal$O \
+	Sources/Application/Search/CSearchCriteriaSIEVE$O \
+	Sources/Application/Search/CMailboxListPanel$O \
+	Sources/Application/Search/CSearchListPanel$O \
+	Sources/Application/Search/CSearchOptionsDialog$O \
+	Sources/Application/Rules/CRulesWindow$O \
+	Sources/Application/Rules/CRulesTable$O \
+	../Sources_Common/Application/Rules/CRulesTableCommon$O \
+	Sources/Application/Rules/CScriptsTable$O \
+	../Sources_Common/Application/Rules/CScriptsTableCommon$O \
+	Sources/Application/Rules/CApplyRulesMenu$O \
+	Sources/Application/Rules/Dialog/CRulesDialog$O \
+	Sources/Application/Rules/Dialog/CRulesAction$O \
+	Sources/Application/Rules/Dialog/CRulesActionLocal$O \
+	Sources/Application/Rules/Dialog/CRulesActionSIEVE$O \
+	Sources/Application/Rules/Dialog/CTargetsDialog$O \
+	Sources/Application/Rules/Dialog/CRulesTarget$O \
+	Sources/Application/Rules/Dialog/CUploadScriptDialog$O \
+	Sources/Application/Rules/Action_Dialogs/CReplyActionDialog$O \
+	Sources/Application/Rules/Action_Dialogs/CForwardActionDialog$O \
+	Sources/Application/Rules/Action_Dialogs/CBounceActionDialog$O \
+	Sources/Application/Rules/Action_Dialogs/CRejectActionDialog$O \
+	Sources/Application/Rules/Action_Dialogs/CVacationActionDialog$O \
+	Sources/Application/Message/CMessageWindow$O \
+	../Sources_Common/Application/Message/CMessageWindowCommon$O \
+	Sources/Application/Message/CMessageSimpleView$O \
+	Sources/Application/Message/CMessageToolbar$O \
+	Sources/Application/Message/CMessageHeaderView$O \
+	Sources/Application/Message/CMessageView$O \
+	../Sources_Common/Application/Message/CMessageViewCommon$O \
+	Sources/Application/Message/CCopyToMenu$O \
+	Sources/Application/Message/CAddressText$O \
+	Sources/Application/Message/CSpacebarEdit$O \
+	Sources/Application/Message/CSpacebarEditView$O \
+	Sources/Application/Message/CReplyChooseDialog$O \
+	Sources/Application/Message/CBodyTable$O \
+	Sources/Application/Message/CMessagePartProp$O \
+	Sources/Application/Message/CForwardOptionsDialog$O \
+	Sources/Application/Message/CMDNPromptDialog$O \
+	Sources/Application/Letter/CLetterWindow$O \
+	../Sources_Common/Application/Letter/CLetterWindowCommon$O \
+	Sources/Application/Letter/CLetterHeaderView$O \
+	Sources/Application/Letter/CLetterView$O \
+	Sources/Application/Letter/CLetterToolbar$O \
+	Sources/Application/Letter/CAddressDisplay$O \
+	Sources/Application/Letter/CMailboxPopup$O \
+	Sources/Application/Letter/CMailboxToolbarPopup$O \
+	Sources/Application/Letter/CFileTable$O \
+	Sources/Application/Letter/CLetterTextEditView$O \
+	Sources/Application/Letter/CLetterPartProp$O \
+	Sources/Application/Letter/CSaveDraftDialog$O \
+	Sources/Application/Find_And_Replace/CFindReplaceWindow$O \
+	Sources/Application/Address_Book_Manager/CAdbkManagerWindow$O \
+	Sources/Application/Address_Book_Manager/CAdbkManagerView$O \
+	../Sources_Common/Application/Address_Book_Manager/CAdbkManagerViewCommon$O \
+	Sources/Application/Address_Book_Manager/CAdbkManagerToolbar$O \
+	Sources/Application/Address_Book_Manager/CAdbkManagerTitleTable$O \
+	Sources/Application/Address_Book_Manager/CAdbkManagerTable$O \
+	../Sources_Common/Application/Address_Book_Manager/CAdbkManagerTableCommon$O \
+	Sources/Application/Other_Dialogs/CCreateAdbkDialog$O \
+	Sources/Application/Address_Book_Manager/Address_Book_Properties/CAdbkPropDialog$O \
+	Sources/Application/Address_Book_Manager/Address_Book_Properties/CPropAdbkGeneral$O \
+	Sources/Application/Address_Book_Manager/Address_Book_Properties/CPropAdbkACL$O \
+	Sources/Application/Address_Search/CAdbkSearchWindow$O \
+	Sources/Application/Address_Search/CAdbkSearchTitleTable$O \
+	Sources/Application/Address_Search/CAdbkSearchTable$O \
+	Sources/Application/Address_Search/CAdbkServerPopup$O \
+	Sources/Application/Address_Book/CAddressBookDoc$O \
+	Sources/Application/Address_Book/CAddressBookWindow$O \
+	Sources/Application/Address_Book/CAddressBookView$O \
+	../Sources_Common/Application/Address_Book/CAddressBookViewCommon$O \
+	Sources/Application/Address_Book/CAddressBookToolbar$O \
+	Sources/Application/Address_Book/CAddressBookTitleTable$O \
+	Sources/Application/Address_Book/CAddressTable$O \
+	Sources/Application/Address_Book/CAddressTableAction$O \
+	Sources/Application/Address_Book/CEditAddressDialog$O \
+	Sources/Application/Address_Book/CGroupTable$O \
+	Sources/Application/Address_Book/CGroupTableAction$O \
+	Sources/Application/Address_Book/CEditGroupDialog$O \
+	Sources/Application/Address_Book/CAddressView$O \
+	Sources/Application/Address_Book/CAddressPreview$O \
+	Sources/Application/Address_Book/CAddressPanelBase$O \
+	Sources/Application/Address_Book/CAddressPersonalPanel$O \
+	Sources/Application/Address_Book/CAddressContactPanel$O \
+	Sources/Application/Address_Book/CAddressNotesPanel$O \
+	Sources/Application/Address_Book/CGroupPreview$O \
+	Sources/Application/Macros/CMacroEditDialog$O \
+	Sources/Application/Macros/CEditMacro$O \
+	Sources/Support/CBetterScrollbarSet$O \
+	Sources/Support/CClipboard$O \
+	Sources/Support/CCommander$O \
+	Sources/Support/CCommands$O \
+	Sources/Support/CContextMenu$O \
+	Sources/Support/CDateControl$O \
+	Sources/Support/CDateTimeControl$O \
+	Sources/Support/CDesktopIcons$O \
+	Sources/Support/CDialogDirector$O \
+	Sources/Support/CDivider$O \
+	Sources/Support/CDrawUtils$O \
+	Sources/Support/CFileDocument$O \
+	Sources/Support/CFocusBorder$O \
+	Sources/Support/CFontNameMenu$O \
+	Sources/Support/CFontSizeMenu$O \
+	Sources/Support/CIconLoader$O \
+	Sources/Support/CInvertImage$O \
+	Sources/Support/CLighterImage$O \
+	Sources/Support/CMailcapMap$O \
+	Sources/Support/CMainMenu$O \
+	Sources/Support/CMenuBar$O \
+	Sources/Support/CMenu$O \
+	Sources/Support/CMenuDirector$O \
+	Sources/Support/CMenuTable$O \
+	Sources/Support/CMIMETypesMap$O \
+	Sources/Support/CModelessDialog$O \
+	Sources/Support/CMultibitPopup$O \
+	Sources/Support/CProgressBar$O \
+	Sources/Support/CPSPrinter$O \
+	Sources/Support/CResizeNotifier$O \
+	Sources/Support/CPropDialog$O \
+	Sources/Support/CScrollBar$O \
+	Sources/Support/CScrollbarSet$O \
+	Sources/Support/CSoundManager$O \
+	Sources/Support/CSplitterView$O \
+	Sources/Support/CTabController$O \
+	Sources/Support/Network/CUnixINET$O \
+	Sources/Support/CURLHelpersMap$O \
+	Sources/Support/CWaitCursor$O \
+	Sources/Support/CWindow$O \
+	Sources/Support/CWindowsIcon$O \
+	Sources/Support/HBackgroundImage$O \
+	Sources/Support/HResourceMap$O \
+	Sources/Support/JXColorButton$O \
+	Sources/Support/JXIconTextButton$O \
+	Sources/Support/JXIconTextPushButton$O \
+	Sources/Support/JXMultiImageButton$O \
+	Sources/Support/JXMultiImageCheckbox$O \
+	Sources/Support/JXSecondaryRadioGroup$O \
+	Sources/Support/JXTabButton$O \
+	Sources/Support/JXTabCardFile$O \
+	Sources/Support/JXTabs$O \
+	Sources/Support/JXTextCheckbox3$O \
+	Sources/Support/JXTextPushButton$O \
+	Sources/Support/HTextField$O \
+	Sources/Support/HTransTextField$O \
+	Sources/Support/TPopupMenu$O \
+	Sources/Support/Text/CStaticText$O \
+	Sources/Support/Text/CTextBase$O \
+	Sources/Support/Text/CTextField$O \
+	Sources/Support/Text/CTextDisplay$O \
+	Sources/Support/Text/CTextBox$O \
+	Sources/Application/Windows/CTableWindow$O \
+	Sources/Application/Windows/CSimpleTitleTable$O \
+	Sources/Application/Windows/CTitleTable$O \
+	Sources/Application/Windows/CTableViewWindow$O \
+	Sources/Application/Windows/CBaseView$O \
+	Sources/Application/Windows/CTableView$O \
+	Sources/Application/Windows/CTitleTableView$O \
+	Sources/Support/Table/CTableScrollbarSet$O \
+	Sources/Support/Table/CTable$O \
+	Sources/Support/Table/CTableDragAndDrop$O \
+	Sources/Support/Table/CHierarchyTableDrag$O \
+	Sources/Support/Table/CTableColumnSelector$O \
+	Sources/Support/Table/CTableRowGeometry$O \
+	Sources/Support/Table/CTableRowSelector$O \
+	Sources/Support/Table/CTextListChoice$O \
+	Sources/Support/Table/CTextTable$O \
+	Sources/Support/Table/CIconTextTable$O \
+	Sources/Support/Table/CCheckboxTable$O \
+	../Sources_Common/Support/Toolbars/CToolbarManager$O \
+	Sources/Support/Toolbars/CToolbar$O \
+	Sources/Support/Toolbars/CToolbarView$O \
+	Sources/Support/CToolbarButton$O \
+	Sources/Support/CToolbarPopupButton$O \
+	Sources/Support/Streams/UNX_LStream$O \
+	Sources/Support/Streams/UNX_LDataStream$O \
+	Sources/Support/Streams/UNX_LFileStream$O \
+	Sources/Support/Streams/UNX_LMemFileStream$O \
+	Sources/Support/Undoable/UNX_LAction$O \
+	Sources/Support/Undoable/UNX_LUndoer$O \
+	../Sources_Common/Mail/CLog$O \
+	../Sources_Common/Mail/Protocols/CRFC822$O \
+	../Sources_Common/Mail/Control/CMailControl$O \
+	../Sources_Common/Mail/Control/CConnectionManager$O \
+	../Sources_Common/Mail/Control/CMailAccountManager$O \
+	../Sources_Common/Mail/Control/CMailCheckThread$O \
+	../Sources_Common/Mail/Control/CSMTPAccountManager$O \
+	../Sources_Common/Mail/Control/CSMTPSendThread$O \
+	../Sources_Common/Mail/Control/CPasswordManager$O \
+	../Sources_Common/Mail/Control/CPasswordManagerKeyring$O \
+	../Sources_Common/Mail/AddressBook/CAddressBookManager$O \
+	../Sources_Common/Mail/Control/CAttachmentManager$O \
+	../Sources_Common/Mail/Protocols/CINETProtocol$O \
+	../Sources_Common/Mail/Protocols/CMboxProtocol$O \
+	../Sources_Common/Mail/Protocols/COptionsProtocol$O \
+	../Sources_Common/Mail/Protocols/CAdbkProtocol$O \
+	../Sources_Common/Mail/Protocols/CFilterProtocol$O \
+	../Sources_Common/Offline/Mail/CRFC822Parser$O \
+	../Sources_Common/Offline/CLocalCommon$O \
+	../Sources_Common/Offline/Mail/CLocalMessage$O \
+	../Sources_Common/Offline/Mail/CLocalAttachment$O \
+	../Sources_Common/Offline/Mail/CStreamAttachment$O \
+	../Sources_Common/Offline/Mail/CLocalClient$O \
+	../Sources_Common/Offline/Mail/CPOP3Client$O \
+	../Sources_Common/Offline/Mail/CPOP3Common$O \
+	../Sources_Common/Offline/Recording/CActionRecorder$O \
+	../Sources_Common/Offline/Recording/CMailAction$O \
+	../Sources_Common/Offline/Recording/CAdbkAction$O \
+	../Sources_Common/Offline/Recording/CCalendarAction$O \
+	../Sources_Common/Offline/Recording/CRecordableAction$O \
+	../Sources_Common/Offline/Recording/CMailRecord$O \
+	../Sources_Common/Offline/Recording/CAdbkRecord$O \
+	../Sources_Common/Offline/Recording/CCalendarRecord$O \
+	../Sources_Common/Mail/Mailbox/CTreeNode$O \
+	../Sources_Common/Mail/Mailbox/CMbox$O \
+	../Sources_Common/Mail/Mailbox/CMboxList$O \
+	../Sources_Common/Mail/Mailbox/CMboxRef$O \
+	../Sources_Common/Mail/Mailbox/CMboxRefList$O \
+	../Sources_Common/Mail/Mailbox/CTreeNodeList$O \
+	../Sources_Common/Mail/Message/CMessage$O \
+	../Sources_Common/Mail/Message/CMessageRef$O \
+	../Sources_Common/Mail/Message/CMessageList$O \
+	../Sources_Common/Mail/Message/CMessageComparators$O \
+	../Sources_Common/Mail/Message/CEnvelope$O \
+	../Sources_Common/Mail/Message/CMessageThread$O \
+	../Sources_Common/Mail/Message/CCaptionParser$O \
+	../Sources_Common/Mail/Search/CSearchItem$O \
+	../Sources_Common/Mail/Search/CSearchEngine$O \
+	../Sources_Common/Mail/Search/CSearchThread$O \
+	../Sources_Common/Mail/Filtering/CFilterManager$O \
+	../Sources_Common/Mail/Filtering/CFilterItem$O \
+	../Sources_Common/Mail/Filtering/CActionItem$O \
+	../Sources_Common/Mail/Filtering/CTargetItem$O \
+	../Sources_Common/Mail/Filtering/CFilterTarget$O \
+	../Sources_Common/Mail/Filtering/CFilterScript$O \
+	../Sources_Common/Mail/Attachments/CAttachment$O \
+	../Sources_Common/Mail/Attachments/CAliasAttachment$O \
+	../Sources_Common/Mail/Attachments/CDataAttachment$O \
+	../Sources_Common/Mail/Attachments/CFileAttachment$O \
+	../Sources_Common/Mail/Attachments/CMessageAttachment$O \
+	../Sources_Common/Mail/Attachments/CAttachmentList$O \
+	../Sources_Common/Mail/Attachments/CMIMEContent$O \
+	../Sources_Common/Mail/Attachments/CMIMESupport$O \
+	../Sources_Common/Mail/Attachments/CMIMETypes$O \
+	../Sources_Common/Mail/AddressBook/CAddressBook$O \
+	../Sources_Common/Mail/Address/CAddress$O \
+	../Sources_Common/Mail/Address/CAdbkAddress$O \
+	../Sources_Common/Mail/Address/CAddressList$O \
+	../Sources_Common/Mail/Address/CAddressComparators$O \
+	../Sources_Common/Mail/Address/CCalendarAddress$O \
+	../Sources_Common/Mail/Address/CGroup$O \
+	../Sources_Common/Mail/Address/CGroupList$O \
+	../Sources_Common/Mail/Address/CGroupComparators$O \
+	../Sources_Common/Mail/Extensions/CACL$O \
+	../Sources_Common/Mail/Extensions/CMboxACL$O \
+	../Sources_Common/Mail/Extensions/CAdbkACL$O \
+	../Sources_Common/Mail/Extensions/CCalendarACL$O \
+	../Sources_Common/Mail/Extensions/CQuotas$O \
+	../Sources_Common/Tasks/CTaskQueue$O \
+	../Sources_Common/Tasks/CTaskClasses$O \
+	../Sources_Common/Tasks/CNewMailTask$O \
+	../Sources_Common/Mail/Network/CTCPSocket$O \
+	../Sources_Common/Mail/Network/CTLSSocket$O \
+	../Sources_Common/Mail/Network/CTCPStream$O \
+	../Sources_Common/Mail/INET_Clients/CINETClient$O \
+	../Sources_Common/Mail/INET_Clients/CINETCommon$O \
+	../Sources_Common/Mail/Local_Clients/CLocalPrefsClient$O \
+	../Sources_Common/Mail/Local_Clients/CLocalAdbkClient$O \
+	../Sources_Common/Mail/INET_Clients/IMAP/CIMAPClient$O \
+	../Sources_Common/Mail/INET_Clients/IMAP/CIMAPCommon$O \
+	../Sources_Common/Mail/INET_Clients/IMAP/CSequence$O \
+	../Sources_Common/Mail/INET_Clients/IMSP/CIMSPClient$O \
+	../Sources_Common/Mail/INET_Clients/IMSP/CIMSPCommon$O \
+	../Sources_Common/Mail/INET_Clients/ACAP/CACAPClient$O \
+	../Sources_Common/Mail/INET_Clients/LDAP/CLDAPClient$O \
+	../Sources_Common/Mail/INET_Clients/Password/CPswdChangeClient$O \
+	../Sources_Common/Mail/INET_Clients/SIEVE/SIEVE/CSIEVEClient$O \
+	../Sources_Common/Mail/INET_Clients/SMTP/CSMTPSender$O \
+	../Sources_Common/Mail/URLs/CURL$O \
+	../Sources_Common/i18n/Charsets/CCharsetManager$O \
+	../Sources_Common/i18n/Charsets/Converters/CConverterBase$O \
+	../Sources_Common/i18n/Charsets/Converters/OneByte/CASCII$O \
+	../Sources_Common/i18n/Charsets/Converters/OneByte/CConverterOneByte$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CBig5$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CCJKBase$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CGB2312$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CJIS_0201$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CJIS_0208$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CSJIS$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CKSC_5601_1987$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacJapanese$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacKorean$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacSimpChinese$O \
+	../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacTradChinese$O \
+	../Sources_Common/i18n/Charsets/Converters/ISO2022/CISO2022_CN$O \
+	../Sources_Common/i18n/Charsets/Converters/ISO2022/CISO2022_JP$O \
+	../Sources_Common/i18n/Charsets/Converters/ISO2022/CISO2022_KR$O \
+	../Sources_Common/i18n/Charsets/Converters/Unicode/CUCS2$O \
+	../Sources_Common/i18n/Charsets/Converters/Unicode/CUCS4$O \
+	../Sources_Common/i18n/Charsets/Converters/Unicode/CUTF8$O \
+	../Sources_Common/i18n/Charsets/Converters/Unicode/CUTF16$O \
+	../Sources_Common/Mail/Filters/CFullFileStream$O \
+	../Sources_Common/Mail/Filters/CFilter$O \
+	../Sources_Common/Mail/Filters/CAFFilter$O \
+	../Sources_Common/Mail/Filters/CCreateFileFilter$O \
+	../Sources_Common/Mail/Filters/CBinHexFilter$O \
+	../Sources_Common/Mail/Filters/CMIMEFilters$O \
+	../Sources_Common/Mail/Filters/CUUFilter$O \
+	../Sources_Common/Mail/Filters/filterbuf$O \
+	../Sources_Common/Mail/Filters/mimefilters$O \
+	../Sources_Common/Utilities/CBroadcaster$O \
+	../Sources_Common/Utilities/CListener$O \
+	../Sources_Common/Utilities/cdmutex$O \
+	../Sources_Common/Utilities/cdomutex$O \
+	../Sources_Common/Utilities/cdcond$O \
+	../Sources_Common/Utilities/cdthread$O \
+	../Sources_Common/Utilities/cdstring$O \
+	../Sources_Common/Utilities/cdustring$O \
+	../Sources_Common/Utilities/char_stream$O \
+	../Sources_Common/Utilities/diriterator$O \
+	../Sources_Common/Utilities/encrypt$O \
+	../Sources_Common/Utilities/base64$O \
+	../Plug-ins/CRAM-MD5/sources/md5/md5c$O \
+	../Sources_Common/Utilities/CCharSpecials$O \
+	../Sources_Common/Utilities/CTextEngine$O \
+	../Sources_Common/Utilities/CUtils$O \
+	../Sources_Common/Utilities/CStringUtils$O \
+	../Sources_Common/Utilities/CUStringUtils$O \
+	../Sources_Common/Utilities/CStreamUtils$O \
+	../Sources_Common/Utilities/strfind$O \
+	../Sources_Common/Utilities/ustrfind$O \
+	../Sources_Common/Utilities/bf_crlfbuf$O \
+	Sources/PP_Sources/Tables/UNX_LScrollable$O \
+	Sources/PP_Sources/Tables/UNX_LTableView$O \
+	Sources/PP_Sources/Tables/UNX_LTableArrayStorage$O \
+	Sources/PP_Sources/Tables/UNX_LTableMonoGeometry$O \
+	Sources/PP_Sources/Tables/UNX_LTableMultiGeometry$O \
+	Sources/PP_Sources/Tables/UNX_LTableSingleSelector$O \
+	Sources/PP_Sources/Tables/UNX_LTableMultiSelector$O \
+	Sources/PP_Sources/Hierarchy_List/CNodeVectorTree$O \
+	Sources/PP_Sources/Hierarchy_List/UNX_LHierarchyTable$O \
+	Sources/PP_Sources/Hierarchy_List/UNX_LTextHierTable$O \
+	../Sources_Common/Calendar_Store/CCalendarStoreManager$O \
+	../Sources_Common/Calendar_Store/CCalendarStoreNode$O \
+	../Sources_Common/Calendar_Store/CCalendarStoreWebcal$O \
+	../Sources_Common/Calendar_Store/CCalendarStoreXML$O \
+	../Sources_Common/Calendar_Store/CCalendarStoreFreeBusy$O \
+	../Sources_Common/Calendar_Store/Protocols/CCalendarProtocol$O \
+	../Sources_Common/Calendar_Store/Clients/CCalendarClient$O \
+	../Sources_Common/Calendar_Store/Clients/CLocalCalendarClient$O \
+	../Sources_Common/Calendar_Store/Clients/CWebDAVDefinitions$O \
+	../Sources_Common/Calendar_Store/Clients/CWebDAVCalendarClient$O \
+	../Sources_Common/Calendar_Store/Clients/CCalDAVCalendarClient$O \
+	../Sources_Common/Calendar_Store/Notifications/CCalendarNotification$O \
+	../Sources_Common/Calendar_Store/Notifications/CCalendarNotifier$O \
+	../Sources_Common/VCard_Store/CVCardMapper$O \
+	../Sources_Common/VCard_Store/CVCardSearch$O \
+	../Sources_Common/VCard_Store/CVCardStoreXML$O \
+	../Sources_Common/VCard_Store/Clients/CLocalVCardClient$O \
+	../Sources_Common/VCard_Store/Clients/CWebDAVVCardClient$O \
+	../Sources_Common/VCard_Store/Clients/CCardDAVVCardClient$O \
+	../Sources_Common/Preferences_Store/Clients/CWebDAVPrefsClient$O \
+	../Libraries/CICalendar/Source/CITIPDefinitions$O \
+	../Libraries/CICalendar/Source/CITIPProcessor$O \
+	../Libraries/CICalendar/Source/CITIPScheduleResults$O \
+	../Libraries/CICalendar/Source/CICalendarManager$O \
+	../Libraries/CICalendar/Source/CICalendar$O \
+	../Libraries/CICalendar/Source/CICalendarAttribute$O \
+	../Libraries/CICalendar/Source/CICalendarCalAddressValue$O \
+	../Libraries/CICalendar/Source/CICalendarComponentBase$O \
+	../Libraries/CICalendar/Source/CICalendarComponent$O \
+	../Libraries/CICalendar/Source/CICalendarComponentDB$O \
+	../Libraries/CICalendar/Source/CICalendarComponentExpanded$O \
+	../Libraries/CICalendar/Source/CICalendarComponentRecord$O \
+	../Libraries/CICalendar/Source/CICalendarComponentRecur$O \
+	../Libraries/CICalendar/Source/CICalendarDateTime$O \
+	../Libraries/CICalendar/Source/CICalendarDateTimeValue$O \
+	../Libraries/CICalendar/Source/CICalendarDefinitions$O \
+	../Libraries/CICalendar/Source/CICalendarDummyValue$O \
+	../Libraries/CICalendar/Source/CICalendarDuration$O \
+	../Libraries/CICalendar/Source/CICalendarDurationValue$O \
+	../Libraries/CICalendar/Source/CICalendarFreeBusy$O \
+	../Libraries/CICalendar/Source/CICalendarIntegerValue$O \
+	../Libraries/CICalendar/Source/CICalendarLocale$O \
+	../Libraries/CICalendar/Source/CICalendarMultiValue$O \
+	../Libraries/CICalendar/Source/CICalendarPeriod$O \
+	../Libraries/CICalendar/Source/CICalendarPeriodValue$O \
+	../Libraries/CICalendar/Source/CICalendarPlainTextValue$O \
+	../Libraries/CICalendar/Source/CICalendarProperty$O \
+	../Libraries/CICalendar/Source/CICalendarRecurrence$O \
+	../Libraries/CICalendar/Source/CICalendarRecurrenceSet$O \
+	../Libraries/CICalendar/Source/CICalendarRecurrenceValue$O \
+	../Libraries/CICalendar/Source/CICalendarSync$O \
+	../Libraries/CICalendar/Source/CICalendarTextValue$O \
+	../Libraries/CICalendar/Source/CICalendarTimezone$O \
+	../Libraries/CICalendar/Source/CICalendarURIValue$O \
+	../Libraries/CICalendar/Source/CICalendarUTCOffsetValue$O \
+	../Libraries/CICalendar/Source/CICalendarUtils$O \
+	../Libraries/CICalendar/Source/CICalendarVAlarm$O \
+	../Libraries/CICalendar/Source/CICalendarValue$O \
+	../Libraries/CICalendar/Source/CICalendarVEvent$O \
+	../Libraries/CICalendar/Source/CICalendarVFreeBusy$O \
+	../Libraries/CICalendar/Source/CICalendarVJournal$O \
+	../Libraries/CICalendar/Source/CICalendarVTimezone$O \
+	../Libraries/CICalendar/Source/CICalendarVTimezoneDaylight$O \
+	../Libraries/CICalendar/Source/CICalendarVTimezoneElement$O \
+	../Libraries/CICalendar/Source/CICalendarVTimezoneStandard$O \
+	../Libraries/CICalendar/Source/CICalendarVToDo$O \
+	../Libraries/vCard/Source/CVCardAddressBook$O \
+	../Libraries/vCard/Source/CVCardAddress$O \
+	../Libraries/vCard/Source/CVCardAddressValue$O \
+	../Libraries/vCard/Source/CVCardAttribute$O \
+	../Libraries/vCard/Source/CVCardComponentBase$O \
+	../Libraries/vCard/Source/CVCardComponent$O \
+	../Libraries/vCard/Source/CVCardComponentDB$O \
+	../Libraries/vCard/Source/CVCardComponentRecord$O \
+	../Libraries/vCard/Source/CVCardDateTime$O \
+	../Libraries/vCard/Source/CVCardDateTimeValue$O \
+	../Libraries/vCard/Source/CVCardDefinitions$O \
+	../Libraries/vCard/Source/CVCardDummyValue$O \
+	../Libraries/vCard/Source/CVCardLocale$O \
+	../Libraries/vCard/Source/CVCardMultiValue$O \
+	../Libraries/vCard/Source/CVCardN$O \
+	../Libraries/vCard/Source/CVCardNValue$O \
+	../Libraries/vCard/Source/CVCardPlainTextValue$O \
+	../Libraries/vCard/Source/CVCardProperty$O \
+	../Libraries/vCard/Source/CVCardSync$O \
+	../Libraries/vCard/Source/CVCardTextValue$O \
+	../Libraries/vCard/Source/CVCardURIValue$O \
+	../Libraries/vCard/Source/CVCardUTCOffsetValue$O \
+	../Libraries/vCard/Source/CVCardUtils$O \
+	../Libraries/vCard/Source/CVCardValue$O \
+	../Libraries/vCard/Source/CVCardVCard$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPSession$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPDefinitions$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPUtils$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPRequestResponse$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPAuthorizationBasic$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPAuthorizationDigest$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPDataString$O \
+	../Sources_Common/HTTP/HTTPClient/CHTTPDataFile$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVSession$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVRequestResponse$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVOptions$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVGet$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVPut$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVLock$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVUnlock$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVDelete$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVMove$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVMakeCollection$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVPrincipalMatch$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVPropFind$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVPropFindBase$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVPropFindParser$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVPropNames$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVReport$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVACL$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVMultiResponseParser$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVXMLResponseParser$O \
+	../Sources_Common/HTTP/CalDAVClient/CCalDAVMakeCalendar$O \
+	../Sources_Common/HTTP/CalDAVClient/CCalDAVMultigetReport$O \
+	../Sources_Common/HTTP/CalDAVClient/CCalDAVReportParser$O \
+	../Sources_Common/HTTP/CalDAVClient/CCalDAVSchedule$O \
+	../Sources_Common/HTTP/CalDAVClient/CCalDAVScheduleParser$O \
+	../Sources_Common/HTTP/CardDAVClient/CCardDAVMakeAdbk$O \
+	../Sources_Common/HTTP/CardDAVClient/CCardDAVMultigetReport$O \
+	../Sources_Common/HTTP/CardDAVClient/CCardDAVQueryReport$O \
+	../Sources_Common/HTTP/CardDAVClient/CCardDAVReportParser$O \
+	../Libraries/XMLLib/Source/CStreamBuffer$O \
+	../Libraries/XMLLib/Source/XMLDocument$O \
+	../Libraries/XMLLib/Source/XMLNode$O \
+	../Libraries/XMLLib/Source/XMLNamespace$O \
+	../Libraries/XMLLib/Source/XMLName$O \
+	../Libraries/XMLLib/Source/XMLObject$O \
+	../Libraries/XMLLib/Source/XMLParserSAX$O \
+	../Libraries/XMLLib/Source/XMLSAXSimple$O \
+	../Sources_Common/Resources/CXStringResources$O \
+	../Sources_Common/Formatting/CParserPlain$O \
+	../Sources_Common/Formatting/CParserPlainElement$O \
+	../Sources_Common/Formatting/CParserEnriched$O \
+	../Sources_Common/Formatting/CParserEnrichedStack$O \
+	Sources/Formatting/CEnrichedTransformer$O \
+	../Sources_Common/Formatting/CParserHTML$O \
+	../Sources_Common/Formatting/CParserHTMLStack$O \
+	Sources/Formatting/CHTMLTransformer$O \
+	../Sources_Common/Formatting/CHTMLCharacterEntity$O \
+	Sources/Formatting/RGB$O \
+	../Sources_Common/Formatting/CFormatList$O \
+	../Sources_Common/Formatting/CFormatElement$O \
+	../Sources_Common/Formatting/CClickList$O \
+	../Sources_Common/Formatting/CClickElement$O \
+	Sources/Formatting/CFormattedTextDisplay$O \
+	Sources/Formatting/CEditFormattedTextDisplay$O \
+	Sources/Formatting/CStyleToolbar$O \
+	Sources/Formatting/CColorPopup$O \
+	Sources/Formatting/CJUtil$O \
+	../Sources_Common/Plugins/General/CPlugin$O \
+	../Sources_Common/Plugins/General/CPluginManager$O \
+	Sources/Plugins/General/CAboutPluginsDialog$O \
+	Sources/Plugins/General/CPluginRegisterDialog$O \
+	Sources/Plugins/General/CRegistration$O \
+	../Sources_Common/Plugins/General/CRegistrationCommon$O \
+	Sources/Application/Other_Dialogs/CLicenseDialog$O \
+	../Sources_Common/Plugins/Configuration/CConfigPlugin$O \
+	../Sources_Common/Plugins/Authentication/CAuthPlugin$O \
+	../Sources_Common/Plugins/AddressBooks/CAdbkIOPlugin$O \
+	../Sources_Common/Plugins/Security/CSecurityPlugin$O \
+	Sources/Plugins/Security/CGetPassphraseDialog$O \
+	../Sources_Common/Plugins/PasswordChange/CPswdChangePlugin$O \
+	../Sources_Common/Plugins/Spelling/CSpellPlugin$O \
+	Sources/Plugins/Spelling/CSpellOptionsDialog$O \
+	Sources/Plugins/Spelling/CSpellCheckDialog$O \
+	Sources/Plugins/Spelling/CSpellChooseDictDialog$O \
+	../Sources_Common/Plugins/SSL/CSSLPlugin$O \
+	../Sources_Common/Plugins/SSL/CCertificateManager$O \
+	../Sources_Common/Plugins/SSL/CCertificateStore$O \
+	../Sources_Common/Plugins/SSL/CCertificateStoreDir$O \
+	../Sources_Common/Plugins/SSL/CCertificate$O \
+	../Sources_Common/Plugins/SSL/CDLLFunctions$O \
+	../Sources_Common/Plugins/SSL/CSSLUtils$O \
+	Sources/Plugins/SSL/CCertManagerDialog$O \
+	Sources/Plugins/SSL/CViewCertDialog$O \
+	Sources/Plugins/SSL/CAcceptCertDialog$O
+
+.PHONY : all clean distclean debug install uninstall
+
+#
+# Main target and file dependencies:
+#
+
+all: $(PROGRAM)
+
+#
+# Flags passed to the compiler
+#
+
+JX_ROOT = ../Libraries/JX
+JX_MAKE_INCLUDE_DIR = $(JX_ROOT)/include/make
+include $(JX_MAKE_INCLUDE_DIR)/jx_constants
+include $(JX_MAKE_INCLUDE_DIR)/jx_config
+CXXDEBUG = -g
+CXXOPT = @CXXOPT@
+CXXWARN = @CXXWARN@
+COPT = @COPT@
+CDEBUG = -g
+CWARN = @CWARN@
+CPPFLAGS = @CPPFLAGS@ $(J_RAW_SYSTEM_STUFF) -IIncludes -I../Sources_Common -IResources -I../Sources_Common/Utilities/ -IHelp -I$(JX_ROOT)/include/jcore -I$(JX_ROOT)/include/jx -I$(JX_ROOT)/include/jximage -I$(JX_ROOT)/ACE/ACE_wrappers $(J_INCLUDE_FREETYPE)
+CXXFLAGS = @CXXFLAGS@ -include Sources/Mulberry_Prefix.h $(CPPFLAGS) $(CXXOPT) $(CXXDEBUG) $(CXXWARN)
+CFLAGS = @CFLAGS@ -include stdbool.h $(CPPFLAGS) $(COPT) $(CDEBUG) $(CWARN)
+LINK_STATIC = @LINK_STATIC@
+LINK_DYNAMIC = @LINK_DYNAMIC@
+JXLINK = $(JX_LDFLAGS) \
+	$(LINK_STATIC)  -ljx-$(JX_LIB_VERSION) -ljcore-$(JX_LIB_VERSION) \
+	-lACE-$(ACE_LIB_VERSION) $(LINK_DYNAMIC) \
+	$(J_X11_LIBS) @LDAPLIB@ @SSLLIB@ \
+	$(LINK_STATIC) $(STL_LIB) $(LINK_DYNAMIC)
+
+LDFLAGS =  $(JXLINK) @LDFLAGS@ -lpthread -ldl
+#
+# Automatic stuff, should not be changed:
+#
+DEPENDS = $(OBJS:$O=.dd)
+
+#
+# rules:
+#
+$(PROGRAM): $(OBJS) $(LIBS)
+	$(CXX) -o $(PROGRAM) $^ $(LDFLAGS)
+
+Sources/Support/HResourceMap.o: Sources/Support/HResourceMap.cp Resources/xpms.res Resources/xpms.cp
+
+../Plug-ins/CRAM-MD5/sources/md5/md5c.o: ../Plug-ins/CRAM-MD5/sources/md5/md5c.c ../Plug-ins/CRAM-MD5/sources/md5/md5.h
+	 $(CC) -c -o $@ $<
+install: $(PROGRAM)
+	$(INSTALL) -d $(BINDIR)
+	$(INSTALL) -m 755 $(PROGRAM) $(BINDIR)
+	if [ -n "$(STRIP)" ]; then $(STRIP) $(BINDIR)/$(PROGRAM); else true; fi
+
+uninstall:
+	rm -f $(BINDIR)/$(PROGRAM)
+
+clean:
+	-rm -rf $(OBJS) $(PROGRAM) *~
+
+distclean:
+	-$(MAKE) clean
+	-rm -f config.cache config.status config.log Makefile
+
+$(LIBS):
+	$(MAKE) $(MAKEFLAGS) -E ../Libraries
+
+#
+# Automatic targets and rules:
+#
+%$O: %.cp
+	$(CXX) -c $(CXXFLAGS) $< -o $@
+
+
+%$O: %.cpp
+	$(CXX) -c $(CXXFLAGS) $< -o $@
+
+%$O: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+%.dd: %.cp
+	@$(SHELL) -ec '$(CXX) -MM $(CXXFLAGS) $< \
+	| sed '\''s|\($*\)\.o[ :]*|\1.o $@ : |g'\'' > $@; \
+	[ -s $@ ] || rm -f $@'
+
+%.dd: %.cpp
+	@$(SHELL) -ec '$(CXX) -MM $(CXXFLAGS) $< \
+	| sed '\''s|\($*\)\.o[ :]*|\1.o $@ : |g'\'' > $@; \
+	[ -s $@ ] || rm -f $@'
+
+%.dd: %.c
+	@$(SHELL) -ec '$(CC) -MM $(CFLAGS) $< \
+	| sed '\''s|\($*\)\.o[ :]*|\1.o $@ : |g'\'' > $@; \
+	[ -s $@ ] || rm -f $@'
+
+ifeq (yes,${HAS_MM})
+-include $(DEPENDS)
+endif
+
+

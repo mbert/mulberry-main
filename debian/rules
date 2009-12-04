@@ -1,0 +1,78 @@
+#!/usr/bin/make -f
+#
+# Debian build file for Mulberry
+#
+# 2009 by Martin Dietze
+#
+
+JXDIST := $(shell pwd)/Libraries/JX/dist
+
+patch-stamp:
+	if ls -1 debian/patches/*.patch >/dev/null 2>&1; then \
+		for i in `ls -1 debian/patches/*.patch`; do \
+			patch -p0 <$$i; \
+		done; \
+	fi
+	touch patch-stamp
+
+configure: configure-stamp
+configure-stamp: patch-stamp
+	dh_testdir
+	autoconf
+	DESTDIR=debian/mulberry ./configure --prefix=/usr \
+            --with-mulberry-dir=lib/mulberry \
+            --with-mulberry-dir=lib/mulberry \
+            --with-help-dir=share/doc/mulberry \
+            --with-program-dir=bin
+	touch configure-stamp
+
+build: build-stamp
+
+build-stamp: configure-stamp 
+	mkdir -p $(JXDIST)/lib
+	mkdir -p $(JXDIST)/bin
+	JX_INSTALL_ROOT="$(JXDIST)/bin" JX_LIB_ROOT="$(JXDIST)/lib" \
+		$(MAKE) ROOT_DATA_FILE_DIR=$(JXDIST)/data
+	touch build-stamp
+
+clean: unpatch
+	-$(MAKE) distclean
+	rm -rf *~ debian/mulberry debian/*~ build-stamp configure-stamp $(JXDIST)/lib
+	dh_clean 
+
+binary-indep: build install
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+
+	$(MAKE) DESTDIR=$(CURDIR)/debian/mulberry SKIPJX="yes" install
+
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_install
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+unpatch:
+	if ls -1 debian/patches/*.patch >/dev/null 2>&1; then \
+		for i in `ls -1 debian/patches/*.patch`; do \
+			patch -f -R -p0 <$$i; \
+		done; \
+	fi
+
+binary: binary-indep binary-arch
+
+.PHONY: binary binary-arch binary-indep clean

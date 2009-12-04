@@ -1,0 +1,76 @@
+#
+# Makefile for vCardAdbkIO Plugin
+#
+# Compatibility: GNU
+#
+# $Date$
+# $Revision$
+#
+
+#
+# Installation dirs...
+#
+prefix = @prefix@
+DESTDIR = @DESTDIR@
+LIBDIR = $(DESTDIR)$(prefix)/@MULBERRY_DIR@
+
+#
+# tools used for compiling / installing...
+#
+CXX = @CXX@
+AR = @AR@
+INSTALL = @INSTALL@
+STRIP = @STRIP@
+HAS_MM = @HAS_MM@
+PRELINK = @PRELINK@
+O = .o
+E =
+A = .a
+D = .so
+
+#
+# Name of target object files:
+#
+LIBRARY = vCardAdbkIOPlugin
+OBJS = \
+	../Common/CAdbkIOPluginDLL$O \
+	../Common/CPluginDLL$O \
+	sources/CVCard$O \
+	sources/CVCardAdbkIOPluginDLL$O \
+	sources/CVCardEngine$O \
+	PluginDLLmain$O \
+	../Common/os_dep$O
+
+.PHONY : all clean distclean debug install uninstall
+
+#
+# Main target and file dependencies:
+#
+
+all: $(LIBRARY)$D
+
+#
+# Flags passed to the compiler
+#
+
+JX_ROOT = ../../Libraries/JX
+JX_MAKE_INCLUDE_DIR = $(JX_ROOT)/include/make
+include $(JX_MAKE_INCLUDE_DIR)/jx_constants
+include $(JX_MAKE_INCLUDE_DIR)/jx_config
+CXXDEBUG = -g
+CXXOPT = @CXXOPT@
+CXXWARN = @CXXWARN@
+CPPFLAGS = @CPPFLAGS@ $(J_RAW_SYSTEM_STUFF) -D_REENTRANT -I../../Linux/Sources/Utilities -I../../Sources_Common/Utilities -I../../Sources_Common/i18n/Charsets -I../Common -I./sources
+CXXFLAGS = -include ../Common/Plugin_Prefix_Linux.h @CXXFLAGS@ $(CPPFLAGS) $(CXXOPT) $(CXXDEBUG) $(CXXWARN)
+COPT = @COPT@
+CDEBUG = -g
+CWARN = @CWARN@
+CFLAGS = @CFLAGS@ -include ../Common/Plugin_Prefix_Linux.h $(CPPFLAGS) $(COPT) $(CDEBUG) $(CWARN)
+SO_LDFLAGS =  ../PluginLibrary/PluginLib$A @SO_LDFLAGS@
+
+include ../include/pluginrules.mak
+
+ifeq (yes,${HAS_MM})
+-include $(DEPENDS)
+endif
+

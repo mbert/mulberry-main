@@ -1,0 +1,17 @@
+mulberry (4.1d1-svn-20091122-1254) unstable; urgency=low
+
+  * Automatic build from the SVN on Sun Nov 22 12:54:30 CET 2009
+
+ -- Martin Dietze <herbert@spamcop.net>  Sun, 22 Nov 2009 12:54:31 +0100
+
+mulberry (4.1d1-svn-20091122-1232) unstable; urgency=low
+
+  * Automatic build from the SVN on Sun Nov 22 12:32:42 CET 2009
+
+ -- Martin Dietze <herbert@spamcop.net>  Sun, 22 Nov 2009 12:32:44 +0100
+
+mulberry (4.1d1-1) unstable; urgency=low
+
+  * Initial Debianisation
+
+ -- Martin Dietze <herbert@spamcop.net>  Sat, 07 Nov 2009 16:50:24 -0400

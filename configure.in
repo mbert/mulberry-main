@@ -1,0 +1,389 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(Libraries/CICalendar/Source/CICalendarDurationValue.cpp)
+
+# ---------------------------------------------------------------------------
+# Checks for compilers and tools
+# ---------------------------------------------------------------------------
+
+AC_PROG_CXX
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LN_S
+
+AC_CHECK_PROG(AR, ar, ar)
+if test -z "$AR"; then
+   AC_MSG_ERROR("ar not found. Make sure it is in the PATH and rerun configure.")
+fi
+AC_SUBST(AR)
+
+AC_CHECK_PROG(STRIP, strip, strip)
+AC_SUBST(STRIP)
+
+AC_LANG(C++)
+
+dnl Checks for header files.
+AC_HEADER_STDC
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_TYPE_SIZE_T
+
+# ---------------------------------------------------------------------------
+# Checks for platform and compiler features
+# ---------------------------------------------------------------------------
+
+AC_CANONICAL_HOST
+DEFLN="static"
+case "$host_os" in
+  *irix*)
+    CXX="$CXX -LANG:std"
+    if test -z "$PRELINK"; then
+      PRELINK="/usr/lib/DCC/edg_prelink"
+    fi
+    if test -z "$CXXWARN"; then
+      CXXWARN=""
+    fi
+    ;;
+  gnu* | linux* | bsd4.4* | netbsd* | freebsd*)
+    # These systems always use GNU tools.
+    DEFLN="shared"
+    ;;
+esac
+case $CC in
+  gcc*|g++*|c++*|*-g++)
+    CWARN="-Wall -Wcast-align -Wno-multichar -Wno-unused -Wno-unknown-pragmas"
+    CFLAGS="$CFLAGS -std=c99"
+    HAS_MM="yes"
+    ;;
+esac
+case $CXX in
+  gcc*|g++*|c++*|*-g++)
+    CXXWARN="-Wall -Wcast-align -Wno-multichar -Wno-unused -Wno-unknown-pragmas -Wno-non-virtual-dtor -Wno-ctor-dtor-privacy"
+    CXXFLAGS="$CXXFLAGS"
+    GVERSION=`$CXX --version | grep "^$CXX " | sed "s/.* //"`
+    case $GVERSION in
+	4.3*)
+	  CXXWARN="$CXXWARN -Wno-deprecated -std=c++0x"
+	  CXXFLAGS="$CXXFLAGS -fpermissive"
+	;;
+    esac
+    HAS_MM="yes"
+    ;;
+esac
+CPPFLAGS=""
+AC_ARG_WITH(extra-cppflags,
+    [  --with-extra-cppflags   Specify additional flags to pass to the C preprocessor.],
+    CPPFLAGS="${CPPFLAGS} $withval")
+
+AC_SUBST(DEFLN)
+AC_SUBST(HAS_MM)
+AC_SUBST(PRELINK)
+AC_SUBST(CXXWARN)
+AC_SUBST(CXXLANG)
+AC_SUBST(CXXFLAGS)
+AC_SUBST(CPPFLAGS)
+AC_SUBST(CWARN)
+AC_SUBST(CLANG)
+AC_SUBST(CFLAGS)
+AC_SUBST(CXX)
+AC_SUBST(CC)
+
+AC_SUBST(CXXOPT)
+
+COPT="$CXXOPT"
+AC_SUBST(COPT)
+
+# ---------------------------------------------------------------------------
+# Checks for Misc. stuff
+# ---------------------------------------------------------------------------
+
+LINK_STATIC="-Wl,-Bstatic"
+LINK_DYNAMIC="-Wl,-Bdynamic"
+AC_ARG_ENABLE(shared,
+    [  --enable-shared         Use shared libraries instead of static for some dependencies.],
+    LINK_STATIC=""
+    LINK_DYNAMIC="")
+AC_SUBST(LINK_STATIC)
+AC_SUBST(LINK_DYNAMIC)
+
+DESTDIR=""
+AC_ARG_VAR(DESTDIR, The directory in which the prefix dir is located)
+
+MULBERRY_DIR=".mulberry"
+AC_ARG_WITH(mulberry-dir,
+    [  --with-mulberry-dir     Specify location relative to the prefix where mulberry plugins go (default: .mulberry)],
+    MULBERRY_DIR="$withval")
+AC_SUBST(MULBERRY_DIR)
+
+HELP_DIR=".mulberry"
+AC_ARG_WITH(help-dir,
+    [  --with-help-dir         Specify location relative to the prefix where mulberry documentation files go (default: .mulberry)],
+    HELP_DIR="$withval")
+AC_SUBST(HELP_DIR)
+
+PROGRAM_DIR=""
+AC_ARG_WITH(program-dir,
+    [  --with-program-dir      Specify location relative to the prefix where the mulberry program goes (default: '')],
+    PROGRAM_DIR="$withval")
+AC_SUBST(PROGRAM_DIR)
+
+# ---------------------------------------------------------------------------
+# Checks for libs which we will need (fail if not found)
+# ---------------------------------------------------------------------------
+
+AC_CHECK_HEADER([esd.h],
+	,
+        AC_MSG_ERROR(esd.h not found - mulberry requires esd.)
+)
+
+AC_CHECK_HEADER([cstdint],
+	HAS_CSTDINT=1,
+	HAS_CSTDINT=0
+)
+if test ${HAS_CSTDINT} = 0; then
+AC_CHECK_HEADER([boost/cstdint.hpp],
+	CPPFLAGS="$CPPFLAGS -I`pwd`/Wrapper_Includes/cstdint",
+        AC_MSG_ERROR(neither cstdint nor boost/cstdint.hpp found - one from them is required for compiling mulberry.)
+)
+fi
+
+
+# Checks for LDAP
+AC_ARG_WITH(ldap-include,
+    [  --with-ldap-include     Specify location of LDAP headers],
+    LDAPINC="$withval")
+if test -n "$LDAPINC"; then
+    case $LDAPINC in
+      -I*)
+        ;;
+      /*)
+        LDAPINC=-I$LDAPINC
+        ;;
+      *)
+        LDAPINC=-I`pwd`/$LDAPINC
+        ;;
+    esac
+fi
+AC_SUBST(LDAPINC)
+
+LDAPLIB="-lldap -llber"
+AC_ARG_WITH(openssl-libs,
+    [  --with-ldap-libs        Specify link args for LDAP],
+    LDAPLIB="$withval")
+AC_SUBST(LDAPLIB)
+
+CPPFLAGS_ORG="$CPPFLAGS"
+CPPFLAGS="$LDAPINC $CPPFLAGS"
+KERBEROS=""
+AC_CHECK_HEADER([ldap_cdefs.h],
+	COMMUNICATOR_ADBK_IO="CommunicatorAdbkIO"
+	NETSCAPE_ADBK_IO="NetscapeAdbkIO",
+        AC_MSG_ERROR(ldap_cdefs.h not found - mulberry and CommunicatorAdbkIO and NetscapeAdbkIO plugins require LDAP.)
+)
+CPPFLAGS="$CPPFLAGS_ORG"
+AC_SUBST(COMMUNICATOR_ADBK_IO)
+AC_SUBST(NETSCAPE_ADBK_IO)
+
+# Checks for SSL
+
+AC_ARG_WITH(openssl-include,
+    [  --with-openssl-include  Specify location of openssl headers],
+    SSLINC="$withval")
+if test -n "$SSLINC"; then
+    case $SSLINC in
+      -I*)
+        ;;
+      /*)
+        SSLINC=-I$SSLINC
+        ;;
+      *)
+        SSLINC=-I`pwd`/$SSLINC
+        ;;
+    esac
+fi
+AC_SUBST(SSLINC)
+
+CPPFLAGS_ORG="$CPPFLAGS"
+CPPFLAGS="$SSLINC $CPPFLAGS"
+KERBEROS=""
+AC_CHECK_HEADER([openssl/ssl.h],
+	SSL="SSL"
+	SMIME="SMIME",
+        AC_MSG_ERROR(openssl/ssl.h not found - mulberry and SMIME and SSL plugins require OpenSSL.)
+)
+CPPFLAGS="$CPPFLAGS_ORG"
+AC_SUBST(SMIME)
+AC_SUBST(SSL)
+
+SSLLIB="-lcrypto -lssl"
+AC_ARG_WITH(openssl-libs,
+    [  --with-openssl-libs     Specify link args for openssl],
+    SSLLIB="$withval")
+AC_SUBST(SSLLIB)
+
+
+# ---------------------------------------------------------------------------
+# Checks for libs which may or may not be there
+# ---------------------------------------------------------------------------
+
+LDFLAGS=""
+AC_CHECK_LIB(rt, main, LDFLAGS="$LDFLAGS -lrt")
+AC_CHECK_LIB(gen, main, LDFLAGS="$LDFLAGS -lgen")
+case $host_os in
+  *solaris*)
+     LDFLAGS="$LDFLAGS -nodefaultlibs -lc -lm -lgcc"
+     SO_LDFLAGS="-nodefaultlibs -lc -lm -lgcc -socket -lresolv"
+     PROC_NAME="`uname -p`"
+     ;;
+  *)
+     SO_LDFLAGS="-lresolv"
+     PROC_NAME="`uname -m`"
+     ;;
+esac
+OS_NAME="$host_os"
+REL_NAME="`uname -r`"
+AC_SUBST(OS_NAME)
+AC_SUBST(REL_NAME)
+AC_SUBST(PROC_NAME)
+AC_CHECK_LIB(resolv, main, LDFLAGS="$LDFLAGS -lresolv")
+
+AC_SUBST(LDFLAGS)
+AC_SUBST(SO_LDFLAGS)
+
+# ---------------------------------------------------------------------------
+# Checks for KRB4
+# ---------------------------------------------------------------------------
+
+AC_ARG_WITH(krb4-include,
+    [  --with-krb4-include     Specify location of kerberos4 headers],
+    KRB4INC="$withval")
+if test -n "$KRB4INC"; then
+    case $KRB4INC in
+      -I*)
+        ;;
+      /*)
+        KRB4INC=-I$KRB4INC
+        ;;
+      *)
+        KRB4INC=-I`pwd`/$KRB4INC
+        ;;
+    esac
+fi
+
+CPPFLAGS_ORG="$CPPFLAGS"
+CPPFLAGS="$KRB4INC $CPPFLAGS"
+KERBEROS=""
+AC_CHECK_HEADER([krb.h],
+	KERBEROS="Kerberos",
+        AC_MSG_WARN(krb.h not found - disabling Kerberos (IV) plugin.)
+)
+CPPFLAGS="$CPPFLAGS_ORG"
+
+KRB4LIB="-lkrb4 -ldes425"
+AC_ARG_WITH(krb4-libs,
+    [  --with-krb4-libs        Specify link args for kerberos4],
+    KRB4LIB="$withval")
+
+AC_SUBST(KRB4INC)
+AC_SUBST(KRB4LIB)
+AC_SUBST(KERBEROS)
+
+# ---------------------------------------------------------------------------
+# Checks for KRB5
+# ---------------------------------------------------------------------------
+
+KRB5INC="-I/usr/include/gssapi"
+AC_ARG_WITH(krb5-include,
+    [  --with-krb5-include     Specify location of kerberos5 headers],
+    KRB5INC="$withval")
+if test -n "$KRB5INC"; then
+    case $KRB5INC in
+      -I*)
+        ;;
+      /*)
+        KRB5INC=-I$KRB5INC
+        ;;
+      *)
+        KRB5INC=-I`pwd`/$KRB5INC
+        ;;
+    esac
+fi
+
+CPPFLAGS_ORG="$CPPFLAGS"
+CPPFLAGS="$KRB5INC $CPPFLAGS"
+GSSAPI=""
+AC_CHECK_HEADER([gssapi.h],
+	GSSAPI="GSSAPI",
+        AC_MSG_WARN(gssapi.h not found - disabling GSSAPI plugin.)
+)
+CPPFLAGS="$CPPFLAGS_ORG"
+
+KRB5LIB="-lgssapi_krb5 -lkrb5 -lk5crypto -lcom_err"
+AC_ARG_WITH(krb5-libs,
+    [  --with-krb5-libs        Specify link args for kerberos5],
+    KRB5LIB="$withval")
+
+AC_SUBST(KRB5INC)
+AC_SUBST(KRB5LIB)
+AC_SUBST(GSSAPI)
+
+# ---------------------------------------------------------------------------
+# Checks for ASpell
+# ---------------------------------------------------------------------------
+
+ASPELLINC=""
+AC_ARG_WITH(aspell-include,
+    [  --with-aspell-include   Specify location of aspell headers],
+    ASPELLINC="$withval")
+if test -n "$ASPELLINC"; then
+    case $ASPELLINC in
+      -I*)
+        ;;
+      /*)
+        ASPELLINC=-I$ASPELLINC
+        ;;
+      *)
+        ASPELLINC=-I`pwd`/$ASPELLINC
+        ;;
+    esac
+fi
+
+CPPFLAGS_ORG="$CPPFLAGS"
+CPPFLAGS="$ASPELLINC $CPPFLAGS"
+ASPELL=""
+AC_CHECK_HEADER([aspell.h],
+	ASPELL="ASpell",
+        AC_MSG_WARN(aspell.h not found - disabling ASpell plugin.)
+)
+CPPFLAGS="$CPPFLAGS_ORG"
+
+ASPELLLIB="-dynamic -laspell"
+AC_ARG_WITH(aspell-libs,
+    [  --with-aspell-libs      Specify link args for aspell],
+    ASPELLLIB="$withval")
+
+AC_SUBST(ASPELLINC)
+AC_SUBST(ASPELLLIB)
+AC_SUBST(ASPELL)
+
+# not used right now, see Libraries/XMLLib/Makefile.in
+#AC_ARG_WITH(libxml-include,
+#    [  --with-libxml-include Specify location of libxml headers],
+#    XMLINC="$withval")
+#CPPFLAGS="$CPPFLAGS -I$XMLINC"
+#
+#AC_CHECK_HEADER(libxml/parser.h,,
+#   AC_MSG_ERROR("libxml/parser.h not found."))
+
+# ---------------------------------------------------------------------------
+# Almost there...
+# ---------------------------------------------------------------------------
+
+test "$prefix" = "NONE" -o "$prefix" = "" && prefix='~'
+echo ""
+echo "Mulberry binary goes to $DESTDIR$prefix/$PROGRAM_DIR"
+echo "Mulberry resources and plugins go to $DESTDIR$prefix/$MULBERRY_DIR"
+echo "Mulberry help files go to $DESTDIR$prefix/$HELP_DIR"
+echo ""
+
+AC_OUTPUT(Makefile Libraries/Makefile Build/Makefile Sources_Common/Makefile Libraries/CICalendar/Makefile Libraries/vCard/Makefile Libraries/XMLLib/Makefile Linux/Makefile Plug-ins/Makefile Plug-ins/PluginLibrary/Makefile Plug-ins/CRAM-MD5/Makefile Plug-ins/DIGEST-MD5/Makefile Plug-ins/GSSAPI/Makefile Plug-ins/Kerberos/Makefile Plug-ins/CommunicatorAdbkIO/Makefile Plug-ins/Eudora4AdbkIO/Makefile Plug-ins/EudoraAdbkIO/Makefile Plug-ins/NetscapeAdbkIO/Makefile Plug-ins/PineAdbkIO/Makefile Plug-ins/QuickmailAdbkIO/Makefile Plug-ins/vCardAdbkIO/Makefile Plug-ins/ISpell/Makefile Plug-ins/ASpell/Makefile Plug-ins/GPG/Makefile Plug-ins/SMIME/Makefile Plug-ins/SSL/Makefile)

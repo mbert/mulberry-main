@@ -1,0 +1,22 @@
+Source: mulberry
+Section: mail
+Priority: optional
+Maintainer: Martin Dietze <herbert@spamcop.net>
+Standards-Version: 3.8.3
+Build-Depends: debhelper (>= 7.0.50~), autoconf, libkrb5-dev, libldap2-dev, libssl-dev, libaspell-dev, libesd0-dev
+
+Package: mulberry
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Mulberry is a GUI-based email client
+ supporting the IMAP and POP3 internet protocols for
+ remote storage and manipulation of email, or local
+ mailboxes. It also supports SMTP for sending email,
+ as well as IMSP, ACAP and LDAP internet protocols
+ for remote preferences, remote address books and
+ directory services.
+ .
+ Mulberry is currently available for Macintosh, Win32 and
+ various Unix flavors, including Linux and Solaris.
+ .
+ <http://www.mulberrymail.com>
