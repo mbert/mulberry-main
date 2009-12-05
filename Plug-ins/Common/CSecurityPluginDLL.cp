@@ -458,7 +458,11 @@ char* CSecurityPluginDLL::ToPath(fspec spec)
 
 	return ::strdup(cdstring::null_str);
 #else
-	return ::strdup(spec);
+	if (spec)
+	{
+		return ::strdup(spec);
+	}
+	return ::strdup(cdstring::null_str);
 #endif
 }
 
