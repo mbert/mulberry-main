@@ -11,8 +11,7 @@
 
 DIRS = CICalendar vCard XMLLib
 
-OS := $(shell /bin/uname -s)
-CPU := $(shell /bin/uname -m)
+JX_TARGET = @JX_TARGET@
 
 # set this variable to something non empty to skip the time
 # consuming make recursion into JX (if it is already built
@@ -27,23 +26,9 @@ all: jx
 jx: jxinit
 	if test -n "$(SKIPJX)" ; then \
 		echo "Skipping build of JX as requested."; \
-	else \
-		case $(OS) in  \
-			Linux)  \
-				case $(CPU) in  \
-					ppc)  \
-						$(MAKE) J_BUILD_BOTH_LIB=1 -C JX linuxppc2000 \
-					;; \
-					i686|i86pc)  \
-						$(MAKE) J_BUILD_BOTH_LIB=1 -C JX linux_intel \
-					;; \
-				esac  \
-			;; \
-		    	SunOS) \
-				$(MAKE) J_BUILD_BOTH_LIB=1 -C JX sunos5.8-g++ \
-                        ;; \
-		esac ; \
+		exit 0; \
 	fi
+	$(MAKE) J_BUILD_BOTH_LIB=1 -C JX $(JX_TARGET)
 
 clean:
 	$(MAKE) -C JX clean
