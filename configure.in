@@ -75,9 +75,9 @@ case $CXX in
     CXXFLAGS="$CXXFLAGS"
     GVERSION=`$CXX --version | grep "^$CXX " | sed "s/.* //"`
     case $GVERSION in
-	4.3*)
-	  CXXWARN="$CXXWARN -Wno-deprecated -std=c++0x"
-	  CXXFLAGS="$CXXFLAGS -fpermissive"
+	4.3*|4.4*)
+	  CXXWARN="$CXXWARN -Wno-deprecated"
+	  CXXFLAGS="$CXXFLAGS -fpermissive -std=c++0x"
 	;;
     esac
     HAS_MM="yes"
