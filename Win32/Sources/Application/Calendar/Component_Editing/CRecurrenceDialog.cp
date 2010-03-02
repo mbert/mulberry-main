@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -206,8 +206,8 @@ void CRecurrenceDialog::SetByMonth(const iCal::CICalendarRecurrence& recur)
 	for(uint32_t i = 0; i < 12; i++)
 		mByMonth[i].SetPushed(0);
 
-	const vector<int32_t>& by_month = recur.GetByMonth();
-	for(vector<int32_t>::const_iterator iter = by_month.begin(); iter != by_month.end(); iter++)
+	const std::vector<int32_t>& by_month = recur.GetByMonth();
+	for(std::vector<int32_t>::const_iterator iter = by_month.begin(); iter != by_month.end(); iter++)
 	{
 		if ((*iter >= 1) && (*iter <= 12))
 			mByMonth[*iter - 1].SetPushed(1);
@@ -222,8 +222,8 @@ void CRecurrenceDialog::SetByMonthDay(const iCal::CICalendarRecurrence& recur)
 	for(uint32_t i = 0; i < 7; i++)
 		mByMonthDayLast[i].SetPushed(0);
 
-	const vector<int32_t>& by_month_day = recur.GetByMonthDay();
-	for(vector<int32_t>::const_iterator iter = by_month_day.begin(); iter != by_month_day.end(); iter++)
+	const std::vector<int32_t>& by_month_day = recur.GetByMonthDay();
+	for(std::vector<int32_t>::const_iterator iter = by_month_day.begin(); iter != by_month_day.end(); iter++)
 	{
 		// NB Cannot handle all negative values, or zero
 		if ((*iter >= 1) && (*iter <= 31))
@@ -245,8 +245,8 @@ void CRecurrenceDialog::SetByDay(const iCal::CICalendarRecurrence& recur)
 		mByDay[i].SetPushed(0);
 
 	// Set the day buttons
-	const vector<iCal::CICalendarRecurrence::CWeekDayNum>& by_day = recur.GetByDay();
-	for(vector<iCal::CICalendarRecurrence::CWeekDayNum>::const_iterator iter = by_day.begin(); iter != by_day.end(); iter++)
+	const std::vector<iCal::CICalendarRecurrence::CWeekDayNum>& by_day = recur.GetByDay();
+	for(std::vector<iCal::CICalendarRecurrence::CWeekDayNum>::const_iterator iter = by_day.begin(); iter != by_day.end(); iter++)
 	{
 		if (((*iter).second >= 0) && ((*iter).second <= 6))
 			mByDay[(*iter).second].SetPushed(1);
@@ -272,7 +272,7 @@ void CRecurrenceDialog::SetBySetPos(const iCal::CICalendarRecurrence& recur)
 	mBySetPosPopup.SetValue(IDM_BYSETPOS_ALL);
 	
 	// Set the day buttons
-	const vector<int32_t>& by_setpos = recur.GetBySetPos();
+	const std::vector<int32_t>& by_setpos = recur.GetBySetPos();
 	if ((by_setpos.size() == 1) && (by_setpos[0] == 1))
 		mBySetPosPopup.SetValue(IDM_BYSETPOS_FIRST);
 	else if ((by_setpos.size() == 1) && (by_setpos[0] == -1))
@@ -335,7 +335,7 @@ void CRecurrenceDialog::GetRecurrence(iCal::CICalendarRecurrence& recur, const i
 void CRecurrenceDialog::GetByMonth(iCal::CICalendarRecurrence& recur)
 {
 	// Get each button
-	vector<int32_t> by_month;
+	std::vector<int32_t> by_month;
 	for(uint32_t i = 0; i < 12; i++)
 	{
 		if (mByMonth[i].IsPushed())
@@ -347,7 +347,7 @@ void CRecurrenceDialog::GetByMonth(iCal::CICalendarRecurrence& recur)
 void CRecurrenceDialog::GetByMonthDay(iCal::CICalendarRecurrence& recur)
 {
 	// Get each button
-	vector<int32_t> by_month_day;
+	std::vector<int32_t> by_month_day;
 	for(uint32_t i = 0; i < 31; i++)
 	{
 		if (mByMonthDay[i].IsPushed() == 1)
@@ -383,7 +383,7 @@ void CRecurrenceDialog::GetByDay(iCal::CICalendarRecurrence& recur)
 	}
 
 	// Get each button
-	vector<iCal::CICalendarRecurrence::CWeekDayNum> by_day;
+	std::vector<iCal::CICalendarRecurrence::CWeekDayNum> by_day;
 	for(uint32_t i = 0; i < 7; i++)
 	{
 		if (mByDay[i].IsPushed() == 1)
@@ -396,7 +396,7 @@ void CRecurrenceDialog::GetByDay(iCal::CICalendarRecurrence& recur)
 void CRecurrenceDialog::GetBySetPos(iCal::CICalendarRecurrence& recur)
 {
 	// Can only have empty BYSETPOS or single +1 or -1
-	vector<int32_t> by_setpos;
+	std::vector<int32_t> by_setpos;
 	switch(mBySetPosPopup.GetValue() - IDM_BYSETPOS_ALL)
 	{
 	case eBySetPos_All:

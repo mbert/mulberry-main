@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -417,7 +417,7 @@ void CRemoteAddressBook::SetACL(CAdbkACL* acl)
 			mACLs = new CAdbkACLList;
 
 		// Search for existing ACL
-		CAdbkACLList::iterator found = ::find(mACLs->begin(), mACLs->end(), *acl);
+		CAdbkACLList::iterator found = std::find(mACLs->begin(), mACLs->end(), *acl);
 
 		// Add if not found
 		if (found == mACLs->end())
@@ -443,7 +443,7 @@ void CRemoteAddressBook::DeleteACL(CAdbkACL* acl)
 		mProtocol->DeleteACL(this, acl);
 
 		// Search for existing ACL
-		CAdbkACLList::iterator found = ::find(mACLs->begin(), mACLs->end(), *acl);
+		CAdbkACLList::iterator found = std::find(mACLs->begin(), mACLs->end(), *acl);
 
 		// Remove it
 		if (found != mACLs->end())

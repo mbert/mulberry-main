@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ CServerView::~CServerView()
 {
 	// Remove from list
 	cdmutexprotect<CServerViewList>::lock _lock(sServerViews);
-	CServerViewList::iterator found = ::find(sServerViews->begin(), sServerViews->end(), this);
+	CServerViewList::iterator found = std::find(sServerViews->begin(), sServerViews->end(), this);
 	if (found != sServerViews->end())
 		sServerViews->erase(found);
 }

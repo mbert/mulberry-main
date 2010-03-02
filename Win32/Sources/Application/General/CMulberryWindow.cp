@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -107,31 +107,6 @@ CMulberryWindow::~CMulberryWindow()
 		CSDIFrame::SetAppTopWindow(NULL);
 }
 
-BOOL CMulberryWindow::PreTranslateMessage(MSG* pMsg)
-{
-	// Special hack for non-English keyboards and AltGr keys on Win95/98
-	
-	static bool right_key = false;
-	
-	if (afxData.bWin95)
-	{
-		if ((pMsg->message == WM_KEYDOWN) && (pMsg->wParam == VK_MENU))
-			right_key = (pMsg->lParam & (1L << 24));
-
-		// Look for right-alt key (AltGr)
-		else if (((pMsg->message == WM_CHAR) || (pMsg->message == WM_KEYDOWN)) &&
-			(::GetKeyState(VK_MENU) < 0) && right_key)
-		{
-			// Check keyboard locale
-			if (PRIMARYLANGID(::GetKeyboardLayout(0)) != LANG_ENGLISH)
-				return false;
-		}
-	}
-
-	// Do default action
-	return CMDIFrameWnd::PreTranslateMessage(pMsg);
-}
-
 int CMulberryWindow::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	// Do inherited
@@ -172,7 +147,7 @@ int CMulberryWindow::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		
 		ReleaseDC(dc);
 		
-		int nTemp = tmNew.tmHeight + min(tmNew.tmHeight, tmSys.tmHeight)/2;
+		int nTemp = tmNew.tmHeight + std::min(tmNew.tmHeight, tmSys.tmHeight)/2;
 		int nTempSys = tmSys.tmHeight + tmSys.tmHeight/2;
 		
 		CMulberryApp::sLargeFont = (tmSys.tmHeight > 16);

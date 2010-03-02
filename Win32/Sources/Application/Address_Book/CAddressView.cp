@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ CAddressView::~CAddressView()
 {
 	// Remove from list
 	cdmutexprotect<CAddressViewList>::lock _lock(sAddressViews);
-	CAddressViewList::iterator found = ::find(sAddressViews->begin(), sAddressViews->end(), this);
+	CAddressViewList::iterator found = std::find(sAddressViews->begin(), sAddressViews->end(), this);
 	if (found != sAddressViews->end())
 		sAddressViews->erase(found);
 }
@@ -88,7 +88,7 @@ void CAddressView::InitPreviews(void)
 bool CAddressView::ViewExists(const CAddressView* wnd)
 {
 	cdmutexprotect<CAddressViewList>::lock _lock(sAddressViews);
-	CAddressViewList::iterator found = ::find(sAddressViews->begin(), sAddressViews->end(), wnd);
+	CAddressViewList::iterator found = std::find(sAddressViews->begin(), sAddressViews->end(), wnd);
 	return found != sAddressViews->end();
 }
 

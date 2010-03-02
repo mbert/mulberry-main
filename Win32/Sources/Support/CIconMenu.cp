@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -45,7 +45,7 @@ void CIconMenu::MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct)
 	AfxGetApp()->m_pMainWnd->ReleaseDC(pDC);
 
 	lpMeasureItemStruct->itemWidth = 16 + tm.tmAveCharWidth * reinterpret_cast<SIconMenuData*>(lpMeasureItemStruct->itemData)->mTxt.length() + 10;
-	lpMeasureItemStruct->itemHeight = max(16L, tm.tmHeight + 6);
+	lpMeasureItemStruct->itemHeight = std::max(16L, tm.tmHeight + 6);
 }
 
 void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDIS)

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -100,6 +100,7 @@ BOOL CNewACLDialog::OnInitDialog()
 	mSeenBtn.SubclassDlgItem(IDC_NEWACL_BTN3, this, IDI_ACL_SEEN);
 	mWriteBtn.SubclassDlgItem(IDC_NEWACL_BTN4, this, IDI_ACL_WRITE);
 	mInsertBtn.SubclassDlgItem(IDC_NEWACL_BTN5, this, IDI_ACL_INSERT);
+	mScheduleBtn.SubclassDlgItem(IDC_NEWACL_BTNA, this, IDI_ACL_INSERT);
 	mPostBtn.SubclassDlgItem(IDC_NEWACL_BTN6, this, IDI_ACL_POST);
 	mCreateBtn.SubclassDlgItem(IDC_NEWACL_BTN7, this, IDI_ACL_CREATE);
 	mDeleteBtn.SubclassDlgItem(IDC_NEWACL_BTN8, this, IDI_ACL_DELETE);
@@ -108,10 +109,15 @@ BOOL CNewACLDialog::OnInitDialog()
 	mStylePopup.SubclassDlgItem(IDC_NEWACL_STYLEPOPUP, this, IDI_POPUPBTN);
 
 	// Remove unwanted buttons
-	if (!mMbox)
+	if (mMbox)
+	{
+		mScheduleBtn.ShowWindow(SW_HIDE);
+	}
+	if (mAdbk)
 	{
 		mSeenBtn.ShowWindow(SW_HIDE);
 		mInsertBtn.ShowWindow(SW_HIDE);
+		mScheduleBtn.ShowWindow(SW_HIDE);
 		mPostBtn.ShowWindow(SW_HIDE);
 		
 		CRect rect;
@@ -135,6 +141,39 @@ BOOL CNewACLDialog::OnInitDialog()
 		mAdminBtn.GetWindowRect(rect);
 		ScreenToClient(rect);
 		rect.OffsetRect(3*offset, 0);
+		mAdminBtn.MoveWindow(rect);
+	}
+	if (mCalendar)
+	{
+		mSeenBtn.ShowWindow(SW_HIDE);
+		mInsertBtn.ShowWindow(SW_HIDE);
+		mPostBtn.ShowWindow(SW_HIDE);
+
+		CRect rect;
+		mWriteBtn.GetWindowRect(rect);
+		ScreenToClient(rect);
+		int offset = -rect.Width();
+
+		// Move others
+		mWriteBtn.GetWindowRect(rect);
+		ScreenToClient(rect);
+		rect.OffsetRect(offset, 0);
+		mWriteBtn.MoveWindow(rect);
+		mScheduleBtn.GetWindowRect(rect);
+		ScreenToClient(rect);
+		rect.OffsetRect(offset, 0);
+		mScheduleBtn.MoveWindow(rect);
+		mCreateBtn.GetWindowRect(rect);
+		ScreenToClient(rect);
+		rect.OffsetRect(2*offset, 0);
+		mCreateBtn.MoveWindow(rect);
+		mDeleteBtn.GetWindowRect(rect);
+		ScreenToClient(rect);
+		rect.OffsetRect(2*offset, 0);
+		mDeleteBtn.MoveWindow(rect);
+		mAdminBtn.GetWindowRect(rect);
+		ScreenToClient(rect);
+		rect.OffsetRect(2*offset, 0);
 		mAdminBtn.MoveWindow(rect);
 	}
 	
@@ -178,9 +217,10 @@ void CNewACLDialog::SetACL(SACLRight rights)
 	}
 	else
 	{
-		mLookupBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_Lookup));
+		mLookupBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_ReadFreeBusy));
 		mReadBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_Read));
 		mWriteBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_Write));
+		mScheduleBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_Schedule));
 		mCreateBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_Create));
 		mDeleteBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_Delete));
 		mAdminBtn.SetPushed(rights.HasRight(CCalendarACL::eCalACL_Admin));
@@ -236,11 +276,13 @@ SACLRight CNewACLDialog::GetRights(void)
 	{
 		// Get ACL state from buttons
 		if (mLookupBtn.IsPushed())
-			rights.SetRight(CCalendarACL::eCalACL_Lookup, true);
+			rights.SetRight(CCalendarACL::eCalACL_ReadFreeBusy, true);
 		if (mReadBtn.IsPushed())
 			rights.SetRight(CCalendarACL::eCalACL_Read, true);
 		if (mWriteBtn.IsPushed())
 			rights.SetRight(CCalendarACL::eCalACL_Write, true);
+		if (mScheduleBtn.IsPushed())
+			rights.SetRight(CCalendarACL::eCalACL_Schedule, true);
 		if (mCreateBtn.IsPushed())
 			rights.SetRight(CCalendarACL::eCalACL_Create, true);
 		if (mDeleteBtn.IsPushed())
@@ -301,7 +343,7 @@ CCalendarACLList* CNewACLDialog::GetDetailsCal(void)
 	{
 		// Make new ACL
 		CCalendarACL acl;
-		acl.SetUID(*iter);
+		acl.SetSmartUID(*iter);
 		acl.SetRights(mRights);
 		
 		// Add to list
@@ -344,6 +386,12 @@ void CNewACLDialog::OnACLWrite(void)
 void CNewACLDialog::OnACLInsert(void)
 {
 	mInsertBtn.SetPushed(!mInsertBtn.IsPushed());
+}
+
+// Handle button change
+void CNewACLDialog::OnACLSchedule(void)
+{
+	mScheduleBtn.SetPushed(!mScheduleBtn.IsPushed());
 }
 
 // Handle button change

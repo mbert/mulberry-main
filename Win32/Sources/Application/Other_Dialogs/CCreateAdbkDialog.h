@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@
 
 #include "CHelpDialog.h"
 
+#include "CCmdEdit.h"
 #include "CPopupButton.h"
 
 #include "cdstring.h"
@@ -34,37 +35,40 @@ class CCreateAdbkDialog : public CHelpDialog
 {
 // Construction
 public:
-	CCreateAdbkDialog(CWnd* pParent = NULL);   // standard constructor
-
-// Dialog Data
-	//{{AFX_DATA(CCreateAdbkDialog)
-	enum { IDD = IDD_CREATEADBK };
-
 	struct SCreateAdbk
 	{
 		cdstring	name;
-		bool		personal;
+		cdstring	parent;
 		cdstring	account;
+		bool		directory;
+		bool		use_wd;
 		bool		open_on_startup;
 		bool		use_nicknames;
 		bool		use_search;
 	};
 
-	cdstring		mAdbkName;
-	cdstring		mAccount;
-	CStatic			mAccountCtrl;
+	static bool PoseDialog(SCreateAdbk* details);
+
+	CCreateAdbkDialog(CWnd* pParent = NULL);   // standard constructor
+
+protected:
+// Dialog Data
+	//{{AFX_DATA(CCreateAdbkDialog)
+	enum { IDD = IDD_CREATEADBK };
+	CButton			mAddressBook;
+	CButton			mDirectory;
+	CCmdEdit		mAdbkName;
+	CButton			mOpenOnStartup;
+	CButton			mNicknames;
+	CButton			mSearch;
+	CButton			mFullPath;
+	CButton			mUseDirectory;
+	CStatic			mHierarchy;
+	CStatic			mAccount;
 	CPopupButton	mAccountPopup;
-	int				mAccountValue;
-	BOOL			mPersonal;
-	BOOL			mOpenOnStartup;
-	BOOL			mUseNicknames;
-	BOOL			mUseSearch;
 	//}}AFX_DATA
 
-	bool			mHasLocal;
-	bool			mHasRemote;
-	
-	static bool PoseDialog(SCreateAdbk* details);
+	SCreateAdbk*	mData;
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -74,17 +78,17 @@ public:
 	//}}AFX_VIRTUAL
 
 // Implementation
-protected:
+	void	InitControls();
+	void 	InitAccountMenu();
+
 	void	SetDetails(SCreateAdbk* create);		// Set the dialogs info
 	void	GetDetails(SCreateAdbk* result);		// Get the dialogs return info
 
 	// Generated message map functions
 	//{{AFX_MSG(CCreateAdbkDialog)
-	virtual BOOL OnInitDialog();
-	afx_msg void OnAccountPopup(UINT nID);
+	afx_msg void OnAddressBook();
+	afx_msg void OnDirectory();
 	//}}AFX_MSG
-	
-	void InitAccountMenu(void);
 
 	DECLARE_MESSAGE_MAP()
 };

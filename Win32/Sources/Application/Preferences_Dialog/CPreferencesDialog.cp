@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@
 #include "CAddressBookView.h"
 #include "CAddressBookWindow.h"
 #include "CCalendarStoreWindow.h"
+#include "CCalendarView.h"
 #include "CCalendarWindow.h"
 #include "CAdminLock.h"
 #include "CCopyToMenu.h"
@@ -619,6 +620,7 @@ void CPreferencesDialog::MakeChanges(CPreferences* newPrefs)
 	bool refresh_adbkmanager = false;
 	bool refresh_adbksearch = false;
 	bool refresh_addressbook = false;
+	bool refresh_calendar = false;
 	bool refresh_rules = false;
 	bool refresh_mrus = false;
 
@@ -659,6 +661,7 @@ void CPreferencesDialog::MakeChanges(CPreferences* newPrefs)
 		refresh_adbkmanager = true;
 		refresh_adbksearch = true;
 		refresh_addressbook = true;
+		refresh_calendar = true;
 		refresh_rules = true;
 		
 		//CFontCache::ResetFonts(newPrefs);
@@ -787,6 +790,19 @@ void CPreferencesDialog::MakeChanges(CPreferences* newPrefs)
 		// Iterate over all address books
 		cdmutexprotect<CAddressBookView::CAddressBookViewList>::lock _lock(CAddressBookView::sAddressBookViews);
 		for(CAddressBookView::CAddressBookViewList::iterator iter = CAddressBookView::sAddressBookViews->begin(); iter != CAddressBookView::sAddressBookViews->end(); iter++)
+			(*iter)->ResetFont(CFontCache::GetListFont());
+	}
+
+	if (refresh_calendar)
+	{
+		// Iterate over all calendar manager windows
+		cdmutexprotect<CCalendarStoreView::CCalendarStoreViewList>::lock _lock1(CCalendarStoreView::sCalendarStoreViews);
+		for(CCalendarStoreView::CCalendarStoreViewList::iterator iter = CCalendarStoreView::sCalendarStoreViews->begin(); iter != CCalendarStoreView::sCalendarStoreViews->end(); iter++)
+			(*iter)->ResetFont(CFontCache::GetListFont());
+
+		// Iterate over all calendars
+		cdmutexprotect<CCalendarView::CCalendarViewList>::lock _lock2(CCalendarView::sCalendarViews);
+		for(CCalendarView::CCalendarViewList::iterator iter = CCalendarView::sCalendarViews->begin(); iter != CCalendarView::sCalendarViews->end(); iter++)
 			(*iter)->ResetFont(CFontCache::GetListFont());
 	}
 

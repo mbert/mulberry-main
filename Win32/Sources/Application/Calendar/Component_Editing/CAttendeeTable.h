@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -36,9 +36,11 @@ public:
 
 	virtual BOOL 		SubclassDlgItem(UINT nID, CWnd* pParent);
 
+	virtual	void		GetTooltipText(cdstring& txt, const STableCell &inCell);				// Get text for current tooltip cell
+
 	virtual void		SelectionChanged();
 
-			void		ResetTable(const iCal::CICalendarPropertyList* items);
+			void		ResetTable(const iCal::CICalendarPropertyList* items, const iCal::CICalendarProperty* organizer);
 
 			void		SetTitles(CSimpleTitleTable* titles)
 			{
@@ -47,6 +49,7 @@ public:
 
 protected:
 	const iCal::CICalendarPropertyList*	mAttendees;
+	const iCal::CICalendarProperty*		mOrganizer;
 	CSimpleTitleTable*					mTitles;
 
 			void		InitTable();

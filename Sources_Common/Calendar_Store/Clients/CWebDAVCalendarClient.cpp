@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -148,11 +148,11 @@ void CWebDAVCalendarClient::_Reset(const cdstring& baseRURL)
 	mBaseRURL = baseRURL;
 	if (mBaseRURL.empty())
 		mBaseRURL = "/";
-	else if (mBaseRURL[mBaseRURL.length() - 1] != '/')
+	else if (mBaseRURL[(cdstring::size_type)(mBaseRURL.length() - 1)] != '/')
 		mBaseRURL += "/";
 	
 	// Must always start with /
-	if (mBaseRURL[0UL] != '/')
+	if (mBaseRURL[(cdstring::size_type)0] != '/')
 	{
 		cdstring temp(mBaseRURL);
 		mBaseRURL = "/";
@@ -319,7 +319,7 @@ void CWebDAVCalendarClient::ListCalendars(CCalendarStoreNode* root, const http::
 			rpath.erase(0, mHostURL.length());
 
 		// Ignore root
-		if ((rpath == relBase) or (rpath == relBaseNoSlash))
+		if ((rpath == relBase) || (rpath == relBaseNoSlash))
 			continue;
 		rpath.DecodeURL();
 
@@ -1485,7 +1485,7 @@ bool CWebDAVCalendarClient::GetSelfPrincipalResource(const cdstring& rurl, cdstr
 	StINETClientAction _action(this, "Status::Calendar::Listing", "Error::Calendar::OSErrListCalendars", "Error::Calendar::NoBadListCalendars");
 	
 	cdstrvect hrefs = GetHrefListProperty(rurl, http::webdav::cProperty_current_user_principal);
-	if (not hrefs.empty())
+	if (!hrefs.empty())
 	{
 		result = hrefs.front();
 		return true;
@@ -2049,7 +2049,7 @@ cdstring CWebDAVCalendarClient::GetRURL(const cdstring& name, bool directory, bo
 	rurl += temp;
 	if (directory)
 	{
-		if (rurl[rurl.length() - 1] != '/')
+		if (rurl[(cdstring::size_type)(rurl.length() - 1)] != '/')
 			rurl += "/";
 	}
 	else

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@
 
 class CDayEvent;
 typedef std::vector<CDayEvent*> CDayEventList;
-typedef std::vector<pair<CDayEvent*, bool> > CDayEventSlotList;
+typedef std::vector<std::pair<CDayEvent*, bool> > CDayEventSlotList;
 typedef std::vector<CDayEventSlotList> CDayEventMatrixRow;
 typedef std::vector<CDayEventMatrixRow> CDayEventMatrix;
 typedef std::vector<CDayEventList> CDayEventColumn;
@@ -56,9 +56,11 @@ public:
 
 	void				ScaleRows(uint32_t scale);
 
-	void				AddEvents(iCal::CICalendarExpandedComponents& vevents);
+	void				AddItems(iCal::CICalendarExpandedComponents& vevents,
+								 iCal::CICalendarComponentList& vfreebusy);
 	void				AddAllDayEvent(iCal::CICalendarComponentExpandedShared& vevent);
 	void				AddTimedEvent(iCal::CICalendarComponentExpandedShared& vevent);
+	void				AddTimedFreeBusy(iCal::CICalendarComponent* vfreebusy);
 
 	const iCal::CICalendarDateTime&	GetCellStartDate(const STableCell& cell) const;
 	const iCal::CICalendarDateTime&	GetCellEndDate(const STableCell& cell) const;

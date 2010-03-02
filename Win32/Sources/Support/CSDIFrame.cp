@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -28,17 +28,17 @@
 
 #include "StValueChanger.h"
 
-#include <algorithm.h>
+#include <algorithm>
 
 /////////////////////////////////////////////////////////////////////////////
 // CSDIFrame
 
-vector<CWnd*> CSDIFrame::sModalWnd;
+std::vector<CWnd*> CSDIFrame::sModalWnd;
 CWnd* CSDIFrame::sTaskbarParent = NULL;
 int CSDIFrame::sTaskbarCount = 0;
 HMENU CSDIFrame::sWindowsMenu = NULL;
-vector<CWnd*> CSDIFrame::sWindowList;
-vector<CWnd*> CSDIFrame::sWindowZList;
+std::vector<CWnd*> CSDIFrame::sWindowList;
+std::vector<CWnd*> CSDIFrame::sWindowZList;
 bool CSDIFrame::sWindowZListActive = false;
 CWnd* CSDIFrame::sTopWindow = NULL;
 
@@ -272,7 +272,7 @@ void CSDIFrame::RemoveWindow(CWnd* aWnd)
 {
 	// Find position in list
 	sWindowZList.erase(std::remove(sWindowZList.begin(), sWindowZList.end(), aWnd), sWindowZList.end());
-	vector<CWnd*>::iterator found = ::find(sWindowList.begin(), sWindowList.end(), aWnd);
+	std::vector<CWnd*>::iterator found = std::find(sWindowList.begin(), sWindowList.end(), aWnd);
 	if (found != sWindowList.end())
 	{
 		int pos = found - sWindowList.begin();
@@ -306,7 +306,7 @@ void CSDIFrame::UpdateWindows()
 
 	// Refresh entire list
 	int pos = 0;
-	for(vector<CWnd*>::const_iterator iter = sWindowList.begin(); iter != sWindowList.end(); iter++, pos++)
+	for(std::vector<CWnd*>::const_iterator iter = sWindowList.begin(); iter != sWindowList.end(); iter++, pos++)
 	{
 		cdstring title = CUnicodeUtils::GetWindowTextUTF8(*iter);
 		if (title.empty())
@@ -320,7 +320,7 @@ void CSDIFrame::UpdateWindows()
 void CSDIFrame::AddWindowsToMenu(CMenu* pPopupMenu)
 {
 	int pos = IDM_WINDOWS_First;
-	for(vector<CWnd*>::const_iterator iter = sWindowList.begin(); iter != sWindowList.end(); iter++, pos++)
+	for(std::vector<CWnd*>::const_iterator iter = sWindowList.begin(); iter != sWindowList.end(); iter++, pos++)
 	{
 		cdstring title = CUnicodeUtils::GetWindowTextUTF8(*iter);
 		if (title.empty())
@@ -342,14 +342,14 @@ void CSDIFrame::MinimiseAll(bool minimise)
 		if (minimise)
 		{
 			sWindowZListActive = true;
-			for(vector<CWnd*>::const_iterator iter = sWindowList.begin(); iter != sWindowList.end(); iter++)
+			for(std::vector<CWnd*>::const_iterator iter = sWindowList.begin(); iter != sWindowList.end(); iter++)
 				(*iter)->ShowWindow(SW_HIDE);
 		}
 		else
 		{
 			sWindowZListActive = false;
 			StValueChanger<bool> _change(sWindowZListActive, true);
-			for(vector<CWnd*>::const_iterator iter = sWindowZList.begin(); iter != sWindowZList.end(); iter++)
+			for(std::vector<CWnd*>::const_iterator iter = sWindowZList.begin(); iter != sWindowZList.end(); iter++)
 				(*iter)->ShowWindow(SW_SHOW);
 		}
 	}

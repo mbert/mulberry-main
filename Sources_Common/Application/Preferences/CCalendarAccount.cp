@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,11 +51,6 @@ void CCalendarAccount::_copy(const CCalendarAccount& copy)
 
 CCalendarAccount::~CCalendarAccount()
 {
-	switch(mServerType)
-	{
-	default:
-		break;
-	}
 }
 
 // Compare with same type
@@ -71,13 +66,6 @@ int CCalendarAccount::operator==(const CCalendarAccount& comp) const
 
 void CCalendarAccount::SetServerType(EINETServerType type)
 {
-	// Delete existing
-	switch(mServerType)
-	{
-	default:
-		break;
-	}
-
 	// Add new
 	mServerType = type;
 	switch(mServerType)

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -35,15 +35,6 @@
 CCreateAdbkDialog::CCreateAdbkDialog(CWnd* pParent /*=NULL*/)
 	: CHelpDialog(CCreateAdbkDialog::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CCreateAdbkDialog)
-	mAdbkName = _T("");
-	mAccount = _T("");
-	mOpenOnStartup = FALSE;
-	mUseNicknames = FALSE;
-	mUseSearch = FALSE;
-	//}}AFX_DATA_INIT
-	mHasLocal = false;
-	mHasRemote = false;
 }
 
 
@@ -51,195 +42,168 @@ void CCreateAdbkDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CHelpDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CCreateAdbkDialog)
-	DDX_UTF8Text(pDX, IDC_CREATEADBK_NAME, mAdbkName);
-	DDX_Radio(pDX, IDC_CREATEADBK_PERSONAL, mPersonal);
-	DDX_Check(pDX, IDC_CREATEADBK_OPENONSTARTUP, mOpenOnStartup);
-	DDX_Check(pDX, IDC_CREATEADBK_USENICKNAMES, mUseNicknames);
-	DDX_Check(pDX, IDC_CREATEADBK_USESEARCH, mUseSearch);
-	DDX_UTF8Text(pDX, IDC_CREATEADBK_ACCOUNT, mAccount);
-	DDX_Control(pDX, IDC_CREATEADBK_ACCOUNT, mAccountCtrl);
 	//}}AFX_DATA_MAP
+
+	if (pDX->m_bSaveAndValidate)
+	{
+		GetDetails(mData);
+	}
+	else
+	{
+		InitControls();
+		SetDetails(mData);
+	}
 }
 
 
 BEGIN_MESSAGE_MAP(CCreateAdbkDialog, CHelpDialog)
 	//{{AFX_MSG_MAP(CCreateAdbkDialog)
-	ON_COMMAND_RANGE(IDM_AccountStart, IDM_AccountStop, OnAccountPopup)
+	ON_COMMAND(IDC_CREATEADBK_ADDRESSBOOK, OnAddressBook)
+	ON_COMMAND(IDC_CREATEADBK_DIRECTORY, OnDirectory)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CCreateAdbkDialog message handlers
 
-BOOL CCreateAdbkDialog::OnInitDialog() 
+void CCreateAdbkDialog::InitControls()
 {
-	CHelpDialog::OnInitDialog();
+	// Get name
+	mAddressBook.SubclassDlgItem(IDC_CREATEADBK_ADDRESSBOOK, this);
+	mDirectory.SubclassDlgItem(IDC_CREATEADBK_DIRECTORY, this);
+	mAdbkName.SubclassDlgItem(IDC_CREATEADBK_NAME, this);
 
-	// Subclass buttons
+	// Get checkboxes
+	mOpenOnStartup.SubclassDlgItem(IDC_CREATEADBK_OPENONSTARTUP, this);
+	mNicknames.SubclassDlgItem(IDC_CREATEADBK_USENICKNAMES, this);
+	mSearch.SubclassDlgItem(IDC_CREATEADBK_USESEARCH, this);
+
+	// Get radio buttons
+	mFullPath.SubclassDlgItem(IDC_CREATEADBK_FULL, this);
+	mUseDirectory.SubclassDlgItem(IDC_CREATEADBK_HIER, this);
+
+	// Get captions
+	mHierarchy.SubclassDlgItem(IDC_CREATEADBK_HIERARCHY, this);
+	mAccount.SubclassDlgItem(IDC_CREATEADBK_ACCOUNT, this);
 	mAccountPopup.SubclassDlgItem(IDC_CREATEADBK_ACCOUNTPOPUP, this, IDI_POPUPBTN, 0, 0, 0, true, false);
 	mAccountPopup.SetMenu(IDR_POPUP_MAILBOX_SEARCH_ACCOUNTS);
 	InitAccountMenu();
 	mAccountPopup.SetValue(IDM_AccountStart);
+}
 
-	// Disable account popup if aleady specified
-	if (mAccount.empty())
-	{
-		mAccountCtrl.ShowWindow(SW_HIDE);
-		OnAccountPopup(IDM_AccountStart);
-	}
-	else
-	{
-		mAccountPopup.ShowWindow(SW_HIDE);
-		
-		// Disable items if the one selected is the local account
-		if (mAccount == CPreferences::sPrefs->mLocalAdbkAccount.GetValue().GetName())
-		{
-			GetDlgItem(IDC_CREATEADBK_TYPE)->EnableWindow(false);
-			GetDlgItem(IDC_CREATEADBK_PERSONAL)->EnableWindow(false);
-			GetDlgItem(IDC_CREATEADBK_GLOBAL)->EnableWindow(false);
-		}
-	}
-	
-	// Hide type items if local
-	if (mHasLocal && !mHasRemote)
-	{
-		CRect rect1;
-		GetDlgItem(IDC_CREATEADBK_TYPE)->GetWindowRect(rect1);
-		CRect rect2;
-		GetDlgItem(IDC_CREATEADBK_ACCOUNTTITLE)->GetWindowRect(rect2);
-		int resizeby = rect1.top - rect2.top;
+void CCreateAdbkDialog::OnAddressBook()
+{
+	mOpenOnStartup.EnableWindow(true);
+	mNicknames.EnableWindow(true);
+	mSearch.EnableWindow(true);
+}
 
-		GetDlgItem(IDC_CREATEADBK_TYPE)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_CREATEADBK_PERSONAL)->ShowWindow(SW_HIDE);
-		GetDlgItem(IDC_CREATEADBK_GLOBAL)->ShowWindow(SW_HIDE);
-		
-		::MoveWindowBy(GetDlgItem(IDC_CREATEADBK_ACCOUNTTITLE), 0, resizeby);
-		::MoveWindowBy(GetDlgItem(IDC_CREATEADBK_ACCOUNT), 0, resizeby);
-		::MoveWindowBy(GetDlgItem(IDC_CREATEADBK_ACCOUNTPOPUP), 0, resizeby);
-		::MoveWindowBy(GetDlgItem(IDC_CREATEADBK_OPENONSTARTUP), 0, resizeby);
-		::MoveWindowBy(GetDlgItem(IDC_CREATEADBK_USENICKNAMES), 0, resizeby);
-		::MoveWindowBy(GetDlgItem(IDC_CREATEADBK_USESEARCH), 0, resizeby);
-		::ResizeWindowBy(this, 0, resizeby);
-	}
-
-	return TRUE;  // return TRUE unless you set the focus to a control
-	              // EXCEPTION: OCX Property Pages should return FALSE
+void CCreateAdbkDialog::OnDirectory()
+{
+	mOpenOnStartup.EnableWindow(false);
+	mNicknames.EnableWindow(false);
+	mSearch.EnableWindow(false);
 }
 
 // Set the details
 void CCreateAdbkDialog::SetDetails(SCreateAdbk* create)
 {
-	mPersonal = 0;
-	mAccount = create->account;
-	mOpenOnStartup = create->open_on_startup;
-	mUseNicknames = create->use_nicknames;
-	mUseSearch = create->use_search;
+	mAddressBook.SetCheck(1);
+
+	// If no account use the popup
+	if (create->account.empty())
+	{
+		mAccount.ShowWindow(SW_HIDE);
+	}
+	else
+	{
+		mAccountPopup.ShowWindow(SW_HIDE);
+		CUnicodeUtils::SetWindowTextUTF8(&mAccount, create->account);
+	}
+
+	CUnicodeUtils::SetWindowTextUTF8(mHierarchy, create->parent);
+
+	if (create->use_wd && !create->parent.empty())
+		mUseDirectory.SetCheck(1);
+	else
+		mFullPath.SetCheck(1);
+
+	if (create->parent.empty())
+	{
+		mUseDirectory.EnableWindow(false);
+		mHierarchy.EnableWindow(false);
+	}
 }
 
 // Get the details
 void CCreateAdbkDialog::GetDetails(SCreateAdbk* result)
 {
-	result->name = mAdbkName;
-	result->personal = (mPersonal == 0);
-	result->open_on_startup = mOpenOnStartup;
-	result->use_nicknames = mUseNicknames;
-	result->use_search = mUseSearch;
+	result->directory = (mDirectory.GetCheck() == 1);
+	result->name = mAdbkName.GetText();
+
+	result->use_wd = (mFullPath.GetCheck() != 1);
+
+	result->open_on_startup = (mOpenOnStartup.GetCheck() == 1);
+	result->use_nicknames = (mNicknames.GetCheck() == 1);
+	result->use_search = (mSearch.GetCheck() == 1);
 
 	// Get account if not specified
 	if (result->account.empty())
 	{
-		result->account = CUnicodeUtils::GetMenuStringUTF8(mAccountPopup.GetPopupMenu(), mAccountPopup.GetValue(), MF_BYCOMMAND);
+		result->account = mAccountPopup.GetValueText();
 	}
 }
 
-void CCreateAdbkDialog::OnAccountPopup(UINT nID) 
+// Called during idle
+void CCreateAdbkDialog::InitAccountMenu(void)
 {
-	mAccountPopup.SetValue(nID);
-
-	// Get account
-	CMailAccount* acct = CPreferences::sPrefs->mMailAccounts.GetValue()[nID - IDM_AccountStart];
-	
-	// Enable personal only for IMSP/ACAP accounts
-	if (mHasLocal && (nID == IDM_AccountStart))
-	{
-		GetDlgItem(IDC_CREATEADBK_TYPE)->EnableWindow(false);
-		GetDlgItem(IDC_CREATEADBK_PERSONAL)->EnableWindow(false);
-		GetDlgItem(IDC_CREATEADBK_GLOBAL)->EnableWindow(false);
-	}
-	else
-	{
-		GetDlgItem(IDC_CREATEADBK_TYPE)->EnableWindow(true);
-		GetDlgItem(IDC_CREATEADBK_PERSONAL)->EnableWindow(true);
-		GetDlgItem(IDC_CREATEADBK_GLOBAL)->EnableWindow(true);
-		
-		cdstring protoname = CUnicodeUtils::GetMenuStringUTF8(mAccountPopup.GetPopupMenu(), mAccountPopup.GetValue(), MF_BYCOMMAND);
-		CAdbkProtocol* proto = CAddressBookManager::sAddressBookManager->GetProtocol(protoname);
-
-		cdstring default_name = proto->GetUserPrefix();
-		default_name += proto->GetAccount()->GetAuthenticator().GetAuthenticator()->GetActualUID();
-		bool personal_allowed = !default_name.empty();
-
-		if (!personal_allowed)
-		{
-			GetDlgItem(IDC_CREATEADBK_PERSONAL)->EnableWindow(false);
-			static_cast<CButton*>(GetDlgItem(IDC_CREATEADBK_GLOBAL))->SetCheck(true);
-		}
-
-	}
-}
-
-void CCreateAdbkDialog::InitAccountMenu(void) 
-{
+	// Delete previous items
 	CMenu* pPopup = mAccountPopup.GetPopupMenu();
-
-	// Remove any existing items
-	short num_menu = pPopup->GetMenuItemCount();
-	for(short i = 0; i < num_menu; i++)
+	UINT num_menu = pPopup->GetMenuItemCount();
+	for(UINT i = 0; i < num_menu; i++)
 		pPopup->RemoveMenu(0, MF_BYPOSITION);
 
-	// Now add current items
-	int menu_id = IDM_AccountStart;
+	// Add to menu
+	UINT menu_id = IDM_AccountStart;
 	if (!CAdminLock::sAdminLock.mNoLocalAdbks)
 	{
+		// Convert from UTF8 data
 		CUnicodeUtils::AppendMenuUTF8(pPopup, MF_STRING, menu_id++, CPreferences::sPrefs->mLocalAdbkAccount.GetValue().GetName());
-		mHasLocal = true;
 	}
 
-	// Add each adbk account (only IMSP/ACAP)
+	// Add each mail account
 	for(CAddressAccountList::const_iterator iter = CPreferences::sPrefs->mAddressAccounts.GetValue().begin();
-			iter != CPreferences::sPrefs->mAddressAccounts.GetValue().end(); iter++)
+			iter != CPreferences::sPrefs->mAddressAccounts.GetValue().end(); iter++, menu_id++)
 	{
-		// Only if IMSP/ACAP
+		// Only if IMSP/ACAP/CardDAV
 		if (((*iter)->GetServerType() != CINETAccount::eIMSP) &&
-			((*iter)->GetServerType() != CINETAccount::eACAP))
+			((*iter)->GetServerType() != CINETAccount::eACAP) &&
+			((*iter)->GetServerType() != CINETAccount::eCardDAVAdbk))
 			continue;
 
 		// Add to menu
 		CUnicodeUtils::AppendMenuUTF8(pPopup, MF_STRING, menu_id, (*iter)->GetName());
-		mHasRemote = true;
 		
 		// Disable if not logged in
 		if (!CAddressBookManager::sAddressBookManager->GetProtocol((*iter)->GetName())->IsLoggedOn())
 			pPopup->EnableMenuItem(menu_id, MF_BYCOMMAND | MF_GRAYED);
-		
-		// Update menu id here after we have added an actual item
-		menu_id++;
 	}
 }
 
 // Do the dialog
 bool CCreateAdbkDialog::PoseDialog(SCreateAdbk* details)
 {
+	bool result = false;
+
 	// Create the dialog
 	CCreateAdbkDialog dlog(CSDIFrame::GetAppTopWindow());
-	dlog.SetDetails(details);
+	dlog.mData = details;
 
 	// Let DialogHandler process events
 	if (dlog.DoModal() == IDOK)
 	{					
-		dlog.GetDetails(details);
-		return true;
+		result = !details->name.empty();
 	}
-	else
-		return false;
+
+	return result;
 }

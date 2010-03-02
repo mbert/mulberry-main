@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
 
 #include "CHelpDialog.h"
 
-#include "CAddressDisplay.h"
+#include "CCalendarAddressDisplay.h"
 #include "CPopupButton.h"
 
 #include "CICalendarDefinitions.h"
@@ -45,10 +45,10 @@ protected:
 // Dialog Data
 	//{{AFX_DATA(CNewAttendeeDialog)
 	enum { IDD = IDD_CALENDAR_NEWATTENDEE };
-	CAddressDisplay	mNames;
-	CPopupButton	mRolePopup;
-	CPopupButton	mStatusPopup;
-	CButton			mRSVP;
+	CCalendarAddressDisplay	mNames;
+	CPopupButton			mRolePopup;
+	CPopupButton			mStatusPopup;
+	CButton					mRSVP;
 	//}}AFX_DATA
 	bool			mITIPSent;
 	bool			mNewItem;

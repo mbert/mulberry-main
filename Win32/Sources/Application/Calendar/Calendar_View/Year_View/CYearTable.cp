@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -145,7 +145,7 @@ void CYearTable::ResetFrame()
 		{
 			TableIndexT rows, cols;
 			GetIndicator(cell)->GetTableSize(rows, cols);
-			max_row_count = max(max_row_count, (int32_t)rows);
+			max_row_count = std::max(max_row_count, (int32_t)rows);
 		}
 		
 		// Set row height
@@ -156,7 +156,7 @@ void CYearTable::ResetFrame()
 	// Determine the smallest size
 	int32_t ind_row_size = my_frame.Height() / ind_row_count;
 	int32_t ind_col_size = my_frame.Width() / ind_col_count;
-	mSubCellSize = min(ind_row_size, ind_col_size);
+	mSubCellSize = std::min(ind_row_size, ind_col_size);
 	
 	// Never go below 16 pixels square
 	if (mSubCellSize < 16)
@@ -187,7 +187,7 @@ void CYearTable::ResetFrame()
 		{
 			TableIndexT rows, cols;
 			GetIndicator(cell)->GetTableSize(rows, cols);
-			max_row_count = max(max_row_count, (int32_t)rows);
+			max_row_count = std::max(max_row_count, (int32_t)rows);
 		}
 		
 		// Set row height

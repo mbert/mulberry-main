@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ void CCreateAccountDialog::DoDataExchange(CDataExchange* pDX)
 {
 	CHelpDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CCreateAccountDialog)
-	DDX_Control(pDX, IDC_NEWACCOUNT_TYPE, mType);
+	//DDX_Control(pDX, IDC_NEWACCOUNT_TYPE, mType);
 	DDX_UTF8Text(pDX, IDC_NEWACCOUNT_NAME, mText);
 	//}}AFX_DATA_MAP
 }

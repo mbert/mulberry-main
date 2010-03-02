@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -18,7 +18,23 @@
 
 #pragma once
 
-#include	<Win32Headers.h>
+#define UNICODE		1
+#define _UNICODE	1
+
+#define NOMINMAX	1
+
+#define _USE_32BIT_TIME_T
+
+#define snprintf _snprintf
+
+#include "stdafx.h"
+
+// The various OS's
+#define __win32_os 95
+#define __mac_os_x 3
+#define __mac_os 2
+#define __linux_os 1
+#define __dest_os __win32_os
 
 #include	"os_dep.h"
 #include	"Mac2Win.h"

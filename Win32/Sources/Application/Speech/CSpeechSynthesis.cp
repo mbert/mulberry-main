@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -181,7 +181,7 @@ void CSpeechSynthesis::SpeakText(char* txt, long length)
 	if (!Available())
 		return;
 
-	auto_ptr<wchar_t> wtxt(new wchar_t[::strlen(txt) + 1]);
+	std::auto_ptr<wchar_t> wtxt(new wchar_t[::strlen(txt) + 1]);
 	const char* p = txt;
 	wchar_t* q = wtxt.get();
 	while(*p)

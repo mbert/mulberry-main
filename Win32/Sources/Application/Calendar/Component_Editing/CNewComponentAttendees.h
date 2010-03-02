@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -33,13 +33,12 @@ public:
 						CNewComponentAttendees();
 	virtual				~CNewComponentAttendees();
 
-	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent);
-	virtual void	GetEvent(iCal::CICalendarVEvent& vevent);
-
-	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo);
-	virtual void	GetToDo(iCal::CICalendarVToDo& vtodo);
+	virtual void	SetComponent(const iCal::CICalendarComponentRecur& vcomponent, const iCal::CICalendarComponentExpanded* expanded);
+	virtual void	GetComponent(iCal::CICalendarComponentRecur& vcomponent);
 
 	virtual void	SetReadOnly(bool read_only);
+
+	void	ChangedMyStatus(const iCal::CICalendarProperty& attendee, const cdstring& new_status);
 
 protected:
 // Dialog Data
@@ -52,6 +51,7 @@ protected:
 	CButton					mNewBtn;
 	CButton					mChangeBtn;
 	CButton					mDeleteBtn;
+	CButton					mAvailabilityBtn;
 	//}}AFX_DATA
 	bool							mHasOrganizer;
 	bool							mOrganizerIsMe;
@@ -61,12 +61,11 @@ protected:
 	iCal::CICalendarProperty		mOrganizer;
 	iCal::CICalendarPropertyList	mAttendees;
 
-			void		SetComponent(const iCal::CICalendarComponentRecur& vcomp);
-			void		GetComponent(iCal::CICalendarComponentRecur& vcomp);
-
 			void		ShowAttendees(bool show);
 
 			void		SetIdentity(const CIdentity* id);
+
+			void		SortAttendees();
 
 	// Generated message map functions
 	//{{AFX_MSG(CNewComponentAttendees)
@@ -77,6 +76,7 @@ protected:
 	afx_msg void		OnNew();
 	afx_msg void		OnChange();
 	afx_msg void		OnDelete();
+	afx_msg void		OnAvailability();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

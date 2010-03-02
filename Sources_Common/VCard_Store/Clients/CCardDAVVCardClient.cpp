@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -151,7 +151,7 @@ void CCardDAVVCardClient::_GetPrincipalDetails(const cdstring& puri, bool reset_
 	if (GetProperties(puri, props, result))
 	{
 		cdstrmap::const_iterator found = result.find(http::carddav::cProperty_addressbook_home_set.FullName());
-		if (found != result.end() and reset_home)
+		if (found != result.end() && reset_home)
 		{
 			// May need to reset calendar-home path
 			if (GetAdbkOwner()->GetAddressAccount()->GetBaseRURL().empty())
@@ -276,7 +276,7 @@ void CCardDAVVCardClient::ListAddressBooks(CAddressBook* root, const http::webda
 			rpath.erase(0, mHostURL.length());
 		
 		// Ignore root
-		if ((rpath == relBase) or (rpath == relBaseNoSlash))
+		if ((rpath == relBase) || (rpath == relBaseNoSlash))
 			continue;
 		rpath.DecodeURL();
 

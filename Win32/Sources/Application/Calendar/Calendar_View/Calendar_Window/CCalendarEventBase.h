@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 
 #include "CICalendarPeriod.h"
 #include "CICalendarVEvent.h"
+#include "CICalendarVFreeBusy.h"
 #include "CITIPProcessor.h"
 
 class CCalendarTableBase;
@@ -68,7 +69,7 @@ public:
 	virtual				~CCalendarEventBase();
 
 	void SetDetails(iCal::CICalendarComponentExpandedShared& event, CCalendarTableBase* table, const char* title, bool all_day, bool start_col, bool end_col, bool horiz);
-
+	void SetDetails(iCal::CICalendarVFreeBusy* freebusy, const iCal::CICalendarPeriod& period, CCalendarTableBase* table, const char* title, bool all_day, bool start_col, bool end_col, bool horiz);
 
 	void SetPreviousLink(CCalendarEventBase* prev)
 		{ mPreviousLink = prev; }
@@ -84,8 +85,22 @@ public:
 		return mNextLink;
 	}
 
+	bool IsEvent() const
+	{
+		return mVEvent.get() != NULL;
+	}
+	bool IsFreeBusy() const
+	{
+		return mVFreeBusy != NULL;
+	}
 	const iCal::CICalendarComponentExpandedShared& GetVEvent() const
 		{ return mVEvent; }
+
+	const iCal::CICalendarVFreeBusy* GetVFreeBusy() const
+		{ return mVFreeBusy; }
+
+	const iCal::CICalendarPeriod& GetInstancePeriod() const
+		{ return mPeriod; }
 
 	uint32_t	GetColumnSpan() const
 		{ return mColumnSpan; }
@@ -103,6 +118,7 @@ public:
 
 protected:
 	iCal::CICalendarComponentExpandedShared	mVEvent;
+	iCal::CICalendarVFreeBusy*				mVFreeBusy;
 
 	CCalendarTableBase*		mTable;
 	cdstring				mTitle;
@@ -120,6 +136,7 @@ protected:
 	CCalendarEventBase*		mNextLink;
 	uint32_t				mColour;
 	iCal::CICalendarPeriod	mPeriod;
+	bool					mIsInbox;
 	cdstring				mTooltipText;
 #ifdef _UNICODE
 	cdustring				mTooltipTextUTF16;
@@ -132,6 +149,8 @@ protected:
 
 			bool		IsNow() const;
 	virtual void		SetupTagText();
+			void		SetupTagTextEvent();
+			void		SetupTagTextFreeBusy();
 
 private:
 			void		DrawHorizFrame(CDC* pDC, CRect& rect);

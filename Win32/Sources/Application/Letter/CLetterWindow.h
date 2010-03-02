@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ class CLetterWindow : public CWnd,
 	};
 
 public:
-	typedef vector<CLetterWindow*>	CLetterWindowList;
+	typedef std::vector<CLetterWindow*>	CLetterWindowList;
 	static cdmutexprotect<CLetterWindowList> sLetterWindows;				// List of windows (protected for multi-thread access)
 	static CMultiDocTemplate* sLetterDocTemplate;
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 #include "cdstring.h"
 #include "cdustring.h"
 
-#include <strstream.h>
+#include <strstream>
 
 class CParserHTMLStack;
 class CParserHTMLStackElement;
@@ -41,18 +41,18 @@ public:
 		SFontParam(const SFontParam& copy) :
 			mFace(copy.mFace), mSize(copy.mSize), mColor(copy.mColor) {}
 	};
-	typedef vector<CHTMLUtils::SFontParam> CFontStack;
+	typedef std::vector<CHTMLUtils::SFontParam> CFontStack;
 
 	static char* ConvertToEnriched(const char* htmlText);	// UTF8 in, UTF8 out
 
 	static char* ToHTML(const char* text);					// UTF8 in, UTF8 out
 	static char* ToHTML(const unichar_t* text);				// UTF16 in, UTF8 out
 
-	static void Write(ostrstream& sout, const unichar_t* string, size_t length);	// UTF16 in, UTF8 out
+	static void Write(std::ostrstream& sout, const unichar_t* string, size_t length);	// UTF16 in, UTF8 out
 
 private:
 
-	static void ConvertFontTag(ostrstream& sout, const char* param, int& size, CFontStack& myStack);	// UTF8 in, UTF8 out
+	static void ConvertFontTag(std::ostrstream& sout, const char* param, int& size, CFontStack& myStack);	// UTF8 in, UTF8 out
 
 };
 
@@ -65,7 +65,7 @@ public:
 	char* Transform();
 
 private:
-	ostrstream				mOut;
+	std::ostrstream				mOut;
 	CLetterTextEditView*	mText;
 	int						mCurrentSize;
 	int						mDefaultSize;

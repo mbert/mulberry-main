@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -35,6 +35,9 @@
 #include "CGPGPluginDLL.h"
 #include "CPluginInfo.h"
 #include "CStringUtils.h"
+#if __dest_os == __win32_os
+#include "CUnicodeStdLib.h"
+#endif
 
 #include <stdarg.h>
 #include <string.h>
@@ -44,7 +47,7 @@
 
 #if __dest_os == __win32_os
 #include <fcntl.h>
-#include <stat.h>
+#include <sys/stat.h>
 typedef size_t ssize_t;
 #endif
 #if __dest_os == __linux_os || __dest_os == __mac_os_x
@@ -144,17 +147,17 @@ CGPGPluginDLL::CGPGPluginDLL()
 
 	// Open the key for the full path
 	HKEY key;
-	if (::RegOpenKeyEx(HKEY_CURRENT_USER, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS)
+	if (::RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS)
 	{
 		// Determine the space required
 		DWORD bufsize = 0;
-		if (::RegQueryValueEx(key, "gpgProgram", 0, NULL, NULL, &bufsize) == ERROR_SUCCESS)
+		if (::RegQueryValueExA(key, "gpgProgram", 0, NULL, NULL, &bufsize) == ERROR_SUCCESS)
 		{
 			// Reserve the space
 			mExePath.reserve(bufsize);
 
 			// Get the key's named value
-			::RegQueryValueEx(key, "gpgProgram", 0, NULL, reinterpret_cast<unsigned char*>(mExePath.c_str_mod()), &bufsize);
+			::RegQueryValueExA(key, "gpgProgram", 0, NULL, reinterpret_cast<unsigned char*>(mExePath.c_str_mod()), &bufsize);
 		}
 		
 		// Close the key
@@ -222,7 +225,7 @@ bool CGPGPluginDLL::CanRun(void)
 	// Check for gpg as an executable
 #if __dest_os == __win32_os
 	// Check for executable
-	if (::access(mExePath.c_str(), X_OK) == 0)
+	if (::access_utf8(mExePath.c_str(), X_OK) == 0)
 		return true;
 	else
 		return false;
@@ -1396,7 +1399,7 @@ long CGPGPluginDLL::CallGPG(cdstrvect& args, const char* passphrase, bool binary
 				DWORD bufread;
 				if (::ReadFile(outputfd[0], buf.c_str_mod(), bufsize, &bufread, NULL) && bufread)
 				{
-					buf[min(bufsize - 1, bufread)] = 0;
+					buf[(cdstring::size_type)std::min(bufsize - 1, bufread)] = 0;
 					buf.ConvertEndl();
 					output_line += buf;
 
@@ -1421,7 +1424,7 @@ long CGPGPluginDLL::CallGPG(cdstrvect& args, const char* passphrase, bool binary
 				DWORD bufread;
 				if (::ReadFile(errorfd[0], buf.c_str_mod(), bufsize, &bufread, NULL) && bufread)
 				{
-					buf[min(bufsize - 1, bufread)] = 0;
+					buf[(cdstring::size_type)std::min(bufsize - 1, bufread)] = 0;
 					buf.ConvertEndl();
 #ifdef DEBUG_OUTPUT
 					printf("%s", buf);
@@ -1440,7 +1443,7 @@ long CGPGPluginDLL::CallGPG(cdstrvect& args, const char* passphrase, bool binary
 				DWORD bufread;
 				if (::ReadFile(statusfd[0], buf.c_str_mod(), bufsize, &bufread, NULL) && bufread)
 				{
-					buf[min(bufsize - 1, bufread)] = 0;
+					buf[(cdstring::size_type)std::min(bufsize - 1, bufread)] = 0;
 					buf.ConvertEndl();
 					status_line += buf;
 
@@ -1582,7 +1585,7 @@ HANDLE CGPGPluginDLL::win32_spawn(const cdstrvect& args, HANDLE& outputfd, HANDL
     char *envblock = NULL;
 
 	int debug_me = 0;
-    STARTUPINFO si;
+    STARTUPINFOA si;
    	::memset(&si, 0, sizeof si);
     si.cb = sizeof (si);
     si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
@@ -1951,7 +1954,7 @@ long CGPGPluginDLL::ProcessKeyListOutput(cdstring& output)
 			mData->mKeyIDMap[mData->mLastID] = temp;
 			
 			// Skip if not a valid name
-			if (!name.empty() && (name[0UL] != '['))
+			if (!name.empty() && (name[(cdstring::size_type)0] != '['))
 			{			
 				// Cache current name (before we add the key id)
 				mData->mKeyIDMap["current"].push_back(name);
@@ -1971,7 +1974,7 @@ long CGPGPluginDLL::ProcessKeyListOutput(cdstring& output)
 			name.trimspace();
 
 			// Skip if not a valid name
-			if (!name.empty() && (name[0UL] != '['))
+			if (!name.empty() && (name[(cdstring::size_type)0] != '['))
 			{			
 				// Cache current name (before we add the key id)
 				mData->mKeyIDMap["current"].push_back(name);

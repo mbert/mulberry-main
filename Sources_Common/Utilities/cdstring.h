@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@
 #endif
 
 class cdstring;
+class cdustring;
 
 typedef std::vector<cdstring> cdstrvect;				// Use small vector
 typedef std::deque<cdstring> cdstrdeque;
@@ -105,10 +106,8 @@ public:
 		{ _init(); _allocate(c, rep); }
 	cdstring(const long num);									// Construct from number
 	cdstring(const unsigned long num);							// Construct from number
-#if __dest_os == __mac_os || __dest_os == __mac_os_x || __dest_os == __linux_os
 	cdstring(const int32_t num);								// Construct from number
 	cdstring(const uint32_t num);								// Construct from number
-#endif
 	cdstring(const Rect& rc);									// Construct from rectangle
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #if defined(__MULBERRY) || defined(__MULBERRY_CONFIGURE)
@@ -131,10 +130,8 @@ public:
 		{ _allocate(c, 1); return *this; }
 	cdstring& operator=(const long num);								// Convert number to string
 	cdstring& operator=(const unsigned long num);						// Convert number to string
-#if __dest_os == __mac_os || __dest_os == __mac_os_x || __dest_os == __linux_os
 	cdstring& operator=(const int32_t num);								// Convert number to string
 	cdstring& operator=(const uint32_t num);							// Convert number to string
-#endif
 	cdstring& operator=(const Rect& rc);								// Convert rectangle to string
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #if defined(__MULBERRY) || defined(__MULBERRY_CONFIGURE)
@@ -177,6 +174,15 @@ public:
 
 	CString win_str() const;											// Access the whole string
 
+#else
+
+#ifdef _UNICODE
+	cdstring(const TCHAR* str);											// Construct from CString
+	cdstring& operator=(const TCHAR* str);								// Assignment with CString
+	cdstring& operator+=(const TCHAR* str);								// Append CString
+
+	cdustring win_str() const;											// Access the whole string
+#endif
 #endif
 #endif
 

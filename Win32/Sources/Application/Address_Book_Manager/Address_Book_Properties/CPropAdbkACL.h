@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@
 #define __CPROPADBKACL__MULBERRY__
 
 #include "CHelpPropertyPage.h"
-#include "CAdbkList.h"
+#include "CAddressBook.h"
 #include "CAdbkACL.h"
 #include "CACLStylePopup.h"
 #include "CACLTable.h"
@@ -59,7 +59,7 @@ public:
 	CACLStylePopup	mStylePopup;
 	//}}AFX_DATA
 
-	virtual void	SetAdbkList(CFlatAdbkList* adbk_list);								// Set mbox list
+	virtual void	SetAdbkList(CAddressBookList* adbk_list);								// Set mbox list
 	virtual void	DoChangeACL(CAdbkACL::EAdbkACL acl, bool set);	// User clicked a button
 
 // Overrides
@@ -72,8 +72,8 @@ public:
 	virtual void	ListenTo_Message(long msg, void* param);
 
 private:
-	CFlatAdbkList*	mAdbkList;								// List of selected adbks
-	bool			mCanChange;
+	CAddressBookList*	mAdbkList;								// List of selected adbks
+	bool				mCanChange;
 
 	virtual void		SetAdbk(CAddressBook* adbk);		// Set adbk item
 	virtual void		SetMyRights(SACLRight rights);		// Set indicators from rights

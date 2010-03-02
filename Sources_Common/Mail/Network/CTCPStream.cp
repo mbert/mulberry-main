@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -115,7 +115,7 @@ CTCPStream& CTCPStream::qgetline (CTCPStreamBuf::char_type* s, std::streamsize n
 			// Any exception here is not handled properly by caller
 			try
 			{
-#ifdef __GNUC__
+#if defined(__GNUC__) || defined(__VCPP__)
 				setstate(badbit);
 #else
 				state() |= badbit;
@@ -134,7 +134,7 @@ CTCPStream& CTCPStream::qgetline (CTCPStreamBuf::char_type* s, std::streamsize n
 		// Any exception here is not handled
 		try
 		{
-#ifdef __GNUC__
+#if defined(__GNUC__) || defined(__VCPP__)
 			setstate(err);
 #else
 			state() = err;

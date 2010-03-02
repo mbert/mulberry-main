@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -140,7 +140,7 @@ void CFindReplaceWindow::UpdateFindReplace()
 void CFindReplaceWindow::SetFindText(const char* text)
 {
 	sFindText = text;
-	cdstrvect::const_iterator found = ::find(sFindHistory.begin(), sFindHistory.end(), sFindText);
+	cdstrvect::const_iterator found = std::find(sFindHistory.begin(), sFindHistory.end(), sFindText);
 	if (found == sFindHistory.end())
 	{
 		sFindHistory.insert(sFindHistory.begin(), sFindText);
@@ -228,13 +228,13 @@ void CFindReplaceWindow::CaptureState(void)
 	sReplaceText = CUnicodeUtils::GetWindowTextUTF8(mReplaceText);
 	
 	// Do history
-	cdstrvect::const_iterator found = ::find(sFindHistory.begin(), sFindHistory.end(), sFindText);
+	cdstrvect::const_iterator found = std::find(sFindHistory.begin(), sFindHistory.end(), sFindText);
 	if (found == sFindHistory.end())
 	{
 		sFindHistory.insert(sFindHistory.begin(), sFindText);
 		InitHistory(&mFindPopup, IDM_FIND_HISTORY_Start, sFindHistory);
 	}
-	found = ::find(sReplaceHistory.begin(), sReplaceHistory.end(), sReplaceText);
+	found = std::find(sReplaceHistory.begin(), sReplaceHistory.end(), sReplaceText);
 	if (found == sReplaceHistory.end())
 	{
 		sReplaceHistory.insert(sReplaceHistory.begin(), sReplaceText);

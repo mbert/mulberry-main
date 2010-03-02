@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -374,9 +374,12 @@ void CTLSSocket::TLSStartConnection()
 		}
 
 		// Must check connection state
+		const char * statstr = ::SSL_state_string_long(m_tls);
+
 		if (::SSL_state(m_tls) != SSL_ST_OK)
 		{
 			TCPAbort(true);
+			cdstring temp(statstr);
 
 			// Got an error => throw
 			CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLError);

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -40,12 +40,7 @@ bool CCalendarStoreView::ViewExists(const CCalendarStoreView* wnd)
 
 void CCalendarStoreView::ListenTo_Message(long msg, void* param)
 {
-	switch(msg)
-	{
-	default:
-		CTableView::ListenTo_Message(msg, param);
-		break;
-	}
+	CTableView::ListenTo_Message(msg, param);
 }
 
 void CCalendarStoreView::SetCalendarView(CCalendarView* view)

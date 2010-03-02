@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 #include "CAdbkManagerView.h"
 #include "CAdbkManagerWindow.h"
 #include "CAdbkProtocol.h"
+#include "CAddressBook.h"
 #include "CAddressBookDoc.h"
 #include "CAddressBookManager.h"
 #include "CAddressBookWindow.h"
@@ -36,7 +37,6 @@
 #include "CMulberryApp.h"
 #include "CMulberryCommon.h"
 #include "CPreferences.h"
-#include "CRemoteAddressBook.h"
 #include "CTableRowSelector.h"
 #include "CTableRowGeometry.h"
 
@@ -71,10 +71,7 @@ BEGIN_MESSAGE_MAP(CAdbkManagerTable, CHierarchyTableDrag)
 	ON_COMMAND(IDM_ADDR_SEARCH, OnSearchAddressBook)
 
 	ON_UPDATE_COMMAND_UI(IDM_ADDR_LOGIN, OnUpdateLoggedOutSelection)
-	ON_COMMAND(IDM_ADDR_LOGIN, OnLoginAddressBook)
-
-	ON_UPDATE_COMMAND_UI(IDM_ADDR_LOGOUT, OnUpdateLoggedInSelection)
-	ON_COMMAND(IDM_ADDR_LOGOUT, OnLogoutAddressBook)
+	ON_COMMAND(IDM_ADDR_LOGIN, OnLogin)
 
 	ON_UPDATE_COMMAND_UI(IDM_ADDR_REFRESH, OnUpdateLoggedInSelection)
 	ON_COMMAND(IDM_ADDR_REFRESH, OnRefreshAddressBook)
@@ -111,7 +108,6 @@ CAdbkManagerTable::CAdbkManagerTable()
 	mManager = NULL;
 	mListChanging = false;
 	mHierarchyCol = 0;
-	mHasOthers = false;
 
 	// Create storage
 	mTableGeometry = new CTableRowGeometry(this, 128, 18);
@@ -171,7 +167,7 @@ void CAdbkManagerTable::OnUpdateAdbkSelection(CCmdUI* pCmdUI)
 	else if (!IsSelectionValid())
 	{
 		pCmdUI->Enable((pCmdUI->m_nID == IDM_ADDR_NEW) ? false :
-						!mHasOthers && !CAdminLock::sAdminLock.mNoLocalAdbks);
+						!CAdminLock::sAdminLock.mNoLocalAdbks);
 	}
 	else
 		pCmdUI->Enable(TestSelectionAnd((TestSelectionPP) &CAdbkManagerTable::TestSelectionAdbk));
@@ -234,39 +230,39 @@ void CAdbkManagerTable::LClickCell(const STableCell& inCell, UINT nFlags)
 	case eAdbkColumnResolve:
 	case eAdbkColumnSearch:
 	{
-		CAdbkList::node_type* node = GetCellNode(inCell.row);
+		CAddressBook* adbk = GetCellNode(inCell.row);
 
 		// Do status flag
-		if (node->IsSelectable())
+		if (adbk->IsAdbk())
 		{
 			bool set;
 			switch(col_info.column_type)
 			{
 			case eAdbkColumnOpen:
-				set = !node->GetSelectData()->IsOpenOnStart();
-				node->GetSelectData()->SetFlags(CAddressBook::eOpenOnStart, set);
-				CAddressBookManager::sAddressBookManager->SyncAddressBook(node->GetSelectData(), set);
+				set = !adbk->IsOpenOnStart();
+				adbk->SetFlags(CAddressBook::eOpenOnStart, set);
+				CAddressBookManager::sAddressBookManager->SyncAddressBook(adbk, set);
 		
 				// Change prefs list
-				CPreferences::sPrefs->ChangeAddressBookOpenOnStart(node->GetSelectData(), set);
+				CPreferences::sPrefs->ChangeAddressBookOpenOnStart(adbk, set);
 				break;
 
 			case eAdbkColumnResolve:
-				set = !node->GetSelectData()->IsLookup();
-				node->GetSelectData()->SetFlags(CAddressBook::eLookup, set);
-				CAddressBookManager::sAddressBookManager->SyncAddressBook(node->GetSelectData(), set);
+				set = !adbk->IsLookup();
+				adbk->SetFlags(CAddressBook::eLookup, set);
+				CAddressBookManager::sAddressBookManager->SyncAddressBook(adbk, set);
 		
 				// Change prefs list
-				CPreferences::sPrefs->ChangeAddressBookLookup(node->GetSelectData(), set);
+				CPreferences::sPrefs->ChangeAddressBookLookup(adbk, set);
 				break;
 
 			case eAdbkColumnSearch:
-				set = !node->GetSelectData()->IsSearch();
-				node->GetSelectData()->SetFlags(CAddressBook::eSearch, set);
-				CAddressBookManager::sAddressBookManager->SyncAddressBook(node->GetSelectData(), set);
+				set = !adbk->IsSearch();
+				adbk->SetFlags(CAddressBook::eSearch, set);
+				CAddressBookManager::sAddressBookManager->SyncAddressBook(adbk, set);
 		
 				// Change prefs list
-				CPreferences::sPrefs->ChangeAddressBookSearch(node->GetSelectData(), set);
+				CPreferences::sPrefs->ChangeAddressBookSearch(adbk, set);
 				break;
 			}
 			
@@ -321,175 +317,6 @@ void CAdbkManagerTable::OnNewDraft(void)
 	CActionManager::NewDraft();
 }
 
-void CAdbkManagerTable::DoSelectionChanged()
-{
-	CHierarchyTableDrag::DoSelectionChanged();
-	
-	// Determine whether preview is triggered
-	const CUserAction& preview = mTableView->GetPreviewAction();
-	if (preview.GetSelection())
-		DoPreview();
-
-	// Determine whether full view is triggered
-	const CUserAction& fullview = mTableView->GetFullViewAction();
-	if (fullview.GetSelection())
-		DoFullView();
-}
-
-// Handle single click
-void CAdbkManagerTable::DoSingleClick(TableIndexT row, const CKeyModifiers& mods)
-{
-	// Determine whether preview is triggered
-	const CUserAction& preview = mTableView->GetPreviewAction();
-	if (preview.GetSingleClick() &&
-		(preview.GetSingleClickModifiers() == mods))
-		DoPreview();
-
-	// Determine whether full view is triggered
-	const CUserAction& fullview = mTableView->GetFullViewAction();
-	if (fullview.GetSingleClick() &&
-		(fullview.GetSingleClickModifiers() == mods))
-		DoFullView();
-}
-
-// Handle double click
-void CAdbkManagerTable::DoDoubleClick(TableIndexT row, const CKeyModifiers& mods)
-{
-	// Determine whether preview is triggered
-	const CUserAction& preview = mTableView->GetPreviewAction();
-	if (preview.GetDoubleClick() &&
-		(preview.GetDoubleClickModifiers() == mods))
-		DoPreview();
-
-	// Determine whether full view is triggered
-	const CUserAction& fullview = mTableView->GetFullViewAction();
-	if (fullview.GetDoubleClick() &&
-		(fullview.GetDoubleClickModifiers() == mods))
-		DoFullView();
-}
-
-void CAdbkManagerTable::DoPreview()
-{
-	PreviewAddressBook();
-}
-
-void CAdbkManagerTable::DoPreview(CAddressBook* adbk)
-{
-	PreviewAddressBook(adbk);
-}
-
-// Just edit the item
-void CAdbkManagerTable::DoFullView()
-{
-	OnOpenAddressBook();
-}
-
-// Reset the table from the mboxList
-void CAdbkManagerTable::ResetTable(void)
-{
-	// Prevent window update during changes
-	StDeferTableAdjustment changing(this);
-
-	// Start cursor for busy operation
-	CWaitCursor wait;
-
-	// Delete all existing rows (do not allow redraw)
-	Clear();
-	mHierarchyCol = 1;
-	mData.clear();
-
-	// Only if we have the manager
-	if (!mManager)
-		return;
-
-	// Get list from manager
-	const CAdbkList& adbks = mManager->GetAddressBooks();
-
-	// Add each node
-	TableIndexT row = 0;
-	TableIndexT exp_row = 1;
-	mHasOthers = true;
-	ulvector expand_rows;
-	for(CAdbkList::node_list::const_iterator iter = adbks.GetChildren()->begin();
-		iter != adbks.GetChildren()->end(); iter++)
-	{
-		// Don't add empty first row
-		if ((iter != adbks.GetChildren()->begin()) || (*iter)->CountChildren())
-		{
-			AddNode(*iter, row, false);
-
-			// Listen to each protocol
-			CAdbkProtocol* proto = GetCellAdbkProtocol(exp_row);
-			if (proto)
-				proto->Add_Listener(this);
-
-			// Check expansion - always expand if pure local address account
-			if (!proto || proto->GetAddressAccount()->GetExpanded())
-			{
-				// Add wide open row to expansion list which gets processed later
-				TableIndexT	woRow = GetWideOpenIndex(exp_row + TABLE_ROW_ADJUST);
-				expand_rows.push_back(woRow);
-			}
-			
-			// Bump up exposed row counter
-			exp_row++;
-		}
-		else
-			mHasOthers = false;
-	}
-
-	// Do expansions
-	if (expand_rows.size())
-	{
-		for(ulvector::const_iterator iter = expand_rows.begin(); iter != expand_rows.end(); iter++)
-			ExpandRow(*iter);
-	}
-	
-	// Always expand a single account
-	else if (exp_row == 2)
-		ExpandRow(1);
-
-	// Make sure it listens to changes
-	Start_Listening();
-
-}
-
-// Reset the table from the mboxList
-void CAdbkManagerTable::ClearTable()
-{
-	// Delete all existing rows
-	Clear();
-	mData.clear();
-
-	// Refresh list
-	FRAMEWORK_REFRESH_WINDOW(this);
-	
-	// Force toolbar update
-	mTableView->RefreshToolbar();
-	
-	// Stop listening to broadcast changes
-	Stop_Listening();
-}
-
-// Remove rows and adjust parts
-void CAdbkManagerTable::RemoveRows(UInt32 inHowMany, TableIndexT inFromRow, bool inRefresh)
-{
-	// Count number to remove (this + descendents)
-	UInt32 remove_count = CountAllDescendents(inFromRow) + 1;
-
-	// Do standard removal
-	CHierarchyTableDrag::RemoveRows(inHowMany, inFromRow, inRefresh);
-	
-	// Remove our data using count
-	mData.erase(mData.begin() + (inFromRow - 1), mData.begin() + (inFromRow - 1 + remove_count));
-}
-
-// Get the selected adbk
-void* CAdbkManagerTable::GetCellData(TableIndexT woRow)
-{
-	return mData.at(woRow - 1);
-}
-
 // Reset button & caption state as well
 void CAdbkManagerTable::RefreshSelection(void)
 {
@@ -510,9 +337,9 @@ void CAdbkManagerTable::RefreshRow(TableIndexT row)
 }
 
 // Get appropriate icon id
-int CAdbkManagerTable::GetPlotIcon(const CAdbkList::node_type* node, CAdbkProtocol* proto)
+int CAdbkManagerTable::GetPlotIcon(const CAddressBook* adbk, CAdbkProtocol* proto)
 {
-	if (!node->IsSelectable())
+	if (adbk->IsProtocol())
 	{
 		if (!proto)
 			return IDI_SERVERLOCAL;
@@ -523,18 +350,18 @@ int CAdbkManagerTable::GetPlotIcon(const CAdbkList::node_type* node, CAdbkProtoc
 		else
 			return IDI_SERVERREMOTE;
 	}
+	else if (adbk->IsDirectory() && !adbk->IsAdbk())
+	{
+		return IDI_SERVERDIR;
+	}
 	else
 	{
-		const CRemoteAddressBook* adbk = dynamic_cast<const CRemoteAddressBook*>(node->GetSelectData());
-		if (adbk && adbk->GetProtocol()->CanDisconnect() && adbk->IsLocalAdbk())
-			return adbk->IsCachedAdbk() ? IDI_ADDRESSFILECACHED : IDI_ADDRESSFILEUNCACHED;
-		else
-			return IDI_ADDRESSFILE;
+		return adbk->IsCached() ? IDI_ADDRESSFILE : IDI_ADDRESSFILEUNCACHED;
 	}
 }
 
 // Get text style
-void CAdbkManagerTable::SetTextStyle(CDC* pDC, const CAdbkList::node_type* node, CAdbkProtocol* proto, bool& strike)
+void CAdbkManagerTable::SetTextStyle(CDC* pDC, const CAddressBook* adbk, CAdbkProtocol* proto, bool& strike)
 {
 	strike = false;
 
@@ -546,7 +373,7 @@ void CAdbkManagerTable::SetTextStyle(CDC* pDC, const CAdbkList::node_type* node,
 		bool style_set = false;
 		short text_style = normal;
 
-		if (!node->IsSelectable())
+		if (adbk->IsProtocol())
 		{
 			if (!proto || proto->IsLoggedOn())
 			{
@@ -612,12 +439,13 @@ void CAdbkManagerTable::SetTextStyle(CDC* pDC, const CAdbkList::node_type* node,
 	}
 }
 
-bool CAdbkManagerTable::UsesBackgroundColor(const CAdbkList::node_type* node) const
+bool CAdbkManagerTable::UsesBackgroundColor(const STableCell& inCell) const
 {
-	return !node->IsSelectable();
+	TableIndexT	woRow = mCollapsableTree->GetWideOpenIndex(inCell.row);
+	return mCollapsableTree->GetNestingLevel(woRow) == 0;
 }
 
-COLORREF CAdbkManagerTable::GetBackgroundColor(const CAdbkList::node_type* node) const
+COLORREF CAdbkManagerTable::GetBackgroundColor(const STableCell& inCell) const
 {
 	return CPreferences::sPrefs->mServerBkgndStyle.GetValue().color;
 }
@@ -635,13 +463,13 @@ void CAdbkManagerTable::DrawCell(CDC* pDC,
 
 	// Get cell data item
 	int	woRow = GetWideOpenIndex(inCell.row + TABLE_ROW_ADJUST);
-	CAdbkList::node_type* node = GetCellNode(inCell.row);
+	CAddressBook* adbk = GetCellNode(inCell.row);
 	cdstring theTxt;
 
 	// Erase to ensure drag hightlight is overwritten
-	if (UsesBackgroundColor(node))
+	if (UsesBackgroundColor(inCell))
 	{
-		pDC->SetBkColor(GetBackgroundColor(node));
+		pDC->SetBkColor(GetBackgroundColor(inCell));
 
 	   	// Erase the entire area. Using ExtTextOut is a neat alternative to FillRect and quicker, too!
 	   	CRect cellRect = inLocalRect;
@@ -657,14 +485,14 @@ void CAdbkManagerTable::DrawCell(CDC* pDC,
 	case eAdbkColumnName:
 	{
 		// Get suitable icon
-		UINT iconID = GetPlotIcon(node, GetCellAdbkProtocol(inCell.row));
+		UINT iconID = GetPlotIcon(adbk, GetCellAdbkProtocol(inCell.row));
 
 		// Determine name to use
-		theTxt = node->IsSelectable() ? node->GetSelectData()->GetName() : *node->GetNoSelectData();
+		theTxt = adbk->GetDisplayShortName();
 
 		// Draw the string
 		bool strike = false;
-		SetTextStyle(pDC, node, GetCellAdbkProtocol(inCell.row), strike);
+		SetTextStyle(pDC, adbk, GetCellAdbkProtocol(inCell.row), strike);
 		int text_start = DrawHierarchyRow(pDC, inCell.row, inLocalRect, theTxt, iconID);
 		if (strike)
 		{
@@ -681,23 +509,24 @@ void CAdbkManagerTable::DrawCell(CDC* pDC,
 	}
 
 	case eAdbkColumnOpen:
-		if (node->IsSelectable())
-			CIconLoader::DrawIcon(pDC, inLocalRect.left, inLocalRect.top + mIconOrigin, node->GetSelectData()->IsOpenOnStart() ? IDI_DIAMONDTICKED : IDI_DIAMOND, 16);
+		if (adbk->IsAdbk())
+			CIconLoader::DrawIcon(pDC, inLocalRect.left, inLocalRect.top + mIconOrigin, adbk->IsOpenOnStart() ? IDI_DIAMONDTICKED : IDI_DIAMOND, 16);
 		break;
 		
 	case eAdbkColumnResolve:
-		if (node->IsSelectable())
-			CIconLoader::DrawIcon(pDC, inLocalRect.left, inLocalRect.top + mIconOrigin, node->GetSelectData()->IsLookup() ? IDI_DIAMONDTICKED : IDI_DIAMOND, 16);
+		if (adbk->IsAdbk())
+			CIconLoader::DrawIcon(pDC, inLocalRect.left, inLocalRect.top + mIconOrigin, adbk->IsLookup() ? IDI_DIAMONDTICKED : IDI_DIAMOND, 16);
 		break;
 		
 	case eAdbkColumnSearch:
-		if (node->IsSelectable())
-			CIconLoader::DrawIcon(pDC, inLocalRect.left, inLocalRect.top + mIconOrigin, node->GetSelectData()->IsSearch() ? IDI_DIAMONDTICKED : IDI_DIAMOND, 16);
+		if (adbk->IsAdbk())
+			CIconLoader::DrawIcon(pDC, inLocalRect.left, inLocalRect.top + mIconOrigin, adbk->IsSearch() ? IDI_DIAMONDTICKED : IDI_DIAMOND, 16);
 		break;
 		
 	}
 }
 
+#if NOTYET
 // Draw drag insert cursor
 bool CAdbkManagerTable::IsDropCell(COleDataObject* pDataObject, const STableCell& theCell)
 {
@@ -858,3 +687,4 @@ bool CAdbkManagerTable::DropDataIntoCell(unsigned int theFlavor, char* drag_data
 	
 	return addressAdded || groupAdded;
 }
+#endif

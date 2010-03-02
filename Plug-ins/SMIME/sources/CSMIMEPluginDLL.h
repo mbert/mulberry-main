@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -36,10 +36,14 @@
 #include <string.h>
 #include "cdstring.h"
 
-#include "openssl_.h"
-
 #if __dest_os == __win32_os
-#define USE_CMS
+//#define USE_CMS
+#include <openssl/err.h>
+#include <openssl/pem.h>
+#include <openssl/ssl.h>
+#include <openssl/x509v3.h>
+#else
+#include "openssl_.h"
 #endif
 
 #ifdef USE_CMS

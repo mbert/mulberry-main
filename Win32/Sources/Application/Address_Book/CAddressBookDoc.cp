@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,7 +24,6 @@
 #include "CAddressBook.h"
 #include "CAddressBookWindow.h"
 #include "CErrorHandler.h"
-#include "CLocalAddressBook.h"
 #include "CLog.h"
 
 #define COMMA_SPACE			", "
@@ -127,12 +126,12 @@ void CAddressBookDoc::Serialize(CArchive& ar)
 
 void CAddressBookDoc::OnUpdateFileSave(CCmdUI* pCmdUI)
 {
-	pCmdUI->Enable(dynamic_cast<CLocalAddressBook*>(GetAddressBook()) ? true : false);	// Only if dirty
+	pCmdUI->Enable(false);	// Only if dirty
 }
 
 void CAddressBookDoc::OnUpdateFileRevert(CCmdUI* pCmdUI)
 {
-	pCmdUI->Enable(dynamic_cast<CLocalAddressBook*>(GetAddressBook()) && mAddressBookWnd->IsDirty());	// Only if dirty
+	pCmdUI->Enable(false);	// Only if dirty
 }
 
 void CAddressBookDoc::OnFileClose(void)

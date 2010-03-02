@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -83,7 +83,7 @@
 
 #include "CICalendarManager.h"
 
-#include <strstream.h>
+#include <strstream>
 
 #ifndef _AFX_NO_OCC_SUPPORT
 //#include "occimpl.h"
@@ -96,7 +96,7 @@ extern "C" void _SetupArgs();
 char sExceptionMulberryVersion[32] = {0};
 extern char sCrashLogDir[1024];
 
-AFX_DATADEF PROCESS_LOCAL(_AFX_RICHEDIT_STATE, _afxRichEditState)
+AFX_DATA EXTERN_PROCESS_LOCAL(_AFX_RICHEDIT_STATE, _afxRichEditState)
 
 // Initialization
 BOOL CMulberryApp::InitInstance()
@@ -437,7 +437,7 @@ BOOL CMulberryApp::AnotherInstance()
 		cdstring temp = cmd_line_file;
 		if (::strchr(temp.c_str(), ' '))
 		{
-			ostrstream out;
+			std::ostrstream out;
 			const char* p = temp.c_str();
 			while(*p)
 			{
@@ -452,7 +452,7 @@ BOOL CMulberryApp::AnotherInstance()
 					break;
 				}
 			}
-			out << ends;
+			out << std::ends;
 			temp = out.str();
 		}
 

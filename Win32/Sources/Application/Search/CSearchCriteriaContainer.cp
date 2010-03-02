@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -393,7 +393,7 @@ void CSearchCriteriaContainer::SelectNextCriteria(CSearchCriteria* previous)
 	if (mCriteriaItems.size() > 1)
 	{
 		// Find current
-		CCriteriaBaseList::iterator found = ::find(mCriteriaItems.begin(), mCriteriaItems.end(), previous);
+		CCriteriaBaseList::iterator found = std::find(mCriteriaItems.begin(), mCriteriaItems.end(), previous);
 		if (found != mCriteriaItems.end())
 		{
 			// Bump to next one (may need to go back to first if at end)

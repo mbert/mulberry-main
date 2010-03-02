@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -128,7 +128,7 @@ bool ConvertPath(cdstring& path, bool to_relative)
 #if __dest_os == __win32_os
 int __mkdir(const char* path, int mode)
 {
-	int temp = mkdir_utf8(path, mode);
+	int temp = mkdir_utf8(path);
 	os_errno = ::GetLastError();
 	return temp;
 }

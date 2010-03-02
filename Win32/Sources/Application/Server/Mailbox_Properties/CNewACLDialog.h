@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -46,6 +46,7 @@ public:
 	CIconButton		mDeleteBtn;
 	CIconButton		mCreateBtn;
 	CIconButton		mPostBtn;
+	CIconButton		mScheduleBtn;
 	CIconButton		mInsertBtn;
 	CIconButton		mWriteBtn;
 	CIconButton		mSeenBtn;
@@ -83,6 +84,7 @@ private:
 	virtual void	OnACLSeen(void);						// Do ACL Seen button
 	virtual void	OnACLWrite(void);						// Do ACL Write button
 	virtual void	OnACLInsert(void);						// Do ACL Insert button
+	virtual void	OnACLSchedule(void);					// Do ACL Schedule button
 	virtual void	OnACLPost(void);						// Do ACL Post button
 	virtual void	OnACLCreate(void);						// Do ACL Create button
 	virtual void	OnACLDelete(void);						// Do ACL Delete button

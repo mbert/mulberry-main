@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -578,7 +578,7 @@ void CIMAPClient::_Deselect(CMbox* mbox)
 			}
 		}
 	}
-	catch(CINETException& ex)
+	catch(CINETException& /*ex*/)
 	{
 		CLOG_LOGCATCH(CINETException&);
 
@@ -656,7 +656,7 @@ void CIMAPClient::_CheckMbox(CMbox* mbox, bool fast)
 				INETSendString(cSTATUS_CHECK);
 				INETFinishSend();
 			}
-			catch(CINETException& ex)
+			catch(CINETException& /*ex*/)
 			{
 				CLOG_LOGCATCH(CINETException&);
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -262,9 +262,9 @@ void CLocalCalendarClient::_CreateCalendar(const CCalendarStoreNode& node)
 	{
 		if (__mkdir(fpath, S_IRWXU))
 		{
-			int _errno = os_errno;
+			int my_errno = os_errno;
 			//throw CGeneralException(_errno, "Could not create directory");
-			throw CGeneralException(_errno);
+			throw CGeneralException(my_errno);
 		}
 	}
 	else
@@ -274,9 +274,9 @@ void CLocalCalendarClient::_CreateCalendar(const CCalendarStoreNode& node)
 			::fclose(file);
 		else
 		{
-			int _errno = os_errno;
+			int my_errno = os_errno;
 			//throw CGeneralException(_errno, "Could not create calendar file");
-			throw CGeneralException(_errno);
+			throw CGeneralException(my_errno);
 		}
 		
 		// Always clear any existing cache file as a precaution
@@ -319,9 +319,9 @@ void CLocalCalendarClient::_DeleteCalendar(const CCalendarStoreNode& node)
 
 		if (::delete_dir(fpath) != 0)
 		{
-			int _errno = os_errno;
+			int my_errno = os_errno;
 			//throw CGeneralException(_errno, "Could not delete directory");
-			throw CGeneralException(_errno);
+			throw CGeneralException(my_errno);
 		}
 	}
 	else
@@ -335,9 +335,9 @@ void CLocalCalendarClient::_DeleteCalendar(const CCalendarStoreNode& node)
 		
 		if (::remove_utf8(fpath) != 0)
 		{
-			int _errno = os_errno;
+			int my_errno = os_errno;
 			//throw CGeneralException(_errno, "Could not delete calendar file");
-			throw CGeneralException(_errno);
+			throw CGeneralException(my_errno);
 		}
 		
 		// Always clear any existing cache file
@@ -382,9 +382,9 @@ void CLocalCalendarClient::_RenameCalendar(const CCalendarStoreNode& node, const
 
 		if (::rename_utf8(fpath_old, fpath_new) != 0)
 		{
-			int _errno = os_errno;
+			int my_errno = os_errno;
 			//throw CGeneralException(_errno, "Could not rename directory");
-			throw CGeneralException(_errno);
+			throw CGeneralException(my_errno);
 		}
 	}
 	else
@@ -405,9 +405,9 @@ void CLocalCalendarClient::_RenameCalendar(const CCalendarStoreNode& node, const
 
 		if (::rename_utf8(fpath_old, fpath_new) != 0)
 		{
-			int _errno = os_errno;
+			int my_errno = os_errno;
 			//throw CGeneralException(_errno, "Could not rename calendar file");
-			throw CGeneralException(_errno);
+			throw CGeneralException(my_errno);
 		}
 		
 		// Always rename any existing cache file
@@ -502,9 +502,9 @@ void CLocalCalendarClient::_SizeCalendar(CCalendarStoreNode& node)
 		struct stat finfo;
 		if (::stat_utf8(fpath, &finfo))
 		{
-			int err_no = os_errno;
-			CLOG_LOGTHROW(CGeneralException, err_no);
-			throw CGeneralException(err_no);
+			int my_errno = os_errno;
+			CLOG_LOGTHROW(CGeneralException, my_errno);
+			throw CGeneralException(my_errno);
 		}
 		else
 			size += finfo.st_size;

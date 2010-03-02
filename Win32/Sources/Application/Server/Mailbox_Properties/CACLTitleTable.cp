@@ -84,8 +84,16 @@ void CACLTitleTable::DrawCell(CDC* pDC, const STableCell& inCell, const CRect& i
 		// Adjust for adbk/calendar ACLs
 		if (!mMbox)
 		{
-			if (col > 4) col += 3;
-			else if (col > 3) col += 1;
+			if (mAdbk)
+			{
+				if (col > 4) col += 3;
+				else if (col > 3) col += 1;
+			}
+			else
+			{
+				if (col > 5) col += 2;
+				else if (col > 3) col += 1;
+			}
 		}
 		CIconLoader::DrawIcon(pDC, inLocalRect.left + 1, inLocalRect.top + 1, IDI_ACL_LOOKUP + col - 2, 16);
 	}

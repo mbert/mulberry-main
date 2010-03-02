@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ public:
 	static SInt16		FindPopupMboxPos(bool copy_to, const char* name);
 
 private:
-	typedef vector<CMenu*> CMenuList;
+	typedef std::vector<CMenu*> CMenuList;
 
 	static CMenu		sCopyToMenu;
 	static CMenu		sAppendToMenu;

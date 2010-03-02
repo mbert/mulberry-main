@@ -29,8 +29,11 @@
 #include <openssl/rc4.h>
 #include <openssl/md5.h>
 
+#if __dest_os == __win32_os
+const char* cKeyRing = "keyring";
+#else
 const char* cKeyRing = ".keyring";
-
+#endif
 
 CPasswordManagerKeyring::CPasswordManagerKeyring()
 {
@@ -161,9 +164,9 @@ cdstrmap CPasswordManagerKeyring::ReadEncryptedMap() const
 	while(sin)
 	{
 		getline(sin, key_or_value ? kv.first : kv.second);
-		key_or_value = not key_or_value;
+		key_or_value = !key_or_value;
 		if (key_or_value)
-			if (not kv.first.empty() and not kv.second.empty())
+			if (!kv.first.empty() && !kv.second.empty())
 				results[kv.first] = kv.second;
 	}
 
@@ -197,7 +200,7 @@ void CPasswordManagerKeyring::WriteEncryptedMap(const cdstrmap& pswds) const
 
 bool CPasswordManagerKeyring::GetPassword(const CINETAccount* acct, cdstring& pswd)
 {
-	if (not mActive)
+	if (!mActive)
 		return false;
 
 	cdstring accturl = GetAccountURL(acct);
@@ -214,7 +217,7 @@ bool CPasswordManagerKeyring::GetPassword(const CINETAccount* acct, cdstring& ps
 
 void CPasswordManagerKeyring::AddPassword(const CINETAccount* acct, const cdstring& pswd)
 {
-	if (not mActive)
+	if (!mActive)
 		return;
 
 	cdstring accturl = GetAccountURL(acct);

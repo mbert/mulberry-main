@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@
 #include "cdstring.h"
 #include "CCharSpecials.h"
 
-#include <vector.h>
+#include <vector>
 
 #if __dest_os == __linux_os
 #include <netinet/in.h>
@@ -212,7 +212,7 @@ long COutlookExAdbkIOPluginDLL::ImportAddresses(char* data)
 	cdstring titles(data, p - data);
 
 	// Tokenise titles to get field positions
-	vector<unsigned long> indices;
+	std::vector<unsigned long> indices;
 
 	// Get the first field
 	char* q = titles.c_str_mod();

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,7 +20,8 @@
 
 #include "CPrefsRemoteOptions.h"
 
-#include "CINETAccount.h"
+#include "COptionsAccount.h"
+#include "CUnicodeUtils.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CPrefsRemoteOptions dialog
@@ -41,6 +42,7 @@ void CPrefsRemoteOptions::DoDataExchange(CDataExchange* pDX)
 	CTabPanel::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CPrefsRemoteOptions)
 	DDX_Check(pDX, IDC_PREFS_ACCOUNT_Remote_UseRemote, mUseRemote);
+	DDX_UTF8Text(pDX, IDC_PREFS_ACCOUNT_Remote_Path, mBaseRURL);
 	//}}AFX_DATA_MAP
 }
 
@@ -56,19 +58,29 @@ END_MESSAGE_MAP()
 // Set data
 void CPrefsRemoteOptions::SetContent(void* data)
 {
-	CINETAccount* account = (CINETAccount*) data;
+	COptionsAccount* account = (COptionsAccount*) data;
 
 	// Copy info
 	mUseRemote = account->GetLogonAtStart();
+
+	if (account->GetServerType() == CINETAccount::eWebDAVPrefs)
+		mBaseRURL = account->GetBaseRURL();
+	else
+	{
+		//mBaseRURLText->Hide();
+		//mBaseRURL->Hide();
+	}
 }
 
 // Force update of data
 bool CPrefsRemoteOptions::UpdateContent(void* data)
 {
-	CINETAccount* account = (CINETAccount*) data;
+	COptionsAccount* account = (COptionsAccount*) data;
 
 	// Copy info from panel into prefs
 	account->SetLoginAtStart(mUseRemote);
+	if (account->GetServerType() == CINETAccount::eWebDAVPrefs)
+		account->SetBaseRURL(mBaseRURL);
 	
 	return true;
 }

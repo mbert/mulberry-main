@@ -102,7 +102,8 @@
 
 #include <algorithm>
 
-const int cWindowWidth = 575;
+//const int cWindowWidth = 575;
+const int cWindowWidth = 875;
 const int cWindowHeight = 300;
 const int cToolbarTop = CMenuBar::cMenuBarHeight - 2;
 const int cToolbarHeight = 56;

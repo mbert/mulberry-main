@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -56,9 +56,9 @@ public:
 	virtual void	SetContent(void* data);			// Set data
 	virtual bool	UpdateContent(void* data);			// Force update of data
 	virtual void	SetAddressType(bool from, bool reply_to, bool sender,
-									bool to, bool cc, bool bcc)
+									bool to, bool cc, bool bcc, bool calendar)
 		{ mFrom = from; mReplyTo = reply_to; mSender = sender;
-			mTo = to; mCC = cc; mBcc = bcc; }
+			mTo = to; mCC = cc; mBcc = bcc; mCalendar = calendar; }
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -75,6 +75,7 @@ protected:
 	bool mTo;
 	bool mCC;
 	bool mBcc;
+	bool mCalendar;
 	bool mSingle;
 
 	// Generated message map functions

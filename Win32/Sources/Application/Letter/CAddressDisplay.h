@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ public:
 	virtual void	SetItems(CLetterWindow* window, CTwister* twister, CWnd* mover)
 						{ mWindow = window; mTwister = twister; mMover = mover; }
 
-	virtual CAddressList*	GetAddresses();
+	virtual CAddressList*	GetAddresses(bool qualify = true);
 
 	static void		AllowResolve(bool allow)
 						{ sResolve = allow; }
@@ -70,7 +70,7 @@ protected:
 	afx_msg void OnCaptureAddress();
 	//}}AFX_MSG
 
-			void	ResolveAddressList(CWnd* pNewWnd);
+			void	ResolveAddressList(CWnd* pNewWnd, bool qualify = true);
 			bool	ExpandAddressText(cdstring& expand, cdstrvect& results);
 	virtual HRESULT QueryAcceptData(LPDATAOBJECT, CLIPFORMAT*, DWORD, BOOL, HGLOBAL);
 			BOOL	OnDrop(COleDataObject* pDataObject);

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@
 #include "CGroup.h"
 #include "CDrawUtils.h"
 #include "CEditAddressDialog.h"
-#include "CLocalAddressBook.h"
 #include "CIconLoader.h"
 #include "CMessage.h"
 #include "CMulberryApp.h"
@@ -158,7 +157,7 @@ void  CAddressTable::SetDirty(bool dirty)
 // Is it dirty
 bool  CAddressTable::IsDirty(void)
 {
-	return dynamic_cast<CLocalAddressBook*>(mAdbk) && mDirty;
+	return mDirty;
 }
 
 void CAddressTable::DoSelectionChanged()
@@ -342,7 +341,7 @@ void CAddressTable::OnNewMessageOption(void)
 // Create a new address
 void CAddressTable::CreateNewEntry(void)
 {
-	auto_ptr<CAdbkAddress> new_addr(new CAdbkAddress);
+	std::auto_ptr<CAdbkAddress> new_addr(new CAdbkAddress);
 	if (CEditAddressDialog::PoseDialog(new_addr.get()))
 	{
 		// Only add if some text available
@@ -386,7 +385,7 @@ bool CAddressTable::EditEntry(TableIndexT row)
 	CAdbkAddress* theAddr = static_cast<CAdbkAddress*>(mAdbk->GetAddressList()->at(row -1));
 
 	// Copy original address
-	auto_ptr<CAdbkAddress> copy(new CAdbkAddress(*theAddr));
+	std::auto_ptr<CAdbkAddress> copy(new CAdbkAddress(*theAddr));
 	if (CEditAddressDialog::PoseDialog(copy.get()))
 	{
 		// Add info to action
@@ -442,7 +441,7 @@ void CAddressTable::AddAddressesFromList(CAddressList* addrs)
 	
 		// Bring first item into view
 		ShowFirstSelection();
-		SetDirty(dynamic_cast<CLocalAddressBook*>(mAdbk));
+		SetDirty(false);
 	}
 }
 
@@ -459,7 +458,7 @@ void CAddressTable::ChangeAddressesFromList(CAddressList* old_addrs, CAddressLis
 	UnselectAllCells();
 	ResetTable();
 
-	SetDirty(dynamic_cast<CLocalAddressBook*>(mAdbk));
+	SetDirty(false);
 }
 
 // Delete from list
@@ -475,7 +474,7 @@ void CAddressTable::RemoveAddressesFromList(CAddressList* addrs)
 	UnselectAllCells();
 	ResetTable();
 	
-	SetDirty(dynamic_cast<CLocalAddressBook*>(mAdbk));
+	SetDirty(false);
 }
 
 // Add selected addresses to list
@@ -600,7 +599,7 @@ bool CAddressTable::AddAdbkAddressText(TableIndexT row, cdstring* txt)
 	// Get selected address
 	CAdbkAddress* addr = static_cast<CAdbkAddress*>(mAdbk->GetAddressList()->at(row - 1));
 
-	auto_ptr<const char> temp(mAdbk->ExportAddress(addr));
+	std::auto_ptr<const char> temp(mAdbk->ExportAddress(addr));
 
 	*txt += temp.get();
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -286,7 +286,7 @@ bool CHTTPRequestResponse::ReadFoldedLine(std::istream& is, cdstring& line1, cds
 			*log << line2 << os_endl;
 		
 		// Does it start with a space => folded
-		if (!line2.empty() && isspace(line2[0UL]))
+		if (!line2.empty() && isspace(line2[(cdstring::size_type)0]))
 			// Copy folded line (without space) to current line and cycle for more
 			line1.append(line2, 1, line2.length() - 1);
 		else

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -421,7 +421,7 @@ void CMonthIndicator::ResetTable(const iCal::CICalendarDateTime date, uint32_t w
 	mPrinting = printing;
 
 	// Now generate new month date table and get today cell
-	pair<int32_t, int32_t> today_index;
+	std::pair<int32_t, int32_t> today_index;
 	iCal::CICalendarUtils::GetMonthTable(mDate.GetMonth(), mDate.GetYear(), CPreferences::sPrefs->mWeekStartDay.GetValue(), mData, today_index);
 	mTodayCell.SetCell(today_index.first + 2, today_index.second + 1);
 

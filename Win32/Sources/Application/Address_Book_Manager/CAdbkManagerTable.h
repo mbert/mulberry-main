@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 #include "CListener.h"
 
 #include "CWindowStatesFwd.h"
-#include "CAdbkList.h"
+#include "CAddressBook.h"
 
 #include "cdstring.h"
 
@@ -59,6 +59,8 @@ public:
 	virtual void		DeepExpandRow(UInt32 inWideOpenRow);
 
 	virtual void		ProcessExpansion(UInt32 inWideOpenRow, bool expand);
+	virtual void		ExpandRestore(UInt32 inWideOpenRow);
+	virtual void		ExpandAction(UInt32 inWideOpenRow, bool deep);
 
 	virtual void	SetManager(CAddressBookManager* manager);		// Set the mail server
 
@@ -72,6 +74,7 @@ public:
 	afx_msg void	OnUpdateLoggedOutSelection(CCmdUI* pCmdUI);	// Update command
 	afx_msg void	OnUpdateDisconnectedSelection(CCmdUI* pCmdUI);	// Update command
 	afx_msg void	OnUpdateClearDisconnectedSelection(CCmdUI* pCmdUI);	// Update command
+	afx_msg void	OnUpdateHierarachy(CCmdUI* pCmdUI);					// Update command
 
 	// Command handlers
 	void	DoSingleClick(TableIndexT row, const CKeyModifiers& mods);				// Handle click user action
@@ -100,14 +103,16 @@ public:
 
 	void	OnSearchAddressBook(void);						// Search address books
 
-	void	OnLoginAddressBook(void);						// Login to the selected servers
-	bool	LoginAddressBook(TableIndexT row);				// Login to the specified server
+	void	OnLogin(void);									// Login to the selected servers
+
+	void	OnNewHierarchy(void);							// Login to the selected servers
+	void	OnRenameHierarchy(void);						// Login to the selected servers
+	void	OnDeleteHierarchy(void);						// Login to the selected servers
 
 	void	OnLogoutAddressBook(void);						// Logout from the selected servers
 	bool	LogoutAddressBook(TableIndexT row);				// Logout from the specified server
 
 	void	OnRefreshAddressBook(void);						// Refresh the selected servers
-	bool	RefreshAddressBook(TableIndexT row);			// Refresh the specified server
 
 	void	OnSynchroniseAddressBook(void);					// Synchronise the selected address books
 	bool	SynchroniseAddressBook(TableIndexT row);		// Synchronise the specified address book
@@ -118,18 +123,26 @@ public:
 	void	ResetTable(void);							// Reset the table from the mboxList
 	void	ClearTable();								// Clear the table
 
-	virtual void	AddNode(const CAdbkList::node_type* node,
+	virtual void	AddNode(CAddressBook* adbk,
 							TableIndexT& row, bool child, bool refresh = false);	// Add a node to the list
-	virtual void	AddChildren(const CAdbkList::node_type* node,
+	virtual void	AddChildren(const CAddressBook* adbk,
 							TableIndexT& parent_row, bool refresh = false);			// Add child nodes to the list
 	virtual void	RemoveChildren(TableIndexT& parent_row, bool refresh = false);	// Remove child nodes from the list
 	virtual void	RemoveRows(UInt32 inHowMany, TableIndexT inFromRow, bool inRefresh);
 
 			void	AddProtocol(CAdbkProtocol* proto);
+			void	InsertProtocol(CAdbkProtocol* proto);
 			void	RemoveProtocol(CAdbkProtocol* proto);
 			void	ClearProtocol(CAdbkProtocol* proto);
 			void	RefreshProtocol(CAdbkProtocol* proto);
-			void	LogoffProtocol(CAdbkProtocol* proto);
+			void	SwitchProtocol(CAdbkProtocol* proto);
+
+			void	InsertNode(CAddressBook* node);					// Insert a node to the list
+			void	DeleteNode(CAddressBook* node);					// Delete a node from the list
+			void	RefreshNode(CAddressBook* node);				// Refresh a node from the list
+
+			void	ClearSubList(CAddressBook* node);
+			void	RefreshSubList(CAddressBook* node);
 
 	virtual void	DoSelectionChanged(void);
 	virtual void	RefreshSelection(void);								// Update button & captions as well
@@ -140,39 +153,39 @@ protected:
 	virtual void	LClickCell(const STableCell& inCell, UINT nFlags);		// Clicked item
 	virtual void	LDblClickCell(const STableCell& inCell, UINT nFlags);	// Double-clicked item
 
+#if NOTYET
 	virtual bool		IsDropCell(COleDataObject* pDataObject, const STableCell& cell);	// Draw drag row frame
 	virtual bool		DropDataIntoCell(unsigned int theFlavor,
 										char* drag_data,
 										unsigned long data_size,
 										const STableCell& cell);					// Drop data into cell
+#endif
 private:
 	CAddressBookManager*	mManager;				// Manager controlling window
 	CAdbkManagerView*		mTableView;				// Owner view
 	bool					mListChanging;			// In the process of changing the list
 	CColumnInfoArray*		mColumnInfo;
-	vector<void*>			mData;					// data
-	bool					mHasOthers;				// Indicates 'Other' item exists
+	std::vector<CAddressBook*>	mData;					// data
 
+	bool TestSelectionServer(TableIndexT row);						// Test for selected adbk
 	bool TestSelectionAdbk(TableIndexT row);						// Test for selected adbk
 	bool TestSelectionAdbkDisconnected(TableIndexT row);			// Test for selected adbk
 	bool TestSelectionAdbkClearDisconnected(TableIndexT row);		// Test for selected adbk
+	bool TestSelectionHierarchy(TableIndexT row);					// Test for selected adbk
 
-	bool					IsCellAdbk(TableIndexT row);				// Check for adbk
-	CAdbkList::node_type*	GetCellNode(TableIndexT row);				// Get the selected node
-	CAddressBook*			GetCellAdbk(TableIndexT row);				// Get the selected adbk
-	CAdbkProtocol*			GetCellAdbkProtocol(TableIndexT row);		// Get the selected adbk protocol
-
-	void*	GetCellData(TableIndexT woRow);							// Get the selected adbk
-
-	virtual int	GetPlotIcon(const CAdbkList::node_type* node,
+	virtual int	GetPlotIcon(const CAddressBook* adbk,
 									CAdbkProtocol* proto);		// Get appropriate icon id
-	virtual void	SetTextStyle(CDC* pDC, const CAdbkList::node_type* node,
+	virtual void	SetTextStyle(CDC* pDC, const CAddressBook* adbk,
 							CAdbkProtocol* proto, bool& strike);	// Get appropriate text style
-	virtual bool 	UsesBackgroundColor(const CAdbkList::node_type* node) const;
-	virtual COLORREF GetBackgroundColor(const CAdbkList::node_type* node) const;
+	virtual bool 	UsesBackgroundColor(const STableCell &inCell) const;
+	virtual COLORREF GetBackgroundColor(const STableCell &inCell) const;
+
+
+	CAddressBook*	GetCellNode(TableIndexT row, bool worow = false) const;			// Get the selected node
+	CAdbkProtocol*	GetCellAdbkProtocol(TableIndexT row) const;					// Get the selected adbk protocol
 
 	virtual bool	AddSelectionToList(TableIndexT row,
-										CFlatAdbkList* list);		// Add selected address books to list
+										CAddressBookList* list);		// Add selected address books to list
 
 	virtual void	DrawCell(CDC* pDC,
 								const STableCell&	inCell,

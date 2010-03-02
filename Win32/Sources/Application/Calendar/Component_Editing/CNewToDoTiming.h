@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ public:
 	virtual bool	GetAllDay() const;
 	virtual void	GetTimezone(iCal::CICalendarTimezone& tz) const;
 
-	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo);
+	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo, const iCal::CICalendarComponentExpanded* expanded);
 	virtual void	GetToDo(iCal::CICalendarVToDo& vtodo);
 
 	virtual void	SetReadOnly(bool read_only);
@@ -68,7 +68,7 @@ protected:
 			void	DoDueGroup(uint32_t group);
 
 	// Generated message map functions
-	//{{AFX_MSG(CNewComponentDescription)
+	//{{AFX_MSG(CNewToDoTiming)
 	virtual BOOL	OnInitDialog();
 	afx_msg void	OnAllDay();
 	afx_msg void	OnNoDue();

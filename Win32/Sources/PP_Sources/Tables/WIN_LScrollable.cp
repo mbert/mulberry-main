@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -327,7 +327,7 @@ BOOL LScrollable::DoMouseWheel(UINT fFlags, short zDelta, CPoint point)
 			nDisplacement = nToScroll * mScrollUnit.y;
 			if (zDelta > 0)
 				nDisplacement = -nDisplacement;
-			nDisplacement = min(nDisplacement, client.Height());
+			nDisplacement = std::min(nDisplacement, client.Height());
 		}
 		ScrollPinnedImageBy(0, nDisplacement, true);
 		bResult = true;
@@ -346,7 +346,7 @@ BOOL LScrollable::DoMouseWheel(UINT fFlags, short zDelta, CPoint point)
 			nDisplacement = nToScroll * mScrollUnit.x;
 			if (zDelta > 0)
 				nDisplacement = -nDisplacement;
-			nDisplacement = min(nDisplacement, client.Width());
+			nDisplacement = std::min(nDisplacement, client.Width());
 		}
 		ScrollPinnedImageBy(nDisplacement, 0, true);
 		bResult = true;

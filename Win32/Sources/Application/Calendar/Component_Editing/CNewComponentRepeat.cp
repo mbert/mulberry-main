@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,11 +14,13 @@
     limitations under the License.
 */
 
-#include "CNewComponentTiming.h"
+#include "CNewComponentRepeat.h"
 
 #include "CDateTimeZoneSelect.h"
-#include "CNewEventTiming.h"
-#include "CNewToDoTiming.h"
+#include "CModelessDialog.h"
+#include "CNewEventDialog.h"
+#include "CNewToDoDialog.h"
+#include "CNewTimingPanel.h"
 #include "CRecurrenceDialog.h"
 #include "CUnicodeUtils.h"
 
@@ -27,47 +29,44 @@
 #include "CICalendarRecurrence.h"
 #include "CICalendarRecurrenceSet.h"
 
-#pragma mark ______________________________CNewComponentTiming
+#pragma mark ______________________________CNewComponentRepeat
 
 // ---------------------------------------------------------------------------
-//	CNewComponentTiming														  [public]
+//	CNewComponentRepeat														  [public]
 /**
 	Default constructor */
 
-CNewComponentTiming::CNewComponentTiming() :
-	CNewComponentPanel(IDD_CALENDAR_NEW_TIMING)
+CNewComponentRepeat::CNewComponentRepeat() :
+	CNewComponentPanel(IDD_CALENDAR_NEW_REPEAT)
 {
-	mTimingPanel = NULL;
 }
 
 
 // ---------------------------------------------------------------------------
-//	~CNewComponentTiming														  [public]
+//	~CNewComponentRepeat														  [public]
 /**
 	Destructor */
 
-CNewComponentTiming::~CNewComponentTiming()
+CNewComponentRepeat::~CNewComponentRepeat()
 {
 }
 
 #pragma mark -
 
-BEGIN_MESSAGE_MAP(CNewComponentTiming, CNewComponentPanel)
-	//{{AFX_MSG_MAP(CNewComponentTiming)
-	ON_COMMAND(IDC_CALENDAR_NEW_TIMING_REPEATS, OnRepeat)
-	ON_NOTIFY(TCN_SELCHANGE, IDC_CALENDAR_NEW_TIMING_TABS, OnSelChangeRepeatTab)
+BEGIN_MESSAGE_MAP(CNewComponentRepeat, CNewComponentPanel)
+	//{{AFX_MSG_MAP(CNewComponentRepeat)
+	ON_COMMAND(IDC_CALENDAR_NEW_REPEAT_REPEATS, OnRepeat)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_CALENDAR_NEW_REPEAT_TABS, OnSelChangeRepeatTab)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-BOOL CNewComponentTiming::OnInitDialog()
+BOOL CNewComponentRepeat::OnInitDialog()
 {
 	CNewComponentPanel::OnInitDialog();
 
 	// Get UI items
-	mTimingView.SubclassDlgItem(IDC_CALENDAR_NEW_TIMING_PANEL, this);
-
-	mRepeats.SubclassDlgItem(IDC_CALENDAR_NEW_TIMING_REPEATS, this);
-	mRepeatsTabs.SubclassDlgItem(IDC_CALENDAR_NEW_TIMING_TABS, this);
+	mRepeats.SubclassDlgItem(IDC_CALENDAR_NEW_REPEAT_REPEATS, this);
+	mRepeatsTabs.SubclassDlgItem(IDC_CALENDAR_NEW_REPEAT_TABS, this);
 	
 	// Create tab panels
 	mRepeatSimpleItems = new CNewComponentRepeatSimple(this);
@@ -88,12 +87,12 @@ BOOL CNewComponentTiming::OnInitDialog()
 	return true;
 }
 
-void CNewComponentTiming::OnRepeat()
+void CNewComponentRepeat::OnRepeat()
 {
 	DoRepeat(mRepeats.GetCheck() == 1);
 }
 
-void CNewComponentTiming::OnSelChangeRepeatTab(NMHDR* pNMHDR, LRESULT* pResult)
+void CNewComponentRepeat::OnSelChangeRepeatTab(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	// TODO: Add your control notification handler code here
 	mRepeatsTabs.SetPanel(mRepeatsTabs.GetCurSel());
@@ -102,7 +101,23 @@ void CNewComponentTiming::OnSelChangeRepeatTab(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
-void CNewComponentTiming::DoRepeat(bool repeat)
+const CNewTimingPanel* CNewComponentRepeat::GetTimingPanel() const
+{
+	// Look for parent item
+	CWnd* super = GetParent();
+	while(super && !dynamic_cast<CModelessDialog*>(super))
+		super = super->GetParent();
+	CModelessDialog* dlg = dynamic_cast<CModelessDialog*>(super);
+
+	if (dynamic_cast<const CNewEventDialog*>(dlg))
+		return static_cast<const CNewEventDialog*>(dlg)->GetTimingPanel();
+	else if (dynamic_cast<const CNewToDoDialog*>(dlg))
+		return static_cast<const CNewToDoDialog*>(dlg)->GetTimingPanel();
+	else
+		return NULL;
+}
+
+void CNewComponentRepeat::DoRepeat(bool repeat)
 {
 	mRepeatsTabs.EnableWindow(repeat);
 	mRepeatSimpleItems->EnableWindow(repeat);
@@ -111,7 +126,7 @@ void CNewComponentTiming::DoRepeat(bool repeat)
 		mRepeatComplexItems->EnableWindow(repeat);
 }
 
-void CNewComponentTiming::DoRepeatTab(UInt32 value)
+void CNewComponentRepeat::DoRepeatTab(UInt32 value)
 {
 	switch(value)
 	{
@@ -128,7 +143,7 @@ void CNewComponentTiming::DoRepeatTab(UInt32 value)
 	}
 }
 
-void CNewComponentTiming::DoOccursGroup(UInt32 value)
+void CNewComponentRepeat::DoOccursGroup(UInt32 value)
 {
 	mRepeatSimpleItems->mOccursCounter.EnableWindow(value == eOccurs_Count);
 	mRepeatSimpleItems->mOccursCounterSpin.EnableWindow(value == eOccurs_Count);
@@ -136,13 +151,13 @@ void CNewComponentTiming::DoOccursGroup(UInt32 value)
 	mRepeatSimpleItems->mOccursDateTimeZone->EnableWindow(value == eOccurs_Until);
 }
 
-void CNewComponentTiming::DoOccursEdit()
+void CNewComponentRepeat::DoOccursEdit()
 {
 	// Get tzid set in the start
 	iCal::CICalendarTimezone tzid;
-	mTimingPanel->GetTimezone(tzid);
+	GetTimingPanel()->GetTimezone(tzid);
 
-	bool all_day = mTimingPanel->GetAllDay();
+	bool all_day = GetTimingPanel()->GetAllDay();
 
 	// Edit the stored recurrence item
 	iCal::CICalendarRecurrence	temp(mAdvancedRecur);
@@ -157,50 +172,24 @@ void CNewComponentTiming::DoOccursEdit()
 	}
 }
 
-void CNewComponentTiming::SetEvent(const iCal::CICalendarVEvent& vevent)
+void CNewComponentRepeat::SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded)
 {
-	if (mTimingPanel == NULL)
-	{
-		// Create the event timing panel
-		mTimingPanel = new CNewEventTiming;
-		mTimingView.AddPanel(mTimingPanel);
-		mTimingView.SetPanel(0);
-	}
-
-	// Set the relevant fields
-	
-	// Do timing panel
-	mTimingPanel->SetEvent(vevent);
-	
 	// Set recurrence
 	SetRecurrence(vevent.GetRecurrenceSet());
 }
 
-void CNewComponentTiming::SetToDo(const iCal::CICalendarVToDo& vtodo)
+void CNewComponentRepeat::SetToDo(const iCal::CICalendarVToDo& vtodo, const iCal::CICalendarComponentExpanded* expanded)
 {
-	if (mTimingPanel == NULL)
-	{
-		// Create the to do timing panel
-		mTimingPanel = new CNewToDoTiming;
-		mTimingView.AddPanel(mTimingPanel);
-		mTimingView.SetPanel(0);
-	}
-
-	// Set the relevant fields
-	
-	// Do timing panel
-	mTimingPanel->SetToDo(vtodo);
-	
 	// Set recurrence
 	//SetRecurrence(vtodo.GetRecurrenceSet());
 }
 
-void CNewComponentTiming::SetRecurrence(const iCal::CICalendarRecurrenceSet* recurs)
+void CNewComponentRepeat::SetRecurrence(const iCal::CICalendarRecurrenceSet* recurs)
 {
 	static const int cFreqValueToPopup[] =
 	{
-		CNewComponentTiming::eOccurs_Secondly, CNewComponentTiming::eOccurs_Minutely, CNewComponentTiming::eOccurs_Hourly,
-		CNewComponentTiming::eOccurs_Daily, CNewComponentTiming::eOccurs_Weekly, CNewComponentTiming::eOccurs_Monthly, CNewComponentTiming::eOccurs_Yearly
+		CNewComponentRepeat::eOccurs_Secondly, CNewComponentRepeat::eOccurs_Minutely, CNewComponentRepeat::eOccurs_Hourly,
+		CNewComponentRepeat::eOccurs_Daily, CNewComponentRepeat::eOccurs_Weekly, CNewComponentRepeat::eOccurs_Monthly, CNewComponentRepeat::eOccurs_Yearly
 	};
 
 	// See whether it is simple enough that we can handle it
@@ -243,13 +232,13 @@ void CNewComponentTiming::SetRecurrence(const iCal::CICalendarRecurrenceSet* rec
 				
 				// Get tzid set in the start
 				iCal::CICalendarTimezone tzid;
-				mTimingPanel->GetTimezone(tzid);
+				GetTimingPanel()->GetTimezone(tzid);
 
 				// Adjust UNTIL to new timezone
 				iCal::CICalendarDateTime until(recur->GetUntil());
 				until.AdjustTimezone(tzid);
 
-				mRepeatSimpleItems->mOccursDateTimeZone->SetDateTimeZone(until, mTimingPanel->GetAllDay());
+				mRepeatSimpleItems->mOccursDateTimeZone->SetDateTimeZone(until, GetTimingPanel()->GetAllDay());
 			}
 			else
 			{
@@ -310,11 +299,8 @@ void CNewComponentTiming::SetRecurrence(const iCal::CICalendarRecurrenceSet* rec
 	}
 }
 
-void CNewComponentTiming::GetEvent(iCal::CICalendarVEvent& vevent)
+void CNewComponentRepeat::GetEvent(iCal::CICalendarVEvent& vevent)
 {
-	// Do timing panel
-	mTimingPanel->GetEvent(vevent);
-	
 	// Do recurrence items
 	// NB in complex mode we do not change the existing set
 	iCal::CICalendarRecurrenceSet recurs;
@@ -322,11 +308,8 @@ void CNewComponentTiming::GetEvent(iCal::CICalendarVEvent& vevent)
 		vevent.EditRecurrenceSet(recurs);
 }
 
-void CNewComponentTiming::GetToDo(iCal::CICalendarVToDo& vtodo)
+void CNewComponentRepeat::GetToDo(iCal::CICalendarVToDo& vtodo)
 {
-	// Do timing panel
-	mTimingPanel->GetToDo(vtodo);
-	
 	// Do recurrence items
 	// NB in complex mode we do not change the existing set
 	//iCal::CICalendarRecurrenceSet recurs;
@@ -340,7 +323,7 @@ static const iCal::ERecurrence_FREQ cFreqPopupToValue[] =
 	iCal::eRecurrence_HOURLY, iCal::eRecurrence_MINUTELY, iCal::eRecurrence_SECONDLY
 };
 
-bool CNewComponentTiming::GetRecurrence(iCal::CICalendarRecurrenceSet& recurs)
+bool CNewComponentRepeat::GetRecurrence(iCal::CICalendarRecurrenceSet& recurs)
 {
 	// Only if repeating enabled
 	if (mRepeats.GetCheck() == 0)
@@ -379,7 +362,7 @@ bool CNewComponentTiming::GetRecurrence(iCal::CICalendarRecurrenceSet& recurs)
 			
 			// Get value from dialog
 			iCal::CICalendarDateTime until;
-			mRepeatSimpleItems->mOccursDateTimeZone->GetDateTimeZone(until, mTimingPanel->GetAllDay());
+			mRepeatSimpleItems->mOccursDateTimeZone->GetDateTimeZone(until, GetTimingPanel()->GetAllDay());
 			
 			// Adjust to UTC
 			until.AdjustToUTC();
@@ -398,11 +381,9 @@ bool CNewComponentTiming::GetRecurrence(iCal::CICalendarRecurrenceSet& recurs)
 	return true;
 }
 
-void CNewComponentTiming::SetReadOnly(bool read_only)
+void CNewComponentRepeat::SetReadOnly(bool read_only)
 {
 	mReadOnly = read_only;
-
-	mTimingPanel->SetReadOnly(read_only);
 
 	mRepeats.EnableWindow(!read_only);
 	mRepeatsTabs.EnableWindow(!read_only && (mRepeats.GetCheck() == 1));
@@ -422,7 +403,7 @@ void CNewComponentTiming::SetReadOnly(bool read_only)
 /**
 	Default constructor */
 
-CNewComponentRepeatSimple::CNewComponentRepeatSimple(CNewComponentTiming* timing) :
+CNewComponentRepeatSimple::CNewComponentRepeatSimple(CNewComponentRepeat* timing) :
 	CTabPanel(IDD_CALENDAR_REPEAT_SIMPLE),
 	mOccursFreq(true)
 {
@@ -501,17 +482,17 @@ void CNewComponentRepeatSimple::OnEnable(BOOL bEnable)
 
 void CNewComponentRepeatSimple::OnOccursForEver()
 {
-	mTimingPanel->DoOccursGroup(CNewComponentTiming::eOccurs_ForEver);
+	mTimingPanel->DoOccursGroup(CNewComponentRepeat::eOccurs_ForEver);
 }
 
 void CNewComponentRepeatSimple::OnOccursCount()
 {
-	mTimingPanel->DoOccursGroup(CNewComponentTiming::eOccurs_Count);
+	mTimingPanel->DoOccursGroup(CNewComponentRepeat::eOccurs_Count);
 }
 
 void CNewComponentRepeatSimple::OnOccursUntil()
 {
-	mTimingPanel->DoOccursGroup(CNewComponentTiming::eOccurs_Until);
+	mTimingPanel->DoOccursGroup(CNewComponentRepeat::eOccurs_Until);
 }
 
 #pragma mark ______________________________CNewComponentRepeatAdvanced
@@ -521,7 +502,7 @@ void CNewComponentRepeatSimple::OnOccursUntil()
 /**
 	Default constructor */
 
-CNewComponentRepeatAdvanced::CNewComponentRepeatAdvanced(CNewComponentTiming* timing) :
+CNewComponentRepeatAdvanced::CNewComponentRepeatAdvanced(CNewComponentRepeat* timing) :
 	CTabPanel(IDD_CALENDAR_REPEAT_ADVANCED)
 {
 	mTimingPanel = timing;

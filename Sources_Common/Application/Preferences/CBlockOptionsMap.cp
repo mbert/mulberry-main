@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,8 +51,8 @@ bool CBlockOptionsMap::EnumValue(int num, cdstring& key)
 	{
 		// Partial compare
 		if ((::strncmp((*iter).first, mSection, len_comp) == 0) &&
-			((*iter).first[len_comp] == mSeparator[0UL]) &&
-			(::strchr(((const char*) (*iter).first) + len_comp + 1, mSeparator[0UL]) == NULL) &&
+			((*iter).first[len_comp] == mSeparator[(cdstring::size_type)0]) &&
+			(::strchr(((const char*) (*iter).first) + len_comp + 1, mSeparator[(cdstring::size_type)0]) == NULL) &&
 			(num-- < 1))
 		{
 			cdstring full_key = (*iter).first;
@@ -75,12 +75,12 @@ bool CBlockOptionsMap::EnumKey(int num, cdstring& key)
 		// Partial compare
 		cdstring match = (*iter).first;
 		if ((::strncmp(match, mSection, len_comp) == 0) &&
-			(match[len_comp] == mSeparator[0UL]) &&
-			(::strchr(((const char*) match) + len_comp + 1, mSeparator[0UL]) != NULL))
+			(match[len_comp] == mSeparator[(cdstring::size_type)0]) &&
+			(::strchr(((const char*) match) + len_comp + 1, mSeparator[(cdstring::size_type)0]) != NULL))
 		{
 			// Extract key
 			cdstring test_key = &match[len_comp + 1];
-			*::strchr(test_key.c_str_mod(), mSeparator[0UL]) = 0;
+			*::strchr(test_key.c_str_mod(), mSeparator[(cdstring::size_type)0]) = 0;
 
 			// Compare with last one
 			if ((last_key != test_key) && (num-- < 1))
@@ -105,7 +105,7 @@ bool CBlockOptionsMap::EnumKeys(cdstrvect& found)
 		// Partial compare
 		cdstring match = (*iter).first;
 		if (!::strncmp(match, mSection, len_comp) &&
-			(match[len_comp] == mSeparator[0UL]))
+			(match[len_comp] == mSeparator[(cdstring::size_type)0]))
 		{
 			// Add to found list
 			found.push_back(&match.c_str()[len_comp + 1]);

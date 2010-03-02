@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ NumVersion CMulberryApp::GetVersionNumber()
 {
 	NumVersionVariant dummy;
 	//dummy.whole = 0x04002001;	// v4.0d1
-	dummy.whole = 0x04094001;	// v4.0.9a1
+	dummy.whole = 0x04104001;	// v4.1a1
 	//dummy.whole = 0x04006003;	// v4.0b3
 	//dummy.whole = 0x04088000;	// v4.0.8
 	return dummy.parts;

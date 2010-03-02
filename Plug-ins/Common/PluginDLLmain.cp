@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -69,8 +69,9 @@ long MulberryPluginEntry(long code, void* data, long refCon)
 	return reinterpret_cast<CPluginType*>(refCon)->Entry(code, data, refCon);
 }
 }
-#ifdef __GNUC__
+#if defined(__GNUC__)
 #pragma GCC visibility pop
+#elif defined(__VCPP__)
 #else
 #pragma export off
 #endif

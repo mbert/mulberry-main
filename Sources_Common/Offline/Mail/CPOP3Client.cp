@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -1071,7 +1071,7 @@ void CPOP3Client::DoUIDL(ulvector& uidls)
 			uidls.push_back(hash);
 		}
 	}
-	catch (CINETException& ex)
+	catch (CINETException& /*ex*/)
 	{
 		CLOG_LOGCATCH(CINETException&);
 

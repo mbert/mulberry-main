@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 
 #include "CAddressAccount.h"
 #include "CAdminLock.h"
+#include "CUnicodeUtils.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CPrefsAddressIMSP dialog
@@ -44,6 +45,7 @@ void CPrefsAddressIMSP::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CPrefsAddressIMSP)
 	DDX_Check(pDX, IDC_PREFS_ACCOUNT_ADBK_LOGINATSTART, mLogonAtStartup);
 	DDX_Check(pDX, IDC_PREFS_ACCOUNT_ADBK_ALLOWDISCONNECT, mAllowDisconnected);
+	DDX_UTF8Text(pDX, IDC_PREFS_ACCOUNT_ADBK_PATH, mBaseRURL);
 	//}}AFX_DATA_MAP
 }
 
@@ -64,7 +66,15 @@ void CPrefsAddressIMSP::SetContent(void* data)
 	// Copy info
 	mLogonAtStartup = account->GetLogonAtStart();
 	mAllowDisconnected = account->GetDisconnected();
-	
+
+	if (account->GetServerType() == CINETAccount::eCardDAVAdbk)
+		mBaseRURL = account->GetBaseRURL();
+	else
+	{
+		//mBaseRURLText->Hide();
+		//mBaseRURL->Hide();
+	}
+
 	// Disable certain items
 	if (CAdminLock::sAdminLock.mNoDisconnect)
 		GetDlgItem(IDC_PREFS_ACCOUNT_ADBK_ALLOWDISCONNECT)->EnableWindow(false);
@@ -78,6 +88,8 @@ bool CPrefsAddressIMSP::UpdateContent(void* data)
 	// Copy info from panel into prefs
 	account->SetLoginAtStart(mLogonAtStartup);
 	account->SetDisconnected(mAllowDisconnected);
+	if (account->GetServerType() == CINETAccount::eCardDAVAdbk)
+		account->SetBaseRURL(mBaseRURL);
 	
 	return true;
 }

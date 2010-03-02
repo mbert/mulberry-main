@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -37,11 +37,7 @@
 
 #include <algorithm>
 
-#ifdef __GNUC__
 #include <strstream>
-#else
-#include <strstream.h>
-#endif
 
 #if __dest_os == __linux_os
 #include "HResourceMap.h"
@@ -145,7 +141,6 @@ cdstring::cdstring(const unsigned long num)
 	_allocate(buf);
 }
 
-#if __dest_os == __mac_os || __dest_os == __mac_os_x || __dest_os == __linux_os
 // Construct from number
 cdstring::cdstring(const int32_t num)
 {
@@ -162,7 +157,6 @@ cdstring::cdstring(const uint32_t num)
 	::snprintf(buf, 256, "%lu", num);
 	_allocate(buf);
 }
-#endif
 
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #if defined(__MULBERRY) || defined(__MULBERRY_CONFIGURE)
@@ -242,6 +236,35 @@ CString cdstring::win_str() const
 #endif
 }
 
+#else
+#ifdef _UNICODE
+
+cdstring::cdstring(const TCHAR* str)
+{
+	_init();
+	*this = cdustring(str).ToUTF8();
+}
+
+// Assignment with CString
+cdstring& cdstring::operator=(const TCHAR* str)
+{
+	*this = cdustring(str).ToUTF8();
+	return *this;
+}
+
+// Append CString
+cdstring& cdstring::operator+=(const TCHAR* str)
+{
+	*this += cdustring(str).ToUTF8();
+	return *this;
+}
+
+// Return Windows TCHAR string
+cdustring cdstring::win_str() const
+{
+	return cdustring(*this);
+}
+#endif
 #endif
 
 // Convert number to string
@@ -262,7 +285,6 @@ cdstring& cdstring::operator=(const unsigned long num)
 	return *this;
 }
 
-#if __dest_os == __mac_os || __dest_os == __mac_os_x || __dest_os == __linux_os
 // Convert number to string
 cdstring& cdstring::operator=(const int32_t num)
 {
@@ -279,7 +301,6 @@ cdstring& cdstring::operator=(const uint32_t num)
 	_allocate(buf);
 	return *this;
 }
-#endif
 
 // Convert rectangle to string
 cdstring& cdstring::operator=(const Rect& rc)
@@ -2075,7 +2096,7 @@ char* cdstring::FromModifiedUTF7(char* str, bool charset)
 			}
 			sout << std::ends;
 		}
-		catch(long ex)
+		catch(long /*ex*/)
 		{
 			// Use unmodified string
 			sout.clear();
@@ -2408,9 +2429,8 @@ void cdstring::_allocate(const char* buf, size_type size)
 	_tidy();
 	if (buf != NULL)
 	{
-		size_type s = ::strlen(buf);
-		if ((size == npos) || (size > s))
-			size = s;
+		if (size == npos)
+			size = ::strlen(buf);
 		if (size != 0)
 		{
 			_str = new char[size+1];
@@ -2437,9 +2457,8 @@ void cdstring::_append(const char* buf, size_type size)
 {
 	if (buf != NULL)
 	{
-		size_type s = ::strlen(buf);
-		if ((size == npos) || (size > s))
-			size = s;
+		if (size == npos)
+			size = ::strlen(buf);
 		if (size != 0)
 		{
 			char* more = new char[length() + size + 1];

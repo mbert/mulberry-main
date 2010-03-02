@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@
 #include "CCalendarStoreManager.h"
 #include "CICalendarComponentExpanded.h"
 
-#include <strstream.h>
+#include <strstream>
 
 const int cItemHeight = 32;
 const int cCheckboxLeftOffset = 2;
@@ -295,8 +295,8 @@ void CToDoItem::OnPaint()
 		double red = CCalendarUtils::GetRed(mColour);
 		double green = CCalendarUtils::GetGreen(mColour);
 		double blue = CCalendarUtils::GetBlue(mColour);
-		if (mIsSelected)
-			CCalendarUtils::UnflattenColours(red, green, blue);
+		if (!mIsSelected)
+			CCalendarUtils::LightenColours(red, green, blue);
 		dc.SetBkColor(CCalendarUtils::GetWinColor(red, green, blue));
 		dc.ExtTextOut(rect.left, rect.top, ETO_OPAQUE, rect, _T(""), 0, nil);
 	}
@@ -313,7 +313,19 @@ void CToDoItem::OnPaint()
 	if (mType == eToDo)
 		box.left += cCheckboxLeftOffset + cCheckboxSize;
 	box.bottom = box.top + cItemHeight / 2;
-	dc.SetTextColor(CDrawUtils::sBlackColor);
+
+	double red = CCalendarUtils::GetRed(mColour);
+	double green = CCalendarUtils::GetGreen(mColour);
+	double blue = CCalendarUtils::GetBlue(mColour);
+	if (mIsSelected)
+	{
+		dc.SetTextColor((red + green + blue > 2.5) ? CDrawUtils::sBlackColor : CDrawUtils::sWhiteColor);
+	}
+	else
+	{
+		CCalendarUtils::DarkenColours(red, green, blue);
+		dc.SetTextColor(CCalendarUtils::GetWinColor(red, green, blue));
+	}
 	dc.SelectObject(CFontCache::GetListFont());
 	::DrawClippedStringUTF8(&dc, mSummary, CPoint(box.left, box.top), box, (mType == eToDo) ? eDrawString_Left : eDrawString_Center);
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -139,11 +139,12 @@ bool CFontDescriptor::SetInfo(char_stream& txt, NumVersion vers_prefs)
 		temp.lfHeight = size;
 		cdstring stemp;
 		txt.get(stemp);
-		::strcpy(temp.lfFaceName, stemp);
+		cdustring utemp(stemp);
+		::unistrcpy(temp.lfFaceName, utemp);
 
 #ifdef __MULBERRY
 		// Look for font in global list and match characteristics
-		if (CFontPopup::GetInfo(temp.lfFaceName, &temp.lfCharSet, &temp.lfPitchAndFamily))
+		if (CFontPopup::GetInfo(stemp, &temp.lfCharSet, &temp.lfPitchAndFamily))
 #endif
 		{
 			temp.lfHeight *= -1;

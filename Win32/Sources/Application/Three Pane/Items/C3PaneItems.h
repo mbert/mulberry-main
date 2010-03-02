@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -105,7 +105,7 @@ private:
 			void	MakeAddressBook();
 			void	MakeCalendar();
 
-			void	OnTabsMove(pair<unsigned long, unsigned long> indices);
+			void	OnTabsMove(std::pair<unsigned long, unsigned long> indices);
 			void	OnCloseOne(unsigned long index);
 			void	OnCloseAll();
 			void	OnCloseOthers(unsigned long index);

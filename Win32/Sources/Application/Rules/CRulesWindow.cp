@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -398,7 +398,7 @@ void CRulesWindow::OnFileImport()
 	{
 		// Get full path and create stream
 		cdstring fpath(dlgFile.GetPathName());
-		cdifstream fin(fpath, ios_base::in | ios_base::binary);
+		cdifstream fin(fpath, std::ios_base::in | std::ios_base::binary);
 		if (fin.fail())
 			return;
 
@@ -492,7 +492,7 @@ void CRulesWindow::OnFileExport()
 	{
 		// Get full path and create stream
 		cdstring fpath(dlgFile.GetPathName());
-		cdofstream fout(fpath, ios_base::in | ios_base::binary | ios_base::trunc);
+		cdofstream fout(fpath, std::ios_base::in | std::ios_base::binary | std::ios_base::trunc);
 		if (fout.fail())
 			return;
 

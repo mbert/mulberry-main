@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef H_CNewComponentTiming
-#define H_CNewComponentTiming
+#ifndef H_CNewComponentRepeat
+#define H_CNewComponentRepeat
 #pragma once
 
 #include "CNewComponentPanel.h"
@@ -29,27 +29,27 @@
 #include "CTabController.h"
 
 class CDateTimeZoneSelect;
-class CNewTimingPanel;
 class CNewComponentRepeatSimple;
 class CNewComponentRepeatAdvanced;
 class CNewComponentRepeatComplex;
+class CNewTimingPanel;
 
 // ===========================================================================
-//	CNewComponentTiming
+//	CNewComponentRepeat
 
-class CNewComponentTiming : public CNewComponentPanel
+class CNewComponentRepeat : public CNewComponentPanel
 {
 	friend class CNewComponentRepeatSimple;
 	friend class CNewComponentRepeatAdvanced;
 
 public:
-						CNewComponentTiming();
-	virtual				~CNewComponentTiming();
+						CNewComponentRepeat();
+	virtual				~CNewComponentRepeat();
 
-	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent);
+	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded);
 	virtual void	GetEvent(iCal::CICalendarVEvent& vevent);
 
-	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo);
+	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo, const iCal::CICalendarComponentExpanded* expanded);
 	virtual void	GetToDo(iCal::CICalendarVToDo& vtodo);
 
 	virtual	void	SetReadOnly(bool read_only);
@@ -81,10 +81,7 @@ protected:
 	};
 
 	// UI Objects
-	enum { IDD = IDD_CALENDAR_NEW_TIMING };
-	CSubPanelController		mTimingView;
-	CNewTimingPanel*		mTimingPanel;
-
+	enum { IDD = IDD_CALENDAR_NEW_REPEAT };
 	CButton					mRepeats;
 	CTabController			mRepeatsTabs;
 
@@ -94,6 +91,8 @@ protected:
 
 	iCal::CICalendarRecurrence	mAdvancedRecur;
 	cdstring				mComplexDescription;
+
+	const CNewTimingPanel* GetTimingPanel() const;
 
 			void	DoRepeat(bool repeat);
 			void	DoRepeatTab(UInt32 value);
@@ -120,7 +119,7 @@ protected:
 class CNewComponentRepeatSimple : public CTabPanel
 {
 public:
-						CNewComponentRepeatSimple(CNewComponentTiming* timing);
+						CNewComponentRepeatSimple(CNewComponentRepeat* timing);
 	virtual				~CNewComponentRepeatSimple();
 
 	virtual void	SetContent(void* data) {}			// Set data
@@ -142,7 +141,7 @@ public:
 	CDateTimeZoneSelect*	mOccursDateTimeZone;
 
 protected:
-	CNewComponentTiming*	mTimingPanel;
+	CNewComponentRepeat*	mTimingPanel;
 
 	// Generated message map functions
 	//{{AFX_MSG(CDurationSelect)
@@ -158,7 +157,7 @@ protected:
 class CNewComponentRepeatAdvanced : public CTabPanel
 {
 public:
-						CNewComponentRepeatAdvanced(CNewComponentTiming* timing);
+						CNewComponentRepeatAdvanced(CNewComponentRepeat* timing);
 	virtual				~CNewComponentRepeatAdvanced();
 
 	virtual void	SetContent(void* data) {}			// Set data
@@ -169,7 +168,7 @@ public:
 	CButton					mOccursEdit;
 
 protected:
-	CNewComponentTiming*	mTimingPanel;
+	CNewComponentRepeat*	mTimingPanel;
 
 	// Generated message map functions
 	//{{AFX_MSG(CDurationSelect)

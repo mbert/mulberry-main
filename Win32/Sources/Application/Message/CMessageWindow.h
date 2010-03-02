@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -109,7 +109,7 @@ class CMessageWindow : public CWnd,
 	};
 
 public:
-	typedef vector<CMessageWindow*>	CMessageWindowList;
+	typedef std::vector<CMessageWindow*>	CMessageWindowList;
 	static cdmutexprotect<CMessageWindowList> sMsgWindows;	// List of windows (protected for multi-thread access)
 	static CMultiDocTemplate* sMessageDocTemplate;
 
@@ -283,8 +283,8 @@ private:
 	bool					mItsMsgError;				// Flag for cleared out message
 	CMessageList*			mMsgs;						// Used for multi-save operation
 	const char*				mShowText;					// Text to show
-	auto_ptr<unichar_t>		mUTF16Text;					// UTF16 text
-	auto_ptr<unichar_t>		mRawUTF16Text;				// Raw UTF16 text
+	std::auto_ptr<unichar_t>		mUTF16Text;					// UTF16 text
+	std::auto_ptr<unichar_t>		mRawUTF16Text;				// Raw UTF16 text
 	bool					mShowHeader;				// Show header
 	bool					mShowSecure;				// Show verify/decrypt area
 	bool					mSecureMulti;				// Multi-line verify/decrypt area

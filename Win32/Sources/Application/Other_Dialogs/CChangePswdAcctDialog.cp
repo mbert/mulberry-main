@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -120,7 +120,7 @@ void CChangePswdAcctDialog::InitAccountMenu(void)
 	}
 
 	// Add each remote account
-	for(CINETAccountList::const_iterator iter = CPreferences::sPrefs->mRemoteAccounts.GetValue().begin();
+	for(COptionsAccountList::const_iterator iter = CPreferences::sPrefs->mRemoteAccounts.GetValue().begin();
 			iter != CPreferences::sPrefs->mRemoteAccounts.GetValue().end(); iter++, menu_id++)
 	{
 		CUnicodeUtils::AppendMenuUTF8(pPopup, MF_STRING, menu_id, (*iter)->GetName());
@@ -250,7 +250,7 @@ bool CChangePswdAcctDialog::PromptAcctPasswordChange(CINETAccount*& acct, CPswdC
 	}
 	
 	// Check each remote account
-	for(CINETAccountList::const_iterator iter = CPreferences::sPrefs->mRemoteAccounts.GetValue().begin();
+	for(COptionsAccountList::const_iterator iter = CPreferences::sPrefs->mRemoteAccounts.GetValue().begin();
 			iter != CPreferences::sPrefs->mRemoteAccounts.GetValue().end(); iter++)
 	{
 		if ((*iter)->GetAuthenticator().RequiresUserPswd())

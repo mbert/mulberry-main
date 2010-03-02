@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -343,7 +343,7 @@ void CCopyToMenu::AddProtocolToMenu(CMboxProtocol* proto, CMenu* menu, int& menu
 			if (!(*iter).GetCopyToNone(true) && !(*iter).GetCopyToChoose(true))
 			{
 				// Must not be duplicate
-				cdstrvect::const_iterator found = ::find(added.begin(), added.end(), copyto);
+				cdstrvect::const_iterator found = std::find(added.begin(), added.end(), copyto);
 				if (found != added.end())
 					continue;
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ class CServerWindow : public CTableViewWindow
 	DECLARE_DYNCREATE(CServerWindow)
 
 public:
-	typedef vector<CServerWindow*>	CServerWindowList;
+	typedef std::vector<CServerWindow*>	CServerWindowList;
 	static cdmutexprotect<CServerWindowList> sServerWindows;	// List of windows (protected for multi-thread access)
 	static CMultiDocTemplate*	sServerDocTemplate;
 

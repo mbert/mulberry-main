@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,12 +51,8 @@ public:
 
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 	virtual SInt32	GetLength() const;
-#elif __dest_os == __win32_os || __dest_os == __linux_os
-	virtual UInt32	GetLength() const;
-#else
-#error __dest_os
-#endif
 	virtual SInt32	GetMarker() const;
+#endif
 
 };
 

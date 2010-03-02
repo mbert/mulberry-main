@@ -46,7 +46,9 @@
 #include "CURL.h"
 
 #include __stat_header
+#ifndef __VCPP__
 #include <unistd.h>
+#endif
 
 #include <algorithm>
 #include <stdio.h>

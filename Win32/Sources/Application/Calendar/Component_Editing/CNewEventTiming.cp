@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -19,6 +19,7 @@
 #include "CDateTimeZoneSelect.h"
 #include "CDurationSelect.h"
 
+#include "CICalendarComponentExpanded.h"
 #include "CICalendarDuration.h"
 #include "CICalendar.h"
 
@@ -150,16 +151,27 @@ void CNewEventTiming::DoEnds(bool use_duration)
 		SyncEnd();
 }
 
-void CNewEventTiming::SetEvent(const iCal::CICalendarVEvent& vevent)
+void CNewEventTiming::SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded)
 {
-	// Set the relevant fields
-	mAllDay.SetCheck(vevent.GetStart().IsDateOnly() ? 1 : 0);
-	
-	const iCal::CICalendarDateTime& event_start = vevent.GetStart();
-	const iCal::CICalendarDateTime& event_end = vevent.GetEnd();
+	iCal::CICalendarDateTime event_start;
+	iCal::CICalendarDateTime event_end;
 
+	if (expanded != NULL)
+	{
+		event_start = expanded->GetInstanceStart();
+		event_end = expanded->GetInstanceEnd();
+	}
+	else
+	{
+		event_start = vevent.GetStart();
+		event_end = vevent.GetEnd();
+	}
+
+	// Set the relevant fields
+	mAllDay.SetCheck(event_start.IsDateOnly() ? 1 : 0);
+	
 	// Set start date-time
-	mStartDateTimeZone->SetDateTimeZone(event_start, vevent.GetStart().IsDateOnly());
+	mStartDateTimeZone->SetDateTimeZone(event_start, event_start.IsDateOnly());
 	
 	// Set ending type
 	if (vevent.UseDuration())
@@ -174,18 +186,18 @@ void CNewEventTiming::SetEvent(const iCal::CICalendarVEvent& vevent)
 	}
 	
 	// Set end date-time
-	if (vevent.GetStart().IsDateOnly())
+	if (event_start.IsDateOnly())
 	{
-		// Switch to inclusive end as that is whay user will expect
+		// Switch to inclusive end as that is what user will expect
 
 		// Offset end day by one as its inclusive for all day events
 		iCal::CICalendarDateTime temp(event_end);
 		temp.OffsetDay(-1);
-		mEndDateTimeZone->SetDateTimeZone(temp, vevent.GetStart().IsDateOnly());
+		mEndDateTimeZone->SetDateTimeZone(temp, event_start.IsDateOnly());
 	}
 	else
 		// Set non-inclusive end
-		mEndDateTimeZone->SetDateTimeZone(event_end, vevent.GetStart().IsDateOnly());
+		mEndDateTimeZone->SetDateTimeZone(event_end, event_start.IsDateOnly());
 	
 	// Set duration
 	iCal::CICalendarDuration duration = event_end - event_start;
@@ -220,6 +232,37 @@ void CNewEventTiming::GetEvent(iCal::CICalendarVEvent& vevent)
 			dtend.OffsetDay(1);
 
 		vevent.EditTiming(dtstart, dtend);
+	}
+}
+
+void CNewEventTiming::GetPeriod(iCal::CICalendarPeriod& period)
+{
+	// Do timing
+	bool all_day = (mAllDay.GetCheck() == 1);
+	if (mUseDuration.GetCheck() == 1)
+	{
+		iCal::CICalendarDateTime dtstart;
+		mStartDateTimeZone->GetDateTimeZone(dtstart, all_day);
+
+		iCal::CICalendarDuration duration;
+		mDuration->GetDuration(duration, all_day);
+
+		period = iCal::CICalendarPeriod(dtstart, duration);
+	}
+	else
+	{
+		iCal::CICalendarDateTime dtstart;
+		mStartDateTimeZone->GetDateTimeZone(dtstart, all_day);
+
+		iCal::CICalendarDateTime dtend;
+		mEndDateTimeZone->GetDateTimeZone(dtend, all_day);
+
+		// If all day event, the end display is the inclusive end, but iCal uses non-inclusive
+		// so we must adjust by one day
+		if (all_day)
+			dtend.OffsetDay(1);
+
+		period = iCal::CICalendarPeriod(dtstart, dtend);
 	}
 }
 

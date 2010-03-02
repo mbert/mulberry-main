@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ void CMailboxWindow::OnDestroy(void)
 	// Remove from list
 	{
 		cdmutexprotect<CMailboxWindowList>::lock _lock(sMboxWindows);
-		CMailboxWindowList::iterator found = ::find(sMboxWindows->begin(), sMboxWindows->end(), this);
+		CMailboxWindowList::iterator found = std::find(sMboxWindows->begin(), sMboxWindows->end(), this);
 		if (found != sMboxWindows->end())
 			sMboxWindows->erase(found);
 	}

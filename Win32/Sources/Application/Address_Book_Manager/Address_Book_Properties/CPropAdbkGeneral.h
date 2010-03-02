@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 #include "CHelpPropertyPage.h"
 
 #include "CIconWnd.h"
-#include "CAdbkList.h"
+#include "CAddressBook.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CPropAdbkGeneral dialog
@@ -62,7 +62,7 @@ public:
 	//}}AFX_DATA
 	bool	mDisableAutoSync;
 
-	void	SetAdbkList(CFlatAdbkList* adbk_list);								// Set mbox list
+	void	SetAdbkList(CAddressBookList* adbk_list);								// Set mbox list
 
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -72,7 +72,7 @@ public:
 	//}}AFX_VIRTUAL
 
 private:
-	CFlatAdbkList*	mAdbkList;								// List of selected adbks
+	CAddressBookList*	mAdbkList;								// List of selected adbks
 
 	virtual void	SetAdbk(CAddressBook* adbk);			// Set adbk item
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,9 +51,10 @@ public:
 	//{{AFX_DATA(CPropCalendarACL)
 	enum { IDD = IDD_CALENDAR_ACL };
 	CPopupButton	mCalendarPopup;
-	CIconWnd		mACLLookup;
+	CIconWnd		mACLFreebusy;
 	CIconWnd		mACLRead;
 	CIconWnd		mACLWrite;
+	CIconWnd		mACLSchedule;
 	CIconWnd		mACLCreate;
 	CIconWnd		mACLDelete;
 	CIconWnd		mACLAdmin;

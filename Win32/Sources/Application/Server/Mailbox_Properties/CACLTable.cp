@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -82,17 +82,17 @@ void CACLTable::SetList(CCalendarACLList* aList, bool read_write)
 	if (!mCols)
 	{
 		// Create columns
-		InsertCols(7, 1, NULL, 0, false);
+		InsertCols(8, 1, NULL, 0, false);
 		
 		CRect client;
 		GetClientRect(client);
 		int cx = client.Width() - 16;
 
 		// Name column has variable width
-		SetColWidth(cx - 114, 1, 1);
+		SetColWidth(cx - 133, 1, 1);
 		
 		// Remaining columns have fixed width
-		SetColWidth(19, 2, 7);
+		SetColWidth(19, 2, 8);
 	}
 
 	mCalACLs = aList;
@@ -208,7 +208,7 @@ void CACLTable::LClickCell(const STableCell& inCell, UINT nFlags)
 	switch(inCell.col)
 	{
 	case 2:
-		right = (mMbox ? CMboxACL::eMboxACL_Lookup : (mAdbk ? CAdbkACL::eAdbkACL_Lookup : CCalendarACL::eCalACL_Lookup));
+		right = (mMbox ? CMboxACL::eMboxACL_Lookup : (mAdbk ? CAdbkACL::eAdbkACL_Lookup : CCalendarACL::eCalACL_ReadFreeBusy));
 		set = rights.HasRight(right) ? false : true;
 		break;
 	case 3:
@@ -220,19 +220,19 @@ void CACLTable::LClickCell(const STableCell& inCell, UINT nFlags)
 		set = rights.HasRight(right) ? false : true;
 		break;
 	case 5:
-		right = (mMbox ? CMboxACL::eMboxACL_Write : (mAdbk ? CAdbkACL::eAdbkACL_Create : CCalendarACL::eCalACL_Create));
+		right = (mMbox ? CMboxACL::eMboxACL_Write : (mAdbk ? CAdbkACL::eAdbkACL_Create : CCalendarACL::eCalACL_Schedule));
 		set = rights.HasRight(right) ? false : true;
 		break;
 	case 6:
-		right = (mMbox ? CMboxACL::eMboxACL_Insert : (mAdbk ? CAdbkACL::eAdbkACL_Delete : CCalendarACL::eCalACL_Delete));
+		right = (mMbox ? CMboxACL::eMboxACL_Insert : (mAdbk ? CAdbkACL::eAdbkACL_Delete : CCalendarACL::eCalACL_Create));
 		set = rights.HasRight(right) ? false : true;
 		break;
 	case 7:
-		right = (mMbox ? CMboxACL::eMboxACL_Post : (mAdbk ? CAdbkACL::eAdbkACL_Admin : CCalendarACL::eCalACL_Admin));
+		right = (mMbox ? CMboxACL::eMboxACL_Post : (mAdbk ? CAdbkACL::eAdbkACL_Admin : CCalendarACL::eCalACL_Delete));
 		set = rights.HasRight(right) ? false : true;
 		break;
 	case 8:
-		right = CMboxACL::eMboxACL_Create;
+		right = (mMbox ? CMboxACL::eMboxACL_Create : CCalendarACL::eCalACL_Admin);
 		set = rights.HasRight(right) ? false : true;
 		break;
 	case 9:
@@ -321,7 +321,7 @@ void CACLTable::DrawCell(CDC* pDC,
 	
 	case 2:
 		// Determine icon
-		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Lookup : (mAdbk ? CAdbkACL::eAdbkACL_Lookup : CCalendarACL::eCalACL_Lookup)) ? icon_on : icon_off;
+		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Lookup : (mAdbk ? CAdbkACL::eAdbkACL_Lookup : CCalendarACL::eCalACL_ReadFreeBusy)) ? icon_on : icon_off;
 		break;
 
 	case 3:
@@ -336,22 +336,22 @@ void CACLTable::DrawCell(CDC* pDC,
 
 	case 5:
 		// Determine icon
-		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Write : (mAdbk ? CAdbkACL::eAdbkACL_Create : CCalendarACL::eCalACL_Create)) ? icon_on : icon_off;
+		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Write : (mAdbk ? CAdbkACL::eAdbkACL_Create : CCalendarACL::eCalACL_Schedule)) ? icon_on : icon_off;
 		break;
 
 	case 6:
 		// Determine icon
-		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Insert : (mAdbk ? CAdbkACL::eAdbkACL_Delete : CCalendarACL::eCalACL_Delete)) ? icon_on : icon_off;
+		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Insert : (mAdbk ? CAdbkACL::eAdbkACL_Delete : CCalendarACL::eCalACL_Create)) ? icon_on : icon_off;
 		break;
 
 	case 7:
 		// Determine icon
-		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Post : (mAdbk ? CAdbkACL::eAdbkACL_Admin : CCalendarACL::eCalACL_Admin)) ? icon_on : icon_off;
+		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Post : (mAdbk ? CAdbkACL::eAdbkACL_Admin : CCalendarACL::eCalACL_Delete)) ? icon_on : icon_off;
 		break;
 
 	case 8:
 		// Determine icon
-		icon = rights.HasRight(CMboxACL::eMboxACL_Create) ? icon_on : icon_off;
+		icon = rights.HasRight(mMbox ? CMboxACL::eMboxACL_Create : CCalendarACL::eCalACL_Admin) ? icon_on : icon_off;
 		break;
 
 	case 9:

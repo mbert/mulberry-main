@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@
 
 #include "CICalendarComponentExpanded.h"
 #include "CICalendarLocale.h"
+#include "CICalendarVFreeBusy.h"
 
 #include <WIN_LTableMultiGeometry.h>
 
@@ -444,7 +445,7 @@ void CDayWeekTable::AdjustSize()
 		GetClientRect(my_frame);
 
 		// Determine new column sizes
-		int32_t col_size = max((int32_t) ((my_frame.Width() - cTimeColumnWidth) / (mCols - 1)), 64L);
+		int32_t col_size = std::max((int32_t) ((my_frame.Width() - cTimeColumnWidth) / (mCols - 1)), (int32_t) 64L);
 		
 		SetColWidth(col_size, 2, mCols);
 
@@ -473,7 +474,7 @@ void CDayWeekTable::RescaleHeight()
 		CRect my_frame;
 		GetClientRect(my_frame);
 	
-		int32_t row_size = max((int32_t) ((my_frame.Height() - GetRowHeight(cAllDayRow)) / (mRows - 1)), 8L);
+		int32_t row_size = std::max((int32_t) ((my_frame.Height() - GetRowHeight(cAllDayRow)) / (mRows - 1)), (int32_t) 8L);
 		SetRowHeight(row_size, cFirstTimedRow, mRows);
 	}
 }
@@ -613,7 +614,7 @@ void CDayWeekTable::AddAllDayEvent(iCal::CICalendarComponentExpandedShared& veve
 
 		// Modify all columns - first is the real one, others are pseudo
 		for(TableIndexT col_ctr = col_start; col_ctr <= col_end; col_ctr++)
-			mAllDayEvents[col_ctr - 2][slot] = make_pair(event, col_ctr == col_start);
+			mAllDayEvents[col_ctr - 2][slot] = std::make_pair(event, col_ctr == col_start);
 		
 		// Now show it
 		event->ShowWindow(SW_SHOW);
@@ -692,6 +693,10 @@ void CDayWeekTable::AddTimedEvent(iCal::CICalendarComponentExpandedShared& veven
 	}
 }
 
+void CDayWeekTable::AddTimedFreeBusy(iCal::CICalendarComponent* vfreebusy)
+{
+}
+
 void CDayWeekTable::PositionAllDayEvent(CDayEvent* event, const STableCell& cell, size_t offset)
 {
 	if ((event == NULL) || !IsValidCell(cell))
@@ -712,9 +717,8 @@ void CDayWeekTable::PositionTimedEvent(CDayEvent* event, const STableCell& cell,
 	if ((event == NULL) || !IsValidCell(cell))
 		return;
 	
-	const iCal::CICalendarComponentExpandedShared& vevent = event->GetVEvent();
-	int64_t start_secs = vevent->GetInstanceStart().GetPosixTime();
-	int64_t end_secs = vevent->GetInstanceEnd().GetPosixTime();
+	int64_t start_secs = event->GetInstancePeriod().GetStart().GetPosixTime();
+	int64_t end_secs = event->GetInstancePeriod().GetEnd().GetPosixTime();
 	
 	int64_t hours_in_column = (mRows - 1LL) / 2LL;
 	int64_t bottom_secs = top_secs + hours_in_column * 60LL * 60LL;
@@ -800,8 +804,8 @@ void CDayWeekTable::ColumnateEvents()
 		uint32_t col = 0;
 		for(CDayEventList::const_iterator iter = list.begin(); iter != list.end(); iter++)
 		{
-			data.push_back(SEventInfo(*iter, true, col++, (*iter)->GetVEvent()->GetInstanceStart().GetPosixTime()));
-			data.push_back(SEventInfo(*iter, false, col++, (*iter)->GetVEvent()->GetInstanceEnd().GetPosixTime()));
+			data.push_back(SEventInfo(*iter, true, col++, (*iter)->GetInstancePeriod().GetStart().GetPosixTime()));
+			data.push_back(SEventInfo(*iter, false, col++, (*iter)->GetInstancePeriod().GetEnd().GetPosixTime()));
 		}
 		
 		// Sort by posix time
@@ -881,7 +885,7 @@ void CDayWeekTable::ColumnateEvents()
 		{
 			if ((*iter).mStarts)
 			{
-				max_column = max(max_column, (*iter).mTotalCol);
+				max_column = std::max(max_column, (*iter).mTotalCol);
 			}
 			else if ((*iter).mTotalCol == 0)
 			{
@@ -935,8 +939,8 @@ void CDayWeekTable::ColumnateEvents()
 						if ((*iter2).mStarts)
 						{
 							CDayEvent* event2 = (*iter2).mEvent;
-							if ((event2->GetVEvent()->GetInstanceStart() != event->GetVEvent()->GetInstanceStart()) ||
-								(event2->GetVEvent()->GetInstanceEnd() != event->GetVEvent()->GetInstanceEnd()))
+							if ((event2->GetInstancePeriod().GetStart() != event->GetInstancePeriod().GetStart()) ||
+								(event2->GetInstancePeriod().GetEnd() != event->GetInstancePeriod().GetEnd()))
 							{
 								break;
 							}

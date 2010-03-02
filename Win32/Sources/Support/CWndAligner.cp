@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -195,14 +195,14 @@ CWndAligner::CWndAligner()
 // CWndAligner columns
 void CWndAligner::SizeChanged(int cx, int cy)
 {
-	int dx = max(cx, mMinWidth) - mCurrentWidth;
-	int dy = max(cy, mMinHeight) - mCurrentHeight;
+	int dx = std::max(cx, mMinWidth) - mCurrentWidth;
+	int dy = std::max(cy, mMinHeight) - mCurrentHeight;
 
 	// Only if changed
 	if (!dx && !dy)
 		return;
-	mCurrentWidth = max(cx, mMinWidth);
-	mCurrentHeight = max(cy, mMinHeight);
+	mCurrentWidth = std::max(cx, mMinWidth);
+	mCurrentHeight = std::max(cy, mMinHeight);
 
 	// Get wnd object this is mixed with
 	CWnd* wnd = dynamic_cast<CWnd*>(this);

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -1579,7 +1579,7 @@ CNewAddressBookWindowState::CNewAddressBookWindowState()
 	ResetColumns();
 
 	mSort = cSortAddressLastName;
-	mAddressSize = lround(0x10000000 * 0.5);
+	mAddressSize = (long)(0x10000000 * 0.5);
 	mGroupSize = 0;
 	mAddressShow = true;
 	mGroupShow = true;

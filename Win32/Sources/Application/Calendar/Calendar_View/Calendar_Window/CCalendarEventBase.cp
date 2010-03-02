@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -30,11 +30,12 @@
 
 #include "CCalendarStoreManager.h"
 #include "CICalendarUtils.h"
+#include "CICalendarVFreeBusy.h"
 #include "CITIPProcessor.h"
 
 #include "cdustring.h"
 
-#include <strstream.h>
+#include <strstream>
 
 BEGIN_MESSAGE_MAP(CCalendarEventBase, CWnd)
 
@@ -57,6 +58,7 @@ END_MESSAGE_MAP()
 
 CCalendarEventBase::CCalendarEventBase()
 {
+	mVFreeBusy = NULL;
 	mTable = NULL;
 	mAllDay = true;
 	mStartsInCol = true;
@@ -69,6 +71,7 @@ CCalendarEventBase::CCalendarEventBase()
 	mPreviousLink = NULL;
 	mNextLink = NULL;
 	mColour = 0;
+	mIsInbox = false;
 }
 
 // ---------------------------------------------------------------------------
@@ -146,6 +149,36 @@ void CCalendarEventBase::SetDetails(iCal::CICalendarComponentExpandedShared& eve
 	{
 		mColour = calstore::CCalendarStoreManager::sCalendarStoreManager->GetCalendarColour(cal);
 	}
+
+	// Check for inbox
+	const calstore::CCalendarStoreNode* node = calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(cal);
+	mIsInbox = node->IsInbox();
+}
+
+void CCalendarEventBase::SetDetails(iCal::CICalendarVFreeBusy* freebusy, const iCal::CICalendarPeriod& period, CCalendarTableBase* table, const char* title, bool all_day, bool start_col, bool end_col, bool horiz)
+{
+	mVFreeBusy = freebusy;
+	mPeriod = period;
+	mTable = table;
+
+	mTitle = title;
+	mAllDay = all_day;
+	mStartsInCol = start_col;
+	mEndsInCol = end_col;
+	mHoriz = horiz;
+	mIsCancelled = false;
+	mHasAlarm = false;
+	mAttendeeState = iCal::CITIPProcessor::GetAttendeeState(*mVFreeBusy);
+
+	// Setup a help tag
+	SetupTagText();
+
+	// Determine colour
+	iCal::CICalendar* cal = iCal::CICalendar::GetICalendar(mVFreeBusy->GetCalendar());
+	if (cal)
+	{
+		mColour = calstore::CCalendarStoreManager::sCalendarStoreManager->GetCalendarColour(cal);
+	}
 }
 
 // Click
@@ -206,7 +239,9 @@ void CCalendarEventBase::OnPaint()
 		DrawVertFrame(&dc, rect);
 	
 	// Draw title
-	rect.DeflateRect(3, 1);
+	rect.DeflateRect(0, 1);
+	rect.left += 3;
+	rect.right -= (mHoriz && mAllDay || IsFreeBusy()) ? 3 : 0;
 	CRect cliprect(rect);
 	if (rect.Height() < 16)
 	{
@@ -218,15 +253,27 @@ void CCalendarEventBase::OnPaint()
 		cliprect.left = rect.left;
 		cliprect.right = rect.right;
 	}
-	dc.SetTextColor(mIsSelected ? CDrawUtils::sWhiteColor : CDrawUtils::sBlackColor);
+
+	double red = CCalendarUtils::GetRed(mColour);
+	double green = CCalendarUtils::GetGreen(mColour);
+	double blue = CCalendarUtils::GetBlue(mColour);
+	if (mIsSelected)
+	{
+		dc.SetTextColor((red + green + blue > 2.5) ? CDrawUtils::sBlackColor : CDrawUtils::sWhiteColor);
+	}
+	else
+	{
+		CCalendarUtils::DarkenColours(red, green, blue);
+		dc.SetTextColor(CCalendarUtils::GetWinColor(red, green, blue));
+	}
 	dc.SelectObject(CFontCache::GetListFont());
 	if (mHoriz)
-		::DrawClippedStringUTF8(&dc, mTitle, CPoint(rect.left, rect.top), cliprect, mAllDay ? eDrawString_Center : eDrawString_Left);
+		::DrawClippedStringUTF8(&dc, mTitle, CPoint(rect.left, rect.top), cliprect, (mAllDay || IsFreeBusy()) ? eDrawString_Center : eDrawString_Left);
 	else
 	{
 		cdustring utf16(mTitle);
 		size_t len = utf16.length();
-		::DrawTextExW(dc, utf16, len, cliprect, DT_END_ELLIPSIS | DT_LEFT | DT_NOPREFIX | DT_TOP | DT_WORDBREAK, NULL);
+		::DrawTextExW(dc, utf16, len, cliprect, DT_END_ELLIPSIS | (IsFreeBusy() ? DT_CENTER : DT_LEFT) | DT_NOPREFIX | DT_TOP | DT_WORDBREAK, NULL);
 	}
 	
 	// Strike out text if status is cancelled
@@ -347,7 +394,16 @@ void CCalendarEventBase::DrawHorizFrame(CDC* pDC, CRect& rect)
 	double green = CCalendarUtils::GetGreen(mColour);
 	double blue = CCalendarUtils::GetBlue(mColour);
 	if (mIsSelected)
-		CCalendarUtils::UnflattenColours(red, green, blue);
+	{
+		if (IsFreeBusy())
+			red = green = blue = 1.0;
+	}
+	else
+	{
+		CCalendarUtils::LightenColours(red, green, blue);
+		if (IsFreeBusy())
+			red = green = blue = 1.0;
+	}
 
 	CBrush temp_brush(CCalendarUtils::GetWinColor(red, green, blue));
 	CBrush* old_brush = pDC->SelectObject(&temp_brush);
@@ -406,11 +462,6 @@ void CCalendarEventBase::DrawHorizFrame(CDC* pDC, CRect& rect)
 		// Offset right edge of text
 		rect.right -= 16;
 	}
-	
-	if (!mHasAlarm || (mAttendeeState == iCal::CITIPProcessor::eNone))
-	{
-		rect.right -= 4;
-	}
 }
 
 const int32_t cRoundRadius = 8;
@@ -423,9 +474,12 @@ void CCalendarEventBase::DrawVertFrame(CDC* pDC, CRect& rect)
 	rect.DeflateRect(1, 0);
 	rect.bottom -= 1;
 
+	if (IsFreeBusy())
+		rect.DeflateRect(3, 3);
+
 	int32_t h_radius = rect.Height() >= 16 ? cRoundRadius : rect.Height() / 2;
 	int32_t w_radius = rect.Width() >= 16 ? cRoundRadius : rect.Width() / 2;
-	int32_t radius = min(h_radius, w_radius);
+	int32_t radius = std::min(h_radius, w_radius);
 
 	pDC->BeginPath();
 	
@@ -493,7 +547,16 @@ void CCalendarEventBase::DrawVertFrame(CDC* pDC, CRect& rect)
 	double green = CCalendarUtils::GetGreen(mColour);
 	double blue = CCalendarUtils::GetBlue(mColour);
 	if (mIsSelected)
-		CCalendarUtils::UnflattenColours(red, green, blue);
+	{
+		if (IsFreeBusy())
+			red = green = blue = 1.0;
+	}
+	else
+	{
+		CCalendarUtils::LightenColours(red, green, blue);
+		if (IsFreeBusy())
+			red = green = blue = 1.0;
+	}
 	
 	CBrush temp_brush(CCalendarUtils::GetWinColor(red, green, blue));
 	CBrush* old_brush = pDC->SelectObject(&temp_brush);
@@ -508,7 +571,7 @@ void CCalendarEventBase::DrawVertFrame(CDC* pDC, CRect& rect)
 	// Adjust rect for jaggies/round corners
 	if (mStartsInCol)
 	{
-		rect.top += 3;
+		rect.top += 2;
 	}
 	else
 	{
@@ -516,18 +579,11 @@ void CCalendarEventBase::DrawVertFrame(CDC* pDC, CRect& rect)
 	}
 	if (mEndsInCol)
 	{
-		rect.bottom -= 3;
+		rect.bottom -= 2;
 	}
 	else
 	{
 		rect.bottom -= cJaggedEdgeHeight;
-	}
-
-	// Adjust for round edges clip
-	if (rect.Height() < 20)
-	{
-		rect.left += 3;
-		rect.right -= 3;
 	}
 
 	// Display alarm indicator

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@
 #endif
 
 #include __stat_header
-#if __GNUC__
+#if defined(__GNUC__) || defined(__VCPP__)
 #define BIO_FP_BINARY	0
 #endif
 

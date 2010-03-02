@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ private:
 	static CFont*	sListFontItalicUnderline;
 	static CFont*	sListFontBoldItalicUnderline;
 	
-	typedef map<unsigned long, CFont*>	CFontSizeMap;
+	typedef std::map<unsigned long, CFont*>	CFontSizeMap;
 
 	static CFontSizeMap		sListFontScaled;
 

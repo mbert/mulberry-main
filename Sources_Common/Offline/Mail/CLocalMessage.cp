@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -229,7 +229,7 @@ void CLocalMessage::ReadCacheFromStream(std::istream& in, unsigned long vers)
 	if (!GetEnvelope())
 		SetEnvelope(new CEnvelope);
 	GetEnvelope()->ReadCacheFromStream(in, vers);
-	::ReadHost(in, mCache->mInternalDate);
+	::ReadHost(in, (long&)mCache->mInternalDate);
 	::ReadHost(in, mCache->mInternalZone);
 	in.ignore();
 

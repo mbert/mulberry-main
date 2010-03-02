@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -248,14 +248,14 @@ void CNewComponentAlarm::OnSelChangeAlarmTab(NMHDR* pNMHDR, LRESULT* pResult)
 
 	*pResult = 0;
 }
-void CNewComponentAlarm::SetEvent(const iCal::CICalendarVEvent& vevent)
+void CNewComponentAlarm::SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded)
 {
 	// Get the first embedded alarm and display that
 	const iCal::CICalendarVAlarm* alarm = dynamic_cast<const iCal::CICalendarVAlarm*>(vevent.GetFirstEmbeddedComponent(iCal::CICalendarComponent::eVALARM));
 	SetAlarm(alarm);
 }
 
-void CNewComponentAlarm::SetToDo(const iCal::CICalendarVToDo& vtodo)
+void CNewComponentAlarm::SetToDo(const iCal::CICalendarVToDo& vtodo, const iCal::CICalendarComponentExpanded* expanded)
 {
 	// Get the first embedded alarm and display that
 	const iCal::CICalendarVAlarm* alarm = dynamic_cast<const iCal::CICalendarVAlarm*>(vtodo.GetFirstEmbeddedComponent(iCal::CICalendarComponent::eVALARM));

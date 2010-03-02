@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -151,7 +151,7 @@ cdstring CAddressBook::GetURL(bool full) const
 	ruri.EncodeURL(GetProtocol()->GetDirDelim());
 
 	cdstring result;
-	if (not IsDisplayHierarchy())
+	if (!IsDisplayHierarchy())
 	{
 		result = mProtocol->GetURL(full);
 		result += "/";

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -31,9 +31,9 @@
 
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #include "MoreFilesX.h"
+#endif
 
 #include "cdustring.h"
-#endif
 
 #pragma mark ____________________________diriterator
 
@@ -282,7 +282,8 @@ bool diriterator::next(const char** name)
 			search += os_dir_delim;
 			search += "*";
 #ifdef _UNICODE
-			mSearch = ::FindFirstFile(search.win_str(), &mFileData);
+			cdustring usearch(search);
+			mSearch = ::FindFirstFile(usearch.c_str(), &mFileData);
 #else
 			mSearch = ::FindFirstFile(search.c_str(), &mFileData);
 #endif
@@ -302,7 +303,12 @@ bool diriterator::next(const char** name)
 			continue;
 
 		// Get the current one
+#ifdef _UNICODE
 		mCurrent = mFileData.cFileName;
+#else
+		cdustring temp(mFileData.cFileName);
+		mCurrent = temp.ToUTF8();
+#endif
 
 		// Test for directory
 		mCurrentDir = mFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY;

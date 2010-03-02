@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -64,7 +64,7 @@ CMailboxToolbarPopup::CMailboxToolbarPopup()
 CMailboxToolbarPopup::~CMailboxToolbarPopup()
 {
 	// Remove from list
-	CMailboxToolbarPopupList::iterator found = ::find(sMailboxToolbarPopupMenus.begin(), sMailboxToolbarPopupMenus.end(), this);
+	CMailboxToolbarPopupList::iterator found = std::find(sMailboxToolbarPopupMenus.begin(), sMailboxToolbarPopupMenus.end(), this);
 	
 	if (found != sMailboxToolbarPopupMenus.end())
 		sMailboxToolbarPopupMenus.erase(found);

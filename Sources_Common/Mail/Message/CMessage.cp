@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -260,7 +260,7 @@ CMessage::CMessage(const CIdentity* identity,
 			::snprintf(lhs_txt.c_str_mod(), 256, "%lu.%lu.%lu", (time_t) clock(), time(NULL), ctr++);
 			cdstring lhs;
 			lhs_txt.md5(lhs);
-			lhs[24UL] = 0;
+			lhs[(cdstring::size_type)24] = 0;
 
 			// Get right side (domain) of message-id
 			cdstring rhs;
@@ -295,7 +295,7 @@ CMessage::CMessage(const CIdentity* identity,
 					
 				// Use first 24 chars of MD5 digest of the domain as the right-side of message-id
 				domain.md5(rhs);
-				rhs[24UL] = 0;
+				rhs[(cdstring::size_type)24] = 0;
 			}
 
 			// Generate the message-id string

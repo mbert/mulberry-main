@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -130,7 +130,7 @@ void CPropCalendarWebcal::SetCalList(calstore::CCalendarStoreNodeList* cal_list)
 			// Check refersh intervals
 			if (iter == mCalList->begin())
 				common_refresh_interval = (*iter)->GetWebcal()->GetRefreshInterval();
-			else if ((*iter)->GetWebcal()->GetPeriodicRefresh() != common_refresh_interval)
+			else if ((*iter)->GetWebcal()->GetRefreshInterval() != common_refresh_interval)
 				refresh_intervals_equal = false;
 		}
 	}

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -120,7 +120,7 @@ CMacProgressCtrl::CMacProgressCtrl()
 
 	// Scale highlight colour to full brightness
 	m_crColor = ::GetSysColor(COLOR_HIGHLIGHT);
-	UINT scale = max(GetRValue(m_crColor), max(GetGValue(m_crColor), GetBValue(m_crColor)));
+	UINT scale = std::max(GetRValue(m_crColor), std::max(GetGValue(m_crColor), GetBValue(m_crColor)));
 	if (scale == 0)
 		scale = 1;
 	UINT red_scaled = ((float) GetRValue(m_crColor) * 0xFF) / scale;

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -160,7 +160,7 @@ LTableArrayStorage::GetCellDataByIndex(
 	if (outDataPtr == NULL) {
 		ioDataSize = mDataArray->at(inCellIndex - 1).second;
 	} else {
-		ioDataSize = min(mDataArray->at(inCellIndex - 1).second, ioDataSize);
+		ioDataSize = std::min(mDataArray->at(inCellIndex - 1).second, ioDataSize);
 		::memcpy(outDataPtr, mDataArray->at(inCellIndex - 1).first, ioDataSize);
 	}
 }
@@ -231,14 +231,17 @@ LTableArrayStorage::InsertRows(
 	mTableView->GetTableSize(rows, cols);
 
 	// Insert blank elements first - though all with the correct size
-	LTableStorageElement element(NULL, inDataSize);
-	mDataArray->insert(mDataArray->begin() + (startIndex - 1), inHowMany * cols, element);
-	
-	// Now create new data elements and store in each new array element
-	for(LTableStorageArray::iterator iter = mDataArray->begin() + (startIndex - 1); iter != mDataArray->begin() + (startIndex - 1 + inHowMany * cols); iter++)
+	if ((inHowMany > 0) && (cols > 0))
 	{
-		(*iter).first = std::malloc(inDataSize);
-		std::memcpy((*iter).first, inDataPtr, inDataSize);
+		LTableStorageElement element(NULL, inDataSize);
+		mDataArray->insert(mDataArray->begin() + (startIndex - 1), inHowMany * cols, element);
+	
+		// Now create new data elements and store in each new array element
+		for(LTableStorageArray::iterator iter = mDataArray->begin() + (startIndex - 1); iter != mDataArray->begin() + (startIndex - 1 + inHowMany * cols); iter++)
+		{
+			(*iter).first = std::malloc(inDataSize);
+			std::memcpy((*iter).first, inDataPtr, inDataSize);
+		}
 	}
 }
 
@@ -268,14 +271,17 @@ LTableArrayStorage::InsertCols(
 		mTableView->CellToIndex(theCell, startIndex);
 
 		// Insert blank elements first - though all with the correct size
-		LTableStorageElement element(NULL, inDataSize);
-		mDataArray->insert(mDataArray->begin() + (startIndex - 1), inHowMany, element);
-		
-		// Now create new data elements and store in each new array element
-		for(LTableStorageArray::iterator iter = mDataArray->begin() + (startIndex - 1); iter != mDataArray->begin() + (startIndex - 1 + inHowMany); iter++)
+		if (inHowMany)
 		{
-			(*iter).first = std::malloc(inDataSize);
-			std::memcpy((*iter).first, inDataPtr, inDataSize);
+			LTableStorageElement element(NULL, inDataSize);
+			mDataArray->insert(mDataArray->begin() + (startIndex - 1), inHowMany, element);
+
+			// Now create new data elements and store in each new array element
+			for(LTableStorageArray::iterator iter = mDataArray->begin() + (startIndex - 1); iter != mDataArray->begin() + (startIndex - 1 + inHowMany); iter++)
+			{
+				(*iter).first = std::malloc(inDataSize);
+				std::memcpy((*iter).first, inDataPtr, inDataSize);
+			}
 		}
 	}
 }

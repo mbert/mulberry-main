@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -24,11 +24,18 @@
 #include "CDayWeekViewTimeRange.h"
 #include "CCalendarViewTypes.h"
 
+#include "CICalendarPeriod.h"
+
+#include "CCalendarStoreFreeBusy.h"
+
 #include "cdmutexprotect.h"
+
+#include "CICalendar.h"
+#include "CICalendarPeriod.h"
+#include "CICalendarProperty.h"
 
 namespace iCal
 {
-class CICalendar;
 class CICalendarDateTime;
 class CICalendarVEvent;
 };
@@ -50,7 +57,7 @@ class CToolbar;
 class CCalendarView : public CBaseView
 {
 public:
-	typedef set<CCalendarView*>	CCalendarViewList;
+	typedef std::set<CCalendarView*>	CCalendarViewList;
 	static cdmutexprotect<CCalendarViewList> sCalendarViews;	// List of windows (protected for multi-thread access)
 
 						CCalendarView();
@@ -95,6 +102,8 @@ public:
 		return mCalendar;
 	}
 	void SetCalendar(iCal::CICalendar* calendar);
+	void SetFreeBusy(iCal::CICalendarRef calref, const cdstring& id, const iCal::CICalendarProperty& organizer, const iCal::CICalendarPropertyList& attendees, const iCal::CICalendarDateTime& date);
+
 
 	CEventPreview*	GetPreview() const
 		{ return mPreview; }
@@ -106,6 +115,8 @@ public:
 
 	virtual bool	HasFocus() const;
 	virtual void	Focus();
+
+	virtual void	ResetFont(CFont* font);							// Reset list font
 
 	virtual void	ResetState(bool force = false);
 	virtual void	SaveState();							// Save current state in prefs
@@ -126,6 +137,8 @@ protected:
 	uint32_t						mDayWeekScale;
 	NCalendarView::ESummaryType		mSummaryType;
 	NCalendarView::ESummaryRanges	mSummaryRange;
+	CDayWeekViewTimeRange::ERanges	mFreeBusyRange;
+	uint32_t						mFreeBusyScale;
 	bool							mSingleCalendar;
 	iCal::CICalendar*				mCalendar;
 	
@@ -181,6 +194,7 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnDestroy();
 	afx_msg void OnSetFocus(CWnd* pOldWnd);
+	afx_msg void OnCheckCalendar();
 	afx_msg void OnDayBtn();
 	afx_msg void OnWorkWeekBtn();
 	afx_msg void OnWeekBtn();

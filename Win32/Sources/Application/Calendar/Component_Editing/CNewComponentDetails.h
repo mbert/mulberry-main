@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,45 +14,53 @@
     limitations under the License.
 */
 
-#ifndef H_CNewComponentDescription
-#define H_CNewComponentDescription
+#ifndef H_CNewComponentDetails
+#define H_CNewComponentDetails
 #pragma once
 
 #include "CNewComponentPanel.h"
+#include "CTabPanel.h"
 
 #include "CCmdEdit.h"
+#include "CSubPanelController.h"
+
+class CNewTimingPanel;
 
 // ===========================================================================
-//	CNewComponentDescription
+//	CNewComponentDetails
 
-class CNewComponentDescription : public CNewComponentPanel
+class CNewComponentDetails : public CNewComponentPanel
 {
 public:
-						CNewComponentDescription();
-	virtual				~CNewComponentDescription();
+						CNewComponentDetails();
+	virtual				~CNewComponentDetails();
 
-	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent);
+	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded);
 	virtual void	GetEvent(iCal::CICalendarVEvent& vevent);
+	virtual void	GetPeriod(iCal::CICalendarPeriod& period);
 
-	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo);
+	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo, const iCal::CICalendarComponentExpanded* expanded);
 	virtual void	GetToDo(iCal::CICalendarVToDo& vtodo);
 
-	virtual void	SetReadOnly(bool read_only);
+	virtual	void	SetReadOnly(bool read_only);
+			
+	const CNewTimingPanel* GetTimingPanel() const
+		{ return mTimingPanel; }
 
 protected:
-// Dialog Data
-	//{{AFX_DATA(CNewComponentDescription)
-	enum { IDD = IDD_CALENDAR_NEW_DESCRIPTION };
+	// UI Objects
+	enum { IDD = IDD_CALENDAR_NEW_DETAILS };
+	CSubPanelController		mTimingView;
+	CNewTimingPanel*		mTimingPanel;
+
 	CCmdEdit			mLocation;
 	CCmdEdit			mDescription;
-	//}}AFX_DATA
 
 	// Generated message map functions
-	//{{AFX_MSG(CNewComponentDescription)
+	//{{AFX_MSG(CDurationSelect)
 	virtual BOOL	OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-
 };
 
 #endif

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@
 // UTF8 in, UTF8 out
 char* CHTMLUtils::ConvertToEnriched(const char* htmlText)
 {
-	ostrstream output;
+	std::ostrstream output;
 	bool runCR = false;
 
 	int CurrentSize;
@@ -243,7 +243,7 @@ char* CHTMLUtils::ConvertToEnriched(const char* htmlText)
 		p++;
 	}
 
-	output << ends;
+	output << std::ends;
 	return output.str();
 }
 
@@ -259,15 +259,15 @@ char* CHTMLUtils::ToHTML(const char* text)
 char* CHTMLUtils::ToHTML(const unichar_t* text)
 {
 	// Convert text into html escaped text
-	ostrstream output;
+	std::ostrstream output;
 	Write(output, text, ::unistrlen(text));
 
-	output << ends;
+	output << std::ends;
 	return output.str();
 }
 
 // UTF16 in, UTF8 out
-void CHTMLUtils::Write(ostrstream& sout, const unichar_t* string, size_t length)
+void CHTMLUtils::Write(std::ostrstream& sout, const unichar_t* string, size_t length)
 {
 	i18n::CUTF8 utf8_converter;
 
@@ -358,7 +358,7 @@ void CHTMLUtils::Write(ostrstream& sout, const unichar_t* string, size_t length)
 }
 
 // UTF8 in, UTF8 out
-void CHTMLUtils::ConvertFontTag(ostrstream& output, const char* param, int& size, CFontStack& myStack)
+void CHTMLUtils::ConvertFontTag(std::ostrstream& output, const char* param, int& size, CFontStack& myStack)
 {
 	bool done = false;
 	cdstring colorStr;
@@ -622,7 +622,7 @@ char* CHTMLTransformer::Transform()
 		q++;
 	}
 
-	// Flush remaining text to output stream as style ends
+	// Flush remaining text to output stream as style std::ends
 	if (continuos_length)
 		CHTMLUtils::Write(mOut, p, continuos_length);
 
@@ -630,7 +630,7 @@ char* CHTMLTransformer::Transform()
 	FlushStack();
 
 	// Must add HTML stop tags
-	mOut << os_endl2 << "</BODY>" << os_endl2 << "</HTML>" << os_endl << ends;
+	mOut << os_endl2 << "</BODY>" << os_endl2 << "</HTML>" << os_endl << std::ends;
 	return mOut.str();
 }
 

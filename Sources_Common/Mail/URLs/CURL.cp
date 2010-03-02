@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -181,7 +181,7 @@ void CURL::Parse(const cdstring& url, bool decode)
 	}
 	
 	// Special if it starts with a / its a relative http url
-	else if (temp[0UL] == '/')
+	else if (temp[(cdstring::size_type)0] == '/')
 	{
 		mSchemeType = eHTTP;
 		punt_size = 0;

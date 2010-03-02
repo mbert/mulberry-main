@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -60,7 +60,7 @@ CAdbkManagerView::~CAdbkManagerView()
 {
 	// Remove from list
 	cdmutexprotect<CAdbkManagerViewList>::lock _lock(sAdbkManagerViews);
-	CAdbkManagerViewList::iterator found = ::find(sAdbkManagerViews->begin(), sAdbkManagerViews->end(), this);
+	CAdbkManagerViewList::iterator found = std::find(sAdbkManagerViews->begin(), sAdbkManagerViews->end(), this);
 	if (found != sAdbkManagerViews->end())
 		sAdbkManagerViews->erase(found);
 }

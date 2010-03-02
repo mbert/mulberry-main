@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -361,7 +361,7 @@ cdstring CMIMESupport::GenerateMultipartBoundary(const CAttachment* attach, EEnd
 #endif
 				cdstring boundary;
 				rstr.md5(boundary);
-				boundary[20UL] = 0;
+				boundary[(cdstring::size_type)20] = 0;
 				txt += boundary;
 			}
 			txt += CONTENT_MULTIPART_BOUNDARY;

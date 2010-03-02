@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 #include "CPropAdbkGeneral.h"
 #include "CPropAdbkACL.h"
 
-#include "CAdbkList.h"
+#include "CAddressBook.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CAdbkPropDialog dialog
@@ -38,7 +38,7 @@ class CAdbkPropDialog : public CHelpPropertySheet
 public:
 	CAdbkPropDialog(CWnd* pParent = NULL);   // standard constructor
 
-	void	SetAdbkList(CFlatAdbkList* adbk_list);								// Set mbox list
+	void	SetAdbkList(CAddressBookList* adbk_list);						// Set mbox list
 
 	//virtual void BuildPropPageArray();
 
@@ -53,7 +53,7 @@ protected:
 	//}}AFX_MSG
 
 private:
-	CFlatAdbkList*		mAdbkList;											// List of selected mboxes
+	CAddressBookList*	mAdbkList;											// List of selected mboxes
 
 	CPropAdbkGeneral	mPropAdbkGeneral;
 	CPropAdbkACL		mPropAdbkACL;

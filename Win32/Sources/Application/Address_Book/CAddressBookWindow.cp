@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -74,7 +74,7 @@ CAddressBookWindow::~CAddressBookWindow()
 	// Remove from list
 	{
 		cdmutexprotect<CAddressBookWindowList>::lock _lock(sAddressBookWindows);
-		CAddressBookWindowList::iterator found = ::find(sAddressBookWindows->begin(), sAddressBookWindows->end(), this);
+		CAddressBookWindowList::iterator found = std::find(sAddressBookWindows->begin(), sAddressBookWindows->end(), this);
 		if (found != sAddressBookWindows->end())
 			sAddressBookWindows->erase(found);
 	}
@@ -150,7 +150,7 @@ CAddressBookWindow* CAddressBookWindow::FindWindow(const CAddressBook* adbk)
 bool CAddressBookWindow::WindowExists(const CAddressBookWindow* wnd)
 {
 	cdmutexprotect<CAddressBookWindowList>::lock _lock(sAddressBookWindows);
-	CAddressBookWindowList::iterator found = ::find(sAddressBookWindows->begin(), sAddressBookWindows->end(), wnd);
+	CAddressBookWindowList::iterator found = std::find(sAddressBookWindows->begin(), sAddressBookWindows->end(), wnd);
 	return found != sAddressBookWindows->end();
 }
 
@@ -165,7 +165,7 @@ int CAddressBookWindow::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	// Create toolbar pane
 	CRect rect = CRect(0, 0, cWindowWidth, cToolbarHeight + large_offset);
-	mToolbarView.Create(TOOLBARCLASSNAME, NULL, WS_CHILD | WS_VISIBLE | CCS_NORESIZE, rect, GetParentFrame(), IDC_STATIC);
+	mToolbarView.Create(TOOLBARCLASSNAME, NULL, WS_CHILD | WS_VISIBLE | CCS_NORESIZE, rect, GetParentFrame(), ID_VIEW_TOOLBAR);
 	mToolbarView.SetBarStyle(CBRS_ALIGN_TOP | CBRS_BORDER_TOP);
 
 	// Create splitter view

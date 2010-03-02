@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ class CSearchCriteria;
 class CSearchItem;
 
 class CCriteriaBase;
-typedef vector<CCriteriaBase*> CCriteriaBaseList;
+typedef std::vector<CCriteriaBase*> CCriteriaBaseList;
 
 class CSearchCriteriaContainer : public CWnd, public CBroadcaster, public CListener, public CWndAligner
 {

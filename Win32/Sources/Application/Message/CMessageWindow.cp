@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@
 #include <afxrich.h>
 #include <afxwin.h>
 
-#include <strstream.h>
+#include <strstream>
 
 const int cWindowWidth = 500;
 const int cToolbarHeight = 56;
@@ -304,7 +304,7 @@ CMessageWindow::~CMessageWindow()
 	// Remove from list
 	{
 		cdmutexprotect<CMessageWindowList>::lock _lock(sMsgWindows);
-		CMessageWindowList::iterator found = ::find(sMsgWindows->begin(), sMsgWindows->end(), this);
+		CMessageWindowList::iterator found = std::find(sMsgWindows->begin(), sMsgWindows->end(), this);
 		if (found != sMsgWindows->end())
 			sMsgWindows->erase(found);
 	}
@@ -366,7 +366,7 @@ int CMessageWindow::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	// Create toolbar pane
 	CRect rect = CRect(0, 0, cWindowWidth, cToolbarHeight + large_offset);
-	mToolbarView.Create(TOOLBARCLASSNAME, NULL, WS_CHILD | WS_VISIBLE | CCS_NORESIZE, rect, GetParentFrame(), IDC_STATIC);
+	mToolbarView.Create(TOOLBARCLASSNAME, NULL, WS_CHILD | WS_VISIBLE | CCS_NORESIZE, rect, GetParentFrame(), ID_VIEW_TOOLBAR);
 	mToolbarView.SetBarStyle(CBRS_ALIGN_TOP | CBRS_BORDER_TOP);
 	mToolbarView.ShowDivider(true);
 
@@ -942,9 +942,9 @@ void CMessageWindow::ResetText()
 		else if (!mHeaderState.mExpanded)
 		{
 			// Get summary from envelope
-			ostrstream hdr;
+			std::ostrstream hdr;
 			mItsMsg->GetEnvelope()->GetSummary(hdr);
-			hdr << ends;
+			hdr << std::ends;
 
 			mText->GetFormatter()->ParseHeader(hdr.str(), actual_view);
 			hdr.freeze(false);
@@ -1276,9 +1276,9 @@ void CMessageWindow::AddPrintSummary()
 		(!mShowHeader && mHeaderState.mExpanded))
 	{
 		// Get summary from envelope
-		ostrstream hdr;
+		std::ostrstream hdr;
 		mItsMsg->GetEnvelope()->GetSummary(hdr);
-		hdr << ends;
+		hdr << std::ends;
 
 		// Must filter out LFs for RichEdit 2.0
 		cdstring header_insert;
@@ -1298,9 +1298,9 @@ void CMessageWindow::RemovePrintSummary()
 		(!mShowHeader && mHeaderState.mExpanded))
 	{
 		// Get summary from envelope
-		ostrstream hdr;
+		std::ostrstream hdr;
 		mItsMsg->GetEnvelope()->GetSummary(hdr);
-		hdr << ends;
+		hdr << std::ends;
 
 		// Must filter out LFs for RichEdit 2.0
 		cdstring header_insert;

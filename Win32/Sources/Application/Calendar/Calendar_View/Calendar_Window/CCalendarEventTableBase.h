@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -68,6 +68,7 @@ protected:
 	afx_msg void	OnDuplicateEvent();
 	afx_msg void	OnDeleteEvent();
 	afx_msg void	OnInviteAttendees();
+	afx_msg void	OnProcessInvitation();
 	
 			void	GetSelectedEvents(iCal::CICalendarExpandedComponents& items);
 			void	GetSelectedMasterEvents(iCal::CICalendarComponentRecurs& vevents);

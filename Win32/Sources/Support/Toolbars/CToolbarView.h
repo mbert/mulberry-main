@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ class CToolbarView : public CControlBar, public CWndAligner, public CListener
 	friend class CToolbar;
 
 public:
-	typedef vector<CToolbarView*> CToolbarViewList;
+	typedef std::vector<CToolbarView*> CToolbarViewList;
 	static CToolbarViewList sToolbarViews;
 
 	enum
@@ -80,7 +80,7 @@ protected:
 		unsigned long		mGroupID;
 		unsigned long		mActiveIndex;
 		bool				mIsVisible;
-		vector<CToolbar*>	mToolbars;
+		std::vector<CToolbar*>	mToolbars;
 	};
 	typedef ptrvector<SToolbarGroup> SToolbarGroups;
 	SToolbarGroups			mGroups;

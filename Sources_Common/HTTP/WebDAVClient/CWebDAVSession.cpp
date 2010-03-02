@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -131,7 +131,7 @@ bool CWebDAVSession::Initialise(const cdstring& host, const cdstring& base_uri)
 						mVersion |= eDAVACL;
 					else if (temp == caldav::cHeaderCalendarAccess)
 						mVersion |= eCALDAVaccess;
-					else if ((temp == caldav::cHeaderCalendarSchedule) or (temp == caldav::cHeaderCalendarAutoSchedule))
+					else if ((temp == caldav::cHeaderCalendarSchedule) || (temp == caldav::cHeaderCalendarAutoSchedule))
 						mVersion |= eCALDAVsched;
 					else if (temp == slide::cHeaderCyrusoftInheritable)
 						mVersion |= eCyrusoftInheritable;

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ class CParserHTMLFontStackElement : public CParserHTMLStackElement
 public:
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 	CParserHTMLFontStackElement(ETag, int start, RGBColor color, int size, int font);
-#elif __dest_os == __win32_os || __linux_os
+#elif __dest_os == __win32_os ||  __dest_os == __linux_os
 	CParserHTMLFontStackElement(ETag, int start, RGBColor color, int size, const char* font);
 #else
 #error __dest_os
@@ -55,14 +55,14 @@ public:
 	int			mSize;
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 	int			mFont;
-#elif __dest_os == __win32_os  || __linux_os
+#elif __dest_os == __win32_os  ||  __dest_os == __linux_os
 	cdstring	mFont;
 #else
 #error __dest_os
 #endif
 	
 	int GetRed()
-#if __dest_os == __mac_os || __dest_os == __mac_os_x || __linux_os
+#if __dest_os == __mac_os || __dest_os == __mac_os_x ||  __dest_os == __linux_os
 		{ return mColor.red; }
 #elif __dest_os == __win32_os
 		{ return GetRValue(mColor); }
@@ -70,7 +70,7 @@ public:
 #error __dest_os
 #endif
 	int GetGreen()
-#if __dest_os == __mac_os || __dest_os == __mac_os_x  || __linux_os
+#if __dest_os == __mac_os || __dest_os == __mac_os_x  ||  __dest_os == __linux_os
 		{ return mColor.green; }
 #elif __dest_os == __win32_os
 		{ return GetGValue(mColor); }
@@ -78,7 +78,7 @@ public:
 #error __dest_os
 #endif
 	int GetBlue()
-#if __dest_os == __mac_os || __dest_os == __mac_os_x  || __linux_os
+#if __dest_os == __mac_os || __dest_os == __mac_os_x  ||  __dest_os == __linux_os
 		{ return mColor.blue; }
 #elif __dest_os == __win32_os
 		{ return GetBValue(mColor); }
@@ -90,7 +90,7 @@ public:
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 	int GetFont()
 		{ return mFont; }
-#elif __dest_os == __win32_os  || __linux_os
+#elif __dest_os == __win32_os  ||  __dest_os == __linux_os
 	const char* GetFont()
 		{ return mFont.c_str(); }
 #else

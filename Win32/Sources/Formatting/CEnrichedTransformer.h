@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 #include "cdstring.h"
 #include "cdustring.h"
 
-#include <strstream.h>
+#include <strstream>
 
 class CParserEnrichedStack;
 class CParserEnrichedStackElement;
@@ -35,10 +35,10 @@ public:
 	static char* ToEnriched(const char* text);							// UTF8 in, UTF8 out
 	static char* ToEnriched(const unichar_t* text);						// UTF16 in, UTF8 out
 
-	static void Write(ostrstream& sout, const unichar_t* string, size_t length);				// UTF8 in, UTF8 out
-	static void WriteNoEndlDouble(ostrstream& sout, const unichar_t* string, size_t length);	// UTF8 in, UTF8 out
+	static void Write(std::ostrstream& sout, const unichar_t* string, size_t length);				// UTF8 in, UTF8 out
+	static void WriteNoEndlDouble(std::ostrstream& sout, const unichar_t* string, size_t length);	// UTF8 in, UTF8 out
 
-	static void WriteHTML(char ch, ostream &out);
+	static void WriteHTML(char ch, std::ostream &out);
 };
 
 class CEnrichedTransformer
@@ -50,7 +50,7 @@ public:
 	char* Transform();
 
 private:
-	ostrstream 				mOut;
+	std::ostrstream 				mOut;
 	CLetterTextEditView*	mTextPane;
 	int						mCurrentSize;
 	int						mDefaultSize;

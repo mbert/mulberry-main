@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -805,7 +805,7 @@ int LHierarchyTable::DrawHierarchyRow(CDC* pDC, UInt32 inAtRow,
 	::GetTextExtentPoint32W(*pDC, utf16, utf16.length(), &size);
 
 	CRect str_area = nested;
-	str_area.right = min(str_area.left + size.cx + 1, str_area.right);
+	str_area.right = std::min(str_area.left + size.cx + 1, str_area.right);
 
 	if (selected && mDrawSelection)
 	{

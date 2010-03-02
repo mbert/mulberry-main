@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
 
 #include "StValueChanger.h"
 
-#include <strstream.h>
+#include <strstream>
 
 /////////////////////////////////////////////////////////////////////////////
 // CMessageView
@@ -523,7 +523,7 @@ void CMessageView::OnDestroy()
 	// Remove from list
 	{
 		cdmutexprotect<CMessageViewList>::lock _lock(sMsgViews);
-		CMessageViewList::iterator found = ::find(sMsgViews->begin(), sMsgViews->end(), this);
+		CMessageViewList::iterator found = std::find(sMsgViews->begin(), sMsgViews->end(), this);
 		if (found != sMsgViews->end())
 			sMsgViews->erase(found);
 	}
@@ -966,9 +966,9 @@ void CMessageView::ResetText()
 		else if (GetViewOptions().GetShowSummary())
 		{
 			// Get summary from envelope
-			ostrstream hdr;
+			std::ostrstream hdr;
 			mItsMsg->GetEnvelope()->GetSummary(hdr);
-			hdr << ends;
+			hdr << std::ends;
 
 			mText->GetFormatter()->ParseHeader(hdr.str(), actual_view);
 			hdr.freeze(false);
@@ -1429,9 +1429,9 @@ void CMessageView::AddPrintSummary()
 		(!mShowHeader || !GetViewOptions().GetShowSummary()))
 	{
 		// Get summary from envelope
-		ostrstream hdr;
+		std::ostrstream hdr;
 		mItsMsg->GetEnvelope()->GetSummary(hdr);
-		hdr << ends;
+		hdr << std::ends;
 
 		// Must filter out LFs for RichEdit 2.0
 		cdstring header_insert;
@@ -1451,9 +1451,9 @@ void CMessageView::RemovePrintSummary()
 		(!mShowHeader || !GetViewOptions().GetShowSummary()))
 	{
 		// Get summary from envelope
-		ostrstream hdr;
+		std::ostrstream hdr;
 		mItsMsg->GetEnvelope()->GetSummary(hdr);
-		hdr << ends;
+		hdr << std::ends;
 
 		// Must filter out LFs for RichEdit 2.0
 		cdstring header_insert;

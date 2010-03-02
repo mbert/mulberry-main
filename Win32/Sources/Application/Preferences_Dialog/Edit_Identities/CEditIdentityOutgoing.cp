@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ BOOL CEditIdentityOutgoing::OnInitDialog()
 
 	// Create tab panels
 	CEditIdentityAddress* panel_to = new CEditIdentityAddress(true);
-	panel_to->SetAddressType(false, false, false, true, false, false);
+	panel_to->SetAddressType(false, false, false, true, false, false, false);
 	mTabs.AddPanel(panel_to);
 	cdstring title;
 	title.FromResource(IDS_IDENTITY_PANEL_TO);
@@ -77,14 +77,14 @@ BOOL CEditIdentityOutgoing::OnInitDialog()
 	mTabs.SetPanelTitle(0, title);
 
 	CEditIdentityAddress* panel_cc = new CEditIdentityAddress(true);
-	panel_cc->SetAddressType(false, false, false, false, true, false);
+	panel_cc->SetAddressType(false, false, false, false, true, false, false);
 	mTabs.AddPanel(panel_cc);
 	title.FromResource(IDS_IDENTITY_PANEL_CC);
 	CUnicodeUtils::SetWindowTextUTF8(panel_to, title);
 	mTabs.SetPanelTitle(1, title);
 
 	CEditIdentityAddress* panel_bcc = new CEditIdentityAddress(true);
-	panel_bcc->SetAddressType(false, false, false, false, false, true);
+	panel_bcc->SetAddressType(false, false, false, false, false, true, false);
 	mTabs.AddPanel(panel_bcc);
 	title.FromResource(IDS_IDENTITY_PANEL_BCC);
 	CUnicodeUtils::SetWindowTextUTF8(panel_to, title);

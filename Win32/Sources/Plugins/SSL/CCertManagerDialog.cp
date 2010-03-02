@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -165,7 +165,7 @@ void CCertManagerDialog::RefreshList()
 	CCertificateManager::sCertificateManager->GetAllCertificatesInStores(type, mCerts);
 	
 	// Sort certificate list
-	::sort(mCerts.begin(), mCerts.end(), CCertificate::SubjectCompare);
+	std::sort(mCerts.begin(), mCerts.end(), CCertificate::SubjectCompare);
 
 	// Get display data from all certs
 	cdstrvect items;

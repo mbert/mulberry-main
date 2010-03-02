@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ void CQuotaProtocol::AddQuotaRoot(CQuotaRoot* root)
 		return;
 
 	// Try to find it in existing list
-	CQuotaRootList::iterator found = ::find(mRoots.begin(), mRoots.end(), *root);
+	CQuotaRootList::iterator found = std::find(mRoots.begin(), mRoots.end(), *root);
 	
 	// If found replace it with copy
 	if (found != mRoots.end())
@@ -60,7 +60,7 @@ CQuotaRoot* CQuotaProtocol::FindQuotaRoot(const char* txt)
 	CQuotaRoot dummy(txt);
 
 	// Try to find it in existing list
-	CQuotaRootList::iterator found = ::find(mRoots.begin(), mRoots.end(), dummy);
+	CQuotaRootList::iterator found = std::find(mRoots.begin(), mRoots.end(), dummy);
 	
 	// If found return it
 	if (found != mRoots.end())

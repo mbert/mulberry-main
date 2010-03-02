@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ BEGIN_MESSAGE_MAP(CCalendarStoreTable, CHierarchyTableDrag)
 	ON_UPDATE_COMMAND_UI(IDM_FILE_IMPORT, OnUpdateAlways)
 	ON_COMMAND(IDM_FILE_IMPORT, OnImport)
 
-	ON_UPDATE_COMMAND_UI(IDM_FILE_EXPORT, OnUpdateSelectionCalendar)
+	ON_UPDATE_COMMAND_UI(IDM_FILE_EXPORT, OnUpdateSelectionCalendarStoreNode)
 	ON_COMMAND(IDM_FILE_EXPORT, OnExport)
 
 	ON_UPDATE_COMMAND_UI(IDM_EDIT_PROPERTIES, OnUpdateSelection)
@@ -59,19 +59,30 @@ BEGIN_MESSAGE_MAP(CCalendarStoreTable, CHierarchyTableDrag)
 	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_NEW, OnUpdateAlways)
 	ON_COMMAND(IDM_CALENDAR_NEW, OnNewCalendar)
 
-	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_RENAME, OnUpdateSelectionCalendar)
+	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_RENAME, OnUpdateSelectionCanChangeCalendar)
 	ON_COMMAND(IDM_CALENDAR_RENAME, OnRenameCalendar)
 
-	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_DELETE, OnUpdateSelectionCalendar)
+	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_DELETE, OnUpdateSelectionCanChangeCalendar)
 	ON_COMMAND(IDM_CALENDAR_DELETE, OnDeleteCalendar)
+
+	ON_COMMAND(IDM_CALENDAR_CHECK, OnCheckCalendar)
+
+	ON_UPDATE_COMMAND_UI(IDM_MAILBOX_NEWSEARCH, OnUpdateAlways)
+	ON_COMMAND(IDM_MAILBOX_NEWSEARCH, OnNewHierarchy)
+
+	ON_UPDATE_COMMAND_UI(IDM_MAILBOX_EDITSEARCH, OnUpdateHierarchy)
+	ON_COMMAND(IDM_MAILBOX_EDITSEARCH, OnRenameHierarchy)
+
+	ON_UPDATE_COMMAND_UI(IDM_MAILBOX_REMOVESEARCH, OnUpdateHierarchy)
+	ON_COMMAND(IDM_MAILBOX_REMOVESEARCH, OnDeleteHierarchy)
 
 	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_REFRESH, OnUpdateRefreshList)
 	ON_COMMAND(IDM_CALENDAR_REFRESH, OnRefreshList)
 
-	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_FREEBUSY, OnUpdateSelectionCalendar)
+	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_FREEBUSY, OnUpdateSelectionCanChangeCalendar)
 	ON_COMMAND(IDM_CALENDAR_FREEBUSY, OnFreeBusyCalendar)
 
-	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_SENDEMAIL, OnUpdateSelectionCalendar)
+	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_SENDEMAIL, OnUpdateSelectionCanChangeCalendar)
 	ON_COMMAND(IDM_CALENDAR_SENDEMAIL, OnSendCalendar)
 
 	ON_UPDATE_COMMAND_UI(IDM_CALENDAR_NEWWEBCAL, OnUpdateNewWebCalendar)
@@ -213,7 +224,7 @@ void CCalendarStoreTable::LClickCell(const STableCell& inCell, UINT nFlags)
 		calstore::CCalendarStoreNode* node = GetCellNode(inCell.row);
 
 		// Check for actual calendars
-		if (!node->IsProtocol() && !node->IsDirectory())
+		if (node->IsViewableCalendar())
 		{
 			switch(col_info.column_type)
 			{
@@ -259,9 +270,9 @@ void CCalendarStoreTable::DrawCell(CDC* pDC, const STableCell& inCell, const CRe
 	calstore::CCalendarStoreNode* node = GetCellNode(inCell.row);
 
 	// Erase to ensure drag hightlight is overwritten
-	if (UsesBackgroundColor(inCell.row))
+	if (UsesBackgroundColor(node))
 	{
-		pDC->SetBkColor(GetBackgroundColor(inCell.row));
+		pDC->SetBkColor(GetBackgroundColor(node));
 
 	   	// Erase the entire area. Using ExtTextOut is a neat alternative to FillRect and quicker, too!
 	   	CRect cellRect = inLocalRect;
@@ -283,7 +294,7 @@ void CCalendarStoreTable::DrawCell(CDC* pDC, const STableCell& inCell, const CRe
 		UINT iconID = GetPlotIcon(node, GetCellCalendarProtocol(inCell.row));
 
 		// Get name of item
-		cdstring theTxt = node->GetShortName();
+		cdstring theTxt = node->GetDisplayShortName();
 
 		// Add protocol state descriptor
 		if (node->IsProtocol())
@@ -315,7 +326,7 @@ void CCalendarStoreTable::DrawCell(CDC* pDC, const STableCell& inCell, const CRe
 
 	case eCalendarStoreColumnSubscribe:
 		// Do status flag
-		if (!node->IsProtocol() && !node->IsDirectory())
+		if (node->IsViewableCalendar())
 		{
 			if (node->IsCached())
 			{
@@ -369,13 +380,29 @@ int CCalendarStoreTable::GetPlotIcon(const calstore::CCalendarStoreNode* node, c
 		else
 			return IDI_SERVERREMOTE;
 	}
+	else if (node->IsDisplayHierarchy())
+	{
+		return IDI_SERVERSEARCHHIER;
+	}
 	else if (node->IsDirectory())
 	{
 		return IDI_SERVERDIR;
 	}
 	else
 	{
-		return node->IsCached() ? IDI_CALENDAR : IDI_CALENDARUNCACHED;
+		if (node->IsCached())
+		{
+			if (node->IsInbox())
+				return IDI_CALENDAR;
+			else if (node->IsOutbox())
+				return IDI_CALENDAR;
+			else
+				return IDI_CALENDAR;
+		}
+		else
+		{
+			return IDI_CALENDARUNCACHED;
+		}
 	}
 }
 
@@ -418,6 +445,38 @@ void CCalendarStoreTable::SetTextStyle(CDC* pDC, const calstore::CCalendarStoreN
 			
 			color_set = true;
 			style_set = true;
+
+			if (node->IsSubscribed())
+			{
+				iCal::CICalendar* cal = node->GetCalendar();
+				if (node->IsInbox() && (cal != NULL) && cal->HasData())
+				{
+					text_color = CPreferences::sPrefs->mMboxUnseenStyle.GetValue().color;
+					text_style = text_style | CPreferences::sPrefs->mMboxUnseenStyle.GetValue().style & 0x007F;
+					strike =  strike || ((CPreferences::sPrefs->mMboxUnseenStyle.GetValue().style & 0x0080) != 0);
+
+					color_set = true;
+					style_set = true;
+				}
+				else
+				{
+					text_color = CPreferences::sPrefs->mMboxFavouriteStyle.GetValue().color;
+					text_style = text_style | CPreferences::sPrefs->mMboxFavouriteStyle.GetValue().style & 0x007F;
+					strike =  strike || ((CPreferences::sPrefs->mMboxFavouriteStyle.GetValue().style & 0x0080) != 0);
+
+					color_set = true;
+					style_set = true;
+				}
+			}
+			if (!color_set)
+			{
+				text_color = CPreferences::sPrefs->mMboxClosedStyle.GetValue().color;
+				text_style = text_style | CPreferences::sPrefs->mMboxClosedStyle.GetValue().style & 0x007F;
+				strike =  strike || ((CPreferences::sPrefs->mMboxClosedStyle.GetValue().style & 0x0080) != 0);
+
+				color_set = true;
+				style_set = true;
+			}
 		}
 
 		if (color_set)
@@ -458,20 +517,27 @@ void CCalendarStoreTable::SetTextStyle(CDC* pDC, const calstore::CCalendarStoreN
 	}
 }
 
-bool CCalendarStoreTable::UsesBackgroundColor(TableIndexT row) const
+bool CCalendarStoreTable::UsesBackgroundColor(const calstore::CCalendarStoreNode* node) const
 {
-	TableIndexT	woRow = GetWideOpenIndex(row + TABLE_ROW_ADJUST);
-	return mCollapsableTree->GetNestingLevel(woRow) == 0;
+	return node->IsProtocol() || node->IsDisplayHierarchy();
 }
 
-COLORREF CCalendarStoreTable::GetBackgroundColor(TableIndexT row) const
+COLORREF CCalendarStoreTable::GetBackgroundColor(const calstore::CCalendarStoreNode* node) const
 {
-	return CPreferences::sPrefs->mServerBkgndStyle.GetValue().color;
+	if (node->IsDisplayHierarchy())
+		return CPreferences::sPrefs->mHierarchyBkgndStyle.GetValue().color;
+	else
+		return CPreferences::sPrefs->mServerBkgndStyle.GetValue().color;
 }
 
-void CCalendarStoreTable::OnUpdateSelectionCalendar(CCmdUI* pCmdUI)
+void CCalendarStoreTable::OnUpdateSelectionCalendarStoreNode(CCmdUI* pCmdUI)
 {
-	pCmdUI->Enable(TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionCalendar));
+	pCmdUI->Enable(TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionCalendarStoreNode));
+}
+
+void CCalendarStoreTable::OnUpdateSelectionCanChangeCalendar(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionCanChangeCalendar));
 }
 
 void CCalendarStoreTable::OnUpdateLogin(CCmdUI* pCmdUI)
@@ -560,6 +626,12 @@ void CCalendarStoreTable::OnUpdateLogin(CCmdUI* pCmdUI)
 		title.FromResource(IDS_LOGIN);
 		pCmdUI->SetText(title.win_str());
 	}
+}
+
+// Update command
+void CCalendarStoreTable::OnUpdateHierarchy(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionHierarchy));
 }
 
 void CCalendarStoreTable::OnUpdateRefreshList(CCmdUI* pCmdUI)
@@ -682,7 +754,7 @@ bool CCalendarStoreTable::ExportCalendar(TableIndexT row)
 		return false;
 
 	// Pick file to export to
-	CString saveAsName = cdustring(node->GetShortName());
+	CString saveAsName = cdustring(node->GetDisplayName());
 	CString filter = _T("Exported Calendar (*.ics)|*.ics||");
 	CFileDialog dlgFile(false, _T(".ics"), saveAsName, OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, filter, CSDIFrame::GetAppTopWindow());
 
@@ -691,7 +763,7 @@ bool CCalendarStoreTable::ExportCalendar(TableIndexT row)
 	{
 		// Get full path and create stream
 		cdstring pname(dlgFile.GetPathName());
-		cdofstream fout(pname, ios_base::in | ios_base::binary | ios_base::trunc);
+		cdofstream fout(pname, std::ios_base::in | std::ios_base::binary | std::ios_base::trunc);
 		if (fout.fail())
 			return false;
 		
@@ -713,7 +785,7 @@ void CCalendarStoreTable::OnEditProperties()
 {
 	if (TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionServer))
 		OnServerProperties();
-	else if (TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionCalendar))
+	else if (TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionCalendarStoreNode))
 		OnCalendarProperties();
 }
 
@@ -766,7 +838,7 @@ BOOL CCalendarStoreTable::OnRenderGlobalData(LPFORMATETC lpFormatEtc, HGLOBAL* p
 				calstore::CCalendarStoreNode* node = GetCellNode(*iter);
 				if (node->IsProtocol())
 					*pGrp++ = node->GetProtocol();
-				else
+				else if (!node->IsInbox() && !node->IsOutbox())
 					*pGrp++ = node;
 			}
 			::GlobalUnlock(*phGlobal);
@@ -796,6 +868,8 @@ bool CCalendarStoreTable::ValidDragSelection() const
 			
 			got_server = 1;
 		}
+		else if (node->IsInbox() || node->IsOutbox())
+			got_calendar = 2;
 		else
 			got_calendar = 1;
 
@@ -821,14 +895,14 @@ bool CCalendarStoreTable::IsDropCell(COleDataObject* pDataObject, const STableCe
 		if (theFlavor == CMulberryApp::sFlavorCalendarItem)
 		{
 			// Drop into valid calendars only
-			return !node->IsProtocol() && !node->IsDirectory();
+			return node->IsViewableCalendar();
 		}
 		else if (theFlavor == CMulberryApp::sFlavorCalServer)
 			// Servers always moved
 			return false;
 		else if (theFlavor == CMulberryApp::sFlavorCalendar)
 		{
-			if (node->IsProtocol())
+			if (node->IsProtocol() || node->IsInbox() || node->IsOutbox())
 				return false;
 			else
 				// Allow drop into any calendar (directory = move, mbox = copy)
@@ -965,6 +1039,8 @@ bool CCalendarStoreTable::DropDataIntoCell(unsigned int theFlavor, char* drag_da
 	{
 		// Get drop cell type
 		calstore::CCalendarStoreNode* node = GetCellNode(theCell.row);
+		if (node->IsProtocol() || node->IsInbox() || node->IsOutbox())
+			return false;
 
 		// Ask user before doing task
 		if (CErrorHandler::PutCautionAlertRsrcStr(true, node->IsDirectory() ? "CCalendarStoreTable::ReallyMoveCalendar" : "CCalendarStoreTable::ReallyCopyCalendar", node->GetName()) == CErrorHandler::Cancel)

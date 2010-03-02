@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -178,7 +178,7 @@ void CMatchOptionsDialog::SetMatchItems(NMbox::EViewMode mbox_mode, const CMatch
 			iter != CPreferences::sPrefs->mSearchStyles.GetValue().end(); iter++)
 	{
 		mNames.push_back((*iter)->GetName());
-		bool select =  (::find(sets.begin(), sets.end(), (*iter)->GetName()) != sets.end());
+		bool select =  (std::find(sets.begin(), sets.end(), (*iter)->GetName()) != sets.end());
 		mSelected.push_back(select);
 	}
 }

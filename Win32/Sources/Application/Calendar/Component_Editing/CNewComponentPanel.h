@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -39,10 +39,13 @@ public:
 						CTabPanel(nIDTemplate) { mReadOnly = false; }
 	virtual			~CNewComponentPanel() {}
 
-	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent) {}
+	virtual void	SetComponent(const iCal::CICalendarComponentRecur& vcomponent, const iCal::CICalendarComponentExpanded* expanded);
+	virtual void	GetComponent(iCal::CICalendarComponentRecur& vcomponent);
+
+	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded) {}
 	virtual void	GetEvent(iCal::CICalendarVEvent& vevent) {}
 
-	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo) {}
+	virtual void	SetToDo(const iCal::CICalendarVToDo& vtodo, const iCal::CICalendarComponentExpanded* expanded) {}
 	virtual void	GetToDo(iCal::CICalendarVToDo& vtodo) {}
 
 	virtual void	SetReadOnly(bool read_only) = 0;

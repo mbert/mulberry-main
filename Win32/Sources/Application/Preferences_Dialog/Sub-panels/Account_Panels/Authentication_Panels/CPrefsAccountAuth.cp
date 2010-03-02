@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -237,7 +237,7 @@ void CPrefsAccountAuth::BuildAuthPopup(CINETAccount* account)
 
 	cdstrvect plugin_names;
 	CPluginManager::sPluginManager.GetAuthPlugins(plugin_names);
-	::sort(plugin_names.begin(), plugin_names.end());
+	std::sort(plugin_names.begin(), plugin_names.end());
 	short index = 1;
 	short cmd = IDM_AUTHENTICATE_METHOD_SSL + 1;
 	for(cdstrvect::const_iterator iter = plugin_names.begin(); iter != plugin_names.end(); iter++, index++, cmd++)

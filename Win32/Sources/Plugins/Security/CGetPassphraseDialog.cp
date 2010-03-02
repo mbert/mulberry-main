@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@
 
 #include "CSDIFrame.h"
 #include "CUnicodeUtils.h"
+#include "CXStringResources.h"
 
 /////////////////////////////////////////////////////////////////////////////
 // CRenameMailboxDialog dialog
@@ -47,7 +48,7 @@ void CGetPassphraseDialog::DoDataExchange(CDataExchange* pDX)
 	DDX_UTF8Text(pDX, IDC_PASSPHRASE1_TEXT, mPassphrase1);
 	DDX_Control(pDX, IDC_PASSPHRASE2_TEXT, mPassphrase2Ctrl);
 	DDX_UTF8Text(pDX, IDC_PASSPHRASE2_TEXT, mPassphrase2);
-	DDX_Control(pDX, IDC_PASSPHRASE_KEYPOPUP, mKeyPopup);
+	//DDX_Control(pDX, IDC_PASSPHRASE_KEYPOPUP, mKeyPopup);
 	DDX_Check(pDX, IDC_PASSPHRASE_HIDETYPING, mHideTyping);
 	DDX_Control(pDX, IDC_PASSPHRASE_HIDETYPING, mHideTypingCtrl);
 	//}}AFX_DATA_MAP
@@ -131,12 +132,21 @@ void CGetPassphraseDialog::OnKeyPopup(UINT nID)
 	mKeyPopupText = CUnicodeUtils::GetWindowTextUTF8(&mKeyPopup);
 }
 
-bool CGetPassphraseDialog::PoseDialog(cdstring& change, const char** keys, cdstring& chosen_key, unsigned long& index)
+bool CGetPassphraseDialog::PoseDialog(cdstring& passphrase, const char* title)
+{
+	cdstring dummy1;
+	unsigned long dummy2;
+	return PoseDialog(passphrase, NULL, dummy1, dummy2, title);
+}
+
+bool CGetPassphraseDialog::PoseDialog(cdstring& change, const char** keys, cdstring& chosen_key, unsigned long& index, const char* title)
 {
 	CGetPassphraseDialog dlog(CSDIFrame::GetAppTopWindow());
 	dlog.mPassphrase1 = change;
 	dlog.mPassphrase2 = change;
 	dlog.mKeys = keys;
+	if (title != NULL)
+		CUnicodeUtils::SetWindowTextUTF8(&dlog, rsrc::GetString(title));
 
 	if (dlog.DoModal() == IDOK)
 	{

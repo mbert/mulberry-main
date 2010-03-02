@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="Mulberry"
 	ProjectGUID="{5215D70C-FBAC-4E55-AE4F-E7400CE8CCB7}"
 	RootNamespace="Mulberry"
 	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -42,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)Sources&quot;;&quot;$(ProjectDir)Sources\Application&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager\Address_Book_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Address_Search&quot;;&quot;$(ProjectDir)Sources\Application\Calendar&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Event_ToDo_Preview&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Component_Editing&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Utilities&quot;;&quot;$(ProjectDir)Sources\Application\Find_Replace&quot;;&quot;$(ProjectDir)Sources\Application\General&quot;;&quot;$(ProjectDir)Sources\Application\Letter&quot;;&quot;$(ProjectDir)Sources\Application\Macros&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)Sources\Application\Message&quot;;&quot;$(ProjectDir)Sources\Application\Other_Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Edit_Identities&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Extras&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Address_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Authentication_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Calendar_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\IMAP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Local_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\POP3_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Remote_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SIEVE_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SMTP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Address_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Alerts_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Attachment_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Display_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Letter_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Mailbox_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Message_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Spelling_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Rules&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Action Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Search&quot;;&quot;$(ProjectDir)Sources\Application\Server&quot;;&quot;$(ProjectDir)Sources\Application\Server\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Server\Browse_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Server\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)Sources\Application\Speech&quot;;&quot;$(ProjectDir)Sources\Application\Status&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Accounts&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Items&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Options Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Preview&quot;;&quot;$(ProjectDir)Sources\Application\Windows&quot;;&quot;$(ProjectDir)Sources\VCPP&quot;;&quot;$(ProjectDir)Sources\Formatting&quot;;&quot;$(ProjectDir)Sources\Plugins&quot;;&quot;$(ProjectDir)Sources\Plugins\General&quot;;&quot;$(ProjectDir)Sources\Plugins\Security&quot;;&quot;$(ProjectDir)Sources\Plugins\Spelling&quot;;&quot;$(ProjectDir)Sources\Plugins\SSL&quot;;&quot;$(ProjectDir)Sources\PP_Sources&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Hierarchy List&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Streams&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Tables&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Undoable&quot;;&quot;$(ProjectDir)Sources\Support&quot;;&quot;$(ProjectDir)Sources\Support\Table&quot;;&quot;$(ProjectDir)Sources\Support\Text&quot;;&quot;$(ProjectDir)Sources\Support\Toolbars&quot;;&quot;$(ProjectDir)Resources&quot;;&quot;$(ProjectDir)..\Sources_Common&quot;;&quot;$(ProjectDir)..\Sources_Common\Application&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Letter&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Preferences&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Rules&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Server&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Three_Pane&quot;;&quot;$(ProjectDir)..\Sources_Common\Automation&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Notifications&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Formatting&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CalDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\HTTPClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\WebDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\ISO2022&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\TwoByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Address&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\AddressBook&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Attachments&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Control&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Extensions&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filtering&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filters&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\ACAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMSP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\LDAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\Password&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SMTP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Local_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Network&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Search&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Recording&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\AddressBooks&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Authentication&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Configuration&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\PasswordChange&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Security&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Spelling&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\Sources_Common\Resources&quot;;&quot;$(ProjectDir)..\Sources_Common\Support&quot;;&quot;$(ProjectDir)..\Sources_Common\Support\Toolbars&quot;;&quot;$(ProjectDir)..\Sources_Common\Tasks&quot;;&quot;$(ProjectDir)..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\..\Libraries\CICalendar\Source&quot;;&quot;$(ProjectDir)..\..\Libraries\XMLLib\Source&quot;;&quot;$(ProjectDir)..\Plug-ins\CRAM-MD5\sources\md5&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;;&quot;$(VCInstallDir)atlmfc\src\mfc&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)Sources&quot;;&quot;$(ProjectDir)Sources\Application&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager\Address_Book_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Address_Search&quot;;&quot;$(ProjectDir)Sources\Application\Calendar&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Event_ToDo_Preview&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Free_Busy_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Component_Editing&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Utilities&quot;;&quot;$(ProjectDir)Sources\Application\Find_Replace&quot;;&quot;$(ProjectDir)Sources\Application\General&quot;;&quot;$(ProjectDir)Sources\Application\Letter&quot;;&quot;$(ProjectDir)Sources\Application\Macros&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)Sources\Application\Message&quot;;&quot;$(ProjectDir)Sources\Application\Other_Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Edit_Identities&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Extras&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Address_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Authentication_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Calendar_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\IMAP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Local_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\POP3_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Remote_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SIEVE_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SMTP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Address_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Alerts_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Attachment_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Display_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Letter_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Mailbox_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Message_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Spelling_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Rules&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Action Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Search&quot;;&quot;$(ProjectDir)Sources\Application\Server&quot;;&quot;$(ProjectDir)Sources\Application\Server\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Server\Browse_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Server\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)Sources\Application\Speech&quot;;&quot;$(ProjectDir)Sources\Application\Status&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Accounts&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Items&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Options Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Preview&quot;;&quot;$(ProjectDir)Sources\Application\Windows&quot;;&quot;$(ProjectDir)Sources\VCPP&quot;;&quot;$(ProjectDir)Sources\Formatting&quot;;&quot;$(ProjectDir)Sources\Plugins&quot;;&quot;$(ProjectDir)Sources\Plugins\General&quot;;&quot;$(ProjectDir)Sources\Plugins\Security&quot;;&quot;$(ProjectDir)Sources\Plugins\Spelling&quot;;&quot;$(ProjectDir)Sources\Plugins\SSL&quot;;&quot;$(ProjectDir)Sources\PP_Sources&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Hierarchy List&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Streams&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Tables&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Undoable&quot;;&quot;$(ProjectDir)Sources\Support&quot;;&quot;$(ProjectDir)Sources\Support\Table&quot;;&quot;$(ProjectDir)Sources\Support\Text&quot;;&quot;$(ProjectDir)Sources\Support\Toolbars&quot;;&quot;$(ProjectDir)Resources&quot;;&quot;$(ProjectDir)..\Sources_Common&quot;;&quot;$(ProjectDir)..\Sources_Common\Application&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Free_Busy_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Letter&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Preferences&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Rules&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Server&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Three_Pane&quot;;&quot;$(ProjectDir)..\Sources_Common\Automation&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Notifications&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Formatting&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CalDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CardDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\HTTPClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\WebDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\ISO2022&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\TwoByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Address&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\AddressBook&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Attachments&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Control&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Extensions&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filtering&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filters&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\ACAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMSP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\LDAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\Password&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SMTP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Local_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Network&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Search&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Recording&quot;;&quot;$(ProjectDir)..\Sources_Common\Preferences_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\AddressBooks&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Authentication&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Configuration&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\PasswordChange&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Security&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Spelling&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\Sources_Common\Resources&quot;;&quot;$(ProjectDir)..\Sources_Common\Support&quot;;&quot;$(ProjectDir)..\Sources_Common\Support\Toolbars&quot;;&quot;$(ProjectDir)..\Sources_Common\Tasks&quot;;&quot;$(ProjectDir)..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store\Clients&quot;;&quot;$(ProjectDir)..\Libraries\CICalendar\Source&quot;;&quot;$(ProjectDir)..\Libraries\vCard\Source&quot;;&quot;$(ProjectDir)..\Libraries\XMLLib\Source&quot;;&quot;$(ProjectDir)..\Plug-ins\CRAM-MD5\sources\md5&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;;&quot;$(VCInstallDir)atlmfc\src\mfc&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__VCPP__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -50,7 +51,6 @@
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="MulberryUnicode.pch++"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
 				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312"
 				ForcedIncludeFiles="MulberryUnicode.pch++"
@@ -72,6 +72,8 @@
 				AdditionalLibraryDirectories="&quot;C:\Program Files\Microsoft Speech SDK 5.1\Lib\i386&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -93,11 +95,8 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="call $(ProjectDir)postbuild.bat"
+				CommandLine="call &quot;$(ProjectDir)postbuild.bat&quot;"
 			/>
 		</Configuration>
 		<Configuration
@@ -126,13 +125,12 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)Sources&quot;;&quot;$(ProjectDir)Sources\Application&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager\Address_Book_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Address_Search&quot;;&quot;$(ProjectDir)Sources\Application\Calendar&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Event_ToDo_Preview&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Component_Editing&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Utilities&quot;;&quot;$(ProjectDir)Sources\Application\Find_Replace&quot;;&quot;$(ProjectDir)Sources\Application\General&quot;;&quot;$(ProjectDir)Sources\Application\Letter&quot;;&quot;$(ProjectDir)Sources\Application\Macros&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)Sources\Application\Message&quot;;&quot;$(ProjectDir)Sources\Application\Other_Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Edit_Identities&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Extras&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Address_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Authentication_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Calendar_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\IMAP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Local_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\POP3_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Remote_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SIEVE_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SMTP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Address_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Alerts_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Attachment_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Display_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Letter_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Mailbox_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Message_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Spelling_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Rules&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Action Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Search&quot;;&quot;$(ProjectDir)Sources\Application\Server&quot;;&quot;$(ProjectDir)Sources\Application\Server\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Server\Browse_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Server\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)Sources\Application\Speech&quot;;&quot;$(ProjectDir)Sources\Application\Status&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Accounts&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Items&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Options Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Preview&quot;;&quot;$(ProjectDir)Sources\Application\Windows&quot;;&quot;$(ProjectDir)Sources\VCPP&quot;;&quot;$(ProjectDir)Sources\Formatting&quot;;&quot;$(ProjectDir)Sources\Plugins&quot;;&quot;$(ProjectDir)Sources\Plugins\General&quot;;&quot;$(ProjectDir)Sources\Plugins\Security&quot;;&quot;$(ProjectDir)Sources\Plugins\Spelling&quot;;&quot;$(ProjectDir)Sources\Plugins\SSL&quot;;&quot;$(ProjectDir)Sources\PP_Sources&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Hierarchy List&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Streams&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Tables&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Undoable&quot;;&quot;$(ProjectDir)Sources\Support&quot;;&quot;$(ProjectDir)Sources\Support\Table&quot;;&quot;$(ProjectDir)Sources\Support\Text&quot;;&quot;$(ProjectDir)Sources\Support\Toolbars&quot;;&quot;$(ProjectDir)Resources&quot;;&quot;$(ProjectDir)..\Sources_Common&quot;;&quot;$(ProjectDir)..\Sources_Common\Application&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Letter&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Preferences&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Rules&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Server&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Three_Pane&quot;;&quot;$(ProjectDir)..\Sources_Common\Automation&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Notifications&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Formatting&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CalDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\HTTPClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\WebDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\ISO2022&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\TwoByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Address&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\AddressBook&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Attachments&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Control&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Extensions&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filtering&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filters&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\ACAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMSP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\LDAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\Password&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SMTP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Local_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Network&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Search&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Recording&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\AddressBooks&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Authentication&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Configuration&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\PasswordChange&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Security&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Spelling&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\Sources_Common\Resources&quot;;&quot;$(ProjectDir)..\Sources_Common\Support&quot;;&quot;$(ProjectDir)..\Sources_Common\Support\Toolbars&quot;;&quot;$(ProjectDir)..\Sources_Common\Tasks&quot;;&quot;$(ProjectDir)..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\..\Libraries\CICalendar\Source&quot;;&quot;$(ProjectDir)..\..\Libraries\XMLLib\Source&quot;;&quot;$(ProjectDir)..\Plug-ins\CRAM-MD5\sources\md5&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;;&quot;$(VCInstallDir)atlmfc\src\mfc&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)Sources&quot;;&quot;$(ProjectDir)Sources\Application&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager\Address_Book_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Address_Search&quot;;&quot;$(ProjectDir)Sources\Application\Calendar&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Event_ToDo_Preview&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Component_Editing&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Utilities&quot;;&quot;$(ProjectDir)Sources\Application\Find_Replace&quot;;&quot;$(ProjectDir)Sources\Application\General&quot;;&quot;$(ProjectDir)Sources\Application\Letter&quot;;&quot;$(ProjectDir)Sources\Application\Macros&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)Sources\Application\Message&quot;;&quot;$(ProjectDir)Sources\Application\Other_Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Edit_Identities&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Extras&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Address_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Authentication_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Calendar_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\IMAP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Local_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\POP3_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Remote_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SIEVE_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SMTP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Address_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Alerts_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Attachment_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Display_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Letter_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Mailbox_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Message_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Spelling_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Rules&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Action Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Search&quot;;&quot;$(ProjectDir)Sources\Application\Server&quot;;&quot;$(ProjectDir)Sources\Application\Server\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Server\Browse_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Server\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)Sources\Application\Speech&quot;;&quot;$(ProjectDir)Sources\Application\Status&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Accounts&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Items&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Options Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Preview&quot;;&quot;$(ProjectDir)Sources\Application\Windows&quot;;&quot;$(ProjectDir)Sources\VCPP&quot;;&quot;$(ProjectDir)Sources\Formatting&quot;;&quot;$(ProjectDir)Sources\Plugins&quot;;&quot;$(ProjectDir)Sources\Plugins\General&quot;;&quot;$(ProjectDir)Sources\Plugins\Security&quot;;&quot;$(ProjectDir)Sources\Plugins\Spelling&quot;;&quot;$(ProjectDir)Sources\Plugins\SSL&quot;;&quot;$(ProjectDir)Sources\PP_Sources&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Hierarchy List&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Streams&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Tables&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Undoable&quot;;&quot;$(ProjectDir)Sources\Support&quot;;&quot;$(ProjectDir)Sources\Support\Table&quot;;&quot;$(ProjectDir)Sources\Support\Text&quot;;&quot;$(ProjectDir)Sources\Support\Toolbars&quot;;&quot;$(ProjectDir)Resources&quot;;&quot;$(ProjectDir)..\Sources_Common&quot;;&quot;$(ProjectDir)..\Sources_Common\Application&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Letter&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Preferences&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Rules&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Server&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Three_Pane&quot;;&quot;$(ProjectDir)..\Sources_Common\Automation&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Notifications&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Formatting&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CalDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CardDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\HTTPClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\WebDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\ISO2022&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\TwoByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Address&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\AddressBook&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Attachments&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Control&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Extensions&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filtering&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filters&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\ACAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMSP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\LDAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\Password&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SMTP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Local_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Network&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Search&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Recording&quot;;&quot;$(ProjectDir)..\Sources_Common\Preferences_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\AddressBooks&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Authentication&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Configuration&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\PasswordChange&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Security&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Spelling&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\Sources_Common\Resources&quot;;&quot;$(ProjectDir)..\Sources_Common\Support&quot;;&quot;$(ProjectDir)..\Sources_Common\Support\Toolbars&quot;;&quot;$(ProjectDir)..\Sources_Common\Tasks&quot;;&quot;$(ProjectDir)..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store\Clients&quot;;&quot;$(ProjectDir)..\Libraries\CICalendar\Source&quot;;&quot;$(ProjectDir)..\Libraries\vCard\Source&quot;;&quot;$(ProjectDir)..\Libraries\XMLLib\Source&quot;;&quot;$(ProjectDir)..\Plug-ins\CRAM-MD5\sources\md5&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;;&quot;$(VCInstallDir)atlmfc\src\mfc&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;__VCPP__"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="MulberryUnicode.pch++"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
 				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312"
 				ForcedIncludeFiles="MulberryUnicode.pch++"
@@ -155,6 +153,8 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -176,9 +176,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -191,10 +188,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\Sources\VCPP\algorithm.h"
-				>
-			</File>
 			<File
 				RelativePath="..\sources_common\utilities\base64.h"
 				>
@@ -361,10 +354,6 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\plugins\addressbooks\CAdbkIOPlugin.h"
-				>
-			</File>
-			<File
-				RelativePath="..\sources_common\mail\addressbook\CAdbkList.h"
 				>
 			</File>
 			<File
@@ -644,6 +633,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\HTTP\CalDAVClient\CCalDAVSchedule.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CalDAVClient\CCalDAVScheduleParser.h"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\application\preferences\CCalendarAccount.h"
 				>
 			</File>
@@ -653,6 +650,14 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\offline\recording\CCalendarAction.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Mail\Address\CCalendarAddress.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CCalendarAddressDisplay.h"
 				>
 			</File>
 			<File
@@ -709,6 +714,10 @@
 			</File>
 			<File
 				RelativePath=".\sources\application\calendar\calendar_view\calendar_store_view\CCalendarStoreFrame.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Calendar_Store\CCalendarStoreFreeBusy.h"
 				>
 			</File>
 			<File
@@ -789,6 +798,26 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\mail\message\CCaptionParser.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVMakeAdbk.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVMultigetReport.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVQueryReport.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVReportParser.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\Clients\CCardDAVVCardClient.h"
 				>
 			</File>
 			<File
@@ -1336,6 +1365,18 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Sources\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyTable.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyTitleTable.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyView.h"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\mail\filters\CFullFileStream.h"
 				>
 			</File>
@@ -1468,179 +1509,179 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendar.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendar.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarAttribute.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarAttribute.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarCalAddressValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarCalAddressValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponent.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponent.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentBase.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentBase.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentDB.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentDB.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentExpanded.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentExpanded.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentRecord.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentRecord.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentRecur.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentRecur.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDateTime.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDateTime.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDateTimeValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDateTimeValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDefinitions.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDefinitions.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDummyValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDummyValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDuration.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDuration.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDurationValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDurationValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarFreeBusy.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarFreeBusy.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarIntegerValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarIntegerValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarLocale.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarLocale.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarManager.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarManager.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarMultiValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarMultiValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarPeriod.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarPeriod.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarPeriodValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarPeriodValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarPlainTextValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarPlainTextValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarProperty.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarProperty.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarRecurrence.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarRecurrence.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarRecurrenceSet.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarRecurrenceSet.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarRecurrenceValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarRecurrenceValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarRef.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarRef.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarSync.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarSync.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarTextValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarTextValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarTimezone.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarTimezone.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarURIValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarURIValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarUTCOffsetValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarUTCOffsetValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarUtils.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarUtils.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVAlarm.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVAlarm.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarValue.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarValue.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVEvent.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVEvent.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVFreeBusy.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVFreeBusy.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVJournal.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVJournal.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezone.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezone.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezoneDaylight.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezoneDaylight.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezoneElement.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezoneElement.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezoneStandard.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezoneStandard.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVToDo.h"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVToDo.h"
 				>
 			</File>
 			<File
@@ -1752,11 +1793,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CITIPDefinitions.h"
+				RelativePath="..\Libraries\CICalendar\Source\CITIPDefinitions.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CITIPProcessor.h"
+				RelativePath="..\Libraries\CICalendar\Source\CITIPProcessor.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\CICalendar\Source\CITIPScheduleResults.h"
 				>
 			</File>
 			<File
@@ -1828,10 +1873,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sources_common\mail\addressbook\CLocalAddressBook.h"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\offline\mail\CLocalAttachment.h"
 				>
 			</File>
@@ -1853,6 +1894,10 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\mail\local_clients\CLocalPrefsClient.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\Clients\CLocalVCardClient.h"
 				>
 			</File>
 			<File
@@ -2224,7 +2269,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\sources\application\calendar\component_editing\CNewComponentDescription.h"
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CNewComponentDetails.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CNewComponentDialog.h"
 				>
 			</File>
 			<File
@@ -2232,7 +2281,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\sources\application\calendar\component_editing\CNewComponentTiming.h"
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CNewComponentRepeat.h"
 				>
 			</File>
 			<File
@@ -2300,6 +2349,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\Application\Preferences\COptionsAccount.h"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\mail\inet_clients\COptionsClient.h"
 				>
 			</File>
@@ -2337,6 +2390,14 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\formatting\CParserPlainElement.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Mail\Control\CPasswordManager.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Mail\Control\CPasswordManagerKeyring.h"
 				>
 			</File>
 			<File
@@ -2788,10 +2849,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sources_common\mail\addressbook\CRemoteAddressBook.h"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\application\preferences\CRemoteOptionsMap.h"
 				>
 			</File>
@@ -3172,7 +3229,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\CStreamBuffer.h"
+				RelativePath="..\Libraries\XMLLib\Source\CStreamBuffer.h"
 				>
 			</File>
 			<File
@@ -3476,6 +3533,122 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAddress.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAddressBook.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAddressBookRef.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAddressValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAttribute.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponent.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponentBase.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponentDB.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponentRecord.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDateTime.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDateTimeValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDefinitions.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDummyValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardLocale.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\CVCardMapper.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardMultiValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardN.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardNValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardPlainTextValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardProperty.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\CVCardSearch.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\CVCardStoreXML.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardSync.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardTextValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardURIValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardUTCOffsetValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardUtils.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardValue.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardVCard.h"
+				>
+			</File>
+			<File
 				RelativePath=".\sources\plugins\ssl\CViewCertDialog.h"
 				>
 			</File>
@@ -3524,6 +3697,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\Preferences_Store\Clients\CWebDAVPrefsClient.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVPrincipalMatch.h"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVPropFind.h"
 				>
 			</File>
@@ -3557,6 +3738,10 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVUnlock.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\Clients\CWebDAVVCardClient.h"
 				>
 			</File>
 			<File
@@ -3628,10 +3813,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Sources\VCPP\deque.h"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\utilities\diriterator.h"
 				>
 			</File>
@@ -3656,27 +3837,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Sources\VCPP\iomanip.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\iostream.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\istream.h"
-				>
-			</File>
-			<File
 				RelativePath=".\sources\formatting\jWin.h"
 				>
 			</File>
 			<File
 				RelativePath=".\sources\Mac2Win.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\map.h"
 				>
 			</File>
 			<File
@@ -3720,19 +3885,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Sources\VCPP\numeric.h"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\plugins\ssl\openssl_.h"
 				>
 			</File>
 			<File
 				RelativePath="..\sources_common\os_dep.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\ostream.h"
 				>
 			</File>
 			<File
@@ -3760,10 +3917,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Sources\VCPP\queue.h"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\utilities\quotedprintable.h"
 				>
 			</File>
@@ -3780,27 +3933,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Sources\VCPP\set.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\stack.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\stdint.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\streambuf.h"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\utilities\strfind.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\strstream.h"
 				>
 			</File>
 			<File
@@ -3821,10 +3954,6 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\utilities\ustrfind.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sources\VCPP\vector.h"
 				>
 			</File>
 			<File
@@ -3900,43 +4029,43 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLAttribute.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLAttribute.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLDocument.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLDocument.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLGenerator.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLGenerator.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLName.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLName.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLNamespace.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLNamespace.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLNode.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLNode.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLObject.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLObject.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLParser.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLParser.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLParserSAX.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLParserSAX.h"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLSAXSimple.h"
+				RelativePath="..\Libraries\XMLLib\Source\XMLSAXSimple.h"
 				>
 			</File>
 			<File
@@ -5488,6 +5617,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\HTTP\CalDAVClient\CCalDAVSchedule.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CalDAVClient\CCalDAVScheduleParser.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\application\preferences\CCalendarAccount.cp"
 				>
 			</File>
@@ -5497,6 +5634,14 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\offline\recording\CCalendarAction.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Mail\Address\CCalendarAddress.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CCalendarAddressDisplay.cp"
 				>
 			</File>
 			<File
@@ -5561,6 +5706,10 @@
 			</File>
 			<File
 				RelativePath=".\sources\application\calendar\calendar_view\calendar_store_view\CCalendarStoreFrame.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Calendar_Store\CCalendarStoreFreeBusy.cpp"
 				>
 			</File>
 			<File
@@ -5657,6 +5806,26 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\mail\message\CCaptionParser.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVMakeAdbk.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVMultigetReport.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVQueryReport.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\CardDAVClient\CCardDAVReportParser.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\Clients\CCardDAVVCardClient.cpp"
 				>
 			</File>
 			<File
@@ -6216,6 +6385,26 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Sources\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyTable.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyTableCommon.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyTitleTable.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyView.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Application\Calendar\Calendar_View\Free_Busy_View\CFreeBusyViewCommon.cp"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\mail\filters\CFullFileStream.cp"
 				>
 			</File>
@@ -6332,179 +6521,179 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendar.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendar.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarAttribute.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarAttribute.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarCalAddressValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarCalAddressValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponent.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponent.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentBase.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentBase.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentDB.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentDB.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentExpanded.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentExpanded.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentRecord.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentRecord.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarComponentRecur.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarComponentRecur.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDateTime.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDateTime.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDateTimeValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDateTimeValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDefinitions.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDefinitions.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDummyValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDummyValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDuration.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDuration.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarDurationValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarDurationValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarFreeBusy.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarFreeBusy.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarInit.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarInit.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarIntegerValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarIntegerValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarLocale.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarLocale.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarManager.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarManager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarMultiValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarMultiValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarPeriod.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarPeriod.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarPeriodValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarPeriodValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarPlainTextValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarPlainTextValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarProperty.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarProperty.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarRecurrence.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarRecurrence.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarRecurrenceSet.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarRecurrenceSet.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarRecurrenceValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarRecurrenceValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarSync.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarSync.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarTextValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarTextValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarTimezone.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarTimezone.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarURIValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarURIValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarUTCOffsetValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarUTCOffsetValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarUtils.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarUtils.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVAlarm.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVAlarm.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarValue.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarValue.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVEvent.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVEvent.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVFreeBusy.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVFreeBusy.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVJournal.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVJournal.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezone.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezone.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezoneDaylight.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezoneDaylight.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezoneElement.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezoneElement.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVTimezoneStandard.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVTimezoneStandard.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CICalendarVToDo.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CICalendarVToDo.cpp"
 				>
 			</File>
 			<File
@@ -6604,11 +6793,15 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CITIPDefinitions.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CITIPDefinitions.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\CICalendar\Source\CITIPProcessor.cpp"
+				RelativePath="..\Libraries\CICalendar\Source\CITIPProcessor.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\CICalendar\Source\CITIPScheduleResults.cpp"
 				>
 			</File>
 			<File
@@ -6684,10 +6877,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sources_common\mail\addressbook\CLocalAddressBook.cp"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\offline\mail\CLocalAttachment.cp"
 				>
 			</File>
@@ -6709,6 +6898,10 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\mail\local_clients\CLocalPrefsClient.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\Clients\CLocalVCardClient.cpp"
 				>
 			</File>
 			<File
@@ -7124,7 +7317,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\sources\application\calendar\component_editing\CNewComponentDescription.cp"
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CNewComponentDetails.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CNewComponentDialog.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\cnewcomponentdialog.CPP"
 				>
 			</File>
 			<File
@@ -7132,7 +7333,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\sources\application\calendar\component_editing\CNewComponentTiming.cp"
+				RelativePath=".\Sources\Application\Calendar\Component_Editing\CNewComponentRepeat.cp"
 				>
 			</File>
 			<File
@@ -7192,6 +7393,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\Application\Preferences\COptionsAccount.cp"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\application\preferences\COptionsMap.cp"
 				>
 			</File>
@@ -7225,6 +7430,14 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\formatting\CParserPlainElement.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Mail\Control\CPasswordManager.cp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\Mail\Control\CPasswordManagerKeyring.cp"
 				>
 			</File>
 			<File
@@ -7676,10 +7889,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sources_common\mail\addressbook\CRemoteAddressBook.cp"
-				>
-			</File>
-			<File
 				RelativePath="..\sources_common\application\preferences\CRemoteOptionsMap.cp"
 				>
 			</File>
@@ -8108,26 +8317,8 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\CStreamBuffer.cp"
+				RelativePath="..\Libraries\XMLLib\Source\CStreamBuffer.cp"
 				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)\$(InputName)1.obj"
-						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-						ObjectFile="$(IntDir)\$(InputName)1.obj"
-						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-					/>
-				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\application\preferences\CStreamOptionsMap.cp"
@@ -8422,6 +8613,118 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAddress.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAddressBook.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAddressValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardAttribute.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponent.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponentBase.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponentDB.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardComponentRecord.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDateTime.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDateTimeValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDefinitions.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardDummyValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardLocale.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\CVCardMapper.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardMultiValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardN.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardNValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardPlainTextValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardProperty.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\CVCardSearch.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\CVCardStoreXML.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardSync.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardTextValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardURIValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardUTCOffsetValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardUtils.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardValue.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Libraries\vCard\Source\CVCardVCard.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\sources\plugins\ssl\CViewCertDialog.cp"
 				>
 			</File>
@@ -8470,6 +8773,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\Preferences_Store\Clients\CWebDAVPrefsClient.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVPrincipalMatch.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVPropFind.cpp"
 				>
 			</File>
@@ -8503,6 +8814,10 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVUnlock.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\VCard_Store\Clients\CWebDAVVCardClient.cpp"
 				>
 			</File>
 			<File
@@ -8669,7 +8984,7 @@
 					>
 					<Tool
 						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories="&quot;F:\Program Files\VS8\VC\atlmfc\src\mfc&quot;"
+						AdditionalIncludeDirectories=""
 						UsePrecompiledHeader="1"
 						PrecompiledHeaderThrough="MulberryUnicode.pch++"
 					/>
@@ -8679,7 +8994,7 @@
 					>
 					<Tool
 						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories="&quot;F:\Program Files\VS8\VC\atlmfc\src\mfc&quot;"
+						AdditionalIncludeDirectories=""
 						UsePrecompiledHeader="1"
 						PrecompiledHeaderThrough="MulberryUnicode.pch++"
 					/>
@@ -8766,7 +9081,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLDocument.cp"
+				RelativePath="..\Libraries\XMLLib\Source\XMLDocument.cp"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
@@ -8788,31 +9103,35 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLName.cp"
+				RelativePath="..\Libraries\XMLLib\Source\XMLName.cp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLNamespace.cp"
+				RelativePath="..\Libraries\XMLLib\Source\XMLNamespace.cp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLNode.cp"
+				RelativePath="..\Libraries\XMLLib\Source\XMLNode.cp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLObject.cp"
+				RelativePath="..\Libraries\XMLLib\Source\XMLObject.cp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLParserSAX.cp"
+				RelativePath="..\Libraries\XMLLib\Source\XMLParserSAX.cp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\Libraries\XMLLib\Source\XMLSAXSimple.cp"
+				RelativePath="..\Libraries\XMLLib\Source\XMLSAXSimple.cp"
 				>
 			</File>
 		</Filter>
 	</Files>
 	<Globals>
+		<Global
+			Name="RESOURCE_FILE"
+			Value="resources\Mulberry.rc"
+		/>
 	</Globals>
 </VisualStudioProject>

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@
 
 #include "CAddressList.h"
 #include "CAdminLock.h"
+#include "CCalendarAddress.h"
 #include "CPreferences.h"
 #include "CUnicodeUtils.h"
 
@@ -114,6 +115,8 @@ void CEditIdentityAddress::SetContent(void* data)
 		SetItemData(id->UseAddCC(), id->GetAddCC());
 	else if (mBcc)
 		SetItemData(id->UseAddBcc(), id->GetAddBcc());
+	else if (mCalendar)
+		SetItemData(id->UseCalendar(), id->GetCalendar());
 	
 	// Must update the display if changed to multiple
 	if (!mSingle)
@@ -147,6 +150,8 @@ bool CEditIdentityAddress::UpdateContent(void* data)
 		id->SetAddCC(address, active);
 	else if (mBcc)
 		id->SetAddBcc(address, active);
+	else if (mCalendar)
+		id->SetCalendar(address, active);
 	
 	return true;
 }
@@ -197,16 +202,26 @@ void CEditIdentityAddress::SetSingle(bool single)
 	{
 		cdstring text = CUnicodeUtils::GetWindowTextUTF8(&mTextCtrl);
 		
-		CAddressList addr_list(text, text.length());
+		if (!mCalendar)
+		{
+			CAddressList addr_list(text, text.length());
 
-		if (addr_list.size())
-			CUnicodeUtils::SetWindowTextUTF8(&mNameCtrl, addr_list.front()->GetName());
+			if (addr_list.size())
+				CUnicodeUtils::SetWindowTextUTF8(&mNameCtrl, addr_list.front()->GetName());
+			else
+				CUnicodeUtils::SetWindowTextUTF8(&mNameCtrl, cdstring::null_str);
+			if (addr_list.size())
+				CUnicodeUtils::SetWindowTextUTF8(&mEmailCtrl, addr_list.front()->GetMailAddress());
+			else
+				CUnicodeUtils::SetWindowTextUTF8(&mEmailCtrl, cdstring::null_str);
+		}
 		else
-			CUnicodeUtils::SetWindowTextUTF8(&mNameCtrl, cdstring::null_str);
-		if (addr_list.size())
-			CUnicodeUtils::SetWindowTextUTF8(&mEmailCtrl, addr_list.front()->GetMailAddress());
-		else
-			CUnicodeUtils::SetWindowTextUTF8(&mEmailCtrl, cdstring::null_str);
+		{
+			CCalendarAddress addr(text);
+
+			CUnicodeUtils::SetWindowTextUTF8(&mNameCtrl, addr.GetName());
+			CUnicodeUtils::SetWindowTextUTF8(&mEmailCtrl, addr.GetAddress());
+		}
 		
 		mTextCtrl.ShowWindow(SW_HIDE);
 		mNameTitleCtrl.ShowWindow(SW_SHOW);
@@ -220,10 +235,21 @@ void CEditIdentityAddress::SetSingle(bool single)
 	{
 		cdstring name = CUnicodeUtils::GetWindowTextUTF8(&mNameCtrl);
 		cdstring email = CUnicodeUtils::GetWindowTextUTF8(&mEmailCtrl);
-		CAddress addr(email, name);
-		cdstring address = addr.GetFullAddress();
-		
-		CUnicodeUtils::SetWindowTextUTF8(mTextCtrl, address.c_str());
+
+		if (!mCalendar)
+		{
+			CAddress addr(email, name);
+			cdstring address = addr.GetFullAddress();
+
+			CUnicodeUtils::SetWindowTextUTF8(mTextCtrl, address.c_str());
+		}
+		else
+		{
+			CCalendarAddress addr(email, name);
+			cdstring address = addr.GetFullAddress();
+
+			CUnicodeUtils::SetWindowTextUTF8(mTextCtrl, address.c_str());
+		}
 		
 		mNameTitleCtrl.ShowWindow(SW_HIDE);
 		mEmailTitleCtrl.ShowWindow(SW_HIDE);
@@ -239,38 +265,71 @@ void CEditIdentityAddress::SetItemData(bool active, const cdstring& address)
 {
 	mActive = active;
 	
-	// Determine address list
-	CAddressList addr_list(address.c_str(), address.length());
-
-	// Truncate to single address for sender or locked from
-	if ((addr_list.size() > 1) &&
-		(mSender || (mFrom && CAdminLock::sAdminLock.mLockReturnAddress)))
-		addr_list.erase(addr_list.begin() + 1, addr_list.end());
-
-	if (addr_list.size() > 1)
+	if (!mCalendar)
 	{
-		// Select single items
-		mSingle = false;
-		
-		// Set multi text
-		for(CAddressList::const_iterator iter = addr_list.begin(); iter != addr_list.end(); iter++)
-			mText += (*iter)->GetFullAddress() + "\r\n";
-		mMultiple = 1;
+		// Determine address list
+		CAddressList addr_list(address.c_str(), address.length());
+
+		// Truncate to single address for sender or locked from
+		if ((addr_list.size() > 1) &&
+			(mSender || (mFrom && CAdminLock::sAdminLock.mLockReturnAddress)))
+			addr_list.erase(addr_list.begin() + 1, addr_list.end());
+
+		if (addr_list.size() > 1)
+		{
+			// Select single items
+			mSingle = false;
+
+			// Set multi text
+			for(CAddressList::const_iterator iter = addr_list.begin(); iter != addr_list.end(); iter++)
+				mText += (*iter)->GetFullAddress() + "\r\n";
+			mMultiple = 1;
+		}
+		else
+		{
+			// Select single items
+			mSingle = true;
+
+			// Insert text
+			if (addr_list.size() == 1)
+			{
+				mName = addr_list.front()->GetName();
+				mEmail = addr_list.front()->GetMailAddress();
+			}
+			mMultiple = 0;
+		}
 	}
 	else
 	{
-		// Select single items
-		mSingle = true;
-		
-		// Insert text
-		if (addr_list.size() == 1)
+		// Determine address list
+		CCalendarAddressList addrs;
+		CCalendarAddress::FromIdentityText(address, addrs);
+
+		if (addrs.size() > 1)
 		{
-			mName = addr_list.front()->GetName();
-			mEmail = addr_list.front()->GetMailAddress();
+			// Select single items
+			mSingle = false;
+
+			// Set multi text
+			for(CCalendarAddressList::const_iterator iter = addrs.begin(); iter != addrs.end(); iter++)
+				mText += (*iter)->GetFullAddress() + "\r\n";
+			mMultiple = 1;
 		}
-		mMultiple = 0;
+		else
+		{
+			// Select single items
+			mSingle = true;
+
+			// Insert text
+			if (addrs.size() == 1)
+			{
+				mName = addrs.front()->GetName();
+				mEmail = addrs.front()->GetCalendarAddress();
+			}
+			mMultiple = 0;
+		}
 	}
-	
+
 	SetActive(mActive);
 }
 
@@ -282,8 +341,16 @@ void CEditIdentityAddress::GetItemData(bool& active, cdstring& address)
 	
 	if (single)
 	{
-		CAddress addr(mEmail, mName);
-		address = addr.GetFullAddress();
+		if (!mCalendar)
+		{
+			CAddress addr(mEmail, mName);
+			address = addr.GetFullAddress();
+		}
+		else
+		{
+			CCalendarAddress addr(mEmail, mName);
+			address = addr.GetFullAddress();
+		}
 	}
 	else
 		// Copy handle to text with null terminator

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -203,7 +203,8 @@ void CDayWeekView::OnUpdateNewEvent(CCmdUI* pCmdUI)
 void CDayWeekView::SetDate(const iCal::CICalendarDateTime& date)
 {
 	mDate = date;
-	mTimezonePopup.SetTimezone(date.GetTimezone());
+	//mTimezonePopup.SetTimezone(date.GetTimezone());
+	mTimezonePopup.GetTimezone(mDate.GetTimezone());
 	ResetDate();
 }
 
@@ -248,10 +249,20 @@ void CDayWeekView::OnRange()
 	RedrawWindow();
 }
 
+void CDayWeekView::ResetFont(CFont* font)
+{
+	// Change fonts
+	//mTable.ResetFont(font);
+
+	// May need to manually adjust titles and position of table
+	mTitles.ResetFont(font);
+	mTitles.SyncTable(&mTable, true);
+}
+
 void CDayWeekView::DoPrint()
 {
 #ifdef _TODO
-	auto_ptr<CDayWeekPrintout> pout;
+	std::auto_ptr<CDayWeekPrintout> pout;
 
 	try
 	{

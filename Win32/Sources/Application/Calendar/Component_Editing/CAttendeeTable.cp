@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,12 +20,14 @@
 #include "CAttendeeTable.h"
 
 #include "CDrawUtils.h"
+#include "CFontCache.h"
 #include "CMulberryCommon.h"
 #include "CPreferences.h"
 #include "CSimpleTitleTable.h"
 #include "CTableRowSelector.h"
 #include "CTableRowGeometry.h"
 
+#include "CICalendarCalAddressValue.h"
 #include "CITIPProcessor.h"
 
 BEGIN_MESSAGE_MAP(CAttendeeTable, CTableDragAndDrop)
@@ -103,6 +105,28 @@ void CAttendeeTable::DrawCell(CDC* pDC,
 
 	if (theTxt.length() > 0)
 	{
+		short text_style = normal;
+		const CIdentity* id = NULL;
+		if (iCal::CITIPProcessor::AttendeeIdentity(prop, id))
+			text_style = bold;
+		if (prop.GetCalAddressValue()->GetValue() == mOrganizer->GetCalAddressValue()->GetValue())
+			text_style = italic;
+		switch(text_style)
+		{
+		case normal:
+		default:
+			pDC->SelectObject(CFontCache::GetListFont());
+			break;
+		case bold:
+			pDC->SelectObject(CFontCache::GetListFontBold());
+			break;
+		case italic:
+			pDC->SelectObject(CFontCache::GetListFontItalic());
+			break;
+		case bold + italic:
+			pDC->SelectObject(CFontCache::GetListFontBoldItalic());
+			break;
+		}
 		::DrawClippedStringUTF8(pDC, theTxt, CPoint(x, y), inLocalRect, eDrawString_Left);
 	}
 }
@@ -110,6 +134,14 @@ void CAttendeeTable::DrawCell(CDC* pDC,
 void CAttendeeTable::LDblClickCell(const STableCell& inCell, UINT nFlags)
 {
 	GetParent()->SendMessage(WM_COMMAND, GetDlgCtrlID() + 1);
+}
+
+// Get text for current tooltip cell
+void CAttendeeTable::GetTooltipText(cdstring& txt, const STableCell &inCell)
+{
+	// Get data for row
+	const iCal::CICalendarProperty& prop = mAttendees->at(inCell.row - 1);
+	txt = iCal::CITIPProcessor::GetAttendeeFullDescriptor(prop);
 }
 
 void CAttendeeTable::InitTable()
@@ -131,10 +163,11 @@ void CAttendeeTable::SelectionChanged()
 }
 
 // Reset the table from the address list
-void CAttendeeTable::ResetTable(const iCal::CICalendarPropertyList* items)
+void CAttendeeTable::ResetTable(const iCal::CICalendarPropertyList* items, const iCal::CICalendarProperty* organizer)
 {
 
 	mAttendees = items;
+	mOrganizer = organizer;
 
 	// Prevent selection changes
 	StDeferSelectionChanged _defer(this);

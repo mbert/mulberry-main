@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -62,7 +62,7 @@ public:
 	virtual void	SetupCurrentMenuItem(bool check);						// Check items before doing popup
 
 private:
-	typedef vector<CMailboxToolbarPopup*> CMailboxToolbarPopupList;
+	typedef std::vector<CMailboxToolbarPopup*> CMailboxToolbarPopupList;
 	static CMailboxToolbarPopupList	sMailboxToolbarPopupMenus;
 
 	bool			mCopyTo;											// Copy to or append to?

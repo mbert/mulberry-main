@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
 #include "CMessageWindow.h"
 #include "CWindowStatesFwd.h"
 
-#include <set.h>
+#include <set>
 
 // Classes
 class CKeyModifiers;
@@ -233,8 +233,8 @@ protected:
 	void			SetPreservedMessages(ulset pset)		// Set the preserved set
 		{ mPreserveMsgs = pset; }
 
-	typedef pair<bool, bool> (CMailboxTable::*TestSelectionIgnorePP)(TableIndexT);
-	typedef pair<bool, bool> (CMailboxTable::*TestSelectionIgnore1PP)(TableIndexT, NMessage::EFlags);
+	typedef std::pair<bool, bool> (CMailboxTable::*TestSelectionIgnorePP)(TableIndexT);
+	typedef std::pair<bool, bool> (CMailboxTable::*TestSelectionIgnore1PP)(TableIndexT, NMessage::EFlags);
 
 	bool				TestSelectionIgnoreAnd(TestSelectionIgnorePP proc)							// Test each cell in the selection using logical and
 		{ return TestSelectionIgnore(proc, true); }
@@ -248,9 +248,9 @@ protected:
 	bool				TestSelectionIgnore(TestSelectionIgnorePP proc, bool and_it);		// Test each cell in the selection using logical and/or
 	bool				TestSelectionIgnore1(TestSelectionIgnore1PP proc, NMessage::EFlags flag, bool and_it);		// Test each cell in the selection using logical and/or
 
-	pair<bool, bool>	TestSelectionFlag(TableIndexT row, NMessage::EFlags flag);			// Test for selected message flag
+	std::pair<bool, bool>	TestSelectionFlag(TableIndexT row, NMessage::EFlags flag);			// Test for selected message flag
 
-	pair<bool, bool>	TestSelectionSmart(TableIndexT row);				// Test for an outgoing message
+	std::pair<bool, bool>	TestSelectionSmart(TableIndexT row);				// Test for an outgoing message
 	bool				TestSelectionFake(TableIndexT row);					// Test for a fake message
 
 	afx_msg void	OnPaint();

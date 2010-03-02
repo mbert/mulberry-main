@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -606,7 +606,7 @@ void CToolbar::SetCommander(CCommander* cmdr)
 		return;
 
 	// See if already in the list
-	CCommanderArray::const_iterator found = ::find(mCmdrs.begin(), mCmdrs.end(), cmdr);
+	CCommanderArray::const_iterator found = std::find(mCmdrs.begin(), mCmdrs.end(), cmdr);
 	if (found == mCmdrs.end())
 	{
 		// Erase all
@@ -626,7 +626,7 @@ void CToolbar::AddCommander(CCommander* cmdr)
 		return;
 
 	// See if already in the list
-	CCommanderArray::const_iterator found = ::find(mCmdrs.begin(), mCmdrs.end(), cmdr);
+	CCommanderArray::const_iterator found = std::find(mCmdrs.begin(), mCmdrs.end(), cmdr);
 	if (found == mCmdrs.end())
 	{
 		mCmdrs.push_back(cmdr);

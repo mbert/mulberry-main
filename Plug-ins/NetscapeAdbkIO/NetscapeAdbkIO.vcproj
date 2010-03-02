@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="NetscapeAdbkIO"
 	ProjectGUID="{4FA83DF0-7E1F-40F0-8E56-A563D5B0C464}"
 	RootNamespace="NetscapeAdbkIO"
 	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -48,7 +49,6 @@
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Plugin_Prefix_Win32.h"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
 				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312;4309"
 				ForcedIncludeFiles="Plugin_Prefix_Win32.h"
@@ -68,6 +68,8 @@
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -87,9 +89,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
@@ -127,7 +126,6 @@
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Plugin_Prefix_Win32.h"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
 				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312;4309"
 				ForcedIncludeFiles="Plugin_Prefix_Win32.h"
@@ -149,6 +147,8 @@
 				SubSystem="2"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
 				TargetMachine="1"
 			/>
 			<Tool
@@ -168,9 +168,6 @@
 			/>
 			<Tool
 				Name="VCAppVerifierTool"
-			/>
-			<Tool
-				Name="VCWebDeploymentTool"
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"

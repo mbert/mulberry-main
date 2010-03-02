@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ void CAddressPersonalPanel::DoDataExchange(CDataExchange* pDX)
 	DDX_UTF8Text(pDX, IDC_ADDRESSEDIT_NAME, mFullName);
 	DDX_UTF8Text(pDX, IDC_ADDRESSEDIT_NICKNAME, mNickName);
 	DDX_UTF8Text(pDX, IDC_ADDRESSEDIT_EMAIL, mEmail);
+	DDX_UTF8Text(pDX, IDC_ADDRESSEDIT_CALENDAR, mCalendar);
 	DDX_UTF8Text(pDX, IDC_ADDRESSEDIT_COMPANY, mCompany);
 	//}}AFX_DATA_MAP
 }
@@ -64,6 +65,7 @@ BOOL CAddressPersonalPanel::OnInitDialog()
 	AddAlignment(new CWndAlignment(GetDlgItem(IDC_ADDRESSEDIT_NAME), CWndAlignment::eAlign_TopWidth));
 	AddAlignment(new CWndAlignment(GetDlgItem(IDC_ADDRESSEDIT_NICKNAME), CWndAlignment::eAlign_TopWidth));
 	AddAlignment(new CWndAlignment(GetDlgItem(IDC_ADDRESSEDIT_EMAIL), CWndAlignment::eAlign_TopWidth));
+	AddAlignment(new CWndAlignment(GetDlgItem(IDC_ADDRESSEDIT_CALENDAR), CWndAlignment::eAlign_TopWidth));
 	AddAlignment(new CWndAlignment(GetDlgItem(IDC_ADDRESSEDIT_COMPANY), CWndAlignment::eAlign_TopWidth));
 
 	return TRUE;
@@ -79,7 +81,8 @@ void CAddressPersonalPanel::SetFields(const CAdbkAddress* addr)
 {
 	mFullName = (addr ? addr->GetName() : cdstring::null_str);
 	mNickName = (addr ? addr->GetADL() : cdstring::null_str);
-	mEmail = (addr ? addr->GetMailAddress() : cdstring::null_str);
+	mEmail = (addr ? addr->GetEmail(CAdbkAddress::eDefaultEmailType) : cdstring::null_str);
+	mCalendar = (addr ? addr->GetCalendar() : cdstring::null_str);
 	mCompany = (addr ? addr->GetCompany() : cdstring::null_str);
 }
 
@@ -112,9 +115,15 @@ bool CAddressPersonalPanel::GetFields(CAdbkAddress* addr)
 		done_edit = true;
 	}
 
-	if (addr->GetMailAddress() != mEmail)
+	if (addr->GetEmail(CAdbkAddress::eDefaultEmailType) != mEmail)
 	{
 		addr->CopyMailAddress(mEmail);
+		done_edit = true;
+	}
+
+	if (addr->GetCalendar() != mCalendar)
+	{
+		addr->SetCalendar(mCalendar);
 		done_edit = true;
 	}
 

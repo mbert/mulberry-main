@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -114,7 +114,7 @@ protected:
 			{ return mType & eServerBrowseIndex; }
 	};
 
-	typedef vector<SServerBrowseData> CServerNodeArray;
+	typedef std::vector<SServerBrowseData> CServerNodeArray;
 
 	CMboxProtocol*		mServer;					// Mail server associated with this window
 	CServerNodeArray	mData;						// data
@@ -220,6 +220,8 @@ protected:
 	bool TestDSelectionMbox(TableIndexT row);						// Test for selected mailboxes or directories
 	bool TestSelectionMboxAll(TableIndexT row);						// Test for selected mailboxes or mailbox refs only
 	bool TestSelectionMboxAvailable(TableIndexT row);				// Test for selected mailboxes on logged in servers
+
+public:
 	bool AddSelectionToList(TableIndexT row,
 										CMboxList* list);			// Add selected mboxes to list
 	bool AddDSelectionToList(TableIndexT row,
@@ -227,7 +229,6 @@ protected:
 	bool AddSelectedNodesToList(TableIndexT row,
 										CServerNodeArray* list);	// Add selected items to list
 
-public:
 	virtual void	DoCreateMailbox(bool selection = true);			// Create & open a mailbox
 protected:
 	virtual bool	CreateMailboxName(SCreateMailbox& create);		// Create mailbox name

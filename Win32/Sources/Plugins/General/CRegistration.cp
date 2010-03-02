@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@
 #include "CErrorHandler.h"
 #include "CPluginRegisterDialog.h"
 
-#include <strstream.h>
+#include <strstream>
 
 #pragma mark ____________________________consts
 
@@ -87,7 +87,7 @@ void CRegistration::LoadAppInfo(HMODULE hModule)
 			rsrc_size -= len;
 
 			// Create mem file for resource data and archive
-			istrstream sin(p, rsrc_size);
+			std::istrstream sin(p, rsrc_size);
 			
 			// Get licensee
 			::getline(sin, mLicensee);

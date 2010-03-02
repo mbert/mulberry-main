@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ CPropCalendarOptions::CPropCalendarOptions() : CHelpPropertyPage(CPropCalendarOp
 	//{{AFX_DATA_INIT(CPropCalendarOptions)
 	mIconState = 0;
 	mSubscribe = 0;
+	mFreeBusySet = 0;
 	mTieIdentity = 0;
 	//}}AFX_DATA_INIT
 	
@@ -53,6 +54,8 @@ void CPropCalendarOptions::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CPropCalendarOptions)
 	DDX_Check(pDX, IDC_CALENDAROPTIONS_SUBSCRIBE, mSubscribe);
 	DDX_Control(pDX, IDC_CALENDAROPTIONS_SUBSCRIBE, mSubscribeCtrl);
+	DDX_Check(pDX, IDC_CALENDAROPTIONS_FREEBUSYSET, mFreeBusySet);
+	DDX_Control(pDX, IDC_CALENDAROPTIONS_FREEBUSYSET, mFreeBusySetCtrl);
 	DDX_Check(pDX, IDC_CALENDAROPTIONS_TIEIDENTITY, mTieIdentity);
 	DDX_Control(pDX, IDC_CALENDAROPTIONS_TIEIDENTITY, mTieIdentityCtrl);
 	//}}AFX_DATA_MAP
@@ -62,6 +65,7 @@ void CPropCalendarOptions::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CPropCalendarOptions, CHelpPropertyPage)
 	//{{AFX_MSG_MAP(CPropCalendarOptions)
 	ON_BN_CLICKED(IDC_CALENDAROPTIONS_SUBSCRIBE, OnSubscribe)
+	ON_BN_CLICKED(IDC_CALENDAROPTIONS_FREEBUSYSET, OnFreeBusySet)
 	ON_BN_CLICKED(IDC_CALENDAROPTIONS_TIEIDENTITY, OnTieIdentity)
 	ON_COMMAND_RANGE(IDM_IDENTITY_NEW, IDM_IDENTITYEnd, OnIdentityPopup)
 	//}}AFX_MSG_MAP
@@ -98,6 +102,7 @@ BOOL CPropCalendarOptions::OnInitDialog()
 	if (mAllDir)
 	{
 		GetDlgItem(IDC_CALENDAROPTIONS_SUBSCRIBE)->EnableWindow(false);
+		GetDlgItem(IDC_CALENDAROPTIONS_FREEBUSYSET)->EnableWindow(false);
 	}
 
 	return true;
@@ -129,6 +134,7 @@ void CPropCalendarOptions::SetCalList(calstore::CCalendarStoreNodeList* cal_list
 
 	int first_type = -1;
 	int subscribe = 0;
+	int freebusyset = 0;
 	int multiple_tied = 0;
 	bool first = true;
 	mAllDir = true;
@@ -139,6 +145,9 @@ void CPropCalendarOptions::SetCalList(calstore::CCalendarStoreNodeList* cal_list
 
 		// Only valid id not a directory
 		if (!node->IsDirectory() && node->IsSubscribed())
+			subscribe++;
+
+		if (node->IsStandardCalendar() && node->GetProtocol()->IsComponentCalendar())
 			subscribe++;
 
 		CIdentity* id = const_cast<CIdentity*>(CPreferences::sPrefs->mTiedCalendars.GetValue().GetTiedCalIdentity(*iter));
@@ -168,6 +177,7 @@ void CPropCalendarOptions::SetCalList(calstore::CCalendarStoreNodeList* cal_list
 	if (!mAllDir)
 	{
 		mSubscribe = subscribe;
+		mFreeBusySet = freebusyset;
 	}
 
 	// Set identity items
@@ -197,6 +207,18 @@ void CPropCalendarOptions::OnSubscribe()
 	for(calstore::CCalendarStoreNodeList::iterator iter = mCalList->begin(); iter != mCalList->end(); iter++)
 	{
 		calstore::CCalendarStoreManager::sCalendarStoreManager->SubscribeNode(*iter, !(*iter)->IsSubscribed());
+	}
+}
+
+// Handle check new
+void CPropCalendarOptions::OnFreeBusySet()
+{
+	UINT result = ::CheckboxToggle(&mFreeBusySetCtrl);
+
+	// Iterate over all Calendars
+	for(calstore::CCalendarStoreNodeList::iterator iter = mCalList->begin(); iter != mCalList->end(); iter++)
+	{
+		//calstore::CCalendarStoreManager::sCalendarStoreManager->SubscribeNode(*iter, !(*iter)->IsSubscribed());
 	}
 }
 

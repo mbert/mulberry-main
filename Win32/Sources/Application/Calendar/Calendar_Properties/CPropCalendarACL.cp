@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ void CPropCalendarACL::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CPropCalendarACL)
-	DDX_Control(pDX, IDC_CALENDARACL_STYLEPOPUP, mStylePopup);
+	//DDX_Control(pDX, IDC_CALENDARACL_STYLEPOPUP, mStylePopup);
 	DDX_Control(pDX, IDC_CALENDARACL_DELETEUSER, mDeleteUserBtn);
 	DDX_Control(pDX, IDC_CALENDARACL_NEWUSER, mNewUserBtn);
 	DDX_Control(pDX, IDC_CALENDARACL_APPLYALL, mChangeAllBtn);
@@ -82,9 +82,10 @@ BOOL CPropCalendarACL::OnInitDialog()
 	mStylePopup.SubclassDlgItem(IDC_CALENDARACL_STYLEPOPUP, this, IDI_POPUPBTN);
 	mStylePopup.Reset(false);
 
-	mACLLookup.SubclassDlgItem(IDC_ACL_LOOKUP, this, IDI_ACL_LOOKUP);
+	mACLFreebusy.SubclassDlgItem(IDC_ACL_LOOKUP, this, IDI_ACL_LOOKUP);
 	mACLRead.SubclassDlgItem(IDC_ACL_READ, this, IDI_ACL_READ);
 	mACLWrite.SubclassDlgItem(IDC_ACL_WRITE, this, IDI_ACL_WRITE);
+	mACLSchedule.SubclassDlgItem(IDC_ACL_POST, this, IDI_ACL_POST);
 	mACLCreate.SubclassDlgItem(IDC_ACL_CREATE, this, IDI_ACL_CREATE);
 	mACLDelete.SubclassDlgItem(IDC_ACL_DELETE, this, IDI_ACL_DELETE);
 	mACLAdmin.SubclassDlgItem(IDC_ACL_ADMIN, this, IDI_ACL_ADMIN);

@@ -1,8 +1,8 @@
-Mulberry® is an email and calendar client for MacOS, Win32 and Unix based computers.
+Mulberry® is an email and calendar client for MacOS X, Win32 and Unix based computers.
 
 http://www.mulberrymail.com
 mailto:mulberry-support@mulberrymail.com
 
 Portions of LDAP code Copyright © 1990 Regents of the University of Michigan. All rights reserved.
 
-Mulberry® is © Cyrus Daboo, 2006. All Rights Reserved.*
+Mulberry® is © Cyrus Daboo, 2006-2009. All Rights Reserved.*

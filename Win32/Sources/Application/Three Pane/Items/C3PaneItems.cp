@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -300,7 +300,7 @@ void C3PaneItems::OnShiftClickTab()
 	OnCloseOne(mTabs.GetLastClicked());
 }
 
-void C3PaneItems::OnTabsMove(pair<unsigned long, unsigned long> indices)
+void C3PaneItems::OnTabsMove(std::pair<unsigned long, unsigned long> indices)
 {
 	// Only do for mailboxes right now
 	if (mMailbox && (mMailbox == mCurrent) && GetMailboxView())
@@ -362,25 +362,25 @@ void C3PaneItems::OnTabContext(UINT item)
 	{
 	case IDM_3PANEITEMSTAB_MOVELEFT:
 		{
-			pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), mTabs.GetLastClicked() - 1);
+			std::pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), mTabs.GetLastClicked() - 1);
 			OnTabsMove(p);
 		}
 		break;
 	case IDM_3PANEITEMSTAB_MOVERIGHT:
 		{
-			pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), mTabs.GetLastClicked() + 1);
+			std::pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), mTabs.GetLastClicked() + 1);
 			OnTabsMove(p);
 		}
 		break;
 	case IDM_3PANEITEMSTAB_MOVESTART:
 		{
-			pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), 0);
+			std::pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), 0);
 			OnTabsMove(p);
 		}
 		break;
 	case IDM_3PANEITEMSTAB_MOVEEND:
 		{
-			pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), mTabs.GetItemCount() - 1);
+			std::pair<unsigned long, unsigned long> p(mTabs.GetLastClicked(), mTabs.GetItemCount() - 1);
 			OnTabsMove(p);
 		}
 		break;

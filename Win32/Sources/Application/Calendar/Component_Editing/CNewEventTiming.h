@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -37,8 +37,9 @@ public:
 	virtual bool	GetAllDay() const;
 	virtual void	GetTimezone(iCal::CICalendarTimezone& tz) const;
 
-	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent);
+	virtual void	SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded);
 	virtual void	GetEvent(iCal::CICalendarVEvent& vevent);
+			void    GetPeriod(iCal::CICalendarPeriod& period);
 
 	virtual void	SetReadOnly(bool read_only);
 
@@ -72,7 +73,7 @@ protected:
 			void	SyncDuration();
 
 	// Generated message map functions
-	//{{AFX_MSG(CNewComponentDescription)
+	//{{AFX_MSG(CNewEventTiming)
 	virtual BOOL	OnInitDialog();
 	afx_msg void	OnAllDay();
 	afx_msg void	OnEnds();

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -84,7 +84,9 @@ void CSSLPlugin::InitSSL()
 		// Most load the plugin and keep it loaded
 		LoadPlugin();
 
-		//sSSLLoader = new CDLLLoader(mConn);
+#if __dest_os == __win32_os
+		sSSLLoader = new CDLLLoader(mConn);
+#endif
 
 		// Init TLS library
 #if __dest_os == __linux_os

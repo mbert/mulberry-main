@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 #include "CCalendarWindow.h"
 #include "CDayWeekView.h"
 #include "CEventPreview.h"
+#include "CFreeBusyView.h"
 #include "CMonthView.h"
 #include "CMulberryCommon.h"
 #include "CPreferences.h"
@@ -48,6 +49,8 @@ BEGIN_MESSAGE_MAP(CCalendarView, CBaseView)
 
 	// Toolbar
 	ON_COMMAND(IDC_TOOLBARFILESAVEBTN, OnFileSave)
+
+	ON_COMMAND(IDC_TOOLBAR_CALENDAR_CHECK, OnCheckCalendar)
 
 	ON_UPDATE_COMMAND_UI(IDC_TOOLBAR_CALENDAR_NEWTODO, OnUpdateNewToDo)
 	ON_COMMAND(IDC_TOOLBAR_CALENDAR_NEWTODO, OnNewToDoBtn)
@@ -89,6 +92,8 @@ CCalendarView::CCalendarView()
 	mDayWeekScale = 0;
 	mSummaryType = NCalendarView::eList;
 	mSummaryRange = NCalendarView::eThisWeek;
+	mFreeBusyRange = CDayWeekViewTimeRange::e24Hrs;
+	mFreeBusyScale = 0;
 	mSingleCalendar = false;
 	mCalendar = NULL;
 	mCalendarsView = NULL;
@@ -325,6 +330,10 @@ void CCalendarView::ResetView(NCalendarView::EViewType type, iCal::CICalendarDat
 			mSummaryType = static_cast<CSummaryView*>(mCurrentView)->GetType();
 			mSummaryRange = static_cast<CSummaryView*>(mCurrentView)->GetRange();
 			break;
+		case NCalendarView::eViewFreeBusy:
+			mFreeBusyRange = static_cast<CFreeBusyView*>(mCurrentView)->GetRange();
+			mFreeBusyScale = static_cast<CFreeBusyView*>(mCurrentView)->GetScale();
+			break;
 		default:;
 		}
 		
@@ -332,7 +341,7 @@ void CCalendarView::ResetView(NCalendarView::EViewType type, iCal::CICalendarDat
 		mToolbar->RemoveCommander(mCurrentView->GetTable());
 	}
 
-	// Now change the tyope
+	// Now change the type
 	mViewType = type;
 
 	// Get current views date
@@ -408,6 +417,15 @@ void CCalendarView::ResetView(NCalendarView::EViewType type, iCal::CICalendarDat
 		static_cast<CSummaryView*>(mCurrentView)->SetType(mSummaryType);
 		static_cast<CSummaryView*>(mCurrentView)->SetRange(mSummaryRange);
 		break;
+	case NCalendarView::eViewFreeBusy:
+		mCurrentView = new CFreeBusyView(this);
+		mCurrentView->SetCalendarView(this);
+		mCurrentView->CreateEx(WS_EX_CONTROLPARENT, _T("STATIC"), _T(""), WS_CHILD, tframe, &mViewContainer, IDC_STATIC);
+		::ExpandChildToFit(&mViewContainer, mCurrentView, true, true);
+		mViewContainer.AddAlignment(new CWndAlignment(mCurrentView, CWndAlignment::eAlign_WidthHeight));
+		static_cast<CFreeBusyView*>(mCurrentView)->SetRange(mFreeBusyRange);
+		static_cast<CFreeBusyView*>(mCurrentView)->SetScale(mFreeBusyScale);
+		break;
 	}
 	
 	// If we have a view initialise it and show it
@@ -475,6 +493,14 @@ void CCalendarView::ShowToDo(bool show)
 		if (mToolbar != NULL)
 			mToolbar->UpdateToolbarState();
 	}
+}
+
+void CCalendarView::ResetFont(CFont* font)
+{
+	if (mCurrentView != NULL)
+		mCurrentView->ResetFont(font);
+	if (mToDoView != NULL)
+		mToDoView->ResetFont(font);
 }
 
 void CCalendarView::ResetState(bool force)

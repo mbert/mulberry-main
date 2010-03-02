@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,9 +20,9 @@
 //#define USE_CMS
 #endif
 
-#if __dest_os == __win32_os
-#define USE_CMS
-#endif
+//#if __dest_os == __win32_os
+//#define USE_CMS
+//#endif
 
 #include <openssl/asn1.h>
 #include <openssl/bio.h>
@@ -31,8 +31,10 @@
 #endif
 #include <openssl/crypto.h>
 #include <openssl/err.h>
+#include <openssl/md5.h>
 #include <openssl/objects.h>
 #include <openssl/pkcs12.h>
+#include <openssl/rc4.h>
 #include <openssl/stack.h>
 #include <openssl/x509.h>
 #include <openssl/x509v3.h>
@@ -206,6 +208,15 @@ IMPORT_FUNCTION(sSSLLoader, int, i2d_PKCS7_bio, (BIO *bp,PKCS7 *p7), (bp, p7))
 //int i2d_CMS_bio(BIO *bp,CMS *p7);
 IMPORT_FUNCTION(sSSLLoader, int, i2d_CMS_bio, (BIO *bp,CMS *p7), (bp, p7))
 #endif
+
+//unsigned char *MD5(const unsigned char *d, size_t n, unsigned char *md);
+IMPORT_FUNCTION(sSSLLoader, unsigned char *, MD5, (const unsigned char *d, size_t n, unsigned char *md), (d, n, md))
+
+//void RC4_set_key(RC4_KEY *key, int len, const unsigned char *data);
+IMPORT_FUNCTION_VOID(sSSLLoader, void, RC4_set_key, (RC4_KEY *key, int len, const unsigned char *data), (key, len, data))
+
+//void RC4(RC4_KEY *key, unsigned long len, const unsigned char *indata, unsigned char *outdata);
+IMPORT_FUNCTION_VOID(sSSLLoader, void, RC4, (RC4_KEY *key, unsigned long len, const unsigned char *indata, unsigned char *outdata), (key, len, indata, outdata))
 
 //int	OBJ_obj2txt(char *buf, int buf_len, const ASN1_OBJECT *a, int no_name);
 IMPORT_FUNCTION(sSSLLoader, int, OBJ_obj2txt, (char *buf, int buf_len, const ASN1_OBJECT *a, int no_name), (buf, buf_len, a, no_name))

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -46,12 +46,12 @@
 #include "CFileOptionsMap.h"
 #include "CFindReplaceWindow.h"
 #include "CFontCache.h"
+#include "CGetPassphraseDialog.h"
 #include "CGetStringDialog.h"
 #include "CIMAPClient.h"
 #include "CINETAccount.h"
 #include "CLetterDoc.h"
 #include "CLetterWindow.h"
-#include "CLocalAddressBook.h"
 #include "CMacroEditDialog.h"
 #include "CMailAccountManager.h"
 #include "CMailboxWindow.h"
@@ -62,6 +62,7 @@
 #include "CMulberryWindow.h"
 #include "COptionsMap.h"
 #include "COptionsProtocol.h"
+#include "CPasswordManagerKeyring.h"
 #include "CPeriodicCheck.h"
 #include "CPluginManager.h"
 #include "CPreferences.h"
@@ -460,6 +461,7 @@ CDocument* CMulberryApp::OpenDocumentFile(LPCTSTR lpszFileName)
 			return NULL;
 		}
 
+#if 0
 		// Check for address book file
 		else if (fname.compare_end(".mba", true))
 		{
@@ -515,6 +517,8 @@ CDocument* CMulberryApp::OpenDocumentFile(LPCTSTR lpszFileName)
 			
 			return (adbk ? CAddressBookWindow::FindWindow(adbk)->GetDocument() : NULL);
 		}
+#endif
+
 		// Check for draft file
 		else if (fname.compare_end(".mbd", true))
 		{
@@ -1162,6 +1166,18 @@ void CMulberryApp::OpenUp(bool first_time)
 		if (CErrorHandler::PutCautionAlertRsrc(true, "Alerts::General::LoggingInsecure") == CErrorHandler::Cancel)
 			CLog::DisableActiveLogs();
 	}
+
+	// Do keyring load
+	CPasswordManagerKeyring::MakePasswordManagerKeyring();
+	if (CPasswordManagerKeyring::GetKeyRingManager()->KeyringExists())
+	{
+		// Ask for real name
+		cdstring passphrase;
+		if (CGetPassphraseDialog::PoseDialog(passphrase, "Alerts::General::GetPassphrase_Title"))
+		{
+			CPasswordManagerKeyring::GetKeyRingManager()->SetPassphrase(passphrase);
+		}
+	}
 }
 
 // Terminate
@@ -1579,9 +1595,7 @@ void CMulberryApp::OnAppAddressBookManager()
 void CMulberryApp::OnAppNewAddressBook()
 {
 	// Do local open if only local address books
-	if (CAddressBookManager::sAddressBookManager->GetProtocolList().empty())
-		OnAppNewLocalAddressBook();
-	else if (CPreferences::sPrefs->mUse3Pane.GetValue())
+	if (CPreferences::sPrefs->mUse3Pane.GetValue())
 	{
 		// Show three pane window and force to contacts tab
 		if (C3PaneWindow::s3PaneWindow)
@@ -1590,41 +1604,17 @@ void CMulberryApp::OnAppNewAddressBook()
 			C3PaneWindow::s3PaneWindow->SetViewType(N3Pane::eView_Contacts);
 		}
 	}
-	else if (CPreferences::sPrefs->mUse3Pane.GetValue())
+	else
 	{
 		// Show address book manager
 		CAdbkManagerWindow::CreateAdbkManagerWindow();
-	}
-}
-
-void CMulberryApp::OnAppNewLocalAddressBook()
-{
-	CLocalAddressBook* adbk = NULL;
-	try
-	{
-		// Create address book
-		adbk = new CLocalAddressBook(NULL);
-		
-		// New it
-		adbk->New();
-	}
-	catch (...)
-	{
-		CLOG_LOGCATCH(...);
-
-		// Remove from manager
-		if (adbk)
-			adbk->Close();
-		delete adbk;
 	}
 }
 
 void CMulberryApp::OnAppOpenAddressBook()
 {
 	// Do local open if only local address books
-	if (CAddressBookManager::sAddressBookManager->GetProtocolList().empty())
-		OnAppOpenLocalAddressBook();
-	else if (CPreferences::sPrefs->mUse3Pane.GetValue())
+	if (CPreferences::sPrefs->mUse3Pane.GetValue())
 	{
 		// Show three pane window and force to contacts tab
 		if (C3PaneWindow::s3PaneWindow)
@@ -1633,22 +1623,11 @@ void CMulberryApp::OnAppOpenAddressBook()
 			C3PaneWindow::s3PaneWindow->SetViewType(N3Pane::eView_Contacts);
 		}
 	}
-	else if (CPreferences::sPrefs->mUse3Pane.GetValue())
+	else
 	{
 		// Show address book manager
 		CAdbkManagerWindow::CreateAdbkManagerWindow();
 	}
-}
-
-void CMulberryApp::OnAppOpenLocalAddressBook()
-{
-	// prompt the user (with all document templates)
-	CString newName;
-	if (!DoPromptFileName(newName, AFX_IDS_OPENFILE,
-	  OFN_HIDEREADONLY | OFN_FILEMUSTEXIST, TRUE, CAddressBookWindow::sAddressBookDocTemplate))
-		return; // open cancelled
-
-	OpenDocumentFile(newName);
 }
 
 void CMulberryApp::OnAppAddrImportExport(UINT nID)
@@ -2111,13 +2090,12 @@ void CMulberryApp::StartAddressBooks()
 		new CAddressBookManager;
 
 		// Force manager to update all accounts
-		CAddressBookManager::sAddressBookManager->StartLocal();
-		CAddressBookManager::sAddressBookManager->SyncAccounts(CPreferences::sPrefs->mAddressAccounts.GetValue());
+		CAddressBookManager::sAddressBookManager->SyncAccounts();
 	}
 	else
 	{
 		// Force manager to update all accounts
-		CAddressBookManager::sAddressBookManager->SyncAccounts(CPreferences::sPrefs->mAddressAccounts.GetValue());
+		CAddressBookManager::sAddressBookManager->SyncAccounts();
 	}
 }
 
@@ -2411,7 +2389,7 @@ bool CMulberryApp::DoPreferences()
 
 		// Sync address books
 		if (!stopped_adbk && CAddressBookManager::sAddressBookManager)
-			CAddressBookManager::sAddressBookManager->SyncAccounts(CPreferences::sPrefs->mAddressAccounts.GetValue());
+			CAddressBookManager::sAddressBookManager->SyncAccounts();
 
 		// Sync calendars
 		if (!stopped_cal && calstore::CCalendarStoreManager::sCalendarStoreManager)

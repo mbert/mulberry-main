@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -68,6 +68,7 @@ protected:
 	bool				mFromEnabled;
 	bool				mReplyToEnabled;
 	bool				mSenderEnabled;
+	bool				mCalendarEnabled;
 
 	virtual void	InitServerPopup(const CPreferences* prefs);
 	virtual void	InitInheritPopup(const CPreferences* prefs, const CIdentity* identity);

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -237,7 +237,7 @@ bool CMailboxTable::TestSelectionIgnore(TestSelectionIgnorePP proc, bool and_it)
 	{
 		if (CellIsSelected(aCell))
 		{
-			pair<bool, bool> result = (this->*proc)(aCell.row);
+			std::pair<bool, bool> result = (this->*proc)(aCell.row);
 			if (result.second)
 				test = (and_it ? (result.first && test) : (result.first || test));
 		}
@@ -265,7 +265,7 @@ bool CMailboxTable::TestSelectionIgnore1(TestSelectionIgnore1PP proc, NMessage::
 	{
 		if (CellIsSelected(aCell))
 		{
-			pair<bool, bool> result = (this->*proc)(aCell.row, flag);
+			std::pair<bool, bool> result = (this->*proc)(aCell.row, flag);
 			if (result.second)
 				test = (and_it ? (result.first && test) : (result.first || test));
 		}
@@ -1190,7 +1190,7 @@ void CMailboxTable::DrawMessage(CDC* pDC, const CMessage* aMsg, const STableCell
 				}
 
 				// Indent
-				unsigned long text_offset = min((unsigned long)(inLocalRect.Width() - 32), 16 * depth);
+				unsigned long text_offset = std::min((unsigned long)(inLocalRect.Width() - 32), 16 * depth);
 				x += text_offset;
 			}
 			break;

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -84,7 +84,7 @@ const CIconRef* CDesktopIcons::GetDesktopIcons(const cdstring& ext)
 	if (result == NULL)
 	{
 		// Create new icon ref
-		auto_ptr<CIconRef> icons(new CIconRef(ext));
+		std::auto_ptr<CIconRef> icons(new CIconRef(ext));
 		
 		// Try to load items and add to cache if successful
 		if (icons->GetIconRef() != NULL)
@@ -117,7 +117,7 @@ const CIconRef* CDesktopIcons::GetDesktopIconsFromMIME(const cdstring& type, con
 	if (result == NULL)
 	{
 		// Create new icon ref
-		auto_ptr<CIconRef> icons(new CIconRef);
+		std::auto_ptr<CIconRef> icons(new CIconRef);
 		icons->LoadIcons(type, subtype);
 		
 		// Try to load items and add to cache if successful

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -88,7 +88,7 @@ void CFormattedTextDisplay::WipeText(CFont* pFont, long scale)
 		GetRichEditCtrl().GetDefaultCharFormat(format);
 
 		// Scale the current size by the amount we want
-		format.yHeight = max(1.0, pow(1.2, scale) * format.yHeight);
+		format.yHeight = std::max(1.0, pow(1.2, scale) * format.yHeight);
 
 		// Now do size change for default
 		GetRichEditCtrl().SetSel(0, -1);

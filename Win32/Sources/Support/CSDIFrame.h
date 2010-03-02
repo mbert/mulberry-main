@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -79,12 +79,12 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 private:
-	static vector<CWnd*> sModalWnd;
+	static std::vector<CWnd*> sModalWnd;
 	static CWnd* sTaskbarParent;
 	static int sTaskbarCount;
 	static HMENU sWindowsMenu;
-	static vector<CWnd*> sWindowList;
-	static vector<CWnd*> sWindowZList;
+	static std::vector<CWnd*> sWindowList;
+	static std::vector<CWnd*> sWindowZList;
 	static bool sWindowZListActive;
 	static CWnd* sTopWindow;
 	bool mOnce;

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,8 +23,8 @@
 #include "CMulberryApp.h"
 #include "CNewComponentAlarm.h"
 #include "CNewComponentAttendees.h"
-#include "CNewComponentDescription.h"
-#include "CNewComponentTiming.h"
+#include "CNewComponentDetails.h"
+#include "CNewComponentRepeat.h"
 #include "CPreferences.h"
 #include "CSDIFrame.h"
 #include "CUnicodeUtils.h"
@@ -34,20 +34,15 @@
 #include "CCalendarStoreNode.h"
 #include "CITIPProcessor.h"
 
-uint32_t CNewEventDialog::sTitleCounter = 0;
-set<CNewEventDialog*> CNewEventDialog::sDialogs;
-
 // ---------------------------------------------------------------------------
 //	CNewEventDialog														  [public]
 /**
 	Default constructor */
 
 CNewEventDialog::CNewEventDialog() :
-	CModelessDialog(),
+	CNewComponentDialog(),
 	mStatus(true)	
 {
-	mReadOnly = false;
-	sDialogs.insert(this);
 }
 
 
@@ -58,7 +53,6 @@ CNewEventDialog::CNewEventDialog() :
 
 CNewEventDialog::~CNewEventDialog()
 {
-	sDialogs.erase(this);
 }
 
 #pragma mark -
@@ -74,47 +68,23 @@ END_MESSAGE_MAP()
 
 BOOL CNewEventDialog::OnInitDialog()
 {
-	CModelessDialog::OnInitDialog();
+	CNewComponentDialog::OnInitDialog();
 
 	// Get UI items
-	mSummary.SubclassDlgItem(IDC_CALENDAR_NEWEVENT_SUMMARY, this);
-	mSummary.SetAnyCmd(true);
-
-	mCalendar.SubclassDlgItem(IDC_CALENDAR_NEWEVENT_CALENDARPOPUP, this);
 	mStatus.SubclassDlgItem(IDC_CALENDAR_NEWEVENT_STATUS, this, IDI_POPUPBTN, 0, 0, 0, true, false);
 	mStatus.SetMenu(IDR_NEWEVENT_STATUS_POPUP);
-
-	mTabs.SubclassDlgItem(IDC_CALENDAR_NEWEVENT_TABS, this);
-	
-	mOrganiserEdit.SubclassDlgItem(IDC_CALENDAR_NEWEVENT_ORGANISEREDIT, this);
-	
-	// Init controls
-	InitPanels();
-	mTabs.SetPanel(0);
+	mAvailability.SubclassDlgItem(IDC_CALENDAR_NEWEVENT_AVAILABILITY, this);
 
 	return true;
-}
-
-void CNewEventDialog::ListenTo_Message(long msg, void* param)
-{
-	switch(msg)
-	{
-	case iCal::CICalendar::eBroadcast_Closed:
-		// Force dialog to close immediately as event is about to be deleted.
-		// Any changes so far will be lost.
-		OnCancel();
-		break;
-	default:;
-	}
 }
 
 void CNewEventDialog::InitPanels()
 {
 	// Load each panel for the tabs
-	mPanels.push_back(new CNewComponentTiming);
+	mPanels.push_back(new CNewComponentDetails);
 	mTabs.AddPanel(mPanels.back());
 
-	mPanels.push_back(new CNewComponentDescription);
+	mPanels.push_back(new CNewComponentRepeat);
 	mTabs.AddPanel(mPanels.back());
 
 	mPanels.push_back(new CNewComponentAlarm);
@@ -124,142 +94,37 @@ void CNewEventDialog::InitPanels()
 	mTabs.AddPanel(mPanels.back());
 }
 
-void CNewEventDialog::OnChangeSummary()
+void CNewEventDialog::SetComponent(iCal::CICalendarComponentRecur& vcomponent, const iCal::CICalendarComponentExpanded* expanded)
 {
-	ChangedSummary();
+	CNewComponentDialog::SetComponent(vcomponent, expanded);
+
+	mStatus.SetValue(static_cast<iCal::CICalendarVEvent&>(vcomponent).GetStatus() + IDM_NEWEVENT_STATUS_NONE);
+
+	mAvailability.SetCheck(vcomponent.GetTransparent());
 }
 
-void CNewEventDialog::OnChangeCalendar()
+void CNewEventDialog::GetComponent(iCal::CICalendarComponentRecur& vcomponent)
 {
-	ChangedCalendar();
-}
-
-void CNewEventDialog::OnSelChangeTabs(NMHDR* pNMHDR, LRESULT* pResult)
-{
-	// TODO: Add your control notification handler code here
-	mTabs.SetPanel(mTabs.GetCurSel());
-
-	*pResult = 0;
-}
-
-bool CNewEventDialog::ContainsEvent(const iCal::CICalendarVEvent& vevent) const
-{
-	// Does this dialog contain a copy of this event
-	return vevent.GetMapKey() == mVEvent->GetMapKey();
-}
-
-void CNewEventDialog::SetEvent(iCal::CICalendarVEvent& vevent)
-{
-	// Listen to original calendar as we need to cancel if calendar goes away
-	iCal::CICalendarRef calref = vevent.GetCalendar();
-	iCal::CICalendar* cal = iCal::CICalendar::GetICalendar(calref);
-	if (cal)
-		cal->Add_Listener(this);
+	CNewComponentDialog::GetComponent(vcomponent);
 	
-	mVEvent = &vevent;
-
-	// Set the relevant fields
-	
-	mSummary.SetText(vevent.GetSummary());
-
-	mCalendar.SetCalendar(vevent.GetCalendar());
-	ChangedCalendar();
-
-	mStatus.SetValue(vevent.GetStatus() + IDM_NEWEVENT_STATUS_NONE);
-
-	// Set in each panel
-	for(CNewComponentPanelList::iterator iter = mPanels.begin(); iter != mPanels.end(); iter++)
-	{
-		(*iter)->SetEvent(vevent);
-	}
-	
-	// Set title to summary if not empty
-	if (!vevent.GetSummary().empty())
-	{
-		CUnicodeUtils::SetWindowTextUTF8(this, vevent.GetSummary());
-	}
-
-	// Determine read-only status based on organiser
-	SetReadOnly((vevent.CountProperty(iCal::cICalProperty_ORGANIZER) != 0) && !iCal::CITIPProcessor::OrganiserIsMe(vevent));
-	mOrganiserEdit.ShowWindow(mReadOnly ? SW_SHOW : SW_HIDE);
-}
-
-void CNewEventDialog::GetEvent(iCal::CICalendarVEvent& vevent)
-{
-	// Do descriptive items
-	vevent.EditSummary(mSummary.GetText());
-	
-	vevent.EditStatus(static_cast<iCal::EStatus_VEvent>(mStatus.GetValue() - IDM_NEWEVENT_STATUS_NONE));
-
-	// Get from each panel
-	for(CNewComponentPanelList::iterator iter = mPanels.begin(); iter != mPanels.end(); iter++)
-	{
-		(*iter)->GetEvent(vevent);
-	}
-}
-
-void CNewEventDialog::ChangedSummary()
-{
-	CUnicodeUtils::SetWindowTextUTF8(*this, mSummary.GetText());
-}
-
-void CNewEventDialog::ChangedCalendar()
-{
-	iCal::CICalendarRef newcal;
-	mCalendar.GetCalendar(newcal);
-	iCal::CICalendar* cal = iCal::CICalendar::GetICalendar(newcal);
-	GetDlgItem(IDOK)->EnableWindow(!mReadOnly && (cal != NULL) && (!cal->IsReadOnly()));
+	static_cast<iCal::CICalendarVEvent&>(vcomponent).EditStatus(static_cast<iCal::EStatus_VEvent>(mStatus.GetValue() - IDM_NEWEVENT_STATUS_NONE));
+	vcomponent.EditTransparent(mAvailability.GetCheck());
 }
 
 void CNewEventDialog::SetReadOnly(bool read_only)
 {
-	mReadOnly = read_only;
+	CNewComponentDialog::SetReadOnly(read_only);
 
-	// This will reset state of OK button
-	ChangedCalendar();
-
-	mSummary.SetReadOnly(mReadOnly);
-	mCalendar.EnableWindow(!mReadOnly);
 	mStatus.EnableWindow(!mReadOnly);
-
-	// Set in each panel
-	for(CNewComponentPanelList::iterator iter = mPanels.begin(); iter != mPanels.end(); iter++)
-	{
-		(*iter)->SetReadOnly(mReadOnly);
-	}
+	mAvailability.EnableWindow(!mReadOnly);
 }
 
-cdstring CNewEventDialog::GetCurrentSummary() const
+void CNewEventDialog::ChangedMyStatus(const iCal::CICalendarProperty& attendee, const cdstring& new_status)
 {
-	return mSummary.GetText();
-}
+	static_cast<CNewComponentAttendees*>(mPanels.back())->ChangedMyStatus(attendee, new_status);
 
-void CNewEventDialog::OnOK()
-{
-	bool result = true;
-	switch(mAction)
-	{
-	case eNew:
-	case eDuplicate:
-		result = DoNewOK();
-		break;
-	case eEdit:
-		result = DoEditOK();
-		break;
-	default:;
-	}
-	
-	// Now do inherited if result was OK
-	if (result)
-		CModelessDialog::OnOK();
-}
-
-void CNewEventDialog::OnCancel()
-{
-	DoCancel();
-	
-	// Now do inherited
-	CModelessDialog::OnCancel();
+	// Handle TRANSP
+	mAvailability.SetCheck(new_status == iCal::cICalAttribute_PARTSTAT_DECLINED);
 }
 
 void CNewEventDialog::OnOrganiserEdit()
@@ -277,13 +142,13 @@ bool CNewEventDialog::DoNewOK()
 		return false;
 
 	// Get updated info
-	GetEvent(*mVEvent);
+	GetComponent(*mComponent);
 	
 	// Look for change to calendar
-	if (newcal != mVEvent->GetCalendar())
+	if (newcal != mComponent->GetCalendar())
 	{
 		// Use new calendar
-		mVEvent->SetCalendar(newcal);
+		mComponent->SetCalendar(newcal);
 		
 		// Set the default calendar for next time
 		const calstore::CCalendarStoreNode* node = calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(new_cal);
@@ -292,8 +157,8 @@ bool CNewEventDialog::DoNewOK()
 	}
 
 	// Add to calendar (this will do the display update)
-	new_cal->AddNewVEvent(mVEvent);
-	CCalendarView::EventChangedAll(mVEvent);
+	new_cal->AddNewVEvent(static_cast<iCal::CICalendarVEvent*>(mComponent));
+	CCalendarView::EventChangedAll(static_cast<iCal::CICalendarVEvent*>(mComponent));
 	
 	return true;
 }
@@ -301,7 +166,7 @@ bool CNewEventDialog::DoNewOK()
 bool CNewEventDialog::DoEditOK()
 {
 	// Find the original calendar if it still exists
-	iCal::CICalendarRef oldcal = mVEvent->GetCalendar();
+	iCal::CICalendarRef oldcal = mComponent->GetCalendar();
 	iCal::CICalendar* old_cal = iCal::CICalendar::GetICalendar(oldcal);
 	if (old_cal == NULL)
 	{
@@ -315,7 +180,7 @@ bool CNewEventDialog::DoEditOK()
 	}
 	
 	// Find the original event if it still exists
-	iCal::CICalendarVEvent*	original = static_cast<iCal::CICalendarVEvent*>(old_cal->FindComponent(mVEvent));
+	iCal::CICalendarVEvent*	original = static_cast<iCal::CICalendarVEvent*>(old_cal->FindComponent(mComponent));
 	if (original == NULL)
 	{
 		// Inform user of missing calendar
@@ -333,24 +198,125 @@ bool CNewEventDialog::DoEditOK()
 		// Return to dialog
 		return false;
 
-	// Get updated info into original event
-	GetEvent(*original);
-	
-	// Do calendar change
-	if (new_cal != NULL)
+	if (mRecurring)
 	{
-		// Remove from old calendar (without deleting)
-		old_cal->RemoveVEvent(original, false);
-		
-		// Add to new calendar (without initialising)
-		original->SetCalendar(newcal);
-		new_cal->AddNewVEvent(original, true);
-	}
-	
-	// Tell it it has changed (i.e. bump sequence, dirty calendar)
-	original->Changed();
+		CErrorDialog::EDialogResult result = CErrorDialog::PoseDialog(CErrorDialog::eErrDialog_Caution,
+																	  "ErrorDialog::Btn::ChangeAllEvents",
+																	  "ErrorDialog::Btn::ChangeThisEvent",
+																	  "ErrorDialog::Btn::ChangeThisFutureEvent",
+																	  "ErrorDialog::Btn::Cancel",
+																	  "ErrorDialog::Text::ChangeRecurEvent", 4);
 
-	CCalendarView::EventChangedAll(mVEvent);
+		// Cancel
+		if (result == CErrorDialog::eBtn4)
+			return false;
+
+		// All Events
+		if (result == CErrorDialog::eBtn1)
+		{
+			// Change the master and all overrides
+			if (mIsOverride)
+			{
+			}
+			else
+			{
+				// Get updated info into original event
+				GetComponent(*original);
+
+				// Do calendar change
+				if (new_cal != NULL)
+				{
+					// Remove from old calendar (without deleting)
+					old_cal->RemoveVEvent(original, false);
+
+					// Add to new calendar (without initialising)
+					original->SetCalendar(newcal);
+					new_cal->AddNewVEvent(original, true);
+				}
+
+				// Tell it it has changed (i.e. bump sequence, dirty calendar)
+				original->Changed();
+
+				CCalendarView::EventChangedAll(dynamic_cast<iCal::CICalendarVEvent*>(mComponent));
+			}
+		}
+
+		// This event
+		else if (result == CErrorDialog::eBtn2)
+		{
+			// If override, just change it
+			if (mIsOverride)
+			{
+				// Get updated info into original event
+				GetComponent(*original);
+
+				// Do calendar change
+				if (new_cal != NULL)
+				{
+					// Remove from old calendar (without deleting)
+					old_cal->RemoveVEvent(original, false);
+
+					// Add to new calendar (without initialising)
+					original->SetCalendar(newcal);
+					new_cal->AddNewVEvent(original, true);
+				}
+
+				// Tell it it has changed (i.e. bump sequence, dirty calendar)
+				original->Changed();
+
+				CCalendarView::EventChangedAll(dynamic_cast<iCal::CICalendarVEvent*>(mComponent));
+			}
+			else
+			{
+				// Need to create an override for this instance. Use original instance start as RECURRENCE-ID
+				iCal::CICalendarVEvent* new_override = new iCal::CICalendarVEvent(*original);
+				iCal::CICalendarProperty rid(iCal::cICalProperty_RECURRENCE_ID, mExpanded->GetInstanceStart());
+				new_override->AddProperty(rid);
+
+				// Get updated info into new override event
+				GetComponent(*new_override);
+
+				// Strip recurrence properties
+				new_override->RemoveProperties(iCal::cICalProperty_RRULE);
+				new_override->RemoveProperties(iCal::cICalProperty_RDATE);
+				new_override->RemoveProperties(iCal::cICalProperty_EXRULE);
+				new_override->RemoveProperties(iCal::cICalProperty_EXDATE);
+
+				new_override->InitDTSTAMP();
+				new_override->Finalise();
+
+				// Add to calendar (this will do the display update)
+				(new_cal != NULL ? new_cal : old_cal)->AddNewVEvent(static_cast<iCal::CICalendarVEvent*>(new_override), true);
+				CCalendarView::EventChangedAll(static_cast<iCal::CICalendarVEvent*>(new_override));
+			}
+		}
+
+		// Future events
+		else if (result == CErrorDialog::eBtn3)
+		{
+		}
+	}
+	else
+	{
+		// Get updated info into original event
+		GetComponent(*original);
+
+		// Do calendar change
+		if (new_cal != NULL)
+		{
+			// Remove from old calendar (without deleting)
+			old_cal->RemoveVEvent(original, false);
+
+			// Add to new calendar (without initialising)
+			original->SetCalendar(newcal);
+			new_cal->AddNewVEvent(original, true);
+		}
+		
+		// Tell it it has changed (i.e. bump sequence, dirty calendar)
+		original->Changed();
+
+		CCalendarView::EventChangedAll(dynamic_cast<iCal::CICalendarVEvent*>(mComponent));
+	}
 	
 	return true;
 }
@@ -358,29 +324,8 @@ bool CNewEventDialog::DoEditOK()
 void CNewEventDialog::DoCancel()
 {
 	// Delete the event which we own and is not going to be used
-	delete mVEvent;
-	mVEvent = NULL;
-}
-
-bool CNewEventDialog::GetCalendar(iCal::CICalendarRef oldcal, iCal::CICalendarRef& newcal, iCal::CICalendar*& new_cal)
-{
-	mCalendar.GetCalendar(newcal);
-	if ((oldcal == 0) || (newcal != oldcal))
-	{
-		new_cal = iCal::CICalendar::GetICalendar(newcal);
-		if (new_cal == NULL)
-		{
-			// Inform user of missing calendar
-			CErrorDialog::StopAlert(rsrc::GetString("CNewEventDialog::MissingNewCalendar"));
-			
-			// Force calendar popup reset and return to dialog
-			mCalendar.Reset();
-			mCalendar.SetCalendar(oldcal);
-			return false;
-		}
-	}
-	
-	return true;
+	delete mComponent;
+	mComponent = NULL;
 }
 
 void CNewEventDialog::StartNew(const iCal::CICalendarDateTime& dtstart, const iCal::CICalendar* calin)
@@ -402,7 +347,7 @@ void CNewEventDialog::StartNew(const iCal::CICalendarDateTime& dtstart, const iC
 	}
 
 	// Start with an empty new event
-	auto_ptr<iCal::CICalendarVEvent> vevent(static_cast<iCal::CICalendarVEvent*>(iCal::CICalendarVEvent::Create(cal->GetRef())));
+	std::auto_ptr<iCal::CICalendarVEvent> vevent(static_cast<iCal::CICalendarVEvent*>(iCal::CICalendarVEvent::Create(cal->GetRef())));
 	
 	// Duration is one hour
 	iCal::CICalendarDuration duration(60 * 60);
@@ -410,15 +355,15 @@ void CNewEventDialog::StartNew(const iCal::CICalendarDateTime& dtstart, const iC
 	// Set event with initial timing
 	vevent->EditTiming(dtstart, duration);
 
-	StartModeless(*vevent.release(), CNewEventDialog::eNew);
+	StartModeless(*vevent.release(), NULL, CNewEventDialog::eNew);
 }
 
-void CNewEventDialog::StartEdit(const iCal::CICalendarVEvent& original)
+void CNewEventDialog::StartEdit(const iCal::CICalendarVEvent& original, const iCal::CICalendarComponentExpanded* expanded)
 {
 	// Look for an existinf dialog for this event
-	for(set<CNewEventDialog*>::const_iterator iter = sDialogs.begin(); iter != sDialogs.end(); iter++)
+	for(std::set<CNewComponentDialog*>::const_iterator iter = sDialogs.begin(); iter != sDialogs.end(); iter++)
 	{
-		if ((*iter)->ContainsEvent(original))
+		if ((*iter)->ContainsComponent(original))
 		{
 			FRAMEWORK_WINDOW_TO_TOP(*iter)
 			return;
@@ -428,7 +373,7 @@ void CNewEventDialog::StartEdit(const iCal::CICalendarVEvent& original)
 	// Use a copy of the event
 	iCal::CICalendarVEvent* vevent = new iCal::CICalendarVEvent(original);
 	
-	StartModeless(*vevent, CNewEventDialog::eEdit);
+	StartModeless(*vevent, expanded, CNewEventDialog::eEdit);
 }
 
 void CNewEventDialog::StartDuplicate(const iCal::CICalendarVEvent& original)
@@ -437,14 +382,14 @@ void CNewEventDialog::StartDuplicate(const iCal::CICalendarVEvent& original)
 	iCal::CICalendarVEvent* vevent = new iCal::CICalendarVEvent(original);
 	vevent->Duplicated();
 	
-	StartModeless(*vevent, CNewEventDialog::eDuplicate);
+	StartModeless(*vevent, NULL, CNewEventDialog::eDuplicate);
 }
 
-void CNewEventDialog::StartModeless(iCal::CICalendarVEvent& vevent, EModelessAction action)
+void CNewEventDialog::StartModeless(iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded, EModelessAction action)
 {
 	CNewEventDialog* dlog = new CNewEventDialog;
 	dlog->Create(IDD_CALENDAR_NEWEVENT, CSDIFrame::GetAppTopWindow());
 	dlog->SetAction(action);
-	dlog->SetEvent(vevent);
+	dlog->SetComponent(vevent, expanded);
 	dlog->ShowWindow(SW_SHOW);
 }

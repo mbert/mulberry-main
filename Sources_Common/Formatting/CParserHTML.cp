@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@
 #include "CStringUtils.h"
 #include "CUTF8.h"
 
+#include <math.h>
 #include <memory>
 #include <strstream>
 
@@ -922,7 +923,7 @@ void CParserHTML::HandleFont(long start, long stop, unichar_t* param)
 	if ((start < stop) && !sizeStr.empty())
 	{
 		long amount = ::uniatol(sizeStr);
-		if (sizeStr[0UL] == '+' || sizeStr[0UL] == '-')
+		if (sizeStr[(cdstring::size_type)0] == '+' || sizeStr[(cdstring::size_type)0] == '-')
 			amount += mBaseFontSize;
 
 		if (amount > 7)
@@ -1025,7 +1026,7 @@ void CParserHTML::HandleAnchor(long start, long stop, unichar_t* param)
 			return;
 
 		// Allow URLs without schemes provided they are local
-		if (mClickList && !location.empty() && (!scheme.empty() || location[0UL] == '#'))
+		if (mClickList && !location.empty() && (!scheme.empty() || location[(cdstring::size_type)0] == '#'))
 		{
 			// Create click element
 			cdstring scheme_utf8 = scheme.ToUTF8();
@@ -1239,7 +1240,7 @@ bool CParserHTML::ParseURL(unichar_t* param, cdustring &outScheme, cdustring &ou
 			ConvertAmpChar(outLocation);
 
 			// Look for relative URL
-			if (!outLocation.empty() && (outLocation[0UL] != '/'))
+			if (!outLocation.empty() && (outLocation[(cdstring::size_type)0] != '/'))
 			{
 				// Short circuit the common ones
 				if (!::unistrncmpnocase(outScheme, "http:", 5) ||

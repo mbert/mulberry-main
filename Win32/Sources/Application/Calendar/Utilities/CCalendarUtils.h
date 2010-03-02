@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -70,9 +70,19 @@ namespace CCalendarUtils
 			blue = 0.0;
 	}
 
+	void LightenColours(double& red, double& green, double& blue, bool lighter = false);
+	void DarkenColours(double& red, double& green, double& blue);
+	void RGB2HSV(const double& r, const double& g, const double& b, double& h, double& s, double& v);
+	void HSV2RGB(const double& h, const double& s, const double& v, double& r, double& g, double& b);
+
 	inline COLORREF	GetWinColor(const uint32_t& colour)
 	{
 		COLORREF col = RGB((colour & 0x00FF0000) >> 16, (colour & 0x0000FF00) >> 8, colour & 0x000000FF);
+		return col;
+	}
+	inline COLORREF	GetWinGreyColor(double grey)
+	{
+		COLORREF col = RGB((short) (255.0 * grey), (short) (255.0 * grey), (short) (255.0 * grey));
 		return col;
 	}
 	inline COLORREF	GetWinColor(double red, double green, double blue)

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -323,9 +323,9 @@ bool CIdentity::SetInfo(char_stream& txt, NumVersion vers_prefs)
 		// Special hack: ':' prefix means inherit from default
 		cdstring acct;
 		txt.get(acct, true);
-		if (acct[0UL] == ':')
+		if (acct[(cdstring::size_type)0] == ':')
 		{
-			mSMTPAccount.first = &acct[1UL];
+			mSMTPAccount.first = &acct[(cdstring::size_type)1];
 			mSMTPAccount.second = false;
 		}
 		else

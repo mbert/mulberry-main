@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@
 #include "CHierarchyTableDrag.h"
 #include "CListener.h"
 
+#include "CCalendarStoreFreeBusy.h"
 #include "CCalendarStoreNode.h"
 #include "CWindowStatesFwd.h"
 
@@ -72,7 +73,7 @@ public:
 protected:
 	CCalendarStoreView*						mTableView;
 	bool									mListChanging;			// In the process of changing the list
-	vector<calstore::CCalendarStoreNode*>	mData;					// data
+	std::vector<calstore::CCalendarStoreNode*>	mData;					// data
 
 	virtual	bool	HandleKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);						// Handle key down
 	virtual void	LClickCell(const STableCell& inCell, UINT nFlags);							// Clicked item
@@ -84,10 +85,11 @@ protected:
 									calstore::CCalendarProtocol* proto);			// Get appropriate icon id
 	void	SetTextStyle(CDC* pDC, const calstore::CCalendarStoreNode* node,
 							calstore::CCalendarProtocol* proto, bool& strike);					// Get appropriate text style
-	bool 	UsesBackgroundColor(TableIndexT row) const;
-	COLORREF GetBackgroundColor(TableIndexT row) const;
+	bool 	UsesBackgroundColor(const calstore::CCalendarStoreNode* node) const;
+	COLORREF GetBackgroundColor(const calstore::CCalendarStoreNode* node) const;
 
-	afx_msg void		OnUpdateSelectionCalendar(CCmdUI* pCmdUI);
+	afx_msg void		OnUpdateSelectionCalendarStoreNode(CCmdUI* pCmdUI);
+	afx_msg void		OnUpdateSelectionCanChangeCalendar(CCmdUI* pCmdUI);
 
 	virtual void	DoSelectionChanged(void);
 
@@ -124,10 +126,16 @@ protected:
 	afx_msg void		OnRenameCalendar();
 			bool		RenameCalendar(TableIndexT row);
 	afx_msg void		OnDeleteCalendar();
+	afx_msg void		OnCheckCalendar();
+			bool		CheckCalendar(TableIndexT row);
+	afx_msg void		OnUpdateHierarchy(CCmdUI* pCmdUI);
+	afx_msg void		OnNewHierarchy();
+	afx_msg void		OnRenameHierarchy();
+	afx_msg void		OnDeleteHierarchy();
 	afx_msg void		OnUpdateRefreshList(CCmdUI* pCmdUI);
 	afx_msg void		OnRefreshList();
 	afx_msg void		OnFreeBusyCalendar();
-			bool		FreeBusyCalendar(TableIndexT row);
+			bool		FreeBusyCalendar(TableIndexT row, calstore::CCalendarStoreFreeBusyList* list);
 	afx_msg void		OnSendCalendar();
 			bool		SendCalendar(TableIndexT row);
 
@@ -157,10 +165,12 @@ protected:
 			void	RefreshSubList(calstore::CCalendarStoreNode* node);
 
 			bool	TestSelectionServer(TableIndexT row);					// Test for selected servers only
-			bool	TestSelectionCalendar(TableIndexT row);					// Test for selected calendars only
+			bool	TestSelectionCalendarStoreNode(TableIndexT row);		// Test for selected calendars only
+			bool	TestSelectionCanChangeCalendar(TableIndexT row);		// Test for selected calendars only
 			bool	TestSelectionRealCalendar(TableIndexT row);				// Test for selected real (not directory) calendars only
 			bool	TestSelectionWebCalendar(TableIndexT row);				// Test for selected web calendars only
 			bool	TestSelectionUploadWebCalendar(TableIndexT row);		// Test for selected uploadable web calendars only
+			bool	TestSelectionHierarchy(TableIndexT row);					// Test for selected calendars only
 
 	virtual BOOL	DoDrag(TableIndexT row);											// Prevent drag if improper selection
 	virtual void	SetDragFlavors(TableIndexT row);

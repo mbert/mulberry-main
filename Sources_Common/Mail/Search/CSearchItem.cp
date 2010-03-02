@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -770,7 +770,7 @@ cdstring CSearchItem::GenerateDate(bool expand_me) const
 		case eThisYear:
 			{
 				// Just write out numeric value
-				cdstring temp = date;
+				cdstring temp = (unsigned long)date;
 				return temp;
 			}
 		default:;
@@ -784,7 +784,7 @@ cdstring CSearchItem::GenerateDate(bool expand_me) const
 		case eWithinYears:
 			{
 				// Just write out numeric value
-				cdstring temp = date;
+				cdstring temp = (long)date;
 				return temp;
 			}
 		default:;

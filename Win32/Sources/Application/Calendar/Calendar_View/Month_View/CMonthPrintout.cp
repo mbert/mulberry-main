@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -113,7 +113,7 @@ void CMonthPrintout::SetDetails(const iCal::CICalendarDateTime& date, CCalendarV
 
 	// Now generate new month date table
 	iCal::CICalendarUtils::CICalendarTable monthDays;
-	pair<int32_t, int32_t> today_index;
+	std::pair<int32_t, int32_t> today_index;
 	iCal::CICalendarUtils::GetMonthTable(date.GetMonth(), date.GetYear(), CPreferences::sPrefs->mWeekStartDay.GetValue(), monthDays, today_index);
 	
 	// Reset table

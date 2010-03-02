@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -19,8 +19,8 @@
 
 #include "CNewAttendeeDialog.h"
 
-#include "CAddressList.h"
 #include "CAdminLock.h"
+#include "CCalendarAddress.h"
 #include "CMulberryApp.h"
 #include "CMulberryCommon.h"
 #include "CPreferences.h"
@@ -103,24 +103,22 @@ void CNewAttendeeDialog::SetDetails(const iCal::CICalendarProperty& prop)
 	if (value != NULL)
 	{
 		// Get email address
-		cdstring temp = value->GetValue();
-		if (temp.compare_start("mailto:"))
-		{
-			temp.erase(0, 7);
+		// Get email address
+		cdstring temp = "<";
+		temp += value->GetValue();
+		temp += ">";
 
-			// Get CN
-			if (prop.HasAttribute(iCal::cICalAttribute_CN))
+		// Get CN
+		if (prop.HasAttribute(iCal::cICalAttribute_CN))
+		{
+			cdstring cntxt = prop.GetAttributeValue(iCal::cICalAttribute_CN);
+			if (cntxt.length() > 0)
 			{
-				cdstring cntxt = prop.GetAttributeValue(iCal::cICalAttribute_CN);
-				if (cntxt.length() > 0)
-				{
-					cntxt += " <";
-					cntxt += temp;
-					cntxt += ">";
-					temp = cntxt;
-				}
-				
+				cntxt += " ";
+				cntxt += temp;
+				temp = cntxt;
 			}
+
 		}
 		
 		mNames.SetText(temp);
@@ -208,16 +206,15 @@ void CNewAttendeeDialog::GetDetails(iCal::CICalendarProperty& prop)
 // Get the details
 void CNewAttendeeDialog::GetDetails(iCal::CICalendarPropertyList& proplist)
 {
-	auto_ptr<CAddressList> addrs(mNames.GetAddresses());
+	std::auto_ptr<CCalendarAddressList> addrs(mNames.GetAddresses());
 
-	for(CAddressList::const_iterator iter = addrs->begin(); iter != addrs->end(); iter++)
+	for(CCalendarAddressList::const_iterator iter = addrs->begin(); iter != addrs->end(); iter++)
 	{
-		// Convert name into mailto
-		cdstring mailto = "mailto:";
-		mailto += (*iter)->GetMailAddress();
+		// Get calendar user address
+		cdstring addr = (*iter)->GetCalendarAddress();
 
 		// Create a new property
-		iCal::CICalendarProperty newprop(iCal::cICalProperty_ATTENDEE, mailto, iCal::CICalendarValue::eValueType_CalAddress);
+		iCal::CICalendarProperty newprop(iCal::cICalProperty_ATTENDEE, addr, iCal::CICalendarValue::eValueType_CalAddress);
 
 		// Add attributes
 		{

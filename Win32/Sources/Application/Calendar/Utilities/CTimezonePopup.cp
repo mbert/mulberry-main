@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -106,6 +106,9 @@ void CTimezonePopup::NoFloating()
 	CMenu* pPopup = GetPopupMenu();
 	pPopup->RemoveMenu(eNoTimezone, MF_BYPOSITION);
 	mNoFloating = true;
+
+	// Always start with the current user default
+	SetTimezone(iCal::CICalendarManager::sICalendarManager->GetDefaultTimezone());
 }
 
 void CTimezonePopup::SetTimezone(const iCal::CICalendarTimezone& tz)

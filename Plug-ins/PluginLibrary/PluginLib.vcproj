@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="PluginLib"
 	ProjectGUID="{0896B645-32A6-45A8-AE53-0184EF807ABA}"
 	RootNamespace="PluginLib"
 	Keyword="Win32Proj"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -48,7 +49,6 @@
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Plugin_Prefix_Win32.h"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
 				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312;4309"
 				ForcedIncludeFiles="Plugin_Prefix_Win32.h"
@@ -114,7 +114,6 @@
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="Plugin_Prefix_Win32.h"
 				WarningLevel="3"
-				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="3"
 				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312;4309"
 				ForcedIncludeFiles="Plugin_Prefix_Win32.h"

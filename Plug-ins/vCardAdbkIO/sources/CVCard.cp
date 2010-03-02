@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -180,10 +180,10 @@ bool CVCard::Read(istream& in)
 					return false;
 				
 				// Look for fold
-				if (line.length() && isspace(line[0UL]))
+				if (line.length() && isspace(line[(cdstring::size_type)0]))
 				{
 					// Add to existing line
-					unfoldedline += &line[1UL];
+					unfoldedline += &line[(cdstring::size_type)1];
 					
 					// Continue with loop
 					continue;

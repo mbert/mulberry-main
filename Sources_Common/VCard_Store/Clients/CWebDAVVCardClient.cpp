@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -325,7 +325,7 @@ void CWebDAVVCardClient::ListAddressBooks(CAddressBook* root, const http::webdav
 			rpath.erase(0, mHostURL.length());
 		
 		// Ignore root
-		if ((rpath == relBase) or (rpath == relBaseNoSlash))
+		if ((rpath == relBase) || (rpath == relBaseNoSlash))
 			continue;
 		rpath.DecodeURL();
 
@@ -1360,7 +1360,7 @@ bool CWebDAVVCardClient::GetSelfPrincipalResource(const cdstring& rurl, cdstring
 	StINETClientAction _action(this, "Status::Calendar::Listing", "Error::Calendar::OSErrListCalendars", "Error::Calendar::NoBadListCalendars");
 	
 	cdstrvect hrefs = GetHrefListProperty(rurl, http::webdav::cProperty_current_user_principal);
-	if (not hrefs.empty())
+	if (!hrefs.empty())
 	{
 		result = hrefs.front();
 		return true;

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -72,7 +72,7 @@ const char* CAddressComparator::ExtractLastName(const char* name)
 	while(true)
 	{
 		// Go backwards to start of last word
-		while((--last > name) && (isspace(*last) || ispunct(*last))) {}
+		while((--last > name) && (isspace((unsigned char)*last) || ispunct((unsigned char)*last))) {}
 		if (last == name)
 			return last;
 
@@ -80,7 +80,7 @@ const char* CAddressComparator::ExtractLastName(const char* name)
 		bool got_period_end = (*(last+1) == '.');
 
 		// Now look for start of word
-		while((--last > name) && !isspace(*last) && (*last != '.')) {}
+		while((--last > name) && !isspace((unsigned char)*last) && (*last != '.')) {}
 		if (last == name)
 			return last;
 

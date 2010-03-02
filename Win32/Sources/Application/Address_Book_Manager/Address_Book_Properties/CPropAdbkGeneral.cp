@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -23,7 +23,6 @@
 #include "CAdbkProtocol.h"
 #include "CAddressBookManager.h"
 #include "CPreferences.h"
-#include "CRemoteAddressBook.h"
 #include "CUnicodeUtils.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -97,7 +96,7 @@ BOOL CPropAdbkGeneral::OnInitDialog()
 }
 
 // Set mbox list
-void CPropAdbkGeneral::SetAdbkList(CFlatAdbkList* adbk_list)
+void CPropAdbkGeneral::SetAdbkList(CAddressBookList* adbk_list)
 {
 	// Save list
 	mAdbkList = adbk_list;
@@ -110,16 +109,16 @@ void CPropAdbkGeneral::SetAdbkList(CFlatAdbkList* adbk_list)
 // Set adbk list
 void CPropAdbkGeneral::SetAdbk(CAddressBook* adbk)
 {
-	CRemoteAddressBook* radbk = dynamic_cast<CRemoteAddressBook*>(adbk);
-
 	// Do icon state
-	if (radbk && radbk->GetProtocol()->CanDisconnect())
-		mIconState = radbk->GetProtocol()->IsDisconnected() ? IDI_MAILBOX_DISCONNECTED : IDI_MAILBOX_REMOTE;
+	if (adbk->GetProtocol()->CanDisconnect())
+		mIconState = adbk->GetProtocol()->IsDisconnected() ? IDI_MAILBOX_DISCONNECTED : IDI_MAILBOX_REMOTE;
+#ifdef _TODO
 	else if (adbk->IsLocalAdbk())
 	{
 		mIconState = IDI_MAILBOX_LOCAL;
 		mDisableAutoSync = true;
 	}
+#endif
 	else
 	{
 		mIconState = IDI_MAILBOX_REMOTE;
@@ -129,14 +128,7 @@ void CPropAdbkGeneral::SetAdbk(CAddressBook* adbk)
 	// Copy text to edit fields
 	mName = adbk->GetName();
 
-	if (!radbk)
-	{
-		cdstring s;
-		s.FromResource("UI::AdbkProps::StateLocal");
-		mServer = s;
-	}
-	else
-		mServer = radbk->GetProtocol()->GetDescriptor();
+	mServer = adbk->GetProtocol()->GetDescriptor();
 
 	if (adbk->IsOpen())
 	{
@@ -158,7 +150,7 @@ void CPropAdbkGeneral::OnCheckOpenAtStart(void)
 	bool set = mOpenOnStartCtrl.GetCheck();
 	
 	// Iterate over all adbks
-	for(CFlatAdbkList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
+	for(CAddressBookList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
 	{
 		(*iter)->SetFlags(CAddressBook::eOpenOnStart, set);
 		CAddressBookManager::sAddressBookManager->SyncAddressBook(*iter, set);
@@ -174,7 +166,7 @@ void CPropAdbkGeneral::OnCheckNickName(void)
 	bool set = mNickNameCtrl.GetCheck();
 
 	// Iterate over all adbks
-	for(CFlatAdbkList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
+	for(CAddressBookList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
 	{
 		(*iter)->SetFlags(CAddressBook::eLookup, set);
 		CAddressBookManager::sAddressBookManager->SyncAddressBook(*iter, set);
@@ -190,7 +182,7 @@ void CPropAdbkGeneral::OnCheckSearch(void)
 	bool set = mSearchCtrl.GetCheck();
 
 	// Iterate over all adbks
-	for(CFlatAdbkList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
+	for(CAddressBookList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
 	{
 		(*iter)->SetFlags(CAddressBook::eSearch, set);
 		CAddressBookManager::sAddressBookManager->SyncAddressBook(*iter, set);
@@ -206,7 +198,7 @@ void CPropAdbkGeneral::OnCheckAutoSync(void)
 	bool set = mAutoSyncCtrl.GetCheck();
 
 	// Iterate over all adbks
-	for(CFlatAdbkList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
+	for(CAddressBookList::iterator iter = mAdbkList->begin(); iter != mAdbkList->end(); iter++)
 	{
 		(*iter)->SetFlags(CAddressBook::eAutoSync, set);
 		CAddressBookManager::sAddressBookManager->SyncAddressBook(*iter, set);

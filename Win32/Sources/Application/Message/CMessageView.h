@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -102,7 +102,7 @@ public:
 			  mFontScale = copy.mFontScale;  }
 	};
 
-	typedef vector<CMessageView*>	CMessageViewList;
+	typedef std::vector<CMessageView*>	CMessageViewList;
 	static cdmutexprotect<CMessageViewList> sMsgViews;	// List of windows (protected for multi-thread access)
 
 public:
@@ -286,8 +286,8 @@ private:
 	bool					mWasUnseen;					// Was it unseen before being displayed
 	bool					mItsMsgError;				// Flag for cleared out message
 	const char*				mShowText;					// Text to show direct from attachment in local encoding
-	auto_ptr<unichar_t>		mUTF16Text;					// UTF16 text
-	auto_ptr<unichar_t>		mRawUTF16Text;				// Raw UTF16 text
+	std::auto_ptr<unichar_t>		mUTF16Text;					// UTF16 text
+	std::auto_ptr<unichar_t>		mRawUTF16Text;				// Raw UTF16 text
 	bool					mShowHeader;				// Show header
 	bool					mShowAddressCaption;		// Show address caption area
 	bool					mShowParts;					// Show parts area

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ BOOL CEditIdentities::OnInitDialog()
 	if (mFromEnabled)
 	{
 		CEditIdentityAddress* panel_from = new CEditIdentityAddress;
-		panel_from->SetAddressType(true, false, false, false, false, false);
+		panel_from->SetAddressType(true, false, false, false, false, false, false);
 		mTabs.AddPanel(panel_from);
 		cdstring title;
 		title.FromResource(IDS_IDENTITY_PANEL_FROM);
@@ -113,7 +113,7 @@ BOOL CEditIdentities::OnInitDialog()
 	if (mReplyToEnabled)
 	{
 		CEditIdentityAddress* panel_reply_to = new CEditIdentityAddress;
-		panel_reply_to->SetAddressType(false, true, false, false, false, false);
+		panel_reply_to->SetAddressType(false, true, false, false, false, false, false);
 		mTabs.AddPanel(panel_reply_to);
 		cdstring title;
 		title.FromResource(IDS_IDENTITY_PANEL_REPLYTO);
@@ -125,7 +125,7 @@ BOOL CEditIdentities::OnInitDialog()
 	if (mSenderEnabled)
 	{
 		CEditIdentityAddress* panel_sender = new CEditIdentityAddress;
-		panel_sender->SetAddressType(false, false, true, false, false, false);
+		panel_sender->SetAddressType(false, false, true, false, false, false, false);
 		mTabs.AddPanel(panel_sender);
 		cdstring title;
 		title.FromResource(IDS_IDENTITY_PANEL_SENDER);
@@ -135,14 +135,29 @@ BOOL CEditIdentities::OnInitDialog()
 
 	CEditIdentityOptions* panel_options = new CEditIdentityOptions;
 	mTabs.AddPanel(panel_options);
+	index++;
 
 	CEditIdentityOutgoing* panel_outgoing = new CEditIdentityOutgoing;
 	mTabs.AddPanel(panel_outgoing);
+	index++;
 
 	if (CPluginManager::sPluginManager.HasSecurity())
 	{
 		CEditIdentitySecurity* panel_security = new CEditIdentitySecurity;
 		mTabs.AddPanel(panel_security);
+		index++;
+	}
+
+	mCalendarEnabled = !CAdminLock::sAdminLock.mLockIdentityFrom;
+	if (mCalendarEnabled)
+	{
+		CEditIdentityAddress* panel_calendar = new CEditIdentityAddress;
+		panel_calendar->SetAddressType(false, false, false, false, false, false, true);
+		mTabs.AddPanel(panel_calendar);
+		cdstring title;
+		title.FromResource(IDS_IDENTITY_PANEL_CALENDAR);
+		CUnicodeUtils::SetWindowTextUTF8(panel_calendar, title);
+		mTabs.SetPanelTitle(index++, title);
 	}
 
 	// Give data to tab panels

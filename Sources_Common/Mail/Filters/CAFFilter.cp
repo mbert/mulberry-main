@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -967,10 +967,14 @@ void CAFFilter::CreateHeader()
 	CFileStatus file_status;
 	mFileStream->GetStatus(file_status);
 	CTime reference(2000, 1, 1, 0, 0, 0);	// AppleSingle/AppleDouble reference time
-	*((long*) p)++ = htonl((file_status.m_ctime - reference).GetTotalSeconds());
-	*((long*) p)++ = htonl((file_status.m_mtime - reference).GetTotalSeconds());
-	*((long*) p)++ = htonl(cAppleFile_DateUnknown);
-	*((long*) p)++ = htonl(cAppleFile_DateUnknown);
+	*((long*) p) = htonl((file_status.m_ctime - reference).GetTotalSeconds());
+	p += sizeof(long*);
+	*((long*) p) = htonl((file_status.m_mtime - reference).GetTotalSeconds());
+	p += sizeof(long*);
+	*((long*) p) = htonl(cAppleFile_DateUnknown);
+	p += sizeof(long*);
+	*((long*) p) = htonl(cAppleFile_DateUnknown);
+	p += sizeof(long*);
 
 	// Add comment (none for Windows)
 

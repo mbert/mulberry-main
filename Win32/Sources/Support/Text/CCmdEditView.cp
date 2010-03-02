@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -1591,7 +1591,7 @@ long CCmdEditView::GetWordAt(long pos, cdustring& word, long* startPos, bool wor
 	const long maxWordSize = 256;
 	
 	// Determine sensible buffer range around start pos
-	long rstart = max(0L, pos - maxWordSize);
+	long rstart = std::max(0L, pos - maxWordSize);
 	long rend = pos + maxWordSize;
 	
 	// Get the text in that range
@@ -1600,8 +1600,8 @@ long CCmdEditView::GetWordAt(long pos, cdustring& word, long* startPos, bool wor
 	const unichar_t* _buf = buf.c_str();
 	
 	// Locate beginning of word by stepping back
-	pos = min(pos, rstart + (long) buf.length());
-	long i = min(pos, maxWordSize);
+	pos = std::min(pos, rstart + (long) buf.length());
+	long i = std::min(pos, maxWordSize);
 	while((i > 0) &&
 			(IS_WORD_CHAR(_buf[(int) i - 1]) ||
 			 (_buf[(int) i - 1] == '.') ||
@@ -1876,9 +1876,9 @@ void CCmdEditView::SpellInsertText(long start, long numchars)
 	// Determine reasonable buffer around cursor
 	long cursor_pos = start + numchars;
 	long text_start = cursor_pos - (numchars + 256);
-	text_start = max(text_start, 0L);
+	text_start = std::max(text_start, 0L);
 	long text_len = cursor_pos - text_start;
-	text_len += max(text_len / 5L, 256L);
+	text_len += std::max(text_len / 5L, 256L);
 
 	// Copy text into buffer
 	cdustring text;

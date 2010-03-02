@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -59,7 +59,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CLoggingOptionsDialog)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnLoggingClearBtn();
+	afx_msg void OnLoggingFlushBtn();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

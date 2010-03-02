@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -34,7 +34,8 @@ class CGetPassphraseDialog : public CHelpDialog
 public:
 	CGetPassphraseDialog(CWnd* pParent = NULL);   // standard constructor
 
-	static bool PoseDialog(cdstring& change, const char** keys, cdstring& chosen_key, unsigned long& index);
+	static bool PoseDialog(cdstring& passphrase, const char* title);
+	static bool PoseDialog(cdstring& change, const char** keys, cdstring& chosen_key, unsigned long& index, const char* title = NULL);
 
 // Dialog Data
 	//{{AFX_DATA(CGetPassphraseDialog)

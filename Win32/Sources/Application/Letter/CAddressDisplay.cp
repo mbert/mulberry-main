@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -103,7 +103,7 @@ void CAddressDisplay::OnKillFocus(CWnd* pNewWnd)
 	CCmdEdit::OnKillFocus(pNewWnd);
 }
 
-CAddressList* CAddressDisplay::GetAddresses()
+CAddressList* CAddressDisplay::GetAddresses(bool qualify)
 {
 	// Always resolve addresses if still active
 	if (!mResolving && (GetFocus() == this))
@@ -111,7 +111,7 @@ CAddressList* CAddressDisplay::GetAddresses()
 		try
 		{
 			StValueChanger<bool> _change(mResolving, true);
-			ResolveAddressList(NULL);
+			ResolveAddressList(NULL, qualify);
 		}
 		catch(...)
 		{
@@ -126,7 +126,7 @@ CAddressList* CAddressDisplay::GetAddresses()
 	return new CAddressList(txt, txt.length());
 }
 
-void CAddressDisplay::ResolveAddressList(CWnd* pNewWnd)
+void CAddressDisplay::ResolveAddressList(CWnd* pNewWnd, bool qualify)
 {
 	// Resolve addresses
 	cdstring str;
@@ -139,7 +139,7 @@ void CAddressDisplay::ResolveAddressList(CWnd* pNewWnd)
 		bool qualify = !CPreferences::sPrefs->mExpandFailedNicknames.GetValue();
 		
 		// Generate an address list
-		auto_ptr<CAddressList> list(new CAddressList(str, text_length, 0, resolution));
+		std::auto_ptr<CAddressList> list(new CAddressList(str, text_length, 0, resolution));
 		
 		if (!resolution || !qualify)
 		{
@@ -186,13 +186,14 @@ void CAddressDisplay::ResolveAddressList(CWnd* pNewWnd)
 		}
 
 		// Qualify remainder
-		list->QualifyAddresses(CPreferences::sPrefs->mMailDomain.GetValue());
+		if (qualify)
+			list->QualifyAddresses(CPreferences::sPrefs->mMailDomain.GetValue());
 		bool twist = (list->size() > 1);
 
 		{
-			ostrstream new_txt;
+			std::ostrstream new_txt;
 			list->WriteToStream(new_txt);
-			new_txt << ends;
+			new_txt << std::ends;
 			cdstring total;
 			total.steal(new_txt.str());
 
@@ -434,7 +435,7 @@ BOOL CAddressDisplay::OnDrop(COleDataObject* pDataObject)
 		case TYMED_ISTREAM:
 		{
 			// Read all data into buffer
-			ostrstream out;
+			std::ostrstream out;
 			const unsigned long buff_size = 1024;
 			char buff[buff_size];
 			unsigned long read_size = 0;
@@ -444,7 +445,7 @@ BOOL CAddressDisplay::OnDrop(COleDataObject* pDataObject)
 				out.write(buff, read_size);
 			}
 			while(read_size == buff_size);
-			out << ends << ends;
+			out << std::ends << std::ends;
 			cdustring utf16;
 			utf16.steal((unichar_t*)out.str());
 			txt = utf16.ToUTF8();

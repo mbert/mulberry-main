@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,11 +51,7 @@ using namespace i18n;
 #include "CCharsetData.cp"
 
 #include <memory>
-#ifdef __GNUC__
 #include <strstream>
-#else
-#include <strstream.h>
-#endif
 
 CCharsetManager CCharsetManager::sCharsetManager;
 
@@ -341,7 +337,7 @@ ECharsetCode CCharsetManager::LookForEuro(ECharsetCode host, const char* data, u
 	if (data && *data && length)
 	{
 		// Determine local code for euro
-		char euro = 0;
+		unsigned char euro = 0;
 		ECharsetCode new_host = host;
 		switch(host)
 		{

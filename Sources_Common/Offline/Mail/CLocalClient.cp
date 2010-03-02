@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -3286,7 +3286,7 @@ void CLocalClient::ReadMessageIndex(CLocalMessage* lmsg, ulvector* indices)
 		// Read into work buffer
 		mCache.read(mWorkBuffer.c_str_mod(), length);
 		CHECK_STREAM(mCache)
-		mWorkBuffer[length] = 0;
+		mWorkBuffer[(cdstring::size_type)length] = 0;
 
 		// Make work buffer a stream and read it in
 		std::istrstream stream(mWorkBuffer.c_str(), length);
@@ -3331,7 +3331,7 @@ void CLocalClient::ReadMessageCache(CLocalMessage* lmsg)
 		// Read into work buffer
 		mCache.read(mWorkBuffer.c_str_mod(), length);
 		CHECK_STREAM(mCache)
-		mWorkBuffer[length] = 0;
+		mWorkBuffer[(cdstring::size_type)length] = 0;
 
 		// Make work buffer a stream and read it in
 		std::istrstream stream(mWorkBuffer.c_str(), length);
@@ -4615,9 +4615,9 @@ time_t CLocalClient::DateRead(const CLocalMessage* lmsg)
 		ReadMessageIndex(const_cast<CLocalMessage*>(lmsg));
 
 	mCache.seekg(mIndexList[GetIndex(lmsg)].Cache() + lmsg->GetEnvelopeIndex().GetDateIndex());
-	time_t date;
+	unsigned long date;
 	::ReadHost(mCache, date);
-	return date;
+	return (time_t)date;
 }
 
 time_t CLocalClient::InternalDateRead(const CLocalMessage* lmsg)
@@ -4627,9 +4627,9 @@ time_t CLocalClient::InternalDateRead(const CLocalMessage* lmsg)
 		ReadMessageIndex(const_cast<CLocalMessage*>(lmsg));
 
 	mCache.seekg(mIndexList[GetIndex(lmsg)].Cache());
-	time_t date;
+	unsigned long date;
 	::ReadHost(mCache, date);
-	return date;
+	return (time_t)date;
 }
 
 bool CLocalClient::StreamSearch(std::istream& in, unsigned long start, unsigned long length, const cdstring& txt, EContentTransferEncoding cte)

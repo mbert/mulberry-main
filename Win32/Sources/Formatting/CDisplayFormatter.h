@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ class CFormatList;
 class CClickList;
 class CClickElement;
 class CAnchorClickElement;
-typedef map<cdstring, CAnchorClickElement> CAnchorElementMap;
+typedef std::map<cdstring, CAnchorClickElement> CAnchorElementMap;
 
 class CDisplayFormatter
 {

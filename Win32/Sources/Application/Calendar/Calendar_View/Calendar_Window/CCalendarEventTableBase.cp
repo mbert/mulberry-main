@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@
 #include "CICalendarVEvent.h"
 #include "CITIPProcessor.h"
 
-#include <algorithm.h>
+#include <algorithm>
 
 BEGIN_MESSAGE_MAP(CCalendarEventTableBase, CCalendarTableBase)
 	ON_UPDATE_COMMAND_UI(IDM_FILE_NEW_DRAFT, OnUpdateAlways)

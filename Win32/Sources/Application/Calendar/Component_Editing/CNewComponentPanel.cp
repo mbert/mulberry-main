@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,3 +15,19 @@
 */
 
 #include "CNewComponentPanel.h"
+
+void CNewComponentPanel::SetComponent(const iCal::CICalendarComponentRecur& vcomponent, const iCal::CICalendarComponentExpanded* expanded)
+{
+	if (dynamic_cast<const iCal::CICalendarVEvent*>(&vcomponent) != NULL)
+		SetEvent(static_cast<const iCal::CICalendarVEvent&>(vcomponent), expanded);
+	else if (dynamic_cast<const iCal::CICalendarVToDo*>(&vcomponent) != NULL)
+		SetToDo(static_cast<const iCal::CICalendarVToDo&>(vcomponent), expanded);
+}
+
+void CNewComponentPanel::GetComponent(iCal::CICalendarComponentRecur& vcomponent)
+{
+	if (dynamic_cast<iCal::CICalendarVEvent*>(&vcomponent) != NULL)
+		GetEvent(static_cast<iCal::CICalendarVEvent&>(vcomponent));
+	else if (dynamic_cast<iCal::CICalendarVToDo*>(&vcomponent) != NULL)
+		GetToDo(static_cast<iCal::CICalendarVToDo&>(vcomponent));
+}

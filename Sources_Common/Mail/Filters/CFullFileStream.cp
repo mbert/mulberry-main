@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -121,18 +121,12 @@ ExceptionCode CFullFileStream::PutResourceBytes(const void* inBuffer, SInt32& in
 #endif
 }
 
-// Get length of both forks
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
+// Get length of both forks
 SInt32 CFullFileStream::GetLength() const
-#elif __dest_os == __win32_os || __dest_os == __linux_os
-UInt32 CFullFileStream::GetLength() const
-#else
-#error __dest_os
-#endif
 {
 	SInt32	theLength;
 
-#if __dest_os == __mac_os || __dest_os == __mac_os_x
 	if (GetResourceForkRefNum() != refNum_Undefined)
 	{
 		SInt64		forkSize;
@@ -146,12 +140,6 @@ UInt32 CFullFileStream::GetLength() const
 	if (GetDataForkRefNum() != refNum_Undefined)
 		theLength += LFileStream::GetLength();
 
-#elif __dest_os == __win32_os || __dest_os == __linux_os
-	theLength = LFileStream::GetLength();
-#else
-#error __dest_os
-#endif
-
 	return theLength;
 }
 
@@ -160,7 +148,6 @@ SInt32 CFullFileStream::GetMarker() const
 {
 	SInt32	theMarker;
 
-#if __dest_os == __mac_os || __dest_os == __mac_os_x
 	if (GetResourceForkRefNum() != refNum_Undefined) {
 		SInt64 forkPos;
 		OSStatus err = ::FSGetForkPosition(GetDataForkRefNum(), &forkPos);
@@ -172,11 +159,6 @@ SInt32 CFullFileStream::GetMarker() const
 	if (GetDataForkRefNum() != refNum_Undefined)
 		theMarker += LFileStream::GetMarker();
 
-#elif __dest_os == __win32_os || __dest_os == __linux_os
-	theMarker = LFileStream::GetMarker();
-#else
-#error __dest_os
-#endif
-
 	return theMarker;
 }
+#endif

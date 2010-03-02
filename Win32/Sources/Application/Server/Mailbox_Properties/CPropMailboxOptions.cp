@@ -60,7 +60,7 @@ void CPropMailboxOptions::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CPropMailboxOptions)
 	DDX_Check(pDX, IDC_MAILBOXOPTIONS_CHECKNEW, mCheck);
 	DDX_Control(pDX, IDC_MAILBOXOPTIONS_CHECKNEW, mCheckCtrl);
-	DDX_Control(pDX, IDC_MAILBOXOPTIONS_ALERTSTYLE_POPUP, mAlertStylePopup);
+	//DDX_Control(pDX, IDC_MAILBOXOPTIONS_ALERTSTYLE_POPUP, mAlertStylePopup);
 	DDX_Check(pDX, IDC_MAILBOXOPTIONS_OPEN, mOpen);
 	DDX_Control(pDX, IDC_MAILBOXOPTIONS_OPEN, mOpenCtrl);
 	DDX_Check(pDX, IDC_MAILBOXOPTIONS_COPYTO, mCopyTo);

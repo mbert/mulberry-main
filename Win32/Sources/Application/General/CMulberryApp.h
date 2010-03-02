@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -112,9 +112,7 @@ public:
 	afx_msg void 		OnAppRules();
 	afx_msg void 		OnAppAddressBookManager();
 	afx_msg void 		OnAppNewAddressBook();
-	afx_msg void 		OnAppNewLocalAddressBook();
 	afx_msg void 		OnAppOpenAddressBook();
-	afx_msg void 		OnAppOpenLocalAddressBook();
 	afx_msg void 		OnAppAddrImportExport(UINT nID);
 	afx_msg void 		OnAppSearchAddress();
 	afx_msg void 		OnAppSelect3PaneWindow();

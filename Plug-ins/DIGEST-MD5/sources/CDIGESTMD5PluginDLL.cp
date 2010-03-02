@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -65,8 +65,8 @@ void _KD(unsigned char* digest, char* k, char* s)
 	_H(digest, p.get(), ::strlen(p.get()));
 }
 
-void _HEX(char*, unsigned char*);
-void _HEX(char* digest_hex, unsigned char* digest)
+void _HEX_IT(char*, unsigned char*);
+void _HEX_IT(char* digest_hex, unsigned char* digest)
 {
 	for(int i = 0; i < HMAC_MD5_SIZE; i++)
 	{
@@ -258,7 +258,7 @@ long CDIGESTMD5PluginDLL::ProcessFirst(SAuthPluginData* info)
 				if (*p == '\\')
 					p++;
 				else
-					*q++ == *p++;
+					*q++ = *p++;
 			}
 			*q = 0;
 			
@@ -429,7 +429,7 @@ long CDIGESTMD5PluginDLL::ProcessFirstData(SAuthPluginData* info)
 		::strcat(a1_data_next, cnonce.get());
 		
 		_H(digest, a1_data.get(), ::strlen(a1_data_next) + 16);
-		_HEX(hex_h_a1, digest);
+		_HEX_IT(hex_h_a1, digest);
 	}
 
 	// Need digest-uri-value (ignore host != serv-name)
@@ -474,7 +474,7 @@ long CDIGESTMD5PluginDLL::ProcessFirstData(SAuthPluginData* info)
 		::strcat(a2_data.get(), digest_uri_value.get());
 		unsigned char digest[16];
 		_H(digest, a2_data.get(), ::strlen(a2_data.get()));
-		_HEX(hex_h_a2_client, digest);
+		_HEX_IT(hex_h_a2_client, digest);
 	}
 	
 	// Calculate server HEX(H(A2))
@@ -488,7 +488,7 @@ long CDIGESTMD5PluginDLL::ProcessFirstData(SAuthPluginData* info)
 		::strcat(a2_data.get(), digest_uri_value.get());
 		unsigned char digest[16];
 		_H(digest, a2_data.get(), ::strlen(a2_data.get()));
-		_HEX(hex_h_a2_server, digest);
+		_HEX_IT(hex_h_a2_server, digest);
 	}
 	
 	// Now do combined calc for client
@@ -510,7 +510,7 @@ long CDIGESTMD5PluginDLL::ProcessFirstData(SAuthPluginData* info)
 		
 		unsigned char digest[16];
 		_KD(digest, kd1, kd2.get());
-		_HEX(hex_response_client, digest);
+		_HEX_IT(hex_response_client, digest);
 	}
 
 	// Now do combined calc for server
@@ -531,7 +531,7 @@ long CDIGESTMD5PluginDLL::ProcessFirstData(SAuthPluginData* info)
 		
 		unsigned char digest[16];
 		_KD(digest, kd1, kd2.get());
-		_HEX(hex_response_server, digest);
+		_HEX_IT(hex_response_server, digest);
 	}
 
 	// Now form response string

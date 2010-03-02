@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -49,14 +49,6 @@
 #endif
 
 #include <typeinfo>
-
-#if __dest_os == __win32_os
-// BUG in Metrowerks Compiler - need this specialization
-inline void allocator<CServerBrowse::SServerBrowseData>::deallocate(CServerBrowse::SServerBrowseData* p, size_t)
-{
-	delete p;
-}
-#endif
 
 #pragma mark ____________________________Message Handling
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ CCalendarWindow::~CCalendarWindow()
 	// Remove from list
 	{
 		cdmutexprotect<CCalendarWindowList>::lock _lock(sCalendarWindows);
-		CCalendarWindowList::iterator found = ::find(sCalendarWindows->begin(), sCalendarWindows->end(), this);
+		CCalendarWindowList::iterator found = std::find(sCalendarWindows->begin(), sCalendarWindows->end(), this);
 		if (found != sCalendarWindows->end())
 			sCalendarWindows->erase(found);
 	}
@@ -110,6 +110,33 @@ void CCalendarWindow::MakeWindow(calstore::CCalendarStoreNode* node)
 		// Only delete if it still exists
 		if (WindowExists(newWindow))
 			FRAMEWORK_DELETE_WINDOW(newWindow);
+
+		// Should throw out of here
+		CLOG_LOGRETHROW;
+		throw;
+	}
+}
+
+// Create a free busy window
+void CCalendarWindow::CreateFreeBusyWindow(iCal::CICalendarRef calref, const cdstring& id, const iCal::CICalendarProperty& organizer, const iCal::CICalendarPropertyList& attendees, const iCal::CICalendarDateTime& date)
+{
+	// Look for existing window with this node
+
+	CCalendarWindow* newWindow = NULL;
+	try
+	{
+		// Create the message window
+		newWindow = CCalendarWindow::ManualCreate();
+		newWindow->SetFreeBusy(calref, id, organizer, attendees, date);
+		newWindow->ShowWindow(SW_SHOW);
+	}
+	catch (...)
+	{
+		CLOG_LOGCATCH(...);
+
+		// Only delete if it still exists
+		if (WindowExists(newWindow))
+			FRAMEWORK_DELETE_WINDOW(newWindow)
 
 		// Should throw out of here
 		CLOG_LOGRETHROW;
@@ -163,7 +190,7 @@ int CCalendarWindow::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	// Create toolbar pane
 	CRect rect = CRect(0, 0, cWindowWidth, cToolbarHeight + large_offset);
-	mToolbarView.Create(TOOLBARCLASSNAME, NULL, WS_CHILD | WS_VISIBLE | CCS_NORESIZE, rect, GetParentFrame(), IDC_STATIC);
+	mToolbarView.Create(TOOLBARCLASSNAME, NULL, WS_CHILD | WS_VISIBLE | CCS_NORESIZE, rect, GetParentFrame(), ID_VIEW_TOOLBAR);
 	mToolbarView.SetBarStyle(CBRS_ALIGN_TOP | CBRS_BORDER_TOP);
 
 	// Create splitter view

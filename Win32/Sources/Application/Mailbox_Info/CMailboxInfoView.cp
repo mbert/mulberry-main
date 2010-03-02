@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@
 
 #include <string.h>
 
-#include <numeric.h>
+#include <numeric>
 
 const int IDT_TIMER_ID = 12347;
 
@@ -398,7 +398,7 @@ void CMailboxInfoView::DoQuickSearch(bool change_focus)
 
 	cdstring txt = mQuickSearchText.GetText();
 
-	auto_ptr<CSearchItem> spec;
+	std::auto_ptr<CSearchItem> spec;
 	switch(mQuickSearchCriteria.GetValue() - IDM_QUICKSEARCH_FROM)
 	{
 	case eQuickSearchFrom:
@@ -461,7 +461,7 @@ void CMailboxInfoView::DoQuickSearchSavedPopup(long value)
 		mQuickSearchProgress.ShowWindow(SW_SHOW);
 
 		// Get search set
-		auto_ptr<CSearchItem> spec(new CSearchItem(CSearchItem::eNamedStyle, CPreferences::sPrefs->mSearchStyles.GetValue().at(value - IDM_SEARCH_STYLES_Start)->GetName()));
+		std::auto_ptr<CSearchItem> spec(new CSearchItem(CSearchItem::eNamedStyle, CPreferences::sPrefs->mSearchStyles.GetValue().at(value - IDM_SEARCH_STYLES_Start)->GetName()));
 
 		// Make sure search failure does not prevent clean-up
 		try
@@ -717,7 +717,7 @@ void CMailboxInfoView::SaveState(void)
 	if (!mbox->GetAutoViewMode())
 		match = GetInfoTable()->GetCurrentMatch();
 	NMbox::EViewMode mode = mbox->GetAutoViewMode() ? NMbox::eViewMode_All : mbox->GetViewMode();
-	if (!::accumulate(match.GetBitsSet().begin(), match.GetBitsSet().end(), false, logical_or<bool>()) && !match.GetSearchSet().size())
+	if (!std::accumulate(match.GetBitsSet().begin(), match.GetBitsSet().end(), false, std::logical_or<bool>()) && !match.GetSearchSet().size())
 		mode = NMbox::eViewMode_All;
 
 	// Add info to prefs

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -289,9 +289,9 @@ void CLocalVCardClient::_CreateAdbk(const CAddressBook* adbk)
 	{
 		if (__mkdir(fpath, S_IRWXU))
 		{
-			int _errno = os_errno;
+			int _errno_val = os_errno;
 			//throw CGeneralException(_errno, "Could not create directory");
-			throw CGeneralException(_errno);
+			throw CGeneralException(_errno_val);
 		}
 	}
 	else
@@ -301,9 +301,9 @@ void CLocalVCardClient::_CreateAdbk(const CAddressBook* adbk)
 			::fclose(file);
 		else
 		{
-			int _errno = os_errno;
+			int _errno_val = os_errno;
 			//throw CGeneralException(_errno, "Could not create address book file");
-			throw CGeneralException(_errno);
+			throw CGeneralException(_errno_val);
 		}
 		
 		// Always clear any existing cache file as a precaution
@@ -342,9 +342,9 @@ void CLocalVCardClient::_DeleteAdbk(const CAddressBook* adbk)
 		{
 			if (::remove_utf8(fpath_adbk) != 0)
 			{
-				int _errno = os_errno;
+				int _errno_val = os_errno;
 				//throw CGeneralException(_errno, "Could not delete address book file");
-				throw CGeneralException(_errno);
+				throw CGeneralException(_errno_val);
 			}
 			
 			// Always clear any existing cache file
@@ -376,9 +376,9 @@ void CLocalVCardClient::_DeleteAdbk(const CAddressBook* adbk)
 
 			if (::delete_dir(fpath_dir) != 0)
 			{
-				int _errno = os_errno;
+				int _errno_val = os_errno;
 				//throw CGeneralException(_errno, "Could not delete directory");
-				throw CGeneralException(_errno);
+				throw CGeneralException(_errno_val);
 			}
 		}
 		else if (!delete_adbk)
@@ -423,9 +423,9 @@ void CLocalVCardClient::_RenameAdbk(const CAddressBook* old_adbk, const cdstring
 
 			if (::rename_utf8(fpath_old, fpath_new) != 0)
 			{
-				int _errno = os_errno;
+				int _errno_val = os_errno;
 				//throw CGeneralException(_errno, "Could not rename directory");
-				throw CGeneralException(_errno);
+				throw CGeneralException(_errno_val);
 			}
 		}
 		else if (!rename_adbk)
@@ -454,9 +454,9 @@ void CLocalVCardClient::_RenameAdbk(const CAddressBook* old_adbk, const cdstring
 
 			if (::rename_utf8(fpath_old, fpath_new) != 0)
 			{
-				int _errno = os_errno;
+				int _errno_val = os_errno;
 				//throw CGeneralException(_errno, "Could not rename address book file");
-				throw CGeneralException(_errno);
+				throw CGeneralException(_errno_val);
 			}
 			
 			// Always rename any existing cache file

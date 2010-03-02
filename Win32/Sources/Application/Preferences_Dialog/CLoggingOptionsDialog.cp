@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -58,12 +58,23 @@ void CLoggingOptionsDialog::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CLoggingOptionsDialog, CHelpDialog)
 	//{{AFX_MSG_MAP(CLoggingOptionsDialog)
-		// NOTE: the ClassWizard will add message map macros here
+		ON_BN_CLICKED(IDC_LOGOPTIONS_CLEAR, OnLoggingClearBtn)
+		ON_BN_CLICKED(IDC_LOGOPTIONS_FLUSH, OnLoggingFlushBtn)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CLoggingOptionsDialog message handlers
+
+void CLoggingOptionsDialog::OnLoggingClearBtn()
+{
+	CLog::ClearLogs();
+}
+
+void CLoggingOptionsDialog::OnLoggingFlushBtn()
+{
+	CLog::FlushLogs();
+}
 
 // Set options in dialog
 void CLoggingOptionsDialog::SetOptions(const CLog::SLogOptions& options)

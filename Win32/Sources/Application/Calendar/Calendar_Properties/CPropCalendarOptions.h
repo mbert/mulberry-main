@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -54,6 +54,8 @@ public:
 	CIconWnd mIconStateCtrl;
 	int		mSubscribe;
 	CButton	mSubscribeCtrl;
+	int		mFreeBusySet;
+	CButton	mFreeBusySetCtrl;
 	int		mTieIdentity;
 	CButton	mTieIdentityCtrl;
 	CIdentityPopup mIdentityPopup;
@@ -84,6 +86,7 @@ protected:
 	//{{AFX_MSG(CPropCalendarOptions)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSubscribe();
+	afx_msg void OnFreeBusySet();
 	afx_msg void OnTieIdentity();
 	afx_msg void OnIdentityPopup(UINT nID);
 	//}}AFX_MSG

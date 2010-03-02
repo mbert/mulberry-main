@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -189,7 +189,7 @@ public:
 	void	FakeSubject()										// Create a fake subject
 		{ mSubject = "\1"; }
 	bool	HasFakeSubject() const								// Has a valid fake subject
-		{ return mSubject[0UL] != '\1'; }
+		{ return mSubject[(cdstring::size_type)0] != '\1'; }
 
 	void	SetFrom(CAddressList* addr_list)					// Set from address list
 		{ SetAddressField(mFrom, addr_list); }
@@ -232,7 +232,7 @@ public:
 		{ return mMessage_id; }
 
 	bool	HasReferences() const								// HasReferences
-		{ return mReferences[0UL] != '\1'; }
+		{ return mReferences[(cdstring::size_type)0] != '\1'; }
 	void	SetReferences(const cdstring& refs)					// Set References
 		{ mReferences = refs; }
 	const cdstring& GetReferences() const						// Get References

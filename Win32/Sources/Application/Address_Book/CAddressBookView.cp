@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -22,20 +22,19 @@
 #include "CAdbkIOPlugin.h"
 #include "CAdbkProtocol.h"
 #include "CAdbkManagerTable.h"
+#include "CAddressBook.h"
 #include "CAddressBookToolbar.h"
 #include "CAddressBookWindow.h"
 #include "CAddressTable.h"
 #include "CErrorHandler.h"
 #include "CFontCache.h"
 #include "CGroupTable.h"
-#include "CLocalAddressBook.h"
 #include "CLog.h"
 #include "CMulberryApp.h"
 #include "CMulberryCommon.h"
 #include "CPluginManager.h"
 #include "CPreferences.h"
 #include "CReplyChooseDialog.h"
-#include "CRemoteAddressBook.h"
 #include "CSDIFrame.h"
 #include "CTableViewWindow.h"
 #include "CTaskClasses.h"
@@ -130,7 +129,7 @@ CAddressBookView::~CAddressBookView()
 {
 	// Remove from list
 	cdmutexprotect<CAddressBookViewList>::lock _lock(sAddressBookViews);
-	CAddressBookViewList::iterator found = ::find(sAddressBookViews->begin(), sAddressBookViews->end(), this);
+	CAddressBookViewList::iterator found = std::find(sAddressBookViews->begin(), sAddressBookViews->end(), this);
 	if (found != sAddressBookViews->end())
 		sAddressBookViews->erase(found);
 }
@@ -316,16 +315,16 @@ void CAddressBookView::OnUpdateEditUndo(CCmdUI* pCmdUI)
 
 void CAddressBookView::OnUpdateDisconnectedSelection(CCmdUI* pCmdUI)
 {
-	pCmdUI->Enable(dynamic_cast<CRemoteAddressBook*>(mAdbk) &&
-							static_cast<CRemoteAddressBook*>(mAdbk)->GetProtocol()->CanDisconnect() &&
-							!static_cast<CRemoteAddressBook*>(mAdbk)->GetProtocol()->IsDisconnected());
+	pCmdUI->Enable((mAdbk != NULL) &&
+					mAdbk->GetProtocol()->CanDisconnect() &&
+					!mAdbk->GetProtocol()->IsDisconnected());
 }
 
 void CAddressBookView::OnUpdateClearDisconnectedSelection(CCmdUI* pCmdUI)
 {
-	pCmdUI->Enable(dynamic_cast<CRemoteAddressBook*>(mAdbk) &&
-							static_cast<CRemoteAddressBook*>(mAdbk)->GetProtocol()->CanDisconnect() &&
-							!static_cast<CRemoteAddressBook*>(mAdbk)->GetProtocol()->IsDisconnected());
+	pCmdUI->Enable((mAdbk != NULL) &&
+					mAdbk->GetProtocol()->CanDisconnect() &&
+					mAdbk->GetProtocol()->IsDisconnected());
 }
 
 void CAddressBookView::OnUpdateAddrImport(CCmdUI* pCmdUI)

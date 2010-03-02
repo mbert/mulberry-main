@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -161,7 +161,7 @@ void CCalDAVCalendarClient::_GetPrincipalDetails(const cdstring& puri, bool rese
 	if (GetProperties(puri, props, result))
 	{
 		cdstrmap::const_iterator found = result.find(http::caldav::cProperty_calendar_home_set.FullName());
-		if (found != result.end() and reset_home)
+		if (found != result.end() && reset_home)
 		{
 			// May need to reset calendar-home path
 			if (GetCalendarProtocol()->GetCalendarAccount()->GetBaseRURL().empty())
@@ -305,7 +305,7 @@ void CCalDAVCalendarClient::ListCalendars(CCalendarStoreNode* root, const http::
 			rpath.erase(0, mHostURL.length());
 		
 		// Ignore root
-		if ((rpath == relBase) or (rpath == relBaseNoSlash))
+		if ((rpath == relBase) || (rpath == relBaseNoSlash))
 			continue;
 		rpath.DecodeURL();
 		
@@ -353,7 +353,7 @@ void CCalDAVCalendarClient::ListCalendars(CCalendarStoreNode* root, const http::
 
 		// Only add a node that is a normal collection or a calendar - ignore everything else
 		// Also ignore the outbox - it clutters the display
-		if ((is_dir or is_cal) and not is_outbox)
+		if ((is_dir || is_cal) && !is_outbox)
 		{
 			// Create the new node and add to parent
 			CCalendarStoreNode* node = new CCalendarStoreNode(GetCalendarProtocol(), root, is_dir, is_inbox, is_outbox, rpath);
@@ -1108,7 +1108,7 @@ cdstring CCalDAVCalendarClient::GetRURL(const cdstring& name, bool directory, bo
 	rurl += temp;
 
 	// CalDAV calendars are collections with no special extensions and should be treated as directories
-	if (rurl[rurl.length() - 1] != '/')
+	if (rurl[(cdstring::size_type)(rurl.length() - 1)] != '/')
 		rurl += "/";
 	
 #ifdef ORACLE_FIX_2

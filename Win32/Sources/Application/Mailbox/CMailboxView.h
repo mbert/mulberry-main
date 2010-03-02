@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -78,7 +78,7 @@ public:
 		unsigned long	mNewIndex;
 	};
 
-	typedef vector<CMailboxView*>	CMailboxViewList;
+	typedef std::vector<CMailboxView*>	CMailboxViewList;
 	static cdmutexprotect<CMailboxViewList> sMailboxViews;	// List of windows (protected for multi-thread access)
 
 	struct SMailboxSubstitute
@@ -123,7 +123,7 @@ public:
 			  mLastAccess = copy.mLastAccess;
 			  mMessageView = copy.mMessageView; }
 	};
-	typedef vector<SMailboxSubstitute>	SMailboxSubstituteList;
+	typedef std::vector<SMailboxSubstitute>	SMailboxSubstituteList;
 
 					CMailboxView();
 	virtual 		~CMailboxView();

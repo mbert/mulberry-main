@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -67,13 +67,15 @@ void CMatchItem::SetSingleMatch(EMatchItem item)
 bool CMatchItem::NeedsSelection() const
 {
 	// Count number of true items in selected range
-	return std::count(mBitsSet.begin() + eSelected_First, mBitsSet.begin() + eSelected_Last + 1, true);
+	bool temp = true;
+	return std::count(mBitsSet.begin() + eSelected_First, mBitsSet.begin() + eSelected_Last + 1, temp);
 }
 
 CSearchItem* CMatchItem::ConstructSearch(const CMessageList* msgs) const
 {
 	// If nothing selected return
-	size_t bitsset = std::count(mBitsSet.begin(), mBitsSet.end(), true);
+	bool temp = true;
+	size_t bitsset = std::count(mBitsSet.begin(), mBitsSet.end(), temp);
 	bitsset += mSearchSet.size();
 	if (!bitsset)
 		return NULL;

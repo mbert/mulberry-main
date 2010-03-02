@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -20,9 +20,9 @@
 
 #include "CAdbkPropDialog.h"
 
+#include "CAddressBook.h"
 #include "CAdbkProtocol.h"
 #include "CMulberryApp.h"
-#include "CRemoteAddressBook.h"
 #include "CUnicodeUtils.h"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ BEGIN_MESSAGE_MAP(CAdbkPropDialog, CHelpPropertySheet)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-void CAdbkPropDialog::SetAdbkList(CFlatAdbkList* adbk_list)
+void CAdbkPropDialog::SetAdbkList(CAddressBookList* adbk_list)
 {
 	mAdbkList = adbk_list;
 
@@ -52,9 +52,9 @@ void CAdbkPropDialog::SetAdbkList(CFlatAdbkList* adbk_list)
 	AddPage(&mPropAdbkGeneral);
 	mPropAdbkGeneral.SetAdbkList(adbk_list);
 
-	CRemoteAddressBook* radbk = dynamic_cast<CRemoteAddressBook*>(mAdbkList->front());
-	bool logged_in = radbk && radbk->GetProtocol()->IsLoggedOn();
-	if (logged_in && radbk->GetProtocol()->UsingACLs())
+	CAddressBook* adbk = mAdbkList->front();
+	bool logged_in = adbk && adbk->GetProtocol()->IsLoggedOn();
+	if (logged_in && adbk->GetProtocol()->UsingACLs())
 	{
 		AddPage(&mPropAdbkACL);
 		mPropAdbkACL.SetAdbkList(adbk_list);

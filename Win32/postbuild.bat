@@ -1,6 +1,6 @@
 mkdir Debug\Plug-ins
 
-copy Debug\CRAM-MD5.dll Debug\Plug-ins
+copy Debug\CommunicatorAdbkIO.dll Debug\Plug-ins
 copy Debug\CRAM-MD5.dll Debug\Plug-ins
 copy Debug\DIGEST-MD5.dll Debug\Plug-ins
 copy Debug\Eudora4AdbkIO.dll Debug\Plug-ins

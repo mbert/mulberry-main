@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ bool CTextMacros::Add(const cdstring& name, const cdstring& macro)
 }
 
 // Change an item if not duplicate
-bool CTextMacros::CTextMacros::Change(const cdstring& oldname, const cdstring& newname, const cdstring& macro)
+bool CTextMacros::Change(const cdstring& oldname, const cdstring& newname, const cdstring& macro)
 {
 	// Try to find the old name - fail if it does not exist
 	cdstrmap::iterator found = mMacros.find(oldname);
@@ -94,7 +94,7 @@ bool CTextMacros::CTextMacros::Change(const cdstring& oldname, const cdstring& n
 }
 
 // Delete an item if not duplicate
-bool CTextMacros::CTextMacros::Delete(const cdstring& name)
+bool CTextMacros::Delete(const cdstring& name)
 {
 	// Try to find it - fail if it does not exist
 	cdstrmap::iterator found = mMacros.find(name);

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -194,8 +194,8 @@ void CMonthTable::AdjustSize()
 		GetClientRect(my_frame);		
 
 		// Determine new row and column sizes
-		int32_t row_size = max((int32_t) (my_frame.Height()/ mRows), 64L);
-		int32_t col_size = max((int32_t) (my_frame.Width() / mCols), 64L);
+		int32_t row_size = std::max((int32_t) (my_frame.Height()/ mRows), (int32_t) 64L);
+		int32_t col_size = std::max((int32_t) (my_frame.Width() / mCols), (int32_t) 64L);
 		
 		SetRowHeight(row_size, 1, 1);
 		SetColWidth(col_size, 1, 1);
@@ -352,7 +352,7 @@ void CMonthTable::AddEvent(iCal::CICalendarComponentExpandedShared& vevent)
 
 			// Modify all columns - first is the real one, others are pseudo
 			for(TableIndexT col_ctr = col_start; col_ctr <= col_end; col_ctr++)
-				mEvents[row - 1][col_ctr - 1][slot] = make_pair(event, col_ctr == col_start);
+				mEvents[row - 1][col_ctr - 1][slot] = std::make_pair(event, col_ctr == col_start);
 			
 			// Now show it if it fits entirely within the cell
 			bool visible = (start_cellFrame.bottom <= actual_cellFrame.bottom);

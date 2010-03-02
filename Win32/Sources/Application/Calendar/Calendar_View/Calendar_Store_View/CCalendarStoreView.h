@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ class CCalendarStoreWindow;
 class	CCalendarStoreView : public CTableView
 {
 public:
-	typedef vector<CCalendarStoreView*>	CCalendarStoreViewList;
+	typedef std::vector<CCalendarStoreView*>	CCalendarStoreViewList;
 	static cdmutexprotect<CCalendarStoreViewList> sCalendarStoreViews;	// List of windows (protected for multi-thread access)
 
 						CCalendarStoreView();

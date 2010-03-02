@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -763,7 +763,7 @@ void CGroupTable::SelectGroups(CGroupList* grps)
 		if (item.mIsGroup)
 		{
 			CGroup* grp = item.mGroup;
-			CGroupList::const_iterator found = ::find(grps->begin(), grps->end(), grp);
+			CGroupList::const_iterator found = std::find(grps->begin(), grps->end(), grp);
 			if (found != grps->end())
 				SelectCell(STableCell(row, 1));
 		}

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -65,7 +65,7 @@ void C3PaneItemsTabs::MoveTab(unsigned long oldindex, unsigned long newindex)
 	InsertItem(newindex, &tabs);
 
 	// Now change the value if it moved
-	if ((selected >= min(oldindex, newindex)) && (selected <= max(oldindex, newindex)))
+	if ((selected >= std::min(oldindex, newindex)) && (selected <= std::max(oldindex, newindex)))
 	{
 		if (selected == oldindex)
 			SetCurSel(newindex);

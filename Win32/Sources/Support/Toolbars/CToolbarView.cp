@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -51,14 +51,14 @@ CToolbarView::CToolbarView()
 CToolbarView::~CToolbarView()
 {
 	// Remove from list
-	CToolbarViewList::iterator found = ::find(sToolbarViews.begin(), sToolbarViews.end(), this);
+	CToolbarViewList::iterator found = std::find(sToolbarViews.begin(), sToolbarViews.end(), this);
 	if (found != sToolbarViews.end())
 		sToolbarViews.erase(found);
 	
 	// Always delete the toolbars
 	for(SToolbarGroups::const_iterator iter1 = mGroups.begin(); iter1 != mGroups.end(); iter1++)
 	{
-		for(vector<CToolbar*>::iterator iter2 = (*iter1)->mToolbars.begin(); iter2 != (*iter1)->mToolbars.end(); iter2++)
+		for(std::vector<CToolbar*>::iterator iter2 = (*iter1)->mToolbars.begin(); iter2 != (*iter1)->mToolbars.end(); iter2++)
 			delete *iter2;
 		(*iter1)->mToolbars.clear();
 	}
@@ -285,7 +285,7 @@ CToolbarView::SToolbarGroup* CToolbarView::FindGroup(CToolbar* tb, unsigned long
 	for(SToolbarGroups::const_iterator iter1 = mGroups.begin(); iter1 != mGroups.end(); iter1++)
 	{
 		index = 0;
-		for(vector<CToolbar*>::const_iterator iter2 = (*iter1)->mToolbars.begin();
+		for(std::vector<CToolbar*>::const_iterator iter2 = (*iter1)->mToolbars.begin();
 				iter2 != (*iter1)->mToolbars.end(); iter2++, index++)
 		{
 			if (*iter2 == tb)
@@ -303,12 +303,12 @@ void CToolbarView::AdjustSize()
 	GetClientRect(client);
 	
 	// Get visible toolbars and minimum widths
-	vector<CToolbar*> tbs;
+	std::vector<CToolbar*> tbs;
 	unsigned long sidebyside_width = 0;
 	for(SToolbarGroups::const_iterator iter1 = mGroups.begin(); iter1 != mGroups.end(); iter1++)
 	{
 		unsigned long index = 0;
-		for(vector<CToolbar*>::const_iterator iter2 = (*iter1)->mToolbars.begin();
+		for(std::vector<CToolbar*>::const_iterator iter2 = (*iter1)->mToolbars.begin();
 				iter2 != (*iter1)->mToolbars.end(); iter2++, index++)
 		{
 			// Only bother if group is visible and this is the active one
@@ -324,7 +324,7 @@ void CToolbarView::AdjustSize()
 	}
 
 	// Determine toolbar processing order
-	vector<CToolbar*> tbrs;
+	std::vector<CToolbar*> tbrs;
 	bool sidebyside = false;
 	if (tbs.size() == 1)
 		// Single bar all the way across
@@ -363,7 +363,7 @@ void CToolbarView::AdjustSize()
 		tbrs[i]->ShowToolbar(true);
 
 		// Adjust total height for next toolbar
-		total_height = max(total_height, vpos + tbsize.Height());
+		total_height = std::max(total_height, vpos + tbsize.Height());
 		vpos += (sidebyside ? 0 : tbsize.Height());
 		hpos += (sidebyside ? tbrs[i]->GetActualWidth() : 0);
 	}
@@ -401,7 +401,7 @@ void CToolbarView::UpdateToolbars()
 
 	for(SToolbarGroups::const_iterator iter1 = mGroups.begin(); iter1 != mGroups.end(); iter1++)
 	{
-		for(vector<CToolbar*>::const_iterator iter2 = (*iter1)->mToolbars.begin();
+		for(std::vector<CToolbar*>::const_iterator iter2 = (*iter1)->mToolbars.begin();
 				iter2 != (*iter1)->mToolbars.end(); iter2++)
 		{
 			// Change state of each toolbar

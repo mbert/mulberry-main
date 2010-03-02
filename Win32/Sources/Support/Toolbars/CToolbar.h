@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ class CIconButton;
 class CCommander;
 typedef ptrvector<CButton> CButtonArray;
 typedef ptrvector<CWnd> CWndArray;
-typedef vector<CCommander*> CCommanderArray;
+typedef std::vector<CCommander*> CCommanderArray;
 class CToolbarButton;
 class CToolbarView;
 
@@ -93,7 +93,7 @@ protected:
 		CommandT cmd;
 	};
 
-	typedef vector<CToolbar*> CToolbarList;
+	typedef std::vector<CToolbar*> CToolbarList;
 
 	static CToolbarList	sToolbars;
 
@@ -116,7 +116,7 @@ protected:
 		CWnd*							mWnd;
 		CToolbarItem::CToolbarItemInfo	mDetails;
 	};
-	typedef vector<SItemSpec> CItemArray;
+	typedef std::vector<SItemSpec> CItemArray;
 
 	CItemArray mItemList;
 

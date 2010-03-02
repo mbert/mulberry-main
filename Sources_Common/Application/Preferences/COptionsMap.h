@@ -225,7 +225,7 @@ public:
 	virtual void SetSeparator(char separator)
 					{ mSeparator = separator; }
 	virtual char GetSeparator(void) const
-					{ return mSeparator[0UL]; }
+					{ return mSeparator[(cdstring::size_type)0]; }
 
 protected:
 	cdstring		mTitle;

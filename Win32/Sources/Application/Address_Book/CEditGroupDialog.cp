@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -97,43 +97,60 @@ void CEditGroupDialog::OnGroupEditSort()
 		sort(list.begin(), list.end(), comp_strnocase);
 
 		// Put back in field
-		txt.clear();
+		mOriginalListText.clear();
 		for(short i = 0; i < list.size(); i++)
 		{
 			const cdstring& aStr = list.at(i);
-			txt += aStr;
-			txt += "\r\n";
+			mOriginalListText += aStr;
+			mOriginalListText += "\r\n";
 		}
 	}
 
-	CUnicodeUtils::SetWindowTextUTF8(&mAddressListCtrl, txt);
+	CUnicodeUtils::SetWindowTextUTF8(&mAddressListCtrl, mOriginalListText);
 }
 
 bool CEditGroupDialog::GetFields(CGroup* grp)
 {
-	// Nick-name cannot contain '@' and no spaces surrounding it
-	cdstring nickname(mNickName);
-	::strreplace(nickname.c_str_mod(), "@", '*');
-	nickname.trimspace();
+	bool done_edit = false;
 
-	grp->GetNickName() = nickname;
-	grp->GetName() = mGroupName;
-	
-	grp->GetAddressList().clear();
-	char* s = mAddressList.c_str_mod();
-	if (s)
+	// Nick-name cannot contain '@' and no spaces surrounding it
+	cdstring txt = mNickName;
+	::strreplace(txt.c_str_mod(), "@", '*');
+	txt.trimspace();
+
+	if (grp->GetNickName() != txt)
 	{
-		s = ::strtok(s, "\r\n");
-		while(s)
-		{
-			cdstring copyStr(s);
-			grp->GetAddressList().push_back(copyStr);
-			
-			s = ::strtok(NULL, "\r\n");
-		}
+		grp->GetNickName() = txt;
+		done_edit = true;
 	}
 
-	return true;
+	txt = mGroupName;
+	if (grp->GetName() != txt)
+	{
+		grp->GetName() = txt;
+		done_edit = true;
+	}
+
+	txt = mAddressList;
+	if (mOriginalListText != txt)
+	{
+		grp->GetAddressList().clear();
+		char* s = mAddressList.c_str_mod();
+		if (s)
+		{
+			s = ::strtok(s, "\r\n");
+			while(s)
+			{
+				cdstring copyStr(s);
+				grp->GetAddressList().push_back(copyStr);
+
+				s = ::strtok(NULL, "\r\n");
+			}
+		}
+		done_edit = true;
+	}
+
+	return done_edit;
 }
 
 void CEditGroupDialog::SetFields(const CGroup* grp)

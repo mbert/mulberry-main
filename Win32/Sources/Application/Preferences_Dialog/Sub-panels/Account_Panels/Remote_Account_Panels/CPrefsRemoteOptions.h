@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -38,6 +38,7 @@ public:
 	//{{AFX_DATA(CPrefsRemoteOptions)
 	enum { IDD = IDD_PREFS_ACCOUNT_Remote_Options };
 	BOOL	mUseRemote;
+	cdstring	mBaseRURL;
 	//}}AFX_DATA
 
 	virtual void	SetContent(void* data);			// Set data

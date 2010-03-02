@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -126,6 +126,7 @@ void CDayWeekPrintout::SetDetails(const iCal::CICalendarDateTime& date, CDayWeek
 	
 	// Get events in the range
 	iCal::CICalendarExpandedComponents vevents;
+	iCal::CICalendarComponentList vfreebusy;
 	iCal::CICalendarPeriod period(dtstart, dtend);
 	
 	// Only do visible calendars
@@ -135,9 +136,10 @@ void CDayWeekPrintout::SetDetails(const iCal::CICalendarDateTime& date, CDayWeek
 		for(iCal::CICalendarList::const_iterator iter = cals.begin(); iter != cals.end(); iter++)
 		{
 			(*iter)->GetVEvents(period, vevents);
+			(*iter)->GetVFreeBusy(period, vfreebusy);
 		}
 	}
 	
 	// Add events to table
-	mTable->AddEvents(vevents);
+	mTable->AddItems(vevents, vfreebusy);
 }

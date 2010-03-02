@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -29,6 +29,10 @@
 #include "CSplitterView.h"
 #include "CToolbarView.h"
 
+#include "CICalendar.h"
+#include "CICalendarPeriod.h"
+#include "CICalendarProperty.h"
+
 #include "cdmutexprotect.h"
 
 // Classes
@@ -45,7 +49,7 @@ class CCalendarWindow : public CView,
 	DECLARE_DYNCREATE(CCalendarWindow)
 
 public:
-	typedef vector<CCalendarWindow*>	CCalendarWindowList;
+	typedef std::vector<CCalendarWindow*>	CCalendarWindowList;
 	static cdmutexprotect<CCalendarWindowList> sCalendarWindows;	// List of windows (protected for multi-thread access)
 	static CMultiDocTemplate*		sCalendarDocTemplate;
 
@@ -53,6 +57,7 @@ public:
 	virtual 		~CCalendarWindow();
 
 	static void MakeWindow(calstore::CCalendarStoreNode* node);
+	static void CreateFreeBusyWindow(iCal::CICalendarRef calref, const cdstring& id, const iCal::CICalendarProperty& organizer, const iCal::CICalendarPropertyList& attendees, const iCal::CICalendarDateTime& date);
 	static void CreateSubscribedWindow();
 	static CCalendarWindow* ManualCreate();
 
@@ -92,6 +97,7 @@ protected:
 			void 	SetNode(calstore::CCalendarStoreNode* node);
 			void 	DeleteNode(calstore::CCalendarStoreNode* node);
 			void 	RefreshNode(calstore::CCalendarStoreNode* node);
+			void 	SetFreeBusy(iCal::CICalendarRef calref, const cdstring& id, const iCal::CICalendarProperty& organizer, const iCal::CICalendarPropertyList& attendees, const iCal::CICalendarDateTime& date);
 
 			void	ShowPreview(bool preview);
 

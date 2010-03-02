@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ CMailboxPopup::CMailboxPopup()
 CMailboxPopup::~CMailboxPopup()
 {
 	// Remove from list
-	CMailboxPopupList::iterator found = ::find(sMailboxPopupMenus.begin(), sMailboxPopupMenus.end(), this);
+	CMailboxPopupList::iterator found = std::find(sMailboxPopupMenus.begin(), sMailboxPopupMenus.end(), this);
 	
 	if (found != sMailboxPopupMenus.end())
 		sMailboxPopupMenus.erase(found);
