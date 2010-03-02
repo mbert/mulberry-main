@@ -161,11 +161,12 @@ AC_CHECK_HEADER([cstdint],
 )
 if test ${HAS_CSTDINT} = 0; then
 AC_CHECK_HEADER([boost/cstdint.hpp],
+        CPPFLAGS="$CPPFLAGS_ORG"
 	CPPFLAGS="$CPPFLAGS -I`pwd`/Wrapper_Includes/cstdint",
+        CPPFLAGS="$CPPFLAGS_ORG"
         AC_MSG_ERROR(neither cstdint nor boost/cstdint.hpp found - one from them is required for compiling mulberry.)
 )
 fi
-CPPFLAGS="$CPPFLAGS_ORG"
 
 
 # Checks for LDAP
