@@ -48,7 +48,8 @@ install: build
 	dh_clean -k 
 	dh_installdirs
 
-	$(MAKE) DESTDIR=$(CURDIR)/debian/mulberry SKIPJX="yes" install
+	JX_INSTALL_ROOT="$(JXDIST)/bin" JX_LIB_ROOT="$(JXDIST)/lib" \
+		$(MAKE) DESTDIR=$(CURDIR)/debian/mulberry SKIPJX="yes" install
 
 binary-arch: install
 	dh_testdir
