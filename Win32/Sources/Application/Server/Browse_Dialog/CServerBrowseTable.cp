@@ -68,7 +68,8 @@ void CServerBrowseTable::InitServerBrowseTable(void)
 	mRecordExpansion = false;
 
 	// Allow multiple selections
-	ModifyStyle(0, LVS_SINGLESEL);
+	if (m_hWnd)
+		ModifyStyle(0, LVS_SINGLESEL);
 }
 
 // Resize columns

@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)sources&quot;;&quot;$(ProjectDir)sources\md5&quot;;&quot;$(ProjectDir)..\Common&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\..\Win32\Sources\VCPP&quot;;&quot;$(ProjectDir)..\..\..\Libraries\openssl\inc32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)sources&quot;;&quot;$(ProjectDir)sources\md5&quot;;&quot;$(ProjectDir)..\Common&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\..\Win32\Sources\VCPP&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
 				PreprocessorDefinitions="__VCPP__"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"

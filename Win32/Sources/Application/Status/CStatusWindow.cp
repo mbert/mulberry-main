@@ -56,6 +56,9 @@ struct AFX_STATUSPANE
 
 BOOL CUTF8StatusBar::SetPaneTextUTF8(int nIndex, const char* utf8, BOOL bUpdate)
 {
+	// Don't call into CWnd code if this thread doesn't own this CWnd
+	if (!FromHandlePermanent(GetSafeHwnd()))
+		return FALSE;
 #ifdef _UNICODE
 	cdustring utf16(utf8);
 	return SetPaneText(nIndex, utf16, bUpdate);
@@ -102,6 +105,14 @@ BOOL CUTF8StatusBar::SetPaneTextUTF8(int nIndex, const char* utf8, BOOL bUpdate)
 
 	return TRUE;
 #endif
+}
+
+BOOL CUTF8StatusBar::RedrawWindow(LPCRECT lpRectUpdate,
+				  CRgn* prgnUpdate,
+				  UINT flags)
+{
+	// Don't call into CWnd code if this thread doesn't own this CWnd
+	return FromHandlePermanent(GetSafeHwnd()) ? CStatusBar::RedrawWindow(lpRectUpdate, prgnUpdate, flags) : FALSE;
 }
 
 // Init status

@@ -678,8 +678,10 @@ void CToolbar::UpdateControl(CWnd* ctrl, UINT cmd, bool enable, bool show)
 	cmdui.m_nID = cmd;
 	
 	// Only if commander available
-	if (GetCommander())
-		cmdui.DoUpdate(GetCommander(), true);
+	CWnd* commander = GetCommander();
+	if (commander)
+		// we recreate the CWnd as we got it from another thread
+		cmdui.DoUpdate(CWnd::FromHandle(commander->GetSafeHwnd()), true);
 	
 	// Check for visibility change tied to enable state
 	if (show)
