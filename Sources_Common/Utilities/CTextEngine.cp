@@ -495,7 +495,7 @@ const char* CTextEngine::QuoteLines(const char* text, unsigned long length,
 		}
 		else
 		{
-			if (isspace(*endLine))
+			if (isspace((unsigned char)*endLine))
 				lastSpace = count;
 			endLine++;
 			count++;
