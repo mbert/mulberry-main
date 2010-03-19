@@ -122,7 +122,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="&quot;$(ProjectDir)sources&quot;;&quot;$(ProjectDir)..\Common&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\..\Win32\Sources\VCPP&quot;;&quot;$(ProjectDir)..\..\..\Libraries\openssl\inc32&quot;"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)sources&quot;;&quot;$(ProjectDir)..\Common&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\..\Win32\Sources\VCPP&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
 				PreprocessorDefinitions="__VCPP__"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="2"
@@ -144,7 +144,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/Def:&quot;SSL.def&quot;"
-				AdditionalDependencies="&quot;$(ProjectDir)..\..\..\Libraries\openssl\out32\libeay32.lib&quot; &quot;$(ProjectDir)..\..\..\Libraries\openssl\out32\ssleay32.lib&quot; WSOCK32.lib"
+				AdditionalDependencies="&quot;$(ProjectDir)..\..\Libraries\openssl\out32s\libeay32.lib&quot; &quot;$(ProjectDir)..\..\Libraries\openssl\out32s\ssleay32.lib&quot; WSOCK32.lib"
 				LinkIncremental="1"
 				IgnoreAllDefaultLibraries="false"
 				GenerateDebugInformation="true"
