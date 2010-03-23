@@ -162,7 +162,7 @@ const char* CTextEngine::WrapLines(const char* text, unsigned long length, unsig
 		}
 		else
 		{
-			if (isspace(*endLine))
+			if (isspace((unsigned char)*endLine))
 				lastSpace = count;
 			endLine++;
 			count++;

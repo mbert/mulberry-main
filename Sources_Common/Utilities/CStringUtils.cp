@@ -743,7 +743,7 @@ bool strpmatch(const char* s, const char* pat)
 	default:
 		// Do non-case match
 		return ((isupper(*pat) ? *pat + 'a' - 'A' : *pat) ==
-				(isupper(*s) ? *s + 'a' - 'A' : *s)) ? ::strpmatch (s+1, pat+1) : false;
+				(isupper((unsigned char)*s) ? *s + 'a' - 'A' : *s)) ? ::strpmatch (s+1, pat+1) : false;
 	}
 
 	return false;
