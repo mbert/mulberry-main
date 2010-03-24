@@ -3650,7 +3650,7 @@ void CLocalClient::ExpungeMessage(ulvector& indices)
 		unsigned long pos = 0;
 		for(SIndexList::const_iterator iter = mIndexList.begin(); iter != mIndexList.end(); iter++, pos++)
 		{
-			if (pos == indices.front())
+			if (!indices.empty() && (pos == indices.front()))
 			{
 				// Pop off the front
 				indices.erase(indices.begin());
