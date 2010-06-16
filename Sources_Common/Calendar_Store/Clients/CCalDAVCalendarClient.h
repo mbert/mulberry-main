@@ -69,6 +69,8 @@ protected:
 	virtual void _WriteFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 
 	virtual bool _CanUseComponents() const;
+	virtual void _TestFastSync(const CCalendarStoreNode& node);
+	virtual void _FastSync(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& changed, cdstrset& removed, cdstring& synctoken);
 	virtual void _GetComponentInfo(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& comps);
 	virtual void _AddComponent(const CCalendarStoreNode& node, iCal::CICalendar& cal, const iCal::CICalendarComponent& component);
 	virtual void _ChangeComponent(const CCalendarStoreNode& node, iCal::CICalendar& cal, const iCal::CICalendarComponent& component);

@@ -102,6 +102,7 @@ public:
 	void SortChildren();
 
 	cdstring GetAccountName(bool multi = true) const;
+	cdstring GetAccountDisplayName(bool multi = true) const;
 	cdstring GetURL() const;
 
 	void SetName(const cdstring& name)							// Set name

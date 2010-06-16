@@ -54,7 +54,12 @@ const xmllib::XMLName	cProperty_collection("collection", cNamespace);
 const xmllib::XMLName	cProperty_getetag("getetag", cNamespace);
 const xmllib::XMLName	cProperty_displayname("displayname", cNamespace);
 
-// RFC3744 ¤ - ACL Properties
+// RFC3253 ¤ - DeltaV Properties
+const xmllib::XMLName	cProperty_supported_report_set("supported-report-set", cNamespace);
+const xmllib::XMLName	cElement_supported_report("supported-report", cNamespace);
+const xmllib::XMLName	cElement_report("report", cNamespace);
+	
+	// RFC3744 ¤ - ACL Properties
 const xmllib::XMLName	cProperty_supported_privilege_set("supported-privilege-set", cNamespace);
 const xmllib::XMLName	cProperty_current_user_privilege_set("current-user-privilege-set", cNamespace);
 const xmllib::XMLName	cProperty_principal_collection_set("principal-collection-set", cNamespace);
@@ -99,6 +104,9 @@ const xmllib::XMLName	cElement_mkcol_response("mkcol-response", cNamespace);
 // current-user-principal
 const xmllib::XMLName	cProperty_current_user_principal("current-user-principal", cNamespace);
 
+// sync-collection REPORT
+extern const xmllib::XMLName	cElement_sync_collection("sync-collection", cNamespace);
+extern const xmllib::XMLName	cElement_sync_token("sync-token", cNamespace);
 }
 
 namespace caldav 

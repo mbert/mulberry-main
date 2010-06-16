@@ -166,6 +166,8 @@ AC_CHECK_HEADER([boost/cstdint.hpp],
         CPPFLAGS="$CPPFLAGS_ORG"
         AC_MSG_ERROR(neither cstdint nor boost/cstdint.hpp found - one from them is required for compiling mulberry.)
 )
+else
+CPPFLAGS="$CPPFLAGS_ORG"
 fi
 
 

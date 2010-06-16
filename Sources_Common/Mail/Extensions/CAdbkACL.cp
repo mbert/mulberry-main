@@ -266,12 +266,11 @@ void CAdbkACL::MapRight(const cdstring& right, bool add)
 	}
 }
 
-void CAdbkACL::GenerateACE(xmllib::XMLDocument* xmldoc, xmllib::XMLNode* aclnode, bool can_use_inheritable) const
+void CAdbkACL::GenerateACE(xmllib::XMLDocument* xmldoc, xmllib::XMLNode* aclnode) const
 {
 	// Structure of ace is:
 	//
 	//   <DAV:ace>
-	//     <S:inheritable xmlns:S="http://jakarta.apache.org/slide/"> / <S:non-inheritable xmlns:S="http://jakarta.apache.org/slide/">
 	//     <DAV:principal>...</DAV:principal>
 	//	   <DAV:grant>...</DAV:grant>
 	//   </DAV:ace>
@@ -279,15 +278,6 @@ void CAdbkACL::GenerateACE(xmllib::XMLDocument* xmldoc, xmllib::XMLNode* aclnode
 	// <DAV:ace> element
 	xmllib::XMLNode* ace = new xmllib::XMLNode(xmldoc, aclnode, http::webdav::cProperty_ace);
 	
-	// Handle inheritable specialisation
-	if (can_use_inheritable)
-	{
-		if (IsInheritable())
-			new xmllib::XMLNode(xmldoc, ace, http::slide::cInheritable_comp);
-		else
-			new xmllib::XMLNode(xmldoc, ace, http::slide::cNonInheritable_comp);
-	}
-
 	// <DAV:principal> element
 	xmllib::XMLNode* principal = new xmllib::XMLNode(xmldoc, ace, http::webdav::cProperty_principal);
 	

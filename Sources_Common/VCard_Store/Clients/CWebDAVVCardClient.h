@@ -55,6 +55,7 @@ protected:
 	cdstring		mHostURL;
 	cdstring		mBaseURL;
 	cdstring		mBaseRURL;
+	cdstring		mPrincipalURI;
 	cdstrmap		mLockTokens;
 	cdstring		mAuthUniqueness;
 
@@ -83,6 +84,8 @@ protected:
 	virtual void	_SizeAdbk(CAddressBook* adbk);
 	
 	// Operations with addresses
+	virtual void	_TestFastSync(const CAddressBook* adbk);
+	virtual void	_FastSync(const CAddressBook* adbk, cdstrmap& changed, cdstrset& removed, cdstring& synctoken);
 	virtual void	_ReadFullAddressBook(CAddressBook* adbk);		// Find all addresses in adbk
 	virtual void	_WriteFullAddressBook(CAddressBook* adbk);		// Write all addresses in adbk
 	virtual void	_FindAllAddresses(CAddressBook* adbk);			// Find all addresses in adbk
@@ -152,8 +155,11 @@ protected:
 	void WriteFullAddressBook_Put(CAddressBook* adbk, const cdstring& lock_token = cdstring::null_str);
 	void WriteFullAddressBook_Lock(CAddressBook* adbk);
 
+	typedef bool (*TestPropertyPP)(const xmllib::XMLNode& node, void* data);
+	
 	cdstring GetETag(const cdstring& rurl, const cdstring& lock_token = cdstring::null_str);
 	cdstring GetProperty(const cdstring& rurl, const cdstring& lock_token, const xmllib::XMLName& property);
+	void TestProperty(const cdstring& rurl, const cdstring& lock_token, const xmllib::XMLName& property, TestPropertyPP callback, void* data);
 	cdstrvect GetHrefListProperty(const cdstring& rurl, const xmllib::XMLName& propname);
 	bool GetProperties(const cdstring& rurl, const xmllib::XMLNameList& props, cdstrmap& results);
 	bool GetSelfHrefs(const cdstring& rurl, cdstrvect& results);

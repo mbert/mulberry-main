@@ -74,8 +74,9 @@ CCalendarStoreNode::CCalendarStoreNode(CCalendarProtocol* proto)
 	SetFlags(eIsDirectory, true);
 	SetFlags(eHasExpanded, true);
 	mCalendarRef = iCal::cCalendarRef_Invalid;
-	mName = proto->GetAccountName();
+	mName = proto->GetCalendarAccount()->GetBaseRURL();
 	mShortName = mName;
+	mDisplayName = proto->GetAccountName();
 	mSize = ULONG_MAX;
 	mLastSync = 0;
 	mACLs = NULL;
@@ -142,6 +143,18 @@ cdstring CCalendarStoreNode::GetAccountName(bool multi) const
 		name += cMailAccountSeparator;
 	}
 	name += GetName();
+	return name;
+}
+
+cdstring CCalendarStoreNode::GetAccountDisplayName(bool multi) const
+{
+	cdstring name;
+	if (multi)
+	{
+		name = mProtocol->GetAccountName();
+		name += cMailAccountSeparator;
+	}
+	name += GetDisplayShortName();
 	return name;
 }
 

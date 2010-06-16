@@ -160,6 +160,10 @@ void CWebDAVCalendarClient::_Reset(const cdstring& baseRURL)
 	}
 	mBaseRURL.EncodeURL('/');
 	
+	cdstring temp(mBaseRURL);
+	temp.erase(temp.length() -1);
+	GetCalendarProtocol()->GetStoreRoot()->SetName(temp);
+	
 	// Get absolute URL
 	if ((GetAccount()->GetTLSType() == CINETAccount::eSSL) ||
 		(GetAccount()->GetTLSType() == CINETAccount::eSSLv3))
@@ -170,6 +174,7 @@ void CWebDAVCalendarClient::_Reset(const cdstring& baseRURL)
 	mBaseURL += GetAccount()->GetServerIP();
 	mHostURL = mBaseURL;
 	mBaseURL += mBaseRURL;
+	
 }
 
 #pragma mark ____________________________Login & Logout
@@ -807,6 +812,7 @@ void CWebDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iC
 		// Read calendar from file
 		cdstring data = dout.GetData();
 		std::istrstream is(data.c_str());
+		cal.Clear();
 		cal.Parse(is);
 		
 		// Update ETag
@@ -998,6 +1004,16 @@ bool CWebDAVCalendarClient::_CanUseComponents() const
 {
 	// Only handles entire calendar files
 	return false;
+}
+
+void CWebDAVCalendarClient::_TestFastSync(const CCalendarStoreNode& node)
+{
+	// Does nothing in this implementation
+}
+
+void CWebDAVCalendarClient::_FastSync(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Does nothing in this implementation
 }
 
 void CWebDAVCalendarClient::_GetComponentInfo(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& comps)
@@ -1275,6 +1291,50 @@ cdstring CWebDAVCalendarClient::GetProperty(const cdstring& rurl, const cdstring
 	}
 
 	return result;
+}
+
+void CWebDAVCalendarClient::TestProperty(const cdstring& rurl, const cdstring& lock_token, const xmllib::XMLName& property, TestPropertyPP callback, void* data)
+{
+	// Create WebDAV propfind
+	xmllib::XMLNameList props;
+	props.push_back(property);
+	std::auto_ptr<http::webdav::CWebDAVPropFind> request(new http::webdav::CWebDAVPropFind(this, rurl, http::webdav::eDepth0, props));
+	http::CHTTPOutputDataString dout;
+	request->SetOutput(&dout);
+	
+	// Process it
+	RunSession(request.get());
+	
+	// If its a 207 we want to parse the XML
+	if (request->GetStatusCode() == http::webdav::eStatus_MultiStatus)
+	{
+		http::webdav::CWebDAVPropFindParser parser;
+		parser.ParseData(dout.GetData());
+		
+		// Look at each propfind result and determine type of calendar
+		cdstring decoded_rurl = rurl;
+		decoded_rurl.DecodeURL();
+		for(http::webdav::CWebDAVPropFindParser::CPropFindResults::const_iterator iter = parser.Results().begin(); iter != parser.Results().end(); iter++)
+		{
+			// Get child element name (decode URL)
+			cdstring name((*iter)->GetResource());
+			name.DecodeURL();
+			
+			// Must match rurl
+			if (name.compare_end(decoded_rurl))
+			{
+				if ((*iter)->GetNodeProperties().count(property.FullName()) != 0)
+				{
+					if (!callback(*(*(*iter)->GetNodeProperties().find(property.FullName())).second, data))
+						break;
+				}
+			}
+		}
+	}
+	else
+	{
+		HandleHTTPError(request.get());
+	}
 }
 
 cdstrvect CWebDAVCalendarClient::GetHrefListProperty(const cdstring& rurl, const xmllib::XMLName& propname)

@@ -64,7 +64,8 @@ void CCalendarPopup::Reset()
 		for(iCal::CICalendarList::const_iterator iter = calstore::CCalendarStoreManager::sCalendarStoreManager->GetActiveCalendars().begin(); iter != calstore::CCalendarStoreManager::sCalendarStoreManager->GetActiveCalendars().end(); iter++,  cal_pos++)
 		{
 			// Make a CFString from UTF8 data
-			cdstring name = (*iter)->GetName();
+			const calstore::CCalendarStoreNode* node = calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(*iter);
+			cdstring name = node->GetAccountDisplayName(calstore::CCalendarStoreManager::sCalendarStoreManager->HasMultipleProtocols());
 			if (name.empty())
 			{
 				name = rsrc::GetString("::NumberedCalendar");

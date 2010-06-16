@@ -43,7 +43,9 @@ public:
 	enum EAdbkFlags
 	{
 		eHasACL					= 1L << 16,
-		eACLDisabled			= 1L << 17
+		eACLDisabled			= 1L << 17,
+		eHasSync				= 1L << 18,
+		eDidSyncTest			= 1L << 19
 	};
 
 	// Messages for broadcast
@@ -159,6 +161,8 @@ public:
 			void	SyncFromServer(CAddressBook* adbk);
 			void	SyncFullFromServer(CAddressBook* adbk);
 			void	SyncComponentsFromServer(CAddressBook* adbk);
+			void	SyncComponentsFromServerSlow(CAddressBook* adbk);
+			void	SyncComponentsFromServerFast(CAddressBook* adbk);
 			void	CloseAdbk(CAddressBook* adbk);			// Close existing mailbox
 			void	SizeAdbk(CAddressBook* adbk);
 
@@ -209,7 +213,15 @@ public:
 	void DeleteACL(CAddressBook* adbk, CACL* acl);		// Delete acl on server
 	void GetACL(CAddressBook* adbk);					// Get all acls for mailbox from server
 	void MyRights(CAddressBook* adbk);					// Get current user's rights to mailbox
-
+	
+	// Sync'ing
+	void SetHasSync(bool has_sync)
+		{ mFlags.Set(eHasSync, has_sync); mFlags.Set(eDidSyncTest, true); }
+	bool GetHasSync() const
+		{ return mFlags.IsSet(eHasSync); }
+	bool GetDidSyncTest() const
+		{ return mFlags.IsSet(eDidSyncTest); }
+	
 protected:
 	CAdbkClient*		mClient;							// Its client
 	CAdbkClient*		mCacheClient;						// Its client

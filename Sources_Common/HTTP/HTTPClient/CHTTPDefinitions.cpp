@@ -129,16 +129,9 @@ namespace carddav
 
 // drft-carddav ¤ - CardDAV Request Methods
 
-const char*	cRequestMKADBK = "MKADBK";
-
 // draft-carddav ¤ - Request Header fields (only the ones we need)
 
-	const char* cHeaderAddressBook = "vcard-addressbooks";
-}
-
-namespace slide 
-{
-	const char* cHeaderCyrusoftInheritable = "cyrusoft-inheritable";
+	const char* cHeaderAddressBook = "addressbook";
 }
 
 }

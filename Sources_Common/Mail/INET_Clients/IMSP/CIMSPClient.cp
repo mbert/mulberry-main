@@ -471,6 +471,16 @@ void CIMSPClient::_SizeAdbk(CAddressBook* adbk)
 
 // Operations with addresses
 
+void CIMSPClient::_TestFastSync(const CAddressBook* adbk)
+{
+	// Does nothing in this implementation
+}
+
+void CIMSPClient::_FastSync(const CAddressBook* adbk, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Does nothing in this implementation
+}
+
 // Find all addresses in adbk
 void CIMSPClient::_ReadFullAddressBook(CAddressBook* adbk)
 {

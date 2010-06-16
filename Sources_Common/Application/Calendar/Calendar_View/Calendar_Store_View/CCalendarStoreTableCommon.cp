@@ -501,7 +501,8 @@ calstore::CCalendarStoreNode* CCalendarStoreTable::DoCreateCalendar()
 
 			if (node->IsProtocol())
 			{
-				create.use_wd = false;
+				create.use_wd = true;
+				create.parent = node->GetName();
 			}
 			else if (node->IsDirectory())
 			{
@@ -535,6 +536,8 @@ calstore::CCalendarStoreNode* CCalendarStoreTable::DoCreateCalendar()
 			}
 			else
 				new_name = create.new_name;
+			if (new_name[new_name.length() - 1] != '/')
+				new_name += '/';
 
 			// Check and get proto from dialog
 			if (!proto)

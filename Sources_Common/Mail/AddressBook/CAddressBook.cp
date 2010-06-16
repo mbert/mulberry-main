@@ -75,8 +75,9 @@ CAddressBook::CAddressBook(CAdbkProtocol* proto)
 	SetFlags(eIsProtocol, true);
 	SetFlags(eIsDirectory, true);
 	SetFlags(eHasExpanded, true);
-	mName = proto->GetAccountName();
+	mName = proto->GetAddressAccount()->GetBaseRURL();;
 	mShortName = mName;
+	mDisplayName = proto->GetAccountName();
 	mSize = ULONG_MAX;
 	mLastSync = 0;
 	mACLs = NULL;

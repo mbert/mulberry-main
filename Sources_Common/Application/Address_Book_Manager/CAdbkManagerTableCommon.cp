@@ -534,7 +534,8 @@ void CAdbkManagerTable::OnNewAddressBook(void)
 
 			if (node->IsProtocol())
 			{
-				create.use_wd = false;
+				create.use_wd = true;
+				create.parent = node->GetName();
 			}
 			else if (node->IsDirectory())
 			{
@@ -567,6 +568,8 @@ void CAdbkManagerTable::OnNewAddressBook(void)
 			}
 			else
 				new_name = create.name;
+			if (new_name[new_name.length() - 1] != '/')
+				new_name += '/';
 
 			// Check and get proto from dialog
 			if (!proto)

@@ -56,6 +56,11 @@ extern const xmllib::XMLName	cProperty_collection;
 extern const xmllib::XMLName	cProperty_getetag;
 extern const xmllib::XMLName	cProperty_displayname;
 
+// RFC3253 ¤ - DeltaV Properties
+extern const xmllib::XMLName	cProperty_supported_report_set;
+	extern const xmllib::XMLName	cElement_supported_report;
+		extern const xmllib::XMLName	cElement_report;
+
 // RFC3744 ¤ - ACL Properties
 extern const xmllib::XMLName	cProperty_supported_privilege_set;
 
@@ -101,9 +106,13 @@ extern const xmllib::XMLName	cElement_principal_match;
 // Extended MKCOL
 extern const xmllib::XMLName	cElement_mkcol;
 extern const xmllib::XMLName	cElement_mkcol_response;
-
+	
 // current-user-principal
 extern const xmllib::XMLName	cProperty_current_user_principal;
+
+// sync-collection REPORT
+extern const xmllib::XMLName	cElement_sync_collection;
+extern const xmllib::XMLName	cElement_sync_token;
 }
 
 namespace caldav 

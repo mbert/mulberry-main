@@ -57,11 +57,13 @@ class CCalendarProtocol : public CINETProtocol
 
 public:
 	// Flags
-	enum EMboxFlags
+	enum ECalendarFlags
 	{
 		eHasACL					= 1L << 16,
 		eACLDisabled			= 1L << 17,
-		eHasScheduling			= 1L << 18
+		eHasScheduling			= 1L << 18,
+		eHasSync				= 1L << 19,
+		eDidSyncTest			= 1L << 20
 	};
 
 	// Messages for broadcast
@@ -171,6 +173,8 @@ public:
 	void SyncFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	void SyncFullFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	void SyncComponentsFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	void SyncComponentsFromServerSlow(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	void SyncComponentsFromServerFast(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	void CloseCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	void CopyCalendar(const CCalendarStoreNode& node, iCal::CICalendar& newcal);
 	void CopyCalendarContents(const CCalendarStoreNode& node, iCal::CICalendar& newcal);
@@ -221,6 +225,13 @@ public:
 	void GetFreeBusyCalendars(cdstrvect& calendars);
 	void SetFreeBusyCalendars(const cdstrvect& calendars);
 
+	void SetHasSync(bool has_sync)
+		{ mFlags.Set(eHasSync, has_sync); mFlags.Set(eDidSyncTest, true); }
+	bool GetHasSync() const
+		{ return mFlags.IsSet(eHasSync); }
+	bool GetDidSyncTest() const
+		{ return mFlags.IsSet(eDidSyncTest); }
+	
 protected:
 	CCalendarClient*		mClient;							// Its client
 	CCalendarClient*		mCacheClient;						// Its caching client

@@ -39,7 +39,7 @@ const char* cMethodMap[] =
 {
 	cRequestOPTIONS, cRequestGET, cRequestHEAD, cRequestPOST, cRequestPUT, cRequestDELETE, cRequestTRACE, cRequestCONNECT,
 	cRequestMKCOL, cRequestMOVE, cRequestCOPY, cRequestPROPFIND, cRequestPROPPATCH, cRequestLOCK, cRequestUNLOCK,
-	cRequestREPORT, cRequestACL, cRequestMKCALENDAR, cRequestMKADBK
+	cRequestREPORT, cRequestACL, cRequestMKCALENDAR
 };
 
 CHTTPRequestResponse::CHTTPRequestResponse(const CHTTPSession* session, ERequestMethod method, const cdstring& ruri) :

@@ -427,6 +427,16 @@ void CLocalAdbkClient::_SizeAdbk(CAddressBook* adbk)
 
 // Operations with addresses
 
+void CLocalAdbkClient::_TestFastSync(const CAddressBook* adbk)
+{
+	// Does nothing in this implementation
+}
+
+void CLocalAdbkClient::_FastSync(const CAddressBook* adbk, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Does nothing in this implementation
+}
+
 // Find all addresses in adbk
 void CLocalAdbkClient::_ReadFullAddressBook(CAddressBook* adbk)
 {

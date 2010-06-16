@@ -48,9 +48,7 @@ public:
 		eDAVACL =					1L << 16,
 		eCALDAVaccess =				1L << 17,
 		eCALDAVsched =				1L << 18,
-			
-		// Private Extensions
-		eCyrusoftInheritable =		1L << 19
+		eCARDDAV =					1L << 19
 		
 	};
 

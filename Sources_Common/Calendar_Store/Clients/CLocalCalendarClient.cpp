@@ -614,6 +614,16 @@ bool CLocalCalendarClient::_CanUseComponents() const
 	return false;
 }
 
+void CLocalCalendarClient::_TestFastSync(const CCalendarStoreNode& node)
+{
+	// Does nothing in this implementation
+}
+
+void CLocalCalendarClient::_FastSync(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Does nothing in this implementation
+}
+
 void CLocalCalendarClient::_GetComponentInfo(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& comps)
 {
 	// Does nothing in this implementation

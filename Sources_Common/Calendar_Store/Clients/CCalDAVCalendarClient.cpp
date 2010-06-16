@@ -44,6 +44,8 @@
 #include "CWebDAVMakeCollection.h"
 #include "CWebDAVPropFind.h"
 #include "CWebDAVPut.h"
+#include "CWebDAVSyncReport.h"
+#include "CWebDAVSyncReportParser.h"
 #include "CCalDAVMakeCalendar.h"
 #include "CCalDAVMultigetReport.h"
 #include "CCalDAVReportParser.h"
@@ -617,6 +619,82 @@ bool CCalDAVCalendarClient::_CanUseComponents() const
 {
 	// Can handle components separately
 	return true;
+}
+
+bool SyncCollectionReportTest(const xmllib::XMLNode& node, void* data);
+bool SyncCollectionReportTest(const xmllib::XMLNode& node, void* data)
+{
+	for(xmllib::XMLNodeList::const_iterator iter = node.Children().begin(); iter != node.Children().end(); iter++)
+	{
+		if ((*iter)->CompareFullName(http::webdav::cElement_supported_report))
+		{
+			const xmllib::XMLNode* child = (*iter)->GetChild(http::webdav::cElement_report);
+			if (child != NULL)
+			{
+				if (child->GetChild(http::webdav::cElement_sync_collection))
+				{
+					*(bool*)data = true;
+					break;
+				}
+			}
+		}
+	}
+	
+	return false;
+}
+
+void CCalDAVCalendarClient::_TestFastSync(const CCalendarStoreNode& node)
+{
+	// Start UI action
+	StINETClientAction _action(this, "Status::Calendar::Reading", "Error::Calendar::OSErrReadCalendar", "Error::Calendar::NoBadReadCalendar", node.GetName());
+	
+	// PROPFIND supported-report-set and check for DAV:sync-collection
+
+	// Determine URL and lock
+	cdstring rurl = node.GetName();
+	rurl.EncodeURL('/');
+	cdstring lock_token = GetLockToken(rurl);
+	
+	// Get current supported-report-set
+	bool found_report = false;
+	TestProperty(rurl, lock_token, http::webdav::cProperty_supported_report_set, SyncCollectionReportTest, &found_report);
+
+	// Set state
+	node.GetProtocol()->SetHasSync(found_report);
+}
+
+void CCalDAVCalendarClient::_FastSync(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Start UI action
+	StINETClientAction _action(this, "Status::Calendar::Reading", "Error::Calendar::OSErrReadCalendar", "Error::Calendar::NoBadReadCalendar", node.GetName());
+	
+	// Policy:
+	//
+	// Do REPORT Depth 1 to get all changed items
+	// Extract HREFs for each item
+	// Get each item found and parse into calendar one at a time whilst caching HREF
+	
+	// Create WebDAV report
+	cdstring rurl = node.GetName();
+	rurl.EncodeURL('/');
+	std::auto_ptr<http::webdav::CWebDAVSyncReport> request(new http::webdav::CWebDAVSyncReport(this, rurl, cal.GetSyncToken()));
+	http::CHTTPOutputDataString dout;
+	request->SetOutput(&dout);
+	
+	// Process it
+	RunSession(request.get());
+	
+	// If its a 207 we want to parse the XML
+	if (request->GetStatusCode() == http::webdav::eStatus_MultiStatus)
+	{
+		http::webdav::CWebDAVSyncReportParser parser(changed, removed, synctoken);
+		parser.ParseData(dout.GetData());
+	}
+	else
+	{
+		HandleHTTPError(request.get());
+		return;
+	}
 }
 
 void CCalDAVCalendarClient::_GetComponentInfo(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& comps)

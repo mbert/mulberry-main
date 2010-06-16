@@ -144,7 +144,8 @@ void CCalendarEventBase::SetDetails(iCal::CICalendarComponentExpandedShared& eve
 	
 	// Check for inbox
 	const calstore::CCalendarStoreNode* node = calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(cal);
-	mIsInbox = node->IsInbox();
+	if (node != NULL)
+		mIsInbox = node->IsInbox();
 
 }
 

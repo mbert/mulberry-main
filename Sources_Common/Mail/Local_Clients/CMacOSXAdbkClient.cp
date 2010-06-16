@@ -282,6 +282,16 @@ void CMacOSXAdbkClient::_SizeAdbk(CAddressBook* adbk)
 
 // Operations with addresses
 
+void CMacOSXAdbkClient::_TestFastSync(const CAddressBook* adbk)
+{
+	// Does nothing in this implementation
+}
+
+void CMacOSXAdbkClient::_FastSync(const CAddressBook* adbk, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Does nothing in this implementation
+}
+
 // Find all addresses in adbk
 void CMacOSXAdbkClient::_ReadFullAddressBook(CAddressBook* adbk)
 {

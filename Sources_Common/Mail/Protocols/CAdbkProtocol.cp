@@ -240,7 +240,7 @@ void CAdbkProtocol::SetAccount(CINETAccount* account)
 	}
 
 	// Look for change in account name
-	if (mStoreRoot.GetName() != GetAccountName())
+	if (mStoreRoot.GetDisplayName() != GetAccountName())
 	{
 		// Need to rename offline
 		if (mCacheClient != NULL)
@@ -249,7 +249,7 @@ void CAdbkProtocol::SetAccount(CINETAccount* account)
 		}
 		
 		// Rename root
-		mStoreRoot.SetName(GetAccountName());
+		mStoreRoot.SetDisplayName(GetAccountName());
 	}
 
 	if (mCacheClient != NULL)
@@ -868,7 +868,7 @@ CAddressBook* CAdbkProtocol::GetNode(const cdstring& adbk, bool parent) const
 		path.join(segments, cdstring(GetDirDelim()));
 	}
 
-	return (path.empty() ? const_cast<CAddressBook*>(&mStoreRoot) : mStoreRoot.FindNode(path));
+	return ((path.empty() || path == mStoreRoot.GetName())? const_cast<CAddressBook*>(&mStoreRoot) : mStoreRoot.FindNode(path));
 }
 
 CAddressBook* CAdbkProtocol::GetParentNode(const cdstring& adbk) const
@@ -1099,6 +1099,263 @@ void CAdbkProtocol::SyncFullFromServer(CAddressBook* adbk)
 }
 
 void CAdbkProtocol::SyncComponentsFromServer(CAddressBook* adbk)
+{
+	if (not GetDidSyncTest())
+	{
+		mClient->_TestFastSync(adbk);
+	}
+	if (GetHasSync())
+	{
+		SyncComponentsFromServerFast(adbk);
+	}
+	else
+	{
+		SyncComponentsFromServerSlow(adbk);
+	}
+}
+
+void CAdbkProtocol::SyncComponentsFromServerFast(CAddressBook* adbk)
+{
+	// We need to do this as a proper transaction with locking
+	try
+	{
+		// Policy:
+		//
+		// 1. Get list of changes on server
+		//
+		// 2. Look at record DB and:
+		//  2.1 Add new components to server and cache info
+		//  2.2 Remove deleted components from server and cached server info if still present on server
+		//  2.3 Cache info for changed items for later sync (or change them immediately if the server has not changed),
+		//      or remove cached items if removed from server
+		//
+		// 3. Scan list of local components
+		//  3.1 If in server removed set, remove locally
+		//  3.2 If in server changed set
+		//   3.2.1 If server etag is unchanged then change component on server
+		//   3.2.2 Otherwise determine whether server or cached component wins and use that
+		//
+		// 4. Copy remaining items in server set to local cache - they are new items
+		//
+		// We only need to do steps 3 & 4 if the data on the server is known to have changed.
+		//
+
+		// Now do it...
+		
+		// Step 1
+		vCard::CVCardAddressBook* vadbk = adbk->GetVCardAdbk();
+		CCardDAVVCardClient* cardclient = static_cast<CCardDAVVCardClient*>(mClient);
+		cdstrmap changed;
+		cdstrset removed;																																																																																																																																		
+		cdstring synctoken;																																																																																																																																		
+		mClient->_FastSync(adbk, changed, removed, synctoken);
+		
+		if (synctoken.empty() && !vadbk->GetSyncToken().empty())
+		{
+			changed.clear();
+			removed.clear();
+			mClient->_FastSync(adbk, changed, removed, synctoken);
+		}
+		
+		if (synctoken.empty())
+		{
+			return;
+		}
+		bool server_changed = synctoken != vadbk->GetSyncToken();
+		bool changes_made = false;
+
+		// Step 2
+		cdstrmap both_changed;
+		for(vCard::CVCardComponentRecordDB::const_iterator iter = vadbk->GetRecording().begin(); iter != vadbk->GetRecording().end(); iter++)
+		{
+			// Step 2.1
+			if ((*iter).second.GetAction() == vCard::CVCardComponentRecord::eAdded)
+			{
+				// Add component to server
+				const vCard::CVCardVCard* comp = vadbk->GetCardByKey((*iter).first);
+				if (comp != NULL)
+				{
+					// Add component to server
+					cardclient->_AddComponent(adbk, *vadbk, *comp);
+					changes_made = true;
+				}
+			}
+			
+			// Step 2.2
+			else if ((*iter).second.GetAction() == vCard::CVCardComponentRecord::eRemoved)
+			{
+				// Is it still present on the server
+				if (removed.count((*iter).second.GetRURL()) != 0)
+				{
+					// Remove component from server
+					cardclient->_RemoveComponent(adbk, *vadbk, (*iter).second.GetRURL());
+					changes_made = true;
+					
+					// Remove from server component info
+					if (changed.count((*iter).second.GetRURL()) != 0)
+						changed.erase((*iter).second.GetRURL());
+				}
+			}
+			
+			// Step 2.3
+			else if ((*iter).second.GetAction() == vCard::CVCardComponentRecord::eChanged)
+			{
+				// Removed on server?
+				if (removed.count((*iter).second.GetRURL()) != 0)
+				{
+					vadbk->RemoveCardByKey((*iter).first);
+				}
+				
+				// Changed on server?
+				else if (changed.count((*iter).second.GetRURL()) != 0)
+				{
+					both_changed.insert(cdstrmap::value_type((*iter).second.GetRURL(), (*iter).second.GetETag()));
+				}
+				
+				// Changed locally only
+				else
+				{
+					// Change it on the server
+					const vCard::CVCardVCard* comp = vadbk->GetCardByKey((*iter).first);
+					cardclient->_ChangeComponent(adbk, *vadbk, *comp);
+					changes_made = true;
+				}
+			}
+		}
+		
+		
+		// Now do sync
+		if (server_changed)
+		{
+			// Get component info from cache
+			cdstrvect component_keys;
+			for(vCard::CVCardComponentDB::const_iterator iter = vadbk->GetVCards().begin(); iter != vadbk->GetVCards().end(); iter++)
+			{
+				component_keys.push_back((*iter).second->GetMapKey());
+			}
+			
+			// Step 3
+			cdstrvect rurls;
+			for(cdstrvect::const_iterator iter = component_keys.begin(); iter != component_keys.end(); iter++)
+			{
+				vCard::CVCardVCard* cache_comp = vadbk->GetCardByKey(*iter);
+				if (cache_comp == NULL)
+					continue;
+				
+				// Get this components RURL
+				cdstring cache_rurl = cache_comp->GetRURL();
+				cdstring cache_etag = cache_comp->GetETag();
+				
+				// Step 3.1
+				cdstrset::const_iterator found_removed = removed.find(cache_rurl);
+				if (found_removed != removed.end())
+				{
+					// Remove locally
+					vadbk->RemoveCardByKey(cache_comp->GetMapKey());
+					continue;
+				}
+				
+				// Get the server info
+				cdstring server_rurl;
+				cdstring server_etag;
+				cdstrmap::const_iterator found = changed.find(cache_rurl);
+				if (found != changed.end())
+				{
+					server_rurl = (*found).first;
+					server_etag = (*found).second;
+				}
+				
+				// Step 3.2
+				if (!server_rurl.empty())
+				{
+					if (both_changed.count(server_rurl) != 0)
+					{
+						// Step 3.2.1
+						if (cache_etag == server_etag)
+						{
+							// Write changed cache component to server
+							cardclient->_ChangeComponent(adbk, *vadbk, *cache_comp);
+							changes_made = true;
+						}
+						
+						// Step 3.2.2
+						else
+						{						
+							// First read in component from server into temp addressbook
+							vCard::CVCardAddressBook tempvcard;
+							vCard::CVCardVCard* server_comp = cardclient->_ReadComponent(adbk, tempvcard, server_rurl);
+							if (server_comp != NULL)
+							{
+								int result = -1; //iCal::CICalendarSync::CompareComponentVersions(server_comp, cache_comp);
+								
+								if (result == 1)
+								{
+									// Cache is newer than server - cache overwrites to server
+									cardclient->_ChangeComponent(adbk, *vadbk, *cache_comp);
+									changes_made = true;
+								}
+								else if (result == -1)
+								{
+									// Cache is older than server - server overwrites cache
+									
+									// Remove the cached component first
+									vadbk->RemoveCardByKey(cache_comp->GetMapKey());
+									cache_comp = NULL;
+									
+									// Copy component from server into local cache effectively replacing old one
+									vCard::CVCardComponent* new_comp = server_comp->clone();
+									new_comp->SetAddressBook(vadbk->GetRef());
+									vadbk->AddCard(new_comp);
+								}
+							}
+						}
+					}
+					else if (cache_etag != server_etag)
+					{
+						rurls.push_back(cache_rurl);
+					}
+					changed.erase(server_rurl);
+				}
+			}
+			
+			// Read components from server into local cache as its a new one on the server
+			for(cdstrmap::const_iterator iter = changed.begin(); iter != changed.end(); iter++)
+			{
+				rurls.push_back((*iter).first);
+			}
+			
+			if (rurls.size() != 0)
+				cardclient->_ReadComponents(adbk, *vadbk, rurls);
+		}
+		
+		// Clear out cache recording
+		vadbk->ClearRecording();
+		
+		// Get the current server sync token
+		if (server_changed || changes_made)
+		{
+			cardclient->_UpdateSyncToken(adbk);
+		}
+		vadbk->SetSyncToken(synctoken);
+		
+		// Now write back cache
+		if (!mCacheClient->_TouchAdbk(adbk))
+			DumpAddressBooks();
+		mCacheClient->_WriteFullAddressBook(adbk);
+		
+		// Now map VCards into internal addresses
+		vcardstore::MapFromVCards(adbk);
+	}
+	catch(...)
+	{
+		CLOG_LOGCATCH(...);
+		
+		CLOG_LOGRETHROW;
+		throw;
+	}
+}
+
+void CAdbkProtocol::SyncComponentsFromServerSlow(CAddressBook* adbk)
 {
 	// We need to do this as a proper transaction with locking
 	try

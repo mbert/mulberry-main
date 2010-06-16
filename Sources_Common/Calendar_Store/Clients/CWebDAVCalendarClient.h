@@ -87,6 +87,8 @@ protected:
 	virtual void _WriteFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 
 	virtual bool _CanUseComponents() const;
+	virtual void _TestFastSync(const CCalendarStoreNode& node);
+	virtual void _FastSync(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& changed, cdstrset& removed, cdstring& synctoken);
 	virtual void _GetComponentInfo(const CCalendarStoreNode& node, iCal::CICalendar& cal, cdstrmap& comps);
 	virtual void _AddComponent(const CCalendarStoreNode& node, iCal::CICalendar& cal, const iCal::CICalendarComponent& component);
 	virtual void _ChangeComponent(const CCalendarStoreNode& node, iCal::CICalendar& cal, const iCal::CICalendarComponent& component);
@@ -144,8 +146,11 @@ protected:
 	void WriteFullCalendar_Put(const CCalendarStoreNode& node, iCal::CICalendar& cal, const cdstring& lock_token = cdstring::null_str);
 	void WriteFullCalendar_Lock(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 
+	typedef bool (*TestPropertyPP)(const xmllib::XMLNode& node, void* data);
+
 	cdstring GetETag(const cdstring& rurl, const cdstring& lock_token = cdstring::null_str);
 	cdstring GetProperty(const cdstring& rurl, const cdstring& lock_token, const xmllib::XMLName& property);
+	void TestProperty(const cdstring& rurl, const cdstring& lock_token, const xmllib::XMLName& property, TestPropertyPP callback, void* data);
 	cdstrvect GetHrefListProperty(const cdstring& rurl, const xmllib::XMLName& propname);
 	bool GetProperties(const cdstring& rurl, const xmllib::XMLNameList& props, cdstrmap& results);
 	bool GetSelfProperties(const cdstring& rurl, const xmllib::XMLNameList& props, cdstrmap& results);

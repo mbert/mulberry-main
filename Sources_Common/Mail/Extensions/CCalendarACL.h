@@ -135,7 +135,7 @@ public:
 
 	bool ParseACE(const xmllib::XMLNode* acenode);
 	void ParsePrivilege(const xmllib::XMLNode* parent, bool add);
-	void GenerateACE(xmllib::XMLDocument* xmldoc, xmllib::XMLNode* aclnode, bool can_use_inheritable = false) const;
+	void GenerateACE(xmllib::XMLDocument* xmldoc, xmllib::XMLNode* aclnode) const;
 
 private:
 	ECalPrincipalType	mType;

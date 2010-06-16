@@ -234,7 +234,7 @@ void CCalendarProtocol::SetAccount(CINETAccount* account)
 	}
 
 	// Look for change in account name
-	if (mStoreRoot.GetName() != GetAccountName())
+	if (mStoreRoot.GetDisplayName() != GetAccountName())
 	{
 		// Need to rename offline
 		if (mCacheClient != NULL)
@@ -243,7 +243,7 @@ void CCalendarProtocol::SetAccount(CINETAccount* account)
 		}
 		
 		// Rename root
-		mStoreRoot.SetName(GetAccountName());
+		mStoreRoot.SetDisplayName(GetAccountName());
 	}
 
 	if (mCacheClient != NULL)
@@ -800,7 +800,7 @@ CCalendarStoreNode* CCalendarProtocol::GetNode(const cdstring& cal, bool parent)
 		path.join(segments, cdstring(GetDirDelim()));
 	}
 
-	return (path.empty() ? const_cast<CCalendarStoreNode*>(&mStoreRoot) : mStoreRoot.FindNode(path));
+	return ((path.empty() || path == mStoreRoot.GetName()) ? const_cast<CCalendarStoreNode*>(&mStoreRoot) : mStoreRoot.FindNode(path));
 }
 
 CCalendarStoreNode* CCalendarProtocol::GetNodeByRemoteURL(const cdstring& url) const
@@ -1017,7 +1017,6 @@ void CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal:
 		if (server_changed && !cache_changed)
 		{
 			// Server overwrites local cache
-			cal.Clear();
 			mClient->_ReadFullCalendar(node, cal);
 			
 			// Write changes back to local cache
@@ -1066,6 +1065,265 @@ void CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal:
 }
 
 void CCalendarProtocol::SyncComponentsFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+{
+	if (not GetDidSyncTest())
+	{
+		mClient->_TestFastSync(node);
+	}
+	if (GetHasSync())
+	{
+		SyncComponentsFromServerFast(node, cal);
+	}
+	else
+	{
+		SyncComponentsFromServerSlow(node, cal);
+	}
+}
+
+void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+{
+	// We need to do this as a proper transaction with locking
+	try
+	{
+		// Policy:
+		//
+		// 1. Get list of changes on server
+		//
+		// 2. Look at record DB and:
+		//  2.1 Add new components to server and cache info
+		//  2.2 Remove deleted components from server and cached server info if still present on server
+		//  2.3 Cache info for changed items for later sync (or change them immediately if the server has not changed),
+		//      or remove cached items if removed from server
+		//
+		// 3. Scan list of local components
+		//  3.1 If in server removed set, remove locally
+		//  3.2 If in server changed set
+		//   3.2.1 If server etag is unchanged then change component on server
+		//   3.2.2 Otherwise determine whether server or cached component wins and use that
+		//
+		// 4. Copy remaining items in server set to local cache - they are new items
+		//
+		// We only need to do steps 3 & 4 if the data on the server is known to have changed.
+		//
+		
+		// Now do it...
+		
+		// Step 1
+		cdstrmap changed;
+		cdstrset removed;																																																																																																																																		
+		cdstring synctoken;																																																																																																																																		
+		mClient->_FastSync(node, cal, changed, removed, synctoken);
+		
+		if (synctoken.empty() && !cal.GetSyncToken().empty())
+		{
+			changed.clear();
+			removed.clear();
+			mClient->_FastSync(node, cal, changed, removed, synctoken);
+		}
+		
+		if (synctoken.empty())
+		{
+			return;
+		}
+		bool server_changed = synctoken != cal.GetSyncToken();
+		bool changes_made = false;
+		
+		// Step 2
+		cdstrmap both_changed;
+		for(iCal::CICalendarComponentRecordDB::const_iterator iter = cal.GetRecording().begin(); iter != cal.GetRecording().end(); iter++)
+		{
+			// Step 2.1
+			if ((*iter).second.GetAction() == iCal::CICalendarComponentRecord::eAdded)
+			{
+				// Add component to server
+				const iCal::CICalendarComponent* comp = cal.GetComponentByKey((*iter).first);
+				if (comp != NULL)
+				{
+					// Add component to server
+					mClient->_AddComponent(node, cal, *comp);
+					changes_made = true;
+				}
+			}
+			
+			// Step 2.2
+			else if ((*iter).second.GetAction() == iCal::CICalendarComponentRecord::eRemoved)
+			{
+				// Is it still present on the server
+				if (removed.count((*iter).second.GetRURL()) == 0)
+				{
+					// Remove component from server
+					mClient->_RemoveComponent(node, cal, (*iter).second.GetRURL());
+					changes_made = true;
+					
+					// Remove from server changed info
+					if (changed.count((*iter).second.GetRURL()) != 0)
+						changed.erase((*iter).second.GetRURL());
+				}
+			}
+			
+			// Step 2.3
+			else if ((*iter).second.GetAction() == iCal::CICalendarComponentRecord::eChanged)
+			{
+				// Removed on server?
+				if (removed.count((*iter).second.GetRURL()) != 0)
+				{
+					cal.RemoveComponentByKey((*iter).first);
+				}
+				
+				// Changed on server?
+				else if (changed.count((*iter).second.GetRURL()) != 0)
+				{
+					both_changed.insert(cdstrmap::value_type((*iter).second.GetRURL(), (*iter).second.GetETag()));
+				}
+
+				// Changed locally only
+				else
+				{
+					// Change it on the server
+					const iCal::CICalendarComponent* comp = cal.GetComponentByKey((*iter).first);
+					mClient->_ChangeComponent(node, cal, *comp);
+					changes_made = true;
+				}
+			}
+		}
+		
+		
+		// Now do sync
+		if (server_changed)
+		{
+			// Get component info from cache
+			iCal::CICalendarComponentDBList dbs;
+			cal.GetAllDBs(dbs);
+			cdstrvect component_keys;
+			for(iCal::CICalendarComponentDBList::const_iterator iter1 = dbs.begin(); iter1 != dbs.end(); iter1++)
+			{
+				for(iCal::CICalendarComponentDB::const_iterator iter2 = (*iter1)->begin(); iter2 != (*iter1)->end(); iter2++)
+				{
+					component_keys.push_back((*iter2).second->GetMapKey());
+				}
+			}
+			
+			// Step 3
+			cdstrvect rurls;
+			for(cdstrvect::const_iterator iter = component_keys.begin(); iter != component_keys.end(); iter++)
+			{
+				iCal::CICalendarComponent* cache_comp = cal.GetComponentByKey(*iter);
+				if (cache_comp == NULL)
+					continue;
+				
+				// Get this components RURL
+				cdstring cache_rurl = cache_comp->GetRURL();
+				cdstring cache_etag = cache_comp->GetETag();
+				
+				// Step 3.1
+				cdstrset::const_iterator found_removed = removed.find(cache_rurl);
+				if (found_removed != removed.end())
+				{
+					// Remove locally
+					cal.RemoveComponentByKey(cache_comp->GetMapKey());
+					continue;
+				}
+				
+				// Get the server info
+				cdstring server_rurl;
+				cdstring server_etag;
+				cdstrmap::const_iterator found = changed.find(cache_rurl);
+				if (found != changed.end())
+				{
+					server_rurl = (*found).first;
+					server_etag = (*found).second;
+				}
+				
+				// Step 3.2
+				if (!server_rurl.empty())
+				{
+					if (both_changed.count(server_rurl) != 0)
+					{
+						// Step 3.2.1
+						if (cache_etag == server_etag)
+						{
+							// Write changed cache component to server
+							mClient->_ChangeComponent(node, cal, *cache_comp);
+							changes_made = true;
+						}
+						
+						// Step 3.2.2
+						else
+						{
+							// Do iCal SEQ etc comparison
+							
+							// First read in component from server into temp calendar
+							iCal::CICalendar tempcal;
+							iCal::CICalendarComponent* server_comp = mClient->_ReadComponent(node, tempcal, server_rurl);
+							if (server_comp != NULL)
+							{
+								int result = iCal::CICalendarSync::CompareComponentVersions(server_comp, cache_comp);
+								
+								if (result == 1)
+								{
+									// Cache is newer than server - cache overwrites to server
+									mClient->_ChangeComponent(node, cal, *cache_comp);
+									changes_made = true;
+								}
+								else if (result == -1)
+								{
+									// Cache is older than server - server overwrites cache
+									
+									// Remove the cached component first
+									cal.RemoveComponentByKey(cache_comp->GetMapKey());
+									cache_comp = NULL;
+									
+									// Copy component from server into local cache effectively replacing old one
+									iCal::CICalendarComponent* new_comp = server_comp->clone();
+									new_comp->SetCalendar(cal.GetRef());
+									cal.AddComponent(new_comp);
+								}
+							}
+						}
+					}
+					else if (cache_etag != server_etag)
+					{
+						rurls.push_back(cache_rurl);
+					}
+					changed.erase(server_rurl);
+				}
+			}
+			
+			// Read components from server into local cache as its a new one on the server
+			for(cdstrmap::const_iterator iter = changed.begin(); iter != changed.end(); iter++)
+			{
+				rurls.push_back((*iter).first);
+			}
+
+			if (rurls.size() != 0)
+				mClient->_ReadComponents(node, cal, rurls);
+		}
+		
+		// Clear out cache recording
+		cal.ClearRecording();
+		
+		// Get the current server sync token if changes were made or it was differemt
+		if (server_changed || changes_made)
+		{
+			mClient->_UpdateSyncToken(node, cal);
+		}
+		cal.SetSyncToken(synctoken);
+		
+		// Now write back cache
+		if (!mCacheClient->_TouchCalendar(node))
+			DumpCalendars();
+		mCacheClient->_WriteFullCalendar(node, cal);
+	}
+	catch(...)
+	{
+		CLOG_LOGCATCH(...);
+		
+		CLOG_LOGRETHROW;
+		throw;
+	}
+}
+
+void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
 	// We need to do this as a proper transaction with locking
 	try
@@ -1398,7 +1656,8 @@ void CCalendarProtocol::SubscribeFullCalendar(const CCalendarStoreNode& node, iC
 {
 	// Always read from the main server
 	bool if_changed = !cal.GetETag().empty();
-	cal.Clear();
+	if (not if_changed)
+		cal.Clear();
 	mClient->_ReadFullCalendar(node, cal, if_changed);
 
 	// Always keep disconnected cache in sync with server

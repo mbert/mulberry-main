@@ -806,6 +806,7 @@ OBJS = \
 	../Sources_Common/HTTP/HTTPClient/CHTTPDataString$O \
 	../Sources_Common/HTTP/HTTPClient/CHTTPDataFile$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVSession$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVSyncReportParser$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVRequestResponse$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVOptions$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVGet$O \
@@ -822,6 +823,7 @@ OBJS = \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVPropNames$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVReport$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVACL$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVSyncReport$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVMultiResponseParser$O \
 	../Sources_Common/HTTP/WebDAVClient/CWebDAVXMLResponseParser$O \
 	../Sources_Common/HTTP/CalDAVClient/CCalDAVMakeCalendar$O \

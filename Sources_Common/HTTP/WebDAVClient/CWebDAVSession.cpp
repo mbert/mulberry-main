@@ -133,8 +133,8 @@ bool CWebDAVSession::Initialise(const cdstring& host, const cdstring& base_uri)
 						mVersion |= eCALDAVaccess;
 					else if ((temp == caldav::cHeaderCalendarSchedule) || (temp == caldav::cHeaderCalendarAutoSchedule))
 						mVersion |= eCALDAVsched;
-					else if (temp == slide::cHeaderCyrusoftInheritable)
-						mVersion |= eCyrusoftInheritable;
+					else if (temp == carddav::cHeaderAddressBook)
+						mVersion |= eCARDDAV;
 					
 					p = ::strtok(NULL, ",");
 				}

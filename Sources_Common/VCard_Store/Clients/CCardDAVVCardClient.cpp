@@ -44,6 +44,8 @@
 #include "CWebDAVMakeCollection.h"
 #include "CWebDAVPropFind.h"
 #include "CWebDAVPut.h"
+#include "CWebDAVSyncReport.h"
+#include "CWebDAVSyncReportParser.h"
 #include "CCardDAVMakeAdbk.h"
 #include "CCardDAVMultigetReport.h"
 #include "CCardDAVQueryReport.h"
@@ -122,17 +124,16 @@ bool CCardDAVVCardClient::Initialise(const cdstring& host, const cdstring& base_
 			return true;
 		else
 		{
-			cdstring puri;
-			if (GetSelfPrincipalResource(actual_base_uri, puri))
+			if (GetSelfPrincipalResource(actual_base_uri, mPrincipalURI))
 			{
-				bool result = CWebDAVVCardClient::Initialise(host, puri);
+				bool result = CWebDAVVCardClient::Initialise(host, mPrincipalURI);
 				if (result)
 				{
 					// May need to reset calendar-home path
 					if (GetAdbkOwner()->GetAddressAccount()->GetBaseRURL().empty())
 					{
 						// Get calendar-home-set from principal resource
-						_GetPrincipalDetails(puri);
+						_GetPrincipalDetails(mPrincipalURI, true);
 					}
 				}
 				return result;
@@ -327,6 +328,82 @@ void CCardDAVVCardClient::ListAddressBooks(CAddressBook* root, const http::webda
 				adbk->SetDisplayName(result);
 			}
 		}
+	}
+}
+
+bool SyncCollectionReportTest_CardDAV(const xmllib::XMLNode& node, void* data);
+bool SyncCollectionReportTest_CardDAV(const xmllib::XMLNode& node, void* data)
+{
+	for(xmllib::XMLNodeList::const_iterator iter = node.Children().begin(); iter != node.Children().end(); iter++)
+	{
+		if ((*iter)->CompareFullName(http::webdav::cElement_supported_report))
+		{
+			const xmllib::XMLNode* child = (*iter)->GetChild(http::webdav::cElement_report);
+			if (child != NULL)
+			{
+				if (child->GetChild(http::webdav::cElement_sync_collection))
+				{
+					*(bool*)data = true;
+					break;
+				}
+			}
+		}
+	}
+	
+	return false;
+}
+
+void CCardDAVVCardClient::_TestFastSync(const CAddressBook* adbk)
+{
+	// Start UI action
+	StINETClientAction _action(this, "Status::IMSP::SearchAddress", "Error::IMSP::OSErrSearchAddress", "Error::IMSP::NoBadSearchAddress", adbk->GetName());
+	
+	// PROPFIND supported-report-set and check for DAV:sync-collection
+	
+	// Determine URL and lock
+	cdstring rurl = adbk->GetName();
+	rurl.EncodeURL('/');
+	cdstring lock_token = GetLockToken(rurl);
+	
+	// Get current supported-report-set
+	bool found_report = false;
+	TestProperty(rurl, lock_token, http::webdav::cProperty_supported_report_set, SyncCollectionReportTest_CardDAV, &found_report);
+	
+	// Set state
+	adbk->GetProtocol()->SetHasSync(found_report);
+}
+
+void CCardDAVVCardClient::_FastSync(const CAddressBook* adbk, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Start UI action
+	StINETClientAction _action(this, "Status::IMSP::SearchAddress", "Error::IMSP::OSErrSearchAddress", "Error::IMSP::NoBadSearchAddress", adbk->GetName());
+	
+	// Policy:
+	//
+	// Do REPORT Depth 1 to get all changed items
+	// Extract HREFs for each item
+	// Get each item found and parse into calendar one at a time whilst caching HREF
+	
+	// Create WebDAV report
+	cdstring rurl = adbk->GetName();
+	rurl.EncodeURL('/');
+	std::auto_ptr<http::webdav::CWebDAVSyncReport> request(new http::webdav::CWebDAVSyncReport(this, rurl, adbk->GetVCardAdbk()->GetSyncToken()));
+	http::CHTTPOutputDataString dout;
+	request->SetOutput(&dout);
+	
+	// Process it
+	RunSession(request.get());
+	
+	// If its a 207 we want to parse the XML
+	if (request->GetStatusCode() == http::webdav::eStatus_MultiStatus)
+	{
+		http::webdav::CWebDAVSyncReportParser parser(changed, removed, synctoken);
+		parser.ParseData(dout.GetData());
+	}
+	else
+	{
+		HandleHTTPError(request.get());
+		return;
 	}
 }
 

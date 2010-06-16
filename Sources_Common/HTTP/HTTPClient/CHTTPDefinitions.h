@@ -205,11 +205,6 @@ extern const char*	cRequestMKADBK;
 
 }
 
-namespace slide 
-{
-	extern const char* cHeaderCyrusoftInheritable;
-}
-
 }	// namespace http
 
 #endif	// CHTTPRequest_H

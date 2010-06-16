@@ -66,6 +66,8 @@ public:
 	virtual void	_SizeAdbk(CAddressBook* adbk) = 0;
 
 	// Operations with addresses
+	virtual void	_TestFastSync(const CAddressBook* adbk) = 0;
+	virtual void	_FastSync(const CAddressBook* adbk, cdstrmap& changed, cdstrset& removed, cdstring& synctoken) = 0;
 	virtual void	_ReadFullAddressBook(CAddressBook* adbk) = 0;		// Find all addresses in adbk
 	virtual void	_WriteFullAddressBook(CAddressBook* adbk) = 0;		// Write all addresses in adbk
 	virtual void	_FindAllAddresses(CAddressBook* adbk) = 0;			// Find all addresses in adbk

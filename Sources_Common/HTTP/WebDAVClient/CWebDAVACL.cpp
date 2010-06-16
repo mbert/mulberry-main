@@ -88,12 +88,6 @@ void CWebDAVACL::GenerateXML(std::ostream& os)
 	xmllib::XMLNamespace dav_namespc(cNamespace, "D");
 	acl->SetName("acl", dav_namespc);
 	acl->AddNamespace(dav_namespc);
-	xmllib::XMLNamespace slide_namespc(slide::cNamespace, "S");
-	if (static_cast<const CWebDAVSession*>(GetSession())->HasDAVVersion(CWebDAVSession::eCyrusoftInheritable))
-	{
-		xmldoc.AddNamespace(slide_namespc);
-		acl->AddNamespace(slide_namespc);
-	}
 	
 	// Do for each ACL
 	if (mAdbkACLs != NULL)
@@ -105,7 +99,7 @@ void CWebDAVACL::GenerateXML(std::ostream& os)
 				continue;
 			
 			// <DAV:ace> element
-			(*iter).GenerateACE(&xmldoc, acl, static_cast<const CWebDAVSession*>(GetSession())->HasDAVVersion(CWebDAVSession::eCyrusoftInheritable));
+			(*iter).GenerateACE(&xmldoc, acl);
 		}
 	}
 	if (mCalACLs != NULL)
@@ -117,7 +111,7 @@ void CWebDAVACL::GenerateXML(std::ostream& os)
 				continue;
 			
 			// <DAV:ace> element
-			(*iter).GenerateACE(&xmldoc, acl, static_cast<const CWebDAVSession*>(GetSession())->HasDAVVersion(CWebDAVSession::eCyrusoftInheritable));
+			(*iter).GenerateACE(&xmldoc, acl);
 		}
 	}
 	

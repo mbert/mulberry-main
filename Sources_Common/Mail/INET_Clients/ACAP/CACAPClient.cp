@@ -686,6 +686,16 @@ void CACAPClient::_SizeAdbk(CAddressBook* adbk)
 
 // Operations with addresses
 
+void CACAPClient::_TestFastSync(const CAddressBook* adbk)
+{
+	// Does nothing in this implementation
+}
+
+void CACAPClient::_FastSync(const CAddressBook* adbk, cdstrmap& changed, cdstrset& removed, cdstring& synctoken)
+{
+	// Does nothing in this implementation
+}
+
 // Find all addresses in adbk
 void CACAPClient::_ReadFullAddressBook(CAddressBook* adbk)
 {
