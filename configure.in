@@ -73,7 +73,8 @@ case $CXX in
   gcc*|g++*|c++*|*-g++)
     CXXWARN="-Wall -Wcast-align -Wno-multichar -Wno-unused -Wno-unknown-pragmas -Wno-non-virtual-dtor -Wno-ctor-dtor-privacy"
     CXXFLAGS="$CXXFLAGS"
-    GVERSION=`$CXX --version | grep "^$CXX " | sed "s/.* //"`
+    #GVERSION=`$CXX --version | grep "^$CXX " | sed "s/.* //"`
+    GVERSION=`$CXX -dumpversion`
     case $GVERSION in
 	4.3*|4.4*)
 	  CXXWARN="$CXXWARN -Wno-deprecated"
