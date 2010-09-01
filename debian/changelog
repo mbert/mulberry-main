@@ -1,3 +1,9 @@
+mulberry (4.1d1-svn-20100901-1340) unstable; urgency=low
+
+  * Build from the SVN on Wed Sep 01 13:40:30 CET 2010
+
+ -- Martin Dietze <herbert@spamcop.net>  Wed, 01 Sep 2010 13:40:31 +0100
+
 mulberry (4.1d1-svn-20100616-1647) unstable; urgency=low
 
   * Build from the SVN on Wed Jun 16 15:55:30 CET 2010
