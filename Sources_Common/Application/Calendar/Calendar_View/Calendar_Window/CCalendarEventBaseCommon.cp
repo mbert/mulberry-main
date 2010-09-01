@@ -81,7 +81,11 @@ void CCalendarEventBase::SetupTagTextEvent()
 	// Always add calendar name
 	iCal::CICalendar* cal = iCal::CICalendar::GetICalendar(mVEvent->GetMaster<iCal::CICalendarVEvent>()->GetCalendar());
 	if (cal != NULL)
-		ostr << std::endl << std::endl << rsrc::GetString("EventTip::Calendar") << cal->GetName();
+	{
+		const calstore::CCalendarStoreNode* node = calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(cal);
+		cdstring name = node->GetAccountDisplayName(calstore::CCalendarStoreManager::sCalendarStoreManager->HasMultipleProtocols());
+		ostr << std::endl << std::endl << rsrc::GetString("EventTip::Calendar") << name;
+	}
 
 	ostr << std::ends;
 #if __dest_os == __mac_os || __dest_os == __mac_os_x

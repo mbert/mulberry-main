@@ -1218,10 +1218,12 @@ void CINETClient::DoPluginAuthentication()
 
 	if (plugin)
 	{
+		cdstring capability;
 		if (!plugin->DoAuthentication(&GetAccount()->GetAuthenticator(),
 									GetAccount()->GetServerType(),
 									GetAccount()->GetServerTypeString(),
-									*mStream, mLog, mLineData, cINETBufferLen))
+									*mStream, mLog, mLineData, cINETBufferLen,
+									capability))
 		{
 			const char* p = mLineData;
 
@@ -1234,6 +1236,20 @@ void CINETClient::DoPluginAuthentication()
 			mLastResponse.tag_msg = p;
 			CLOG_LOGTHROW(CINETException, CINETException::err_NoResponse);
 			throw CINETException(CINETException::err_NoResponse);
+		}
+		
+		// Handle capability
+		if (!capability.empty())
+		{
+			// Store capability string
+			_InitCapability();
+			capability.erase(0, 13);
+			mCapability = capability;
+			
+			mLastResponse.code = cStarCAPABILITY;
+			mLastResponse.AddUntagged(capability);
+			
+			_ProcessCapability();
 		}
 	}
 	else

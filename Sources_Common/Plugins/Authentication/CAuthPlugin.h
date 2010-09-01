@@ -83,7 +83,8 @@ public:
 										CTCPStream& stream,
 										CLog& log,
 										char* buffer,
-										size_t buflen);
+										size_t buflen,
+										cdstring& capabilities);
 
 protected:
 	enum EAuthPluginCall

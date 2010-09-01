@@ -57,10 +57,11 @@ bool CWebDAVSession::Initialise(const cdstring& host, const cdstring& base_uri)
 	
 	// Loop repeating until we can do it or get a fatal error
 	bool first_time = true;
+	http::CHTTPRequestResponse::ERequestMethod method = CHTTPRequestResponse::eRequest_OPTIONS;
 	while(true)
 	{
 		// Create OPTIONS request for the base_uri
-		std::auto_ptr<CHTTPRequestResponse> request(new CHTTPRequestResponse(this, CHTTPRequestResponse::eRequest_OPTIONS, base_uri));
+		std::auto_ptr<CHTTPRequestResponse> request(new CHTTPRequestResponse(this, method, base_uri));
 		request->SetSession(this);
 		CHTTPOutputDataString sout;
 		request->SetData(NULL, &sout);
@@ -99,7 +100,7 @@ bool CWebDAVSession::Initialise(const cdstring& host, const cdstring& base_uri)
 		}
 		
 		// Look for success and exit loop for further processing
-		if ((request->GetStatusCode() == eStatus_OK) || (request->GetStatusCode() == eStatus_NoContent))
+		if ((request->GetStatusCode() == eStatus_OK) || (request->GetStatusCode() == eStatus_NoContent) || (request->GetStatusCode() == eStatus_MultiStatus))
 		{
 			// Grab the server string
 			if (request->GetResponseHeaders().count(cHeaderServer) != 0)
@@ -160,6 +161,15 @@ bool CWebDAVSession::Initialise(const cdstring& host, const cdstring& base_uri)
 			// Just assume any version is fine for now
 			break;
 		}
+		else
+		{
+			if (method == CHTTPRequestResponse::eRequest_OPTIONS)
+			{
+				method = CHTTPRequestResponse::eRequest_PROPFIND;
+				continue;
+			}
+		}
+
 		
 		// If we get here we had some kind of fatal error
 		HandleHTTPError(request.get());

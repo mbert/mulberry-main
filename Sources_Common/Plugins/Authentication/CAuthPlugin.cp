@@ -126,7 +126,7 @@ long CAuthPlugin::ProcessData(char* data, long length)
 
 bool CAuthPlugin::DoAuthentication(const CAuthenticator* acct_auth,
 									CINETAccount::EINETServerType type, const char* type_string,
-									CTCPStream& stream, CLog& log, char* buffer, size_t buflen)
+									CTCPStream& stream, CLog& log, char* buffer, size_t buflen, cdstring& capabilities)
 {
 	bool result = true;
 
@@ -311,7 +311,12 @@ bool CAuthPlugin::DoAuthentication(const CAuthenticator* acct_auth,
 				case CINETAccount::eIMAP:
 				case CINETAccount::eIMSP:
 					// Check for unsolicited
-					if ((buffer[0] == '*') && (buffer[1] == ' '))
+					if (::strncmp(buffer, "* CAPABILITY", 12) == 0)
+					{
+						capabilities = buffer;
+						break;
+					}
+					else if ((buffer[0] == '*') && (buffer[1] == ' '))
 						// Keep going and get another lines
 						break;
 					

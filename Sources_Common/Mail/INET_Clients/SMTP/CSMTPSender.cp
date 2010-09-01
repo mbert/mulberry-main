@@ -1606,10 +1606,12 @@ void CSMTPSender::SMTPAuthenticate()
 
 			if (plugin)
 			{
+				cdstring capability;
 				if (!plugin->DoAuthentication(&GetAccount()->GetAuthenticator(),
 											GetAccount()->GetServerType(),
 											GetAccount()->GetServerTypeString(),
-											mStream, mLog, mLineData, cSMTPBufferLen))
+											mStream, mLog, mLineData, cSMTPBufferLen,
+											capability))
 				{
 					const char* p = mLineData;
 
