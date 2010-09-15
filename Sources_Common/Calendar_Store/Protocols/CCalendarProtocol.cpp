@@ -1066,7 +1066,7 @@ void CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal:
 
 void CCalendarProtocol::SyncComponentsFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
-	if (not GetDidSyncTest())
+	if (! GetDidSyncTest())
 	{
 		mClient->_TestFastSync(node);
 	}
@@ -1656,7 +1656,7 @@ void CCalendarProtocol::SubscribeFullCalendar(const CCalendarStoreNode& node, iC
 {
 	// Always read from the main server
 	bool if_changed = !cal.GetETag().empty();
-	if (not if_changed)
+	if (! if_changed)
 		cal.Clear();
 	mClient->_ReadFullCalendar(node, cal, if_changed);
 

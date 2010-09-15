@@ -1100,7 +1100,7 @@ void CAdbkProtocol::SyncFullFromServer(CAddressBook* adbk)
 
 void CAdbkProtocol::SyncComponentsFromServer(CAddressBook* adbk)
 {
-	if (not GetDidSyncTest())
+	if (! GetDidSyncTest())
 	{
 		mClient->_TestFastSync(adbk);
 	}

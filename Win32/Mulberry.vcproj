@@ -3737,6 +3737,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVSyncReportParser.h"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVUnlock.h"
 				>
 			</File>
@@ -3873,11 +3877,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sources_common\Mulberry_Prefix.h"
+				RelativePath=".\sources\Mulberry_Prefix.h"
 				>
 			</File>
 			<File
-				RelativePath=".\sources\Mulberry_Prefix.h"
+				RelativePath="..\sources_common\Mulberry_Prefix.h"
 				>
 			</File>
 			<File
@@ -8810,6 +8814,14 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVSession.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVSyncReport.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVSyncReportParser.cpp"
 				>
 			</File>
 			<File
