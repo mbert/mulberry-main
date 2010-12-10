@@ -33,6 +33,7 @@ const	PaneIDT		paneid_TextListItems = 'ENTR';
 const	PaneIDT		paneid_TextListItemTitle = 'TITL';
 const	PaneIDT		paneid_TextListItem = 'ITEM';
 const	PaneIDT		paneid_TextListButton = 'OKBT';
+const	PaneIDT		paneid_TextListCancel = 'CANC';
 
 // Mesages
 const	MessageT	msg_TextListSingleClick = 'TAB1';

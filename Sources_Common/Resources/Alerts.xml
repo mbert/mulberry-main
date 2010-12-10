@@ -267,6 +267,11 @@
     <string id="Alerts::Adbk::RenameTitle">Rename Dialog</string>
 	<string id="Alerts::Adbk::Rename">Rename Address Book as:</string>
 
+<!-- Calendar -->
+	<string id="Alerts::Calendar::TimezoneChoice::Title">Choose Timezone</string>
+	<string id="Alerts::Calendar::TimezoneChoice::Description">Choose a Timezone</string>
+	<string id="Alerts::Calendar::TimezoneChoice::Button">Use Timezone</string>
+
 <!-- User Password -->
 	<string id="Alerts::UserPswd::IMAPLOGIN">Login to IMAP Server:</string>
 	<string id="Alerts::UserPswd::POP3LOGIN">Login to POP3 Server:</string>

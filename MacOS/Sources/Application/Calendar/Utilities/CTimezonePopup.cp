@@ -16,6 +16,9 @@
 
 #include "CTimezonePopup.h"
 
+#include "CPreferences.h"
+#include "CTextListChoice.h"
+
 #include "MyCFString.h"
 
 #include "CICalendar.h"
@@ -48,15 +51,30 @@ void CTimezonePopup::FinishCreateSelf()
 {
 	// Init the popup menu
 
-	// Get list of timezones from built-in calendar
+	// Always start with the current user default
+	SetTimezone(iCal::CICalendarManager::sICalendarManager->GetDefaultTimezone());
+}
+
+void CTimezonePopup::Reset(const iCal::CICalendarTimezone& tz)
+{
+	// Get the set of favorite timezones and always include the default
 	cdstrvect tzids;
-	iCal::CICalendar::sICalendar.GetTimezones(tzids);
+	cdstrset menutzids(CPreferences::sPrefs->mFavouriteTimezones.GetValue());
+	menutzids.insert(iCal::CICalendarManager::sICalendarManager->GetDefaultTimezoneID());
+	menutzids.insert(tz.GetTimezoneID());
+	for(cdstrset::const_iterator iter = menutzids.begin(); iter != menutzids.end(); iter++)
+		tzids.push_back(*iter);
+	
+	// Sort list of favorite timezones
+	iCal::CICalendar::sICalendar.SortTimezones(tzids);
 	
 	// Clear existing menu
+	SInt32 adjusted_separator = eSeparator - (mNoFloating ? 1 : 0);
+	SInt32 adjusted_first = eFirstTimezone - (mNoFloating ? 1 : 0);
 	MenuRef menu = GetMacMenuH();
-	if (::CountMenuItems(menu) > eSeparator)
-		::DeleteMenuItems(menu, eFirstTimezone, ::CountMenuItems(menu) - eSeparator);
-
+	if (::CountMenuItems(menu) > adjusted_separator)
+		::DeleteMenuItems(menu, adjusted_first, ::CountMenuItems(menu) - adjusted_separator);
+	
 	// Add to menu
 	for(cdstrvect::const_iterator iter = tzids.begin(); iter != tzids.end(); iter++)
 	{
@@ -67,9 +85,6 @@ void CTimezonePopup::FinishCreateSelf()
 	
 	// Readjust max
 	SetMaxValue(::CountMenuItems(menu));
-
-	// Always start with the current user default
-	SetTimezone(iCal::CICalendarManager::sICalendarManager->GetDefaultTimezone());
 }
 
 void CTimezonePopup::NoFloating()
@@ -85,6 +100,8 @@ void CTimezonePopup::NoFloating()
 
 void CTimezonePopup::SetTimezone(const iCal::CICalendarTimezone& tz)
 {
+	Reset(tz);
+
 	// Extract zone from dt and apply to menu
 	SInt32 new_value;
 	if (tz.GetUTC())
@@ -122,17 +139,46 @@ void CTimezonePopup::SetTimezone(const iCal::CICalendarTimezone& tz)
 	
 	// Set value only if different
 	if (new_value != GetValue())
+	{
 		SetValue(new_value);
+		mOldValue = new_value;
+	}
 }
 
 void CTimezonePopup::GetTimezone(iCal::CICalendarTimezone& tz) const
 {
 	SInt32 value = GetValue();
-	tz.SetUTC(value + (mNoFloating ? 1 : 0) == eUTC);
-	if ((value == eNoTimezone) || (value == eUTC))
+	SInt32 adjusted_value = value + (mNoFloating ? 1 : 0);
+	tz.SetUTC(adjusted_value == eUTC);
+	if ((adjusted_value == eNoTimezone) || (adjusted_value == eUTC))
 	{
 		cdstring empty;
 		tz.SetTimezoneID(empty);
+	}
+	else if (adjusted_value == eOther)
+	{
+		cdstrvect tzids;
+		iCal::CICalendar::sICalendar.GetTimezones(tzids);
+		std::sort(tzids.begin(), tzids.end());
+		
+		ulvector selected;
+		if (CTextListChoice::PoseDialog(
+			"Alerts::Calendar::TimezoneChoice::Title",
+			"Alerts::Calendar::TimezoneChoice::Description",
+			NULL, false, true, false, true, tzids, cdstring::null_str, selected,
+			"Alerts::Calendar::TimezoneChoice::Button"))
+		{
+			// Get selection from list
+			cdstring tzid = tzids.at(selected.front());
+			tz.SetTimezoneID(tzid);
+			CPreferences::sPrefs->mFavouriteTimezones.Value().insert(tzid);
+			const_cast<CTimezonePopup*>(this)->Reset(iCal::CICalendar::sICalendar.GetTimezone(tzid));
+			const_cast<CTimezonePopup*>(this)->SetTimezone(iCal::CICalendar::sICalendar.GetTimezone(tzid));
+		}
+		else
+		{
+			const_cast<CTimezonePopup*>(this)->SetValue(mOldValue);
+		}
 	}
 	else
 	{
@@ -144,5 +190,6 @@ void CTimezonePopup::GetTimezone(iCal::CICalendarTimezone& tz) const
 		cdstring tzid = temp.GetString();
 
 		tz.SetTimezoneID(tzid);
+		mOldValue = value;
 	}
 }

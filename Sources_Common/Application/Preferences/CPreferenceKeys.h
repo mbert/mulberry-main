@@ -463,6 +463,7 @@ extern const char* cPrefsSection;
 		extern const char* cExpandedCalendarsKey;		// New as of 4.0d1
 		extern const char* cCalendarColoursKey;			// New as of 4.0d1
 		extern const char* cTimezoneKey;				// New as of 4.0d1
+		extern const char* cFavouriteTimezonesKey;		// New as of 4.1a1
 		extern const char* cWeekStartDayKey;			// New as of 4.0d1
 		extern const char* cWorkDayMaskKey;				// New as of 4.0d1
 		extern const char* cDayWeekTimeRangesKey;		// New as of 4.0d1

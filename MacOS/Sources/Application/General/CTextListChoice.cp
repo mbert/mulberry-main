@@ -135,6 +135,15 @@ void CTextListChoice::SetUpDetails(const char* title, const char* description, c
 		txt = rsrc::GetString(btn);
 		LPushButton* theButton = (LPushButton*) FindPaneByID(paneid_TextListButton);
 		theButton->SetDescriptor(txt);
+		
+		if (txt.Length() > 8)
+		{
+			UInt8 moveBy = (txt.Length() - 8) * 10;
+			theButton->MoveBy(-moveBy, 0, false);
+			theButton->ResizeFrameBy(moveBy, 0, false);
+			theButton = (LPushButton*) FindPaneByID(paneid_TextListCancel);
+			theButton->MoveBy(-moveBy, 0, false);
+		}
 	}
 }
 

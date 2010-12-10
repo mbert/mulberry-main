@@ -482,6 +482,7 @@ const char* cPrefsSection = "Preferences";
 		const char* cExpandedCalendarsKey = "Expanded Calendars";				// New as of 4.0d1
 		const char* cCalendarColoursKey = "Calendar Colours";					// New as of 4.0d1
 		const char* cTimezoneKey = "Default Timezone";							// New as of 4.0d1
+		const char* cFavouriteTimezonesKey = "Favourite Timezones"; 			// New as of 4.1a1
 		const char* cWeekStartDayKey = "Week Start Day";						// New as of 4.0d1
 		const char* cWorkDayMaskKey = "Workdays";								// New as of 4.0d1
 		const char* cDayWeekTimeRangesKey = "Dayweek Time Range";				// New as of 4.0d1

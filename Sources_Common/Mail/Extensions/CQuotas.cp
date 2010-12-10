@@ -95,6 +95,8 @@ void CQuotaRoot::ParseList(const char* txt)
 {
 	// Dump existing items
 	mItems.clear();
+	if (txt == NULL)
+		return;
 
 	// Duplicate for parsing
 	std::auto_ptr<char> dup(::strdup(txt));

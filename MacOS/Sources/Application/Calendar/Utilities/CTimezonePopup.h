@@ -33,6 +33,7 @@ public:
 	{
 		eNoTimezone = 1,
 		eUTC,
+		eOther,
 		eSeparator,
 		eFirstTimezone
 	};
@@ -46,9 +47,11 @@ public:
 	void		NoFloating();
 
 protected:
-	bool		mNoFloating;
+	bool			mNoFloating;
+	mutable SInt32	mOldValue;
 
 	virtual void		FinishCreateSelf();
+			void		Reset(const iCal::CICalendarTimezone& tz);
 
 };
 

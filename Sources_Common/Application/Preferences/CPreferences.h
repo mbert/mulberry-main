@@ -407,6 +407,7 @@ public:
 	CPreferenceValueMap<cdstrset>							mExpandedCalendars;		// Calendars that are expanded in the display
 	CPreferenceValueMap<cdstruint32map>						mCalendarColours;		// Colours used for subscribed calendars
 	CPreferenceValueMap<cdstring>							mTimezone;				// Display timezone
+	CPreferenceValueMap<cdstrset>							mFavouriteTimezones;	// Timezones in popup
 	CPreferenceValueInt<iCal::CICalendarDateTime::EDayOfWeek>	mWeekStartDay;		// First day of week
 	CPreferenceValueMap<long>								mWorkDayMask;			// Bit mask for which days are work days
 	CPreferenceValueMap<CDayWeekViewTimeRange>				mDayWeekTimeRanges;		// Time ranges to display in day-week views

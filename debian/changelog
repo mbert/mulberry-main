@@ -1,3 +1,9 @@
+mulberry (4.1d1-svn-20101210-0934) unstable; urgency=low
+
+  * Integration of Cyrus' changes r343..r357 (main) and r133 (external)
+
+ -- Martin Dietze <herbert@spamcop.net>  Fri, 10 Dec 2010 09:34:00 +0100
+
 mulberry (4.1d1-svn-20100901-1340) unstable; urgency=low
 
   * Build from the SVN on Wed Sep 01 13:40:30 CET 2010
