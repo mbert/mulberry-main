@@ -253,6 +253,7 @@ AC_SUBST(SSLLIB)
 LDFLAGS=""
 AC_CHECK_LIB(rt, main, LDFLAGS="$LDFLAGS -lrt")
 AC_CHECK_LIB(gen, main, LDFLAGS="$LDFLAGS -lgen")
+AC_CHECK_LIB(fontconfig, main, LDFLAGS="$LDFLAGS -lfontconfig")
 case $host_os in
   *solaris*)
      LDFLAGS="$LDFLAGS -nodefaultlibs -lc -lm -lgcc"

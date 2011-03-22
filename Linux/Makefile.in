@@ -719,6 +719,7 @@ OBJS = \
 	../Sources_Common/Calendar_Store/Clients/CCalDAVCalendarClient$O \
 	../Sources_Common/Calendar_Store/Notifications/CCalendarNotification$O \
 	../Sources_Common/Calendar_Store/Notifications/CCalendarNotifier$O \
+	../Sources_Common/HTTP/WebDAVClient/CWebDAVErrorResponseParser$O \
 	../Sources_Common/VCard_Store/CVCardMapper$O \
 	../Sources_Common/VCard_Store/CVCardSearch$O \
 	../Sources_Common/VCard_Store/CVCardStoreXML$O \
