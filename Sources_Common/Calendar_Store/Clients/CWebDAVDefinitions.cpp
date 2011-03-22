@@ -54,6 +54,8 @@ const xmllib::XMLName	cProperty_collection("collection", cNamespace);
 const xmllib::XMLName	cProperty_getetag("getetag", cNamespace);
 const xmllib::XMLName	cProperty_displayname("displayname", cNamespace);
 
+const xmllib::XMLName	cElement_error("error", cNamespace);
+
 // RFC3253 ¤ - DeltaV Properties
 const xmllib::XMLName	cProperty_supported_report_set("supported-report-set", cNamespace);
 const xmllib::XMLName	cElement_supported_report("supported-report", cNamespace);
@@ -107,6 +109,7 @@ const xmllib::XMLName	cProperty_current_user_principal("current-user-principal",
 // sync-collection REPORT
 extern const xmllib::XMLName	cElement_sync_collection("sync-collection", cNamespace);
 extern const xmllib::XMLName	cElement_sync_token("sync-token", cNamespace);
+extern const xmllib::XMLName	cElement_valid_sync_token("valid-sync-token", cNamespace);
 }
 
 namespace caldav 

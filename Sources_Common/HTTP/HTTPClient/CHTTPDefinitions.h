@@ -169,6 +169,7 @@ enum
 {
 	eStatus_Processing = 102,
 	eStatus_MultiStatus = 207,
+	eStatus_Forbidden = 403,
 	eStatus_UnprocessableEntity = 422,
 	eStatus_Locked = 423,
 	eStatus_FailedDependency = 424,

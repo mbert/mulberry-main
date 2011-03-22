@@ -3,7 +3,7 @@
 <!-- Class specific strings -->
 
 <!-- Common strings -->
-	<string id="::More">More…</string>
+	<string id="::More">More...</string>
 	<string id="::NumberedCalendar">Calendar %ld</string>
 
 <!-- Event tooltip -->

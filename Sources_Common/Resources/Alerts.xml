@@ -37,7 +37,7 @@
 	<string id="Alerts::General::CertificateImportError">Could not import certificate: </string>
 	<string id="Alerts::General::ConnectionsReset">Mulberry has detected that your computer has woken from sleep. Existing connections to servers will be re-established, if possible. Make sure that your network is correctly setup before continuing.</string>
 	<string id="Alerts::General::ConnectionsResetDisconnect">Mulberry has detected that your computer has woken from sleep. Existing connections to servers will be re-established, if possible. Make sure that your network is correctly setup before continuing. Alternatively, you can switch directly into Disconnected mode if network connectivity has been lost.</string>
-	<string id="Alerts::General::ConnectionsRecover">Recovering active network connections…</string>
+	<string id="Alerts::General::ConnectionsRecover">Recovering active network connections...</string>
 	<string id="Alerts::General::FileError">accessing: </string>
 	<string id="Alerts::General::GetPassphrase">Enter your Encrypted Keyring Passphrase:</string>
 	<string id="Alerts::General::GetPassphrase_Title">Passphrase Dialog</string>

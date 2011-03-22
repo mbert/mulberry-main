@@ -40,6 +40,7 @@
 #include "CHTTPRequestResponse.h"
 #include "CWebDAVDefinitions.h"
 #include "CWebDAVDelete.h"
+#include "CWebDAVErrorResponseParser.h"
 #include "CWebDAVGet.h"
 #include "CWebDAVMakeCollection.h"
 #include "CWebDAVPropFind.h"
@@ -689,6 +690,22 @@ void CCalDAVCalendarClient::_FastSync(const CCalendarStoreNode& node, iCal::CICa
 	{
 		http::webdav::CWebDAVSyncReportParser parser(changed, removed, synctoken);
 		parser.ParseData(dout.GetData());
+	}
+	else if (request->GetStatusCode()/100 == 4)	// 4xx code
+	{
+		// Check for DAV:error/DAV:invalid-sync-token
+		http::webdav::CWebDAVErrorResponseParser parser;
+		parser.ParseData(dout.GetData());
+		if (parser.GetElement() == cElement_valid_sync_token)
+		{
+			synctoken.clear();
+		}
+		else
+		{
+			HandleHTTPError(request.get());
+			return;
+		}
+
 	}
 	else
 	{

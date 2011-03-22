@@ -330,13 +330,17 @@ void CSIEVEClient::_PutScript(const cdstring& name, const cdstring& script)
 {
 	StCommandState state(ePUTSCRIPT, this);
 
+	// Must use CRLF for script
+	cdstring temp(script);
+	temp.ConvertEndl(eEndl_CRLF);
+
 	// Send PUTSCRIPT message to server
 	INETStartSend("Status::SIEVE::PutScript", "Error::IMSP::OSErrPutScript", "Error::IMSP::NoBadPutScript");
 	INETSendString(cPUTSCRIPT);
 	INETSendString(cSpace);
 	INETSendString(name, eQueueProcess);
 	INETSendString(cSpace);
-	INETSendString(script, eQueueLiteral);	// Always send as a literal
+	INETSendString(temp, eQueueLiteral);	// Always send as a literal
 	INETFinishSend();
 }
 
