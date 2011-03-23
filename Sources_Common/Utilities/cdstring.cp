@@ -2302,7 +2302,7 @@ void cdstring::FromUTF8ToISO()
 			if (wc == 0x20AC)
 			{
 				// Use iso-8859-15 code for Euro
-				sout.put(0xA4);
+				sout.put((char)0xA4);
 				found_euro = true;
 			}
 			else if (wc > 0x00FF)

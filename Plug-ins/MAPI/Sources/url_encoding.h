@@ -30,7 +30,7 @@ extern const char cURLXCharacter[];
 
 
 extern const char* cHexChar;
-extern const char cFromHex[];
+extern const unsigned char cFromHex[];
 
 char* EncodeURL(const char* text);
 char* EncodeURLX(const char* text, char ignore);

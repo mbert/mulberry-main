@@ -55,7 +55,7 @@ extern const char cURLXCharacter[];
 
 
 extern const char* cHexChar;
-extern const char cFromHex[];
+extern const unsigned char cFromHex[];
 
 class CURL
 {
