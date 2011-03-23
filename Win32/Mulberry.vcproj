@@ -3673,6 +3673,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\sources_common\http\webdavclient\CWebDAVErrorResponseParser.h"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVGet.h"
 				>
 			</File>
@@ -8750,6 +8754,10 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVDelete.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\sources_common\http\webdavclient\CWebDAVErrorResponseParser.cpp"
 				>
 			</File>
 			<File
