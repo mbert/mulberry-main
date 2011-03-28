@@ -2079,17 +2079,17 @@ int CMacKorean::w_2_c(wchar_t wc, char* out)
 	
 	// Apple specials
 	else if (wc == 0x00A0)
-		*out++ = 0x80;
+		*out++ = (char)0x80;
 	else if (wc == 0x20A9)
-		*out++ = 0x81;
+		*out++ = (char)0x81;
 	else if (wc == 0x2013)
-		*out++ = 0x82;
+		*out++ = (char)0x82;
 	else if (wc == 0x00A9)
-		*out++ = 0x83;
+		*out++ = (char)0x83;
 	else if (wc == 0xFF3F)
-		*out++ = 0x84;
+		*out++ = (char)0x84;
 	else if (wc == 0x2026)
-		*out++ = 0xFF;
+		*out++ = (char)0xFF;
 
 	// Do default
 	else

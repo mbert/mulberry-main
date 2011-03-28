@@ -2159,19 +2159,19 @@ int CMacTradChinese::w_2_c(wchar_t wc, char* out)
 	
 	// Apple specials
 	else if (wc == 0x005C)
-		*out++ = 0x80;
+		*out++ = (char)0x80;
 	else if (wc == 0xF880)
-		*out++ = 0x81;
+		*out++ = (char)0x81;
 	else if (wc == 0xF881)
-		*out++ = 0x82;
+		*out++ = (char)0x82;
 	else if (wc == 0x00A0)
-		*out++ = 0xA0;
+		*out++ = (char)0xA0;
 	else if (wc == 0x00A9)
-		*out++ = 0xFD;
+		*out++ = (char)0xFD;
 	else if (wc == 0x2122)
-		*out++ = 0xFE;
+		*out++ = (char)0xFE;
 	else if (wc == 0x2026)
-		*out++ = 0xFF;
+		*out++ = (char)0xFF;
 
 	// Do default
 	else
