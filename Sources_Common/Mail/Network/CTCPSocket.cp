@@ -98,10 +98,10 @@ typedef hostent HOSTENT;
 #define ETIMEDOUT               WSAETIMEDOUT
 #define ECONNREFUSED            WSAECONNREFUSED
 #define ELOOP                   WSAELOOP
-#define ENAMETOOLONG            WSAENAMETOOLONG
+//#define ENAMETOOLONG            WSAENAMETOOLONG
 #define EHOSTDOWN               WSAEHOSTDOWN
 #define EHOSTUNREACH            WSAEHOSTUNREACH
-#define ENOTEMPTY               WSAENOTEMPTY
+//#define ENOTEMPTY               WSAENOTEMPTY
 #define EPROCLIM                WSAEPROCLIM
 #define EUSERS                  WSAEUSERS
 #define EDQUOT                  WSAEDQUOT
@@ -985,7 +985,7 @@ void CTCPSocket::TCPCreateSocket()
 		// Update status if no errors
 		mTCPState = TCPOpenSocket;
 	}
-	catch (CTCPException& ex)
+	catch (CTCPException&)
 	{
 		CLOG_LOGCATCH(CTCPException&);
 
@@ -1584,7 +1584,7 @@ void CTCPSocket::TCPStartConnection()
 				// If done break out of loop
 				complete = true;;
 			}
-			catch (CTCPTimeoutException& ex)
+			catch (CTCPTimeoutException&)
 			{
 				CLOG_LOGCATCH(CTCPTimeoutException&);
 				
