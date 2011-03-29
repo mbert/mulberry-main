@@ -48,7 +48,7 @@ public:
 								UInt32			inWideOpenIndex);
 	virtual Boolean		HasChildren(
 								UInt32			inWideOpenIndex);
-	virtual Boolean		HasTwister(
+	virtual bool		HasTwister(
 								UInt32			inWideOpenIndex)
 		{ return IsCollapsable(inWideOpenIndex) && HasChildren(inWideOpenIndex); }
 
