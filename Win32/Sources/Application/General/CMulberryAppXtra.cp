@@ -96,7 +96,8 @@ extern "C" void _SetupArgs();
 char sExceptionMulberryVersion[32] = {0};
 extern char sCrashLogDir[1024];
 
-AFX_DATA EXTERN_PROCESS_LOCAL(_AFX_RICHEDIT_STATE, _afxRichEditState)
+// kp: already defined in <afximpl.h>
+//AFX_DATA EXTERN_PROCESS_LOCAL(_AFX_RICHEDIT_STATE, _afxRichEditState)
 
 // Initialization
 BOOL CMulberryApp::InitInstance()
