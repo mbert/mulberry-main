@@ -22,6 +22,11 @@
 #include "CCharSpecials.h"
 #include "CURL.h"
 
+#ifdef _MSC_VER
+// suppress warning: switch statement contains 'default' but no 'case' labels
+#pragma warning (disable : 4065)
+#endif
+
 #pragma mark ____________________________mimefilterbuf
 
 void mimefilterbuf::write_endl()
