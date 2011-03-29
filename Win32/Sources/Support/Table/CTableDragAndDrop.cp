@@ -299,6 +299,12 @@ END_MESSAGE_MAP()
 CTable* CTableDragAndDrop::sTableDragSource = NULL;
 CTable* CTableDragAndDrop::sTableDropTarget = NULL;
 
+#ifdef _MSC_VER
+// suppress warning: 'this' : used in base member initializer list
+// (base member just stashes the pointer for later use, so it's safe)
+#pragma warning (disable : 4355)
+#endif
+
 // C O N S T R U C T I O N / D E S T R U C T I O N  M E T H O D S
 
 // Default constructor

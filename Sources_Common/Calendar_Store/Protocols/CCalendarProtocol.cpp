@@ -53,6 +53,12 @@
 #include <algorithm>
 #include <memory>
 
+#ifdef _MSC_VER
+// suppress warning: 'this' : used in base member initializer list
+// (base member just stashes the pointer for later use, so it's safe)
+#pragma warning (disable : 4355)
+#endif
+
 using namespace calstore; 
 
 CCalendarProtocol::CCalendarProtocol(CINETAccount* acct) :
