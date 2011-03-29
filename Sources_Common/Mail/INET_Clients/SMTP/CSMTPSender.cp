@@ -337,7 +337,7 @@ void CSMTPSender::SMTPBegin()
 			SMTPReceiveCapability();
 			mESMTP = true;
 		}
-		catch (CSMTPException& ex)
+		catch (CSMTPException&)
 		{
 			CLOG_LOGCATCH(CSMTPException&);
 
@@ -444,9 +444,9 @@ void CSMTPSender::SMTPBegin()
 		}
 
 	}
-	catch (unsigned long num)
+	catch (unsigned long)
 	{
-		CLOG_LOGCATCH(unsigned long num);
+		CLOG_LOGCATCH(unsigned long);
 
 		// Fall through and treat like a failed auth
 	}
@@ -1458,7 +1458,7 @@ bool CSMTPSender::SMTPDoAuthentication()
 				}
 			}
 		}
-		catch (CSMTPException& ex)
+		catch (CSMTPException&)
 		{
 			CLOG_LOGCATCH(CSMTPException&);
 
