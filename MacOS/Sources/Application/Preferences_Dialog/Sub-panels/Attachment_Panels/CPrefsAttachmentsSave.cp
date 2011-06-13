@@ -26,8 +26,6 @@
 #include "CPrefsEditMappings.h"
 #include "CTextFieldX.h"
 
-#include "FullPath.h"
-
 #include <LPushButton.h>
 #include <LRadioButton.h>
 

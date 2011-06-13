@@ -148,7 +148,7 @@
 		AFBD94870AD9BC9C00DD4C86 /* CMacTradChinese.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacTradChinese.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacTradChinese.h; sourceTree = SOURCE_ROOT; };
 		AFBD94890AD9BC9D00DD4C86 /* CMacKorean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacKorean.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacKorean.h; sourceTree = SOURCE_ROOT; };
 		AFBD948B0AD9BC9D00DD4C86 /* CCharsetData.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CCharsetData.cp; path = ../../Sources_Common/i18n/Charsets/CCharsetData.cp; sourceTree = SOURCE_ROOT; };
-		AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AFBD94920AD9BC9D00DD4C86 /* PP_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Prefix.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Prefix.h"; sourceTree = SOURCE_ROOT; };
 		AFBD94940AD9BC9D00DD4C86 /* CCJKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCJKBase.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CCJKBase.h; sourceTree = SOURCE_ROOT; };
 		AFBD94980AD9BC9E00DD4C86 /* PP_Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Macros.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Macros.h"; sourceTree = SOURCE_ROOT; };
@@ -533,8 +533,16 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
-				OTHER_CFLAGS = "-fno-inline";
+				OTHER_CFLAGS = (
+					"-fvisibility=hidden",
+					"-fno-inline",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-deprecated",
+					"$(OTHER_CFLAGS)",
+				);
 				OTHER_LDFLAGS = (
 					"-multiply_defined",
 					warning,

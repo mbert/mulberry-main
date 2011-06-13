@@ -12,10 +12,8 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #else
-/* default to big endian
+/* assume system headers define htonl and ntohl
  */
-#define htonl(x) (x)
-#define ntohl(x) (x)
 #endif
 
 /* MD5 block size */

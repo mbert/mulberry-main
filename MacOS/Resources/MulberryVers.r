@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#include "RsrcTypes.r"
+#include "Resources/RsrcTypes.r"
 
 resource 'vers' (1) {
 	0x4,

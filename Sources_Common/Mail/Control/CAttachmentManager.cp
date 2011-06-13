@@ -51,7 +51,6 @@
 
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #include "MyCFString.h"
-#include "FullPath.h"
 #include <UStandardDialogs.h>
 #elif __dest_os == __win32_os
 #include "CSDIFrame.h"

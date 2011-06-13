@@ -25,7 +25,9 @@ import sys
 # Apply patches to dependent projects.
 #
 
-projects = (("../../../Libraries/open-powerplant", "open-powerplant"), )
+projects = (("../../../Libraries/open-powerplant", "open-powerplant"), 
+            ("../../../Libraries/MoreFiles", "MoreFiles"),
+            ("../../../Libraries/MoreFilesX", "MoreFilesX"), )
 cwd = os.getcwd()
 libpatches = cwd
 

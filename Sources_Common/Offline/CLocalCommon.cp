@@ -31,8 +31,6 @@
 #include "CMulberryApp.h"
 #include "CStringResources.h"
 
-#include "FullPath.h"
-
 #include "cdstring.h"
 #include "cdustring.h"
 

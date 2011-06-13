@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6EE202C1138B6FBC00F9E798 /* CICalendarInit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EE202C0138B6FBC00F9E798 /* CICalendarInit.cpp */; };
+		6EE202CA138B70F800F9E798 /* CWebDAVErrorResponseParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6EE202C8138B70F800F9E798 /* CWebDAVErrorResponseParser.cpp */; };
+		6EE20502138CB64200F9E798 /* MoreFilesX.c in Sources */ = {isa = PBXBuildFile; fileRef = 6EEFC2971389B5E600B7DEA3 /* MoreFilesX.c */; };
+		8087A1D1131407E600C2EFF8 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1D0131407E600C2EFF8 /* Carbon.framework */; };
+		8087A1D3131407F700C2EFF8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1D2131407F700C2EFF8 /* AddressBook.framework */; };
+		8087A1D51314080100C2EFF8 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1D41314080100C2EFF8 /* QuickTime.framework */; };
+		8087A1D71314080C00C2EFF8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1D61314080C00C2EFF8 /* Cocoa.framework */; };
+		8087A1D91314081500C2EFF8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1D81314081400C2EFF8 /* WebKit.framework */; };
+		8087A1DB1314081F00C2EFF8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DA1314081F00C2EFF8 /* Security.framework */; };
+		8087A1DD1314082700C2EFF8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DC1314082700C2EFF8 /* AppKit.framework */; };
+		8087A1DF1314087A00C2EFF8 /* libssl.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DE1314087A00C2EFF8 /* libssl.0.9.7.dylib */; };
+		8087A1E11314088300C2EFF8 /* libcrypto.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1E01314088300C2EFF8 /* libcrypto.0.9.7.dylib */; };
 		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
-		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
 		AF17ACFB0CCC550500205B17 /* CocoaSpeller.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */; };
-		AF17AD190CCC579D00205B17 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF17AD180CCC579D00205B17 /* AppKit.framework */; };
 		AF17AE450CCC585C00205B17 /* CMulberryCocoaApp.m in Sources */ = {isa = PBXBuildFile; fileRef = AF17AE440CCC585C00205B17 /* CMulberryCocoaApp.m */; };
 		AF25512C0C432558001AAE53 /* CFreeBusyPrintout.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2551240C432558001AAE53 /* CFreeBusyPrintout.cp */; };
 		AF25512E0C432559001AAE53 /* CFreeBusyTable.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2551260C432558001AAE53 /* CFreeBusyTable.cp */; };
@@ -62,19 +72,13 @@
 		AF2551F30C432843001AAE53 /* CWebKitUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2551ED0C432843001AAE53 /* CWebKitUtils.m */; };
 		AF2551F60C4328A7001AAE53 /* CCalendarAddressDisplay.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2551F40C4328A7001AAE53 /* CCalendarAddressDisplay.cp */; };
 		AF2551FA0C4328E9001AAE53 /* CCalendarAddress.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2551F80C4328E9001AAE53 /* CCalendarAddress.cp */; };
-		AF2555010C43DAC7001AAE53 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2554580C43DAC7001AAE53 /* Cocoa.framework */; };
-		AF2555020C43DAC7001AAE53 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2554590C43DAC7001AAE53 /* WebKit.framework */; };
 		AF2555070C442299001AAE53 /* CFreeBusyTableCommon.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2555050C442298001AAE53 /* CFreeBusyTableCommon.cp */; };
 		AF2555080C442299001AAE53 /* CFreeBusyViewCommon.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2555060C442298001AAE53 /* CFreeBusyViewCommon.cp */; };
-		AF2ADE160AE464E90078C306 /* libcrypto.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2ADE070AE456F30078C306 /* libcrypto.0.9.7.dylib */; };
-		AF2ADE170AE464E90078C306 /* libssl.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2ADE090AE4571E0078C306 /* libssl.0.9.7.dylib */; };
 		AF3750A60AE1DC5D00C56E20 /* ATSUTextConversion.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF37509F0AE1DC5D00C56E20 /* ATSUTextConversion.cp */; };
 		AF3750A70AE1DC5D00C56E20 /* MoreATSUnicode.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3750A10AE1DC5D00C56E20 /* MoreATSUnicode.cp */; };
 		AF3750A80AE1DC5D00C56E20 /* MoreATSUnicodeFonts.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3750A30AE1DC5D00C56E20 /* MoreATSUnicodeFonts.cp */; };
 		AF3750A90AE1DC5D00C56E20 /* MoreATSUnicodeTextBox.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3750A50AE1DC5D00C56E20 /* MoreATSUnicodeTextBox.cp */; };
-		AF3750B40AE1DD1B00C56E20 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3750B30AE1DD1B00C56E20 /* AddressBook.framework */; };
 		AF3750B80AE1DD3900C56E20 /* LDAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3750B70AE1DD3900C56E20 /* LDAP.framework */; };
-		AF3753C00AE28C6200C56E20 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3753BF0AE28C6200C56E20 /* QuickTime.framework */; };
 		AF3753F00AE28E0700C56E20 /* Mulberry.PPob in Rez */ = {isa = PBXBuildFile; fileRef = AF3753EE0AE28E0700C56E20 /* Mulberry.PPob */; };
 		AF37546E0AE2D15900C56E20 /* AdBk.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF3754670AE2D15900C56E20 /* AdBk.icns */; };
 		AF37546F0AE2D15900C56E20 /* Cald.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF3754680AE2D15900C56E20 /* Cald.icns */; };
@@ -84,7 +88,6 @@
 		AF3754730AE2D15900C56E20 /* Pref.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF37546C0AE2D15900C56E20 /* Pref.icns */; };
 		AF3754740AE2D15900C56E20 /* shlb.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF37546D0AE2D15900C56E20 /* shlb.icns */; };
 		AF52ED890AE2F8F600A75C72 /* LTableSelState.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF52ED870AE2F8F600A75C72 /* LTableSelState.cp */; };
-		AF52EDD60AE322FA00A75C72 /* FSpCompat.c in Sources */ = {isa = PBXBuildFile; fileRef = AF52EDD50AE322FA00A75C72 /* FSpCompat.c */; };
 		AF52F1D80AE3367D00A75C72 /* 0bb21872.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF1D0AE32EB200A75C72 /* 0bb21872.0 */; };
 		AF52F1D90AE3367D00A75C72 /* 0c364b2d.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF1E0AE32EB200A75C72 /* 0c364b2d.0 */; };
 		AF52F1DA0AE3367D00A75C72 /* 0e82f83a.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF1F0AE32EB200A75C72 /* 0e82f83a.0 */; };
@@ -165,7 +168,6 @@
 		AFBE2AB70D2F30DB002132BE /* CWebDAVPrefsClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFBE2AB60D2F30DB002132BE /* CWebDAVPrefsClient.cpp */; };
 		AFBE2ABA0D2F34A4002132BE /* COptionsAccount.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBE2AB80D2F34A4002132BE /* COptionsAccount.cp */; };
 		AFC7981B0CCADCAF00E62F0F /* CPasswordManager.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFC7981A0CCADCAF00E62F0F /* CPasswordManager.cp */; };
-		AFC798200CCAE69000E62F0F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC7981F0CCAE69000E62F0F /* Security.framework */; };
 		AFCDD2D30AE1647A00E30447 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD2D20AE1647A00E30447 /* os_dep.cp */; };
 		AFCDD6780AE164F300E30447 /* LMutexSemaphore.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD36B0AE164EE00E30447 /* LMutexSemaphore.cp */; };
 		AFCDD67A0AE164F300E30447 /* LSemaphore.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD36F0AE164EE00E30447 /* LSemaphore.cp */; };
@@ -383,8 +385,6 @@
 		AFCDDA240AE1726D00E30447 /* SysCFUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD93E0AE1726B00E30447 /* SysCFUtils.cp */; };
 		AFCDDA250AE1726D00E30447 /* SysCFXMLNode.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD9400AE1726B00E30447 /* SysCFXMLNode.cp */; };
 		AFCDDA260AE1726D00E30447 /* SysCFXMLTree.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD9420AE1726B00E30447 /* SysCFXMLTree.cp */; };
-		AFCDDA910AE173C700E30447 /* FullPath.c in Sources */ = {isa = PBXBuildFile; fileRef = AFCDDA860AE173C700E30447 /* FullPath.c */; };
-		AFCDDA9F0AE1751700E30447 /* MoreFilesX.c in Sources */ = {isa = PBXBuildFile; fileRef = AFCDDA9C0AE1751700E30447 /* MoreFilesX.c */; };
 		AFCDDAED0AE1769900E30447 /* CMulberryCommon.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDDACA0AE1769900E30447 /* CMulberryCommon.cp */; };
 		AFCDDAEE0AE1769900E30447 /* CPPRegister.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDDACD0AE1769900E30447 /* CPPRegister.cp */; };
 		AFCDDAEF0AE1769900E30447 /* CMulberryApp.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDDACF0AE1769900E30447 /* CMulberryApp.cp */; };
@@ -1184,10 +1184,8 @@
 		AFDD77300C4068FC00DE5877 /* EudoraAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD77180C40682200DE5877 /* EudoraAdbkIO.bundle */; };
 		AFDD77310C4068FC00DE5877 /* GPG.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD770F0C40680C00DE5877 /* GPG.bundle */; };
 		AFDD77320C4068FC00DE5877 /* GSSAPI.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD77060C4067F900DE5877 /* GSSAPI.bundle */; };
-		AFDD77330C4068FC00DE5877 /* Kerberos.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76FD0C4067ED00DE5877 /* Kerberos.bundle */; };
 		AFDD77340C4068FC00DE5877 /* NetscapeAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76F40C4067CD00DE5877 /* NetscapeAdbkIO.bundle */; };
 		AFDD77350C4068FC00DE5877 /* OEAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76EB0C4067B900DE5877 /* OEAdbkIO.bundle */; };
-		AFDD77360C4068FC00DE5877 /* PGP8.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76E20C4067AB00DE5877 /* PGP8.bundle */; };
 		AFDD77370C4068FC00DE5877 /* PineAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76D90C40679200DE5877 /* PineAdbkIO.bundle */; };
 		AFDD77380C4068FC00DE5877 /* QuickmailAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76D00C40677C00DE5877 /* QuickmailAdbkIO.bundle */; };
 		AFDD77390C4068FC00DE5877 /* QuickmailProAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76C70C40676A00DE5877 /* QuickmailProAdbkIO.bundle */; };
@@ -1282,18 +1280,15 @@
 		AFEA729F12871ADD00FD29F8 /* Boa_Vista.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A5B1287193700FD29F8 /* Boa_Vista.ics */; };
 		AFEA72A012871ADD00FD29F8 /* Bogota.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A5C1287193700FD29F8 /* Bogota.ics */; };
 		AFEA72A112871ADD00FD29F8 /* Boise.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A5D1287193700FD29F8 /* Boise.ics */; };
-		AFEA72A212871ADD00FD29F8 /* Buenos_Aires.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A5E1287193700FD29F8 /* Buenos_Aires.ics */; };
 		AFEA72A312871ADD00FD29F8 /* Cambridge_Bay.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A5F1287193700FD29F8 /* Cambridge_Bay.ics */; };
 		AFEA72A412871ADD00FD29F8 /* Campo_Grande.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A601287193700FD29F8 /* Campo_Grande.ics */; };
 		AFEA72A512871ADD00FD29F8 /* Cancun.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A611287193700FD29F8 /* Cancun.ics */; };
 		AFEA72A612871ADD00FD29F8 /* Caracas.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A621287193700FD29F8 /* Caracas.ics */; };
-		AFEA72A712871ADD00FD29F8 /* Catamarca.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A631287193700FD29F8 /* Catamarca.ics */; };
 		AFEA72A812871ADD00FD29F8 /* Cayenne.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A641287193700FD29F8 /* Cayenne.ics */; };
 		AFEA72A912871ADD00FD29F8 /* Cayman.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A651287193700FD29F8 /* Cayman.ics */; };
 		AFEA72AA12871ADD00FD29F8 /* Chicago.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A661287193700FD29F8 /* Chicago.ics */; };
 		AFEA72AB12871ADD00FD29F8 /* Chihuahua.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A671287193700FD29F8 /* Chihuahua.ics */; };
 		AFEA72AC12871ADD00FD29F8 /* Coral_Harbour.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A681287193700FD29F8 /* Coral_Harbour.ics */; };
-		AFEA72AD12871ADD00FD29F8 /* Cordoba.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A691287193700FD29F8 /* Cordoba.ics */; };
 		AFEA72AE12871ADD00FD29F8 /* Costa_Rica.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A6A1287193700FD29F8 /* Costa_Rica.ics */; };
 		AFEA72AF12871ADD00FD29F8 /* Cuiaba.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A6B1287193700FD29F8 /* Cuiaba.ics */; };
 		AFEA72B012871ADD00FD29F8 /* Curacao.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A6C1287193700FD29F8 /* Curacao.ics */; };
@@ -1329,11 +1324,9 @@
 		AFEA72CE12871ADD00FD29F8 /* Vevay.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A8B1287193700FD29F8 /* Vevay.ics */; };
 		AFEA72CF12871ADD00FD29F8 /* Vincennes.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A8C1287193700FD29F8 /* Vincennes.ics */; };
 		AFEA72D012871ADD00FD29F8 /* Winamac.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A8D1287193700FD29F8 /* Winamac.ics */; };
-		AFEA72D112871ADD00FD29F8 /* Indianapolis.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A8E1287193700FD29F8 /* Indianapolis.ics */; };
 		AFEA72D212871ADD00FD29F8 /* Inuvik.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A8F1287193700FD29F8 /* Inuvik.ics */; };
 		AFEA72D312871ADD00FD29F8 /* Iqaluit.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A901287193700FD29F8 /* Iqaluit.ics */; };
 		AFEA72D412871ADD00FD29F8 /* Jamaica.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A911287193700FD29F8 /* Jamaica.ics */; };
-		AFEA72D512871ADD00FD29F8 /* Jujuy.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A921287193700FD29F8 /* Jujuy.ics */; };
 		AFEA72D612871ADD00FD29F8 /* Juneau.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A931287193700FD29F8 /* Juneau.ics */; };
 		AFEA72D712871ADD00FD29F8 /* Louisville.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A951287193700FD29F8 /* Louisville.ics */; };
 		AFEA72D812871ADD00FD29F8 /* Monticello.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A961287193700FD29F8 /* Monticello.ics */; };
@@ -1341,14 +1334,12 @@
 		AFEA72DA12871ADD00FD29F8 /* La_Paz.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A981287193700FD29F8 /* La_Paz.ics */; };
 		AFEA72DB12871ADD00FD29F8 /* Lima.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A991287193700FD29F8 /* Lima.ics */; };
 		AFEA72DC12871ADD00FD29F8 /* Los_Angeles.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A9A1287193700FD29F8 /* Los_Angeles.ics */; };
-		AFEA72DD12871ADD00FD29F8 /* Louisville.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A9B1287193700FD29F8 /* Louisville.ics */; };
 		AFEA72DE12871ADD00FD29F8 /* Maceio.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A9C1287193700FD29F8 /* Maceio.ics */; };
 		AFEA72DF12871ADD00FD29F8 /* Managua.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A9D1287193700FD29F8 /* Managua.ics */; };
 		AFEA72E012871ADD00FD29F8 /* Manaus.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A9E1287193700FD29F8 /* Manaus.ics */; };
 		AFEA72E112871ADD00FD29F8 /* Marigot.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6A9F1287193700FD29F8 /* Marigot.ics */; };
 		AFEA72E212871ADD00FD29F8 /* Martinique.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6AA01287193700FD29F8 /* Martinique.ics */; };
 		AFEA72E312871ADD00FD29F8 /* Mazatlan.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6AA11287193700FD29F8 /* Mazatlan.ics */; };
-		AFEA72E412871ADD00FD29F8 /* Mendoza.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6AA21287193700FD29F8 /* Mendoza.ics */; };
 		AFEA72E512871ADD00FD29F8 /* Menominee.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6AA31287193700FD29F8 /* Menominee.ics */; };
 		AFEA72E612871ADD00FD29F8 /* Merida.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6AA41287193700FD29F8 /* Merida.ics */; };
 		AFEA72E712871ADD00FD29F8 /* Mexico_City.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6AA51287193700FD29F8 /* Mexico_City.ics */; };
@@ -1541,14 +1532,9 @@
 		AFEA73A212871ADD00FD29F8 /* Acre.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B671287193800FD29F8 /* Acre.ics */; };
 		AFEA73A312871ADD00FD29F8 /* DeNoronha.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B681287193800FD29F8 /* DeNoronha.ics */; };
 		AFEA73A412871ADD00FD29F8 /* East.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B691287193800FD29F8 /* East.ics */; };
-		AFEA73A512871ADD00FD29F8 /* West.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B6A1287193800FD29F8 /* West.ics */; };
 		AFEA73A612871ADD00FD29F8 /* Atlantic.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B6C1287193800FD29F8 /* Atlantic.ics */; };
-		AFEA73A712871ADD00FD29F8 /* Central.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B6D1287193800FD29F8 /* Central.ics */; };
 		AFEA73A812871ADD00FD29F8 /* East-Saskatchewan.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B6E1287193800FD29F8 /* East-Saskatchewan.ics */; };
-		AFEA73A912871ADD00FD29F8 /* Eastern.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B6F1287193800FD29F8 /* Eastern.ics */; };
-		AFEA73AA12871ADD00FD29F8 /* Mountain.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B701287193800FD29F8 /* Mountain.ics */; };
 		AFEA73AB12871ADD00FD29F8 /* Newfoundland.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B711287193800FD29F8 /* Newfoundland.ics */; };
-		AFEA73AC12871ADD00FD29F8 /* Pacific.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B721287193800FD29F8 /* Pacific.ics */; };
 		AFEA73AD12871ADD00FD29F8 /* Saskatchewan.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B731287193800FD29F8 /* Saskatchewan.ics */; };
 		AFEA73AE12871ADD00FD29F8 /* Yukon.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B741287193800FD29F8 /* Yukon.ics */; };
 		AFEA73AF12871ADD00FD29F8 /* Continental.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B761287193800FD29F8 /* Continental.ics */; };
@@ -1573,7 +1559,6 @@
 		AFEA73C212871ADD00FD29F8 /* Guernsey.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B8A1287193800FD29F8 /* Guernsey.ics */; };
 		AFEA73C312871ADD00FD29F8 /* Helsinki.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B8B1287193800FD29F8 /* Helsinki.ics */; };
 		AFEA73C412871ADD00FD29F8 /* Isle_of_Man.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B8C1287193800FD29F8 /* Isle_of_Man.ics */; };
-		AFEA73C512871ADD00FD29F8 /* Istanbul.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B8D1287193800FD29F8 /* Istanbul.ics */; };
 		AFEA73C612871ADD00FD29F8 /* Jersey.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B8E1287193800FD29F8 /* Jersey.ics */; };
 		AFEA73C712871ADD00FD29F8 /* Kaliningrad.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B8F1287193800FD29F8 /* Kaliningrad.ics */; };
 		AFEA73C812871ADD00FD29F8 /* Kiev.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B901287193800FD29F8 /* Kiev.ics */; };
@@ -1587,7 +1572,6 @@
 		AFEA73D012871ADD00FD29F8 /* Minsk.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B981287193800FD29F8 /* Minsk.ics */; };
 		AFEA73D112871ADD00FD29F8 /* Monaco.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B991287193800FD29F8 /* Monaco.ics */; };
 		AFEA73D212871ADD00FD29F8 /* Moscow.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B9A1287193800FD29F8 /* Moscow.ics */; };
-		AFEA73D312871ADD00FD29F8 /* Nicosia.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B9B1287193800FD29F8 /* Nicosia.ics */; };
 		AFEA73D412871ADD00FD29F8 /* Oslo.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B9C1287193800FD29F8 /* Oslo.ics */; };
 		AFEA73D512871ADD00FD29F8 /* Paris.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B9D1287193800FD29F8 /* Paris.ics */; };
 		AFEA73D612871ADD00FD29F8 /* Podgorica.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6B9E1287193800FD29F8 /* Podgorica.ics */; };
@@ -1631,9 +1615,7 @@
 		AFEA73FC12871ADD00FD29F8 /* Reunion.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BC51287193800FD29F8 /* Reunion.ics */; };
 		AFEA73FD12871ADD00FD29F8 /* Iran.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BC61287193800FD29F8 /* Iran.ics */; };
 		AFEA73FE12871ADD00FD29F8 /* Israel.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BC71287193800FD29F8 /* Israel.ics */; };
-		AFEA73FF12871ADD00FD29F8 /* Jamaica.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BC81287193800FD29F8 /* Jamaica.ics */; };
 		AFEA740012871ADD00FD29F8 /* Japan.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BC91287193800FD29F8 /* Japan.ics */; };
-		AFEA740112871ADD00FD29F8 /* Kwajalein.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BCA1287193800FD29F8 /* Kwajalein.ics */; };
 		AFEA740212871ADD00FD29F8 /* Libya.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BCB1287193800FD29F8 /* Libya.ics */; };
 		AFEA740312871ADD00FD29F8 /* BajaNorte.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BCD1287193800FD29F8 /* BajaNorte.ics */; };
 		AFEA740412871ADD00FD29F8 /* BajaSur.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BCE1287193800FD29F8 /* BajaSur.ics */; };
@@ -1686,7 +1668,6 @@
 		AFEA743312871ADD00FD29F8 /* PRC.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BFE1287193800FD29F8 /* PRC.ics */; };
 		AFEA743412871ADD00FD29F8 /* ROC.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6BFF1287193800FD29F8 /* ROC.ics */; };
 		AFEA743512871ADD00FD29F8 /* ROK.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C001287193800FD29F8 /* ROK.ics */; };
-		AFEA743612871ADD00FD29F8 /* Singapore.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C011287193800FD29F8 /* Singapore.ics */; };
 		AFEA743712871ADD00FD29F8 /* Turkey.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C021287193800FD29F8 /* Turkey.ics */; };
 		AFEA743812871ADD00FD29F8 /* Alaska.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C041287193800FD29F8 /* Alaska.ics */; };
 		AFEA743912871ADD00FD29F8 /* Aleutian.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C051287193800FD29F8 /* Aleutian.ics */; };
@@ -1699,7 +1680,6 @@
 		AFEA744012871ADD00FD29F8 /* Michigan.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C0C1287193800FD29F8 /* Michigan.ics */; };
 		AFEA744112871ADD00FD29F8 /* Mountain.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C0D1287193800FD29F8 /* Mountain.ics */; };
 		AFEA744212871ADD00FD29F8 /* Pacific.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C0E1287193800FD29F8 /* Pacific.ics */; };
-		AFEA744312871ADD00FD29F8 /* Samoa.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C0F1287193800FD29F8 /* Samoa.ics */; };
 		AFEA744412871ADD00FD29F8 /* version.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C101287193800FD29F8 /* version.txt */; };
 		AFEA744512871ADE00FD29F8 /* W-SU.ics in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFEA6C111287193800FD29F8 /* W-SU.ics */; };
 		AFF40771102DE5BF00971DA1 /* CNewComponentRepeat.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFF4076F102DE5BF00971DA1 /* CNewComponentRepeat.cp */; };
@@ -1917,13 +1897,6 @@
 			remoteGlobalIDString = AF0F2FD90AE3D0990074CFEF;
 			remoteInfo = "DIGEST-MD5 MachO";
 		};
-		AF7AD7830D83A1540056107B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF419E780AEA740200E19592 /* Kerberos.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = AFD93C2F0AE5B342007F506F;
-			remoteInfo = "Kerberos MachO";
-		};
 		AF7AD7850D83A1540056107B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AF419EA20AEA750800E19592 /* QuickmailAdbkIO.xcodeproj */;
@@ -1983,10 +1956,8 @@
 				AFDD77300C4068FC00DE5877 /* EudoraAdbkIO.bundle in CopyFiles */,
 				AFDD77310C4068FC00DE5877 /* GPG.bundle in CopyFiles */,
 				AFDD77320C4068FC00DE5877 /* GSSAPI.bundle in CopyFiles */,
-				AFDD77330C4068FC00DE5877 /* Kerberos.bundle in CopyFiles */,
 				AFDD77340C4068FC00DE5877 /* NetscapeAdbkIO.bundle in CopyFiles */,
 				AFDD77350C4068FC00DE5877 /* OEAdbkIO.bundle in CopyFiles */,
-				AFDD77360C4068FC00DE5877 /* PGP8.bundle in CopyFiles */,
 				AFDD77370C4068FC00DE5877 /* PineAdbkIO.bundle in CopyFiles */,
 				AFDD77380C4068FC00DE5877 /* QuickmailAdbkIO.bundle in CopyFiles */,
 				AFDD77390C4068FC00DE5877 /* QuickmailProAdbkIO.bundle in CopyFiles */,
@@ -2159,18 +2130,15 @@
 				AFEA729F12871ADD00FD29F8 /* Boa_Vista.ics in CopyFiles */,
 				AFEA72A012871ADD00FD29F8 /* Bogota.ics in CopyFiles */,
 				AFEA72A112871ADD00FD29F8 /* Boise.ics in CopyFiles */,
-				AFEA72A212871ADD00FD29F8 /* Buenos_Aires.ics in CopyFiles */,
 				AFEA72A312871ADD00FD29F8 /* Cambridge_Bay.ics in CopyFiles */,
 				AFEA72A412871ADD00FD29F8 /* Campo_Grande.ics in CopyFiles */,
 				AFEA72A512871ADD00FD29F8 /* Cancun.ics in CopyFiles */,
 				AFEA72A612871ADD00FD29F8 /* Caracas.ics in CopyFiles */,
-				AFEA72A712871ADD00FD29F8 /* Catamarca.ics in CopyFiles */,
 				AFEA72A812871ADD00FD29F8 /* Cayenne.ics in CopyFiles */,
 				AFEA72A912871ADD00FD29F8 /* Cayman.ics in CopyFiles */,
 				AFEA72AA12871ADD00FD29F8 /* Chicago.ics in CopyFiles */,
 				AFEA72AB12871ADD00FD29F8 /* Chihuahua.ics in CopyFiles */,
 				AFEA72AC12871ADD00FD29F8 /* Coral_Harbour.ics in CopyFiles */,
-				AFEA72AD12871ADD00FD29F8 /* Cordoba.ics in CopyFiles */,
 				AFEA72AE12871ADD00FD29F8 /* Costa_Rica.ics in CopyFiles */,
 				AFEA72AF12871ADD00FD29F8 /* Cuiaba.ics in CopyFiles */,
 				AFEA72B012871ADD00FD29F8 /* Curacao.ics in CopyFiles */,
@@ -2206,11 +2174,9 @@
 				AFEA72CE12871ADD00FD29F8 /* Vevay.ics in CopyFiles */,
 				AFEA72CF12871ADD00FD29F8 /* Vincennes.ics in CopyFiles */,
 				AFEA72D012871ADD00FD29F8 /* Winamac.ics in CopyFiles */,
-				AFEA72D112871ADD00FD29F8 /* Indianapolis.ics in CopyFiles */,
 				AFEA72D212871ADD00FD29F8 /* Inuvik.ics in CopyFiles */,
 				AFEA72D312871ADD00FD29F8 /* Iqaluit.ics in CopyFiles */,
 				AFEA72D412871ADD00FD29F8 /* Jamaica.ics in CopyFiles */,
-				AFEA72D512871ADD00FD29F8 /* Jujuy.ics in CopyFiles */,
 				AFEA72D612871ADD00FD29F8 /* Juneau.ics in CopyFiles */,
 				AFEA72D712871ADD00FD29F8 /* Louisville.ics in CopyFiles */,
 				AFEA72D812871ADD00FD29F8 /* Monticello.ics in CopyFiles */,
@@ -2218,14 +2184,12 @@
 				AFEA72DA12871ADD00FD29F8 /* La_Paz.ics in CopyFiles */,
 				AFEA72DB12871ADD00FD29F8 /* Lima.ics in CopyFiles */,
 				AFEA72DC12871ADD00FD29F8 /* Los_Angeles.ics in CopyFiles */,
-				AFEA72DD12871ADD00FD29F8 /* Louisville.ics in CopyFiles */,
 				AFEA72DE12871ADD00FD29F8 /* Maceio.ics in CopyFiles */,
 				AFEA72DF12871ADD00FD29F8 /* Managua.ics in CopyFiles */,
 				AFEA72E012871ADD00FD29F8 /* Manaus.ics in CopyFiles */,
 				AFEA72E112871ADD00FD29F8 /* Marigot.ics in CopyFiles */,
 				AFEA72E212871ADD00FD29F8 /* Martinique.ics in CopyFiles */,
 				AFEA72E312871ADD00FD29F8 /* Mazatlan.ics in CopyFiles */,
-				AFEA72E412871ADD00FD29F8 /* Mendoza.ics in CopyFiles */,
 				AFEA72E512871ADD00FD29F8 /* Menominee.ics in CopyFiles */,
 				AFEA72E612871ADD00FD29F8 /* Merida.ics in CopyFiles */,
 				AFEA72E712871ADD00FD29F8 /* Mexico_City.ics in CopyFiles */,
@@ -2418,14 +2382,9 @@
 				AFEA73A212871ADD00FD29F8 /* Acre.ics in CopyFiles */,
 				AFEA73A312871ADD00FD29F8 /* DeNoronha.ics in CopyFiles */,
 				AFEA73A412871ADD00FD29F8 /* East.ics in CopyFiles */,
-				AFEA73A512871ADD00FD29F8 /* West.ics in CopyFiles */,
 				AFEA73A612871ADD00FD29F8 /* Atlantic.ics in CopyFiles */,
-				AFEA73A712871ADD00FD29F8 /* Central.ics in CopyFiles */,
 				AFEA73A812871ADD00FD29F8 /* East-Saskatchewan.ics in CopyFiles */,
-				AFEA73A912871ADD00FD29F8 /* Eastern.ics in CopyFiles */,
-				AFEA73AA12871ADD00FD29F8 /* Mountain.ics in CopyFiles */,
 				AFEA73AB12871ADD00FD29F8 /* Newfoundland.ics in CopyFiles */,
-				AFEA73AC12871ADD00FD29F8 /* Pacific.ics in CopyFiles */,
 				AFEA73AD12871ADD00FD29F8 /* Saskatchewan.ics in CopyFiles */,
 				AFEA73AE12871ADD00FD29F8 /* Yukon.ics in CopyFiles */,
 				AFEA73AF12871ADD00FD29F8 /* Continental.ics in CopyFiles */,
@@ -2450,7 +2409,6 @@
 				AFEA73C212871ADD00FD29F8 /* Guernsey.ics in CopyFiles */,
 				AFEA73C312871ADD00FD29F8 /* Helsinki.ics in CopyFiles */,
 				AFEA73C412871ADD00FD29F8 /* Isle_of_Man.ics in CopyFiles */,
-				AFEA73C512871ADD00FD29F8 /* Istanbul.ics in CopyFiles */,
 				AFEA73C612871ADD00FD29F8 /* Jersey.ics in CopyFiles */,
 				AFEA73C712871ADD00FD29F8 /* Kaliningrad.ics in CopyFiles */,
 				AFEA73C812871ADD00FD29F8 /* Kiev.ics in CopyFiles */,
@@ -2464,7 +2422,6 @@
 				AFEA73D012871ADD00FD29F8 /* Minsk.ics in CopyFiles */,
 				AFEA73D112871ADD00FD29F8 /* Monaco.ics in CopyFiles */,
 				AFEA73D212871ADD00FD29F8 /* Moscow.ics in CopyFiles */,
-				AFEA73D312871ADD00FD29F8 /* Nicosia.ics in CopyFiles */,
 				AFEA73D412871ADD00FD29F8 /* Oslo.ics in CopyFiles */,
 				AFEA73D512871ADD00FD29F8 /* Paris.ics in CopyFiles */,
 				AFEA73D612871ADD00FD29F8 /* Podgorica.ics in CopyFiles */,
@@ -2508,9 +2465,7 @@
 				AFEA73FC12871ADD00FD29F8 /* Reunion.ics in CopyFiles */,
 				AFEA73FD12871ADD00FD29F8 /* Iran.ics in CopyFiles */,
 				AFEA73FE12871ADD00FD29F8 /* Israel.ics in CopyFiles */,
-				AFEA73FF12871ADD00FD29F8 /* Jamaica.ics in CopyFiles */,
 				AFEA740012871ADD00FD29F8 /* Japan.ics in CopyFiles */,
-				AFEA740112871ADD00FD29F8 /* Kwajalein.ics in CopyFiles */,
 				AFEA740212871ADD00FD29F8 /* Libya.ics in CopyFiles */,
 				AFEA740312871ADD00FD29F8 /* BajaNorte.ics in CopyFiles */,
 				AFEA740412871ADD00FD29F8 /* BajaSur.ics in CopyFiles */,
@@ -2563,7 +2518,6 @@
 				AFEA743312871ADD00FD29F8 /* PRC.ics in CopyFiles */,
 				AFEA743412871ADD00FD29F8 /* ROC.ics in CopyFiles */,
 				AFEA743512871ADD00FD29F8 /* ROK.ics in CopyFiles */,
-				AFEA743612871ADD00FD29F8 /* Singapore.ics in CopyFiles */,
 				AFEA743712871ADD00FD29F8 /* Turkey.ics in CopyFiles */,
 				AFEA743812871ADD00FD29F8 /* Alaska.ics in CopyFiles */,
 				AFEA743912871ADD00FD29F8 /* Aleutian.ics in CopyFiles */,
@@ -2576,7 +2530,6 @@
 				AFEA744012871ADD00FD29F8 /* Michigan.ics in CopyFiles */,
 				AFEA744112871ADD00FD29F8 /* Mountain.ics in CopyFiles */,
 				AFEA744212871ADD00FD29F8 /* Pacific.ics in CopyFiles */,
-				AFEA744312871ADD00FD29F8 /* Samoa.ics in CopyFiles */,
 				AFEA744412871ADD00FD29F8 /* version.txt in CopyFiles */,
 				AFEA744512871ADE00FD29F8 /* W-SU.ics in CopyFiles */,
 			);
@@ -2585,15 +2538,32 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0867D6ABFE840B52C02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Packaging/English.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		20286C33FDCF999611CA2CEA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		0867D6ABFE840B52C02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Packaging/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32DBCF6D0370B57F00C91783 /* MulberryXcode_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MulberryXcode_Prefix.pch; path = Sources/MulberryXcode_Prefix.pch; sourceTree = "<group>"; };
-		4A9504C8FFE6A3BC11CA0CBA /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
-		4A9504CAFFE6A41611CA0CBA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		508344B209E5C41E0093A071 /* Mulberry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mulberry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EE202C0138B6FBC00F9E798 /* CICalendarInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CICalendarInit.cpp; path = Source/CICalendarInit.cpp; sourceTree = "<group>"; };
+		6EE202C8138B70F800F9E798 /* CWebDAVErrorResponseParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CWebDAVErrorResponseParser.cpp; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVErrorResponseParser.cpp; sourceTree = SOURCE_ROOT; };
+		6EE202C9138B70F800F9E798 /* CWebDAVErrorResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWebDAVErrorResponseParser.h; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVErrorResponseParser.h; sourceTree = SOURCE_ROOT; };
+		6EEFC28F1389B5A000B7DEA3 /* FSpCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSpCompat.h; sourceTree = "<group>"; };
+		6EEFC2901389B5A000B7DEA3 /* MoreDesktopMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreDesktopMgr.h; sourceTree = "<group>"; };
+		6EEFC2911389B5A000B7DEA3 /* MoreFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreFiles.h; sourceTree = "<group>"; };
+		6EEFC2921389B5A000B7DEA3 /* MoreFilesExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreFilesExtras.h; sourceTree = "<group>"; };
+		6EEFC2931389B5A000B7DEA3 /* Optimization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Optimization.h; sourceTree = "<group>"; };
+		6EEFC2941389B5A000B7DEA3 /* OptimizationEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptimizationEnd.h; sourceTree = "<group>"; };
+		6EEFC2951389B5CA00B7DEA3 /* MoreFilesExtras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MoreFilesExtras.c; sourceTree = "<group>"; tabWidth = 4; };
+		6EEFC2971389B5E600B7DEA3 /* MoreFilesX.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MoreFilesX.c; sourceTree = "<group>"; tabWidth = 8; };
+		6EEFC2981389B5E600B7DEA3 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreFilesX.h; sourceTree = "<group>"; };
+		8087A1D0131407E600C2EFF8 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		8087A1D2131407F700C2EFF8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		8087A1D41314080100C2EFF8 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+		8087A1D61314080C00C2EFF8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8087A1D81314081400C2EFF8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		8087A1DA1314081F00C2EFF8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8087A1DC1314082700C2EFF8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		8087A1DE1314087A00C2EFF8 /* libssl.0.9.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.0.9.7.dylib; path = usr/lib/libssl.0.9.7.dylib; sourceTree = SDKROOT; };
+		8087A1E01314088300C2EFF8 /* libcrypto.0.9.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.7.dylib; path = usr/lib/libcrypto.0.9.7.dylib; sourceTree = SDKROOT; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Packaging/Info.plist; sourceTree = SOURCE_ROOT; };
 		AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CocoaSpeller.bundle; path = "../Plug-ins/CocoaSpeller/build/Debug/CocoaSpeller.bundle"; sourceTree = SOURCE_ROOT; };
-		AF17AD180CCC579D00205B17 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AF17AE430CCC585C00205B17 /* CMulberryCocoaApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMulberryCocoaApp.h; path = General/CMulberryCocoaApp.h; sourceTree = "<group>"; };
 		AF17AE440CCC585C00205B17 /* CMulberryCocoaApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMulberryCocoaApp.m; path = General/CMulberryCocoaApp.m; sourceTree = "<group>"; };
 		AF2551240C432558001AAE53 /* CFreeBusyPrintout.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CFreeBusyPrintout.cp; sourceTree = "<group>"; };
@@ -2697,12 +2667,8 @@
 		AF2551F50C4328A7001AAE53 /* CCalendarAddressDisplay.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CCalendarAddressDisplay.h; path = Sources/Application/Calendar/Component_Editing/CCalendarAddressDisplay.h; sourceTree = "<group>"; };
 		AF2551F80C4328E9001AAE53 /* CCalendarAddress.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = CCalendarAddress.cp; path = ../Sources_Common/Mail/Address/CCalendarAddress.cp; sourceTree = SOURCE_ROOT; };
 		AF2551F90C4328E9001AAE53 /* CCalendarAddress.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CCalendarAddress.h; path = ../Sources_Common/Mail/Address/CCalendarAddress.h; sourceTree = SOURCE_ROOT; };
-		AF2554580C43DAC7001AAE53 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		AF2554590C43DAC7001AAE53 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		AF2555050C442298001AAE53 /* CFreeBusyTableCommon.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = CFreeBusyTableCommon.cp; path = ../Sources_Common/Application/Calendar/Calendar_View/Free_Busy_View/CFreeBusyTableCommon.cp; sourceTree = SOURCE_ROOT; };
 		AF2555060C442298001AAE53 /* CFreeBusyViewCommon.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = CFreeBusyViewCommon.cp; path = ../Sources_Common/Application/Calendar/Calendar_View/Free_Busy_View/CFreeBusyViewCommon.cp; sourceTree = SOURCE_ROOT; };
-		AF2ADE070AE456F30078C306 /* libcrypto.0.9.7.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.7.dylib; path = usr/lib/libcrypto.0.9.7.dylib; sourceTree = SDKROOT; };
-		AF2ADE090AE4571E0078C306 /* libssl.0.9.7.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = libssl.0.9.7.dylib; path = usr/lib/libssl.0.9.7.dylib; sourceTree = SDKROOT; };
 		AF37509F0AE1DC5D00C56E20 /* ATSUTextConversion.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ATSUTextConversion.cp; sourceTree = "<group>"; };
 		AF3750A00AE1DC5D00C56E20 /* ATSUTextConversion.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ATSUTextConversion.h; sourceTree = "<group>"; };
 		AF3750A10AE1DC5D00C56E20 /* MoreATSUnicode.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = MoreATSUnicode.cp; sourceTree = "<group>"; };
@@ -2710,9 +2676,7 @@
 		AF3750A30AE1DC5D00C56E20 /* MoreATSUnicodeFonts.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = MoreATSUnicodeFonts.cp; sourceTree = "<group>"; };
 		AF3750A40AE1DC5D00C56E20 /* MoreATSUnicodeInternal.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MoreATSUnicodeInternal.h; sourceTree = "<group>"; };
 		AF3750A50AE1DC5D00C56E20 /* MoreATSUnicodeTextBox.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = MoreATSUnicodeTextBox.cp; sourceTree = "<group>"; };
-		AF3750B30AE1DD1B00C56E20 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		AF3750B70AE1DD3900C56E20 /* LDAP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LDAP.framework; path = /System/Library/Frameworks/LDAP.framework; sourceTree = "<absolute>"; };
-		AF3753BF0AE28C6200C56E20 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+		AF3750B70AE1DD3900C56E20 /* LDAP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LDAP.framework; path = System/Library/Frameworks/LDAP.framework; sourceTree = SDKROOT; };
 		AF3753EE0AE28E0700C56E20 /* Mulberry.PPob */ = {isa = PBXFileReference; lastKnownFileType = archive.ppob; name = Mulberry.PPob; path = Resources/Mulberry.PPob; sourceTree = SOURCE_ROOT; };
 		AF3754670AE2D15900C56E20 /* AdBk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AdBk.icns; path = Resources/AdBk.icns; sourceTree = SOURCE_ROOT; };
 		AF3754680AE2D15900C56E20 /* Cald.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Cald.icns; path = Resources/Cald.icns; sourceTree = SOURCE_ROOT; };
@@ -2738,7 +2702,6 @@
 		AF419EC90AEA753B00E19592 /* vCardAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = vCardAdbkIO.xcodeproj; path = "../Plug-ins/vCardAdbkIO/vCardAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF52ED870AE2F8F600A75C72 /* LTableSelState.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = LTableSelState.cp; sourceTree = "<group>"; };
 		AF52ED880AE2F8F600A75C72 /* LTableSelState.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = LTableSelState.h; sourceTree = "<group>"; };
-		AF52EDD50AE322FA00A75C72 /* FSpCompat.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = FSpCompat.c; sourceTree = "<group>"; };
 		AF52EF1D0AE32EB200A75C72 /* 0bb21872.0 */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = 0bb21872.0; sourceTree = "<group>"; };
 		AF52EF1E0AE32EB200A75C72 /* 0c364b2d.0 */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = 0c364b2d.0; sourceTree = "<group>"; };
 		AF52EF1F0AE32EB200A75C72 /* 0e82f83a.0 */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = 0e82f83a.0; sourceTree = "<group>"; };
@@ -2837,7 +2800,6 @@
 		AFBE2AB90D2F34A4002132BE /* COptionsAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COptionsAccount.h; path = ../Sources_Common/Application/Preferences/COptionsAccount.h; sourceTree = SOURCE_ROOT; };
 		AFC798190CCADCAF00E62F0F /* CPasswordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPasswordManager.h; path = ../Sources_Common/Mail/Control/CPasswordManager.h; sourceTree = SOURCE_ROOT; };
 		AFC7981A0CCADCAF00E62F0F /* CPasswordManager.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CPasswordManager.cp; path = ../Sources_Common/Mail/Control/CPasswordManager.cp; sourceTree = SOURCE_ROOT; };
-		AFC7981F0CCAE69000E62F0F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AFC79A4C0CCBEB4C00E62F0F /* CocoaSpeller.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaSpeller.xcodeproj; path = "../Plug-ins/CocoaSpeller/CocoaSpeller.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AFCDD2D10AE1647A00E30447 /* os_dep.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Sources_Common/os_dep.h; sourceTree = SOURCE_ROOT; };
 		AFCDD2D20AE1647A00E30447 /* os_dep.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Sources_Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
@@ -3343,22 +3305,6 @@
 		AFCDD9410AE1726B00E30447 /* SysCFXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SysCFXMLNode.h; sourceTree = "<group>"; };
 		AFCDD9420AE1726B00E30447 /* SysCFXMLTree.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = SysCFXMLTree.cp; sourceTree = "<group>"; };
 		AFCDD9430AE1726B00E30447 /* SysCFXMLTree.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = SysCFXMLTree.h; sourceTree = "<group>"; };
-		AFCDDA780AE173C700E30447 /* DirectoryCopy.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DirectoryCopy.h; sourceTree = "<group>"; };
-		AFCDDA790AE173C700E30447 /* FileCopy.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FileCopy.h; sourceTree = "<group>"; };
-		AFCDDA7A0AE173C700E30447 /* FSpCompat.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FSpCompat.h; sourceTree = "<group>"; };
-		AFCDDA7B0AE173C700E30447 /* FullPath.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FullPath.h; sourceTree = "<group>"; };
-		AFCDDA7C0AE173C700E30447 /* IterateDirectory.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = IterateDirectory.h; sourceTree = "<group>"; };
-		AFCDDA7D0AE173C700E30447 /* MoreDesktopMgr.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MoreDesktopMgr.h; sourceTree = "<group>"; };
-		AFCDDA7E0AE173C700E30447 /* MoreFiles.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MoreFiles.h; sourceTree = "<group>"; };
-		AFCDDA7F0AE173C700E30447 /* MoreFilesExtras.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MoreFilesExtras.h; sourceTree = "<group>"; };
-		AFCDDA800AE173C700E30447 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
-		AFCDDA810AE173C700E30447 /* MoreFilesReadMe */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = MoreFilesReadMe; sourceTree = "<group>"; };
-		AFCDDA860AE173C700E30447 /* FullPath.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = FullPath.c; sourceTree = "<group>"; };
-		AFCDDA8A0AE173C700E30447 /* Optimization.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Optimization.h; sourceTree = "<group>"; };
-		AFCDDA8B0AE173C700E30447 /* OptimizationEnd.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = OptimizationEnd.h; sourceTree = "<group>"; };
-		AFCDDA9C0AE1751700E30447 /* MoreFilesX.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = MoreFilesX.c; sourceTree = "<group>"; };
-		AFCDDA9D0AE1751700E30447 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MoreFilesX.h; sourceTree = "<group>"; };
-		AFCDDA9E0AE1751700E30447 /* MoreFilesXReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = MoreFilesXReadMe.txt; sourceTree = "<group>"; };
 		AFCDDAC90AE1769900E30447 /* CMulberryCommon.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CMulberryCommon.h; path = Sources/Application/General/CMulberryCommon.h; sourceTree = SOURCE_ROOT; };
 		AFCDDACA0AE1769900E30447 /* CMulberryCommon.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = CMulberryCommon.cp; path = Sources/Application/General/CMulberryCommon.cp; sourceTree = SOURCE_ROOT; };
 		AFCDDACB0AE1769900E30447 /* CCommands.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = CCommands.h; path = Sources/Application/General/CCommands.h; sourceTree = SOURCE_ROOT; };
@@ -5454,16 +5400,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */,
-				AF3750B40AE1DD1B00C56E20 /* AddressBook.framework in Frameworks */,
+				8087A1E11314088300C2EFF8 /* libcrypto.0.9.7.dylib in Frameworks */,
+				8087A1DF1314087A00C2EFF8 /* libssl.0.9.7.dylib in Frameworks */,
+				8087A1DD1314082700C2EFF8 /* AppKit.framework in Frameworks */,
+				8087A1DB1314081F00C2EFF8 /* Security.framework in Frameworks */,
+				8087A1D91314081500C2EFF8 /* WebKit.framework in Frameworks */,
+				8087A1D71314080C00C2EFF8 /* Cocoa.framework in Frameworks */,
+				8087A1D51314080100C2EFF8 /* QuickTime.framework in Frameworks */,
+				8087A1D3131407F700C2EFF8 /* AddressBook.framework in Frameworks */,
+				8087A1D1131407E600C2EFF8 /* Carbon.framework in Frameworks */,
 				AF3750B80AE1DD3900C56E20 /* LDAP.framework in Frameworks */,
-				AF3753C00AE28C6200C56E20 /* QuickTime.framework in Frameworks */,
-				AF2ADE160AE464E90078C306 /* libcrypto.0.9.7.dylib in Frameworks */,
-				AF2ADE170AE464E90078C306 /* libssl.0.9.7.dylib in Frameworks */,
-				AF2555010C43DAC7001AAE53 /* Cocoa.framework in Frameworks */,
-				AF2555020C43DAC7001AAE53 /* WebKit.framework in Frameworks */,
-				AFC798200CCAE69000E62F0F /* Security.framework in Frameworks */,
-				AF17AD190CCC579D00205B17 /* AppKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5588,18 +5534,16 @@
 		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				20286C33FDCF999611CA2CEA /* Carbon.framework */,
-				4A9504CAFFE6A41611CA0CBA /* CoreServices.framework */,
-				4A9504C8FFE6A3BC11CA0CBA /* ApplicationServices.framework */,
-				AF3753BF0AE28C6200C56E20 /* QuickTime.framework */,
-				AF3750B30AE1DD1B00C56E20 /* AddressBook.framework */,
+				8087A1E01314088300C2EFF8 /* libcrypto.0.9.7.dylib */,
+				8087A1DE1314087A00C2EFF8 /* libssl.0.9.7.dylib */,
+				8087A1DC1314082700C2EFF8 /* AppKit.framework */,
+				8087A1DA1314081F00C2EFF8 /* Security.framework */,
+				8087A1D81314081400C2EFF8 /* WebKit.framework */,
+				8087A1D61314080C00C2EFF8 /* Cocoa.framework */,
+				8087A1D41314080100C2EFF8 /* QuickTime.framework */,
+				8087A1D2131407F700C2EFF8 /* AddressBook.framework */,
+				8087A1D0131407E600C2EFF8 /* Carbon.framework */,
 				AF3750B70AE1DD3900C56E20 /* LDAP.framework */,
-				AFC7981F0CCAE69000E62F0F /* Security.framework */,
-				AF2554580C43DAC7001AAE53 /* Cocoa.framework */,
-				AF17AD180CCC579D00205B17 /* AppKit.framework */,
-				AF2554590C43DAC7001AAE53 /* WebKit.framework */,
-				AF2ADE070AE456F30078C306 /* libcrypto.0.9.7.dylib */,
-				AF2ADE090AE4571E0078C306 /* libssl.0.9.7.dylib */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -6855,47 +6799,23 @@
 		AFCDDA760AE173C700E30447 /* MoreFiles */ = {
 			isa = PBXGroup;
 			children = (
-				AFCDDA770AE173C700E30447 /* CHeaders */,
-				AFCDDA810AE173C700E30447 /* MoreFilesReadMe */,
-				AFCDDA820AE173C700E30447 /* Sources */,
+				6EEFC28F1389B5A000B7DEA3 /* FSpCompat.h */,
+				6EEFC2901389B5A000B7DEA3 /* MoreDesktopMgr.h */,
+				6EEFC2911389B5A000B7DEA3 /* MoreFiles.h */,
+				6EEFC2921389B5A000B7DEA3 /* MoreFilesExtras.h */,
+				6EEFC2931389B5A000B7DEA3 /* Optimization.h */,
+				6EEFC2941389B5A000B7DEA3 /* OptimizationEnd.h */,
+				6EEFC2951389B5CA00B7DEA3 /* MoreFilesExtras.c */,
 			);
 			name = MoreFiles;
 			path = ../../Libraries/MoreFiles;
 			sourceTree = SOURCE_ROOT;
 		};
-		AFCDDA770AE173C700E30447 /* CHeaders */ = {
-			isa = PBXGroup;
-			children = (
-				AFCDDA780AE173C700E30447 /* DirectoryCopy.h */,
-				AFCDDA790AE173C700E30447 /* FileCopy.h */,
-				AFCDDA7A0AE173C700E30447 /* FSpCompat.h */,
-				AFCDDA7B0AE173C700E30447 /* FullPath.h */,
-				AFCDDA7C0AE173C700E30447 /* IterateDirectory.h */,
-				AFCDDA7D0AE173C700E30447 /* MoreDesktopMgr.h */,
-				AFCDDA7E0AE173C700E30447 /* MoreFiles.h */,
-				AFCDDA7F0AE173C700E30447 /* MoreFilesExtras.h */,
-				AFCDDA800AE173C700E30447 /* Search.h */,
-			);
-			path = CHeaders;
-			sourceTree = "<group>";
-		};
-		AFCDDA820AE173C700E30447 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				AF52EDD50AE322FA00A75C72 /* FSpCompat.c */,
-				AFCDDA860AE173C700E30447 /* FullPath.c */,
-				AFCDDA8A0AE173C700E30447 /* Optimization.h */,
-				AFCDDA8B0AE173C700E30447 /* OptimizationEnd.h */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
 		AFCDDA9B0AE1751700E30447 /* MoreFilesX */ = {
 			isa = PBXGroup;
 			children = (
-				AFCDDA9C0AE1751700E30447 /* MoreFilesX.c */,
-				AFCDDA9D0AE1751700E30447 /* MoreFilesX.h */,
-				AFCDDA9E0AE1751700E30447 /* MoreFilesXReadMe.txt */,
+				6EEFC2971389B5E600B7DEA3 /* MoreFilesX.c */,
+				6EEFC2981389B5E600B7DEA3 /* MoreFilesX.h */,
 			);
 			name = MoreFilesX;
 			path = ../../Libraries/MoreFilesX;
@@ -8897,6 +8817,7 @@
 				AFCDE0300AE176DE00E30447 /* CICalendarLocale.h */,
 				AFCDE0310AE176DE00E30447 /* CICalendarLocale.cpp */,
 				AFCDE0320AE176DE00E30447 /* CICalendarFreeBusy.h */,
+				6EE202C0138B6FBC00F9E798 /* CICalendarInit.cpp */,
 				AFCDE0330AE176DE00E30447 /* CICalendarFreeBusy.cpp */,
 				AFCDE0340AE176DE00E30447 /* CICalendarDateTime.h */,
 				AFCDE0350AE176DF00E30447 /* CICalendarDateTime.cpp */,
@@ -9030,6 +8951,8 @@
 				AFCDE0810AE176DF00E30447 /* CWebDAVGet.h */,
 				AFCDE0820AE176DF00E30447 /* CWebDAVGet.cpp */,
 				AFCDE0830AE176DF00E30447 /* CWebDAVDelete.h */,
+				6EE202C8138B70F800F9E798 /* CWebDAVErrorResponseParser.cpp */,
+				6EE202C9138B70F800F9E798 /* CWebDAVErrorResponseParser.h */,
 				AFCDE0840AE176DF00E30447 /* CWebDAVDelete.cpp */,
 				AFCDE0850AE176DF00E30447 /* CWebDAVMove.h */,
 				AFCDE0860AE176DF00E30447 /* CWebDAVMove.cpp */,
@@ -10204,7 +10127,6 @@
 				AF7AD76E0D83A1540056107B /* PBXTargetDependency */,
 				AF7AD77E0D83A1540056107B /* PBXTargetDependency */,
 				AF7AD7820D83A1540056107B /* PBXTargetDependency */,
-				AF7AD7840D83A1540056107B /* PBXTargetDependency */,
 				AF7AD7680D83A1540056107B /* PBXTargetDependency */,
 				AF7AD76C0D83A1540056107B /* PBXTargetDependency */,
 				AF7AD7700D83A1540056107B /* PBXTargetDependency */,
@@ -10729,8 +10651,6 @@
 				AFCDDA240AE1726D00E30447 /* SysCFUtils.cp in Sources */,
 				AFCDDA250AE1726D00E30447 /* SysCFXMLNode.cp in Sources */,
 				AFCDDA260AE1726D00E30447 /* SysCFXMLTree.cp in Sources */,
-				AFCDDA910AE173C700E30447 /* FullPath.c in Sources */,
-				AFCDDA9F0AE1751700E30447 /* MoreFilesX.c in Sources */,
 				AFCDDAED0AE1769900E30447 /* CMulberryCommon.cp in Sources */,
 				AFCDDAEE0AE1769900E30447 /* CPPRegister.cp in Sources */,
 				AFCDDAEF0AE1769900E30447 /* CMulberryApp.cp in Sources */,
@@ -11517,7 +11437,6 @@
 				AF3750A80AE1DC5D00C56E20 /* MoreATSUnicodeFonts.cp in Sources */,
 				AF3750A90AE1DC5D00C56E20 /* MoreATSUnicodeTextBox.cp in Sources */,
 				AF52ED890AE2F8F600A75C72 /* LTableSelState.cp in Sources */,
-				AF52EDD60AE322FA00A75C72 /* FSpCompat.c in Sources */,
 				AF8269410C1B2C9300B18EED /* CStreamBuffer.cp in Sources */,
 				AF8269440C1B2C9300B18EED /* XMLDocument.cp in Sources */,
 				AF8269470C1B2C9300B18EED /* XMLName.cp in Sources */,
@@ -11590,6 +11509,9 @@
 				AFB052F110AFAB180077F8B8 /* CPasswordManagerKeychain.cp in Sources */,
 				AF899FE2111F3A51002548C0 /* CWebDAVSyncReport.cpp in Sources */,
 				AF89A008111F50B9002548C0 /* CWebDAVSyncReportParser.cpp in Sources */,
+				6EE202C1138B6FBC00F9E798 /* CICalendarInit.cpp in Sources */,
+				6EE202CA138B70F800F9E798 /* CWebDAVErrorResponseParser.cpp in Sources */,
+				6EE20502138CB64200F9E798 /* MoreFilesX.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11671,11 +11593,6 @@
 			name = "DIGEST-MD5 MachO";
 			targetProxy = AF7AD7810D83A1540056107B /* PBXContainerItemProxy */;
 		};
-		AF7AD7840D83A1540056107B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Kerberos MachO";
-			targetProxy = AF7AD7830D83A1540056107B /* PBXContainerItemProxy */;
-		};
 		AF7AD7860D83A1540056107B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Quickmail MachO";
@@ -11707,19 +11624,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				EXECUTABLE_EXTENSION = app;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_SHORT_ENUMS = NO;
 				INFOPLIST_FILE = Packaging/Info.plist;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../ClientLibs/Libraries/XMLLib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/usr/lib\"";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = Mulberry;
@@ -11731,7 +11637,7 @@
 		AF93880A0B116AA0000C5A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				ARCHS = i386;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -11739,8 +11645,8 @@
 				GCC_PREFIX_HEADER = Sources/MulberryXcode_Prefix.pch;
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
@@ -11769,20 +11675,9 @@
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
 				EXECUTABLE_EXTENSION = app;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_SHORT_ENUMS = NO;
 				INFOPLIST_FILE = Packaging/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../../ClientLibs/Libraries/XMLLib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/usr/lib\"";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = Mulberry;
@@ -11794,15 +11689,17 @@
 		C0E91ACB08A95435008D54AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sources/MulberryXcode_Prefix.pch;
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;

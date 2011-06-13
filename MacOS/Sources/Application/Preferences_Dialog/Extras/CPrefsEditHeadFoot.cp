@@ -34,8 +34,6 @@
 #include "CTextFieldX.h"
 #include "CURL.h"
 
-#include "FullPath.h"
-
 #include "cdfstream.h"
 
 #include <LCaption.h>
