@@ -1,0 +1,19 @@
+Index: ../../Libraries/MoreFilesX/MoreFilesX.h
+===================================================================
+--- ../../Libraries/MoreFilesX/MoreFilesX.h	(revision 1833)
++++ ../../Libraries/MoreFilesX/MoreFilesX.h	(working copy)
+@@ -1514,11 +1514,13 @@
+ 
+ #pragma mark FSVolumeMount
+ 
++#if 0
+ OSErr
+ FSVolumeMount(
+ 	const void *volMountInfo,
+ 	FSVolumeRefNum *volRefNum);
+-
++#endif
++    
+ /*
+ 	The VolumeMount function mounts a volume using a volume mounting
+ 	information record.

@@ -6,17 +6,15 @@ POWERPLANT_HOME := ${LIBRARIES_HOME}/open-powerplant
 SVN_ROOT := http://svn.mulberrymail.com
 SVN_MULBERRY := ${SVN_ROOT}/mulberry
 SVN_POWERPLANT := https://open-powerplant.svn.sourceforge.net/svnroot/open-powerplant/trunk
+SVN_FRONTIER :=	 https://frontierkernel.svn.sourceforge.net/svnroot/frontierkernel/Frontier/trunk
 
 # Plugins to build
-BUILD_PLUGINS := PluginLibrary CommunicatorAdbkIO CRAM-MD5 DIGEST-MD5 \
-			Eudora4AdbkIO EudoraAdbkIO GPG GSSAPI Kerberos \
-			NetscapeAdbkIO OEAdbkIO PGP PineAdbkIO QuickmailAdbkIO \
+BUILD_PLUGINS := PluginLibrary CocoaSpeller CommunicatorAdbkIO CRAM-MD5 DIGEST-MD5 \
+			Eudora4AdbkIO EudoraAdbkIO GPG GSSAPI \
+			NetscapeAdbkIO OEAdbkIO PineAdbkIO QuickmailAdbkIO \
 			QuickmailProAdbkIO SMIME SSL vCardAdbkIO
 
-APP_TARGET := $(shell \
-   if { uname -p | egrep 'powerpc' > /dev/null; } \
-   then { echo "Debug"; } \
-   else { echo "Debug x86"; } fi)
+APP_TARGET := Debug
 
 libraries:
 	mkdir ${LIBRARIES_HOME}
@@ -25,18 +23,16 @@ ppsrc: libraries
 	svn checkout ${SVN_POWERPLANT} ${POWERPLANT_HOME};
 
 otherlibs: libraries
-	(cd ${LIBRARIES_HOME}; \
-	 curl -O http://developer.apple.com/samplecode/MoreFiles/MoreFiles.zip; \
-	 unzip MoreFiles.zip; \
-	 rm MoreFiles.zip; \
-	 curl -O http://developer.apple.com/samplecode/MoreFilesX/MoreFilesX.zip; \
-	 unzip MoreFilesX.zip; \
-	 rm MoreFilesX.zip)
-
+	svn checkout ${SVN_FRONTIER}/Common/MoreFiles ${LIBRARIES_HOME}/MoreFiles
+	svn checkout ${SVN_FRONTIER}/Common/MoreFilesX ${LIBRARIES_HOME}/MoreFilesX
+	 
 mulberrysrc:
-	svn checkout ${SVN_MULBERRY}/Mulberry/branches/v4.1d1 Mulberry
+	svn checkout ${SVN_MULBERRY}/Mulberry/branches/users/shared/v4.1d1 ${MULBERRY_HOME}
 
 patchpp:
+#   These files have Macintosh line endings which won't work with the patch utility.
+	perl -pi -e 's/\r/\n/g' ${LIBRARIES_HOME}/MoreFilesX/MoreFilesX.h
+	perl -pi -e 's/\r/\n/g' ${LIBRARIES_HOME}/MoreFilesX/MoreFilesX.c
 	(cd ${MULBERRY_HOME}/MacOS/Patches; \
 	 ./patchapply.py)
 
@@ -65,3 +61,5 @@ build: buildplugins buildapp
 update: updatemulberry
 
 all: init build
+
+.NOTPARALLEL:

@@ -1,0 +1,23 @@
+Index: ../../Libraries/MoreFiles/MoreFilesExtras.c
+===================================================================
+--- ../../Libraries/MoreFiles/MoreFilesExtras.c	(revision 1833)
++++ ../../Libraries/MoreFiles/MoreFilesExtras.c	(working copy)
+@@ -23,15 +23,15 @@
+ */
+ 
+ #include <Types.h>
+-#include <Traps.h>
++//#include <Traps.h>
+ #include <OSUtils.h>
+ #include <Errors.h>
+ #include <Files.h>
+ #include <Devices.h>
+ #include <Finder.h>
+ #include <Folders.h>
+-#include <FSM.h>
+-#include <Disks.h>
++//#include <FSM.h>
++//#include <Disks.h>
+ #include <Gestalt.h>
+ #include <TextUtils.h>
+ #include <Script.h>
