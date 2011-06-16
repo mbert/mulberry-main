@@ -1317,6 +1317,7 @@ void CFileTable::DoAttachFile(void)
 {
 	bool done = false;
 	std::auto_ptr<CAttachmentList> attachList(new CAttachmentList);
+	attachList->set_delete_data(false);
 
 	// Determine if NavServices available
 	{
