@@ -18,7 +18,12 @@
 
 #import "CMulberryCocoaApp.h"
 
-void InitializeCocoa(void)
+void InitializeCocoa(void (*runapp)(void))
 {
 	NSApplicationLoad();
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    runapp();
+    
+    [pool drain];
 }

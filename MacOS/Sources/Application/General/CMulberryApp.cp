@@ -152,10 +152,10 @@ struct	sigaction {
 //		¥ Main Program
 // ===========================================================================
 
+static void runapp(void);
+
 int main()
 {
-
-	InitializeCocoa();
 
 #ifdef DATA_VIEWER
 	DataViewLibInit();				// View opaque types in source debugger
@@ -200,6 +200,17 @@ int main()
 	UQDGlobals::InitializeToolbox();
 	CSoundManager::sSoundManager.Initialize();	// Must do after toolbox init as this may have to init Quicktime
 
+    InitializeCocoa(runapp);
+    
+#ifdef LEAKS
+	DebugNewReportLeaks();
+#endif
+	
+	return 0;
+}
+
+static void runapp()
+{
 	try
 	{
 		CMulberryApp	theApp;			// Create instance of your Application
@@ -211,11 +222,7 @@ int main()
 	catch(...)
 	{
 	}
-#ifdef LEAKS
-	DebugNewReportLeaks();
-#endif
-	
-	return 0;
+    return;
 }
 
 

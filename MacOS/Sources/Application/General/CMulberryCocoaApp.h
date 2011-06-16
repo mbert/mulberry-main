@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-void InitializeCocoa(void);
+void InitializeCocoa(void (*runapp)(void));
 
 #ifdef __cplusplus
 }
