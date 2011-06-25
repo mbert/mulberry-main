@@ -521,7 +521,7 @@ void CNewComponentAttendees::OnAvailability()
 
 void CNewComponentAttendees::SortAttendees()
 {
-	for(iCal::CICalendarPropertyList::const_iterator iter = mAttendees.begin(); iter != mAttendees.end(); iter++)
+	for(iCal::CICalendarPropertyList::iterator iter = mAttendees.begin(); iter != mAttendees.end(); iter++)
 	{
 		// Copy the property
 		if ((*iter).GetCalAddressValue()->GetValue() == mOrganizer.GetCalAddressValue()->GetValue())
