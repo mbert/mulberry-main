@@ -47,13 +47,13 @@ init: ppsrc otherlibs mulberrysrc patchpp
 buildplugins:
 	@for PLUGIN in $(BUILD_PLUGINS); do \
 		echo "-->Building $$PLUGIN"; \
-		xcodebuild -project Mulberry/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj; \
+		xcodebuild -project ${MULBERRY_HOME}/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj; \
 		echo "" ;\
 	done
 
 buildapp:
 	echo "-->Building Mulberry ${APP_TARGET}"
-	xcodebuild -project Mulberry/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}"
+	xcodebuild -project ${MULBERRY_HOME}/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}"
 	
 build: buildplugins buildapp
 	echo "Built Mulberry"
