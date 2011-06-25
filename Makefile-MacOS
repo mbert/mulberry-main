@@ -15,6 +15,7 @@ BUILD_PLUGINS := PluginLibrary CocoaSpeller CommunicatorAdbkIO CRAM-MD5 DIGEST-M
 			QuickmailProAdbkIO SMIME SSL vCardAdbkIO
 
 APP_TARGET := Debug
+SDK := /Developer/SDKs/MacOSX10.5.sdk
 
 all: build
 
@@ -25,13 +26,13 @@ build: buildplugins buildapp
 buildplugins:
 	@for PLUGIN in $(BUILD_PLUGINS); do \
 		echo "-->Building $$PLUGIN"; \
-		xcodebuild -project ${MULBERRY_HOME}/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj || exit 1; \
+		xcodebuild -sdk ${SDK} -project ${MULBERRY_HOME}/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj || exit 1; \
 		echo "" ;\
 	done
 
 buildapp:
 	echo "-->Building Mulberry ${APP_TARGET}"
-	xcodebuild -project ${MULBERRY_HOME}/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}"
+	xcodebuild -sdk ${SDK} -project ${MULBERRY_HOME}/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}"
 	
 update: updatemulberry
 
