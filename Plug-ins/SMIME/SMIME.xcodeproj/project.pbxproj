@@ -36,7 +36,7 @@
 		AF419D2E0AEA700A00E19592 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
 		AF419D310AEA700A00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		AF419D510AEA714900E19592 /* libcrypto.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /Developer/SDKs/MacOSX10.4u.sdk/usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
-		AF419DFF0AEA721F00E19592 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AF419DFF0AEA721F00E19592 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

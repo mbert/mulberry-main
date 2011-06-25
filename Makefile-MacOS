@@ -1,5 +1,5 @@
 DEV_HOME := .
-MULBERRY_HOME := ${DEV_HOME}/Mulberry
+MULBERRY_HOME := ${DEV_HOME}
 LIBRARIES_HOME := ${DEV_HOME}/Libraries
 POWERPLANT_HOME := ${LIBRARIES_HOME}/open-powerplant
 
@@ -16,38 +16,16 @@ BUILD_PLUGINS := PluginLibrary CocoaSpeller CommunicatorAdbkIO CRAM-MD5 DIGEST-M
 
 APP_TARGET := Debug
 
-libraries:
-	mkdir ${LIBRARIES_HOME}
+all: build
 
-ppsrc: libraries
-	svn checkout ${SVN_POWERPLANT} ${POWERPLANT_HOME};
+build: buildplugins buildapp
+	echo "Built Mulberry"
 
-otherlibs: libraries
-	svn checkout ${SVN_FRONTIER}/Common/MoreFiles ${LIBRARIES_HOME}/MoreFiles
-	svn checkout ${SVN_FRONTIER}/Common/MoreFilesX ${LIBRARIES_HOME}/MoreFilesX
-	 
-mulberrysrc:
-	svn checkout ${SVN_MULBERRY}/Mulberry/branches/users/shared/v4.1d1 ${MULBERRY_HOME}
-
-patchpp:
-#   These files have Macintosh line endings which won't work with the patch utility.
-	perl -pi -e 's/\r/\n/g' ${LIBRARIES_HOME}/MoreFilesX/MoreFilesX.h
-	perl -pi -e 's/\r/\n/g' ${LIBRARIES_HOME}/MoreFilesX/MoreFilesX.c
-	(cd ${MULBERRY_HOME}/MacOS/Patches; \
-	 ./patchapply.py)
-
-updatepp:
-	(cd ${POWERPLANT_HOME}; svn update)
-
-updatemulberry:
-	(cd ${MULBERRY_HOME}; svn update)
-
-init: ppsrc otherlibs mulberrysrc patchpp
 
 buildplugins:
 	@for PLUGIN in $(BUILD_PLUGINS); do \
 		echo "-->Building $$PLUGIN"; \
-		xcodebuild -project ${MULBERRY_HOME}/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj; \
+		xcodebuild -project ${MULBERRY_HOME}/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj || exit 1; \
 		echo "" ;\
 	done
 
@@ -55,11 +33,6 @@ buildapp:
 	echo "-->Building Mulberry ${APP_TARGET}"
 	xcodebuild -project ${MULBERRY_HOME}/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}"
 	
-build: buildplugins buildapp
-	echo "Built Mulberry"
-
 update: updatemulberry
-
-all: init build
 
 .NOTPARALLEL:

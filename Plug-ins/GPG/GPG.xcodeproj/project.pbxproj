@@ -32,7 +32,7 @@
 		AF8AAE7D0AE5C83B00A94FD4 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
 		AF8AAE800AE5C83B00A94FD4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF8AAE8C0AE5C83B00A94FD4 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		AF8AAEAC0AE5CA2900A94FD4 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AF8AAEAC0AE5CA2900A94FD4 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
 		AF8AAEB60AE5CB2200A94FD4 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 

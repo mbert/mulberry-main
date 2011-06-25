@@ -178,7 +178,7 @@
 				AFC799D10CCBE1F200E62F0F /* SysWrappers */,
 			);
 			name = PowerPlantX;
-			path = "../../../Libraries/open-powerplant/PowerPlantX";
+			path = "../../Libraries/open-powerplant/PowerPlantX";
 			sourceTree = SOURCE_ROOT;
 		};
 		AFC799D10CCBE1F200E62F0F /* SysWrappers */ = {

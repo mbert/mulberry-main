@@ -36,8 +36,8 @@
 		AF321A870AEAD37C00237005 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		AF321A930AEAD37D00237005 /* PGP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PGP.framework; path = /Library/Frameworks/PGP.framework; sourceTree = "<absolute>"; };
 		AF321A950AEAD37D00237005 /* PGPclient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PGPclient.framework; path = /Library/Frameworks/PGPclient.framework; sourceTree = "<absolute>"; };
-		AF321B410AEAD5CA00237005 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
-		AF321B670AEAD77200237005 /* MoreFilesX.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = MoreFilesX.c; path = ../../../Libraries/MoreFilesX/MoreFilesX.c; sourceTree = SOURCE_ROOT; };
+		AF321B410AEAD5CA00237005 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AF321B670AEAD77200237005 /* MoreFilesX.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; name = MoreFilesX.c; path = ../../Libraries/MoreFilesX/MoreFilesX.c; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

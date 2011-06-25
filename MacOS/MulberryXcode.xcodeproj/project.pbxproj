@@ -17,8 +17,8 @@
 		8087A1D91314081500C2EFF8 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1D81314081400C2EFF8 /* WebKit.framework */; };
 		8087A1DB1314081F00C2EFF8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DA1314081F00C2EFF8 /* Security.framework */; };
 		8087A1DD1314082700C2EFF8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DC1314082700C2EFF8 /* AppKit.framework */; };
-		8087A1DF1314087A00C2EFF8 /* libssl.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DE1314087A00C2EFF8 /* libssl.0.9.7.dylib */; };
-		8087A1E11314088300C2EFF8 /* libcrypto.0.9.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1E01314088300C2EFF8 /* libcrypto.0.9.7.dylib */; };
+		8087A1DF1314087A00C2EFF8 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DE1314087A00C2EFF8 /* libssl.dylib */; };
+		8087A1E11314088300C2EFF8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1E01314088300C2EFF8 /* libcrypto.dylib */; };
 		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
 		AF17ACFB0CCC550500205B17 /* CocoaSpeller.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */; };
 		AF17AE450CCC585C00205B17 /* CMulberryCocoaApp.m in Sources */ = {isa = PBXBuildFile; fileRef = AF17AE440CCC585C00205B17 /* CMulberryCocoaApp.m */; };
@@ -2560,8 +2560,8 @@
 		8087A1D81314081400C2EFF8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8087A1DA1314081F00C2EFF8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		8087A1DC1314082700C2EFF8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		8087A1DE1314087A00C2EFF8 /* libssl.0.9.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.0.9.7.dylib; path = usr/lib/libssl.0.9.7.dylib; sourceTree = SDKROOT; };
-		8087A1E01314088300C2EFF8 /* libcrypto.0.9.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.0.9.7.dylib; path = usr/lib/libcrypto.0.9.7.dylib; sourceTree = SDKROOT; };
+		8087A1DE1314087A00C2EFF8 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
+		8087A1E01314088300C2EFF8 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Packaging/Info.plist; sourceTree = SOURCE_ROOT; };
 		AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CocoaSpeller.bundle; path = "../Plug-ins/CocoaSpeller/build/Debug/CocoaSpeller.bundle"; sourceTree = SOURCE_ROOT; };
 		AF17AE430CCC585C00205B17 /* CMulberryCocoaApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMulberryCocoaApp.h; path = General/CMulberryCocoaApp.h; sourceTree = "<group>"; };
@@ -5400,8 +5400,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8087A1E11314088300C2EFF8 /* libcrypto.0.9.7.dylib in Frameworks */,
-				8087A1DF1314087A00C2EFF8 /* libssl.0.9.7.dylib in Frameworks */,
+				8087A1E11314088300C2EFF8 /* libcrypto.dylib in Frameworks */,
+				8087A1DF1314087A00C2EFF8 /* libssl.dylib in Frameworks */,
 				8087A1DD1314082700C2EFF8 /* AppKit.framework in Frameworks */,
 				8087A1DB1314081F00C2EFF8 /* Security.framework in Frameworks */,
 				8087A1D91314081500C2EFF8 /* WebKit.framework in Frameworks */,
@@ -5534,8 +5534,8 @@
 		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				8087A1E01314088300C2EFF8 /* libcrypto.0.9.7.dylib */,
-				8087A1DE1314087A00C2EFF8 /* libssl.0.9.7.dylib */,
+				8087A1E01314088300C2EFF8 /* libcrypto.dylib */,
+				8087A1DE1314087A00C2EFF8 /* libssl.dylib */,
 				8087A1DC1314082700C2EFF8 /* AppKit.framework */,
 				8087A1DA1314081F00C2EFF8 /* Security.framework */,
 				8087A1D81314081400C2EFF8 /* WebKit.framework */,
@@ -6002,7 +6002,7 @@
 				AFCDD6050AE164F300E30447 /* Utility Classes */,
 			);
 			name = PowerPlant;
-			path = "../../Libraries/open-powerplant/PowerPlant";
+			path = "../Libraries/open-powerplant/PowerPlant";
 			sourceTree = SOURCE_ROOT;
 		};
 		AFCDD3640AE164EE00E30447 /* Threads Classes */ = {
@@ -6678,7 +6678,7 @@
 				AFCDD92C0AE1726B00E30447 /* SysWrappers */,
 			);
 			name = PowerPlantX;
-			path = "../../Libraries/open-powerplant/PowerPlantX";
+			path = "../Libraries/open-powerplant/PowerPlantX";
 			sourceTree = SOURCE_ROOT;
 		};
 		AFCDD89D0AE1726900E30447 /* Core */ = {
@@ -6808,7 +6808,7 @@
 				6EEFC2951389B5CA00B7DEA3 /* MoreFilesExtras.c */,
 			);
 			name = MoreFiles;
-			path = ../../Libraries/MoreFiles;
+			path = ../Libraries/MoreFiles;
 			sourceTree = SOURCE_ROOT;
 		};
 		AFCDDA9B0AE1751700E30447 /* MoreFilesX */ = {
@@ -6818,7 +6818,7 @@
 				6EEFC2981389B5E600B7DEA3 /* MoreFilesX.h */,
 			);
 			name = MoreFilesX;
-			path = ../../Libraries/MoreFilesX;
+			path = ../Libraries/MoreFilesX;
 			sourceTree = SOURCE_ROOT;
 		};
 		AFCDDAC80AE1769900E30447 /* Application */ = {
