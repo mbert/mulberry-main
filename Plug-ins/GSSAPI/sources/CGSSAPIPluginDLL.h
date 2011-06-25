@@ -37,6 +37,8 @@
 #include <time.h>
 #if __dest_os == __mac_os_x
 #include <Kerberos/gssapi.h>
+#define KERBEROSLOGIN_DEPRECATED
+#include <Kerberos/KerberosLogin.h>
 #else
 #include <gssapi.h>
 #endif
@@ -105,6 +107,9 @@ protected:
 						OM_uint32 min_status,
 						const char* file,
 						int line);
+#if __dest_os == __mac_os_x
+    void DisplayKLError(KLStatus inErr, const char* file, int line);  // Report Kerberos error
+#endif
 };
 
 #endif
