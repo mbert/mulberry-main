@@ -841,20 +841,16 @@ void CCalendarStoreTable::OnCheckCalendar()
 	// If no selection, check all subscribed calendars
 	if (!IsSelectionValid())
 	{
-		const iCal::CICalendarList& cals = calstore::CCalendarStoreManager::sCalendarStoreManager->GetSubscribedCalendars();
-		for(iCal::CICalendarList::const_iterator iter = cals.begin(); iter != cals.end(); iter++)
-		{
-			calstore::CCalendarStoreNode* node = const_cast<calstore::CCalendarStoreNode*>(calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(*iter));
-			node->GetProtocol()->CheckCalendar(*node, *node->GetCalendar());
-		}
+        // Background check
+        calstore::CCalendarStoreManager::sCalendarStoreManager->ForceCalendarCheck();
 	}
 	else
 	{
 		DoToSelection((DoToSelectionPP) &CCalendarStoreTable::CheckCalendar);
+        
+        // Reset all views
+        CCalendarView::ResetAll();
 	}
-
-	// Reset all views
-	CCalendarView::ResetAll();
 }
 
 bool CCalendarStoreTable::CheckCalendar(TableIndexT row)

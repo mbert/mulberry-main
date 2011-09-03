@@ -140,6 +140,19 @@ public:
 	void DeleteCalendar(CCalendarStoreNode* node);
 	void SaveAllCalendars();		
 	
+    // Checking
+	void	SpendTime();							// Called during idle
+	void	Reset();								// Reset check timer
+	bool	CheckTimer();							// Check timer timeout
+	void	Pause(bool pauseIt)
+        {
+            mCheckPaused = pauseIt;
+            if (!mCheckPaused) Reset();
+        }		// Set check paused state
+	bool	IsPaused() const { return mCheckPaused; }		// Return check paused state
+	void	ForceCalendarCheck();								// Force check of new mail
+    void CheckAllSubscribedCalendars();
+
 	// Web Calendars
 	CCalendarProtocol* GetWebCalendarProtocol() const
 	{
@@ -175,7 +188,11 @@ protected:
 	iCal::CICalendarList		mActiveCalendars;
 	iCal::CICalendarList		mReceivableCalendars;
 	iCal::CICalendarList		mSubscribedCalendars;
-	
+
+    bool						mCheckPaused;		// Paused state
+	bool						mHaltCheck;			// Forcibly stop 
+    time_t                      mLastCheck;
+
 	uint32_t GetColourFromIndex(uint32_t index) const;
 	
 };

@@ -516,6 +516,16 @@ protected:
 	virtual void Work();
 };
 
+// Refresh calendar views at idle time
+class CCalendarViewResetTask : public CTaskAlwaysQueued
+{
+public:
+	CCalendarViewResetTask() {}
+    
+protected:
+	virtual void Work();
+};
+
 // Stop alert
 class CStopAlertTxtTask : public CTaskAsync
 {

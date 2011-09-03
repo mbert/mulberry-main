@@ -23,6 +23,7 @@
 #include "CAddressBookView.h"
 #include "CAddressBookWindow.h"
 #include "CAddressView.h"
+#include "CCalendarView.h"
 #include "CErrorHandler.h"
 #include "CMailAccountManager.h"
 #include "CMailboxInfoView.h"
@@ -530,6 +531,14 @@ void CGroupPreviewTask::Work()
 		// Tell view about it even if NULL as view will empty itself
 		mView->SetGroup(mAdbk, mGroup);
 	}
+}
+
+#pragma mark ____________________________CCalendarViewResetTask
+
+void CCalendarViewResetTask::Work()
+{
+    // Reset all views
+    CCalendarView::ResetAll();
 }
 
 #pragma mark ____________________________CStopAlertTxtTask

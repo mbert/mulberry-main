@@ -34,6 +34,7 @@
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #include "CBalloonDialog.h"
 #endif
+#include "CCalendarStoreManager.h"
 #include "CCancelDialog.h"
 #include "CErrorHandler.h"
 #include "CFilterManager.h"
@@ -772,12 +773,25 @@ void CMailControl::GroupRemoved(CAddressBook* adbk, CGroupList* grps)
 	}
 }
 
+#pragma mark ____________________________Calendar changes
+
+void CMailControl::CalendarsChanged()
+{
+    CCalendarViewResetTask* task = new CCalendarViewResetTask();
+    task->Go();
+}
+
 #pragma mark ____________________________Periodics
 
 void CMailControl::SpendTime(bool force_tickle, bool do_checks)
 {
 	if (!force_tickle && do_checks && CMailAccountManager::sMailAccountManager)
-		CMailAccountManager::sMailAccountManager->SpendTime();
+    {
+        if (CMailAccountManager::sMailAccountManager)
+            CMailAccountManager::sMailAccountManager->SpendTime();
+        if (calstore::CCalendarStoreManager::sCalendarStoreManager)
+            calstore::CCalendarStoreManager::sCalendarStoreManager->SpendTime();
+    }
 
 	sPeriodicsChanged = false;
 	CINETProtocolList copy(sPeriodics);
@@ -1428,6 +1442,7 @@ bool CMailControl::BusyCancel(const CBusyContext* busy, bool allow_cancel)
 
 			// Check for cmd-Period or ESC
 			case keyDown:
+            {
 				short theKey = macEvent.message & charCodeMask;
 				if (((macEvent.modifiers & cmdKey) && (theKey==char_Period)) || (theKey==char_Escape))
 				{
@@ -1440,6 +1455,7 @@ bool CMailControl::BusyCancel(const CBusyContext* busy, bool allow_cancel)
 					CMulberryApp::sApp->DispatchEvent(macEvent);
 
 				break;
+            }
 
 			// Allow suspend/resume, activate & update events
 			case osEvt:
@@ -1450,6 +1466,7 @@ bool CMailControl::BusyCancel(const CBusyContext* busy, bool allow_cancel)
 
 			// Allow Apple menu items (not About) & Appl menu
 			case mouseDown:
+            {
 				WindowPtr	macWindowP;
 
 				SInt16	thePart = ::FindWindow(macEvent.where, &macWindowP);
@@ -1487,6 +1504,7 @@ bool CMailControl::BusyCancel(const CBusyContext* busy, bool allow_cancel)
 					}
 					::HiliteMenu(0);
 				}
+            }
 
 			default:
 				if (!CMailControl::GetPreventYield())

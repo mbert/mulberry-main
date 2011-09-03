@@ -117,6 +117,8 @@ public:
 	static void		GroupChanged(CAddressBook* adbk, CGroupList* grps);				// Group state change
 	static void		GroupRemoved(CAddressBook* adbk, CGroupList* grps);				// Group removed
 
+    static void     CalendarsChanged();                 // Some calendars changed
+    
 	// Dialogs required during mail/network processing
 	static bool		PromptUser(CAuthenticator* auth,
 								const CINETAccount* acct,

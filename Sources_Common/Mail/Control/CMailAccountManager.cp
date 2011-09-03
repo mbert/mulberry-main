@@ -75,7 +75,7 @@ CMailAccountManager::CMailAccountManager()
 	InitFavourites();
 	InitMRUs();
 
-	// Start checking thread
+	// Start checking threads
 	CMailCheckThread::BeginMailCheck();
 }
 

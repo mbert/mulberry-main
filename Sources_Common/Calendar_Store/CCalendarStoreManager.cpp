@@ -24,6 +24,7 @@
 #include "CCalendarStoreManager.h"
 
 #include "CAdminLock.h"
+#include "CCalendarCheckThread.h"
 #include "CCalendarStoreTable.h"
 #include "CCalendarStoreView.h"
 #include "CCalendarStoreWebcal.h"
@@ -31,7 +32,11 @@
 #include "CConnectionManager.h"
 #include "CErrorHandler.h"
 #include "CLog.h"
+#include "CMailControl.h"
 #include "CMulberryApp.h"
+#if __dest_os == __mac_os || __dest_os == __mac_os_x
+#include "CPeriodicCheck.h"
+#endif
 #include "CPreferences.h"
 #include "CTextListChoice.h"
 #include "CXStringResources.h"
@@ -57,10 +62,26 @@ CCalendarStoreManager::CCalendarStoreManager()
 	// Must inform any calendar store manager windows that currently exist that
 	// the calendar store manager is now here so that protocol change broadcasts work
 	UpdateWindows();
+
+	// Reset timer and start in paused state
+	Reset();
+	mCheckPaused = false;
+	mHaltCheck = false;
+	mLastCheck = ::time(NULL);
+    
+    // Start checking thread
+	CCalendarCheckThread::BeginCalendarCheck();
 }
 
 CCalendarStoreManager::~CCalendarStoreManager()
 {
+	// Must stop any calendar checks in progress
+	CCalendarCheckThread::Pause(true);
+	mHaltCheck = true;
+    
+	// End checking thread
+	CCalendarCheckThread::EndCalendarCheck();
+
 	// Remove all server views now to prevent illegal updates to 'stale' windows
 	{
 		cdmutexprotect<CCalendarStoreView::CCalendarStoreViewList>::lock _lock(CCalendarStoreView::sCalendarStoreViews);
@@ -137,6 +158,14 @@ calstore::CCalendarProtocol* CCalendarStoreManager::GetProtocol(const cdstring& 
 // Sync with changed accounts
 void CCalendarStoreManager::SyncAccounts()
 {
+	// Must stop any calendar checks in progress
+	CCalendarCheckThread::Pause(true);
+	mHaltCheck = true;
+    
+	// Try to acquire run lock which is released only when calendar check is no longer running
+	// Use of mutex to allow messages to be pumped while waiting for calendar check to finish
+	cdmutex::lock_cdmutex _lock(CCalendarCheckThread::RunLock());
+    
 	// Only add local protocol if allowed by admin
 	if (!CAdminLock::sAdminLock.mNoLocalCalendars)
 	{
@@ -297,6 +326,9 @@ void CCalendarStoreManager::SyncAccounts()
 	// Make sure 3-pane is told to re-instate previously open calendars
 	if (C3PaneWindow::s3PaneWindow)
 		C3PaneWindow::s3PaneWindow->DoneInitCalendarAccounts();
+    
+	// Unpause calendar check after account changes
+	CCalendarCheckThread::Pause(false);
 }
 
 // Start remote protocol
@@ -458,7 +490,7 @@ void CCalendarStoreManager::MoveProtocol(long old_index, long new_index)
 	old_index -= proto_offset;
 	new_index -= proto_offset;
 
-	// Move mail account
+	// Move calendar account
 	CCalendarAccountList& accts = CPreferences::sPrefs->mCalendarAccounts.Value();
 	CCalendarAccount* acct = accts.at(old_index);
 	accts.at(old_index) = NULL;
@@ -1022,7 +1054,7 @@ iCal::CICalendar* CCalendarStoreManager::PickCalendar(const iCal::CICalendarComp
 	return result;
 }
 
-// Get identity associated with mailbox
+// Get identity associated with calendar
 const CIdentity* CCalendarStoreManager::GetTiedIdentity(const iCal::CICalendar* cal) const
 {
 	// Get node associated with calendar
@@ -1062,10 +1094,94 @@ const CIdentity* CCalendarStoreManager::GetTiedIdentity(const iCal::CICalendar* 
 	return result;
 }
 
+#pragma mark ____________________________Checking
+
+// Called during idle
+void CCalendarStoreManager::SpendTime()
+{
+	// Do standard check test
+	if (!mCheckPaused && CheckTimer()
+#if __dest_os == __mac_os || __dest_os == __mac_os_x
+		&& CMulberryApp::sMailCheckReset->UserPaused()
+#endif
+		)
+		// Fire off thread
+		CCalendarCheckThread::DoCheck();
+}
+
+// Reset check timer
+void CCalendarStoreManager::Reset()
+{
+	// This is no longer needed for multiple alerts & threaded checking
+}
+
+// Check timer
+bool CCalendarStoreManager::CheckTimer()
+{
+	// Current time
+	time_t current_check = ::time(NULL);
+    return (current_check > mLastCheck + 5 * 60);
+}
+
+// Force check of favourites
+void CCalendarStoreManager::ForceCalendarCheck()
+{
+	// Current time
+	mLastCheck = ::time(NULL);
+    
+	// Now do thread resume
+	CCalendarCheckThread::DoCheck();
+}
+
+// This can get called from a thread
+void CCalendarStoreManager::CheckAllSubscribedCalendars()
+{
+	// Current time
+	mLastCheck = ::time(NULL);
+    
+    bool changed = false;
+    const iCal::CICalendarList& cals = calstore::CCalendarStoreManager::sCalendarStoreManager->GetSubscribedCalendars();
+    for(iCal::CICalendarList::const_iterator iter = cals.begin(); iter != cals.end(); iter++)
+    {
+#if __dest_os == __mac_os || __dest_os == __mac_os_x
+		// Mac OS not pre-emptive so yield during this loop
+		// The calendar checking must have lower priority (i.e. yield more often)
+		// On Win32 it runs pre-emptive but has a lower priority than the main (UI) thread
+        
+		::YieldToAnyThread();	// Perhaps this should yield to the main thread when we have more than two?
+#endif
+        try
+        {
+            calstore::CCalendarStoreNode* node = const_cast<calstore::CCalendarStoreNode*>(calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(*iter));
+            if (node->GetProtocol()->CheckCalendar(*node, *node->GetCalendar()))
+                changed = true;
+        }
+        catch (...)
+        {
+            CLOG_LOGCATCH(...);
+            
+            // Do not allow one failure to prevent checks on other calendars
+        }
+    }
+    
+    if (changed)
+    {
+        CMailControl::CalendarsChanged();
+    }
+}
+
 #pragma mark ____________________________Disconnected
 
 void CCalendarStoreManager::GoOffline(bool force, bool sync, bool fast)
 {
+	// Must stop any calendar checks in progress
+	CCalendarCheckThread::Pause(true);
+	mHaltCheck = true;
+    
+	// Try to acquire run lock which is released only when calendar check is no longer running
+	// Use of mutex to allow messages to be pumped while waiting for calendar check to finish
+	cdmutex::lock_cdmutex _lock(CCalendarCheckThread::RunLock());
+    
 	// Do sync if not being forced off
 	if (!force && sync)
 		DoOfflineSync(fast);
@@ -1093,6 +1209,10 @@ void CCalendarStoreManager::GoOffline(bool force, bool sync, bool fast)
 
 	// Force visual update
 	UpdateWindows();
+    
+	// Unpause calendar check after sync changes and do immediate check
+	CCalendarCheckThread::Pause(false);
+	ForceCalendarCheck();
 }
 
 void CCalendarStoreManager::DoOfflineSync(bool fast)
@@ -1117,6 +1237,14 @@ void CCalendarStoreManager::DoOfflineSync(bool fast)
 
 void CCalendarStoreManager::GoOnline(bool sync)
 {
+	// Must stop any calendar checks in progress
+	CCalendarCheckThread::Pause(true);
+	mHaltCheck = true;
+    
+	// Try to acquire run lock which is released only when calendar check is no longer running
+	// Use of mutex to allow messages to be pumped while waiting for calendar check to finish
+	cdmutex::lock_cdmutex _lock(CCalendarCheckThread::RunLock());
+    
 	// Go online on each protocol
 	for(CCalendarProtocolList::iterator iter = mProtos.begin(); iter != mProtos.end(); iter++)
 	{
@@ -1134,16 +1262,29 @@ void CCalendarStoreManager::GoOnline(bool sync)
 
 	// Force visual update
 	UpdateWindows();
+    
+	// Unpause calendar check after sync changes and do immediate check
+	CCalendarCheckThread::Pause(false);
+	ForceCalendarCheck();
 }
 
 #pragma mark ____________________________Sleep
 
 void CCalendarStoreManager::Suspend()
 {
-	// Nothing to do for now
+	// Must stop any calendar checks in progress
+	CCalendarCheckThread::Pause(true);
+	mHaltCheck = true;
+    
+	// Try to acquire run lock which is released only when calendar check is no longer running
+	// Use of mutex to allow messages to be pumped while waiting for calendar check to finish
+	cdmutex::lock_cdmutex _lock(CCalendarCheckThread::RunLock());
 }
 
 void CCalendarStoreManager::Resume()
 {
-	// Nothing to do for now
+	// Unpause calendar check after sync changes and do immediate check
+	CCalendarCheckThread::Pause(false);
+	
+	// Checks will fire off as appropriate for intervals
 }
