@@ -926,7 +926,7 @@ bool CCalendarProtocol::CheckCalendar(const CCalendarStoreNode& node, iCal::CICa
 				mCacheClient->_ReadFullCalendar(node, cal);
 
 			// Sync cache with server doing playback if needed
-			SyncFromServer(node, cal);
+			result = SyncFromServer(node, cal);
 		}
 		else
 		{
@@ -983,19 +983,22 @@ void CCalendarProtocol::OpenCalendar(const CCalendarStoreNode& node, iCal::CICal
 	}
 }
 
-void CCalendarProtocol::SyncFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+bool CCalendarProtocol::SyncFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
 	// Different based on full or component sync
+    bool result = false;
 	if (IsComponentCalendar())
-		SyncComponentsFromServer(node, cal);
+		result = SyncComponentsFromServer(node, cal);
 	else
-		SyncFullFromServer(node, cal);
+		result = SyncFullFromServer(node, cal);
 	Broadcast_Message(eBroadcast_RefreshNode, (void*)&node);
+    return result;
 }
 
-void CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+bool CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
 	// We need to do this as a proper transaction with locking
+    bool result = false;
 	try
 	{
 		// We need to do this as a proper transaction with locking
@@ -1029,11 +1032,13 @@ void CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal:
 			if (mCacheClient->_TouchCalendar(node))
 				DumpCalendars();
 			mCacheClient->_WriteFullCalendar(node, cal);
+            result = true;
 		}
 		else if (!server_changed && cache_changed)
 		{
 			// Local cache overwrites server
 			mClient->_WriteFullCalendar(node, cal);
+            result = true;
 		}
 		else if (server_changed && cache_changed)
 		{
@@ -1053,6 +1058,7 @@ void CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal:
 			if (mCacheClient->_TouchCalendar(node))
 				DumpCalendars();
 			mCacheClient->_WriteFullCalendar(node, cal);
+            result = true;
 		}
 
 		// Always unlock
@@ -1068,9 +1074,11 @@ void CCalendarProtocol::SyncFullFromServer(const CCalendarStoreNode& node, iCal:
 		CLOG_LOGRETHROW;
 		throw;
 	}
+    
+    return result;
 }
 
-void CCalendarProtocol::SyncComponentsFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+bool CCalendarProtocol::SyncComponentsFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
 	if (! GetDidSyncTest())
 	{
@@ -1078,17 +1086,18 @@ void CCalendarProtocol::SyncComponentsFromServer(const CCalendarStoreNode& node,
 	}
 	if (GetHasSync())
 	{
-		SyncComponentsFromServerFast(node, cal);
+		return SyncComponentsFromServerFast(node, cal);
 	}
 	else
 	{
-		SyncComponentsFromServerSlow(node, cal);
+		return SyncComponentsFromServerSlow(node, cal);
 	}
 }
 
-void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
 	// We need to do this as a proper transaction with locking
+    bool result = false;
 	try
 	{
 		// Policy:
@@ -1129,7 +1138,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 		
 		if (synctoken.empty())
 		{
-			return;
+			return false;
 		}
 		bool server_changed = synctoken != cal.GetSyncToken();
 		bool changes_made = false;
@@ -1148,6 +1157,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 					// Add component to server
 					mClient->_AddComponent(node, cal, *comp);
 					changes_made = true;
+                    result = true;
 				}
 			}
 			
@@ -1160,6 +1170,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 					// Remove component from server
 					mClient->_RemoveComponent(node, cal, (*iter).second.GetRURL());
 					changes_made = true;
+                    result = true;
 					
 					// Remove from server changed info
 					if (changed.count((*iter).second.GetRURL()) != 0)
@@ -1174,6 +1185,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 				if (removed.count((*iter).second.GetRURL()) != 0)
 				{
 					cal.RemoveComponentByKey((*iter).first);
+                    result = true;
 				}
 				
 				// Changed on server?
@@ -1189,6 +1201,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 					const iCal::CICalendarComponent* comp = cal.GetComponentByKey((*iter).first);
 					mClient->_ChangeComponent(node, cal, *comp);
 					changes_made = true;
+                    result = true;
 				}
 			}
 		}
@@ -1227,6 +1240,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 				{
 					// Remove locally
 					cal.RemoveComponentByKey(cache_comp->GetMapKey());
+                    result = true;
 					continue;
 				}
 				
@@ -1251,6 +1265,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 							// Write changed cache component to server
 							mClient->_ChangeComponent(node, cal, *cache_comp);
 							changes_made = true;
+                            result = true;
 						}
 						
 						// Step 3.2.2
@@ -1263,15 +1278,16 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 							iCal::CICalendarComponent* server_comp = mClient->_ReadComponent(node, tempcal, server_rurl);
 							if (server_comp != NULL)
 							{
-								int result = iCal::CICalendarSync::CompareComponentVersions(server_comp, cache_comp);
+								int compare_result = iCal::CICalendarSync::CompareComponentVersions(server_comp, cache_comp);
 								
-								if (result == 1)
+								if (compare_result == 1)
 								{
 									// Cache is newer than server - cache overwrites to server
 									mClient->_ChangeComponent(node, cal, *cache_comp);
 									changes_made = true;
+                                    result = true;
 								}
-								else if (result == -1)
+								else if (compare_result == -1)
 								{
 									// Cache is older than server - server overwrites cache
 									
@@ -1283,6 +1299,7 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 									iCal::CICalendarComponent* new_comp = server_comp->clone();
 									new_comp->SetCalendar(cal.GetRef());
 									cal.AddComponent(new_comp);
+                                    result = true;
 								}
 							}
 						}
@@ -1327,11 +1344,14 @@ void CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 		CLOG_LOGRETHROW;
 		throw;
 	}
+    
+    return result;
 }
 
-void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+bool CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
 	// We need to do this as a proper transaction with locking
+    bool result = false;
 	try
 	{
 		// Policy:
@@ -1386,6 +1406,7 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 					// Add component to server
 					mClient->_AddComponent(node, cal, *comp);
 					changes_made = true;
+                    result = true;
 
 					// Add to added cache
 					cache_added.insert(cdstrmap::value_type((*iter).second.GetRURL(), (*iter).second.GetETag()));
@@ -1401,6 +1422,7 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 					// Remove component from server
 					mClient->_RemoveComponent(node, cal, (*iter).second.GetRURL());
 					changes_made = true;
+                    result = true;
 					
 					// Remove from server component info
 					comps.erase((*iter).second.GetRURL());
@@ -1418,6 +1440,7 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 					const iCal::CICalendarComponent* comp = cal.GetComponentByKey((*iter).first);
 					mClient->_ChangeComponent(node, cal, *comp);
 					changes_made = true;
+                    result = true;
 					cache_changed.insert(cdstrmap::value_type((*iter).second.GetRURL(), (*iter).second.GetETag()));
 				}
 			}
@@ -1473,6 +1496,7 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 					{
 						// Write changed cache component to server
 						mClient->_ChangeComponent(node, cal, *cache_comp);
+                        result = true;
 						changes_made = true;
 					}
 					
@@ -1486,15 +1510,16 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 						iCal::CICalendarComponent* server_comp = mClient->_ReadComponent(node, tempcal, server_rurl);
 						if (server_comp != NULL)
 						{
-							int result = iCal::CICalendarSync::CompareComponentVersions(server_comp, cache_comp);
+							int compare_result = iCal::CICalendarSync::CompareComponentVersions(server_comp, cache_comp);
 							
-							if (result == 1)
+							if (compare_result == 1)
 							{
 								// Cache is newer than server - cache overwrites to server
 								mClient->_ChangeComponent(node, cal, *cache_comp);
+                                result = true;
 								changes_made = true;
 							}
-							else if (result == -1)
+							else if (compare_result == -1)
 							{
 								// Cache is older than server - server overwrites cache
 
@@ -1506,6 +1531,7 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 								iCal::CICalendarComponent* new_comp = server_comp->clone();
 								new_comp->SetCalendar(cal.GetRef());
 								cal.AddComponent(new_comp);
+                                result = true;
 							}
 						}
 					}
@@ -1525,6 +1551,7 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 						
 						// Read component from server into local cache effectively replacing old one
 						mClient->_ReadComponent(node, cal, server_rurl);
+                        result = true;
 					}
 				}
 				
@@ -1534,6 +1561,7 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 					// comp is deleted in this call
 					cal.RemoveComponentByKey(cache_comp->GetMapKey());
 					cache_comp = NULL;
+                    result = true;
 				}
 				
 				// Step 3.5
@@ -1574,6 +1602,8 @@ void CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 		CLOG_LOGRETHROW;
 		throw;
 	}
+    
+    return result;
 }
 
 void CCalendarProtocol::CloseCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal)

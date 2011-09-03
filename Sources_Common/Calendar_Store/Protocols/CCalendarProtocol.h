@@ -170,11 +170,11 @@ public:
 	void SizeCalendar(CCalendarStoreNode& node);
 
 	void OpenCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
-	void SyncFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
-	void SyncFullFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
-	void SyncComponentsFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
-	void SyncComponentsFromServerSlow(const CCalendarStoreNode& node, iCal::CICalendar& cal);
-	void SyncComponentsFromServerFast(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	bool SyncFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	bool SyncFullFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	bool SyncComponentsFromServer(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	bool SyncComponentsFromServerSlow(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	bool SyncComponentsFromServerFast(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	void CloseCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	void CopyCalendar(const CCalendarStoreNode& node, iCal::CICalendar& newcal);
 	void CopyCalendarContents(const CCalendarStoreNode& node, iCal::CICalendar& newcal);

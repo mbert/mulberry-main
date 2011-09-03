@@ -406,7 +406,7 @@ void CCardDAVVCardClient::_FastSync(const CAddressBook* adbk, cdstrmap& changed,
 		// Check for DAV:error/DAV:invalid-sync-token
 		http::webdav::CWebDAVErrorResponseParser parser;
 		parser.ParseData(dout.GetData());
-		if (parser.GetElement() == cElement_valid_sync_token)
+		if (parser.HasElement(cElement_valid_sync_token))
 		{
 			synctoken.clear();
 		}

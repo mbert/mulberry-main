@@ -696,7 +696,7 @@ void CCalDAVCalendarClient::_FastSync(const CCalendarStoreNode& node, iCal::CICa
 		// Check for DAV:error/DAV:invalid-sync-token
 		http::webdav::CWebDAVErrorResponseParser parser;
 		parser.ParseData(dout.GetData());
-		if (parser.GetElement() == cElement_valid_sync_token)
+		if (parser.HasElement(cElement_valid_sync_token))
 		{
 			synctoken.clear();
 		}
