@@ -38,13 +38,13 @@ public:
 	CWebDAVErrorResponseParser() {}
 	virtual ~CWebDAVErrorResponseParser() {}
 
-	const xmllib::XMLName& GetElement() const
+	bool HasElement(const xmllib::XMLName& test) const
 	{
-		return mErrorName;
+		return mErrors.count(test);
 	}
 
 protected:
-	xmllib::XMLName	mErrorName;
+	std::set<xmllib::XMLName>	mErrors;
 
 	virtual void Parse(const xmllib::XMLNode* error_node);
 	

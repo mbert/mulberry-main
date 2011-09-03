@@ -44,6 +44,6 @@ void CWebDAVErrorResponseParser::Parse(const XMLNode* error_node)
 	// Node is the right type, so iterator over all child response nodes and process each one
 	for(XMLNodeList::const_iterator iter = error_node->Children().begin(); iter != error_node->Children().end(); iter++)
 	{
-		mErrorName = xmllib::XMLName(**iter);
+		mErrors.insert(xmllib::XMLName(**iter));
 	}
 }
