@@ -1461,7 +1461,7 @@ int CSMIMEPluginDLL::B64write_PKCS7(BIO* bio, PKCS7* p7)
 #endif
 
 	BIO_flush(bio);
-	bio = ::BIO_pop(bio);
+	::BIO_pop(bio);
 
 	::BIO_free(b64);
 	return 1;
@@ -1493,7 +1493,7 @@ PKCS7* CSMIMEPluginDLL::B64read_PKCS7(BIO* bio)
 	}
 
 	BIO_flush(bio);
-	bio = ::BIO_pop(bio);
+	::BIO_pop(bio);
 
 	::BIO_free(b64);
 	return p7;

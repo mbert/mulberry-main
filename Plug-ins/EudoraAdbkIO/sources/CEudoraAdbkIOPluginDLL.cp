@@ -324,7 +324,7 @@ long CEudoraAdbkIOPluginDLL::ExportGroup(SAdbkIOPluginGroup* grp)
 
 			// Write address
 			::fwrite(*addr, 1, ::strlen(*addr), mExportFile);
-			*addr++;
+			addr++;
 		}
 	}
 
@@ -408,7 +408,7 @@ CAdbkIOPluginDLL::SAdbkIOPluginAddress* CEudoraAdbkIOPluginDLL::AddressListParse
 					else break;
 				}
 				if (*p)
-					*p++;
+					p++;
 				else
 					more = false;
 				break;

@@ -400,7 +400,7 @@ long CPineAdbkIOPluginDLL::ExportGroup(SAdbkIOPluginGroup* grp)
 
 			// Write address
 			::fwrite(*addr, 1, ::strlen(*addr), mExportFile);
-			*addr++;
+			addr++;
 		}
 	}
 

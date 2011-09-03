@@ -14,6 +14,12 @@
 #else
 /* assume system headers define htonl and ntohl
  */
+#ifndef htonl
+#define htonl(x) (x)
+#endif
+#ifndef ntohl
+#define ntohl(x) (x)
+#endif
 #endif
 
 /* MD5 block size */

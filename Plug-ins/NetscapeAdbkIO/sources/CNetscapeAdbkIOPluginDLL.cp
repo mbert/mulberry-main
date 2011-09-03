@@ -647,7 +647,7 @@ long CNetscapeAdbkIOPluginDLL::ExportNetscapeAddress(SAdbkIOPluginAddress* addr,
 				else
 				
 					// Skip invalid
-					*p++;
+					p++;
 			}
 			*q = '\0';
 		}
@@ -715,7 +715,7 @@ long CNetscapeAdbkIOPluginDLL::ExportGroup(SAdbkIOPluginGroup* grp)
 				else
 				
 					// Skip invalid
-					*p++;
+					p++;
 			}
 			*q = '\0';
 		}
