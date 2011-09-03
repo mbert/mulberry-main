@@ -13,6 +13,8 @@
 			<array>
 				<string>mbp</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Pref</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry preferences file</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -29,6 +31,8 @@
 			<array>
 				<string>mba</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>AdBk</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry address book</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -45,6 +49,8 @@
 			<array>
 				<string>mbd</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Lett</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry draft</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -56,7 +62,7 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeIconFile</key>
-			<string>132</string>
+			<string>shlb</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry plugin</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -73,6 +79,8 @@
 			<array>
 				<string>mbx</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Mbox</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry mailbox</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -89,6 +97,8 @@
 			<array>
 				<string>mbc</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Mbox</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry mailbox cache</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -105,6 +115,8 @@
 			<array>
 				<string>mbi</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Mbox</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry mailbox index</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -121,6 +133,8 @@
 			<array>
 				<string>mbr</string>
 			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Mbox</string>
 			<key>CFBundleTypeName</key>
 			<string>Mulberry recording</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -131,8 +145,10 @@
 			<string>Editor</string>
 		</dict>
 	</array>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Mulberry v4.1a1, Copyright © Cyrus Daboo, 2006-2009.  All rights reserved.</string>
+	<string>Mulberry v4.1a2, Copyright © Cyrus Daboo, 2006-2011.  All rights reserved.</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>Mulberry Help</string>
 	<key>CFBundleHelpBookName</key>
@@ -148,12 +164,16 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>Mulberry v4.1a1</string>
+	<string>Mulberry v4.1a2</string>
 	<key>CFBundleSignature</key>
 	<string>Mlby</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>Mbox</string>
 			<key>CFBundleURLName</key>
 			<string>Email Address URL</string>
 			<key>CFBundleURLSchemes</key>
@@ -162,6 +182,10 @@
 			</array>
 		</dict>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLIconFile</key>
+			<string>Cald</string>
 			<key>CFBundleURLName</key>
 			<string>Webcal URL</string>
 			<key>CFBundleURLSchemes</key>
@@ -171,8 +195,14 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4.1a1</string>
+	<string>4.1a2</string>
 	<key>LSRequiresCarbon</key>
 	<true/>
+	<key>NSServices</key>
+	<array/>
+	<key>UTExportedTypeDeclarations</key>
+	<array/>
+	<key>UTImportedTypeDeclarations</key>
+	<array/>
 </dict>
 </plist>
