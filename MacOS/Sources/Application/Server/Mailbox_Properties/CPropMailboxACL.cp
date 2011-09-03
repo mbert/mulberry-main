@@ -128,10 +128,12 @@ void CPropMailboxACL::ListenToMessage(
 	switch (inMessage)
 	{
 		case msg_ACLMailbox:
+        {
 			long index = *(long*) ioParam;
 			CMbox* mbox = static_cast<CMbox*>(mMboxList->at(index - 1));
 			SetMbox(mbox);
 			break;
+        }
 
 		case msg_ACLNewUser:
 			DoNewUser();
@@ -395,9 +397,11 @@ void CPropMailboxACL::DoStylePopup(long index)
 
 	// Delete existing ACL
 	case eACLStyleDeleteUser:
+    {
 		CMailboxPropDialog* cmdr = (CMailboxPropDialog*) GetSuperView()->GetSuperView();
 		mStylePopup->DoDeleteStyle();
 		break;
+    }
 
 	// Select a style
 	default:

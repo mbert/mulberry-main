@@ -556,6 +556,7 @@ ResIDT CServerBrowse::GetPlotIcon(EServerBrowseDataType type, void* data)
 	switch(type)
 	{
 	case eServerBrowseMbox:
+    {
 		CMbox* mbox = static_cast<CMbox*>(data);
 		if (mbox == NULL)
 			return ICNx_BrowseMailbox;
@@ -575,7 +576,9 @@ ResIDT CServerBrowse::GetPlotIcon(EServerBrowseDataType type, void* data)
 			return ICNx_BrowseMailbox;
 		else
 			return ICNx_BrowseMailbox;
+    }
 	case eServerBrowseMboxRef:
+    {
 		CMboxRef* mboxref = static_cast<CMboxRef*>(data);
 		if (mboxref == NULL)
 			return ICNx_BrowseDirectoryRef;
@@ -603,6 +606,7 @@ ResIDT CServerBrowse::GetPlotIcon(EServerBrowseDataType type, void* data)
 			else
 				return ICNx_BrowseMailboxRef;
 		}
+    }
 	case eServerBrowseWD:
 		return ICNx_BrowseSearchHierarchy;
 	case eServerBrowseSubs:

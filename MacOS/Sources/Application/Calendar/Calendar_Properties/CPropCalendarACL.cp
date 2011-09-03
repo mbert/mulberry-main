@@ -112,10 +112,12 @@ void CPropCalendarACL::ListenToMessage(
 	switch (inMessage)
 	{
 	case msg_CalACLCalendar:
+    {
 		long index = *(long*) ioParam;
 		calstore::CCalendarStoreNode* cal = static_cast<calstore::CCalendarStoreNode*>(mCalList->at(index - 1));
 		SetCal(cal);
 		break;
+    }
 
 	case msg_CalACLNewUser:
 		DoNewUser();
@@ -372,9 +374,11 @@ void CPropCalendarACL::DoStylePopup(long index)
 
 	// Delete existing ACL
 	case eCalACLStyleDeleteUser:
+    {
 		CCalendarPropDialog* cmdr = (CCalendarPropDialog*) GetSuperView()->GetSuperView();
 		mStylePopup->DoDeleteStyle();
 		break;
+    }
 
 	// Select a style
 	default:

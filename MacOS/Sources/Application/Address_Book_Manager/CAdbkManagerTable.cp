@@ -391,6 +391,7 @@ void CAdbkManagerTable::ClickCell(const STableCell& inCell,
 	case eAdbkColumnOpen:
 	case eAdbkColumnResolve:
 	case eAdbkColumnSearch:
+    {
 		TableIndexT	woRow = mCollapsableTree->GetWideOpenIndex(inCell.row + TABLE_ROW_ADJUST);
 
 		CAddressBook* adbk = GetCellNode(inCell.row);
@@ -432,6 +433,7 @@ void CAdbkManagerTable::ClickCell(const STableCell& inCell,
 			RefreshCell(inCell);
 		}
 		break;
+    }
 	default:
 		// Look at user action and determine what to do
 		if ((GetClickCount() > 1) && !inMouseDown.delaySelect)
@@ -798,6 +800,7 @@ void CAdbkManagerTable::DropDataIntoCell(FlavorType theFlavor, char* drag_data,
 	{
 
 		case cDragMsgType:
+        {
 			CMessage* theMsg = *((CMessage**) drag_data);
 			CEnvelope* theEnv = theMsg->GetEnvelope();
 			ThrowIfNil_(theEnv);
@@ -855,8 +858,10 @@ void CAdbkManagerTable::DropDataIntoCell(FlavorType theFlavor, char* drag_data,
 			}
 
 			break;
+        }
 
 		case cDragAddrType:
+        {
 			CAddress* theAddr = *((CAddress**) drag_data);
 			if (!CPreferences::sPrefs->TestSmartAddress(*theAddr) &&
 				!mDropAdbk->GetAddressList()->IsDuplicate(theAddr))
@@ -866,17 +871,20 @@ void CAdbkManagerTable::DropDataIntoCell(FlavorType theFlavor, char* drag_data,
 				mAddressAdded = true;
 			}
 			break;
+        }
 
 		case cDragAddrGrpType:
+        {
 			CGroup* theGrp = *((CGroup**) drag_data);
 
 			// Add group to new group
 			mDropAdbk->AddGroup(new CGroup(*theGrp), mDropSort);
 			mGroupAdded = true;
 			break;
+        }
 
 		case kScrapFlavorTypeText:
-
+        {
 			// Parse text into list
 			CAddressList list(drag_data, data_size);
 
@@ -893,5 +901,6 @@ void CAdbkManagerTable::DropDataIntoCell(FlavorType theFlavor, char* drag_data,
 				}
 			}
 			break;
+        }
 	}
 }

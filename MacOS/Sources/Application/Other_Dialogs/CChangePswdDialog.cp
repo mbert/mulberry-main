@@ -159,6 +159,7 @@ bool CChangePswdDialog::PromptPasswordChange(const CINETAccount* acct,
 		icon = ICNx_UserPswdLDAP;
 		title =LStr255(STRx_Standards, str_ChangePswdLDAP);
 		break;
+    default:;
 	}
 
 	// Create the dialog

@@ -1614,10 +1614,12 @@ void CMessageView::ResetText()
 		switch(mParsing)
 		{
 		case eViewFormatted:
+        {
 			// Use plain text font when not using styles
 			bool html = ((actual_content == eContentSubEnriched) || (actual_content == eContentSubHTML)) && actual_styles;
 			actual_traits = html ? &CPreferences::sPrefs->mHTMLTextTraits.GetValue().traits : &CPreferences::sPrefs->mDisplayTextTraits.GetValue().traits;
 			break;
+        }
 		case eViewPlain:
 		case eViewRaw:
 		case eViewAsRaw:

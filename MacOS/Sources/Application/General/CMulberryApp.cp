@@ -905,12 +905,13 @@ Boolean CMulberryApp::ObeyCommand(CommandT inCommand,void *ioParam)
 			cmdHandled = true;
 			break;
 		case MENU_Windows:
+        {
 			LWindow* aWindow = CWindowsMenu::GetWindow(menuID, menuItem);
 			if (aWindow)
 				FRAMEWORK_WINDOW_TO_TOP(aWindow)
 			cmdHandled = true;
 			break;
-
+        }
 		default:
 			cmdHandled = LDocApplication::ObeyCommand(inCommand, ioParam);
 		}

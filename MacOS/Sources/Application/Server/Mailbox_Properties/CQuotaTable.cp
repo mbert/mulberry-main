@@ -98,6 +98,7 @@ void CQuotaTable::DrawCell(const STableCell &inCell, const Rect &inLocalRect)
 	{
 
 	case 1:
+    {
 		DrawDropFlag(inCell, woRow);
 
 #if PP_Target_Carbon
@@ -113,6 +114,7 @@ void CQuotaTable::DrawCell(const STableCell &inCell, const Rect &inLocalRect)
 		short width = inLocalRect.right - (inLocalRect.left + mFirstIndent + nestingLevel * mLevelIndent);
 		::DrawClippedStringUTF8(theTxt, width, eDrawString_Left);
 		break;
+    }
 
 	case 2:
 		// Draw current

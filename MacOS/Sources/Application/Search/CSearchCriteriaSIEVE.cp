@@ -495,6 +495,7 @@ void CSearchCriteriaSIEVE::SetSearchItem(const CSearchItem* spec, bool negate)
 			break;
 
 		case CSearchItem::eLarger:		// long
+        {
 			popup1 = eCriteria_Size;
 			popup2 = eSizeMethod_Larger;
 			long size = reinterpret_cast<long>(spec->GetData());
@@ -510,6 +511,7 @@ void CSearchCriteriaSIEVE::SetSearchItem(const CSearchItem* spec, bool negate)
 			}
 			text3 = size;
 			break;
+        }
 
 		case CSearchItem::eNot:			// CSearchItem*
 			// Do negated - can only be text based items
@@ -522,9 +524,10 @@ void CSearchCriteriaSIEVE::SetSearchItem(const CSearchItem* spec, bool negate)
 			break;
 
 		case CSearchItem::eSmaller:		// long
+        {
 			popup1 = eCriteria_Size;
 			popup2 = eSizeMethod_Smaller;
-			size = reinterpret_cast<long>(spec->GetData());
+			long size = reinterpret_cast<long>(spec->GetData());
 			if (size >= 1024L)
 			{
 				size /= 1024L;
@@ -537,6 +540,7 @@ void CSearchCriteriaSIEVE::SetSearchItem(const CSearchItem* spec, bool negate)
 			}
 			text3 = size;
 			break;
+        }
 
 		case CSearchItem::eSubject:		// cdstring*
 			popup1 = eCriteria_Subject;

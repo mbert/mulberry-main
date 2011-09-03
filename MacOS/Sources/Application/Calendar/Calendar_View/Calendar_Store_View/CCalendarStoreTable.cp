@@ -489,6 +489,7 @@ void CCalendarStoreTable::ClickCell(const STableCell& inCell, const SMouseDownEv
 	{
 	case eCalendarStoreColumnSubscribe:
 	case eCalendarStoreColumnColour:
+    {
 		calstore::CCalendarStoreNode* node = GetCellNode(inCell.row);
 
 		// Check for actual calendars
@@ -511,6 +512,7 @@ void CCalendarStoreTable::ClickCell(const STableCell& inCell, const SMouseDownEv
 			RefreshCell(inCell);
 		}
 		break;
+    }
 
 	default:
 		// Look at user action and determine what to do
@@ -1080,6 +1082,7 @@ bool CCalendarStoreTable::IsCopyCursor(DragReference inDragRef)
 		// Server always moved
 		return false;
 	case cDragCalendarType:
+    {
 		// Calendars moved if drop at or no drop cell
 		if (mLastDropCursor.row || !mLastDropCell.row)
 			return false;
@@ -1091,6 +1094,7 @@ bool CCalendarStoreTable::IsCopyCursor(DragReference inDragRef)
 			return false;
 		else
 			return true;
+    }
 
 	default:
 		// Anything else is an error!

@@ -1077,6 +1077,7 @@ void CAddressTable::DropData(FlavorType theFlavor, char* drag_data, Size data_si
 	switch (theFlavor)
 	{
 	case cDragMsgType:
+    {
 		CMessage* theMsg = *((CMessage**) drag_data);
 		CEnvelope* theEnv = theMsg->GetEnvelope();
 		ThrowIfNil_(theEnv);
@@ -1149,8 +1150,10 @@ void CAddressTable::DropData(FlavorType theFlavor, char* drag_data, Size data_si
 			}
 		}
 		break;
+    }
 
 	case cDragAddrType:
+    {
 		CAddress* theAddr = *((CAddress**) drag_data);
 
 		// Check duplicate
@@ -1163,8 +1166,10 @@ void CAddressTable::DropData(FlavorType theFlavor, char* drag_data, Size data_si
 				delete copy;
 		}
 		break;
+    }
 
 	case cDragAddrGrpType:
+    {
 		CGroup* theGrp = *((CGroup**) drag_data);
 
 		// Copy all addresses and add to list
@@ -1184,6 +1189,7 @@ void CAddressTable::DropData(FlavorType theFlavor, char* drag_data, Size data_si
 				delete copy;
 		}
 		break;
+    }
 
 	case cDragAdbkAddrTextType:
 	{

@@ -244,14 +244,14 @@ protected:
 	virtual void		DoClearAction();
 
 protected:
-	typedef struct SSelectedBlock
+	struct SSelectedBlock
 	{
 		UniCharArrayOffset		selStart;		// start of the selected block in the line
 		UniCharCount			selLength;		// length of the selected block
 		SPoint32				imageLineSel;	// image coords of the line start at x
 		ItemCount				lineNumber;		// which line is this?
 	};
-	typedef struct SSelectionInfo
+	struct SSelectionInfo
 	{
 		bool				withHilight;
 		UniCharArrayOffset	anchor;

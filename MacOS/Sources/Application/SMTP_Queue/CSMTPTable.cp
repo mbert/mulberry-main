@@ -155,6 +155,7 @@ void CSMTPTable::FindCommandStatus(
 		outMark = mTestSelectionAndPriority ? (UInt16)checkMark : (UInt16)noMark;
 		break;
 	case cmd_ToolbarSMTPEnableBtn:
+    {
 		outEnabled = CConnectionManager::sConnectionManager.IsConnected();
 		outUsesMark = true;
 
@@ -167,6 +168,7 @@ void CSMTPTable::FindCommandStatus(
 			::PLstrcpy(outName, txt);
 		}
 		break;
+    }
 
 	default:
 		CMailboxTable::FindCommandStatus(inCommand, outEnabled, outUsesMark,

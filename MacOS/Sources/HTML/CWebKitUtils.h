@@ -21,7 +21,7 @@
 extern "C" {
 #endif
 	
-	extern void InitWebKit();
+	extern void InitWebKit(void);
 	extern OSStatus CreateHIWebView(HIViewRef *viewref);
 	
 	extern void URLToWebView(HIViewRef viewref, CFURLRef inURL);

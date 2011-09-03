@@ -100,6 +100,7 @@ void CPrefsMailboxAdvanced::ListenToMessage(
 	{
 	case msg_MAFavouriteCopyTo:
 	case msg_MAFavouriteAppendTo:
+    {
 		// Must force reset of menu lists
 		CCopyToMenu::SetMenuOptions(mFavouriteCopyTo->GetValue() == Button_On,
 									mFavouriteAppendTo->GetValue() == Button_On);
@@ -110,6 +111,7 @@ void CPrefsMailboxAdvanced::ListenToMessage(
 			prefs_dlog = (CPreferencesDialog*) prefs_dlog->GetSuperView();
 		prefs_dlog->SetForceMenuListReset(true);
 		break;
+    }
 
 	case msg_MARNoCacheLimit:
 		if (*((long*) ioParam))

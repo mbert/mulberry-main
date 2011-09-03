@@ -320,12 +320,15 @@ void CNewComponentAlarm::SetAlarm(const iCal::CICalendarVAlarm* valarm)
 			break;
 		}
 		case iCal::eAction_VAlarm_Display:
+        {
 			mAction->SetValue(eActionDisplay);
 			const iCal::CICalendarVAlarm::CICalendarVAlarmDisplay* display = dynamic_cast<const iCal::CICalendarVAlarm::CICalendarVAlarmDisplay*>(valarm->GetActionData());
 			if (display)
 				mDescription->SetText(display->GetDescription());
 			break;
+        }
 		case iCal::eAction_VAlarm_Email:
+        {
 			mAction->SetValue(eActionEmail);
 			const iCal::CICalendarVAlarm::CICalendarVAlarmEmail* email = dynamic_cast<const iCal::CICalendarVAlarm::CICalendarVAlarmEmail*>(valarm->GetActionData());
 			if (email)
@@ -335,6 +338,7 @@ void CNewComponentAlarm::SetAlarm(const iCal::CICalendarVAlarm* valarm)
 				mAttendees->SetTextList(email->GetAttendees());
 			}
 			break;
+        }
 		default:
 			mAction->SetValue(eActionNotSupported);
 			break;

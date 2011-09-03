@@ -869,6 +869,7 @@ void CSearchCriteriaLocal::SetSearchItem(const CSearchItem* spec, bool negate)
 		}
 
 		case CSearchItem::eLarger:		// long
+        {
 			popup1 = eCriteria_Size;
 			popup2 = eSizeMethod_Larger;
 			long size = reinterpret_cast<long>(spec->GetData());
@@ -884,6 +885,7 @@ void CSearchCriteriaLocal::SetSearchItem(const CSearchItem* spec, bool negate)
 			}
 			text3 = size;
 			break;
+        }
 
 		case CSearchItem::eNew:			// -
 			break;
@@ -951,9 +953,10 @@ void CSearchCriteriaLocal::SetSearchItem(const CSearchItem* spec, bool negate)
 			break;
 
 		case CSearchItem::eSmaller:		// long
+        {
 			popup1 = eCriteria_Size;
 			popup2 = eSizeMethod_Smaller;
-			size = reinterpret_cast<long>(spec->GetData());
+			long size = reinterpret_cast<long>(spec->GetData());
 			if (size >= 1024L)
 			{
 				size /= 1024L;
@@ -966,6 +969,7 @@ void CSearchCriteriaLocal::SetSearchItem(const CSearchItem* spec, bool negate)
 			}
 			text3 = size;
 			break;
+        }
 
 		case CSearchItem::eSubject:		// cdstring*
 			popup1 = eCriteria_Subject;

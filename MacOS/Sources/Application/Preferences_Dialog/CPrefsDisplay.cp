@@ -96,13 +96,14 @@ void CPrefsDisplay::ListenToMessage(
 			break;
 
 		case msg_ResetWindows:
+        {
 			mCopyPrefs->ResetAllStates(true);
 			CPreferencesDialog* prefs_dlog = (CPreferencesDialog*) GetSuperView();
 			while(prefs_dlog->GetPaneID() != paneid_PreferencesDialog)
 				prefs_dlog = (CPreferencesDialog*) prefs_dlog->GetSuperView();
 			prefs_dlog->SetForceWindowReset(true);
 			break;
-
+        }
 		default:
 			break;
 	}

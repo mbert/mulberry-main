@@ -1541,10 +1541,10 @@ void CGroupTable::DropDataIntoCell(FlavorType inFlavor, char* drag_data,
 	{
 
 		case cDragMsgType:
+        {
 			CMessage* theMsg = *((CMessage**) drag_data);
 			CEnvelope* theEnv = theMsg->GetEnvelope();
 			ThrowIfNil_(theEnv);
-			CAddress* theAddr;
 
 			// Add From
 			if (theEnv->GetFrom()->size())
@@ -1583,9 +1583,11 @@ void CGroupTable::DropDataIntoCell(FlavorType inFlavor, char* drag_data,
 			}
 
 			break;
+        }
 
 		case cDragAddrType:
-			theAddr = *((CAddress**) drag_data);
+        {
+			CAddress* theAddr = *((CAddress**) drag_data);
 			{
 				// Add to list
 				cdstring txt = theAddr->GetFullAddress();
@@ -1593,17 +1595,20 @@ void CGroupTable::DropDataIntoCell(FlavorType inFlavor, char* drag_data,
 				added = true;
 			}
 			break;
+        }
 
 		case cDragAddrGrpType:
+        {
 			CGroup* theGrp = *((CGroup**) drag_data);
 
 			// Add group to new group
 			new_grp->AddAddress(theGrp->GetNickName());
 			added = true;
 			break;
+        }
 
 		case kScrapFlavorTypeText:
-
+        {
 			// Parse text into list
 			CAddressList list(drag_data, data_size);
 
@@ -1616,6 +1621,7 @@ void CGroupTable::DropDataIntoCell(FlavorType inFlavor, char* drag_data,
 				added = true;
 			}
 			break;
+        }
 	}
 
 	// If there was a change reset both tables

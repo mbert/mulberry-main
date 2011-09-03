@@ -828,6 +828,7 @@ bool CServerTable::IsCopyCursor(DragReference inDragRef)
 		return false;
 	case cDragMboxType:
 	case cDragMboxRefType:
+    {
 		// Mailboxes & references moved if drop at or no drop cell
 		if (mLastDropCursor.row || !mLastDropCell.row)
 			return false;
@@ -844,7 +845,7 @@ bool CServerTable::IsCopyCursor(DragReference inDragRef)
 		default:
 			return true;
 		}
-
+    }
 	default:
 		// Anything else is an error!
 		return false;
@@ -899,13 +900,17 @@ bool CServerTable::IsDropCell(DragReference inDragRef, STableCell theCell)
 				// Allow drop into any mailbox (directory = move, mbox = copy)
 				return true;
 			case eServerBrowseSubs:
+            {
 				// Allow drop if same server
 				CMbox* src = (CMbox*) data;
 				return (src->GetProtocol() == GetCellMboxList(woRow)->GetProtocol());
+            }
 			case eServerBrowseMboxRefList:
+            {
 				// Allow drop into editable lists
 				CMailAccountManager::EFavourite fav = CMailAccountManager::sMailAccountManager->GetFavouriteType(GetCellMboxRefList(woRow));
 				return (fav != CMailAccountManager::eFavouriteNew);
+            }
 			default:
 				return false;
 			}

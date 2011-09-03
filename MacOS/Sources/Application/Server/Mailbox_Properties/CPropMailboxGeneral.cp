@@ -154,8 +154,8 @@ void CPropMailboxGeneral::SetMbox(CMbox* mbox)
 				// Determine timezone offset
 				time_t t1 = ::time(NULL);
 				time_t t2 = ::mktime(::gmtime(&t1));
-				long offset = ::difftime(t1, t2);
-				long current_zone = ::difftime(t1, t2) / 3600.0;	// Zone in hundreds e.g. -0500
+				long offset = (long)::difftime(t1, t2);
+				long current_zone = (long)(::difftime(t1, t2) / 3600.0);	// Zone in hundreds e.g. -0500
 				current_zone *= 100;
 				utc_time += offset;
 

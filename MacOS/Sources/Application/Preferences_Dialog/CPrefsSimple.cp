@@ -436,12 +436,12 @@ void CPrefsSimple::UpdatePrefs(void)
 	// Copy info from panel into prefs
 	{
 		// Determine address list
-		CAddressList addr_list(id->GetFrom().c_str(), id->GetFrom().length());
+		CAddressList addr_list2(id->GetFrom().c_str(), id->GetFrom().length());
 
 		cdstring name = mRealName->GetText();
 		cdstring email = mEmailAddress->GetText();
-		if (CAdminLock::sAdminLock.mLockReturnAddress && addr_list.size())
-			email = addr_list.front()->GetMailAddress();
+		if (CAdminLock::sAdminLock.mLockReturnAddress && addr_list2.size())
+			email = addr_list2.front()->GetMailAddress();
 		CAddress addr(email, name);
 		id->SetFrom(addr.GetFullAddress(), true);
 	}

@@ -6,7 +6,11 @@
 
 #include "CWebKitUtils.h"
 
-void InitWebKit()
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void InitWebKit(void)
 {
 	// Init webkit
 	WebInitForCarbon();
@@ -38,3 +42,6 @@ void DataToWebView(HIViewRef inView, CFStringRef inData)
 	mainFrame = [nativeView mainFrame];
 	[mainFrame loadHTMLString:(NSString*)inData baseURL:nil];
 }
+#ifdef __cplusplus
+}
+#endif

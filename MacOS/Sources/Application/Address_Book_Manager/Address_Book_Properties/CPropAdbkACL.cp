@@ -343,9 +343,11 @@ void CPropAdbkACL::DoStylePopup(long index)
 
 	// Delete existing ACL
 	case eACLStyleDeleteUser:
+    {
 		CAdbkPropDialog* cmdr = (CAdbkPropDialog*) GetSuperView()->GetSuperView();
 		mStylePopup->DoDeleteStyle();
 		break;
+    }
 
 	// Select a style
 	default:

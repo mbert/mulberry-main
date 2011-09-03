@@ -99,12 +99,14 @@ void CACLTable::DrawCell(const STableCell &inCell, const Rect &inLocalRect)
 	{
 
 	case 1:
+    {
 		// Get name of item
 		theTxt = rights.GetDisplayUID();
 		::MoveTo(inLocalRect.left, inLocalRect.bottom - mTextDescent);
 		short width = inLocalRect.right - inLocalRect.left;
 		::DrawClippedStringUTF8(theTxt, width, eDrawString_Left);
 		break;
+    }
 
 	case 2:
 		// Determine icon
