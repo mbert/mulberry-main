@@ -69,7 +69,7 @@ template <class T> void ptrvector<T>::_copy(const ptrvector<T>& copy)
 
 	// Copy all objects
 	for(typename ptrvector<T>::const_iterator iter = copy.begin(); iter != copy.end(); iter++)
-		push_back(new T(**iter));
+		this->push_back(new T(**iter));
 }
 
 template <class T>

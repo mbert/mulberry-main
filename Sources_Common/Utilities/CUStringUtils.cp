@@ -22,8 +22,6 @@
 #include <ctype.h>
 #include <errno.h>
 
-#pragma warn_possunwant off
-
 // S T R I N G  F U N C T I O N S
 
 size_t unistrlen(const unichar_t* str)

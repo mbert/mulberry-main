@@ -153,7 +153,7 @@ static int crlfbuffer_read(BIO *b, char *out, int outl)
 
 	if (ret > 0)
 	{
-		BIO_CRLFBUFFER_CTX *ctx = (BIO_CRLFBUFFER_CTX *)b->ptr;
+		BIO_CRLFBUFFER_CTX *new_ctx = (BIO_CRLFBUFFER_CTX *)b->ptr;
 		char *p = out;
 		char *q = out;
 		int qlen = 0;
@@ -166,25 +166,25 @@ static int crlfbuffer_read(BIO *b, char *out, int outl)
 				plen--;
 				*q++ = '\n';
 				qlen++;
-				ctx->got_cr = true;
+				new_ctx->got_cr = true;
 			}
 			else if (*p == '\n')
 			{
 				p++;
 				plen--;
-				if (!ctx->got_cr)
+				if (!new_ctx->got_cr)
 				{
 					*q++ = '\n';
 					qlen++;
 				}
-				ctx->got_cr = false;
+				new_ctx->got_cr = false;
 			}
 			else
 			{
 				*q++ = *p++;
 				plen--;
 				qlen++;
-				ctx->got_cr = false;
+				new_ctx->got_cr = false;
 			}
 		}
 		*q++ = 0;

@@ -70,7 +70,7 @@ template <class T> bool prefsvector<T>::SetInfo(char_stream& txt, NumVersion ver
 	{
 		T item;
 		result = item.SetInfo(txt, vers_prefs) && result;
-		push_back(item);
+		this->push_back(item);
 		txt.end_sexpression();
 	}
 
@@ -114,7 +114,7 @@ template <class T> bool prefsptrvector<T>::SetInfo(char_stream& txt, NumVersion 
 	{
 		T* item = new T;
 		result = item->SetInfo(txt, vers_prefs) && result;
-		push_back(item);
+		this->push_back(item);
 		txt.end_sexpression();
 	}
 
@@ -207,7 +207,7 @@ template <class T> bool prefsptrvector<T>::ReadFromMapMulti(COptionsMap* theMap,
 		char_stream p(value.c_str_mod());
 		T* item = new T;
 		item->SetInfo(p, vers_prefs);
-		push_back(item);
+		this->push_back(item);
 	}
 	
 	return true;

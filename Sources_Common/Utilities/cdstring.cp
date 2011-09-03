@@ -146,7 +146,7 @@ cdstring::cdstring(const int32_t num)
 {
 	_init();
 	char buf[256];
-	::snprintf(buf, 256, "%ld", num);
+	::snprintf(buf, 256, "%ld", (long)num);
 	_allocate(buf);
 }
 
@@ -154,7 +154,7 @@ cdstring::cdstring(const uint32_t num)
 {
 	_init();
 	char buf[256];
-	::snprintf(buf, 256, "%lu", num);
+	::snprintf(buf, 256, "%lu", (unsigned long)num);
 	_allocate(buf);
 }
 
@@ -289,7 +289,7 @@ cdstring& cdstring::operator=(const unsigned long num)
 cdstring& cdstring::operator=(const int32_t num)
 {
 	char buf[256];
-	::snprintf(buf, 256, "%ld", num);
+	::snprintf(buf, 256, "%ld", (long)num);
 	_allocate(buf);
 	return *this;
 }
@@ -297,7 +297,7 @@ cdstring& cdstring::operator=(const int32_t num)
 cdstring& cdstring::operator=(const uint32_t num)
 {
 	char buf[256];
-	::snprintf(buf, 256, "%lu", num);
+	::snprintf(buf, 256, "%lu", (unsigned long)num);
 	_allocate(buf);
 	return *this;
 }

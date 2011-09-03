@@ -284,9 +284,9 @@ CTreeNode* CTreeNodeList::AddNode(CTreeNode* node, iterator pos)
 				// Make sure previous mailbox knows it has children
 				if (pos != begin())
 				{
-					iterator prev = pos - 1;
-					if ((*prev)->GetWDLevel() < (*pos)->GetWDLevel())
-						(*prev)->SetHasInferiors(true);
+					iterator prev2 = pos - 1;
+					if ((*prev2)->GetWDLevel() < (*pos)->GetWDLevel())
+						(*prev2)->SetHasInferiors(true);
 				}
 
 				// Broadcast change
