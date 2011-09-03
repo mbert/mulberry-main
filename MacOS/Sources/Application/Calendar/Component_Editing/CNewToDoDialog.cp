@@ -153,9 +153,9 @@ void CNewToDoDialog::SetComponent(iCal::CICalendarComponentRecur& vcomponent, co
 {
 	CNewComponentDialog::SetComponent(vcomponent, expanded);
 
-	mCompleted->SetValue(static_cast<iCal::CICalendarVToDo&>(vcomponent).GetStatus() == iCal::eStatus_VToDo_Completed);
-
 	mCompletedExists = static_cast<iCal::CICalendarVToDo&>(vcomponent).HasCompleted();
+	mCompleted->SetValue(mCompletedExists || static_cast<iCal::CICalendarVToDo&>(vcomponent).GetStatus() == iCal::eStatus_VToDo_Completed);
+
 	if (mCompletedExists)
 	{
 		// COMPLETED is in UTC but we adjust to local timezone

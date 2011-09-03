@@ -237,7 +237,8 @@ void CToDoItem::SetDetails(iCal::CICalendarComponentExpandedShared& todo, CCalen
 		switch(todo->GetMaster<iCal::CICalendarVToDo>()->GetStatus())
 		{
 		default:
-			mCompleted->SetValue(0);
+            mIsCompleted = todo->GetMaster<iCal::CICalendarVToDo>()->HasCompleted();
+            mCompleted->SetValue(mIsCompleted ? 1 : 0);
 			break;
 		case iCal::eStatus_VToDo_Completed:
 			mIsCompleted = true;
