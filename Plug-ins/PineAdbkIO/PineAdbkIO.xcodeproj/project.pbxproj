@@ -13,7 +13,7 @@
 		AF4198770AE9A05D00E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198640AE9A05D00E19592 /* CAdbkIOPluginDLL.cp */; };
 		AF4198790AE9A05D00E19592 /* CPineAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198660AE9A05D00E19592 /* CPineAdbkIOPluginDLL.cp */; };
 		AF41987B0AE9A05D00E19592 /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF41986A0AE9A05D00E19592 /* CStringUtils.cp */; };
-		AF4198800AE9A05E00E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF41987F0AE9A05E00E19592 /* Carbon.framework */; };
+		AF657391136CAB4F0088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657390136CAB4F0088690F /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +29,10 @@
 		AF4198690AE9A05D00E19592 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
 		AF41986A0AE9A05D00E19592 /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
 		AF41986B0AE9A05D00E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
-		AF41987F0AE9A05E00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF4198810AE9A05E00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF4198850AE9A05E00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AF657390136CAB4F0088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		AF9BC90113D5D76A00240750 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF4198800AE9A05E00E19592 /* Carbon.framework in Frameworks */,
+				AF657391136CAB4F0088690F /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +50,7 @@
 		AF41984F0AE9A05D00E19592 = {
 			isa = PBXGroup;
 			children = (
+				AF9BC90113D5D76A00240750 /* libPluginLibrary.a */,
 				AF4198600AE9A05D00E19592 /* Main */,
 				AF41987D0AE9A05E00E19592 /* Imported Files */,
 				AF41987E0AE9A05E00E19592 /* Frameworks */,
@@ -94,7 +96,7 @@
 		AF41987E0AE9A05E00E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF41987F0AE9A05E00E19592 /* Carbon.framework */,
+				AF657390136CAB4F0088690F /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,7 +129,11 @@
 			isa = PBXProject;
 			buildConfigurationList = AF4198520AE9A05D00E19592 /* Build configuration list for PBXProject "PineAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = AF41984F0AE9A05D00E19592;
 			productRefGroup = AF41985D0AE9A05D00E19592 /* Products */;
 			projectDirPath = "";
@@ -178,7 +184,10 @@
 		AF4198530AE9A05D00E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -209,6 +218,11 @@
 				INFOPLIST_FILE = ../Common/Info.plst;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
 				INFOPLIST_PREPROCESS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../PluginLibrary/build/Debug\"";
 				OTHER_CFLAGS = "-fno-inline";
 				OTHER_LDFLAGS = (
 					"-multiply_defined",

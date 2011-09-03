@@ -1,3 +1,5 @@
-#Tue Apr 24 12:02:39 EDT 2007
+#Sun Jul 08 12:44:44 EDT 2007
 eclipse.preferences.version=1
+indexer/indexerId=org.eclipse.cdt.core.nullindexer
 indexerId=org.eclipse.cdt.core.nullindexer
+instance/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true

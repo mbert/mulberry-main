@@ -13,8 +13,8 @@
 		AF41995C0AE9A55A00E19592 /* CVCardAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF41994F0AE9A55A00E19592 /* CVCardAdbkIOPluginDLL.cp */; };
 		AF41995E0AE9A55A00E19592 /* CVCardEngine.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199510AE9A55A00E19592 /* CVCardEngine.cp */; };
 		AF4199610AE9A55A00E19592 /* CVCard.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199530AE9A55A00E19592 /* CVCard.cp */; };
-		AF4199670AE9A55B00E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4199660AE9A55B00E19592 /* Carbon.framework */; };
-		AF4199950AE9A64800E19592 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4199560AE9A55A00E19592 /* libPluginLibrary.a */; };
+		AF6573A1136CAC390088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6573A0136CAC390088690F /* Carbon.framework */; };
+		AF9BC90613D5D78D00240750 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF9BC90513D5D78D00240750 /* libPluginLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,14 +31,14 @@
 		AF4199530AE9A55A00E19592 /* CVCard.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CVCard.cp; path = sources/CVCard.cp; sourceTree = SOURCE_ROOT; };
 		AF4199540AE9A55A00E19592 /* CVCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CVCard.h; path = sources/CVCard.h; sourceTree = SOURCE_ROOT; };
 		AF4199550AE9A55A00E19592 /* CVCardItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CVCardItem.h; path = sources/CVCardItem.h; sourceTree = SOURCE_ROOT; };
-		AF4199560AE9A55A00E19592 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
-		AF4199660AE9A55B00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF4199680AE9A55B00E19592 /* cdstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdstring.h; path = ../../Sources_Common/Utilities/cdstring.h; sourceTree = SOURCE_ROOT; };
 		AF41996A0AE9A55C00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF41996E0AE9A55C00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 		AF4199700AE9A55C00E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
 		AF4199720AE9A55C00E19592 /* quotedprintable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = quotedprintable.h; path = ../../Sources_Common/Utilities/quotedprintable.h; sourceTree = SOURCE_ROOT; };
 		AF4199760AE9A55C00E19592 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
+		AF6573A0136CAC390088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		AF9BC90513D5D78D00240750 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,8 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF4199670AE9A55B00E19592 /* Carbon.framework in Frameworks */,
-				AF4199950AE9A64800E19592 /* libPluginLibrary.a in Frameworks */,
+				AF9BC90613D5D78D00240750 /* libPluginLibrary.a in Frameworks */,
+				AF6573A1136CAC390088690F /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +87,6 @@
 				AF4199540AE9A55A00E19592 /* CVCard.h */,
 				AF4199530AE9A55A00E19592 /* CVCard.cp */,
 				AF4199550AE9A55A00E19592 /* CVCardItem.h */,
-				AF4199560AE9A55A00E19592 /* libPluginLibrary.a */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -108,7 +107,8 @@
 		AF4199650AE9A55B00E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF4199660AE9A55B00E19592 /* Carbon.framework */,
+				AF9BC90513D5D78D00240750 /* libPluginLibrary.a */,
+				AF6573A0136CAC390088690F /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,7 +141,11 @@
 			isa = PBXProject;
 			buildConfigurationList = AF41993B0AE9A55A00E19592 /* Build configuration list for PBXProject "vCardAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = AF4199380AE9A55A00E19592;
 			productRefGroup = AF4199460AE9A55A00E19592 /* Products */;
 			projectDirPath = "";
@@ -192,7 +196,11 @@
 		AF41993C0AE9A55A00E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -227,8 +235,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../PluginLibrary/build/Debug\"";
 				OTHER_CFLAGS = "-fno-inline";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-deprecated",

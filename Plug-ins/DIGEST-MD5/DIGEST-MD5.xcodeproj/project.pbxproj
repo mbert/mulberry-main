@@ -58,7 +58,6 @@
 				AF0F2FDE0AE3D0990074CFEF /* Main */,
 				AF0F2FF00AE3D0990074CFEF /* Resources */,
 				AF0F30050AE3D09C0074CFEF /* Imported Files */,
-				AF0F300E0AE3D09D0074CFEF /* Frameworks */,
 				AF0F2FDB0AE3D0990074CFEF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,13 +118,6 @@
 			name = "Imported Files";
 			sourceTree = "<group>";
 		};
-		AF0F300E0AE3D09D0074CFEF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,7 +146,14 @@
 			isa = PBXProject;
 			buildConfigurationList = AF0F2FD00AE3D0990074CFEF /* Build configuration list for PBXProject "DIGEST-MD5" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = AF0F2FCD0AE3D0990074CFEF;
 			productRefGroup = AF0F2FDB0AE3D0990074CFEF /* Products */;
 			projectDirPath = "";
@@ -208,7 +207,10 @@
 		AF0F2FD10AE3D0990074CFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};

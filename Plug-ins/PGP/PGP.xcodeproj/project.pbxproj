@@ -140,7 +140,11 @@
 			isa = PBXProject;
 			buildConfigurationList = AF321A540AEAD36D00237005 /* Build configuration list for PBXProject "PGP" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = AF321A510AEAD36D00237005;
 			productRefGroup = AF321A610AEAD36D00237005 /* Products */;
 			projectDirPath = "";
@@ -190,7 +194,9 @@
 		AF321A550AEAD36D00237005 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};

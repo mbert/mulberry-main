@@ -20,7 +20,8 @@
 		8087A1DF1314087A00C2EFF8 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1DE1314087A00C2EFF8 /* libssl.dylib */; };
 		8087A1E11314088300C2EFF8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8087A1E01314088300C2EFF8 /* libcrypto.dylib */; };
 		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
-		AF17ACFB0CCC550500205B17 /* CocoaSpeller.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */; };
+		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
+		AF17AD190CCC579D00205B17 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF17AD180CCC579D00205B17 /* AppKit.framework */; };
 		AF17AE450CCC585C00205B17 /* CMulberryCocoaApp.m in Sources */ = {isa = PBXBuildFile; fileRef = AF17AE440CCC585C00205B17 /* CMulberryCocoaApp.m */; };
 		AF25512C0C432558001AAE53 /* CFreeBusyPrintout.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2551240C432558001AAE53 /* CFreeBusyPrintout.cp */; };
 		AF25512E0C432559001AAE53 /* CFreeBusyTable.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF2551260C432558001AAE53 /* CFreeBusyTable.cp */; };
@@ -78,7 +79,8 @@
 		AF3750A70AE1DC5D00C56E20 /* MoreATSUnicode.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3750A10AE1DC5D00C56E20 /* MoreATSUnicode.cp */; };
 		AF3750A80AE1DC5D00C56E20 /* MoreATSUnicodeFonts.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3750A30AE1DC5D00C56E20 /* MoreATSUnicodeFonts.cp */; };
 		AF3750A90AE1DC5D00C56E20 /* MoreATSUnicodeTextBox.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF3750A50AE1DC5D00C56E20 /* MoreATSUnicodeTextBox.cp */; };
-		AF3750B80AE1DD3900C56E20 /* LDAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3750B70AE1DD3900C56E20 /* LDAP.framework */; };
+		AF3750B40AE1DD1B00C56E20 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3750B30AE1DD1B00C56E20 /* AddressBook.framework */; };
+		AF3753C00AE28C6200C56E20 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3753BF0AE28C6200C56E20 /* QuickTime.framework */; };
 		AF3753F00AE28E0700C56E20 /* Mulberry.PPob in Rez */ = {isa = PBXBuildFile; fileRef = AF3753EE0AE28E0700C56E20 /* Mulberry.PPob */; };
 		AF37546E0AE2D15900C56E20 /* AdBk.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF3754670AE2D15900C56E20 /* AdBk.icns */; };
 		AF37546F0AE2D15900C56E20 /* Cald.icns in Resources */ = {isa = PBXBuildFile; fileRef = AF3754680AE2D15900C56E20 /* Cald.icns */; };
@@ -153,6 +155,7 @@
 		AF52F2160AE3367D00A75C72 /* f10dd942.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF5B0AE32EB300A75C72 /* f10dd942.0 */; };
 		AF52F2170AE3367D00A75C72 /* f4996e82.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF5C0AE32EB300A75C72 /* f4996e82.0 */; };
 		AF52F2180AE3367D00A75C72 /* f73e89fd.0 in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF52EF5D0AE32EB300A75C72 /* f73e89fd.0 */; };
+		AF6573A3136CACDD0088690F /* LDAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6573A2136CACDC0088690F /* LDAP.framework */; };
 		AF8093D10D425EEF002A2E39 /* CVCardSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF8093D00D425EEF002A2E39 /* CVCardSearch.cpp */; };
 		AF8269410C1B2C9300B18EED /* CStreamBuffer.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF82692E0C1B2C9200B18EED /* CStreamBuffer.cp */; };
 		AF8269440C1B2C9300B18EED /* XMLDocument.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8269310C1B2C9200B18EED /* XMLDocument.cp */; };
@@ -162,9 +165,29 @@
 		AF82694D0C1B2C9300B18EED /* XMLObject.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF82693A0C1B2C9300B18EED /* XMLObject.cp */; };
 		AF8269500C1B2C9300B18EED /* XMLParserSAX.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF82693D0C1B2C9300B18EED /* XMLParserSAX.cp */; };
 		AF8269520C1B2C9300B18EED /* XMLSAXSimple.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF82693F0C1B2C9300B18EED /* XMLSAXSimple.cp */; };
+		AF84FE71129AC70500CB7C63 /* CWebDAVErrorResponseParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF84FE6F129AC70500CB7C63 /* CWebDAVErrorResponseParser.cpp */; };
 		AF899FE2111F3A51002548C0 /* CWebDAVSyncReport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF899FE1111F3A51002548C0 /* CWebDAVSyncReport.cpp */; };
 		AF89A008111F50B9002548C0 /* CWebDAVSyncReportParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF89A007111F50B9002548C0 /* CWebDAVSyncReportParser.cpp */; };
+		AF97490F136F10BF0073E7F2 /* CCalendarCheckThread.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF97490D136F10BF0073E7F2 /* CCalendarCheckThread.cp */; };
+		AF9BC8EE13D5D46700240750 /* CocoaSpeller.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC8ED13D5D46600240750 /* CocoaSpeller.bundle */; };
+		AF9BC90813D5D7F000240750 /* CommunicatorAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC90713D5D7EF00240750 /* CommunicatorAdbkIO.bundle */; };
+		AF9BC90A13D5D7FC00240750 /* CRAM-MD5.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC90913D5D7FC00240750 /* CRAM-MD5.bundle */; };
+		AF9BC90C13D5D80700240750 /* DIGEST-MD5.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC90B13D5D80700240750 /* DIGEST-MD5.bundle */; };
+		AF9BC91113D5D81F00240750 /* EudoraAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC90D13D5D81F00240750 /* EudoraAdbkIO.bundle */; };
+		AF9BC91213D5D81F00240750 /* Eudora4AdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC90E13D5D81F00240750 /* Eudora4AdbkIO.bundle */; };
+		AF9BC91313D5D81F00240750 /* GPG.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC90F13D5D81F00240750 /* GPG.bundle */; };
+		AF9BC91413D5D81F00240750 /* GSSAPI.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC91013D5D81F00240750 /* GSSAPI.bundle */; };
+		AF9BC91A13D5D84200240750 /* NetscapeAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC91513D5D84200240750 /* NetscapeAdbkIO.bundle */; };
+		AF9BC91B13D5D84200240750 /* OEAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC91613D5D84200240750 /* OEAdbkIO.bundle */; };
+		AF9BC91C13D5D84200240750 /* PineAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC91713D5D84200240750 /* PineAdbkIO.bundle */; };
+		AF9BC91D13D5D84200240750 /* QuickmailAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC91813D5D84200240750 /* QuickmailAdbkIO.bundle */; };
+		AF9BC91E13D5D84200240750 /* QuickmailProAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC91913D5D84200240750 /* QuickmailProAdbkIO.bundle */; };
+		AF9BC92213D5D85B00240750 /* SMIME.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC91F13D5D85B00240750 /* SMIME.bundle */; };
+		AF9BC92313D5D85B00240750 /* SSL.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC92013D5D85B00240750 /* SSL.bundle */; };
+		AF9BC92413D5D85B00240750 /* vCardAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF9BC92113D5D85B00240750 /* vCardAdbkIO.bundle */; };
 		AFB052F110AFAB180077F8B8 /* CPasswordManagerKeychain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFB052EF10AFAB180077F8B8 /* CPasswordManagerKeychain.cp */; };
+		AFBC9BC5136C898000593A2C /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBC9BC4136C898000593A2C /* libcrypto.dylib */; };
+		AFBC9BC7136C899100593A2C /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBC9BC6136C899100593A2C /* libssl.dylib */; };
 		AFBE2AB70D2F30DB002132BE /* CWebDAVPrefsClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFBE2AB60D2F30DB002132BE /* CWebDAVPrefsClient.cpp */; };
 		AFBE2ABA0D2F34A4002132BE /* COptionsAccount.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBE2AB80D2F34A4002132BE /* COptionsAccount.cp */; };
 		AFC7981B0CCADCAF00E62F0F /* CPasswordManager.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFC7981A0CCADCAF00E62F0F /* CPasswordManager.cp */; };
@@ -1177,21 +1200,6 @@
 		AFCDE5470AE1AC8C00E30447 /* CNodeArrayTree.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE5410AE1AC8C00E30447 /* CNodeArrayTree.cp */; };
 		AFCDE5480AE1AC8C00E30447 /* CNodeVectorTree.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE5420AE1AC8C00E30447 /* CNodeVectorTree.cp */; };
 		AFCDE5490AE1AC8C00E30447 /* Sticns.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE5440AE1AC8C00E30447 /* Sticns.cp */; };
-		AFDD772C0C4068FC00DE5877 /* CommunicatorAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD768A0C4066C400DE5877 /* CommunicatorAdbkIO.bundle */; };
-		AFDD772D0C4068FC00DE5877 /* CRAM-MD5.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD768F0C4066E700DE5877 /* CRAM-MD5.bundle */; };
-		AFDD772E0C4068FC00DE5877 /* DIGEST-MD5.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD769A0C40670900DE5877 /* DIGEST-MD5.bundle */; };
-		AFDD772F0C4068FC00DE5877 /* Eudora4AdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76A30C40672000DE5877 /* Eudora4AdbkIO.bundle */; };
-		AFDD77300C4068FC00DE5877 /* EudoraAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD77180C40682200DE5877 /* EudoraAdbkIO.bundle */; };
-		AFDD77310C4068FC00DE5877 /* GPG.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD770F0C40680C00DE5877 /* GPG.bundle */; };
-		AFDD77320C4068FC00DE5877 /* GSSAPI.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD77060C4067F900DE5877 /* GSSAPI.bundle */; };
-		AFDD77340C4068FC00DE5877 /* NetscapeAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76F40C4067CD00DE5877 /* NetscapeAdbkIO.bundle */; };
-		AFDD77350C4068FC00DE5877 /* OEAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76EB0C4067B900DE5877 /* OEAdbkIO.bundle */; };
-		AFDD77370C4068FC00DE5877 /* PineAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76D90C40679200DE5877 /* PineAdbkIO.bundle */; };
-		AFDD77380C4068FC00DE5877 /* QuickmailAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76D00C40677C00DE5877 /* QuickmailAdbkIO.bundle */; };
-		AFDD77390C4068FC00DE5877 /* QuickmailProAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76C70C40676A00DE5877 /* QuickmailProAdbkIO.bundle */; };
-		AFDD773A0C4068FC00DE5877 /* SMIME.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76BE0C40675500DE5877 /* SMIME.bundle */; };
-		AFDD773B0C4068FC00DE5877 /* SSL.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76B50C40674600DE5877 /* SSL.bundle */; };
-		AFDD773C0C4068FC00DE5877 /* vCardAdbkIO.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFDD76AC0C40673200DE5877 /* vCardAdbkIO.bundle */; };
 		AFDD77620C4074B800DE5877 /* LAMUnicodeEditTextImp.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFDD775E0C4074B800DE5877 /* LAMUnicodeEditTextImp.cp */; };
 		AFDD77640C4074B800DE5877 /* LUnicodeEditText.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFDD77600C4074B800DE5877 /* LUnicodeEditText.cp */; };
 		AFDD7A140C41309900DE5877 /* MulberryBits.r in Rez */ = {isa = PBXBuildFile; fileRef = AFDD7A130C41309900DE5877 /* MulberryBits.r */; };
@@ -1722,13 +1730,6 @@
 			remoteGlobalIDString = AFD93B970AE5ADFB007F506F;
 			remoteInfo = "GSSAPI MachO";
 		};
-		AF419E7F0AEA740200E19592 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF419E780AEA740200E19592 /* Kerberos.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AFD93C300AE5B342007F506F;
-			remoteInfo = "Kerberos MachO";
-		};
 		AF419E880AEA747900E19592 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AF419E810AEA747800E19592 /* NetscapeAdbkIO.xcodeproj */;
@@ -1749,13 +1750,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = AF41985C0AE9A05D00E19592;
 			remoteInfo = "PineAdbkIO MachO";
-		};
-		AF419EB20AEA750800E19592 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AFBD93FB0AD9BC9400DD4C86;
-			remoteInfo = "PluginLibrary MachO";
 		};
 		AF419EB80AEA750800E19592 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1819,13 +1813,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = AF0F2E8A0AE3C9950074CFEF;
 			remoteInfo = "Communicator MachO";
-		};
-		AF7AD76D0D83A1540056107B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = AFBD93FA0AD9BC9400DD4C86;
-			remoteInfo = "PluginLibrary MachO";
 		};
 		AF7AD76F0D83A1540056107B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1932,38 +1919,40 @@
 			remoteGlobalIDString = AF0F2FDA0AE3D0990074CFEF;
 			remoteInfo = "DIGEST-MD5 MachO";
 		};
-		AFDB82D10AECFEC600536914 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AFDB82CA0AECFEC600536914 /* PGP.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AF321A600AEAD36D00237005;
-			remoteInfo = "PGP8 MachO";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		AF17A4D4136CE01E00ED3921 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF52EE1A0AE328B700A75C72 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "Plug-ins";
 			dstSubfolderSpec = 1;
 			files = (
-				AF17ACFB0CCC550500205B17 /* CocoaSpeller.bundle in CopyFiles */,
-				AFDD772C0C4068FC00DE5877 /* CommunicatorAdbkIO.bundle in CopyFiles */,
-				AFDD772D0C4068FC00DE5877 /* CRAM-MD5.bundle in CopyFiles */,
-				AFDD772E0C4068FC00DE5877 /* DIGEST-MD5.bundle in CopyFiles */,
-				AFDD772F0C4068FC00DE5877 /* Eudora4AdbkIO.bundle in CopyFiles */,
-				AFDD77300C4068FC00DE5877 /* EudoraAdbkIO.bundle in CopyFiles */,
-				AFDD77310C4068FC00DE5877 /* GPG.bundle in CopyFiles */,
-				AFDD77320C4068FC00DE5877 /* GSSAPI.bundle in CopyFiles */,
-				AFDD77340C4068FC00DE5877 /* NetscapeAdbkIO.bundle in CopyFiles */,
-				AFDD77350C4068FC00DE5877 /* OEAdbkIO.bundle in CopyFiles */,
-				AFDD77370C4068FC00DE5877 /* PineAdbkIO.bundle in CopyFiles */,
-				AFDD77380C4068FC00DE5877 /* QuickmailAdbkIO.bundle in CopyFiles */,
-				AFDD77390C4068FC00DE5877 /* QuickmailProAdbkIO.bundle in CopyFiles */,
-				AFDD773A0C4068FC00DE5877 /* SMIME.bundle in CopyFiles */,
-				AFDD773B0C4068FC00DE5877 /* SSL.bundle in CopyFiles */,
-				AFDD773C0C4068FC00DE5877 /* vCardAdbkIO.bundle in CopyFiles */,
+				AF9BC8EE13D5D46700240750 /* CocoaSpeller.bundle in CopyFiles */,
+				AF9BC90813D5D7F000240750 /* CommunicatorAdbkIO.bundle in CopyFiles */,
+				AF9BC90A13D5D7FC00240750 /* CRAM-MD5.bundle in CopyFiles */,
+				AF9BC90C13D5D80700240750 /* DIGEST-MD5.bundle in CopyFiles */,
+				AF9BC91113D5D81F00240750 /* EudoraAdbkIO.bundle in CopyFiles */,
+				AF9BC91213D5D81F00240750 /* Eudora4AdbkIO.bundle in CopyFiles */,
+				AF9BC91313D5D81F00240750 /* GPG.bundle in CopyFiles */,
+				AF9BC91413D5D81F00240750 /* GSSAPI.bundle in CopyFiles */,
+				AF9BC91A13D5D84200240750 /* NetscapeAdbkIO.bundle in CopyFiles */,
+				AF9BC91B13D5D84200240750 /* OEAdbkIO.bundle in CopyFiles */,
+				AF9BC91C13D5D84200240750 /* PineAdbkIO.bundle in CopyFiles */,
+				AF9BC91D13D5D84200240750 /* QuickmailAdbkIO.bundle in CopyFiles */,
+				AF9BC91E13D5D84200240750 /* QuickmailProAdbkIO.bundle in CopyFiles */,
+				AF9BC92213D5D85B00240750 /* SMIME.bundle in CopyFiles */,
+				AF9BC92313D5D85B00240750 /* SSL.bundle in CopyFiles */,
+				AF9BC92413D5D85B00240750 /* vCardAdbkIO.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2540,30 +2529,11 @@
 /* Begin PBXFileReference section */
 		0867D6ABFE840B52C02AAC07 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Packaging/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32DBCF6D0370B57F00C91783 /* MulberryXcode_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MulberryXcode_Prefix.pch; path = Sources/MulberryXcode_Prefix.pch; sourceTree = "<group>"; };
-		508344B209E5C41E0093A071 /* Mulberry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mulberry.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EE202C0138B6FBC00F9E798 /* CICalendarInit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CICalendarInit.cpp; path = Source/CICalendarInit.cpp; sourceTree = "<group>"; };
-		6EE202C8138B70F800F9E798 /* CWebDAVErrorResponseParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CWebDAVErrorResponseParser.cpp; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVErrorResponseParser.cpp; sourceTree = SOURCE_ROOT; };
-		6EE202C9138B70F800F9E798 /* CWebDAVErrorResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWebDAVErrorResponseParser.h; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVErrorResponseParser.h; sourceTree = SOURCE_ROOT; };
-		6EEFC28F1389B5A000B7DEA3 /* FSpCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSpCompat.h; sourceTree = "<group>"; };
-		6EEFC2901389B5A000B7DEA3 /* MoreDesktopMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreDesktopMgr.h; sourceTree = "<group>"; };
-		6EEFC2911389B5A000B7DEA3 /* MoreFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreFiles.h; sourceTree = "<group>"; };
-		6EEFC2921389B5A000B7DEA3 /* MoreFilesExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreFilesExtras.h; sourceTree = "<group>"; };
-		6EEFC2931389B5A000B7DEA3 /* Optimization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Optimization.h; sourceTree = "<group>"; };
-		6EEFC2941389B5A000B7DEA3 /* OptimizationEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptimizationEnd.h; sourceTree = "<group>"; };
-		6EEFC2951389B5CA00B7DEA3 /* MoreFilesExtras.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MoreFilesExtras.c; sourceTree = "<group>"; tabWidth = 4; };
-		6EEFC2971389B5E600B7DEA3 /* MoreFilesX.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MoreFilesX.c; sourceTree = "<group>"; tabWidth = 8; };
-		6EEFC2981389B5E600B7DEA3 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreFilesX.h; sourceTree = "<group>"; };
-		8087A1D0131407E600C2EFF8 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		8087A1D2131407F700C2EFF8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
-		8087A1D41314080100C2EFF8 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
-		8087A1D61314080C00C2EFF8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		8087A1D81314081400C2EFF8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		8087A1DA1314081F00C2EFF8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8087A1DC1314082700C2EFF8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		8087A1DE1314087A00C2EFF8 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
-		8087A1E01314088300C2EFF8 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		4A9504C8FFE6A3BC11CA0CBA /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		4A9504CAFFE6A41611CA0CBA /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Packaging/Info.plist; sourceTree = SOURCE_ROOT; };
-		AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CocoaSpeller.bundle; path = "../Plug-ins/CocoaSpeller/build/Debug/CocoaSpeller.bundle"; sourceTree = SOURCE_ROOT; };
+		AF17A51F136CF8A000ED3921 /* Mulberry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mulberry.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF17AD180CCC579D00205B17 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		AF17AE430CCC585C00205B17 /* CMulberryCocoaApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMulberryCocoaApp.h; path = General/CMulberryCocoaApp.h; sourceTree = "<group>"; };
 		AF17AE440CCC585C00205B17 /* CMulberryCocoaApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMulberryCocoaApp.m; path = General/CMulberryCocoaApp.m; sourceTree = "<group>"; };
 		AF2551240C432558001AAE53 /* CFreeBusyPrintout.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CFreeBusyPrintout.cp; sourceTree = "<group>"; };
@@ -2676,7 +2646,8 @@
 		AF3750A30AE1DC5D00C56E20 /* MoreATSUnicodeFonts.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = MoreATSUnicodeFonts.cp; sourceTree = "<group>"; };
 		AF3750A40AE1DC5D00C56E20 /* MoreATSUnicodeInternal.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MoreATSUnicodeInternal.h; sourceTree = "<group>"; };
 		AF3750A50AE1DC5D00C56E20 /* MoreATSUnicodeTextBox.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = MoreATSUnicodeTextBox.cp; sourceTree = "<group>"; };
-		AF3750B70AE1DD3900C56E20 /* LDAP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LDAP.framework; path = System/Library/Frameworks/LDAP.framework; sourceTree = SDKROOT; };
+		AF3750B30AE1DD1B00C56E20 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		AF3753BF0AE28C6200C56E20 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 		AF3753EE0AE28E0700C56E20 /* Mulberry.PPob */ = {isa = PBXFileReference; lastKnownFileType = archive.ppob; name = Mulberry.PPob; path = Resources/Mulberry.PPob; sourceTree = SOURCE_ROOT; };
 		AF3754670AE2D15900C56E20 /* AdBk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = AdBk.icns; path = Resources/AdBk.icns; sourceTree = SOURCE_ROOT; };
 		AF3754680AE2D15900C56E20 /* Cald.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Cald.icns; path = Resources/Cald.icns; sourceTree = SOURCE_ROOT; };
@@ -2690,7 +2661,6 @@
 		AF419E580AEA72C900E19592 /* EudoraAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EudoraAdbkIO.xcodeproj; path = "../Plug-ins/EudoraAdbkIO/EudoraAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419E610AEA72DB00E19592 /* GPG.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPG.xcodeproj; path = "../Plug-ins/GPG/GPG.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419E6F0AEA73F300E19592 /* GSSAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GSSAPI.xcodeproj; path = "../Plug-ins/GSSAPI/GSSAPI.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		AF419E780AEA740200E19592 /* Kerberos.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Kerberos.xcodeproj; path = "../Plug-ins/Kerberos/Kerberos.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419E810AEA747800E19592 /* NetscapeAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NetscapeAdbkIO.xcodeproj; path = "../Plug-ins/NetscapeAdbkIO/NetscapeAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419E930AEA74B900E19592 /* OEAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OEAdbkIO.xcodeproj; path = "../Plug-ins/OEAdbkIO/OEAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AF419E9C0AEA750800E19592 /* PineAdbkIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PineAdbkIO.xcodeproj; path = "../Plug-ins/PineAdbkIO/PineAdbkIO.xcodeproj"; sourceTree = SOURCE_ROOT; };
@@ -2767,6 +2737,7 @@
 		AF52EF5B0AE32EB300A75C72 /* f10dd942.0 */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = f10dd942.0; sourceTree = "<group>"; };
 		AF52EF5C0AE32EB300A75C72 /* f4996e82.0 */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = f4996e82.0; sourceTree = "<group>"; };
 		AF52EF5D0AE32EB300A75C72 /* f73e89fd.0 */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = f73e89fd.0; sourceTree = "<group>"; };
+		AF6573A2136CACDC0088690F /* LDAP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LDAP.framework; path = System/Library/Frameworks/LDAP.framework; sourceTree = SDKROOT; };
 		AF8093CF0D425EEF002A2E39 /* CVCardSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVCardSearch.h; sourceTree = "<group>"; };
 		AF8093D00D425EEF002A2E39 /* CVCardSearch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CVCardSearch.cpp; sourceTree = "<group>"; };
 		AF82692E0C1B2C9200B18EED /* CStreamBuffer.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = CStreamBuffer.cp; path = ../../Libraries/XMLLib/Source/CStreamBuffer.cp; sourceTree = "<group>"; };
@@ -2788,12 +2759,34 @@
 		AF82693E0C1B2C9300B18EED /* XMLParserSAX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = XMLParserSAX.h; path = ../../Libraries/XMLLib/Source/XMLParserSAX.h; sourceTree = "<group>"; };
 		AF82693F0C1B2C9300B18EED /* XMLSAXSimple.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = XMLSAXSimple.cp; path = ../../Libraries/XMLLib/Source/XMLSAXSimple.cp; sourceTree = "<group>"; };
 		AF8269400C1B2C9300B18EED /* XMLSAXSimple.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = XMLSAXSimple.h; path = ../../Libraries/XMLLib/Source/XMLSAXSimple.h; sourceTree = "<group>"; };
+		AF84FE6F129AC70500CB7C63 /* CWebDAVErrorResponseParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CWebDAVErrorResponseParser.cpp; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVErrorResponseParser.cpp; sourceTree = SOURCE_ROOT; };
+		AF84FE70129AC70500CB7C63 /* CWebDAVErrorResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWebDAVErrorResponseParser.h; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVErrorResponseParser.h; sourceTree = SOURCE_ROOT; };
 		AF899FE0111F3A51002548C0 /* CWebDAVSyncReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWebDAVSyncReport.h; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVSyncReport.h; sourceTree = "<group>"; };
 		AF899FE1111F3A51002548C0 /* CWebDAVSyncReport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CWebDAVSyncReport.cpp; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVSyncReport.cpp; sourceTree = "<group>"; };
 		AF89A006111F50B9002548C0 /* CWebDAVSyncReportParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CWebDAVSyncReportParser.h; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVSyncReportParser.h; sourceTree = "<group>"; };
 		AF89A007111F50B9002548C0 /* CWebDAVSyncReportParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CWebDAVSyncReportParser.cpp; path = ../Sources_Common/HTTP/WebDAVClient/CWebDAVSyncReportParser.cpp; sourceTree = "<group>"; };
+		AF97490D136F10BF0073E7F2 /* CCalendarCheckThread.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCalendarCheckThread.cp; path = ../Sources_Common/Mail/Control/CCalendarCheckThread.cp; sourceTree = "<group>"; };
+		AF97490E136F10BF0073E7F2 /* CCalendarCheckThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCalendarCheckThread.h; path = ../Sources_Common/Mail/Control/CCalendarCheckThread.h; sourceTree = "<group>"; };
+		AF9BC8ED13D5D46600240750 /* CocoaSpeller.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = CocoaSpeller.bundle; path = "../Plug-ins/CocoaSpeller/build/Debug/CocoaSpeller.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC90713D5D7EF00240750 /* CommunicatorAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = CommunicatorAdbkIO.bundle; path = "../Plug-ins/CommunicatorAdbkIO/build/Debug/CommunicatorAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC90913D5D7FC00240750 /* CRAM-MD5.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = "CRAM-MD5.bundle"; path = "../Plug-ins/CRAM-MD5/build/Debug/CRAM-MD5.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC90B13D5D80700240750 /* DIGEST-MD5.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = "DIGEST-MD5.bundle"; path = "../Plug-ins/DIGEST-MD5/build/Debug/DIGEST-MD5.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC90D13D5D81F00240750 /* EudoraAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = EudoraAdbkIO.bundle; path = "../Plug-ins/EudoraAdbkIO/build/Debug/EudoraAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC90E13D5D81F00240750 /* Eudora4AdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = Eudora4AdbkIO.bundle; path = "../Plug-ins/Eudora4AdbkIO/build/Debug/Eudora4AdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC90F13D5D81F00240750 /* GPG.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = GPG.bundle; path = "../Plug-ins/GPG/build/Debug/GPG.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC91013D5D81F00240750 /* GSSAPI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = GSSAPI.bundle; path = "../Plug-ins/GSSAPI/build/Debug/GSSAPI.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC91513D5D84200240750 /* NetscapeAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = NetscapeAdbkIO.bundle; path = "../Plug-ins/NetscapeAdbkIO/build/Debug/NetscapeAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC91613D5D84200240750 /* OEAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = OEAdbkIO.bundle; path = "../Plug-ins/OEAdbkIO/build/Debug/OEAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC91713D5D84200240750 /* PineAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = PineAdbkIO.bundle; path = "../Plug-ins/PineAdbkIO/build/Debug/PineAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC91813D5D84200240750 /* QuickmailAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = QuickmailAdbkIO.bundle; path = "../Plug-ins/QuickmailAdbkIO/build/Debug/QuickmailAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC91913D5D84200240750 /* QuickmailProAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = QuickmailProAdbkIO.bundle; path = "../Plug-ins/QuickmailProAdbkIO/build/Debug/QuickmailProAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC91F13D5D85B00240750 /* SMIME.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = SMIME.bundle; path = "../Plug-ins/SMIME/build/Debug/SMIME.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC92013D5D85B00240750 /* SSL.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = SSL.bundle; path = "../Plug-ins/SSL/build/Debug/SSL.bundle"; sourceTree = SOURCE_ROOT; };
+		AF9BC92113D5D85B00240750 /* vCardAdbkIO.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; name = vCardAdbkIO.bundle; path = "../Plug-ins/vCardAdbkIO/build/Debug/vCardAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
 		AFB052EF10AFAB180077F8B8 /* CPasswordManagerKeychain.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CPasswordManagerKeychain.cp; path = ../Sources_Common/Mail/Control/CPasswordManagerKeychain.cp; sourceTree = SOURCE_ROOT; };
 		AFB052F010AFAB180077F8B8 /* CPasswordManagerKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPasswordManagerKeychain.h; path = ../Sources_Common/Mail/Control/CPasswordManagerKeychain.h; sourceTree = SOURCE_ROOT; };
+		AFBC9BC4136C898000593A2C /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		AFBC9BC6136C899100593A2C /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
 		AFBE2AB50D2F30DB002132BE /* CWebDAVPrefsClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWebDAVPrefsClient.h; sourceTree = "<group>"; };
 		AFBE2AB60D2F30DB002132BE /* CWebDAVPrefsClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CWebDAVPrefsClient.cpp; sourceTree = "<group>"; };
 		AFBE2AB80D2F34A4002132BE /* COptionsAccount.cp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = COptionsAccount.cp; path = ../Sources_Common/Application/Preferences/COptionsAccount.cp; sourceTree = SOURCE_ROOT; };
@@ -4860,24 +4853,6 @@
 		AFCDE5450AE1AC8C00E30447 /* Sticns.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Sticns.h; sourceTree = "<group>"; };
 		AFD93B540AE5AA10007F506F /* CRAM-MD5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CRAM-MD5.xcodeproj"; path = "../Plug-ins/CRAM-MD5/CRAM-MD5.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AFD93B660AE5AB45007F506F /* DIGEST-MD5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "DIGEST-MD5.xcodeproj"; path = "../Plug-ins/DIGEST-MD5/DIGEST-MD5.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		AFDB82CA0AECFEC600536914 /* PGP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PGP.xcodeproj; path = "../Plug-ins/PGP/PGP.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		AFDD768A0C4066C400DE5877 /* CommunicatorAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CommunicatorAdbkIO.bundle; path = "../Plug-ins/CommunicatorAdbkIO/build/Debug/CommunicatorAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD768F0C4066E700DE5877 /* CRAM-MD5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CRAM-MD5.bundle"; path = "../Plug-ins/CRAM-MD5/build/Debug/CRAM-MD5.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD769A0C40670900DE5877 /* DIGEST-MD5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "DIGEST-MD5.bundle"; path = "../Plug-ins/DIGEST-MD5/build/Debug/DIGEST-MD5.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76A30C40672000DE5877 /* Eudora4AdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Eudora4AdbkIO.bundle; path = "../Plug-ins/Eudora4AdbkIO/build/Debug/Eudora4AdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76AC0C40673200DE5877 /* vCardAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = vCardAdbkIO.bundle; path = "../Plug-ins/vCardAdbkIO/build/Debug/vCardAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76B50C40674600DE5877 /* SSL.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SSL.bundle; path = "../Plug-ins/SSL/build/Debug/SSL.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76BE0C40675500DE5877 /* SMIME.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SMIME.bundle; path = "../Plug-ins/SMIME/build/Debug/SMIME.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76C70C40676A00DE5877 /* QuickmailProAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QuickmailProAdbkIO.bundle; path = "../Plug-ins/QuickmailProAdbkIO/build/Debug/QuickmailProAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76D00C40677C00DE5877 /* QuickmailAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QuickmailAdbkIO.bundle; path = "../Plug-ins/QuickmailAdbkIO/build/Debug/QuickmailAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76D90C40679200DE5877 /* PineAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PineAdbkIO.bundle; path = "../Plug-ins/PineAdbkIO/build/Debug/PineAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76E20C4067AB00DE5877 /* PGP8.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PGP8.bundle; path = "../Plug-ins/PGP/build/Debug/PGP8.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76EB0C4067B900DE5877 /* OEAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = OEAdbkIO.bundle; path = "../Plug-ins/OEAdbkIO/build/Debug/OEAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76F40C4067CD00DE5877 /* NetscapeAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NetscapeAdbkIO.bundle; path = "../Plug-ins/NetscapeAdbkIO/build/Debug/NetscapeAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76FD0C4067ED00DE5877 /* Kerberos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kerberos.bundle; path = "../Plug-ins/Kerberos/build/Debug/Kerberos.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD77060C4067F900DE5877 /* GSSAPI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GSSAPI.bundle; path = "../Plug-ins/GSSAPI/build/Debug/GSSAPI.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD770F0C40680C00DE5877 /* GPG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GPG.bundle; path = "../Plug-ins/GPG/build/Debug/GPG.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD77180C40682200DE5877 /* EudoraAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = EudoraAdbkIO.bundle; path = "../Plug-ins/EudoraAdbkIO/build/Debug/EudoraAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
 		AFDD775E0C4074B800DE5877 /* LAMUnicodeEditTextImp.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = LAMUnicodeEditTextImp.cp; sourceTree = "<group>"; };
 		AFDD775F0C4074B800DE5877 /* LAMUnicodeEditTextImp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = LAMUnicodeEditTextImp.h; sourceTree = "<group>"; };
 		AFDD77600C4074B800DE5877 /* LUnicodeEditText.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = LUnicodeEditText.cp; sourceTree = "<group>"; };
@@ -5400,16 +5375,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8087A1E11314088300C2EFF8 /* libcrypto.dylib in Frameworks */,
-				8087A1DF1314087A00C2EFF8 /* libssl.dylib in Frameworks */,
-				8087A1DD1314082700C2EFF8 /* AppKit.framework in Frameworks */,
-				8087A1DB1314081F00C2EFF8 /* Security.framework in Frameworks */,
-				8087A1D91314081500C2EFF8 /* WebKit.framework in Frameworks */,
-				8087A1D71314080C00C2EFF8 /* Cocoa.framework in Frameworks */,
-				8087A1D51314080100C2EFF8 /* QuickTime.framework in Frameworks */,
-				8087A1D3131407F700C2EFF8 /* AddressBook.framework in Frameworks */,
-				8087A1D1131407E600C2EFF8 /* Carbon.framework in Frameworks */,
-				AF3750B80AE1DD3900C56E20 /* LDAP.framework in Frameworks */,
+				8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */,
+				AF3750B40AE1DD1B00C56E20 /* AddressBook.framework in Frameworks */,
+				AF6573A3136CACDD0088690F /* LDAP.framework in Frameworks */,
+				AF3753C00AE28C6200C56E20 /* QuickTime.framework in Frameworks */,
+				AF2555010C43DAC7001AAE53 /* Cocoa.framework in Frameworks */,
+				AF2555020C43DAC7001AAE53 /* WebKit.framework in Frameworks */,
+				AFC798200CCAE69000E62F0F /* Security.framework in Frameworks */,
+				AF17AD190CCC579D00205B17 /* AppKit.framework in Frameworks */,
+				AFBC9BC5136C898000593A2C /* libcrypto.dylib in Frameworks */,
+				AFBC9BC7136C899100593A2C /* libssl.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5419,7 +5394,7 @@
 		195DF8CFFE9D517E11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				508344B209E5C41E0093A071 /* Mulberry.app */,
+				AF17A51F136CF8A000ED3921 /* Mulberry.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -5432,7 +5407,23 @@
 				AF52EF1B0AE32EB200A75C72 /* Plug-ins */,
 				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
 				195DF8CFFE9D517E11CA2CBB /* Products */,
-				AFD93B620AE5AA3D007F506F /* Plug-in Projects */,
+				AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */,
+				AFC79A4C0CCBEB4C00E62F0F /* CocoaSpeller.xcodeproj */,
+				AF419E460AEA72AE00E19592 /* CommunicatorAdbkIO.xcodeproj */,
+				AFD93B540AE5AA10007F506F /* CRAM-MD5.xcodeproj */,
+				AFD93B660AE5AB45007F506F /* DIGEST-MD5.xcodeproj */,
+				AF419E580AEA72C900E19592 /* EudoraAdbkIO.xcodeproj */,
+				AF419E4F0AEA72BB00E19592 /* Eudora4AdbkIO.xcodeproj */,
+				AF419E610AEA72DB00E19592 /* GPG.xcodeproj */,
+				AF419E6F0AEA73F300E19592 /* GSSAPI.xcodeproj */,
+				AF419E810AEA747800E19592 /* NetscapeAdbkIO.xcodeproj */,
+				AF419E930AEA74B900E19592 /* OEAdbkIO.xcodeproj */,
+				AF419E9C0AEA750800E19592 /* PineAdbkIO.xcodeproj */,
+				AF419EA20AEA750800E19592 /* QuickmailAdbkIO.xcodeproj */,
+				AF419EA50AEA750800E19592 /* QuickmailProAdbkIO.xcodeproj */,
+				AF419EC00AEA753B00E19592 /* SMIME.xcodeproj */,
+				AF419EC60AEA753B00E19592 /* SSL.xcodeproj */,
+				AF419EC90AEA753B00E19592 /* vCardAdbkIO.xcodeproj */,
 			);
 			name = MulberryXcode;
 			sourceTree = "<group>";
@@ -5475,6 +5466,7 @@
 				AFCDDF1B0AE176DD00E30447 /* Table Support */,
 				AFCDDF400AE176DD00E30447 /* Toolbars */,
 				AFCDDF4E0AE176DD00E30447 /* Control */,
+				AFCDE0A70AE176DF00E30447 /* Tasks */,
 				AFCDDF630AE176DD00E30447 /* Protocols */,
 				AFCDDF710AE176DE00E30447 /* Offline Mail */,
 				AFCDDF7C0AE176DE00E30447 /* Offline Recording */,
@@ -5534,16 +5526,18 @@
 		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				8087A1E01314088300C2EFF8 /* libcrypto.dylib */,
-				8087A1DE1314087A00C2EFF8 /* libssl.dylib */,
-				8087A1DC1314082700C2EFF8 /* AppKit.framework */,
-				8087A1DA1314081F00C2EFF8 /* Security.framework */,
-				8087A1D81314081400C2EFF8 /* WebKit.framework */,
-				8087A1D61314080C00C2EFF8 /* Cocoa.framework */,
-				8087A1D41314080100C2EFF8 /* QuickTime.framework */,
-				8087A1D2131407F700C2EFF8 /* AddressBook.framework */,
-				8087A1D0131407E600C2EFF8 /* Carbon.framework */,
-				AF3750B70AE1DD3900C56E20 /* LDAP.framework */,
+				20286C33FDCF999611CA2CEA /* Carbon.framework */,
+				4A9504CAFFE6A41611CA0CBA /* CoreServices.framework */,
+				4A9504C8FFE6A3BC11CA0CBA /* ApplicationServices.framework */,
+				AF3753BF0AE28C6200C56E20 /* QuickTime.framework */,
+				AF3750B30AE1DD1B00C56E20 /* AddressBook.framework */,
+				AF6573A2136CACDC0088690F /* LDAP.framework */,
+				AFC7981F0CCAE69000E62F0F /* Security.framework */,
+				AF2554580C43DAC7001AAE53 /* Cocoa.framework */,
+				AF17AD180CCC579D00205B17 /* AppKit.framework */,
+				AF2554590C43DAC7001AAE53 /* WebKit.framework */,
+				AFBC9BC4136C898000593A2C /* libcrypto.dylib */,
+				AFBC9BC6136C899100593A2C /* libssl.dylib */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -5738,14 +5732,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AF419E790AEA740200E19592 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AF419E800AEA740200E19592 /* Kerberos.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AF419E820AEA747800E19592 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -5766,14 +5752,6 @@
 			isa = PBXGroup;
 			children = (
 				AF419EAD0AEA750800E19592 /* PineAdbkIO.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		AF419EA00AEA750800E19592 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AF419EB30AEA750800E19592 /* libPluginLibrary.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -5821,24 +5799,22 @@
 		AF52EF1B0AE32EB200A75C72 /* Plug-ins */ = {
 			isa = PBXGroup;
 			children = (
-				AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */,
-				AFDD768A0C4066C400DE5877 /* CommunicatorAdbkIO.bundle */,
-				AFDD768F0C4066E700DE5877 /* CRAM-MD5.bundle */,
-				AFDD769A0C40670900DE5877 /* DIGEST-MD5.bundle */,
-				AFDD76A30C40672000DE5877 /* Eudora4AdbkIO.bundle */,
-				AFDD77180C40682200DE5877 /* EudoraAdbkIO.bundle */,
-				AFDD770F0C40680C00DE5877 /* GPG.bundle */,
-				AFDD77060C4067F900DE5877 /* GSSAPI.bundle */,
-				AFDD76FD0C4067ED00DE5877 /* Kerberos.bundle */,
-				AFDD76F40C4067CD00DE5877 /* NetscapeAdbkIO.bundle */,
-				AFDD76EB0C4067B900DE5877 /* OEAdbkIO.bundle */,
-				AFDD76E20C4067AB00DE5877 /* PGP8.bundle */,
-				AFDD76D90C40679200DE5877 /* PineAdbkIO.bundle */,
-				AFDD76D00C40677C00DE5877 /* QuickmailAdbkIO.bundle */,
-				AFDD76C70C40676A00DE5877 /* QuickmailProAdbkIO.bundle */,
-				AFDD76BE0C40675500DE5877 /* SMIME.bundle */,
-				AFDD76B50C40674600DE5877 /* SSL.bundle */,
-				AFDD76AC0C40673200DE5877 /* vCardAdbkIO.bundle */,
+				AF9BC8ED13D5D46600240750 /* CocoaSpeller.bundle */,
+				AF9BC90713D5D7EF00240750 /* CommunicatorAdbkIO.bundle */,
+				AF9BC90913D5D7FC00240750 /* CRAM-MD5.bundle */,
+				AF9BC90B13D5D80700240750 /* DIGEST-MD5.bundle */,
+				AF9BC90D13D5D81F00240750 /* EudoraAdbkIO.bundle */,
+				AF9BC90E13D5D81F00240750 /* Eudora4AdbkIO.bundle */,
+				AF9BC90F13D5D81F00240750 /* GPG.bundle */,
+				AF9BC91013D5D81F00240750 /* GSSAPI.bundle */,
+				AF9BC91513D5D84200240750 /* NetscapeAdbkIO.bundle */,
+				AF9BC91613D5D84200240750 /* OEAdbkIO.bundle */,
+				AF9BC91713D5D84200240750 /* PineAdbkIO.bundle */,
+				AF9BC91813D5D84200240750 /* QuickmailAdbkIO.bundle */,
+				AF9BC91913D5D84200240750 /* QuickmailProAdbkIO.bundle */,
+				AF9BC91F13D5D85B00240750 /* SMIME.bundle */,
+				AF9BC92013D5D85B00240750 /* SSL.bundle */,
+				AF9BC92113D5D85B00240750 /* vCardAdbkIO.bundle */,
 				AF52EF1C0AE32EB200A75C72 /* CACerts */,
 				AF52EF7D0AE32EB400A75C72 /* Timezones */,
 			);
@@ -8250,7 +8226,6 @@
 		AFCDDE6C0AE176DC00E30447 /* Address Book Manager */ = {
 			isa = PBXGroup;
 			children = (
-				AFCDE0A70AE176DF00E30447 /* Tasks */,
 				AFCDDE7B0AE176DC00E30447 /* Address Book Properties */,
 				AFCDDE6D0AE176DC00E30447 /* CAdbkManagerWindow.h */,
 				AFCDDE6E0AE176DC00E30447 /* CAdbkManagerWindow.cp */,
@@ -8841,6 +8816,8 @@
 			children = (
 				AFCDE0410AE176DF00E30447 /* CCalendarStoreManager.h */,
 				AFCDE0420AE176DF00E30447 /* CCalendarStoreManager.cpp */,
+				AF97490E136F10BF0073E7F2 /* CCalendarCheckThread.h */,
+				AF97490D136F10BF0073E7F2 /* CCalendarCheckThread.cp */,
 				AFCDE0430AE176DF00E30447 /* CCalendarStoreNode.h */,
 				AFCDE0440AE176DF00E30447 /* CCalendarStoreNode.cpp */,
 				AFCDE0450AE176DF00E30447 /* CCalendarStoreWebcal.h */,
@@ -8968,6 +8945,8 @@
 				AFCDE0900AE176DF00E30447 /* CWebDAVXMLResponseParser.cpp */,
 				AFCDE0910AE176DF00E30447 /* CWebDAVMultiResponseParser.h */,
 				AFCDE0920AE176DF00E30447 /* CWebDAVMultiResponseParser.cpp */,
+				AF84FE70129AC70500CB7C63 /* CWebDAVErrorResponseParser.h */,
+				AF84FE6F129AC70500CB7C63 /* CWebDAVErrorResponseParser.cpp */,
 				AFCDE0930AE176DF00E30447 /* CWebDAVPropFindParser.h */,
 				AFCDE0940AE176DF00E30447 /* CWebDAVPropFindParser.cpp */,
 				AF2551570C432686001AAE53 /* CWebDAVPrincipalMatch.h */,
@@ -9401,44 +9380,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AFD93B620AE5AA3D007F506F /* Plug-in Projects */ = {
-			isa = PBXGroup;
-			children = (
-				AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */,
-				AFC79A4C0CCBEB4C00E62F0F /* CocoaSpeller.xcodeproj */,
-				AF419E460AEA72AE00E19592 /* CommunicatorAdbkIO.xcodeproj */,
-				AFD93B540AE5AA10007F506F /* CRAM-MD5.xcodeproj */,
-				AFD93B660AE5AB45007F506F /* DIGEST-MD5.xcodeproj */,
-				AF419E4F0AEA72BB00E19592 /* Eudora4AdbkIO.xcodeproj */,
-				AF419E580AEA72C900E19592 /* EudoraAdbkIO.xcodeproj */,
-				AF419E610AEA72DB00E19592 /* GPG.xcodeproj */,
-				AF419E6F0AEA73F300E19592 /* GSSAPI.xcodeproj */,
-				AF419E780AEA740200E19592 /* Kerberos.xcodeproj */,
-				AF419E810AEA747800E19592 /* NetscapeAdbkIO.xcodeproj */,
-				AF419E930AEA74B900E19592 /* OEAdbkIO.xcodeproj */,
-				AFDB82CA0AECFEC600536914 /* PGP.xcodeproj */,
-				AF419E9C0AEA750800E19592 /* PineAdbkIO.xcodeproj */,
-				AF419EA20AEA750800E19592 /* QuickmailAdbkIO.xcodeproj */,
-				AF419EA50AEA750800E19592 /* QuickmailProAdbkIO.xcodeproj */,
-				AF419EC00AEA753B00E19592 /* SMIME.xcodeproj */,
-				AF419EC60AEA753B00E19592 /* SSL.xcodeproj */,
-				AF419EC90AEA753B00E19592 /* vCardAdbkIO.xcodeproj */,
-			);
-			name = "Plug-in Projects";
-			sourceTree = "<group>";
-		};
 		AFD93B670AE5AB45007F506F /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				AFD93B6E0AE5AB45007F506F /* DIGEST-MD5.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		AFDB82CB0AECFEC600536914 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AFDB82D20AECFEC600536914 /* PGP8.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -10109,9 +10054,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D0C4E890486CD37000505A6 /* MulberryXcode */ = {
+		8D0C4E890486CD37000505A6 /* Mulberry */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "MulberryXcode" */;
+			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "Mulberry" */;
 			buildPhases = (
 				AF3754A70AE2F43200C56E20 /* Rez */,
 				8D0C4E8C0486CD37000505A6 /* Resources */,
@@ -10120,11 +10065,12 @@
 				AF52EE1A0AE328B700A75C72 /* CopyFiles */,
 				AF52F0A50AE3323E00A75C72 /* CopyFiles */,
 				AF52F0F60AE3330600A75C72 /* CopyFiles */,
+				AF17A4D4136CE01E00ED3921 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AF7AD76E0D83A1540056107B /* PBXTargetDependency */,
+				AF7AD7660D83A1540056107B /* PBXTargetDependency */,
 				AF7AD77E0D83A1540056107B /* PBXTargetDependency */,
 				AF7AD7820D83A1540056107B /* PBXTargetDependency */,
 				AF7AD7680D83A1540056107B /* PBXTargetDependency */,
@@ -10136,16 +10082,14 @@
 				AF7AD7720D83A1540056107B /* PBXTargetDependency */,
 				AF7AD7860D83A1540056107B /* PBXTargetDependency */,
 				AF7AD76A0D83A1540056107B /* PBXTargetDependency */,
-				AF7AD7740D83A1540056107B /* PBXTargetDependency */,
-				AF7AD7780D83A1540056107B /* PBXTargetDependency */,
 				AF7AD77A0D83A1540056107B /* PBXTargetDependency */,
 				AF7AD7880D83A1540056107B /* PBXTargetDependency */,
-				AF7AD7660D83A1540056107B /* PBXTargetDependency */,
+				AF7AD7740D83A1540056107B /* PBXTargetDependency */,
 			);
-			name = MulberryXcode;
+			name = Mulberry;
 			productInstallPath = "$(HOME)/Applications";
 			productName = MulberryXcode;
-			productReference = 508344B209E5C41E0093A071 /* Mulberry.app */;
+			productReference = AF17A51F136CF8A000ED3921 /* Mulberry.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -10199,10 +10143,6 @@
 					ProjectRef = AF419E6F0AEA73F300E19592 /* GSSAPI.xcodeproj */;
 				},
 				{
-					ProductGroup = AF419E790AEA740200E19592 /* Products */;
-					ProjectRef = AF419E780AEA740200E19592 /* Kerberos.xcodeproj */;
-				},
-				{
 					ProductGroup = AF419E820AEA747800E19592 /* Products */;
 					ProjectRef = AF419E810AEA747800E19592 /* NetscapeAdbkIO.xcodeproj */;
 				},
@@ -10211,16 +10151,8 @@
 					ProjectRef = AF419E930AEA74B900E19592 /* OEAdbkIO.xcodeproj */;
 				},
 				{
-					ProductGroup = AFDB82CB0AECFEC600536914 /* Products */;
-					ProjectRef = AFDB82CA0AECFEC600536914 /* PGP.xcodeproj */;
-				},
-				{
 					ProductGroup = AF419E9D0AEA750800E19592 /* Products */;
 					ProjectRef = AF419E9C0AEA750800E19592 /* PineAdbkIO.xcodeproj */;
-				},
-				{
-					ProductGroup = AF419EA00AEA750800E19592 /* Products */;
-					ProjectRef = AF419E9F0AEA750800E19592 /* PluginLibrary.xcodeproj */;
 				},
 				{
 					ProductGroup = AF419EA30AEA750800E19592 /* Products */;
@@ -10245,7 +10177,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				8D0C4E890486CD37000505A6 /* MulberryXcode */,
+				8D0C4E890486CD37000505A6 /* Mulberry */,
 			);
 		};
 /* End PBXProject section */
@@ -10286,13 +10218,6 @@
 			remoteRef = AF419E760AEA73F300E19592 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AF419E800AEA740200E19592 /* Kerberos.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Kerberos.bundle;
-			remoteRef = AF419E7F0AEA740200E19592 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		AF419E890AEA747900E19592 /* NetscapeAdbkIO.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -10312,13 +10237,6 @@
 			fileType = wrapper.cfbundle;
 			path = PineAdbkIO.bundle;
 			remoteRef = AF419EAC0AEA750800E19592 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AF419EB30AEA750800E19592 /* libPluginLibrary.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libPluginLibrary.a;
-			remoteRef = AF419EB20AEA750800E19592 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		AF419EB90AEA750800E19592 /* QuickmailAdbkIO.bundle */ = {
@@ -10375,13 +10293,6 @@
 			fileType = wrapper.cfbundle;
 			path = "DIGEST-MD5.bundle";
 			remoteRef = AFD93B6D0AE5AB45007F506F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AFDB82D20AECFEC600536914 /* PGP8.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PGP8.bundle;
-			remoteRef = AFDB82D10AECFEC600536914 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -11509,9 +11420,8 @@
 				AFB052F110AFAB180077F8B8 /* CPasswordManagerKeychain.cp in Sources */,
 				AF899FE2111F3A51002548C0 /* CWebDAVSyncReport.cpp in Sources */,
 				AF89A008111F50B9002548C0 /* CWebDAVSyncReportParser.cpp in Sources */,
-				6EE202C1138B6FBC00F9E798 /* CICalendarInit.cpp in Sources */,
-				6EE202CA138B70F800F9E798 /* CWebDAVErrorResponseParser.cpp in Sources */,
-				6EE20502138CB64200F9E798 /* MoreFilesX.c in Sources */,
+				AF84FE71129AC70500CB7C63 /* CWebDAVErrorResponseParser.cpp in Sources */,
+				AF97490F136F10BF0073E7F2 /* CCalendarCheckThread.cp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11537,11 +11447,6 @@
 			isa = PBXTargetDependency;
 			name = "Communicator MachO";
 			targetProxy = AF7AD76B0D83A1540056107B /* PBXContainerItemProxy */;
-		};
-		AF7AD76E0D83A1540056107B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "PluginLibrary MachO";
-			targetProxy = AF7AD76D0D83A1540056107B /* PBXContainerItemProxy */;
 		};
 		AF7AD7700D83A1540056107B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -11620,53 +11525,41 @@
 		AF9388090B116AA0000C5A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				EXECUTABLE_EXTENSION = app;
-				GCC_SHORT_ENUMS = NO;
 				INFOPLIST_FILE = Packaging/Info.plist;
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = Mulberry;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
-				ZERO_LINK = NO;
 			};
 			name = Debug;
 		};
 		AF93880A0B116AA0000C5A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sources/MulberryXcode_Prefix.pch;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = NO;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
-				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = NO;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
 				OTHER_CPLUSPLUSFLAGS = "-fpermissive";
-				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
-				ZERO_LINK = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				VALID_ARCHS = i386;
 			};
 			name = Debug;
 		};
@@ -11675,14 +11568,12 @@
 			buildSettings = {
 				DEAD_CODE_STRIPPING = YES;
 				EXECUTABLE_EXTENSION = app;
-				GCC_SHORT_ENUMS = NO;
 				INFOPLIST_FILE = Packaging/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = Mulberry;
 				PUBLIC_HEADERS_FOLDER_PATH = "";
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -11696,37 +11587,28 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sources/MulberryXcode_Prefix.pch;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				GCC_WARN_ABOUT_MISSING_NEWLINE = NO;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
-				GCC_WARN_EFFECTIVE_CPLUSPLUS_VIOLATIONS = NO;
-				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
 				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_MISSING_PARENTHESES = YES;
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
-				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = NO;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
 				OTHER_CPLUSPLUSFLAGS = "-fpermissive";
-				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SEPARATE_STRIP = YES;
+				VALID_ARCHS = i386;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "MulberryXcode" */ = {
+		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "Mulberry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF9388090B116AA0000C5A54 /* Debug */,

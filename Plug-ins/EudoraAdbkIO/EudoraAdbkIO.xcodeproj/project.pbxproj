@@ -28,7 +28,6 @@
 		AF419AA70AE9ABB700E19592 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
 		AF419AA80AE9ABB700E19592 /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
 		AF419AA90AE9ABB700E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
-		AF419AB70AE9ABB700E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF419AB90AE9ABB700E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF419ABD0AE9ABB700E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -92,7 +91,6 @@
 		AF419AB60AE9ABB700E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF419AB70AE9ABB700E19592 /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,7 +123,14 @@
 			isa = PBXProject;
 			buildConfigurationList = AF419A900AE9ABB600E19592 /* Build configuration list for PBXProject "EudoraAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = AF419A8D0AE9ABB600E19592;
 			productRefGroup = AF419A9B0AE9ABB600E19592 /* Products */;
 			projectDirPath = "";
@@ -176,7 +181,10 @@
 		AF419A910AE9ABB600E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
