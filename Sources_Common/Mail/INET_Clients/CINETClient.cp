@@ -72,6 +72,8 @@
 
 extern const char* cSpace;
 
+#define FORCE_LOGIN 1
+
 #pragma mark ____________________________CINETClientResponse
 
 CINETClient::CINETClientResponse::CINETClientResponse()
@@ -1057,8 +1059,13 @@ void CINETClient::DoPlainAuthentication()
 	// Start command
 	INETStartSend(NULL, NULL, NULL, cdstring::null_str, false);
 
+	bool force_login = false;
+#ifdef FORCE_LOGIN
+	force_login = (GetAccount()->GetName().find("-login") != cdstring::npos);
+#endif
+
 	// Send password next
-	if (mLoginAllowed && !mAuthLoginAllowed && !mAuthPlainAllowed)
+	if (force_login || (mLoginAllowed && !mAuthLoginAllowed && !mAuthPlainAllowed))
 		INETSendString(cLOGIN, eQueueNoFlags, false);
 	else
 		INETSendString(GetAuthCommand(), eQueueNoFlags, false);
@@ -1066,7 +1073,7 @@ void CINETClient::DoPlainAuthentication()
 
 	CAuthenticatorUserPswd* auth = GetAccount()->GetAuthenticatorUserPswd();
 
-	if (mLoginAllowed && !mAuthLoginAllowed && !mAuthPlainAllowed)
+	if (force_login || (mLoginAllowed && !mAuthLoginAllowed && !mAuthPlainAllowed))
 	{
 		// LOGIN uid pswd
 		INETSendString(auth->GetUID(), eQueueProcess, false);
