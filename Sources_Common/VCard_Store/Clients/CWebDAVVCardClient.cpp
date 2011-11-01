@@ -1420,7 +1420,8 @@ bool CWebDAVVCardClient::GetSelfPrincipalResource(const cdstring& rurl, cdstring
 	cdstrvect hrefs = GetHrefListProperty(rurl, http::webdav::cProperty_current_user_principal);
 	if (!hrefs.empty())
 	{
-		result = hrefs.front();
+        CURL url(hrefs.front());
+		result = url.Path();
 		return true;
 	}
 	
@@ -1436,7 +1437,8 @@ bool CWebDAVVCardClient::GetSelfPrincipalResource(const cdstring& rurl, cdstring
 		{
 			if (results.size() > 0)
 			{
-				result = results.front();
+                CURL url(results.front());
+				result = url.Path();
 				return true;
 			}
 		}

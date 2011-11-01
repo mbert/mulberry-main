@@ -158,7 +158,8 @@ void CCardDAVVCardClient::_GetPrincipalDetails(const cdstring& puri, bool reset_
 			// May need to reset calendar-home path
 			if (GetAdbkOwner()->GetAddressAccount()->GetBaseRURL().empty())
 			{
-				_Reset((*found).second);
+                CURL url((*found).second);
+				_Reset(url.Path());
 			}
 		}
 		return;

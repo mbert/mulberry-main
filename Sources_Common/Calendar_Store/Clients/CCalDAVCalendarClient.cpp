@@ -169,17 +169,24 @@ void CCalDAVCalendarClient::_GetPrincipalDetails(const cdstring& puri, bool rese
 			// May need to reset calendar-home path
 			if (GetCalendarProtocol()->GetCalendarAccount()->GetBaseRURL().empty())
 			{
-				_Reset((*found).second);
+                CURL url((*found).second);
+				_Reset(url.Path());
 			}
 		}
 		if (HasDAVVersion(eCALDAVsched))
 		{
 			found = result.find(http::caldav::cProperty_scheduleinboxURL.FullName());
 			if (found != result.end())
-				mCachedInbox = (*found).second;
+            {
+                CURL url((*found).second);
+				mCachedInbox = url.Path();
+            }
 			found = result.find(http::caldav::cProperty_scheduleoutboxURL.FullName());
 			if (found != result.end())
-				mCachedOutbox = (*found).second;
+            {
+                CURL url((*found).second);
+				mCachedOutbox = url.Path();
+            }
 			mCachedInboxOutbox = true;
 		}
 		return;
