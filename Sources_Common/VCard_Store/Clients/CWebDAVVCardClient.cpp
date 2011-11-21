@@ -203,6 +203,9 @@ void CWebDAVVCardClient::Logon()
 			CPasswordManager::GetManager()->AddPassword(GetAccount(), auth->GetPswd());
 		}
 	}
+
+    // Break connection with server
+    CloseConnection();
 }
 
 void CWebDAVVCardClient::Logoff()
