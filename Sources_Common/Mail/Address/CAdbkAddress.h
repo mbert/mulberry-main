@@ -89,7 +89,8 @@ public:
 	{
 		eDefaultAddressType = 0,
 		eHomeAddressType,
-		eWorkAddressType
+		eWorkAddressType,
+		eOtherAddressType
 	};
 
 	enum EPhoneType
@@ -107,6 +108,8 @@ public:
 
 	typedef std::vector<EAddressField> CAddressFields;
 	typedef std::multimap<EEmailType, cdstring>	emailmap;
+	typedef std::multimap<EEmailType, cdstring>	immap;
+	typedef std::multimap<EEmailType, cdstring> caladdrmap;
 	typedef std::multimap<EAddressType, cdstring> addrmap;
 	typedef std::multimap<EPhoneType, cdstring> phonemap;
 
@@ -183,6 +186,22 @@ public:
 	const cdstring&	GetCalendar() const								// Get calendar
 		{ return mCalendar; }
 	
+	immap& GetIMs()                                             // Get IM map
+        { return mIMs; }
+	const immap& GetIMs() const                                 // Get IM map
+        { return mIMs; }
+    
+	void SetIM(const char* theIM, EEmailType type, bool append = false);			// Set im
+	const cdstring&	GetIM(EEmailType type) const;									// Get im
+    
+	caladdrmap& GetCalendars()										// Get calendar map
+        { return mCalendars; }
+	const caladdrmap& GetCalendars() const							// Get calendar map
+        { return mCalendars; }
+    
+	void SetCalendar(const char* theCalendar, EEmailType type, bool append = false);	// Set calendar
+	const cdstring&	GetCalendar(EEmailType type) const;									// Get calendar
+    
 	void SetCompany(const char* theCompany)							// Set company
 		{ mCompany = theCompany; }
 	const cdstring&	GetCompany() const								// Get company
@@ -238,6 +257,8 @@ private:
 	cdstring			mEntry;							// Entry name
 	emailmap			mEmails;						// Multiple email types
 	EEmailType			mPreferredEmail;				// Preferred email type
+	immap               mIMs;                           // Multiple IM types
+	caladdrmap			mCalendars;						// Multiple calendar types
 	cdstring			mCalendar;						// Calendar name
 	cdstring			mCompany;						// Company name
 	addrmap				mAddresses;						// Multiple address types

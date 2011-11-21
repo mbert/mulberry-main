@@ -56,7 +56,6 @@ CAdbkAddress::CAdbkAddress(const char* entry,
 	_init_CAdbkAddress();
 
 	mEntry = entry;
-	mCalendar = ucalendar;
 	mCompany = ucompany;
 	if (uaddress != NULL)
 		mAddresses.insert(addrmap::value_type(eDefaultAddressType, uaddress));
@@ -66,6 +65,8 @@ CAdbkAddress::CAdbkAddress(const char* entry,
 		mPhones.insert(phonemap::value_type(eWorkPhoneType, uphonework));
 	if (ufax != NULL)
 		mPhones.insert(phonemap::value_type(eFaxType, ufax));
+	if (ucalendar != NULL)
+		mCalendars.insert(caladdrmap::value_type(eWorkEmailType, ucalendar));
 	mURL = uurl;
 	mNotes = unotes;
 }
@@ -87,6 +88,8 @@ void CAdbkAddress::_copy_CAdbkAddress(const CAdbkAddress& copy)
 	mEntry = copy.mEntry;
 	mEmails = copy.mEmails;
 	mPreferredEmail = copy.mPreferredEmail;
+	mIMs = copy.mIMs;
+	mCalendars = copy.mCalendars;
 	mCalendar = copy.mCalendar;
 	mCompany = copy.mCompany;
 	mAddresses = copy.mAddresses;
@@ -151,19 +154,24 @@ bool CAdbkAddress::Search(const cdstring& text, const CAddressFields& fields) co
 			result = GetMailAddress().PatternMatch(text);
 			if (!result)
 			{
-				for(emailmap::const_iterator iter = GetEmails().begin(); !result && (iter != GetEmails().end()); iter++)
-					result = (*iter).second.PatternMatch(text);
+				for(emailmap::const_iterator iter2 = GetEmails().begin(); !result && (iter2 != GetEmails().end()); iter2++)
+					result = (*iter2).second.PatternMatch(text);
 			}
 			break;
 		case CAdbkAddress::eCalendar:
 			result = GetCalendar().PatternMatch(text);
+            if (!result)
+            {
+                for(caladdrmap::const_iterator iter2 = GetCalendars().begin(); !result && (iter2 != GetCalendars().end()); iter2++)
+                    result = (*iter2).second.PatternMatch(text);
+            }
 			break;
 		case CAdbkAddress::eCompany:
 			result = GetCompany().PatternMatch(text);
 			break;
 		case CAdbkAddress::eAddress:
-			for(addrmap::const_iterator iter = GetAddresses().begin(); !result && (iter != GetAddresses().end()); iter++)
-				result = (*iter).second.PatternMatch(text);
+			for(addrmap::const_iterator iter2 = GetAddresses().begin(); !result && (iter2 != GetAddresses().end()); iter2++)
+				result = (*iter2).second.PatternMatch(text);
 			break;
 		case CAdbkAddress::ePhoneWork:
 			result = GetPhone(eWorkPhoneType).PatternMatch(text);
@@ -198,7 +206,7 @@ bool CAdbkAddress::Search(const cdstring& text, const CAddressFields& fields) co
 bool CAdbkAddress::IsEmpty() const
 {
 	// Don't include mEntry?
-	return CAddress::IsEmpty() && mCalendar.empty() && mCompany.empty() && mAddresses.empty() &&  mPhones.empty() &&
+	return CAddress::IsEmpty() && mCalendar.empty() && mCompany.empty() && mAddresses.empty() &&  mPhones.empty() && mCalendars.empty() && mIMs.empty() &&
 			 mURL.empty() && mNotes.empty();
 }
 
@@ -451,5 +459,59 @@ const cdstring&	CAdbkAddress::GetPhone(EPhoneType type) const
 			return GetPhone(eWorkFaxType);
 	}
 
+	return cdstring::null_str;
+}
+
+// Set im
+void CAdbkAddress::SetIM(const char* theIM, EEmailType type, bool append)
+{
+	// Append - can be multivalued
+	if (append)
+		mIMs.insert(immap::value_type(type, theIM));
+	else
+	{
+		// Replace first existing one
+		immap::iterator found = mIMs.find(type);
+		if (found != mIMs.end())
+			(*found).second = theIM;
+		else
+			mIMs.insert(immap::value_type(type, theIM));
+	}
+}
+
+// Get im
+const cdstring&	CAdbkAddress::GetIM(EEmailType type) const
+{
+	immap::const_iterator found = mIMs.find(type);
+	if (found != mIMs.end())
+		return (*found).second;
+    
+	return cdstring::null_str;
+}
+
+// Set calendar
+void CAdbkAddress::SetCalendar(const char* theCalendar, EEmailType type, bool append)
+{
+	// Append - can be multivalued
+	if (append)
+		mCalendars.insert(caladdrmap::value_type(type, theCalendar));
+	else
+	{
+		// Replace first existing one
+		caladdrmap::iterator found = mCalendars.find(type);
+		if (found != mCalendars.end())
+			(*found).second = theCalendar;
+		else
+			mCalendars.insert(caladdrmap::value_type(type, theCalendar));
+	}
+}
+
+// Get calendar
+const cdstring&	CAdbkAddress::GetCalendar(EEmailType type) const
+{
+	caladdrmap::const_iterator found = mCalendars.find(type);
+	if (found != mCalendars.end())
+		return (*found).second;
+    
 	return cdstring::null_str;
 }
