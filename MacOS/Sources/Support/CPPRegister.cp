@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -39,11 +39,16 @@
 #include "CAddressBookView.h"
 #include "CAddressBookWindow.h"
 #include "CAddressDisplay.h"
+#include "CAddressFieldContainer.h"
+#include "CAddressFieldMultiLine.h"
+#include "CAddressFieldSubContainer.h"
+#include "CAddressFieldText.h"
 #include "CAddressContactPanel.h"
 #include "CAddressNotesPanel.h"
 #include "CAddressPaneOptions.h"
 #include "CAddressPersonalPanel.h"
 #include "CAddressPreview.h"
+#include "CAddressPreviewAdvanced.h"
 #include "CAddressTable.h"
 #include "CAddressText.h"
 #include "CAddressView.h"
@@ -424,12 +429,17 @@ void RegisterClasses(void)
 	RegisterClass_(CAddressBookToolbar);
 	RegisterClass_(CAddressBookView);
 	RegisterClass_(CAddressBookWindow);
+	RegisterClass_(CAddressFieldContainer);
+	RegisterClass_(CAddressFieldMultiLine);
+	RegisterClass_(CAddressFieldSubContainer);
+	RegisterClass_(CAddressFieldText);
 	RegisterClass_(CAddressDisplay);
 	RegisterClass_(CAddressContactPanel);
 	RegisterClass_(CAddressNotesPanel);
 	RegisterClass_(CAddressPaneOptions);
 	RegisterClass_(CAddressPersonalPanel);
 	RegisterClass_(CAddressPreview);
+	RegisterClass_(CAddressPreviewAdvanced);
 	RegisterClass_(CAddressTable);
 	RegisterClass_(CAddressText);
 	RegisterClass_(CAddressView);

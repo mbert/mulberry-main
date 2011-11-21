@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 
 #include "CAddressView.h"
 
-#include "CAddressPreview.h"
+#include "CAddressPreviewAdvanced.h"
 #include "CGroupPreview.h"
 #include "CPreferences.h"
 
@@ -86,7 +86,7 @@ void CAddressView::InitPreviews(void)
 	LCommander* cmdr = dynamic_cast<LCommander*>(super);
 
 	// Read the address view resource
-	mAddressPreview = static_cast<CAddressPreview*>(UReanimator::CreateView(paneid_AddressPreview, this, cmdr));
+	mAddressPreview = static_cast<CAddressPreviewAdvanced*>(UReanimator::CreateView(paneid_AddressPreviewAdvanced, this, cmdr));
 	ExpandSubPane(mAddressPreview, true, true);
 	mAddressPreview->Hide();
 

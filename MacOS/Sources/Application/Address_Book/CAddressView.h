@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@
 class CAddressBook;
 class CAdbkAddress;
 class CGroup;
-class CAddressPreview;
+class CAddressPreviewAdvanced;
 class CAddressPreviewBase;
 class CGroupPreview;
 
@@ -67,9 +67,9 @@ public:
 	virtual void	Focus();
 
 protected:
-	CAddressPreviewBase*	mCurrent;
-	CAddressPreview*	mAddressPreview;
-	CGroupPreview*		mGroupPreview;
+	CAddressPreviewBase*        mCurrent;
+	CAddressPreviewAdvanced*	mAddressPreview;
+	CGroupPreview*              mGroupPreview;
 
 	virtual void	FinishCreateSelf();					// Do odds & ends
 	
