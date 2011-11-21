@@ -117,6 +117,38 @@ void vcardstore::MapFromVCard(CAddressList* addrs, const vCard::CVCardVCard& vca
 			}
 		}
 		
+		// Get im (IMPP)
+		else if ((*iter2).first.compare(vCard::cVCardProperty_IMPP, true) == 0)
+		{
+			const vCard::CVCardTextValue* tv = static_cast<const vCard::CVCardTextValue*>((*iter2).second.GetTextValue());
+			if (tv != NULL)
+			{
+				// Check for attribute types
+				CAdbkAddress::EEmailType type = CAdbkAddress::eDefaultEmailType;
+				if ((*iter2).second.HasAttributeValue(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_HOME, true))
+					type = CAdbkAddress::eHomeEmailType;
+				else if ((*iter2).second.HasAttributeValue(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_WORK, true))
+					type = CAdbkAddress::eWorkEmailType;
+				addr->SetIM(tv->GetValue(), type, true);
+			}
+		}
+		
+		// Get caladdr (CALADRURI)
+		else if ((*iter2).first.compare(vCard::cVCardProperty_CALADRURI, true) == 0)
+		{
+			const vCard::CVCardTextValue* tv = static_cast<const vCard::CVCardTextValue*>((*iter2).second.GetTextValue());
+			if (tv != NULL)
+			{
+				// Check for attribute types
+				CAdbkAddress::EEmailType type = CAdbkAddress::eDefaultEmailType;
+				if ((*iter2).second.HasAttributeValue(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_HOME, true))
+					type = CAdbkAddress::eHomeEmailType;
+				else if ((*iter2).second.HasAttributeValue(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_WORK, true))
+					type = CAdbkAddress::eWorkEmailType;
+				addr->SetCalendar(tv->GetValue(), type, true);
+			}
+		}
+		
 		// Get calendar (X-CALENDAR-ADDRESS)
 		else if ((*iter2).first.compare(vCard::cVCardProperty_CALENDAR_ADDRESS, true) == 0)
 		{
@@ -249,6 +281,8 @@ void vcardstore::UpdateVCard(vCard::CVCardVCard* vcard, const CAdbkAddress* addr
 	vcard->RemoveProperties(vCard::cVCardProperty_EMAIL);
 	vcard->RemoveProperties(vCard::cVCardProperty_ADR);
 	vcard->RemoveProperties(vCard::cVCardProperty_TEL);
+	vcard->RemoveProperties(vCard::cVCardProperty_IMPP);
+	vcard->RemoveProperties(vCard::cVCardProperty_CALADRURI);
 	vcard->RemoveProperties(vCard::cVCardProperty_CALENDAR_ADDRESS);
 	vcard->RemoveProperties(vCard::cVCardProperty_ORG);
 	vcard->RemoveProperties(vCard::cVCardProperty_URL);
@@ -264,8 +298,6 @@ void vcardstore::UpdateVCard(vCard::CVCardVCard* vcard, const CAdbkAddress* addr
 		if (!addr->GetMailAddress().empty())
 		{
 			vCard::CVCardProperty prop(vCard::cVCardProperty_EMAIL, addr->GetMailAddress());
-			vCard::CVCardAttribute attr(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_EMAIL_INTERNET);
-			prop.AddAttribute(attr);
 			vcard->AddProperty(prop);
 		}
 	}
@@ -277,7 +309,7 @@ void vcardstore::UpdateVCard(vCard::CVCardVCard* vcard, const CAdbkAddress* addr
 				continue;
 
 			vCard::CVCardProperty prop(vCard::cVCardProperty_EMAIL, (*iter).second);
-			vCard::CVCardAttribute attr(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_EMAIL_INTERNET);
+            cdstrvect attrs;
 			
 			// Now handle type
 			switch((*iter).first)
@@ -286,19 +318,25 @@ void vcardstore::UpdateVCard(vCard::CVCardVCard* vcard, const CAdbkAddress* addr
 			case CAdbkAddress::eOtherEmailType:
 				break;
 			case CAdbkAddress::eHomeEmailType:
-				attr.AddValue(vCard::cVCardAttribute_TYPE_TEL_HOME);
+				attrs.push_back(vCard::cVCardAttribute_TYPE_TEL_HOME);
 				break;
 			case CAdbkAddress::eWorkEmailType:
-				attr.AddValue(vCard::cVCardAttribute_TYPE_TEL_WORK);
+				attrs.push_back(vCard::cVCardAttribute_TYPE_TEL_WORK);
 				break;
 			}
 			
 			// Check for preferred type
 			if ((*iter).first == addr->GetPreferredEmail())
-				attr.AddValue(vCard::cVCardAttribute_TYPE_PREF);
+				attrs.push_back(vCard::cVCardAttribute_TYPE_PREF);
 			
 			// Add attribute
-			prop.AddAttribute(attr);
+            if (!attrs.empty())
+            {
+                vCard::CVCardAttribute attr(vCard::cVCardAttribute_TYPE, attrs[0]);
+                if (attrs.size() == 2)
+                    attr.AddValue(attrs[1]);
+                prop.AddAttribute(attr);
+            }
 			
 			// Now add property to card
 			vcard->AddProperty(prop);
@@ -316,7 +354,8 @@ void vcardstore::UpdateVCard(vCard::CVCardVCard* vcard, const CAdbkAddress* addr
 		// Now handle type
 		switch((*iter).first)
 		{
-		case CAdbkAddress::eDefaultAddressType:
+        case CAdbkAddress::eDefaultAddressType:
+        case CAdbkAddress::eOtherAddressType:
 			break;
 		case CAdbkAddress::eHomeAddressType:
 			attr.AddValue(vCard::cVCardAttribute_TYPE_ADR_HOME);
@@ -390,6 +429,54 @@ void vcardstore::UpdateVCard(vCard::CVCardVCard* vcard, const CAdbkAddress* addr
 		// Now add property to card
 		vcard->AddProperty(prop);
 	}
+    for(CAdbkAddress::immap::const_iterator iter = addr->GetIMs().begin(); iter != addr->GetIMs().end(); iter++)
+    {
+        if ((*iter).second.empty())
+            continue;
+        
+        vCard::CVCardProperty prop(vCard::cVCardProperty_IMPP, (*iter).second, vCard::CVCardValue::eValueType_URI);
+        
+        // Now handle type
+        switch((*iter).first)
+        {
+			case CAdbkAddress::eDefaultEmailType:
+			case CAdbkAddress::eOtherEmailType:
+				break;
+			case CAdbkAddress::eHomeEmailType:
+                prop.AddAttribute(vCard::CVCardAttribute(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_HOME));
+				break;
+			case CAdbkAddress::eWorkEmailType:
+                prop.AddAttribute(vCard::CVCardAttribute(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_WORK));
+				break;
+        }
+        
+        // Now add property to card
+        vcard->AddProperty(prop);
+    }
+    for(CAdbkAddress::caladdrmap::const_iterator iter = addr->GetCalendars().begin(); iter != addr->GetCalendars().end(); iter++)
+    {
+        if ((*iter).second.empty())
+            continue;
+        
+        vCard::CVCardProperty prop(vCard::cVCardProperty_CALADRURI, (*iter).second, vCard::CVCardValue::eValueType_URI);
+        
+        // Now handle type
+        switch((*iter).first)
+        {
+			case CAdbkAddress::eDefaultEmailType:
+			case CAdbkAddress::eOtherEmailType:
+				break;
+			case CAdbkAddress::eHomeEmailType:
+                prop.AddAttribute(vCard::CVCardAttribute(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_HOME));
+				break;
+			case CAdbkAddress::eWorkEmailType:
+                prop.AddAttribute(vCard::CVCardAttribute(vCard::cVCardAttribute_TYPE, vCard::cVCardAttribute_TYPE_TEL_WORK));
+				break;
+        }
+        
+        // Now add property to card
+        vcard->AddProperty(prop);
+    }
 	if (!addr->GetCalendar().empty())
 		vcard->AddProperty(vCard::CVCardProperty(vCard::cVCardProperty_CALENDAR_ADDRESS, addr->GetCalendar(), vCard::CVCardValue::eValueType_URI));
 	if (!addr->GetCompany().empty())
