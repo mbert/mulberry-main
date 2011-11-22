@@ -190,7 +190,7 @@ void CAddressFieldContainer::AddView(LView* view)
 void CAddressFieldContainer::Layout()
 {
     SPoint32 new_pos = {0, cCriteriaVInitOffset};
-    SInt16 total_height = new_pos.v;
+    SInt32 total_height = cCriteriaVInitOffset;
 	for(long i = 1; i <= mFields.GetCount(); i++)
 	{
         LView* child = static_cast<LView*>(mFields[i]);
@@ -201,7 +201,15 @@ void CAddressFieldContainer::Layout()
         total_height += child_size.height;
 	}
     
-    SDimension16 gsize;
-    GetFrameSize(gsize);
-    ResizeFrameBy(0, total_height - gsize.height, true);
+    SDimension16 fsize;
+    GetFrameSize(fsize);
+    ResizeFrameTo(fsize.width, total_height + cCriteriaVInitOffset, false);
+    
+    GetSuperView()->GetFrameSize(fsize);
+    GetSuperView()->ResizeFrameTo(fsize.width, total_height + cCriteriaVInitOffset, false);
+    
+    SDimension32 gsize;
+    GetSuperView()->GetSuperView()->GetImageSize(gsize);
+    GetSuperView()->GetSuperView()->ResizeImageTo(gsize.width, total_height + cCriteriaVInitOffset, false);
+    GetSuperView()->GetSuperView()->Refresh();
 }

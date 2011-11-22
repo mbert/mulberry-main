@@ -151,7 +151,6 @@ void CAddressFieldSubContainer::SetAddress(const CAdbkAddress* addr)
     }
 
     Layout();
-    static_cast<CAddressFieldContainer*>(GetSuperView())->Layout();
 }
 
 bool CAddressFieldSubContainer::GetAddress(CAdbkAddress* addr)
@@ -270,8 +269,6 @@ void CAddressFieldSubContainer::AddView(LView* view)
 void CAddressFieldSubContainer::AppendField()
 {
     CAddressFieldBase* field = AddField(mType == eAddress);
-    CAddressFieldContainer* parent = static_cast<CAddressFieldContainer*>(GetSuperView());
-    parent->Layout();
     mDirty = true;
 }
 
@@ -286,8 +283,6 @@ void CAddressFieldSubContainer::RemoveField(LView* view)
             delete child;
             mFields.RemoveItemsAt(1, i);
             Layout();
-            CAddressFieldContainer* parent = static_cast<CAddressFieldContainer*>(GetSuperView());
-            parent->Layout();
             mDirty = true;
             break;
         }
@@ -297,7 +292,7 @@ void CAddressFieldSubContainer::RemoveField(LView* view)
 void CAddressFieldSubContainer::Layout()
 {
     SPoint32 new_pos = {cCriteriaHOffset, cCriteriaVInitOffsetNested};
-    SInt16 total_height = new_pos.v;
+    SInt16 total_height = cCriteriaVInitOffsetNested;
 	for(long i = 1; i <= mFields.GetCount(); i++)
 	{
         LView* child = static_cast<LView*>(mFields[i]);
@@ -310,6 +305,9 @@ void CAddressFieldSubContainer::Layout()
     
     SDimension16 gsize;
     GetFrameSize(gsize);
-    ResizeFrameBy(0, total_height - gsize.height, true);
+    ResizeFrameTo(gsize.width, total_height + cCriteriaVInitOffset, false);
+
+    if (dynamic_cast<CAddressFieldContainer*>(GetSuperView()) != NULL)
+        dynamic_cast<CAddressFieldContainer*>(GetSuperView())->Layout();
 }
 
