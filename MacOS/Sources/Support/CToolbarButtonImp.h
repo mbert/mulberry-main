@@ -53,7 +53,9 @@ public:
 	void SetShowIcon(bool icon)
 		{ mShowIcon = icon; }
 	void SetShowCaption(bool caption)
-		{ mShowText = caption; }
+        { mShowText = caption; }
+	void SetShowFrame(bool frame)
+        { mShowFrame = frame; }
 
 	bool GetClickOnPopup() const
 		{ return mClickOnPopup; }
@@ -111,6 +113,7 @@ protected:
 	bool				mSmallIcon;
 	bool				mShowIcon;
 	bool				mShowText;
+    bool                mShowFrame;
 	bool				mMouseInside;
 	bool				mPushed;		// Is mouse down inside control?
 	ThemeButtonDrawInfo	mPrevInfo;

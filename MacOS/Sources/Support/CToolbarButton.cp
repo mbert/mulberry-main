@@ -219,6 +219,11 @@ void CToolbarButton::SetShowCaption(bool caption)
 	}
 }
 
+void CToolbarButton::SetShowFrame(bool frame)
+{
+    static_cast<CToolbarButtonImp*>(mControlImp)->SetShowFrame(frame);
+}
+
 bool CToolbarButton::GetClickAndPopup() const
 {
 	return static_cast<CToolbarButtonImp*>(mControlImp)->GetClickAndPopup();

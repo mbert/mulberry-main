@@ -21,8 +21,8 @@
 
 #include "CAddressFieldSubContainer.h"
 #include "CStaticText.h"
+#include "CToolbarButton.h"
 
-#include <LBevelButton.h>
 #include <LPopupButton.h>
 
 // C O N S T R U C T I O N / D E S T R U C T I O N  M E T H O D S
@@ -54,8 +54,18 @@ void CAddressFieldBase::FinishCreateSelf(void)
 	LView::FinishCreateSelf();
 
 	// Get controls
-	mAdd = (LBevelButton*) FindPaneByID(paneid_AddressFieldBaseAdd);
-	mRemove = (LBevelButton*) FindPaneByID(paneid_AddressFieldBaseRemove);
+	mAdd = (CToolbarButton*) FindPaneByID(paneid_AddressFieldBaseAdd);
+    mAdd->AddListener(this);
+    mAdd->SetSmallIcon(true);
+    mAdd->SetShowIcon(true);
+    mAdd->SetShowCaption(false);
+    mAdd->SetShowFrame(false);
+	mRemove = (CToolbarButton*) FindPaneByID(paneid_AddressFieldBaseRemove);
+    mRemove->AddListener(this);
+    mRemove->SetSmallIcon(true);
+    mRemove->SetShowIcon(true);
+    mRemove->SetShowCaption(false);
+    mRemove->SetShowFrame(false);
 	mTitle = (CStaticText*) FindPaneByID(paneid_AddressFieldBaseTitle);
 	mType = (LPopupButton*) FindPaneByID(paneid_AddressFieldBaseType);
 	mDataMove = (LView*) FindPaneByID(paneid_AddressFieldBaseData);

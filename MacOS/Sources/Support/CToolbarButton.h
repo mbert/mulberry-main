@@ -81,6 +81,7 @@ public:
 	void SetSmallIcon(bool small_icon);
 	void SetShowIcon(bool icon);
 	void SetShowCaption(bool caption);
+	void SetShowFrame(bool frame);
 
 	bool GetIconToggle() const
 		{ return mIconToggle; }

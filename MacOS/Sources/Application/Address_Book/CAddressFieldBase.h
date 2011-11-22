@@ -40,15 +40,15 @@ const   ResIDT      menu_GenericType = 9101;
 
 // Classes
 class CStaticText;
-class LBevelButton;
+class CToolbarButton;
 class LPopupButton;
 
 class CAddressFieldBase : public LView,
 							public LListener
 {
 protected:
-	LBevelButton*		mAdd;
-	LBevelButton*		mRemove;
+	CToolbarButton*		mAdd;
+	CToolbarButton*		mRemove;
     CStaticText*        mTitle;
     LPopupButton*       mType;
     LView*              mDataMove;

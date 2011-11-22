@@ -48,6 +48,7 @@ CToolbarButtonImp::CToolbarButtonImp(LStream *inStream)
 	mSmallIcon = false;
 	mShowIcon = true;
 	mShowText = true;
+    mShowFrame = true;
 	mMouseInside = false;
 	mPushed = false;
 	mPrevInfo.state = kThemeStateActive;
@@ -442,7 +443,7 @@ void CToolbarButtonImp::DrawSelf()
 	//  Draw plain icon + text if not tracking and mouse is outside, or disabled/inactive
 	//  Draw button frame if tracking or mouse inside
 	
-	if ((mMouseInside || mControlPane->GetValue()) && IsActive() && IsEnabled())
+	if ((mMouseInside || mControlPane->GetValue()) && IsActive() && IsEnabled() && mShowFrame)
 		DrawFrame();
 	
 	if (mShowIcon)
