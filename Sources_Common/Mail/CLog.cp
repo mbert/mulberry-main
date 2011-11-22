@@ -45,7 +45,7 @@ bool CLog::sLoggingActive = true;
 bool CLog::sAllowAuthenticationLog = false;
 bool CLog::sAllowPlaybackLog = false;
 bool CLog::sOverwrite = false;
-bool CLog::sUserCWD = false;
+bool CLog::sUserCWD = true;
 
 const char* cLogDir = "Logs";
 
