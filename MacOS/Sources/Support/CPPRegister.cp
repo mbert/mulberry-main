@@ -92,6 +92,7 @@
 #include "CDisconnectDialog.h"
 #include "CDurationSelect.h"
 #include "CEditAddressDialog.h"
+#include "CEditAddressAdvancedDialog.h"
 #include "CEditFormattedTextDisplay.h"
 #include "CEditGroupDialog.h"
 #include "CEditIdentities.h"
@@ -484,6 +485,7 @@ void RegisterClasses(void)
 	RegisterClass_(CDisconnectDialog);
 	RegisterClass_(CDurationSelect);
 	RegisterClass_(CEditAddressDialog);
+	RegisterClass_(CEditAddressAdvancedDialog);
 	RegisterClass_(CEditFormattedTextDisplay);
 	RegisterClass_(CEditGroupDialog);
 	RegisterClass_(CEditIdentities);

@@ -30,7 +30,7 @@
 #include "CCommands.h"
 #include "CContextMenu.h"
 #include "CDragIt.h"
-#include "CEditAddressDialog.h"
+#include "CEditAddressAdvancedDialog.h"
 #include "CErrorHandler.h"
 #include "CGroup.h"
 #include "CMessage.h"
@@ -703,7 +703,7 @@ void CAddressTable::CreateNewLetter(bool option_key)
 void CAddressTable::CreateNewEntry()
 {
 	std::auto_ptr<CAdbkAddress> new_addr(new CAdbkAddress);
-	if (CEditAddressDialog::PoseDialog(new_addr.get()))
+	if (CEditAddressAdvancedDialog::PoseDialog(new_addr.get()))
 	{
 		// Only add if some text available
 		if (!new_addr->IsEmpty())
@@ -754,7 +754,7 @@ bool CAddressTable::EditEntry(TableIndexT row)
 
 	// Copy original address
 	std::auto_ptr<CAdbkAddress> copy(new CAdbkAddress(*theAddr));
-	if (CEditAddressDialog::PoseDialog(copy.get()))
+	if (CEditAddressAdvancedDialog::PoseDialog(copy.get()))
 	{
 		// Add info to action
 		mPendingEditAction->AddEdit(theAddr, copy.release());
