@@ -100,7 +100,7 @@ void CAddressBookWindow::FinishCreateSelf(void)
 	GetAddressBookView()->SetPreview(preview);
 
 	// Install the splitter items
-	mSplitter->InstallViews(GetAddressBookView(), preview, true);
+	mSplitter->InstallViews(GetAddressBookView(), preview, false);
 
 	// Hide preview if preference not set
 	if (!CPreferences::sPrefs->Get3PaneOptions().GetValue().GetAddressViewOptions().GetShowPreview())
