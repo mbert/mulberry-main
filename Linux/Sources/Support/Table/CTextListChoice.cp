@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -104,6 +104,12 @@ void CTextListChoice::OnCreate()
 	// Titles
 	GetWindow()->SetTitle(mUseEntry ? mTextListEnterDescription : mTextListDescription);
 	mOKBtn->SetLabel(mButtonTitle);
+	if (mButtonTitle.length() > 8)
+	{
+		mOKBtn->AdjustSize(64, 0);
+		mOKBtn->Move(-64, 0);
+		mCancelBtn->Move(-64, 0);
+	}
 	mListTitle->SetText(mTextListDescription);
 	if (mUseEntry)
 	{

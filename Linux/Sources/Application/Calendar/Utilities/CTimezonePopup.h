@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ public:
 	{
 		eNoTimezone = 1,
 		eUTC,
+		eOther,
 		//eSeparator,
 		eFirstTimezone
 	};
@@ -52,10 +53,11 @@ public:
 	void		GetTimezone(iCal::CICalendarTimezone& tz) const;
 	
 	void		NoFloating();
+	void        Reset(const iCal::CICalendarTimezone& tz);
 
 protected:
-	bool		mNoFloating;
-
+	bool			mNoFloating;
+	mutable JIndex  mOldValue;
 };
 
 #endif
