@@ -693,6 +693,7 @@
 .cp CConnectionManager
 .cp CMailAccountManager
 .cp CMailCheckThread
+.cp CCalendarCheckThread
 .cp CSMTPAccountManager
 .cp CSMTPSendThread
 .cp CPasswordManager
@@ -1014,9 +1015,12 @@
 .cpp CWebDAVPropFindParser
 .cpp CWebDAVPropNames
 .cpp CWebDAVReport
+.cpp CWebDAVSyncReport
+.cpp CWebDAVSyncReportParser
 .cpp CWebDAVACL
 .cpp CWebDAVMultiResponseParser
 .cpp CWebDAVXMLResponseParser
+.cpp CWebDAVErrorResponseParser
 -prefix ../Sources_Common/HTTP/CalDAVClient/
 .cpp CCalDAVMakeCalendar
 .cpp CCalDAVMultigetReport
