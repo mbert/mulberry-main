@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -201,8 +201,8 @@ bool CCalendarStoreTable::ObeyCommand(unsigned long cmd, SMenuCommandChoice* men
 		return true;
 
 	case CCommand::eCalendarCheck:
-	case CCommand::eToolbarCalendarCheckBtn:
-		OnNewCalendar();
+	case CCommand::eToolbarCheckMailboxBtn: // eToolbarCalendarCheckBtn:
+		OnCheckCalendar();
 		return true;
 
 	case CCommand::eDispHNew:
@@ -282,6 +282,12 @@ void CCalendarStoreTable::UpdateCommand(unsigned long cmd, CCmdUI* cmdui)
 	case CCommand::eCalendarNewMessage:
 		// Only if calendar selection;
 		OnUpdateSelectionCanChangeCalendar(cmdui);
+		return;
+
+	case CCommand::eCalendarCheck:
+	case CCommand::eToolbarCheckMailboxBtn: // eToolbarCalendarCheckBtn:
+		// Always enabled
+		OnUpdateAlways(cmdui);
 		return;
 
 	case CCommand::eCalendarRefresh:
