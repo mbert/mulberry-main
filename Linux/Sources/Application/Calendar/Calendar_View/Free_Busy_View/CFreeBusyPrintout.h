@@ -14,8 +14,8 @@
     limitations under the License.
 */
 
-#ifndef H_CDayWeekPrintout
-#define H_CDayWeekPrintout
+#ifndef H_CFreeBusyPrintout
+#define H_CFreeBusyPrintout
 #pragma once
 
 #include "CCalendarViewPrintout.h"
@@ -33,15 +33,13 @@ class CMonthIndicator;
 class CPrintText;
 
 // ===========================================================================
-//	CDayWeekPrintout
+//	CFreeBusyPrintout
 
-class	CDayWeekPrintout : public CCalendarViewPrintout
+class	CFreeBusyPrintout : public CCalendarViewPrintout
 {
 public:
-	enum { class_ID = 'CapD', pane_ID = 1808 };
-
-						CDayWeekPrintout(LStream *inStream);
-	virtual				~CDayWeekPrintout();
+						CFreeBusyPrintout(LStream *inStream);
+	virtual				~CFreeBusyPrintout();
 
 	virtual void SetDetails(const iCal::CICalendarDateTime& date, CDayWeekView::EDayWeekType type, CDayWeekViewTimeRange::ERanges range, CCalendarView* view);
 

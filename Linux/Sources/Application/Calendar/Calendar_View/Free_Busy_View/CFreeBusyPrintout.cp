@@ -14,7 +14,7 @@
     limitations under the License.
 */
 
-#include "CDayWeekPrintout.h"
+#include "CFreeBusyPrintout.h"
 
 #include "CCalendarView.h"
 #include "CDayWeekTitleTable.h"
@@ -29,28 +29,28 @@
 #include "CICalendarUtils.h"
 
 // ---------------------------------------------------------------------------
-//	CDayWeekPrintout														  [public]
+//	CFreeBusyPrintout														  [public]
 /**
 	Default constructor */
 
-CDayWeekPrintout::CDayWeekPrintout(LStream *inStream) :
+CFreeBusyPrintout::CFreeBusyPrintout(LStream *inStream) :
 	CCalendarViewPrintout(inStream)
 {
 }
 
 
 // ---------------------------------------------------------------------------
-//	~CDayWeekPrintout														  [public]
+//	~CFreeBusyPrintout														  [public]
 /**
 	Destructor */
 
-CDayWeekPrintout::~CDayWeekPrintout()
+CFreeBusyPrintout::~CFreeBusyPrintout()
 {
 }
 
 #pragma mark -
 
-void CDayWeekPrintout::FinishCreateSelf()
+void CFreeBusyPrintout::FinishCreateSelf()
 {
 	// Do inherited
 	CCalendarViewPrintout::FinishCreateSelf();
@@ -68,7 +68,7 @@ void CDayWeekPrintout::FinishCreateSelf()
 	mTitles->SetTable(mTable);
 }
 
-void CDayWeekPrintout::SetDetails(const iCal::CICalendarDateTime& date, CDayWeekView::EDayWeekType type, CDayWeekViewTimeRange::ERanges range, CCalendarView* view)
+void CFreeBusyPrintout::SetDetails(const iCal::CICalendarDateTime& date, CDayWeekView::EDayWeekType type, CDayWeekViewTimeRange::ERanges range, CCalendarView* view)
 {
 	// Set static text
 	cdstring title;
