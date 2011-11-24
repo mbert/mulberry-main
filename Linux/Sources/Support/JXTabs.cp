@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -207,14 +207,14 @@ void JXTabs::MoveCard(JIndex oldindex, JIndex newindex)
 	JXWidgetSet* card = mCards->GetCardCount() ? mCards->RemoveCard(oldindex) : NULL;
 
 	// Get current label and icon
-	JString old_str = *GetTabButton(oldindex)->GetLabel();
+	JString old_str = GetTabButton(oldindex)->GetLabel();
 	JIndex old_icon = GetTabButton(oldindex)->GetIcon();
 	
 	// Now shift others into old index
 	long direction = (newindex > oldindex ? 1 : -1);
 	for(unsigned long i = oldindex; i != newindex; i += direction)
 	{
-		JString str = *GetTabButton(i + direction)->GetLabel();
+		JString str = GetTabButton(i + direction)->GetLabel();
 		JIndex icon = GetTabButton(i + direction)->GetIcon();
 		RenameCard(i, str, icon);
 	}
