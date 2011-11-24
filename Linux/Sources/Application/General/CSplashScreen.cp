@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -75,7 +75,7 @@ void CSplashScreen::OnCreate()
     mVersion->SetFontSize(10);
 
     CStaticText* obj2 =
-        new CStaticText("Copyright Cyrus Daboo, 2006-2009.", mSplash,
+        new CStaticText("Copyright Cyrus Daboo, 2006-2011.", mSplash,
                     JXWidget::kHElastic, JXWidget::kVElastic, 5,184, 275,17);
     assert( obj2 != NULL );
     obj2->SetFontSize(10);

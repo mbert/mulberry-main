@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -18,8 +18,8 @@
 
 // Common to all plugins
 //long cPluginVersion =				0x04002001;				// v4.0d1
-//long cPluginVersion =				0x04004007;				// v4.0a7
-long cPluginVersion =				0x04096001;				// v4.0.9b1
+long cPluginVersion =				0x04014003;				// v4.1a3
+//long cPluginVersion =				0x04096001;				// v4.0.9b1
 //long cPluginVersion =				0x04088000;				// v4.0.8
 const char* cPluginManufacturer =	"mulberrymail.com";
 

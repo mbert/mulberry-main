@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ void CAboutDialog::OnCreate()
     obj2->SetFontSize(10);
 
     JXStaticText* obj3 =
-        new JXStaticText("Copyright Cyrus Daboo, 2006-2009. All Rights Reserved.", obj1,
+        new JXStaticText("Copyright Cyrus Daboo, 2006-2011. All Rights Reserved.", obj1,
                     JXWidget::kHElastic, JXWidget::kVElastic, 10,155, 340,20);
     assert( obj3 != NULL );
     obj3->SetFontSize(10);

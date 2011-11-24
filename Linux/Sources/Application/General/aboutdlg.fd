@@ -95,7 +95,7 @@ alignment: FL_ALIGN_CENTER|FL_ALIGN_INSIDE
 style: FL_NORMAL_STYLE
 size: FL_DEFAULT_SIZE
 lcol: FL_BLACK
-label: Copyright Cyrus Daboo, 2006-2009. All Rights Reserved.
+label: Copyright Cyrus Daboo, 2006-2011. All Rights Reserved.
 shortcut: 
 resize: FL_RESIZE_ALL
 gravity: FL_NoGravity FL_NoGravity
