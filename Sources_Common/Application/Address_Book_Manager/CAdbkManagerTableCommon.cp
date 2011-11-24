@@ -396,7 +396,7 @@ void CAdbkManagerTable::OnAddressBookProperties(void)
 			}
 #elif __dest_os == __win32_os
 			// Create the dialog
-			CAdbkPropDialog dlog(this);
+			CAdbkPropDialog dlog;
 			dlog.SetAdbkList(&selected);
 
 			// Let DialogHandler process events
