@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -197,7 +197,8 @@ void CToDoItem::SetDetails(iCal::CICalendarComponentExpandedShared& todo, CCalen
 		switch(todo->GetMaster<iCal::CICalendarVToDo>()->GetStatus())
 		{
 		default:
-			mCompleted->SetState(kFalse);
+			mIsCompleted = todo->GetMaster<iCal::CICalendarVToDo>()->HasCompleted();
+			mCompleted->SetState(mIsCompleted ? kTrue : kFalse);
 			break;
 		case iCal::eStatus_VToDo_Completed:
 			mIsCompleted = true;

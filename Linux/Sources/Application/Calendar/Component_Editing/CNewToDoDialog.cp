@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -177,9 +177,10 @@ void CNewToDoDialog::SetComponent(iCal::CICalendarComponentRecur& vcomponent, co
 {
 	CNewComponentDialog::SetComponent(vcomponent, expanded);
 
-	mCompleted->SetState(static_cast<iCal::CICalendarVToDo&>(vcomponent).GetStatus() == iCal::eStatus_VToDo_Completed);
 
 	mCompletedExists = static_cast<iCal::CICalendarVToDo&>(vcomponent).HasCompleted();
+	mCompleted->SetState(mCompletedExists || (static_cast<iCal::CICalendarVToDo&>(vcomponent).GetStatus() == iCal::eStatus_VToDo_Completed));
+
 	if (mCompletedExists)
 	{
 		// COMPLETED is in UTC but we adjust to local timezone
