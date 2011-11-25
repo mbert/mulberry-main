@@ -251,6 +251,7 @@ const SMenuBuilder cCalendarStoreContext[] =
 	{"Refresh Web Calendar", CCommand::cCalendarRefreshWeb},
 	{"Upload Web Calendar %l", CCommand::cCalendarUploadWeb},
 	{"Check Calendar %l", CCommand::cCalendarCheck},
+	{"Display Hierarchy %l", CCommand::cMailboxDisplayHierarchy},
 	{"Refresh List %l", CCommand::cCalendarRefresh},
 	{"Get Free/Busy Information... %l", CCommand::cCalendarFreeBusy},
 	{"Send via Email %l", CCommand::cCalendarNewMessage},
@@ -259,6 +260,15 @@ const SMenuBuilder cCalendarStoreContext[] =
 	{"Details...", CCommand::cEditProperties},
 	{NULL, NULL}
 };
+
+const SMenuBuilder cCalendarHierarchyMenuBuilder[] =
+{
+	{"New Display Hierarchy... %h n", CCommand::cDispHNew},
+	{"Edit Display Hierarchy... %h e", CCommand::cDispHEdit},
+	{"Remove Display Hierarchy... %h r %l", CCommand::cDispHRemove},
+	{NULL, NULL}
+};
+
 
 const SMenuBuilder cEventTableContext[] = 
 {

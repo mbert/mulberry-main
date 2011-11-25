@@ -290,6 +290,17 @@ void CCalendarStoreTable::UpdateCommand(unsigned long cmd, CCmdUI* cmdui)
 		OnUpdateAlways(cmdui);
 		return;
 
+	case CCommand::eMailboxDisplayHierarchy:
+	case CCommand::eDispHNew:
+		// Always able to do this, even if logged off or no selection
+		OnUpdateAlways(cmdui);
+		return;
+
+	case CCommand::eDispHEdit:
+	case CCommand::eDispHRemove:
+		OnUpdateSelectionHierarchy(cmdui);
+		return;
+
 	case CCommand::eCalendarRefresh:
 		// Only if single selection;
 		OnUpdateRefreshList(cmdui);
@@ -640,6 +651,11 @@ void CCalendarStoreTable::OnUpdateSelectionCalendarStoreNode(CCmdUI* pCmdUI)
 void CCalendarStoreTable::OnUpdateSelectionCanChangeCalendar(CCmdUI* pCmdUI)
 {
 	pCmdUI->Enable(TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionCanChangeCalendar));
+}
+
+void CCalendarStoreTable::OnUpdateSelectionHierarchy(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(TestSelectionAnd((TestSelectionPP) &CCalendarStoreTable::TestSelectionHierarchy));
 }
 
 void CCalendarStoreTable::OnUpdateLogin(CCmdUI* pCmdUI)

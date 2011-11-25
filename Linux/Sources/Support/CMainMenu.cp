@@ -380,6 +380,7 @@ void CMainMenu::CreateContext(EContextMenu context, JXContainer* enclosure, JPtr
 		break;
 	case eContextCalendarStore:
 		BuildMenu(main, cCalendarStoreContext);
+		CreateSubMenu(main, CCommand::cMailboxDisplayHierarchy, cCalendarHierarchyMenuBuilder, enclosure, menus);
 		break;
 	case eContextCalendarEventTable:
 		BuildMenu(main, cEventTableContext);

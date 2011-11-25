@@ -96,6 +96,7 @@ protected:
 
 	void	OnUpdateSelectionCalendarStoreNode(CCmdUI* pCmdUI);
 	void	OnUpdateSelectionCanChangeCalendar(CCmdUI* pCmdUI);
+	void	OnUpdateSelectionHierarchy(CCmdUI* pCmdUI);
 
 	virtual void	DoSelectionChanged(void);
 
