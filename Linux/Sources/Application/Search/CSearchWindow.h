@@ -45,26 +45,10 @@ class CSearchListPanel;
 
 class JXEngravedRect;
 class CBetterScrollbarSet;
-class JXScrollableWidget;
 class JXTextButton;
 class JXWidgetSet;
 
-class CBlankScrollable : public JXScrollableWidget
-{
-public:
-	CBlankScrollable(JXScrollbarSet* scrollbarSet,
-					   JXContainer* enclosure,
-					   const HSizingOption hSizing, const VSizingOption vSizing,
-					   const JCoordinate x, const JCoordinate y,
-					   const JCoordinate w, const JCoordinate h) :
-	JXScrollableWidget(scrollbarSet, enclosure, hSizing, vSizing, x, y, w, h)
-		{ WantInput(kFalse); }
-
-			void Init();
-	virtual void Draw(JXWindowPainter& p, const JRect& rect);
-			void AdjustBounds(const JCoordinate dw, const JCoordinate dh);
-	virtual void ApertureResized(const JCoordinate dw, const JCoordinate dh);
-};
+class CBlankScrollable;
 
 class	CSearchWindow : public CWindow, 
 						public CSearchBase

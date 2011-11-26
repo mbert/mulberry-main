@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #include "CAddressView.h"
 #include "CClipboard.h"
 #include "CCommands.h"
-#include "CEditAddressDialog.h"
+#include "CEditAddressAdvancedDialog.h"
 #include "CGroup.h"
 #include "CIconLoader.h"
 #include "CMessage.h"
@@ -327,7 +327,7 @@ void CAddressTable::CreateNewEntry()
 {
 	// Let DialogHandler process events
 	std::auto_ptr<CAdbkAddress> new_addr(new CAdbkAddress);
-	if (CEditAddressDialog::PoseDialog(new_addr.get()))
+	if (CEditAddressAdvancedDialog::PoseDialog(new_addr.get()))
 	{
 		// Only add if some text available
 		if (!new_addr->IsEmpty())
@@ -367,7 +367,7 @@ bool CAddressTable::EditEntry(TableIndexT row)
 
 	// Copy original address
 	std::auto_ptr<CAdbkAddress> copy(new CAdbkAddress(*theAddr));
-	if (CEditAddressDialog::PoseDialog(copy.get()))
+	if (CEditAddressAdvancedDialog::PoseDialog(copy.get()))
 	{
 		// Add info to action
 		mEditAction->AddEdit(theAddr, copy.release());

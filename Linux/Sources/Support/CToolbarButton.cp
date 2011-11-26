@@ -49,6 +49,7 @@ CToolbarButton::CToolbarButton(const JCharacter* label, JXContainer* enclosure,
 	mSmallIcon = false;
 	mShowIcon = true;
 	mShowCaption = true;
+	mShowFrame = true;
 	mClickAndPopup = false;
 	mDragMode = false;
 	SetBorderWidth(0);
@@ -140,7 +141,7 @@ void CToolbarButton::DrawFrame(JXWindowPainter& p, const JRect& rect)
 	bool selected = IsChecked() && !mDragMode;
 	bool pushed_frame = (IsChecked() ^ IsPushed()) && !mDragMode;
 
-	if (enabled && (pushed_frame || mTracking))
+	if (mShowFrame && enabled && (pushed_frame || mTracking))
 	{
 		// Standard frame
 		CDrawUtils::DrawSimpleBorder(p, rect, pushed_frame, enabled);

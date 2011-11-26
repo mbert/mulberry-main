@@ -33,7 +33,7 @@
 class CAddressBook;
 class CAdbkAddress;
 class CGroup;
-class CAddressPreview;
+class CAddressPreviewAdvanced;
 class CAddressPreviewBase;
 class CGroupPreview;
 
@@ -69,9 +69,9 @@ public:
 	virtual void	Focus();
 
 protected:
-	CAddressPreviewBase*	mCurrent;
-	CAddressPreview*	mAddressPreview;
-	CGroupPreview*		mGroupPreview;
+	CAddressPreviewBase*		mCurrent;
+	CAddressPreviewAdvanced*	mAddressPreview;
+	CGroupPreview*				mGroupPreview;
 
 			void	InitPreviews();
 

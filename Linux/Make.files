@@ -568,6 +568,7 @@
 .cp CAddressTable
 .cp CAddressTableAction
 .cp CEditAddressDialog
+.cp CEditAddressAdvancedDialog
 .cp CGroupTable
 .cp CGroupTableAction
 .cp CEditGroupDialog
@@ -577,12 +578,19 @@
 .cp CAddressPersonalPanel
 .cp CAddressContactPanel
 .cp CAddressNotesPanel
+.cp CAddressPreviewAdvanced
+.cp CAddressFieldContainer
+.cp CAddressFieldSubContainer
+.cp CAddressFieldBase
+.cp CAddressFieldText
+.cp CAddressFieldMultiLine
 .cp CGroupPreview
 -prefix Sources/Application/Macros/
 .cp CMacroEditDialog
 .cp CEditMacro
 -prefix Sources/Support/
 .cp CBetterScrollbarSet
+.cp CBlankScrollable
 .cp CClipboard
 .cp CCommander
 .cp CCommands

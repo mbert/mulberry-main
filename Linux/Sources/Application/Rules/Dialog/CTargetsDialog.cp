@@ -20,11 +20,11 @@
 #include "CTargetsDialog.h"
 
 #include "CBetterScrollbarSet.h"
+#include "CBlankScrollable.h"
 #include "CMulberryApp.h"
 #include "CMulberryCommon.h"
 #include "CResizeNotifier.h"
 #include "CRulesTarget.h"
-#include "CSearchWindow.h"
 #include "CTextField.h"
 
 #include "TPopupMenu.h"

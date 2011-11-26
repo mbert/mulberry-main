@@ -19,7 +19,7 @@
 
 #include "CAddressView.h"
 
-#include "CAddressPreview.h"
+#include "CAddressPreviewAdvanced.h"
 #include "CGroupPreview.h"
 #include "CPreferences.h"
 
@@ -73,7 +73,7 @@ void CAddressView::OnCreate()
 void CAddressView::InitPreviews(void)
 {
 	// Read the address view resource
-	mAddressPreview = new CAddressPreview(this, JXWidget::kHElastic, JXWidget::kVElastic, 0, 0, 500, 300);
+	mAddressPreview = new CAddressPreviewAdvanced(this, JXWidget::kHElastic, JXWidget::kVElastic, 0, 0, 500, 300);
 	mAddressPreview->OnCreate();
 	mAddressPreview->FitToEnclosure(kTrue, kTrue);
 	mAddressPreview->Hide();

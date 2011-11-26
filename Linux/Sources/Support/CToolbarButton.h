@@ -50,6 +50,8 @@ public:
 			void SetSmallIcon(bool small_icon);
 			void SetShowIcon(bool icon);
 			void SetShowCaption(bool caption);
+			void SetShowFrame(bool show)
+			{ mShowFrame = show; }
 
 			void SetDragMode(bool mode)
 			{
@@ -71,6 +73,7 @@ protected:
 	bool mSmallIcon;
 	bool mShowIcon;
 	bool mShowCaption;
+	bool mShowFrame;
 	bool mClickAndPopup;
 	bool mDragMode;
 

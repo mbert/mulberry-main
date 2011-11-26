@@ -20,6 +20,7 @@
 #include "CSearchWindow.h"
 
 #include "CBetterScrollbarSet.h"
+#include "CBlankScrollable.h"
 #include "CDrawUtils.h"
 #include "CGetStringDialog.h"
 #include "CIconTextTable.h"
@@ -59,43 +60,8 @@
 #include <cassert>
 #include <typeinfo>
 
-void CBlankScrollable::Init()
-{
-	// Always show scrollbars
-	AlwaysShowScrollbars();
-
-	// Fit to enclosure
-	FitToEnclosure();
-
-	// Adjust bounds to size of aperture
-	AdjustBounds(-2, 0);
-
-	SetFocusColor((GetColormap())->GetDefaultBackColor());
-}
-
-void CBlankScrollable::Draw(JXWindowPainter& p, const JRect& rect)
-{
-	// Draw grey background
-	CDrawUtils::DrawBackground(p, rect, false, false);
-}
-
-void CBlankScrollable::AdjustBounds(const JCoordinate dw, const JCoordinate dh)
-{
-	// Adjust bounds based on input
-	JRect boundsG = GetBoundsGlobal();
-	SetBounds(boundsG.width() + dw, boundsG.height() + dh);
-}
-
-// Always tie bounds width to aperture
-void CBlankScrollable::ApertureResized(const JCoordinate dw, const JCoordinate dh)
-{
-	if (dw != 0)
-		AdjustBounds(dw, 0);
-	JXScrollableWidget::ApertureResized(dw, dh);
-}
-
 // __________________________________________________________________________________________________
-// C L A S S __ C A D D R E S S S E A R C H W I N D O W
+// C L A S S __ C S E A R C H W I N D O W
 // __________________________________________________________________________________________________
 
 // Static 

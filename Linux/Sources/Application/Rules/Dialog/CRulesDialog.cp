@@ -21,6 +21,7 @@
 
 #include "CActionItem.h"
 #include "CBetterScrollbarSet.h"
+#include "CBlankScrollable.h"
 #include "CFilterItem.h"
 #include "CFilterManager.h"
 #include "CMulberryApp.h"
@@ -32,7 +33,6 @@
 #include "CRulesActionLocal.h"
 #include "CRulesActionSIEVE.h"
 #include "CSearchCriteria.h"
-#include "CSearchWindow.h"
 #include "CTargetItem.h"
 #include "CTextDisplay.h"
 #include "CTextField.h"
