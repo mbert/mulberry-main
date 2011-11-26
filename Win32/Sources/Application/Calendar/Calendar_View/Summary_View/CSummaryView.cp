@@ -107,7 +107,6 @@ int CSummaryView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	mTimezonePopup.Create(_T(""), r, this, IDC_SUMMARYVIEW_TIMEZONE_POPUP, IDC_STATIC, IDI_POPUPBTN);
 	mTimezonePopup.SetFont(CMulberryApp::sAppFont);
 	mTimezonePopup.NoFloating();
-	mTimezonePopup.SetValue(IDM_TIMEZONE_UTC);
 
 	r = CRect(cRangePopupHOffset, cRangePopupVOffset, cRangePopupHOffset + cRangePopupWidth, cRangePopupVOffset + cPopupHeight);
 	mRangePopup.Create(_T(""), r, this, IDC_SUMMARYVIEW_RANGE_POPUP, IDC_STATIC, IDI_POPUPBTN);

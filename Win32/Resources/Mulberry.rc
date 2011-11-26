@@ -4001,6 +4001,7 @@ BEGIN
     BEGIN
         MENUITEM "Any Timezone",                IDM_TIMEZONE_ANY
         MENUITEM "UTC",                         IDM_TIMEZONE_UTC
+        MENUITEM "Other...",                    IDM_TIMEZONE_OTHER
         MENUITEM SEPARATOR
     END
 END

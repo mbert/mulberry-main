@@ -132,7 +132,6 @@ int CFreeBusyView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	mTimezonePopup.Create(_T(""), r, this, IDC_FREEBUSYVIEW_TIMEZONE_POPUP, IDC_STATIC, IDI_POPUPBTN);
 	mTimezonePopup.SetFont(CMulberryApp::sAppFont);
 	mTimezonePopup.NoFloating();
-	mTimezonePopup.SetValue(IDM_TIMEZONE_UTC);
 
 	r = CRect(cScalePopupHOffset, cScalePopupVOffset, cScalePopupHOffset + cScalePopupWidth + large_offset, cScalePopupVOffset + cPopupHeight);
 	mScalePopup.Create(_T(""), r, this, IDC_FREEBUSYVIEW_SCALE_POPUP, IDC_STATIC, IDI_POPUPBTN);

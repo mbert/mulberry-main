@@ -138,7 +138,6 @@ int CMonthView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	mTimezonePopup.Create(_T(""), r, this, IDC_MONTHVIEW_TIMEZONE_POPUP, IDC_STATIC, IDI_POPUPBTN);
 	mTimezonePopup.SetFont(CMulberryApp::sAppFont);
 	mTimezonePopup.NoFloating();
-	mTimezonePopup.SetValue(IDM_TIMEZONE_UTC);
 
 	r = CRect(cMonthHOffset, cCaptionVOffset, cMonthHOffset + cMonthWidth, cCaptionVOffset + cCaptionHeight);
 	mMonth.Create(_T(""), WS_CHILD | WS_VISIBLE | SS_CENTER, r, this, IDC_STATIC);

@@ -661,6 +661,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\Mail\Control\CCalendarCheckThread.h"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\calendar_store\clients\CCalendarClient.h"
 				>
 			</File>
@@ -3673,7 +3677,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sources_common\http\webdavclient\CWebDAVErrorResponseParser.h"
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVErrorResponseParser.h"
 				>
 			</File>
 			<File
@@ -3738,6 +3742,10 @@
 			</File>
 			<File
 				RelativePath="..\sources_common\http\webdavclient\CWebDAVSession.h"
+				>
+			</File>
+			<File
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVSyncReport.h"
 				>
 			</File>
 			<File
@@ -5653,6 +5661,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Sources_Common\Mail\Control\CCalendarCheckThread.cp"
+				>
+			</File>
+			<File
 				RelativePath="..\sources_common\calendar_store\clients\CCalendarClient.cpp"
 				>
 			</File>
@@ -7335,6 +7347,14 @@
 			<File
 				RelativePath=".\Sources\Application\Calendar\Component_Editing\cnewcomponentdialog.CPP"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\calendar\component_editing\CNewComponentPanel.cp"
@@ -8757,7 +8777,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\sources_common\http\webdavclient\CWebDAVErrorResponseParser.cpp"
+				RelativePath="..\Sources_Common\HTTP\WebDAVClient\CWebDAVErrorResponseParser.cpp"
 				>
 			</File>
 			<File

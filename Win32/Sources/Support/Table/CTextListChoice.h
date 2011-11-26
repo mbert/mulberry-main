@@ -38,6 +38,7 @@ public:
 	//{{AFX_DATA(CTextListChoice)
 	enum { IDD = IDD_TEXTLISTCHOICE };
 	CButton			mActionButton;
+	CButton			mCancelButton;
 	CListBox		mTextListNoSel;
 	CListBox		mTextListSingleSel;
 	CListBox		mTextListMultiSel;

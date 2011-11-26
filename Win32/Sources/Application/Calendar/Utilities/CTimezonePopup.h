@@ -32,6 +32,7 @@ public:
 	{
 		eNoTimezone = 0,
 		eUTC,
+		eOther,
 		eSeparator,
 		eFirstTimezone
 	};
@@ -45,10 +46,11 @@ public:
 	
 	void		NoFloating();
 
-	void		Reset();
+	void		Reset(const iCal::CICalendarTimezone& tz);
 
 protected:
 	bool		mNoFloating;
+	UINT		mOldValue;
 
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 

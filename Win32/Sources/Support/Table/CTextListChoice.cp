@@ -21,6 +21,7 @@
 
 #include "CTextListChoice.h"
 
+#include "CMulberryCommon.h"
 #include "CSDIFrame.h"
 #include "CUnicodeUtils.h"
 #include "CXStringResources.h"
@@ -48,6 +49,7 @@ void CTextListChoice::DoDataExchange(CDataExchange* pDX)
 	CHelpDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CTextListChoice)
 	DDX_Control(pDX, IDOK, mActionButton);
+	DDX_Control(pDX, IDCANCEL, mCancelButton);
 	DDX_Control(pDX, IDC_TEXTLISTENTERDESCRIPTION, mTextListEnterDescriptionCtrl);
 	DDX_Control(pDX, IDC_TEXTLISTENTER, mTextListEnterCtrl);
 	DDX_Control(pDX, IDC_TEXTLISTNOSEL, mTextListNoSel);
@@ -101,6 +103,13 @@ BOOL CTextListChoice::OnInitDialog(void)
 
 	// Change window title
 	CUnicodeUtils::SetWindowTextUTF8(this, mTextListDescription);
+
+	if (mButtonTitle.length() > 8)
+	{
+		::ResizeWindowBy(this, 32, 0, false);
+		::ResizeWindowBy(&mActionButton, 32, 0, false);
+		::ResizeWindowBy(&mCancelButton, 32, 0, false);
+	}
 
 	// Hide entry bits
 	if (!mUseEntry)
