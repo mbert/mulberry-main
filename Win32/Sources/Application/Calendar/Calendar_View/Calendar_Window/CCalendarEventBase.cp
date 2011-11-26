@@ -152,7 +152,8 @@ void CCalendarEventBase::SetDetails(iCal::CICalendarComponentExpandedShared& eve
 
 	// Check for inbox
 	const calstore::CCalendarStoreNode* node = calstore::CCalendarStoreManager::sCalendarStoreManager->GetNode(cal);
-	mIsInbox = node->IsInbox();
+	if (node != NULL)
+		mIsInbox = node->IsInbox();
 }
 
 void CCalendarEventBase::SetDetails(iCal::CICalendarVFreeBusy* freebusy, const iCal::CICalendarPeriod& period, CCalendarTableBase* table, const char* title, bool all_day, bool start_col, bool end_col, bool horiz)
