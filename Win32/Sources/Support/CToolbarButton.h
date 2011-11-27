@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -53,6 +53,8 @@ public:
 			void SetSmallIcon(bool small_icon);
 			void SetShowIcon(bool icon);
 			void SetShowCaption(bool caption);
+			void SetShowFrame(bool frame)
+				{ mShowFrame = frame; }
 
 	void SetDragMode(bool mode)
 	{
@@ -68,6 +70,7 @@ protected:
 	bool mSmallIcon;
 	bool mShowIcon;
 	bool mShowCaption;
+	bool mShowFrame;
 	bool mClickAndPopup;
 	bool mDragMode;
 

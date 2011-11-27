@@ -4,6 +4,7 @@
 //
 #define IDT_MULTIUSER                   128
 #define IDT_REGISTRATION                129
+#define IDR_MENU1                       153
 #define IDV_APPVERSION                  399
 #define IDD_ABOUTBOX                    400
 #define IDD_ABOUTPLUGINS                401
@@ -1549,6 +1550,18 @@
 #define IDC_ADDRESSEDIT_ADDRESS         4808
 #define IDC_ADDRESSEDIT_URL             4809
 #define IDC_ADDRESSEDIT_NOTES           4810
+#define IDC_ADDRESSADVANCED_ADD         4820
+#define IDC_ADDRESSADVANCED_REMOVE      4821
+#define IDR_ADDRESSADVANCED_GENERICTYPE 4830
+#define IDR_ADDRESSADVANCED_PHONETYPE   4831
+#define IDM_ADDRESSADVANCED_TYPE_1      4832
+#define IDM_ADDRESSADVANCED_TYPE_2      4833
+#define IDM_ADDRESSADVANCED_TYPE_3      4834
+#define IDM_ADDRESSADVANCED_TYPE_4      4835
+#define IDM_ADDRESSADVANCED_TYPE_5      4836
+#define IDM_ADDRESSADVANCED_TYPE_6      4837
+#define IDM_ADDRESSADVANCED_TYPE_7      4838
+#define IDM_ADDRESSADVANCED_TYPE_8      4839
 #define IDC_GROUPEDIT_NICKNAME          4900
 #define IDC_GROUPEDIT_GROUPNAME         4901
 #define IDC_GROUPEDIT_LIST              4902
@@ -3578,13 +3591,24 @@
 #define ID_Menu                         32788
 #define Card                            32789
 #define ID__OTHER                       32792
+#define ID_HOME_WORK                    32793
+#define ID_HOME_WORK32794               32794
+#define ID_HOME_OTHER                   32795
+#define ID_TELEPHONE_HOME               32796
+#define ID_TELEPHONE_WORK               32797
+#define ID_TELEPHONE_CELL               32798
+#define ID_TELEPHONE_FAX                32799
+#define ID_TELEPHONE_HOMEFAX            32800
+#define ID_TELEPHONE_WORKFAX            32801
+#define ID_TELEPHONE_PAGER              32802
+#define ID_TELEPHONE_OTHER              32803
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        152
-#define _APS_NEXT_COMMAND_VALUE         32793
+#define _APS_NEXT_RESOURCE_VALUE        154
+#define _APS_NEXT_COMMAND_VALUE         32804
 #define _APS_NEXT_CONTROL_VALUE         1090
 #define _APS_NEXT_SYMED_VALUE           108
 #endif

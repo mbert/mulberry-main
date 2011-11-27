@@ -477,6 +477,26 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldBase.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldContainer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldMultiLine.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldSubContainer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldText.h"
+				>
+			</File>
+			<File
 				RelativePath=".\sources\application\address_book\CAddressGroupAction.h"
 				>
 			</File>
@@ -506,6 +526,10 @@
 			</File>
 			<File
 				RelativePath=".\sources\application\address_book\CAddressPreview.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressPreviewAdvanced.h"
 				>
 			</File>
 			<File
@@ -5489,6 +5513,26 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldBase.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldContainer.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldMultiLine.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldSubContainer.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressFieldText.cp"
+				>
+			</File>
+			<File
 				RelativePath=".\sources\application\address_book\CAddressGroupAction.cp"
 				>
 			</File>
@@ -5514,6 +5558,10 @@
 			</File>
 			<File
 				RelativePath=".\sources\application\address_book\CAddressPreview.cp"
+				>
+			</File>
+			<File
+				RelativePath=".\Sources\Application\Address_Book\CAddressPreviewAdvanced.cp"
 				>
 			</File>
 			<File

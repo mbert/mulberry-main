@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -54,6 +54,7 @@ CToolbarButton::CToolbarButton()
 	mSmallIcon = false;
 	mShowIcon = true;
 	mShowCaption = true;
+	mShowFrame = true;
 	mClickAndPopup = false;
 	mDragMode = false;
 }
@@ -188,7 +189,7 @@ void CToolbarButton::DrawFrame(LPDRAWITEMSTRUCT lpDIS)
 	bool pushed_frame = selected;
 	if (mPushed) pushed_frame = !pushed_frame;
 
-	if (mPushed || mCapture || mTracking)
+	if (mShowFrame && (mPushed || mCapture || mTracking))
 	{
 		// Standard frame
 		CDrawUtils::DrawSimpleFrame(pDC, lpDIS->rcItem, pushed_frame, enabled, mFrame);

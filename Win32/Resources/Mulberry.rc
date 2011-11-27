@@ -4735,6 +4735,31 @@ BEGIN
     END
 END
 
+IDR_ADDRESSADVANCED_GENERICTYPE MENU 
+BEGIN
+    POPUP "Generic"
+    BEGIN
+        MENUITEM "Home",                        IDM_ADDRESSADVANCED_TYPE_1
+        MENUITEM "Work",                        IDM_ADDRESSADVANCED_TYPE_2
+        MENUITEM "Other",                       IDM_ADDRESSADVANCED_TYPE_3
+    END
+END
+
+IDR_ADDRESSADVANCED_PHONETYPE MENU 
+BEGIN
+    POPUP "Telephone"
+    BEGIN
+        MENUITEM "Home",                        IDM_ADDRESSADVANCED_TYPE_1
+        MENUITEM "Work",                        IDM_ADDRESSADVANCED_TYPE_2
+        MENUITEM "Cell",                        IDM_ADDRESSADVANCED_TYPE_3
+        MENUITEM "Fax",                         IDM_ADDRESSADVANCED_TYPE_4
+        MENUITEM "Home Fax",                    IDM_ADDRESSADVANCED_TYPE_5
+        MENUITEM "Work Fax",                    IDM_ADDRESSADVANCED_TYPE_6
+        MENUITEM "Pager",                       IDM_ADDRESSADVANCED_TYPE_7
+        MENUITEM "Other",                       IDM_ADDRESSADVANCED_TYPE_8
+    END
+END
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2007-2009 Cyrus Daboo. All rights reserved.
+    Copyright (c) 2007-2011 Cyrus Daboo. All rights reserved.
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ int CAddressView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CAddressView::InitPreviews(void)
 {
 	// Read the address view resource
-	mAddressPreview.Create(_T(""), WS_CHILD, CRect(0, 0, 128, 128), this, IDC_STATIC);
+	mAddressPreview.Create(_T(""), WS_CHILD, CRect(0, 0, 256, 256), this, IDC_STATIC);
 	::ExpandChildToFit(this, &mAddressPreview, true, true);
 	mAddressPreview.ShowWindow(SW_HIDE);
 	AddAlignment(new CWndAlignment(&mAddressPreview, CWndAlignment::eAlign_WidthHeight));
