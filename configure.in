@@ -76,7 +76,7 @@ case $CXX in
     #GVERSION=`$CXX --version | grep "^$CXX " | sed "s/.* //"`
     GVERSION=`$CXX -dumpversion`
     case $GVERSION in
-	4.3*|4.4*)
+	4.3*|4.4*|4.5*|4.6*|4.7*|4.8*|4.9*|5.*)
 	  CXXWARN="$CXXWARN -Wno-deprecated"
 	  CXXFLAGS="$CXXFLAGS -fpermissive -std=c++0x"
 	;;

@@ -20,6 +20,7 @@
 #ifndef __PTRVECTOR__MULBERRY__
 #define __PTRVECTOR__MULBERRY__
 
+#include <cstddef>
 #include <vector>
 
 // Classes

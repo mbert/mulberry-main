@@ -575,7 +575,7 @@ bool CCertificateManager::ImportCertificateFile(CCertificateManager::ECertificat
 			NSSL::StSSLObject<PKCS12> p12(::d2i_PKCS12_bio(cert.get(), NULL));
 			NSSL::StSSLObject<X509> cert;
 			NSSL::StSSLObject<EVP_PKEY> pkey;
-			NSSL::StSSLObject<STACK_OF(X509), X509> ca(::sk_X509_new_null());
+			NSSL::StSSLObject<STACK_OF(X509), X509> ca(sk_X509_new_null());
 
 			// If importing to personal certs, then get the pkey passphrase
 			bool personal = (type == ePersonalCertificates);

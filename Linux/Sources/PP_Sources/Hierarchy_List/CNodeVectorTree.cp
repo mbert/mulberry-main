@@ -21,6 +21,7 @@
 //	CNodeVectorTree::AddLastChildNode
 //	CNodeVectorTree::InsertSiblingNodes/InsertSiblingNodes	changed to create list collpased always
 
+#include <cstddef>
 #include "CNodeVectorTree.h"
 
 

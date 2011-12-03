@@ -1060,7 +1060,7 @@ long CSMIMEPluginDLL::DecryptFileX(fspec in, const char* in_from, fspec out, cha
 		if (encrypt_only)
 		{
 			// Now get the certs to which this has been encrypted to
-			encrypted_to = ::sk_X509_new_null();
+			encrypted_to = sk_X509_new_null();
 #ifdef USE_CMS
 			STACK_OF(CMS_RECIP_INFO)* recips = NULL;
 #else
@@ -1506,7 +1506,7 @@ STACK_OF(X509)* CSMIMEPluginDLL::GetCertificates(const char** to)
 	try
 	{
 		// Create cert stack
-		certs = ::sk_X509_new_null();
+		certs = sk_X509_new_null();
 		if (!certs)
 		{
 			REPORTERROR(eSecurity_UnknownError, "Could not create certificate stack");

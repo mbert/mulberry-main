@@ -20,6 +20,7 @@
 #ifndef __CBROADCASTER__MULBERRY__
 #define __CBROADCASTER__MULBERRY__
 
+#include <cstddef>
 #include <vector>
 
 class CListener;
