@@ -66,7 +66,7 @@ COPT = @COPT@
 CDEBUG = -g
 CWARN = @CWARN@
 CFLAGS = @CFLAGS@ -include ../Common/Plugin_Prefix_Linux.h $(CPPFLAGS) $(COPT) $(CDEBUG) $(CWARN)
-SO_LDFLAGS =  @SO_LDFLAGS@
+SO_LDFLAGS = -L../../Libraries/openssl-0.9.8m @SO_LDFLAGS@
 
 include ../include/pluginrules.mak
 

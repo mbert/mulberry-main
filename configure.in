@@ -191,7 +191,7 @@ fi
 AC_SUBST(LDAPINC)
 
 LDAPLIB="-lldap -llber"
-AC_ARG_WITH(openssl-libs,
+AC_ARG_WITH(ldap-libs,
     [  --with-ldap-libs        Specify link args for LDAP],
     LDAPLIB="$withval")
 AC_SUBST(LDAPLIB)
@@ -239,7 +239,7 @@ CPPFLAGS="$CPPFLAGS_ORG"
 AC_SUBST(SMIME)
 AC_SUBST(SSL)
 
-SSLLIB="-lcrypto -lssl"
+SSLLIB="-lssl -lcrypto"
 AC_ARG_WITH(openssl-libs,
     [  --with-openssl-libs     Specify link args for openssl],
     SSLLIB="$withval")

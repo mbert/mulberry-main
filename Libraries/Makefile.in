@@ -17,18 +17,26 @@ JX_TARGET = @JX_TARGET@
 # consuming make recursion into JX (if it is already built
 # there is no reason to go through this again and again)
 SKIPJX =
+SKIPOPENSSL =
 
 all: jx
 	for dir in $(DIRS); do \
 		$(MAKE) -C $$dir $@ || exit 1; \
 	done
+	if test -n "$(SKIPOPENSSL)" ; then \
+		echo "Skipping build of OPENSSL as requested."; \
+		exit 0; \
+	else \
+		cd openssl-0.9.8m && ./config && make build_crypto build_fips build_ssl; \
+	fi
 
 jx: jxinit
 	if test -n "$(SKIPJX)" ; then \
 		echo "Skipping build of JX as requested."; \
 		exit 0; \
+	else \
+		$(MAKE) J_BUILD_BOTH_LIB=1 -C JX $(JX_TARGET); \
 	fi
-	$(MAKE) J_BUILD_BOTH_LIB=1 -C JX $(JX_TARGET)
 
 clean:
 	$(MAKE) -C JX clean
@@ -36,6 +44,7 @@ clean:
 		$(MAKE) -C $$dir $@; \
 	done
 	$(MAKE) jxuninit
+	cd openssl-0.9.8m && make $@
 
 distclean:
 	$(MAKE) -C JX clean
@@ -43,7 +52,7 @@ distclean:
 		$(MAKE) -C $$dir $@; \
 	done
 	$(MAKE) jxuninit
-
+	cd openssl-0.9.8m && make $@
 
 jxinit: jxuninit
 	(cd JX/include; \

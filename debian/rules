@@ -23,7 +23,8 @@ configure-stamp: patch-stamp
             --with-mulberry-dir=lib/mulberry \
             --with-mulberry-dir=lib/mulberry \
             --with-help-dir=share/doc/mulberry \
-            --with-program-dir=bin
+            --with-program-dir=bin \
+            --with-openssl-include=Libraries/openssl-0.9.8m/include
 	touch configure-stamp
 
 build: build-stamp
@@ -49,7 +50,7 @@ install: build
 	dh_installdirs
 
 	JX_INSTALL_ROOT="$(JXDIST)/bin" JX_LIB_ROOT="$(JXDIST)/lib" \
-		$(MAKE) DESTDIR=$(CURDIR)/debian/mulberry SKIPJX="yes" install
+		$(MAKE) DESTDIR=$(CURDIR)/debian/mulberry SKIPOPENSSL="yes" SKIPJX="yes" install
 
 binary-arch: install
 	dh_testdir

@@ -21,10 +21,11 @@ HELPFILES := $(shell ls -1 Bits/CHANGES* | grep '[0-9a-zA-Z]$$' | tr '\n' ' ') B
 .PHONY: install uninstall
 
 install:
-	$(INSTALL) -d $(LIBDIR)/icons $(LIBDIR)/Plug-ins/Timezones $(HELPDIR)
+	$(INSTALL) -d $(LIBDIR)/icons $(LIBDIR)/Plug-ins/Timezones $(HELPDIR) $(LIBDIR)/Resources $(LIBDIR)/Plug-ins/Timezones
 	$(INSTALL) $(HELPFILES) $(HELPDIR)
 	$(INSTALL) Bits/icons/* $(LIBDIR)/icons/
-	$(INSTALL) ./Bits/Timezones/vtimezones.ics $(LIBDIR)/Plug-ins/Timezones 
+	$(INSTALL) ../Sources_Common/Resources/*.xml $(LIBDIR)/Resources
+	cp -r ../Sources_Common/Timezones/zoneinfo $(LIBDIR)/Plug-ins/Timezones/
 
 uninstall:
 	rm -rf $(LIBDIR)/icons

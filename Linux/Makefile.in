@@ -441,6 +441,7 @@ OBJS = \
 	Sources/Application/Address_Book/CAddressTable$O \
 	Sources/Application/Address_Book/CAddressTableAction$O \
 	Sources/Application/Address_Book/CEditAddressDialog$O \
+	Sources/Application/Address_Book/CEditAddressAdvancedDialog$O \
 	Sources/Application/Address_Book/CGroupTable$O \
 	Sources/Application/Address_Book/CGroupTableAction$O \
 	Sources/Application/Address_Book/CEditGroupDialog$O \
@@ -450,10 +451,17 @@ OBJS = \
 	Sources/Application/Address_Book/CAddressPersonalPanel$O \
 	Sources/Application/Address_Book/CAddressContactPanel$O \
 	Sources/Application/Address_Book/CAddressNotesPanel$O \
+	Sources/Application/Address_Book/CAddressPreviewAdvanced$O \
+	Sources/Application/Address_Book/CAddressFieldContainer$O \
+	Sources/Application/Address_Book/CAddressFieldSubContainer$O \
+	Sources/Application/Address_Book/CAddressFieldBase$O \
+	Sources/Application/Address_Book/CAddressFieldText$O \
+	Sources/Application/Address_Book/CAddressFieldMultiLine$O \
 	Sources/Application/Address_Book/CGroupPreview$O \
 	Sources/Application/Macros/CMacroEditDialog$O \
 	Sources/Application/Macros/CEditMacro$O \
 	Sources/Support/CBetterScrollbarSet$O \
+	Sources/Support/CBlankScrollable$O \
 	Sources/Support/CClipboard$O \
 	Sources/Support/CCommander$O \
 	Sources/Support/CCommands$O \
@@ -550,6 +558,7 @@ OBJS = \
 	../Sources_Common/Mail/Control/CConnectionManager$O \
 	../Sources_Common/Mail/Control/CMailAccountManager$O \
 	../Sources_Common/Mail/Control/CMailCheckThread$O \
+	../Sources_Common/Mail/Control/CCalendarCheckThread$O \
 	../Sources_Common/Mail/Control/CSMTPAccountManager$O \
 	../Sources_Common/Mail/Control/CSMTPSendThread$O \
 	../Sources_Common/Mail/Control/CPasswordManager$O \
@@ -914,12 +923,12 @@ CXXWARN = @CXXWARN@
 COPT = @COPT@
 CDEBUG = -g
 CWARN = @CWARN@
-CPPFLAGS = @CPPFLAGS@ $(J_RAW_SYSTEM_STUFF) -IIncludes -I../Sources_Common -IResources -I../Sources_Common/Utilities/ -IHelp -I$(JX_ROOT)/include/jcore -I$(JX_ROOT)/include/jx -I$(JX_ROOT)/include/jximage -I$(JX_ROOT)/ACE/ACE_wrappers $(J_INCLUDE_FREETYPE)
+CPPFLAGS = @CPPFLAGS@ $(J_RAW_SYSTEM_STUFF) -I../Libraries/openssl-0.9.8m/include -IIncludes -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/SIEVE_Account_Panels -I../Linux/Sources/PP_Sources/Tables -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Address_Account_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Calendar_Account_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Remote_Account_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/SMTP_Account_Panels -I../Linux/Sources/Application/Three_Pane/Preview -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/POP3_Account_Panels -I../Linux/Sources/Application/Three_Pane/Items -I../Sources_Common/Preferences_Store/Clients -I../Sources_Common/VCard_Store/Clients -I../Linux/Sources/Application/Address_Book_Manager/Address_Book_Properties -I../Linux/Sources/Application/Calendar/Calendar_Properties -I../Linux/Sources/Application/Calendar/Calendar_View/Event_ToDo_Preview -I../Linux/Sources/Application/Calendar/Component_Editing -I../Linux/Sources/Application/Calendar/Dialogs -I../Linux/Sources/Application/Calendar/Utilities -I../Linux/Sources/Application/Macros -I../Linux/Sources/Application/Preferences_Dialog/Edit_Identities -I../Linux/Sources/Application/Preferences_Dialog/Extras -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Authentication_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/IMAP_Account_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels/Local_Account_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Address_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Alerts_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Attachment_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Display_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Letter_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Mailbox_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Message_Panels -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Spelling_Panels -I../Linux/Sources/Application/Rules/Action_Dialogs -I../Linux/Sources/Application/Rules/Dialog -I../Linux/Sources/Application/Server/Browse_Dialog -I../Linux/Sources/Application/Three_Pane/Accounts -I../Sources_Common/Application/Calendar/Calendar_View/Summary_View -I../Sources_Common/Calendar_Store/Notifications -I../Sources_Common/Mail/Local_Clients -I../Linux/Sources/Application/Server/Dialogs -I../Linux/Sources/Application/Server/Mailbox_Properties -I../Sources_Common/Mail/INET_Clients/IMSP -I../Sources_Common/Mail/INET_Clients/LDAP -I../Linux/Sources/Application/Letter -I../Sources_Common/i18n/Charsets/Converters/ISO2022 -I../Linux/Sources/Application/Other_Dialogs -I../Sources_Common/HTTP/CalDAVClient -I../Sources_Common/HTTP/CardDAVClient -I../Sources_Common/i18n/Charsets/Converters/TwoByte -I../Sources_Common/Plugins/Configuration -I../Sources_Common/Tasks -I../Sources_Common/VCard_Store -I../Linux/Sources/Application/Address_Search -I../Linux/Sources/Application/Find_And_Replace -I../Linux/Sources/Application/Preferences_Dialog -I../Linux/Sources/Application/Status -I../Linux/Sources/Application/Three_Pane -I../Linux/Sources/Application/Three_Pane/Options_Dialog -I../Linux/Sources/Plugins/Spelling -I../Linux/Sources/Support/Network -I../Sources_Common/Automation -I../Sources_Common/Calendar_Store -I../Sources_Common/Calendar_Store/Clients -I../Sources_Common/Formatting -I../Sources_Common/i18n/Charsets/Converters/OneByte -I../Sources_Common/i18n/Charsets/Converters/Unicode -I../Sources_Common/Mail/Filters -I../Sources_Common/Mail/INET_Clients/ACAP -I../Sources_Common/Mail/INET_Clients/IMAP -I../Sources_Common/Mail/INET_Clients/Password -I../Sources_Common/Mail/INET_Clients/SIEVE/SIEVE -I../Sources_Common/Offline/Mail -I../Sources_Common/Offline/Recording -I../Sources_Common/Plugins/AddressBooks -I../Sources_Common/Plugins/Authentication -I../Sources_Common/Plugins/PasswordChange -I../Sources_Common/Plugins/Security -I../Linux/Sources/Plugins/SSL -I../Sources_Common/Application/Calendar/Calendar_View/Calendar_Window -I../Sources_Common/Mail/Charsets -I../Sources_Common/Mail/URLs -I../Sources_Common/Offline -I../Sources_Common/Plugins/Spelling -I../Sources_Common/Plugins/SSL -I../Sources_Common/Resources -I../Sources_Common -IResources -I../Sources_Common/Utilities/ -IHelp -I$(JX_ROOT)/include/jcore -I$(JX_ROOT)/include/jx -I$(JX_ROOT)/include/jximage -I$(JX_ROOT)/ACE/ACE_wrappers $(J_INCLUDE_FREETYPE) -I../Libraries/CICalendar/Source -I../Libraries/vCard/Source -I../Libraries/XMLLib/Source -I../Linux/Sources/Application/Address_Book -I../Linux/Sources/Application/Address_Book_Manager -I../Linux/Sources/Application/Calendar/Calendar_View/Calendar_Store_View -I../Linux/Sources/Application/Calendar/Calendar_View/Calendar_Window -I../Linux/Sources/Application/Calendar/Calendar_View/Day_Week_View -I../Linux/Sources/Application/Calendar/Calendar_View/Free_Busy_View -I../Linux/Sources/Application/Calendar/Calendar_View/Month_View -I../Linux/Sources/Application/Calendar/Calendar_View/Summary_View -I../Linux/Sources/Application/Calendar/Calendar_View/ToDo_View -I../Linux/Sources/Application/Calendar/Calendar_View/Year_View -I../Linux/Sources/Application/General -I../Linux/Sources/Application/Mailbox -I../Linux/Sources/Application/Mailbox_Info -I../Linux/Sources/Application/Message -I../Linux/Sources/Application/Preferences_Dialog/Sub-panels/Account_Panels -I../Linux/Sources/Application/Rules -I../Linux/Sources/Application/Search -I../Linux/Sources/Application/Server -I../Linux/Sources/Application/SMTP_Queue -I../Linux/Sources/Application/Windows -I../Linux/Sources/Formatting -I../Linux/Sources/Plugins/General -I../Linux/Sources/Plugins/Security -I../Linux/Sources/PP_Sources/Hierarchy_List -I../Linux/Sources/Support -I../Linux/Sources/Support/Streams -I../Linux/Sources/Support/Table -I../Linux/Sources/Support/Text -I../Linux/Sources/Support/Toolbars -I../Linux/Sources/Support/Undoable -I../Sources_Common/Application/Preferences -I../Sources_Common/Application/Three_Pane -I../Sources_Common/Calendar_Store/Protocols -I../Sources_Common/HTTP/HTTPClient -I../Sources_Common/HTTP/WebDAVClient -I../Sources_Common/i18n/Charsets -I../Sources_Common/i18n/Charsets/Converters -I../Sources_Common/Mail -I../Sources_Common/Mail/Address -I../Sources_Common/Mail/AddressBook -I../Sources_Common/Mail/Attachments -I../Sources_Common/Mail/Control -I../Sources_Common/Mail/Extensions -I../Sources_Common/Mail/Filtering -I../Sources_Common/Mail/INET_Clients -I../Sources_Common/Mail/INET_Clients/SIEVE -I../Sources_Common/Mail/INET_Clients/SMTP -I../Sources_Common/Mail/Mailbox -I../Sources_Common/Mail/Message -I../Sources_Common/Mail/Network -I../Sources_Common/Mail/Protocols -I../Sources_Common/Mail/Search -I../Sources_Common/Plugins/General -I../Sources_Common/Support/Toolbars 
 CXXFLAGS = @CXXFLAGS@ -include Sources/Mulberry_Prefix.h $(CPPFLAGS) $(CXXOPT) $(CXXDEBUG) $(CXXWARN)
 CFLAGS = @CFLAGS@ -include stdbool.h $(CPPFLAGS) $(COPT) $(CDEBUG) $(CWARN)
 LINK_STATIC = @LINK_STATIC@
 LINK_DYNAMIC = @LINK_DYNAMIC@
-JXLINK = $(JX_LDFLAGS) \
+JXLINK = -L../Libraries/openssl-0.9.8m $(JX_LDFLAGS) \
 	$(LINK_STATIC)  -ljx-$(JX_LIB_VERSION) -ljcore-$(JX_LIB_VERSION) \
 	-lACE-$(ACE_LIB_VERSION) $(LINK_DYNAMIC) \
 	$(J_X11_LIBS) @LDAPLIB@ @SSLLIB@ \
@@ -990,5 +999,4 @@ $(LIBS):
 ifeq (yes,${HAS_MM})
 -include $(DEPENDS)
 endif
-
 
