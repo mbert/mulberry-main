@@ -32,7 +32,7 @@ D = .so
 # Name of target object files:
 #
 PROGRAM = mulberry$E
-LIBS = ../Libraries/CICalendar/libCICalendar$A ../Libraries/vCard/libvCard$A ../Libraries/XMLLib/libCICalendar$A
+LIBS = ../Libraries/CICalendar/libCICalendar$A ../Libraries/vCard/libvCard$A ../Libraries/XMLLib/libXMLLib$A
 OBJS = \
 	Sources/xmul$O \
 	../Sources_Common/os_dep$O \
