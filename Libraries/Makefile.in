@@ -27,7 +27,7 @@ all: jx
 		echo "Skipping build of OPENSSL as requested."; \
 		exit 0; \
 	else \
-		cd openssl-0.9.8m && ./config && make build_crypto build_fips build_ssl; \
+		cd openssl && ./config && make build_crypto build_fips build_ssl; \
 	fi
 
 jx: jxinit
@@ -44,7 +44,7 @@ clean:
 		$(MAKE) -C $$dir $@; \
 	done
 	$(MAKE) jxuninit
-	cd openssl-0.9.8m && make $@
+	cd openssl && make $@
 
 distclean:
 	$(MAKE) -C JX clean
@@ -52,7 +52,7 @@ distclean:
 		$(MAKE) -C $$dir $@; \
 	done
 	$(MAKE) jxuninit
-	cd openssl-0.9.8m && make $@
+	cd openssl && make $@
 
 jxinit: jxuninit
 	(cd JX/include; \

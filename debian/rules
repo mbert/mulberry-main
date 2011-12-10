@@ -24,7 +24,7 @@ configure-stamp: patch-stamp
             --with-mulberry-dir=lib/mulberry \
             --with-help-dir=share/doc/mulberry \
             --with-program-dir=bin \
-            --with-openssl-include=Libraries/openssl-0.9.8m/include
+            --with-openssl-include=Libraries/openssl/include
 	touch configure-stamp
 
 build: build-stamp

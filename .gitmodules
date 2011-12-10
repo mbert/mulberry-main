@@ -2,13 +2,13 @@
 	path = Libraries/CICalendar
 	url = git@github.com:mbert/mulberry-lib-cicalendar.git
 [submodule "Libraries/open-powerplant"]
-	path = Libraries/open-powerplant
+	path = Libraries/vendor/open-powerplant
 	url = git@github.com:mbert/mulberry-vendor-open-powerplant.git
 [submodule "Libraries/MoreFilesX"]
-	path = Libraries/MoreFilesX
+	path = Libraries/vendor/MoreFilesX
 	url = git@github.com:mbert/mulberry-vendor-morefilesx.git
 [submodule "Libraries/MoreFiles"]
-	path = Libraries/MoreFiles
+	path = Libraries/vendor/MoreFiles
 	url = git@github.com:mbert/mulberry-vendor-morefiles.git
 [submodule "Libraries/vCard"]
 	path = Libraries/vCard
@@ -20,5 +20,17 @@
 	path = Libraries/JX
 	url = git@github.com:mbert/mulberry-lib-jx.git
 [submodule "Libraries/openssl-0.9.8m"]
-	path = Libraries/openssl-0.9.8m
+	path = Libraries/vendor/openssl-0.9.8m
+	url = git@github.com:mbert/mulberry-vendor-openssl.git
+[submodule "Libraries/vendor/open-powerplant"]
+	path = Libraries/vendor/open-powerplant
+	url = git@github.com:mbert/mulberry-vendor-open-powerplant.git
+[submodule "Libraries/vendor/MoreFiles"]
+	path = Libraries/vendor/MoreFiles
+	url = git@github.com:mbert/mulberry-vendor-morefiles.git
+[submodule "Libraries/vendor/MoreFilesX"]
+	path = Libraries/vendor/MoreFilesX
+	url = git@github.com:mbert/mulberry-vendor-morefilesx.git
+[submodule "Libraries/vendor/openssl-0.9.8m"]
+	path = Libraries/vendor/openssl-0.9.8m
 	url = git@github.com:mbert/mulberry-vendor-openssl.git
