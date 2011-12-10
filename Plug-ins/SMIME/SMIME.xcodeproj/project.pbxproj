@@ -11,9 +11,9 @@
 		AF419D150AEA700500E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419D0C0AEA700500E19592 /* CPluginDLL.cp */; };
 		AF419D170AEA700500E19592 /* CSecurityPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419D0E0AEA700500E19592 /* CSecurityPluginDLL.cp */; };
 		AF419D190AEA700500E19592 /* CSMIMEPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419D100AEA700500E19592 /* CSMIMEPluginDLL.cp */; };
-		AF65739A136CABD40088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657398136CABD40088690F /* Carbon.framework */; };
-		AF65739B136CABD40088690F /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657399136CABD40088690F /* libcrypto.dylib */; };
-		AF9BC90413D5D77800240750 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF9BC90313D5D77800240750 /* libPluginLibrary.a */; };
+		AF419D1C0AEA700500E19592 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419D130AEA700500E19592 /* libPluginLibrary.a */; };
+		AF419D320AEA700A00E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419D310AEA700A00E19592 /* Carbon.framework */; };
+		AF419D520AEA714900E19592 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419D510AEA714900E19592 /* libcrypto.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +26,7 @@
 		AF419D100AEA700500E19592 /* CSMIMEPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CSMIMEPluginDLL.cp; path = sources/CSMIMEPluginDLL.cp; sourceTree = SOURCE_ROOT; };
 		AF419D110AEA700500E19592 /* CSMIMEPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSMIMEPluginDLL.h; path = sources/CSMIMEPluginDLL.h; sourceTree = SOURCE_ROOT; };
 		AF419D120AEA700500E19592 /* CCertificateManagerCOM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCertificateManagerCOM.h; path = ../../Sources_Common/Plugins/SSL/CCertificateManagerCOM.h; sourceTree = SOURCE_ROOT; };
+		AF419D130AEA700500E19592 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
 		AF419D1E0AEA700900E19592 /* cdstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdstring.h; path = ../../Sources_Common/Utilities/cdstring.h; sourceTree = SOURCE_ROOT; };
 		AF419D200AEA700A00E19592 /* openssl_.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = openssl_.h; path = ../../Sources_Common/Plugins/SSL/openssl_.h; sourceTree = SOURCE_ROOT; };
 		AF419D220AEA700A00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
@@ -33,10 +34,9 @@
 		AF419D280AEA700A00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 		AF419D2A0AEA700A00E19592 /* CURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CURL.h; path = ../../Sources_Common/Mail/URLs/CURL.h; sourceTree = SOURCE_ROOT; };
 		AF419D2E0AEA700A00E19592 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
-		AF419DFF0AEA721F00E19592 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
-		AF657398136CABD40088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		AF657399136CABD40088690F /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
-		AF9BC90313D5D77800240750 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
+		AF419D310AEA700A00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		AF419D510AEA714900E19592 /* libcrypto.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /Developer/SDKs/MacOSX10.4u.sdk/usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
+		AF419DFF0AEA721F00E19592 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF9BC90413D5D77800240750 /* libPluginLibrary.a in Frameworks */,
-				AF65739A136CABD40088690F /* Carbon.framework in Frameworks */,
-				AF65739B136CABD40088690F /* libcrypto.dylib in Frameworks */,
+				AF419D320AEA700A00E19592 /* Carbon.framework in Frameworks */,
+				AF419D1C0AEA700500E19592 /* libPluginLibrary.a in Frameworks */,
+				AF419D520AEA714900E19592 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +82,8 @@
 				AF419D110AEA700500E19592 /* CSMIMEPluginDLL.h */,
 				AF419D100AEA700500E19592 /* CSMIMEPluginDLL.cp */,
 				AF419D120AEA700500E19592 /* CCertificateManagerCOM.h */,
+				AF419D130AEA700500E19592 /* libPluginLibrary.a */,
+				AF419D510AEA714900E19592 /* libcrypto.dylib */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -104,9 +106,7 @@
 		AF419D300AEA700A00E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF9BC90313D5D77800240750 /* libPluginLibrary.a */,
-				AF657398136CABD40088690F /* Carbon.framework */,
-				AF657399136CABD40088690F /* libcrypto.dylib */,
+				AF419D310AEA700A00E19592 /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,11 +139,7 @@
 			isa = PBXProject;
 			buildConfigurationList = AF419CFC0AEA700500E19592 /* Build configuration list for PBXProject "SMIME" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
 			mainGroup = AF419CF90AEA700500E19592;
 			productRefGroup = AF419D070AEA700500E19592 /* Products */;
 			projectDirPath = "";
@@ -192,11 +188,7 @@
 		AF419CFD0AEA700500E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};
@@ -231,11 +223,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
 				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/usr/lib\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../PluginLibrary/build/Debug\"";
 				OTHER_CFLAGS = "-fno-inline";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-deprecated",

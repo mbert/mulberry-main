@@ -11,8 +11,8 @@
 		AF419A490AE9AA5C00E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A410AE9AA5C00E19592 /* CPluginDLL.cp */; };
 		AF419A4B0AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A430AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp */; };
 		AF419A4D0AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419A450AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp */; };
-		AF65738B136CAAFA0088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF65738A136CAAFA0088690F /* Carbon.framework */; };
-		AF9BC8FE13D5D72F00240750 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF9BC8FD13D5D72F00240750 /* libPluginLibrary.a */; };
+		AF419A4F0AE9AA5C00E19592 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419A470AE9AA5C00E19592 /* libPluginLibrary.a */; };
+		AF419A530AE9AA5E00E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419A520AE9AA5E00E19592 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +24,8 @@
 		AF419A440AE9AA5C00E19592 /* CAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAdbkIOPluginDLL.h; path = ../Common/CAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
 		AF419A450AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CNetscapeAdbkIOPluginDLL.cp; path = sources/CNetscapeAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
 		AF419A460AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CNetscapeAdbkIOPluginDLL.h; path = sources/CNetscapeAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF419A470AE9AA5C00E19592 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
+		AF419A520AE9AA5E00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF419A540AE9AA5E00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF419A580AE9AA5E00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 		AF419A5A0AE9AA5E00E19592 /* cdstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdstring.h; path = ../../Sources_Common/Utilities/cdstring.h; sourceTree = SOURCE_ROOT; };
@@ -31,8 +33,6 @@
 		AF419A5E0AE9AA5E00E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
 		AF419A600AE9AA5E00E19592 /* HTML_Tags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HTML_Tags.h; path = ../../Sources_Common/Mail/HTML_Tags.h; sourceTree = SOURCE_ROOT; };
 		AF419A640AE9AA5E00E19592 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
-		AF65738A136CAAFA0088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		AF9BC8FD13D5D72F00240750 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF9BC8FE13D5D72F00240750 /* libPluginLibrary.a in Frameworks */,
-				AF65738B136CAAFA0088690F /* Carbon.framework in Frameworks */,
+				AF419A530AE9AA5E00E19592 /* Carbon.framework in Frameworks */,
+				AF419A4F0AE9AA5C00E19592 /* libPluginLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +76,7 @@
 				AF419A430AE9AA5C00E19592 /* CAdbkIOPluginDLL.cp */,
 				AF419A460AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.h */,
 				AF419A450AE9AA5C00E19592 /* CNetscapeAdbkIOPluginDLL.cp */,
+				AF419A470AE9AA5C00E19592 /* libPluginLibrary.a */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -97,8 +98,7 @@
 		AF419A510AE9AA5E00E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF9BC8FD13D5D72F00240750 /* libPluginLibrary.a */,
-				AF65738A136CAAFA0088690F /* Carbon.framework */,
+				AF419A520AE9AA5E00E19592 /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,11 +131,7 @@
 			isa = PBXProject;
 			buildConfigurationList = AF419A310AE9AA5B00E19592 /* Build configuration list for PBXProject "NetscapeAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
 			mainGroup = AF419A2E0AE9AA5B00E19592;
 			productRefGroup = AF419A3C0AE9AA5B00E19592 /* Products */;
 			projectDirPath = "";
@@ -184,10 +180,7 @@
 		AF419A320AE9AA5B00E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};
@@ -221,10 +214,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../PluginLibrary/build/Debug\"";
 				OTHER_CFLAGS = "-fno-inline";
 				OTHER_LDFLAGS = (
 					"-multiply_defined",

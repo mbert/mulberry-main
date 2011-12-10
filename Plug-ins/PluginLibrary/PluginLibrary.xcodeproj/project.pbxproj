@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF657375136CA9600088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */; };
 		AFBD94360AD9BC9400DD4C86 /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD93FF0AD9BC9400DD4C86 /* os_dep.cp */; };
 		AFBD94370AD9BC9400DD4C86 /* os_dep.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94000AD9BC9400DD4C86 /* os_dep.h */; };
 		AFBD94380AD9BC9400DD4C86 /* base64.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFBD941B0AD9BC9400DD4C86 /* base64.cp */; };
@@ -71,6 +70,7 @@
 		AFBD94880AD9BC9D00DD4C86 /* CMacTradChinese.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94870AD9BC9C00DD4C86 /* CMacTradChinese.h */; };
 		AFBD948A0AD9BC9D00DD4C86 /* CMacKorean.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94890AD9BC9D00DD4C86 /* CMacKorean.h */; };
 		AFBD948C0AD9BC9D00DD4C86 /* CCharsetData.cp in Headers */ = {isa = PBXBuildFile; fileRef = AFBD948B0AD9BC9D00DD4C86 /* CCharsetData.cp */; };
+		AFBD948F0AD9BC9D00DD4C86 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */; };
 		AFBD94930AD9BC9D00DD4C86 /* PP_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94920AD9BC9D00DD4C86 /* PP_Prefix.h */; };
 		AFBD94950AD9BC9D00DD4C86 /* CCJKBase.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94940AD9BC9D00DD4C86 /* CCJKBase.h */; };
 		AFBD94990AD9BC9E00DD4C86 /* PP_Macros.h in Headers */ = {isa = PBXBuildFile; fileRef = AFBD94980AD9BC9E00DD4C86 /* PP_Macros.h */; };
@@ -83,7 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF41CB68136BB4B7004178E5 /* libPluginLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPluginLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFBD93FB0AD9BC9400DD4C86 /* libPluginLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPluginLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFBD93FF0AD9BC9400DD4C86 /* os_dep.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = os_dep.cp; path = ../Common/os_dep.cp; sourceTree = SOURCE_ROOT; };
 		AFBD94000AD9BC9400DD4C86 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
 		AFBD94030AD9BC9400DD4C86 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
@@ -148,8 +148,8 @@
 		AFBD94870AD9BC9C00DD4C86 /* CMacTradChinese.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacTradChinese.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacTradChinese.h; sourceTree = SOURCE_ROOT; };
 		AFBD94890AD9BC9D00DD4C86 /* CMacKorean.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CMacKorean.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CMacKorean.h; sourceTree = SOURCE_ROOT; };
 		AFBD948B0AD9BC9D00DD4C86 /* CCharsetData.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CCharsetData.cp; path = ../../Sources_Common/i18n/Charsets/CCharsetData.cp; sourceTree = SOURCE_ROOT; };
-		AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /Developer/SDKs/MacOSX10.6.sdk/../../../System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		AFBD94920AD9BC9D00DD4C86 /* PP_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Prefix.h; path = "../../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Prefix.h"; sourceTree = SOURCE_ROOT; };
+		AFBD948E0AD9BC9D00DD4C86 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		AFBD94920AD9BC9D00DD4C86 /* PP_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Prefix.h; path = "../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Prefix.h"; sourceTree = SOURCE_ROOT; };
 		AFBD94940AD9BC9D00DD4C86 /* CCJKBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCJKBase.h; path = ../../Sources_Common/i18n/Charsets/Converters/TwoByte/CCJKBase.h; sourceTree = SOURCE_ROOT; };
 		AFBD94980AD9BC9E00DD4C86 /* PP_Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Macros.h; path = "../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Macros.h"; sourceTree = SOURCE_ROOT; };
 		AFBD949A0AD9BC9E00DD4C86 /* PP_Types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PP_Types.h; path = "../../Libraries/open-powerplant/PowerPlant/PowerPlant Headers/PP_Types.h"; sourceTree = SOURCE_ROOT; };
@@ -165,7 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF657375136CA9600088690F /* Carbon.framework in Frameworks */,
+				AFBD948F0AD9BC9D00DD4C86 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +189,7 @@
 		AFBD93FC0AD9BC9400DD4C86 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AF41CB68136BB4B7004178E5 /* libPluginLibrary.a */,
+				AFBD93FB0AD9BC9400DD4C86 /* libPluginLibrary.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -428,7 +428,7 @@
 			);
 			name = "PluginLibrary MachO";
 			productName = "PluginLibrary MachO";
-			productReference = AF41CB68136BB4B7004178E5 /* libPluginLibrary.a */;
+			productReference = AFBD93FB0AD9BC9400DD4C86 /* libPluginLibrary.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -438,14 +438,7 @@
 			isa = PBXProject;
 			buildConfigurationList = AFBD93F10AD9BC9400DD4C86 /* Build configuration list for PBXProject "PluginLibrary" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
-			);
 			mainGroup = AFBD93EE0AD9BC9400DD4C86;
 			productRefGroup = AFBD93FC0AD9BC9400DD4C86 /* Products */;
 			projectDirPath = "";
@@ -512,11 +505,8 @@
 		AFBD93F20AD9BC9400DD4C86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};
@@ -524,28 +514,44 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				ARCHS = (
+					ppc,
+					i386,
 				);
+				CONFIGURATION_BUILD_DIR = .;
+				EXECUTABLE_EXTENSION = a;
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_REUSE_STRINGS = YES;
 				GCC_SHORT_ENUMS = YES;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+				OTHER_CFLAGS = (
+					"-fvisibility=hidden",
+					"-fno-inline",
 				);
-				OTHER_CFLAGS = "-fno-inline";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-deprecated",
+					"$(OTHER_CFLAGS)",
+				);
 				OTHER_LDFLAGS = (
 					"-multiply_defined",
 					warning,
 				);
+				PREBINDING = YES;
 				PRODUCT_NAME = PluginLibrary;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};

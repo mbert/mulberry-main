@@ -13,7 +13,7 @@
 		AF4198C40AE9A25500E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198B70AE9A25500E19592 /* CAdbkIOPluginDLL.cp */; };
 		AF4198C60AE9A25500E19592 /* CQuickmailAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198B90AE9A25500E19592 /* CQuickmailAdbkIOPluginDLL.cp */; };
 		AF4198C80AE9A25500E19592 /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198BD0AE9A25500E19592 /* CStringUtils.cp */; };
-		AF657393136CAB770088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657392136CAB770088690F /* Carbon.framework */; };
+		AF4198CD0AE9A25600E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4198CC0AE9A25600E19592 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +29,9 @@
 		AF4198BC0AE9A25500E19592 /* os_dep.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = os_dep.h; path = ../Common/os_dep.h; sourceTree = SOURCE_ROOT; };
 		AF4198BD0AE9A25500E19592 /* CStringUtils.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CStringUtils.cp; path = ../../Sources_Common/Utilities/CStringUtils.cp; sourceTree = SOURCE_ROOT; };
 		AF4198BE0AE9A25500E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
+		AF4198CC0AE9A25600E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF4198CE0AE9A25600E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF4198D20AE9A25600E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
-		AF657392136CAB770088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF657393136CAB770088690F /* Carbon.framework in Frameworks */,
+				AF4198CD0AE9A25600E19592 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,7 +49,6 @@
 		AF4198A20AE9A25500E19592 = {
 			isa = PBXGroup;
 			children = (
-				AF657392136CAB770088690F /* Carbon.framework */,
 				AF4198B30AE9A25500E19592 /* Main */,
 				AF4198CA0AE9A25600E19592 /* Imported Files */,
 				AF4198CB0AE9A25600E19592 /* Frameworks */,
@@ -95,6 +94,7 @@
 		AF4198CB0AE9A25600E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF4198CC0AE9A25600E19592 /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,11 +127,7 @@
 			isa = PBXProject;
 			buildConfigurationList = AF4198A50AE9A25500E19592 /* Build configuration list for PBXProject "QuickmailAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
 			mainGroup = AF4198A20AE9A25500E19592;
 			productRefGroup = AF4198B00AE9A25500E19592 /* Products */;
 			projectDirPath = "";
@@ -182,10 +178,7 @@
 		AF4198A60AE9A25500E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};

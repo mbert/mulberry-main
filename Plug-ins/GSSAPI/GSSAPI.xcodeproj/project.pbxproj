@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF657387136CAACF0088690F /* Kerberos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657386136CAACF0088690F /* Kerberos.framework */; };
 		AFD93BAC0AE5ADFB007F506F /* os_dep.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93BA30AE5ADFB007F506F /* os_dep.cp */; };
 		AFD93BAD0AE5ADFC007F506F /* os_dep.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BA40AE5ADFB007F506F /* os_dep.h */; };
 		AFD93BAE0AE5ADFC007F506F /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AFD93B9C0AE5ADFB007F506F /* PluginDLLmain.cp */; };
@@ -23,10 +22,10 @@
 		AFD93BB80AE5ADFC007F506F /* kbase64.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BA80AE5ADFB007F506F /* kbase64.h */; };
 		AFD93BBD0AE5ADFF007F506F /* PluginDLLmain.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BBC0AE5ADFF007F506F /* PluginDLLmain.h */; };
 		AFD93BC10AE5ADFF007F506F /* CPluginInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = AFD93BC00AE5ADFF007F506F /* CPluginInfo.h */; };
+		AFD93BC80AE5ADFF007F506F /* Kerberos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD93BC70AE5ADFF007F506F /* Kerberos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF657386136CAACF0088690F /* Kerberos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kerberos.framework; path = System/Library/Frameworks/Kerberos.framework; sourceTree = SDKROOT; };
 		AFD93B970AE5ADFB007F506F /* GSSAPI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSSAPI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFD93B9C0AE5ADFB007F506F /* PluginDLLmain.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PluginDLLmain.cp; path = ../Common/PluginDLLmain.cp; sourceTree = SOURCE_ROOT; };
 		AFD93B9D0AE5ADFB007F506F /* CPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CPluginDLL.cp; path = ../Common/CPluginDLL.cp; sourceTree = SOURCE_ROOT; };
@@ -43,6 +42,7 @@
 		AFD93BA80AE5ADFB007F506F /* kbase64.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = kbase64.h; path = ../Common/kbase64.h; sourceTree = SOURCE_ROOT; };
 		AFD93BBC0AE5ADFF007F506F /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AFD93BC00AE5ADFF007F506F /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AFD93BC70AE5ADFF007F506F /* Kerberos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kerberos.framework; path = System/Library/Frameworks/Kerberos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF657387136CAACF0088690F /* Kerberos.framework in Frameworks */,
+				AFD93BC80AE5ADFF007F506F /* Kerberos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +115,7 @@
 		AFD93BC60AE5ADFF007F506F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF657386136CAACF0088690F /* Kerberos.framework */,
+				AFD93BC70AE5ADFF007F506F /* Kerberos.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -167,11 +167,7 @@
 			isa = PBXProject;
 			buildConfigurationList = AFD93B8D0AE5ADFB007F506F /* Build configuration list for PBXProject "GSSAPI" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
 			mainGroup = AFD93B8A0AE5ADFB007F506F;
 			productRefGroup = AFD93B980AE5ADFB007F506F /* Products */;
 			projectDirPath = "";
@@ -223,11 +219,8 @@
 		AFD93B8E0AE5ADFB007F506F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};

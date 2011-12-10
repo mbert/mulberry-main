@@ -11,7 +11,6 @@
 		AF419C940AEA6B9E00E19592 /* PluginDLLmain.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419C8B0AEA6B9E00E19592 /* PluginDLLmain.cp */; };
 		AF419C950AEA6B9E00E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419C8C0AEA6B9E00E19592 /* CPluginDLL.cp */; };
 		AF419C970AEA6B9E00E19592 /* CSSLPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419C8E0AEA6B9E00E19592 /* CSSLPluginDLL.cp */; };
-		AF65739D136CAC0C0088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF65739C136CAC0C0088690F /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +25,7 @@
 		AF419C9A0AEA6B9F00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF419C9E0AEA6B9F00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 		AF419CA00AEA6B9F00E19592 /* CSSLRand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CSSLRand.h; path = sources/CSSLRand.h; sourceTree = SOURCE_ROOT; };
-		AF65739C136CAC0C0088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		AF419CA30AEA6B9F00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF65739D136CAC0C0088690F /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +84,7 @@
 		AF419CA20AEA6B9F00E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF65739C136CAC0C0088690F /* Carbon.framework */,
+				AF419CA30AEA6B9F00E19592 /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,11 +117,7 @@
 			isa = PBXProject;
 			buildConfigurationList = AF419C7C0AEA6B9D00E19592 /* Build configuration list for PBXProject "SSL" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
 			mainGroup = AF419C790AEA6B9D00E19592;
 			productRefGroup = AF419C870AEA6B9E00E19592 /* Products */;
 			projectDirPath = "";
@@ -172,10 +166,7 @@
 		AF419C7D0AEA6B9D00E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};

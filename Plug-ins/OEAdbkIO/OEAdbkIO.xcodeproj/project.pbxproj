@@ -11,8 +11,8 @@
 		AF4199DB0AE9A7D000E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199D30AE9A7D000E19592 /* CPluginDLL.cp */; };
 		AF4199DD0AE9A7D000E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199D50AE9A7D000E19592 /* CAdbkIOPluginDLL.cp */; };
 		AF4199DF0AE9A7D000E19592 /* COutlookExAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4199D70AE9A7D000E19592 /* COutlookExAdbkIOPluginDLL.cp */; };
-		AF65738F136CAB200088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF65738E136CAB200088690F /* Carbon.framework */; };
-		AF9BC90013D5D75000240750 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF9BC8FF13D5D75000240750 /* libPluginLibrary.a */; };
+		AF4199E10AE9A7D000E19592 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4199D90AE9A7D000E19592 /* libPluginLibrary.a */; };
+		AF4199E50AE9A7D300E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF4199E40AE9A7D300E19592 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,14 +24,14 @@
 		AF4199D60AE9A7D000E19592 /* CAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CAdbkIOPluginDLL.h; path = ../Common/CAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
 		AF4199D70AE9A7D000E19592 /* COutlookExAdbkIOPluginDLL.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = COutlookExAdbkIOPluginDLL.cp; path = sources/COutlookExAdbkIOPluginDLL.cp; sourceTree = SOURCE_ROOT; };
 		AF4199D80AE9A7D000E19592 /* COutlookExAdbkIOPluginDLL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = COutlookExAdbkIOPluginDLL.h; path = sources/COutlookExAdbkIOPluginDLL.h; sourceTree = SOURCE_ROOT; };
+		AF4199D90AE9A7D000E19592 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
+		AF4199E40AE9A7D300E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF4199E60AE9A7D300E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF4199EA0AE9A7D300E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 		AF4199EC0AE9A7D300E19592 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
 		AF4199EE0AE9A7D300E19592 /* cdstring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cdstring.h; path = ../../Sources_Common/Utilities/cdstring.h; sourceTree = SOURCE_ROOT; };
 		AF4199F00AE9A7D300E19592 /* CCharSpecials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharSpecials.h; path = ../../Sources_Common/Utilities/CCharSpecials.h; sourceTree = SOURCE_ROOT; };
 		AF4199F40AE9A7D300E19592 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
-		AF65738E136CAB200088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		AF9BC8FF13D5D75000240750 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,8 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF9BC90013D5D75000240750 /* libPluginLibrary.a in Frameworks */,
-				AF65738F136CAB200088690F /* Carbon.framework in Frameworks */,
+				AF4199E50AE9A7D300E19592 /* Carbon.framework in Frameworks */,
+				AF4199E10AE9A7D000E19592 /* libPluginLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +75,7 @@
 				AF4199D50AE9A7D000E19592 /* CAdbkIOPluginDLL.cp */,
 				AF4199D80AE9A7D000E19592 /* COutlookExAdbkIOPluginDLL.h */,
 				AF4199D70AE9A7D000E19592 /* COutlookExAdbkIOPluginDLL.cp */,
+				AF4199D90AE9A7D000E19592 /* libPluginLibrary.a */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -95,8 +96,7 @@
 		AF4199E30AE9A7D300E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF9BC8FF13D5D75000240750 /* libPluginLibrary.a */,
-				AF65738E136CAB200088690F /* Carbon.framework */,
+				AF4199E40AE9A7D300E19592 /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,11 +129,7 @@
 			isa = PBXProject;
 			buildConfigurationList = AF4199C30AE9A7D000E19592 /* Build configuration list for PBXProject "OEAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
-			developmentRegion = English;
 			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
 			mainGroup = AF4199C00AE9A7D000E19592;
 			productRefGroup = AF4199CE0AE9A7D000E19592 /* Products */;
 			projectDirPath = "";
@@ -182,10 +178,7 @@
 		AF4199C40AE9A7D000E19592 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Debug;
 		};
@@ -193,8 +186,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ALTIVEC_EXTENSIONS = NO;
 				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
@@ -218,10 +213,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
 				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../PluginLibrary/build/Debug\"";
 				OTHER_CFLAGS = "-fno-inline";
 				OTHER_LDFLAGS = (
 					"-multiply_defined",
