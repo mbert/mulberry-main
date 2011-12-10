@@ -34,6 +34,8 @@ buildapp:
 	echo "-->Building Mulberry ${APP_TARGET}"
 	xcodebuild -sdk ${SDK} -project ${MULBERRY_HOME}/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}"
 	
-update: updatemulberry
-
+clean:
+	echo "-->Building Mulberry ${APP_TARGET}"
+	xcodebuild -sdk ${SDK} -project ${MULBERRY_HOME}/MacOS/MulberryXcode.xcodeproj -configuration "${APP_TARGET}" clean
+	
 .NOTPARALLEL:
