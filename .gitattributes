@@ -1,0 +1,10 @@
+* text=auto
+*.dsp eol=crlf
+*.vcp eol=crlf
+*.vcproj eol=crlf
+*.vcw eol=crlf
+*.dsw eol=crlf
+*.sln eol=crlf
+*.vdproj eol=crlf
+*.def eol=crlf
+*.rtf -text
