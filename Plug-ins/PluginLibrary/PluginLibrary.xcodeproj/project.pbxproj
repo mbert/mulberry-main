@@ -438,7 +438,11 @@
 			isa = PBXProject;
 			buildConfigurationList = AFBD93F10AD9BC9400DD4C86 /* Build configuration list for PBXProject "PluginLibrary" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = AFBD93EE0AD9BC9400DD4C86;
 			productRefGroup = AFBD93FC0AD9BC9400DD4C86 /* Products */;
 			projectDirPath = "";
@@ -502,11 +506,65 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		6E63D8F21496C7ED00673AF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SEPARATE_STRIP = YES;
+			};
+			name = Release;
+		};
+		6E63D8F31496C7ED00673AF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				EXECUTABLE_EXTENSION = a;
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
+				OTHER_CFLAGS = (
+					"-fvisibility=hidden",
+					"-fno-inline",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-deprecated",
+					"$(OTHER_CFLAGS)",
+				);
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = PluginLibrary;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		AFBD93F20AD9BC9400DD4C86 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = i386;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -514,26 +572,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				CONFIGURATION_BUILD_DIR = .;
 				EXECUTABLE_EXTENSION = a;
 				GCC_ALTIVEC_EXTENSIONS = NO;
 				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_REUSE_STRINGS = YES;
 				GCC_SHORT_ENUMS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
 				OTHER_CFLAGS = (
 					"-fvisibility=hidden",
@@ -562,17 +614,19 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFBD93F20AD9BC9400DD4C86 /* Debug */,
+				6E63D8F21496C7ED00673AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 1;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		AFBD93FD0AD9BC9400DD4C86 /* Build configuration list for PBXNativeTarget "PluginLibrary MachO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFBD93FE0AD9BC9400DD4C86 /* Debug */,
+				6E63D8F31496C7ED00673AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

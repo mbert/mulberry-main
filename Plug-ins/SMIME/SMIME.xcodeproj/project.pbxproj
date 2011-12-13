@@ -139,7 +139,11 @@
 			isa = PBXProject;
 			buildConfigurationList = AF419CFC0AEA700500E19592 /* Build configuration list for PBXProject "SMIME" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = AF419CF90AEA700500E19592;
 			productRefGroup = AF419D070AEA700500E19592 /* Products */;
 			projectDirPath = "";
@@ -185,14 +189,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		AF419CFD0AEA700500E19592 /* Debug */ = {
+		6E63D9211496D40A00673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
-			name = Debug;
+			name = Release;
 		};
-		AF419D090AEA700500E19592 /* Debug */ = {
+		6E63D9221496D40A00673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,7 +205,61 @@
 					ppc,
 					i386,
 				);
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = NO;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/usr/lib\"";
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wno-deprecated",
+					"$(OTHER_CFLAGS)",
+				);
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = SMIME;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		AF419CFD0AEA700500E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+			};
+			name = Debug;
+		};
+		AF419D090AEA700500E19592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
 				GCC_ALTIVEC_EXTENSIONS = NO;
 				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -251,17 +310,19 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF419CFD0AEA700500E19592 /* Debug */,
+				6E63D9211496D40A00673AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 1;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		AF419D080AEA700500E19592 /* Build configuration list for PBXNativeTarget "SMIME MachO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF419D090AEA700500E19592 /* Debug */,
+				6E63D9221496D40A00673AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

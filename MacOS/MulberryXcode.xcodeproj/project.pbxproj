@@ -2588,7 +2588,7 @@
 		8087A1DE1314087A00C2EFF8 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
 		8087A1E01314088300C2EFF8 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Packaging/Info.plist; sourceTree = SOURCE_ROOT; };
-		AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CocoaSpeller.bundle; path = "../Plug-ins/CocoaSpeller/build/Debug/CocoaSpeller.bundle"; sourceTree = SOURCE_ROOT; };
+		AF17ACEF0CCC54D300205B17 /* CocoaSpeller.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CocoaSpeller.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF17AE430CCC585C00205B17 /* CMulberryCocoaApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMulberryCocoaApp.h; path = General/CMulberryCocoaApp.h; sourceTree = "<group>"; };
 		AF17AE440CCC585C00205B17 /* CMulberryCocoaApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMulberryCocoaApp.m; path = General/CMulberryCocoaApp.m; sourceTree = "<group>"; };
 		AF2551240C432558001AAE53 /* CFreeBusyPrintout.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = CFreeBusyPrintout.cp; sourceTree = "<group>"; };
@@ -4886,23 +4886,23 @@
 		AFD93B540AE5AA10007F506F /* CRAM-MD5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CRAM-MD5.xcodeproj"; path = "../Plug-ins/CRAM-MD5/CRAM-MD5.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AFD93B660AE5AB45007F506F /* DIGEST-MD5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "DIGEST-MD5.xcodeproj"; path = "../Plug-ins/DIGEST-MD5/DIGEST-MD5.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		AFDB82CA0AECFEC600536914 /* PGP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PGP.xcodeproj; path = "../Plug-ins/PGP/PGP.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		AFDD768A0C4066C400DE5877 /* CommunicatorAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CommunicatorAdbkIO.bundle; path = "../Plug-ins/CommunicatorAdbkIO/build/Debug/CommunicatorAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD768F0C4066E700DE5877 /* CRAM-MD5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "CRAM-MD5.bundle"; path = "../Plug-ins/CRAM-MD5/build/Debug/CRAM-MD5.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD769A0C40670900DE5877 /* DIGEST-MD5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "DIGEST-MD5.bundle"; path = "../Plug-ins/DIGEST-MD5/build/Debug/DIGEST-MD5.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76A30C40672000DE5877 /* Eudora4AdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Eudora4AdbkIO.bundle; path = "../Plug-ins/Eudora4AdbkIO/build/Debug/Eudora4AdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76AC0C40673200DE5877 /* vCardAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = vCardAdbkIO.bundle; path = "../Plug-ins/vCardAdbkIO/build/Debug/vCardAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76B50C40674600DE5877 /* SSL.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SSL.bundle; path = "../Plug-ins/SSL/build/Debug/SSL.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76BE0C40675500DE5877 /* SMIME.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SMIME.bundle; path = "../Plug-ins/SMIME/build/Debug/SMIME.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76C70C40676A00DE5877 /* QuickmailProAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QuickmailProAdbkIO.bundle; path = "../Plug-ins/QuickmailProAdbkIO/build/Debug/QuickmailProAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76D00C40677C00DE5877 /* QuickmailAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = QuickmailAdbkIO.bundle; path = "../Plug-ins/QuickmailAdbkIO/build/Debug/QuickmailAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76D90C40679200DE5877 /* PineAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PineAdbkIO.bundle; path = "../Plug-ins/PineAdbkIO/build/Debug/PineAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76E20C4067AB00DE5877 /* PGP8.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PGP8.bundle; path = "../Plug-ins/PGP/build/Debug/PGP8.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76EB0C4067B900DE5877 /* OEAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = OEAdbkIO.bundle; path = "../Plug-ins/OEAdbkIO/build/Debug/OEAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76F40C4067CD00DE5877 /* NetscapeAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = NetscapeAdbkIO.bundle; path = "../Plug-ins/NetscapeAdbkIO/build/Debug/NetscapeAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD76FD0C4067ED00DE5877 /* Kerberos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kerberos.bundle; path = "../Plug-ins/Kerberos/build/Debug/Kerberos.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD77060C4067F900DE5877 /* GSSAPI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GSSAPI.bundle; path = "../Plug-ins/GSSAPI/build/Debug/GSSAPI.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD770F0C40680C00DE5877 /* GPG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GPG.bundle; path = "../Plug-ins/GPG/build/Debug/GPG.bundle"; sourceTree = SOURCE_ROOT; };
-		AFDD77180C40682200DE5877 /* EudoraAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = EudoraAdbkIO.bundle; path = "../Plug-ins/EudoraAdbkIO/build/Debug/EudoraAdbkIO.bundle"; sourceTree = SOURCE_ROOT; };
+		AFDD768A0C4066C400DE5877 /* CommunicatorAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CommunicatorAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD768F0C4066E700DE5877 /* CRAM-MD5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "CRAM-MD5.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD769A0C40670900DE5877 /* DIGEST-MD5.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "DIGEST-MD5.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76A30C40672000DE5877 /* Eudora4AdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Eudora4AdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76AC0C40673200DE5877 /* vCardAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = vCardAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76B50C40674600DE5877 /* SSL.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SSL.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76BE0C40675500DE5877 /* SMIME.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SMIME.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76C70C40676A00DE5877 /* QuickmailProAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QuickmailProAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76D00C40677C00DE5877 /* QuickmailAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = QuickmailAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76D90C40679200DE5877 /* PineAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PineAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76E20C4067AB00DE5877 /* PGP8.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PGP8.bundle; path = "../../../../../../../../../../usr/local/src/mulberry/mulberry-github/Plug-ins/PGP/build/Debug/PGP8.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76EB0C4067B900DE5877 /* OEAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = OEAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76F40C4067CD00DE5877 /* NetscapeAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NetscapeAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD76FD0C4067ED00DE5877 /* Kerberos.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Kerberos.bundle; path = "../../../../../../../../../../usr/local/src/mulberry/mulberry-github/Plug-ins/Kerberos/build/Debug/Kerberos.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD77060C4067F900DE5877 /* GSSAPI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GSSAPI.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD770F0C40680C00DE5877 /* GPG.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GPG.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDD77180C40682200DE5877 /* EudoraAdbkIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EudoraAdbkIO.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDD775E0C4074B800DE5877 /* LAMUnicodeEditTextImp.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = LAMUnicodeEditTextImp.cp; sourceTree = "<group>"; };
 		AFDD775F0C4074B800DE5877 /* LAMUnicodeEditTextImp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = LAMUnicodeEditTextImp.h; sourceTree = "<group>"; };
 		AFDD77600C4074B800DE5877 /* LUnicodeEditText.cp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = LUnicodeEditText.cp; sourceTree = "<group>"; };
@@ -10195,6 +10195,9 @@
 /* Begin PBXProject section */
 		20286C28FDCF999611CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "MulberryXcode" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -11670,7 +11673,6 @@
 		AF9388090B116AA0000C5A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = i386;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				EXECUTABLE_EXTENSION = app;
@@ -11715,7 +11717,7 @@
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
 				OTHER_CPLUSPLUSFLAGS = "-fpermissive";
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -11768,7 +11770,7 @@
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
 				OTHER_CPLUSPLUSFLAGS = "-fpermissive";
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SEPARATE_STRIP = YES;
 			};
 			name = Release;
