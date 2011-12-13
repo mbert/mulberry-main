@@ -203,6 +203,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				MACH_O_TYPE = mh_bundle;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../../MacOS/build;
 			};
 			name = Release;
 		};
@@ -263,6 +264,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				MACH_O_TYPE = mh_bundle;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../../MacOS/build;
 			};
 			name = Debug;
 		};

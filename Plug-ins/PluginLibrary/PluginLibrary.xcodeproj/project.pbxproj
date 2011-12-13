@@ -516,6 +516,7 @@
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SEPARATE_STRIP = YES;
+				SYMROOT = ../../MacOS/build;
 			};
 			name = Release;
 		};
@@ -565,6 +566,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../../MacOS/build;
 			};
 			name = Debug;
 		};
