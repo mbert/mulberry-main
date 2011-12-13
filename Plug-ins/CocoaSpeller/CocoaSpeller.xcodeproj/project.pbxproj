@@ -382,6 +382,7 @@
 				PRODUCT_NAME = CocoaSpeller;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SEPARATE_STRIP = NO;
+				SYMROOT = ../../MacOS/build;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -443,6 +444,7 @@
 				);
 				PRODUCT_NAME = CocoaSpeller;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../../MacOS/build;
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;

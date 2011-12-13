@@ -25,8 +25,8 @@ build: buildplugins buildapp
 
 buildplugins:
 	@for PLUGIN in $(BUILD_PLUGINS); do \
-		echo "-->Building $$PLUGIN"; \
-		xcodebuild -sdk ${SDK} -project ${MULBERRY_HOME}/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj || exit 1; \
+		echo "-->Building $$PLUGIN ${APP_TARGET}"; \
+		xcodebuild -sdk ${SDK} -project ${MULBERRY_HOME}/Plug-ins/$$PLUGIN/$$PLUGIN.xcodeproj -configuration "${APP_TARGET}" || exit 1; \
 		echo "" ;\
 	done
 
