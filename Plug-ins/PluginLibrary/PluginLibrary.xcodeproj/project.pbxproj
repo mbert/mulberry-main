@@ -436,6 +436,9 @@
 /* Begin PBXProject section */
 		AFBD93F00AD9BC9400DD4C86 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AFBD93F10AD9BC9400DD4C86 /* Build configuration list for PBXProject "PluginLibrary" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
