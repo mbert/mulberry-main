@@ -129,6 +129,9 @@
 /* Begin PBXProject section */
 		AF419A300AE9AA5B00E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF419A310AE9AA5B00E19592 /* Build configuration list for PBXProject "NetscapeAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

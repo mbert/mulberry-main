@@ -139,6 +139,9 @@
 /* Begin PBXProject section */
 		AF41993A0AE9A55A00E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF41993B0AE9A55A00E19592 /* Build configuration list for PBXProject "vCardAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

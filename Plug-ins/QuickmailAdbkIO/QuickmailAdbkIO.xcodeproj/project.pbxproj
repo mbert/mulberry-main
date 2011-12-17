@@ -125,6 +125,9 @@
 /* Begin PBXProject section */
 		AF4198A40AE9A25500E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF4198A50AE9A25500E19592 /* Build configuration list for PBXProject "QuickmailAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

@@ -152,6 +152,9 @@
 /* Begin PBXProject section */
 		AF0F2FCF0AE3D0990074CFEF /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF0F2FD00AE3D0990074CFEF /* Build configuration list for PBXProject "DIGEST-MD5" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
