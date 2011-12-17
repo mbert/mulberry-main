@@ -127,6 +127,9 @@
 /* Begin PBXProject section */
 		AF4199C20AE9A7D000E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF4199C30AE9A7D000E19592 /* Build configuration list for PBXProject "OEAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

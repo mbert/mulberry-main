@@ -144,6 +144,9 @@
 /* Begin PBXProject section */
 		AFBD95C70AD9CA0700DD4C86 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AFBD95C80AD9CA0700DD4C86 /* Build configuration list for PBXProject "CRAM-MD5" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

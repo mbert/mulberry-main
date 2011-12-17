@@ -123,6 +123,9 @@
 /* Begin PBXProject section */
 		AF419A8F0AE9ABB600E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF419A900AE9ABB600E19592 /* Build configuration list for PBXProject "EudoraAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

@@ -125,6 +125,9 @@
 /* Begin PBXProject section */
 		AF4198510AE9A05D00E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF4198520AE9A05D00E19592 /* Build configuration list for PBXProject "PineAdbkIO" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

@@ -137,6 +137,9 @@
 /* Begin PBXProject section */
 		AF419CFB0AEA700500E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF419CFC0AEA700500E19592 /* Build configuration list for PBXProject "SMIME" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

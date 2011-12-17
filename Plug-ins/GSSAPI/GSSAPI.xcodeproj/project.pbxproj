@@ -165,6 +165,9 @@
 /* Begin PBXProject section */
 		AFD93B8C0AE5ADFB007F506F /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AFD93B8D0AE5ADFB007F506F /* Build configuration list for PBXProject "GSSAPI" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;

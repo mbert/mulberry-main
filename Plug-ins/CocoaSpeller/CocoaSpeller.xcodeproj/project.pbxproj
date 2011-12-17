@@ -290,6 +290,9 @@
 /* Begin PBXProject section */
 		AF4196BA0AE6F4DF00E19592 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AF4196BB0AE6F4DF00E19592 /* Build configuration list for PBXProject "CocoaSpeller" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
