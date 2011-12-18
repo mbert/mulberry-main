@@ -61,7 +61,7 @@ void CTimezonePopup::OnCreate()
 
 	// Get list of timezones from built-in calendar
 	cdstrvect tzids;
-	iCal::CICalendar::sICalendar.GetTimezones(tzids);
+	iCal::CICalendar::getSICalendar().GetTimezones(tzids);
 	
 	// Clear existing menu
 	RemoveAllItems();
@@ -85,7 +85,7 @@ void CTimezonePopup::Reset(const iCal::CICalendarTimezone& tz)
 		tzids.push_back(*iter);
 
 	// Sort list of favorite timezones
-	iCal::CICalendar::sICalendar.SortTimezones(tzids);
+	iCal::CICalendar::getSICalendar().SortTimezones(tzids);
 
 	// Clear existing menu
 	JIndex adjusted_first = eFirstTimezone - (mNoFloating ? 1 : 0);
@@ -165,7 +165,7 @@ void CTimezonePopup::GetTimezone(iCal::CICalendarTimezone& tz) const
 	else if (adjusted_value == eOther)
 	{
 		cdstrvect tzids;
-		iCal::CICalendar::sICalendar.GetTimezones(tzids);
+		iCal::CICalendar::getSICalendar().GetTimezones(tzids);
 		std::sort(tzids.begin(), tzids.end());
 
 		ulvector selected;
@@ -179,7 +179,7 @@ void CTimezonePopup::GetTimezone(iCal::CICalendarTimezone& tz) const
 			cdstring tzid = tzids.at(selected.front());
 			tz.SetTimezoneID(tzid);
 			CPreferences::sPrefs->mFavouriteTimezones.Value().insert(tzid);
-			const_cast<CTimezonePopup*>(this)->SetTimezone(iCal::CICalendar::sICalendar.GetTimezone(tzid));
+			const_cast<CTimezonePopup*>(this)->SetTimezone(iCal::CICalendar::getSICalendar().GetTimezone(tzid));
 		}
 		else
 		{

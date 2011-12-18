@@ -1,3 +1,9 @@
+mulberry (4.1d1-svn-20111217-1800) unstable; urgency=low
+
+  * First git-based build, contains Cyrus' changes from November 2011
+
+ -- Martin Dietze <herbert@spamcop.net>  Sat, 10 Dec 2011 17:00:00 +0100
+
 mulberry (4.1d1-svn-20110322-1450) unstable; urgency=low
 
   * Integration of Cyrus' changes  (main 357:368)

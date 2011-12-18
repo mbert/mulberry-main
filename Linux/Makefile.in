@@ -966,7 +966,7 @@ distclean:
 	-rm -f config.cache config.status config.log Makefile
 
 $(LIBS):
-	$(MAKE) $(MAKEFLAGS) -E ../Libraries
+	$(MAKE) $(MAKEFLAGS) -C ../Libraries
 
 #
 # Automatic targets and rules:

@@ -66,7 +66,7 @@ void CTimezonePopup::Reset(const iCal::CICalendarTimezone& tz)
 		tzids.push_back(*iter);
 	
 	// Sort list of favorite timezones
-	iCal::CICalendar::sICalendar.SortTimezones(tzids);
+	iCal::CICalendar::getSICalendar().SortTimezones(tzids);
 	
 	// Clear existing menu
 	SInt32 adjusted_separator = eSeparator - (mNoFloating ? 1 : 0);
@@ -172,8 +172,8 @@ void CTimezonePopup::GetTimezone(iCal::CICalendarTimezone& tz) const
 			cdstring tzid = tzids.at(selected.front());
 			tz.SetTimezoneID(tzid);
 			CPreferences::sPrefs->mFavouriteTimezones.Value().insert(tzid);
-			const_cast<CTimezonePopup*>(this)->Reset(iCal::CICalendar::sICalendar.GetTimezone(tzid));
-			const_cast<CTimezonePopup*>(this)->SetTimezone(iCal::CICalendar::sICalendar.GetTimezone(tzid));
+			const_cast<CTimezonePopup*>(this)->Reset(iCal::CICalendar::getSICalendar().GetTimezone(tzid));
+			const_cast<CTimezonePopup*>(this)->SetTimezone(iCal::CICalendar::getSICalendar().GetTimezone(tzid));
 		}
 		else
 		{
