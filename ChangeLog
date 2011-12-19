@@ -1,2 +1,7 @@
 2010/03/15 M'bert
 	* Merge from Kenneth Porter's branch: fixes for Win32 build
+2011/12/08 M'bert
+	* Moved to git
+	* Initial Linux build, binary produced does not yet work
+2011/12/10 M'bert
+	* First working MacOS build
