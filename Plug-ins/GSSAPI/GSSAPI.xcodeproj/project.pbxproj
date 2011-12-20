@@ -165,9 +165,16 @@
 /* Begin PBXProject section */
 		AFD93B8C0AE5ADFB007F506F /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = AFD93B8D0AE5ADFB007F506F /* Build configuration list for PBXProject "GSSAPI" */;
 			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
 			mainGroup = AFD93B8A0AE5ADFB007F506F;
 			productRefGroup = AFD93B980AE5ADFB007F506F /* Products */;
 			projectDirPath = "";
@@ -216,15 +223,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		AFD93B8E0AE5ADFB007F506F /* Debug */ = {
+		6E63D9091496D0E700673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../../MacOS/build;
 			};
-			name = Debug;
+			name = Release;
 		};
-		AFD93B9A0AE5ADFB007F506F /* Debug */ = {
+		6E63D90A1496D0E700673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,6 +240,52 @@
 					ppc,
 					i386,
 				);
+				GCC_ALTIVEC_EXTENSIONS = NO;
+				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
+				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
+				GCC_REUSE_STRINGS = YES;
+				GCC_SHORT_ENUMS = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INFOPLIST_FILE = ../Common/Info.plst;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
+				INFOPLIST_PREPROCESS = YES;
+				OTHER_CFLAGS = "-fno-inline";
+				OTHER_LDFLAGS = (
+					"-multiply_defined",
+					warning,
+				);
+				PREBINDING = YES;
+				PRODUCT_NAME = GSSAPI;
+				REZ_SCRIPT_TYPE = Roman;
+				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
+				STRIP_INSTALLED_PRODUCT = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		AFD93B8E0AE5ADFB007F506F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../../MacOS/build;
+			};
+			name = Debug;
+		};
+		AFD93B9A0AE5ADFB007F506F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
 				GCC_ALTIVEC_EXTENSIONS = NO;
 				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -272,17 +326,19 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFD93B8E0AE5ADFB007F506F /* Debug */,
+				6E63D9091496D0E700673AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 1;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		AFD93B990AE5ADFB007F506F /* Build configuration list for PBXNativeTarget "GSSAPI MachO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AFD93B9A0AE5ADFB007F506F /* Debug */,
+				6E63D90A1496D0E700673AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

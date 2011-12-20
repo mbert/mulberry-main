@@ -23,9 +23,6 @@
 
 using namespace i18n;
 
-static char undefined_charmap = '?';		// Undefined mapping character
-static wchar_t undefined_wcharmap = '?';	// Undefined mapping character
-
 CConverterOneByte::CConverterOneByte(const wchar_t* map)
 {
 	m_c_2_w_map = map;

@@ -158,7 +158,7 @@ void CTimezonePopup::GetTimezone(iCal::CICalendarTimezone& tz) const
 	else if (adjusted_value == eOther)
 	{
 		cdstrvect tzids;
-		iCal::CICalendar::sICalendar.GetTimezones(tzids);
+		iCal::CICalendar::getSICalendar().GetTimezones(tzids);
 		std::sort(tzids.begin(), tzids.end());
 		
 		ulvector selected;

@@ -22,7 +22,7 @@
 using namespace i18n;
 
 char CConverterBase::undefined_charmap = '?';		// Undefined mapping character
-wchar_t CConverterBase::undefined_wcharmap = '?';	// Undefined mapping character
+wchar_t CConverterBase::undefined_wcharmap = L'?';	// Undefined mapping character
 
 void CConverterBase::ToUnicode(const char* str, size_t len, std::ostream& wout)
 {

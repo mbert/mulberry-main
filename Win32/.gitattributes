@@ -1,0 +1,7 @@
+* eol=crlf
+*.pdf -text
+*.chm -text
+*.ico -text
+*.bmp -text
+*.BMP -text
+.gitattributes eol=lf
