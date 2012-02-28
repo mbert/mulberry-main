@@ -35,7 +35,7 @@ public:
 	virtual bool ReadMap(void) = 0;
 	virtual bool WriteMap(bool verify) = 0;
 	virtual bool IsEmpty() const
-		{ return mMap.size(); }
+		{ return mMap.size() == 0; }
 	virtual void DeleteMap(void) = 0;
 
 	// Look for values under a key
