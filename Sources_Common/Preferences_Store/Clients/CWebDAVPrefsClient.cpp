@@ -164,6 +164,20 @@ void CWebDAVPrefsClient::Reset()
 
 void CWebDAVPrefsClient::Logon()
 {
+    // Get authorization info, some servers require it before the first request
+    if (!HasAuthorization() &&
+        GetAccount()->GetAuthenticatorType() != CAuthenticator::eNone)
+    {
+        cdstrvect hdrs;
+        SetHost(mServerAddr);
+        OpenConnection();
+        mAuthorization = GetAuthorization(true, hdrs);
+        if (mAuthorization == (CHTTPAuthorization*) -1)
+        {
+            mAuthorization = NULL;
+        }
+    }
+
 	// Do initialisation if not already done
 	if (!Initialise(mServerAddr, mBaseRURL))
 	{
