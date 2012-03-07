@@ -220,7 +220,7 @@ static long crlfbuffer_ctrl(BIO *b, int cmd, long num, void *ptr)
 		ctx->ibuf_off=0;
 		ctx->got_cr=0;
 		if (b->next_bio)
-			BIO_reset(b->next_bio);
+			(void)BIO_reset(b->next_bio);
     	break;
     }
     case BIO_C_DO_STATE_MACHINE:
