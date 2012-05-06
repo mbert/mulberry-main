@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7F2EA713-8C9E-40FD-B8E9-A16FA100EFB1}</ProjectGuid>
+    <RootNamespace>QuickmailAdbkIO</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)sources\md5;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__VCPP__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Plugin_Prefix_Win32.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4068;4018;4800;4996;4267;4244;4312;4309;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ForcedIncludeFiles>Plugin_Prefix_Win32.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\PluginLibrary\$(Configuration)\PluginLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)sources\md5;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>__VCPP__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Plugin_Prefix_Win32.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4068;4018;4800;4996;4267;4244;4312;4309;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ForcedIncludeFiles>Plugin_Prefix_Win32.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(ProjectDir)..\PluginLibrary\$(Configuration)\PluginLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CLCompile Include="..\Common\CAdbkIOPluginDLL.cp" />
+    <CLCompile Include="..\Common\CPluginDLL.cp" />
+    <CLCompile Include="sources\CQuickmailAdbkIOPluginDLL.cp" />
+    <ClCompile Include="..\Common\MulberryPrefixWin32.cp">
+      <FileType>Document</FileType>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <CLCompile Include="..\Common\PluginDLLmain.cp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\CAdbkIOPluginDLL.h" />
+    <ClInclude Include="..\Common\CPluginDLL.h" />
+    <ClInclude Include="..\Common\CPluginInfo.h" />
+    <ClInclude Include="sources\CQuickmailAdbkIOPluginDLL.h" />
+    <ClInclude Include="..\Common\Plugin_Prefix_Win32.h" />
+    <ClInclude Include="sources\PluginDLLmain.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\Common\resources\Plugin.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginLibrary\PluginLib.vcxproj">
+      <Project>{0896b645-32a6-45a8-ae53-0184ef807aba}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
