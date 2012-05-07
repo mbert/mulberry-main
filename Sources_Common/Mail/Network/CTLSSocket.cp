@@ -45,37 +45,37 @@
 #endif
 
 #ifdef _winsock
-#define EWOULDBLOCK             WSAEWOULDBLOCK
-#define EINPROGRESS             WSAEINPROGRESS
-#define EALREADY                WSAEALREADY
-#define ENOTSOCK                WSAENOTSOCK
-#define EDESTADDRREQ            WSAEDESTADDRREQ
-#define EMSGSIZE                WSAEMSGSIZE
-#define EPROTOTYPE              WSAEPROTOTYPE
-#define ENOPROTOOPT             WSAENOPROTOOPT
-#define EPROTONOSUPPORT         WSAEPROTONOSUPPORT
+//#define EWOULDBLOCK             WSAEWOULDBLOCK
+//#define EINPROGRESS             WSAEINPROGRESS
+//#define EALREADY                WSAEALREADY
+//#define ENOTSOCK                WSAENOTSOCK
+//#define EDESTADDRREQ            WSAEDESTADDRREQ
+//#define EMSGSIZE                WSAEMSGSIZE
+//#define EPROTOTYPE              WSAEPROTOTYPE
+//#define ENOPROTOOPT             WSAENOPROTOOPT
+//#define EPROTONOSUPPORT         WSAEPROTONOSUPPORT
 #define ESOCKTNOSUPPORT         WSAESOCKTNOSUPPORT
-#define EOPNOTSUPP              WSAEOPNOTSUPP
+//#define EOPNOTSUPP              WSAEOPNOTSUPP
 #define EPFNOSUPPORT            WSAEPFNOSUPPORT
-#define EAFNOSUPPORT            WSAEAFNOSUPPORT
-#define EADDRINUSE              WSAEADDRINUSE
-#define EADDRNOTAVAIL           WSAEADDRNOTAVAIL
-#define ENETDOWN                WSAENETDOWN
-#define ENETUNREACH             WSAENETUNREACH
-#define ENETRESET               WSAENETRESET
-#define ECONNABORTED            WSAECONNABORTED
-#define ECONNRESET              WSAECONNRESET
-#define ENOBUFS                 WSAENOBUFS
-#define EISCONN                 WSAEISCONN
-#define ENOTCONN                WSAENOTCONN
+//#define EAFNOSUPPORT            WSAEAFNOSUPPORT
+//#define EADDRINUSE              WSAEADDRINUSE
+//#define EADDRNOTAVAIL           WSAEADDRNOTAVAIL
+//#define ENETDOWN                WSAENETDOWN
+//#define ENETUNREACH             WSAENETUNREACH
+//#define ENETRESET               WSAENETRESET
+//#define ECONNABORTED            WSAECONNABORTED
+//#define ECONNRESET              WSAECONNRESET
+//#define ENOBUFS                 WSAENOBUFS
+//#define EISCONN                 WSAEISCONN
+//#define ENOTCONN                WSAENOTCONN
 #define ESHUTDOWN               WSAESHUTDOWN
 #define ETOOMANYREFS            WSAETOOMANYREFS
-#define ETIMEDOUT               WSAETIMEDOUT
-#define ECONNREFUSED            WSAECONNREFUSED
-#define ELOOP                   WSAELOOP
+//#define ETIMEDOUT               WSAETIMEDOUT
+//#define ECONNREFUSED            WSAECONNREFUSED
+//#define ELOOP                   WSAELOOP
 //#define ENAMETOOLONG            WSAENAMETOOLONG
 #define EHOSTDOWN               WSAEHOSTDOWN
-#define EHOSTUNREACH            WSAEHOSTUNREACH
+//#define EHOSTUNREACH            WSAEHOSTUNREACH
 //#define ENOTEMPTY               WSAENOTEMPTY
 #define EPROCLIM                WSAEPROCLIM
 #define EUSERS                  WSAEUSERS
@@ -415,7 +415,7 @@ void CTLSSocket::TLSStartConnection()
 		mCertIssuer = str;
 
 		// Get cipher in use
-		SSL_CIPHER* cipher = ::SSL_get_current_cipher(m_tls);
+		const SSL_CIPHER* cipher = ::SSL_get_current_cipher(m_tls);
 		
 		char cipher_desc[256];
 		::SSL_CIPHER_description(cipher, cipher_desc, 256);
