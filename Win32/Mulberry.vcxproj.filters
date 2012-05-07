@@ -228,6 +228,21 @@
     <ClInclude Include="sources\application\address_book\CAddressContactPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sources\application\address_book\CAddressFieldBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\application\address_book\CAddressFieldContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\application\address_book\CAddressFieldMultiLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\application\address_book\CAddressFieldSubContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\application\address_book\CAddressFieldText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="sources\application\letter\CAddressDisplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -253,6 +268,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sources\application\address_book\CAddressPreview.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sources\application\address_book\CAddressPreviewAdvanced.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sources\application\address_book\CAddressPreviewBase.h">
@@ -571,6 +589,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\sources_common\mail\control\CConnectionManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\sources_common\mail\control\CCalendarCheckThread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sources\support\CContainerView.h">
@@ -3731,6 +3752,21 @@
     <CLCompile Include="sources\application\address_book\CAddressContactPanel.cp">
       <Filter>Source Files</Filter>
     </CLCompile>
+    <CLCompile Include="sources\application\address_book\CAddressFieldBase.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="sources\application\address_book\CAddressFieldContainer.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="sources\application\address_book\CAddressFieldMultiLine.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="sources\application\address_book\CAddressFieldSubContainer.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="sources\application\address_book\CAddressFieldText.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
     <CLCompile Include="sources\application\letter\CAddressDisplay.cp">
       <Filter>Source Files</Filter>
     </CLCompile>
@@ -3753,6 +3789,9 @@
       <Filter>Source Files</Filter>
     </CLCompile>
     <CLCompile Include="sources\application\address_book\CAddressPreview.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="sources\application\address_book\CAddressPreviewAdvanced.cp">
       <Filter>Source Files</Filter>
     </CLCompile>
     <CLCompile Include="sources\application\address_book\CAddressTable.cp">
@@ -4014,6 +4053,9 @@
       <Filter>Source Files</Filter>
     </CLCompile>
     <CLCompile Include="..\sources_common\mail\control\CConnectionManager.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\sources_common\mail\control\CCalendarCheckThread.cp">
       <Filter>Source Files</Filter>
     </CLCompile>
     <CLCompile Include="sources\support\CContainerView.cp">

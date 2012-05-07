@@ -47,7 +47,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\openssl\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__VCPP__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -61,7 +61,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/Def:"SSL.def" %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(ProjectDir)..\..\Libraries\openssl\out32d\libeay32.lib;$(ProjectDir)..\..\Libraries\openssl\out32d\ssleay32.lib;WSOCK32.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\out32d\libeay32.lib;$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\out32d\ssleay32.lib;WSOCK32.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -77,7 +77,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\openssl\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__VCPP__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -89,7 +89,7 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/Def:"SSL.def" %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>$(ProjectDir)..\..\Libraries\openssl\out32s\libeay32.lib;$(ProjectDir)..\..\Libraries\openssl\out32s\ssleay32.lib;WSOCK32.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\out32s\libeay32.lib;$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\out32s\ssleay32.lib;WSOCK32.lib;Crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
