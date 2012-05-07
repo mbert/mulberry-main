@@ -127,3 +127,5 @@ Win32/Release
 Win32/Installer/Mulberry/Release
 Win32/MulberryVC10.sdf
 Win32/MulberryVC10.suo
+Win32/MulberryVC10.opensdf
+Win32/ipch/
