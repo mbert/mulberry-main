@@ -38,6 +38,7 @@
 #endif
 
 #include <algorithm>
+#include <iterator>
 
 #include "char_stream.h"
 

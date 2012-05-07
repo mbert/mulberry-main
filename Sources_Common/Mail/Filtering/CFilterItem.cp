@@ -29,6 +29,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <iterator>
 
 extern const char* cSpace;
 extern const char* cValueBoolTrue;

@@ -39,6 +39,7 @@
 #endif
 
 #include <algorithm>
+#include <iterator>
 
 #include "cdomutex.h"
 
