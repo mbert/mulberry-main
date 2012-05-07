@@ -102,7 +102,7 @@ LTableArrayStorage::SetCellData(
 		std::free(mDataArray->at(cellIndex -1).first);
 		
 		// Create new data
-		LTableStorageElement element(NULL, inDataSize);
+		LTableStorageElement element((void*)NULL, inDataSize);
 		if (inDataSize > 0)
 		{
 			element.first = std::malloc(inDataSize);
@@ -233,7 +233,7 @@ LTableArrayStorage::InsertRows(
 	// Insert blank elements first - though all with the correct size
 	if ((inHowMany > 0) && (cols > 0))
 	{
-		LTableStorageElement element(NULL, inDataSize);
+		LTableStorageElement element((void*)NULL, inDataSize);
 		mDataArray->insert(mDataArray->begin() + (startIndex - 1), inHowMany * cols, element);
 	
 		// Now create new data elements and store in each new array element
@@ -273,7 +273,7 @@ LTableArrayStorage::InsertCols(
 		// Insert blank elements first - though all with the correct size
 		if (inHowMany)
 		{
-			LTableStorageElement element(NULL, inDataSize);
+			LTableStorageElement element((void*)NULL, inDataSize);
 			mDataArray->insert(mDataArray->begin() + (startIndex - 1), inHowMany, element);
 
 			// Now create new data elements and store in each new array element

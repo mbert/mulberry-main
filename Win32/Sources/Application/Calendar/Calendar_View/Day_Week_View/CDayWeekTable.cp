@@ -581,7 +581,7 @@ void CDayWeekTable::AddAllDayEvent(iCal::CICalendarComponentExpandedShared& veve
 		if (slot >= mAllDayEvents[col_start - 2].size())
 		{
 			for(TableIndexT col_ctr = 2; col_ctr <= mCols; col_ctr++)
-				mAllDayEvents[col_ctr - 2].push_back(CDayEventSlotList::value_type(NULL, false));
+				mAllDayEvents[col_ctr - 2].push_back(CDayEventSlotList::value_type((CDayEvent*)NULL, false));
 		}
 		
 		// Determine visual position in table cell

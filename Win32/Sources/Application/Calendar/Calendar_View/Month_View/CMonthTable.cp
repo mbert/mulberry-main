@@ -304,7 +304,7 @@ void CMonthTable::AddEvent(iCal::CICalendarComponentExpandedShared& vevent)
 			if (slot >= mEvents[row - 1][col_start - 1].size())
 			{
 				for(TableIndexT col_ctr = 1; col_ctr <= 7; col_ctr++)
-					mEvents[row - 1][col_ctr - 1].push_back(CMonthEventSlotList::value_type(NULL, false));
+					mEvents[row - 1][col_ctr - 1].push_back(CMonthEventSlotList::value_type((CMonthEvent*)NULL, false));
 			}
 			
 			// Determine visual poisition in table cell
