@@ -108,7 +108,7 @@ void CConverterBase::ToUTF16(const char* str, size_t len, std::ostream& wout)
 		}
 		else
 		{
-			wc -= 0x10000;
+			wc -= (wchar_t)0x10000;
 			wchar_t wc1 = 0xD800 | ((wc & 0x000FFC00) >> 10);
 			wchar_t wc2 = 0xDC00 | (wc & 0x000003FF);
 
