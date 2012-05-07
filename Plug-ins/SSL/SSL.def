@@ -41,7 +41,6 @@ CRYPTO_set_locked_mem_ex_functions
 CRYPTO_set_locked_mem_functions
 CRYPTO_set_mem_ex_functions
 CRYPTO_set_mem_functions
-cleanse_ctr
 OPENSSL_cleanse
 CRYPTO_mem_leaks_cb
 CRYPTO_mem_leaks_fp
@@ -107,10 +106,6 @@ ASN1_ENUMERATED_set
 ASN1_GENERALIZEDTIME_set
 ASN1_GENERALIZEDTIME_set_string
 ASN1_GENERALIZEDTIME_check
-ASN1_HEADER_free
-ASN1_HEADER_new
-d2i_ASN1_HEADER
-i2d_ASN1_HEADER
 ASN1_item_i2d_bio
 ASN1_item_i2d_fp
 ASN1_i2d_bio
@@ -126,8 +121,6 @@ ASN1_INTEGER_cmp
 ASN1_INTEGER_dup
 ASN1_mbstring_ncopy
 ASN1_mbstring_copy
-ASN1_BIT_STRING_asn1_meth
-ASN1_IA5STRING_asn1_meth
 ASN1_OBJECT_create
 ASN1_OBJECT_free
 ASN1_OBJECT_new
@@ -302,7 +295,6 @@ ASN1_primitive_free
 ASN1_template_free
 ASN1_item_ex_free
 ASN1_item_free
-asn1_primitive_clear
 ASN1_primitive_new
 ASN1_template_new
 ASN1_item_ex_new
@@ -530,7 +522,6 @@ d2i_X509_AUX
 X509_get_ex_data
 X509_set_ex_data
 X509_get_ex_new_index
-X509_asn1_meth
 X509_dup
 X509_free
 X509_new
@@ -613,8 +604,6 @@ BIO_free
 BIO_set
 BIO_new
 BIO_new_accept
-BIO_ACCEPT_free
-BIO_ACCEPT_new
 BIO_s_accept
 BIO_nwrite
 BIO_nwrite0
@@ -1225,7 +1214,6 @@ EVP_PKEY2PKCS8
 EVP_PKCS82PKEY
 EVP_dss
 EVP_dss1
-EVP_md2
 EVP_md5
 EVP_md_null
 EVP_ripemd160
@@ -1296,12 +1284,6 @@ lh_insert
 lh_free
 lh_new
 lh_strhash
-MD2_version
-MD2_Final
-MD2_Update
-MD2_Init
-MD2_options
-MD2
 MD4_version
 MD4_Init
 MD4_Final
@@ -1325,7 +1307,6 @@ OBJ_NAME_new_index
 OBJ_NAME_init
 OBJ_create
 OBJ_create_objects
-OBJ_bsearch
 OBJ_sn2nid
 OBJ_ln2nid
 OBJ_txt2nid
@@ -1437,7 +1418,6 @@ OCSP_copy_nonce
 OCSP_check_nonce
 OCSP_basic_add1_nonce
 OCSP_request_add1_nonce
-ASN1_STRING_encode
 OCSP_SINGLERESP_add_ext
 OCSP_SINGLERESP_add1_ext_i2d
 OCSP_SINGLERESP_get1_ext_d2i
@@ -1665,8 +1645,6 @@ d2i_PKCS12_fp
 d2i_PKCS12_bio
 i2d_PKCS12_fp
 i2d_PKCS12_bio
-uni2asc
-asc2uni
 ERR_load_PKCS12_strings
 PKCS7_it
 PKCS7_SIGNED_it
@@ -1789,7 +1767,6 @@ RC2_set_key
 RC2_cfb64_encrypt
 RC2_ofb64_encrypt
 RC4
-RC4_version
 RC4_set_key
 RC4_options
 RMD160_version
@@ -1804,7 +1781,6 @@ RSAPrivateKey_dup
 RSAPublicKey_dup
 i2d_RSAPublicKey
 d2i_RSAPublicKey
-RSAPrivateKey_asn1_meth
 i2d_RSAPrivateKey
 d2i_RSAPrivateKey
 RSA_check_key
@@ -1835,7 +1811,6 @@ RSA_new
 RSA_padding_check_none
 RSA_padding_add_none
 RSA_null_method
-MGF1
 RSA_padding_check_PKCS1_OAEP
 RSA_padding_add_PKCS1_OAEP
 RSA_padding_check_PKCS1_type_2
@@ -2445,7 +2420,6 @@ BIO_new_buffer_ssl_connect
 BIO_f_ssl
 SSLv23_client_method
 ssl23_connect
-sslv23_base_method
 SSLv23_method
 ssl23_read_bytes
 ssl23_write_bytes
@@ -2463,7 +2437,6 @@ ssl2_ciphers
 ssl2_write_error
 ssl2_return_error
 ssl2_generate_key_material
-sslv2_base_method
 ssl2_new
 ssl2_clear
 ssl2_free
@@ -2498,7 +2471,6 @@ SSLv3_client_method
 ssl3_connect
 ssl3_alert_code
 ssl3_generate_master_secret
-ssl3_mac
 ssl3_final_finish_mac
 ssl3_cert_verify_mac
 ssl3_finish_mac
@@ -2511,7 +2483,6 @@ ssl3_version_str
 ssl3_ciphers
 ssl3_get_req_cert_type
 ssl3_choose_cipher
-sslv3_base_method
 ssl3_new
 ssl3_clear
 ssl3_free
@@ -2630,8 +2601,6 @@ SSL_CTX_set_default_passwd_cb_userdata
 SSL_CTX_set_default_passwd_cb
 SSL_CTX_free
 SSL_CTX_new
-SSL_SESSION_cmp
-SSL_SESSION_hash
 ssl_bytes_to_cipher_list
 ssl_cipher_list_to_bytes
 SSL_get_shared_ciphers
@@ -2756,7 +2725,6 @@ tls1_enc
 tls1_setup_key_block
 tls1_change_cipher_state
 tls1_version_str
-tlsv1_base_method
 tls1_new
 tls1_clear
 tls1_free

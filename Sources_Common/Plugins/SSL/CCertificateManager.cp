@@ -639,6 +639,7 @@ bool CCertificateManager::ImportCertificateFile(CCertificateManager::ECertificat
 			const unsigned char* p = (unsigned char*) buf->data;
 			const unsigned char* op = p;
 
+#if 0 // KAP: until we find a suitable replacement in openssl-1.0 code
 			// First load the header
 			NSSL::StSSLObject<ASN1_HEADER> ah(::d2i_ASN1_HEADER(NULL, &p, (long)size));
 			if (ah.get() == NULL)
@@ -666,6 +667,7 @@ bool CCertificateManager::ImportCertificateFile(CCertificateManager::ECertificat
 
 			xcert.reset((X509 *)ah->data);
 			ah->data = NULL;
+#endif
 		}
 
 		// Do actual certificate import if one is left
@@ -1107,7 +1109,7 @@ STACK_OF(X509)* CCertificateManager::GetCerts(const char* key, ECertificateType 
 		return NULL;
 	}
 
-	STACK_OF(EVP_PKEY)* result = sk_X509_new_null();
+	STACK_OF(X509)* result = sk_X509_new_null();
 	
 	// Add each matching pkey to the stack
 	for(CCertificateStoreList::const_iterator iter1 = store->begin(); iter1 != store->end(); iter1++)

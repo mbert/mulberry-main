@@ -47,7 +47,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)sources\md5;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Plugins\SSL;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\openssl\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)sources\md5;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Plugins\SSL;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__VCPP__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -75,7 +75,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)sources\md5;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Plugins\SSL;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\openssl\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)sources;$(ProjectDir)sources\md5;$(ProjectDir)..\Common;$(ProjectDir)..\..\Sources_Common\i18n;$(ProjectDir)..\..\Sources_Common\i18n\Charsets;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\OneByte;$(ProjectDir)..\..\Sources_Common\i18n\Charsets\Converters\Unicode;$(ProjectDir)..\..\Sources_Common\Mail\URLs;$(ProjectDir)..\..\Sources_Common\Plugins\SSL;$(ProjectDir)..\..\Sources_Common\Utilities;$(ProjectDir)..\..\Win32\Sources\VCPP;$(ProjectDir)..\..\Libraries\vendor\openssl-1.0.0d\inc32;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>__VCPP__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
