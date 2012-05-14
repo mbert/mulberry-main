@@ -463,6 +463,9 @@ CSearchItem* CSearchCriteriaContainer::ConstructSearch() const
 					and_list->push_back(new CSearchItem(**prev));
 					and_list->push_back(new CSearchItem(**next));
 					
+					// all three iterators will be invalidated, so save the index of prev and use it after invalidation to recreate a new iter pointing where prev used to point.
+					const CSearchItemList::difference_type index = prev - flat_list.begin();
+
 					// Delete the next item
 					flat_list.erase(next, next + 1);
 					
@@ -470,7 +473,7 @@ CSearchItem* CSearchCriteriaContainer::ConstructSearch() const
 					flat_list.erase(prev, prev + 1);
 					
 					// Adjust iter to previous item so it will point to the new item after cycling through the loop
-					iter = prev;
+					iter = flat_list.begin() + index;
 				}
 			}
 		}
@@ -505,6 +508,9 @@ CSearchItem* CSearchCriteriaContainer::ConstructSearch() const
 					and_list->push_back(new CSearchItem(**prev));
 					and_list->push_back(new CSearchItem(**next));
 					
+					// all three iterators will be invalidated, so save the index of prev and use it after invalidation to recreate a new iter pointing where prev used to point.
+					const CSearchItemList::difference_type index = prev - flat_list.begin();
+
 					// Delete the next item
 					flat_list.erase(next, next + 1);
 					
@@ -512,7 +518,7 @@ CSearchItem* CSearchCriteriaContainer::ConstructSearch() const
 					flat_list.erase(prev, prev + 1);
 					
 					// Adjust iter to previous item so it will point to the new item after cycling through the loop
-					iter = prev;
+					iter = flat_list.begin() + index;
 				}
 			}
 		}
