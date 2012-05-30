@@ -287,38 +287,8 @@ void RectOnScreen(CRect& rect, CWnd* owner)
 	// bring bottom edge into work area
 	if (rect.bottom > desktop.bottom)
 		rect.bottom = desktop.bottom;
-
-#if 0
-	desktop.right -= 64;
-	desktop.bottom -= 64;
-
-	// Always offset the rect by the left/top margins to account for toolbar placement
-	POINT pt;
-	pt.x = desktop.left;
-	pt.y = desktop.top;
-	rect.OffsetRect(pt);
-
-	// Now make sure top-left of window title bar IS on screen
-	pt.x = rect.left;
-	pt.y = rect.top;
-	if (!desktop.PtInRect(pt))
-	{
-		POINT diff = {0, 0};
-
-		if (rect.left < desktop.left)
-			diff.x = desktop.left - rect.left;
-		else if (rect.left > desktop.right)
-			diff.x = desktop.right - rect.left;
-
-		if (rect.top < desktop.top)
-			diff.y = desktop.top - rect.top;
-		else if (rect.top > desktop.bottom)
-			diff.y = desktop.bottom - rect.top;
-		
-		rect.OffsetRect(diff);
-	}
-#endif
 }
+
 cdstring GetNumericFormat(unsigned long number)
 {
 	cdstring result;
