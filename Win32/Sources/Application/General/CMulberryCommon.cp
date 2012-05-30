@@ -264,8 +264,31 @@ void RectOnScreen(CRect& rect, CWnd* owner)
 	if (owner)
 		owner->GetClientRect(desktop);
 	else
-		// Get task bar pos and see if at top
+	{
+		// we're interested in area, not actual position of the
+		// work area, because if the taskbar is at top or left,
+		// windows are placed relative to its height/width.
 		::SystemParametersInfo(SPI_GETWORKAREA, 0, (Rect*) desktop, 0);
+		desktop.OffsetRect(-desktop.left, -desktop.top);
+	}
+
+	// move left edge right into work area
+	if (rect.left < 0)
+		rect.OffsetRect(-rect.left, 0);
+
+	// move top edge down into work area
+	if (rect.top < 0)
+		rect.OffsetRect(0, -rect.top);
+
+	// bring right edge into work area
+	if (rect.right > desktop.right)
+		rect.right = desktop.right;
+
+	// bring bottom edge into work area
+	if (rect.bottom > desktop.bottom)
+		rect.bottom = desktop.bottom;
+
+#if 0
 	desktop.right -= 64;
 	desktop.bottom -= 64;
 
@@ -294,6 +317,7 @@ void RectOnScreen(CRect& rect, CWnd* owner)
 		
 		rect.OffsetRect(diff);
 	}
+#endif
 }
 cdstring GetNumericFormat(unsigned long number)
 {
