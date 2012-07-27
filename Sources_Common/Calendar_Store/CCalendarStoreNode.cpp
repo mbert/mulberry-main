@@ -521,7 +521,7 @@ void CCalendarStoreNode::MoveCalendar(const CCalendarStoreNode* dir, bool siblin
 	cdstring new_name;
 
 	// Must have item and it must be a directory or protocol
-	if (!dir || !dir->IsProtocol() && !dir->IsDirectory())
+	if (!dir || (!dir->IsProtocol() && !dir->IsDirectory()))
 		return;
 
 	// Check for sibling
