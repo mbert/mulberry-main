@@ -58,7 +58,6 @@ void CPropCalendarGeneral::FinishCreateSelf(void)
 	mName = (CTextFieldX*) FindPaneByID(paneid_CalendarGeneralName);
 	mServer = (CTextFieldX*) FindPaneByID(paneid_CalendarGeneralServer);
 	mHierarchy = (CTextFieldX*) FindPaneByID(paneid_CalendarGeneralHierarchy);
-	mSeparator = (CTextFieldX*) FindPaneByID(paneid_CalendarGeneralSeparator);
 	mSize = (CTextFieldX*) FindPaneByID(paneid_CalendarGeneralSize);
 	mStatus = (CTextFieldX*) FindPaneByID(paneid_CalendarGeneralStatus);
 	mLastSync = (CTextFieldX*) FindPaneByID(paneid_CalendarGeneralLastSync);
@@ -119,10 +118,7 @@ void CPropCalendarGeneral::SetCalendar(calstore::CCalendarStoreNode* node)
 
 	mServer->SetText(node->GetProtocol()->GetDescriptor());
 
-	mHierarchy->SetText(node->GetParent()->GetName());
-
-	cdstring temp(node->GetProtocol()->GetDirDelim());
-	mSeparator->SetText(temp);
+	mHierarchy->SetText(node->GetName());
 
 	// Only set these if not a directory
 	if (!node->IsDirectory())
@@ -151,7 +147,7 @@ void CPropCalendarGeneral::SetCalendar(calstore::CCalendarStoreNode* node)
 			else if (node->GetProtocol()->IsWebCalendar() || node->GetProtocol()->CanDisconnect())
 			{
 				unsigned long utc_time = node->GetLastSync();
-				
+				cdstring temp;
 				if (utc_time != 0)
 				{
 					// Determine timezone offset
@@ -179,7 +175,7 @@ void CPropCalendarGeneral::SetCalendar(calstore::CCalendarStoreNode* node)
 	if (node->IsDirectory())
 		FindPaneByID(paneid_CalendarGeneralCalculate)->Disable();
 
-	temp = cdstring::null_str;
+	cdstring temp = cdstring::null_str;
 	if (node->IsActive())
 	{
 		cdstring rsrc;
