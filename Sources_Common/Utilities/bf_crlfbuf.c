@@ -207,7 +207,7 @@ static int crlfbuffer_write(BIO *b, const char *in, int inl)
 
 static long crlfbuffer_ctrl(BIO *b, int cmd, long num, void *ptr)
 	{
-	long ret;
+	long ret = 0;
 
 	if (b->next_bio == NULL) return(0);
 	switch(cmd)
