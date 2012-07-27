@@ -21,6 +21,10 @@
 
 #include "CAppLaunch.h"
 
+#include <SysCFArray.h>
+#include <SysCFString.h>
+#include <SysCFURL.h>
+
 #include <LaunchServices.h>
 
 // OpenSpecifiedDocument searches to see if the application which
@@ -29,14 +33,37 @@
 // (remember that, because of puppet strings, this works even
 // if the target application is not Apple event-aware.)
 
-OSErr CAppLaunch::OpenDocumentWithApp(const PPx::FSObject* doc, OSType appCreator)
+OSErr CAppLaunch::OpenDocumentWithApp(const PPx::FSObject* doc, const cdstring& mimeType, OSType appCreator)
 {
 	// verify the document file exists and get its creator type
 
 	if (!doc->Exists())
 		return fnfErr;
 
-	return LaunchApplicationWithDocument(appCreator, doc);
+    if (!appCreator)
+    {
+        // Try mime type first, then just use file name (extension)
+        PPx::CFString inMIMEType(mimeType, kCFStringEncodingUTF8);
+        CFURLRef outAppURL;
+        if (::LSCopyApplicationForMIMEType(inMIMEType, kLSRolesAll, &outAppURL) == noErr)
+        {
+            OSErr err = LaunchApplicationWithDocument(outAppURL, doc);
+            ::CFRelease(outAppURL);
+            return err;
+        }
+        
+        return ::LSOpenFSRef(&doc->UseRef(), NULL);
+    }
+    else
+        return LaunchApplicationWithDocument(appCreator, doc);
+}
+
+// Launch the URL
+OSErr CAppLaunch::LaunchURL(const cdstring& url)
+{
+    PPx::CFString urlStr(url, kCFStringEncodingUTF8);
+    PPx::CFURL inURL(urlStr);
+    return ::LSOpenCFURLRef(inURL, NULL);
 }
 
 //----------------------------------------------------------------------------
@@ -48,7 +75,6 @@ OSErr CAppLaunch::OpenDocumentWithApp(const PPx::FSObject* doc, OSType appCreato
 //----------------------------------------------------------------------------
 OSErr CAppLaunch::LaunchApplicationWithDocument(OSType appCreator, const PPx::FSObject* doc)
 {
-	// Code taken from TechNote #2017 on Launch Services
 	
 	// Find the application on disk
 	FSRef outAppRef;
@@ -68,3 +94,25 @@ OSErr CAppLaunch::LaunchApplicationWithDocument(OSType appCreator, const PPx::FS
 
 	return err;
 }
+
+OSErr CAppLaunch::LaunchApplicationWithDocument(CFURLRef appURL, const PPx::FSObject* doc)
+{
+    PPx::CFURL docURL(doc->UseRef());
+    PPx::CFArray<CFURLRef> array(1);
+    array.AppendValue(docURL);
+    
+	
+	// Try to launch it with the document
+    
+	LSLaunchURLSpec inLaunchSpec;
+	inLaunchSpec.appURL = appURL;
+	inLaunchSpec.itemURLs = array;
+	inLaunchSpec.passThruParams = NULL;
+	inLaunchSpec.launchFlags = kLSLaunchDefaults;
+	inLaunchSpec.asyncRefCon = NULL;
+    
+	OSErr err = ::LSOpenFromURLSpec(&inLaunchSpec, NULL);
+    
+	return err;
+}
+

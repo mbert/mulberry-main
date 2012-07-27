@@ -917,7 +917,6 @@ void CMIMESupport::MapFileToMIME(CAttachment& attach)
 }
 #endif
 
-#if ( __dest_os == __win32_os ) || (__dest_os == __linux_os)
 // Get file extension for MIME
 cdstring CMIMESupport::MapMIMEToFileExt(const CAttachment& attach)
 {
@@ -944,12 +943,18 @@ cdstring CMIMESupport::MapMIMEToFileExt(const CAttachment& attach)
 #if __dest_os == __win32_os
 	// Look in registry
 	return CWinRegistry::GetSuffixFromMIME(type, original);
-#else
+#elif __dest_os == __linux_os
 	// Look in MIME map
 	return CMIMETypesMap::sMIMETypesMap.GetExtension(type, original);
+#else
+    if (type == "text/plain")
+        return ".txt";
+    else if (type == "text/html")
+        return ".html";
+    else
+        return "";
 #endif
 }
-#endif
 
 // Get application that will open MIME part
 cdstring CMIMESupport::MapMIMEToApp(const CAttachment& attach)
@@ -1027,6 +1032,7 @@ OSType CMIMESupport::MapMIMEToCreator(const CAttachment& attach)
 	if (attach.GetContent().IsBinHexed() || attach.GetContent().IsUUed() || attach.IsApplefile())
 		return 0L;
 
+#if 0 // Will rely on LaunchServices from now on
 	// Lookup attachment with internet config
 	ICMapEntry entry;
 	if (CICSupport::ICMapFileName(attach.GetContent(), entry) == noErr)
@@ -1037,12 +1043,14 @@ OSType CMIMESupport::MapMIMEToCreator(const CAttachment& attach)
 			return entry.fileCreator;
 	}
 	else
+#endif
 		return 0L;
 }
 
 // Get application creator that will open MIME part
 OSType CMIMESupport::MapMIMEToCreator(const cdstring& fname, const cdstring& type)
 {
+#if 0 // Will rely on LaunchServices from now on
 	// Lookup attachment with internet config
 	ICMapEntry entry;
 	if (CICSupport::ICMapMIMEType(fname, type, entry) == noErr)
@@ -1053,6 +1061,7 @@ OSType CMIMESupport::MapMIMEToCreator(const cdstring& fname, const cdstring& typ
 			return entry.fileCreator;
 	}
 	else
+#endif
 		return 0L;
 }
 #endif

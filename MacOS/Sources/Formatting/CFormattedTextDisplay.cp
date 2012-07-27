@@ -18,12 +18,12 @@
 #include "CFormattedTextDisplay.h"
 
 #include "CAddressBookManager.h"
+#include "CAppLaunch.h"
 #include "CATSUIStyle.h"
 #include "CBetterScrollerX.h"
 #include "CGUtils.h"
 #include "CClickList.h"
 #include "CCommands.h"
-#include "CICSupport.h"
 #include "CMulberryCommon.h"
 #include "CParserEnriched.h"
 #include "CParserHTML.h"
@@ -1118,9 +1118,7 @@ bool CFormattedTextDisplay::GetLineRange(SInt32 &first, SInt32 &last, SInt32 sta
 
 bool CFormattedTextDisplay::LaunchURL(const char* url)
 {
-	OSStatus err;
-	err = CICSupport::ICLaunchURL((char*) url);   // justin grab_c_str change
-
+	OSStatus err = CAppLaunch::LaunchURL(url);   // justin grab_c_str change
 	return (err == noErr);
 }
 

@@ -35,6 +35,7 @@
 #include "CAdbkSearchWindow.h"
 #include "CAddressBookWindow.h"
 #include "CAdminLock.h"
+#include "CAppLaunch.h"
 #include "CApplyRulesMenu.h"
 #include "CAttachmentManager.h"
 #include "CBalloonDialog.h"
@@ -1427,7 +1428,7 @@ void CMulberryApp::OnHelpMulberryOnline()
 {
 	// Launch the Mulberry webpage URL
 	cdstring url = CAdminLock::sAdminLock.mMulberryURL;
-	OSStatus err = CICSupport::ICLaunchURL(url);
+	OSStatus err = CAppLaunch::LaunchURL(url);
 }
 
 // Go to Mulberry faq web page
@@ -1435,7 +1436,7 @@ void CMulberryApp::OnHelpOnlineFAQ()
 {
 	// Launch the Mulberry FAQ webpage URL
 	cdstring url = CAdminLock::sAdminLock.mMulberryFAQ;
-	OSStatus err = CICSupport::ICLaunchURL(url);
+	OSStatus err = CAppLaunch::LaunchURL(url);
 }
 
 // Go to check updates page
@@ -1472,7 +1473,7 @@ void CMulberryApp::OnHelpCheckUpdates()
 	url += cdstring(static_cast<unsigned long>(GetVersionNumber().nonRelRev));
 
 	// Launch the URL
-	OSStatus err = CICSupport::ICLaunchURL(url);
+	OSStatus err = CAppLaunch::LaunchURL(url);
 }
 
 // Create Mulberry support message
@@ -1495,7 +1496,7 @@ void CMulberryApp::OnHelpBuyMulberry()
 {
 	// Launch the Mulberry order form webpage URL
 	cdstring url = cBuyMulberryURL;
-	OSStatus err = CICSupport::ICLaunchURL(url);
+	OSStatus err = CAppLaunch::LaunchURL(url);
 }
 
 #pragma mark ____________________________Command handling

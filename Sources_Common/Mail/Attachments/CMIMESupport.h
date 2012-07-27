@@ -76,8 +76,8 @@ public:
 
 #if (__dest_os == __win32_os) || (__dest_os == __linux_os)
 	static void MapFileToMIME(CAttachment& attach);								// Map file extension to MIME content
-	static cdstring MapMIMEToFileExt(const CAttachment& attach);				// Get file extension for MIME
 #endif
+	static cdstring MapMIMEToFileExt(const CAttachment& attach);				// Get file extension for MIME
 	static cdstring MapMIMEToApp(const CAttachment& attach);					// Get application that will open MIME part
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 	static OSType MapMIMEToCreator(const CAttachment& attach);						// Get application that will open MIME part

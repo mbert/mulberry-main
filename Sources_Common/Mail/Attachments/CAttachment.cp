@@ -1199,7 +1199,6 @@ const cdstring CAttachment::GetMappedName(bool not_empty, bool force) const
 #endif
 		}
 		
-#if __dest_os == __win32_os || __dest_os == __linux_os
 		// Must have proper file extension
 		if (!::strchr(name.c_str(), '.'))
 			name += CMIMESupport::MapMIMEToFileExt((CAttachment&) *part_to_map);
@@ -1216,7 +1215,6 @@ const cdstring CAttachment::GetMappedName(bool not_empty, bool force) const
 			if (::strrchr(result.c_str(), '.'))
 				name += cdstring(::strrchr(result.c_str(), '.'));
 		}
-#endif
 
 		const_cast<CAttachment*>(this)->SetName(name);
 	}
@@ -1322,10 +1320,12 @@ bool CAttachment::UniqueFile(const cdstring& fpath) const
 // Get suite of icons from icon cache
 const CIconRef* CAttachment::GetIconRef() const
 {
+#if 0
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 	ICMapEntry entry;
 	if (CICSupport::ICMapFileName(mContent, entry, true) == noErr)
 		return CDesktopIcons::GetDesktopIcons(entry.fileCreator, entry.fileType);
+#endif
 #endif
 	return CDesktopIcons::GetDesktopIconsFromMIME(mContent.GetContentTypeText(), mContent.GetContentSubtypeText());
 }
@@ -2078,7 +2078,8 @@ void CAttachment::TryLaunch(CFullFileStream* aFile) const
 				appCreator = finfo.file.fileCreator;
 			}
 
-			CAppLaunch::OpenDocumentWithApp(&fspec, appCreator);
+            cdstring mimeType = CMIMESupport::GenerateContentHeader(this, false, lendl, false);
+			CAppLaunch::OpenDocumentWithApp(&fspec, mimeType, appCreator);
 #elif __dest_os == __win32_os
 			TCHAR dir[MAX_PATH];
 			if (::GetCurrentDirectory(MAX_PATH, dir))
