@@ -297,7 +297,7 @@ void CCalendarProtocol::CreateClient()
 	case CINETAccount::eWebDAVCalendar:
 	case CINETAccount::eCalDAVCalendar:
 	case CINETAccount::eHTTPCalendar:
-		if (CConnectionManager::sConnectionManager.IsConnected() && !IsForceDisconnect() || !CanDisconnect())
+		if ((CConnectionManager::sConnectionManager.IsConnected() && !IsForceDisconnect()) || !CanDisconnect())
 		{
 			SetFlags(eIsOffline, false);
 			SetFlags(eDisconnected, false);
@@ -1125,12 +1125,14 @@ bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 		
 		// Step 1
 		cdstrmap changed;
-		cdstrset removed;																																																																																																																																		
-		cdstring synctoken;																																																																																																																																		
+		cdstrset removed;
+		cdstring synctoken = cal.GetSyncToken();
 		mClient->_FastSync(node, cal, changed, removed, synctoken);
 		
 		if (synctoken.empty() && !cal.GetSyncToken().empty())
 		{
+            // Original token was invalid so invalidate the entire local cache and do a full sync
+            cal.ClearSync();
 			changed.clear();
 			removed.clear();
 			mClient->_FastSync(node, cal, changed, removed, synctoken);
@@ -1325,7 +1327,7 @@ bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 		// Clear out cache recording
 		cal.ClearRecording();
 		
-		// Get the current server sync token if changes were made or it was differemt
+		// Get the current server sync token if changes were made or it was different
 		if (server_changed || changes_made)
 		{
 			mClient->_UpdateSyncToken(node, cal);
