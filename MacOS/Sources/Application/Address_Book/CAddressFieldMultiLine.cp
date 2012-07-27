@@ -65,8 +65,8 @@ void CAddressFieldMultiLine::SetDetails(const cdstring& title, int type, const c
     mOriginalData = data;
 
     mTitle->SetText(title);
-    if (type != 0)
-        mType->SetValue(type);
+    if (mUsesType)
+        mType->SetValue(type + 1);
     mData->SetText(data);
 }
 
@@ -76,7 +76,7 @@ bool CAddressFieldMultiLine::GetDetails(int& newtype, cdstring& newdata)
     
     if (mUsesType)
     {
-        newtype = mType->GetValue();
+        newtype = mType->GetValue() - 1;
         if (newtype != mOriginalType)
             changed = true;
     }
