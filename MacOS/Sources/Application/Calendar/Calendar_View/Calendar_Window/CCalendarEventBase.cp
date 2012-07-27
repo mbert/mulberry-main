@@ -458,6 +458,9 @@ void CCalendarEventBase::DrawHorizFrame(CGUtils::CGContextFromQD& inContext, HIR
 			case iCal::CITIPProcessor::eIHaveAccepted:
 				theResID = ICNx_AttendeeIsMeEvent;
 				break;
+            case iCal::CITIPProcessor::eIHaveDeclined:
+                theResID = ICNx_DeclinedEvent;
+                break;
 			case iCal::CITIPProcessor::eIHaveNotAccepted:
 				theResID = ICNx_AttendeeNeedsAction;
 				break;
@@ -670,6 +673,9 @@ void CCalendarEventBase::DrawVertFrame(CGUtils::CGContextFromQD& inContext, HIRe
 			case iCal::CITIPProcessor::eIHaveAccepted:
 				theResID = ICNx_AttendeeIsMeEvent;
 				break;
+            case iCal::CITIPProcessor::eIHaveDeclined:
+                theResID = ICNx_DeclinedEvent;
+                break;
 			case iCal::CITIPProcessor::eIHaveNotAccepted:
 				theResID = ICNx_AttendeeNeedsAction;
 				break;
