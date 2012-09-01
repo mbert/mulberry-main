@@ -31,7 +31,6 @@ const	PaneIDT		paneid_CalendarGeneralState = 'ICON';
 const	PaneIDT		paneid_CalendarGeneralName = 'NAME';
 const	PaneIDT		paneid_CalendarGeneralServer = 'SERV';
 const	PaneIDT		paneid_CalendarGeneralHierarchy = 'HIER';
-const	PaneIDT		paneid_CalendarGeneralSeparator = 'SEPR';
 const	PaneIDT		paneid_CalendarGeneralSize = 'SIZE';
 const	PaneIDT		paneid_CalendarGeneralCalculate = 'CALC';
 const	PaneIDT		paneid_CalendarGeneralStatus = 'STAT';
@@ -60,7 +59,6 @@ private:
 	CTextFieldX*			mName;
 	CTextFieldX*			mServer;
 	CTextFieldX*			mHierarchy;
-	CTextFieldX*			mSeparator;
 	CTextFieldX*			mSize;
 	CTextFieldX*			mStatus;
 	CTextFieldX*			mLastSync;

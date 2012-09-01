@@ -685,7 +685,7 @@ void CCalDAVCalendarClient::_FastSync(const CCalendarStoreNode& node, iCal::CICa
 	// Create WebDAV report
 	cdstring rurl = node.GetName();
 	rurl.EncodeURL('/');
-	std::auto_ptr<http::webdav::CWebDAVSyncReport> request(new http::webdav::CWebDAVSyncReport(this, rurl, cal.GetSyncToken()));
+	std::auto_ptr<http::webdav::CWebDAVSyncReport> request(new http::webdav::CWebDAVSyncReport(this, rurl, synctoken));
 	http::CHTTPOutputDataString dout;
 	request->SetOutput(&dout);
 	

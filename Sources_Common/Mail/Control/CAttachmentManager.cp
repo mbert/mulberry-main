@@ -583,11 +583,11 @@ LStream* CAttachmentManager::GetFileStream(CAttachment& attach, bool view)
 						case eBinaryEncoding:
 						case eXtokenEncoding:
 							// No filter - copy as is
-							ICMapEntry entry;
-							CICSupport::ICMapFileName(attach.GetContent(), entry);
-							aFile->CreateNewDataFile(entry.fileCreator, entry.fileType, smCurrentScript);
-							newFlavor.fileType = entry.fileType;
-							newFlavor.fileCreator = entry.fileCreator;
+							ICMapEntry entry2;
+							CICSupport::ICMapFileName(attach.GetContent(), entry2);
+							aFile->CreateNewDataFile(entry2.fileCreator, entry2.fileType, smCurrentScript);
+							newFlavor.fileType = entry2.fileType;
+							newFlavor.fileCreator = entry2.fileCreator;
 							newFlavor.fdFlags = 0;
 							break;
 
@@ -725,8 +725,8 @@ bool CAttachmentManager::MapToFile(const cdstring& name, fspectype& file, bool v
 			// Add number to name
 			nname = fname + cdstring((long) ctr++);
 			fpath = CPreferences::sPrefs->mDefaultDownload.GetValue() + nname;
-			MyCFString cfstr(fpath, kCFStringEncodingUTF8);
-			fspec = PPx::FSObject(cfstr);
+			MyCFString cfstr2(fpath, kCFStringEncodingUTF8);
+			fspec = PPx::FSObject(cfstr2);
 		}
 
 		// Alert if directory not found
@@ -902,15 +902,7 @@ bool CAttachmentManager::LaunchURL(const cdstring& url) const
 	// Try default map first
 	OSType appCreator = CMIMESupport::MapMIMEToCreator(name, GetEntry(url)->second.mMimeType);
 
-	// If not found or decoded file use file's creator
-	if (!appCreator)
-	{
-		FinderInfo finfo;
-		fspec.GetFinderInfo(&finfo, NULL, NULL);
-		appCreator = finfo.file.fileCreator;
-	}
-
-	CAppLaunch::OpenDocumentWithApp(&fspec, appCreator);
+	CAppLaunch::OpenDocumentWithApp(&fspec, GetEntry(url)->second.mMimeType, appCreator);
 #elif __dest_os == __win32_os
 	TCHAR dir[MAX_PATH];
 	if (::GetCurrentDirectory(MAX_PATH, dir))
@@ -1051,7 +1043,8 @@ void CAttachmentManager::TryLaunch(const CAttachment* attach, const fspectype& f
 				appCreator = finfo.file.fileCreator;
 			}
 
-			CAppLaunch::OpenDocumentWithApp(&fspec, appCreator);
+            cdstring mimeType = CMIMESupport::GenerateContentHeader(attach, false, lendl, false);
+			CAppLaunch::OpenDocumentWithApp(&fspec, mimeType, appCreator);
 #elif __dest_os == __win32_os
 			TCHAR dir[MAX_PATH];
 			if (::GetCurrentDirectory(MAX_PATH, dir))

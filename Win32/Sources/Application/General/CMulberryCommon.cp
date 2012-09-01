@@ -264,37 +264,31 @@ void RectOnScreen(CRect& rect, CWnd* owner)
 	if (owner)
 		owner->GetClientRect(desktop);
 	else
-		// Get task bar pos and see if at top
-		::SystemParametersInfo(SPI_GETWORKAREA, 0, (Rect*) desktop, 0);
-	desktop.right -= 64;
-	desktop.bottom -= 64;
-
-	// Always offset the rect by the left/top margins to account for toolbar placement
-	POINT pt;
-	pt.x = desktop.left;
-	pt.y = desktop.top;
-	rect.OffsetRect(pt);
-
-	// Now make sure top-left of window title bar IS on screen
-	pt.x = rect.left;
-	pt.y = rect.top;
-	if (!desktop.PtInRect(pt))
 	{
-		POINT diff = {0, 0};
-
-		if (rect.left < desktop.left)
-			diff.x = desktop.left - rect.left;
-		else if (rect.left > desktop.right)
-			diff.x = desktop.right - rect.left;
-
-		if (rect.top < desktop.top)
-			diff.y = desktop.top - rect.top;
-		else if (rect.top > desktop.bottom)
-			diff.y = desktop.bottom - rect.top;
-		
-		rect.OffsetRect(diff);
+		// we're interested in area, not actual position of the
+		// work area, because if the taskbar is at top or left,
+		// windows are placed relative to its height/width.
+		::SystemParametersInfo(SPI_GETWORKAREA, 0, (Rect*) desktop, 0);
+		desktop.OffsetRect(-desktop.left, -desktop.top);
 	}
+
+	// move left edge right into work area
+	if (rect.left < 0)
+		rect.OffsetRect(-rect.left, 0);
+
+	// move top edge down into work area
+	if (rect.top < 0)
+		rect.OffsetRect(0, -rect.top);
+
+	// bring right edge into work area
+	if (rect.right > desktop.right)
+		rect.right = desktop.right;
+
+	// bring bottom edge into work area
+	if (rect.bottom > desktop.bottom)
+		rect.bottom = desktop.bottom;
 }
+
 cdstring GetNumericFormat(unsigned long number)
 {
 	cdstring result;

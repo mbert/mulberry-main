@@ -97,7 +97,7 @@ void CCalendarPropDialog::SetCalList(calstore::CCalendarStoreNodeList* cal_list)
 	// Add name if single calendar
 	if (mCalList->size() == 1)
 	{
-		title += mCalList->front()->GetName();
+		title += mCalList->front()->GetAccountDisplayName();
 	}
 
 	// Now set window title

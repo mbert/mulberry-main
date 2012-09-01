@@ -1034,7 +1034,7 @@ iCal::CICalendar* CCalendarStoreManager::PickCalendar(const iCal::CICalendarComp
 	for(iCal::CICalendarList::const_iterator iter = mReceivableCalendars.begin(); iter != mReceivableCalendars.end(); iter++,  cal_pos++)
 	{
 		const CCalendarStoreNode* node = GetNode(*iter);
-		cdstring name = node ? node->GetAccountName(HasMultipleProtocols()) : (*iter)->GetName();
+        cdstring name = node ? node->GetAccountDisplayName(HasMultipleProtocols()) : (*iter)->GetName();
 		if (name.empty())
 		{
 			name = rsrc::GetString("::NumberedCalendar");

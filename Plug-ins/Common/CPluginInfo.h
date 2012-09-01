@@ -30,4 +30,4 @@ const char* cPluginManufacturer =	"mulberrymail.com";
 #elif __dest_os == __linux_os
 #define OS_ENDL "\n"
 #endif
-#define COPYRIGHT OS_ENDL OS_ENDL "Copyright Cyrus Daboo, 2006-2007."
+#define COPYRIGHT OS_ENDL OS_ENDL "Copyright Cyrus Daboo, 2006-2012."

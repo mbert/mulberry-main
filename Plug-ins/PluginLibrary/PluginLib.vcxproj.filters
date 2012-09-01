@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CLCompile Include="..\..\Sources_Common\Utilities\base64.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\Converters\OneByte\CASCII.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\CCharsetManager.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\CCharSpecials.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\Converters\CConverterBase.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\Converters\OneByte\CConverterOneByte.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\cdstring.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\cdustring.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\char_stream.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\CStringUtils.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUCS2.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUCS4.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Mail\URLs\CURL.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\CUStringUtils.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUTF16.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUTF8.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\diriterator.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\encrypt.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\Common\os_dep.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\quotedprintable.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\strfind.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <CLCompile Include="..\..\Sources_Common\Utilities\ustrfind.cp">
+      <Filter>Source Files</Filter>
+    </CLCompile>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Sources_Common\Utilities\base64.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\Converters\OneByte\CASCII.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\CCharsetManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\CCharSpecials.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\Converters\CConverterBase.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\Converters\OneByte\CConverterOneByte.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sources_Common\Utilities\cdstring.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\cdustring.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\char_stream.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\CStringUtils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUCS2.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUCS4.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Mail\URLs\CURL.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\CUStringUtils.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUTF16.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\i18n\Charsets\Converters\Unicode\CUTF8.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\diriterator.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\encrypt.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Mac2Win.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CRAM-MD5\sources\md5\md5.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\os_dep.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\Plugin_Prefix_Win32.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\quotedprintable.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\strfind.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Sources_Common\Utilities\ustrfind.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\CRAM-MD5\sources\md5\md5c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Common\MulberryPrefixWin32.cp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

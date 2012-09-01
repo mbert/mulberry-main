@@ -151,6 +151,7 @@ void CAddressFieldSubContainer::SetAddress(const CAdbkAddress* addr)
     }
 
     Layout();
+    mDirty = false;
 }
 
 bool CAddressFieldSubContainer::GetAddress(CAdbkAddress* addr)

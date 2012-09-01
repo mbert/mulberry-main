@@ -52,6 +52,7 @@
 
 #include <algorithm>
 #include <stdio.h>
+#include <iterator>
 
 //#include <UProfiler.h>
 

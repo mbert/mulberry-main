@@ -26,10 +26,13 @@ class CAppLaunch
 {
 public:
 
-	static OSErr OpenDocumentWithApp(const PPx::FSObject* doc, OSType appCreator);
+	static OSErr OpenDocumentWithApp(const PPx::FSObject* doc, const cdstring& mimeType, OSType appCreator);
 	
+    static OSErr LaunchURL(const cdstring& url);
+
 private:
 	static OSErr LaunchApplicationWithDocument(OSType appCreator, const PPx::FSObject* doc);
+	static OSErr LaunchApplicationWithDocument(CFURLRef appURL, const PPx::FSObject* doc);
 
 	CAppLaunch();		// Never create
 	~CAppLaunch();
