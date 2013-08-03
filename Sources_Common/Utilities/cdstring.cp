@@ -1983,7 +1983,6 @@ char* cdstring::FromModifiedUTF7(char* str, bool charset)
 								int len = utf8.w_2_c(wc, buf);
 								if (len)
 									sout.write(buf, len);
-								wc = 0;
 
 								// Now do entire wchar_t
 								wc = atom.base256[1];
@@ -2003,7 +2002,6 @@ char* cdstring::FromModifiedUTF7(char* str, bool charset)
 								int len = utf8.w_2_c(wc, buf);
 								if (len)
 									sout.write(buf, len);
-								wc = 0;
 
 								// Cache remaining HI part
 								wc = atom.base256[0];
@@ -2039,7 +2037,6 @@ char* cdstring::FromModifiedUTF7(char* str, bool charset)
 								int len = utf8.w_2_c(wc, buf);
 								if (len)
 									sout.write(buf, len);
-								wc = 0;
 							}
 							else
 								throw -1L;
@@ -2072,7 +2069,6 @@ char* cdstring::FromModifiedUTF7(char* str, bool charset)
 								int len = utf8.w_2_c(wc, buf);
 								if (len)
 									sout.write(buf, len);
-								wc = 0;
 							}
 							else
 							{
@@ -2082,7 +2078,6 @@ char* cdstring::FromModifiedUTF7(char* str, bool charset)
 								int len = utf8.w_2_c(wc, buf);
 								if (len)
 									sout.write(buf, len);
-								wc = 0;
 							}
 #endif
 							break;
@@ -2261,7 +2256,6 @@ void cdstring::FromUTF8ToISO()
 	const char* q = _str + length();
 	unsigned long charlen = 0;
 	wchar_t wc = 0;
-	bool found_euro = false;
 	while(p < q)
 	{
 		unsigned char mask = 0x3f;
@@ -2368,7 +2362,6 @@ bool cdstring::IsISO_8859_15_Subset() const
 	const unsigned char* q = p + length();
 	unsigned long charlen = 0;
 	wchar_t wc = 0;
-	//bool found_euro = false;
 	while(p < q)
 	{
 		unsigned char mask = 0x3f;

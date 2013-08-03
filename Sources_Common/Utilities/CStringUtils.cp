@@ -655,7 +655,9 @@ char * strnstrnocase(const char * str, const char * pat, size_t n)
 
 	unsigned char * s1 = (unsigned char *) str;
 	unsigned char * p1 = (unsigned char *) pat;
-	unsigned char firstc, c1, c2;
+	unsigned char firstc = 0;
+    unsigned char c1 = 0;
+    unsigned char c2 = 0;
 	
 	if ((pat == NULL) || (!(firstc = tolower(*p1++))))
 										/* 980424  mm   if pat is a NULL pointer, we return str */
@@ -684,7 +686,9 @@ char * strnstrnocase(const char * str, const char * pat, size_t n)
 
 	unsigned char * s1 = (unsigned char *) str-1;
 	unsigned char * p1 = (unsigned char *) pat-1;
-	unsigned long firstc, c1, c2;
+	unsigned char firstc = 0;
+    unsigned char c1 = 0;
+    unsigned char c2 = 0;
 	
 	if ((pat == NULL) || (!(firstc = tolower(*++p1))))    /* 980807  vss  PPC must be pre-increment */
 										/* 980424  mm   if pat is a NULL pointer, we return str */

@@ -43,8 +43,8 @@ wchar_t CUTF16::c_2_w(const unsigned char*& c)
 		// Have lead word - we do not handle these as they are more than 16-bits
 
 		// Ignore second word
-		unsigned char c3 = *c++;
-		unsigned char c4 = *c++;
+		c++;
+		c++;
 
 		return undefined_wcharmap;
 	}
