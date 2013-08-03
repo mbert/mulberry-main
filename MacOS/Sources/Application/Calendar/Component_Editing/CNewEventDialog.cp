@@ -201,7 +201,7 @@ bool CNewEventDialog::DoEditOK()
 		
 		// Cancel
 		if (result == CErrorDialog::eBtn4)
-			return;
+			return false;
 		
 		// All Events
 		if (result == CErrorDialog::eBtn1)

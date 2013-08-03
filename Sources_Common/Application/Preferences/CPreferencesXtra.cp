@@ -733,6 +733,7 @@ void CPreferences::InitCalendarPrefs()
 	mHandleICS.mValue = true;
 	mAutomaticIMIP.mValue = false;
 	mAutomaticEDST.mValue = true;
+    mShowUID.mValue = false;
 }
 
 void CPreferences::InitAttachmentPrefs()

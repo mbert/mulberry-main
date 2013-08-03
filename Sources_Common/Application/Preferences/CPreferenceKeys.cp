@@ -490,7 +490,8 @@ const char* cPrefsSection = "Preferences";
 		const char* c24HourTimeKey = "Twenty-Four Hour Time";					// New as of 4.0d1
 		const char* cHandleICSKey = "Handle ICS";								// New as of 4.0d1
 		const char* cAutomaticIMIPKey = "Automatic iMIP";						// New as of 4.0a5
-		const char* cAutomaticEDSTKey = "Automatic EDST";						// New as of 4.0.8
+        const char* cAutomaticEDSTKey = "Automatic EDST";						// New as of 4.0.8
+        const char* cShowUIDKey = "Show UID";                                   // New as of 4.1a3
 		const char* cDefaultCalendarKey = "Default Calendar";					// New as of 4.0d1
 
 	const char* cAttachmentsSection = "Attachments";

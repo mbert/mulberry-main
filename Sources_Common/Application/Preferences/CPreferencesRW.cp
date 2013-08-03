@@ -524,7 +524,7 @@ void CPreferences::WriteToMap(COptionsMap* theMap, bool dirty_only,
 			WRITETOMAP(mExpandedCalendars, cExpandedCalendarsKey)			// >= v4.0d1
 			WRITETOMAP(mCalendarColours, cCalendarColoursKey)				// >= v4.0d1
 			WRITETOMAP(mTimezone, cTimezoneKey)								// >= v4.0d1
-			WRITETOMAP(mFavouriteTimezones, cFavouriteTimezonesKey)			// >= v4.1.a1
+			WRITETOMAP(mFavouriteTimezones, cFavouriteTimezonesKey)			// >= v4.1a1
 			WRITETOMAP(mWeekStartDay, cWeekStartDayKey)						// >= v4.0d1
 			WRITETOMAP(mWorkDayMask, cWorkDayMaskKey)						// >= v4.0d1
 			WRITETOMAP(mDayWeekTimeRanges, cDayWeekTimeRangesKey)			// >= v4.0d1
@@ -533,6 +533,7 @@ void CPreferences::WriteToMap(COptionsMap* theMap, bool dirty_only,
 			WRITETOMAP(mHandleICS, cHandleICSKey)							// >= v4.0d1
 			WRITETOMAP(mAutomaticIMIP, cAutomaticIMIPKey)					// >= v4.0a5
 			WRITETOMAP(mAutomaticEDST, cAutomaticEDSTKey)					// >= v4.0.8
+			WRITETOMAP(mShowUID, cShowUIDKey)                               // >= v4.1a3
 			WRITETOMAP(mDefaultCalendar, cDefaultCalendarKey)				// >= v4.0d1
 		}
 	}
@@ -1722,6 +1723,7 @@ bool CPreferences::ReadFromMap(COptionsMap* theMap,
 		READFROMMAP(mHandleICS, cHandleICSKey)
 		READFROMMAP(mAutomaticIMIP, cAutomaticIMIPKey)
 		READFROMMAP(mAutomaticEDST, cAutomaticEDSTKey)
+		READFROMMAP(mShowUID, cShowUIDKey)
 		READFROMMAP(mDefaultCalendar, cDefaultCalendarKey)
 	}
 

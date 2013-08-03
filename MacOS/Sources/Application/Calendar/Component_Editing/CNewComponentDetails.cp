@@ -19,6 +19,7 @@
 //#include "CDateTimeZoneSelect.h"
 #include "CNewEventTiming.h"
 #include "CNewToDoTiming.h"
+#include "CPreferences.h"
 
 //#include "CICalendarDuration.h"
 //#include "CICalendar.h"
@@ -56,7 +57,15 @@ void CNewComponentDetails::FinishCreateSelf()
 	mTimingView = dynamic_cast<LView*>(FindPaneByID(eTimingView_ID));
 	
 	mLocation = dynamic_cast<CTextFieldX*>(FindPaneByID(eLocation_ID));
+	mDescriptionFocus = FindPaneByID(eDescriptionFocus_ID);
 	mDescription = dynamic_cast<CTextDisplay*>(FindPaneByID(eDescription_ID));
+	mUID = dynamic_cast<CTextFieldX*>(FindPaneByID(eUID_ID));
+    if (CPreferences::sPrefs->mShowUID.Value())
+    {
+        mUID->SetVisible(true);
+        mUID->SetReadOnly(true);
+        mDescriptionFocus->ResizeFrameBy(0, -30, false);
+    }
 }
 
 void CNewComponentDetails::SetEvent(const iCal::CICalendarVEvent& vevent, const iCal::CICalendarComponentExpanded* expanded)
@@ -85,9 +94,10 @@ void CNewComponentDetails::SetEvent(const iCal::CICalendarVEvent& vevent, const 
 	// Do timing panel
 	mTimingPanel->SetEvent(vevent, expanded);
 	
-	// Set recurrence
+	// Set details
 	mLocation->SetText(vevent.GetLocation());
 	mDescription->SetText(vevent.GetDescription());
+    mUID->SetText(vevent.GetUID());
 }
 
 void CNewComponentDetails::SetToDo(const iCal::CICalendarVToDo& vtodo, const iCal::CICalendarComponentExpanded* expanded)
@@ -119,6 +129,7 @@ void CNewComponentDetails::SetToDo(const iCal::CICalendarVToDo& vtodo, const iCa
 	// Set recurrence
 	mLocation->SetText(vtodo.GetLocation());
 	mDescription->SetText(vtodo.GetDescription());
+    mUID->SetText(vtodo.GetUID());
 }
 
 void CNewComponentDetails::GetEvent(iCal::CICalendarVEvent& vevent)

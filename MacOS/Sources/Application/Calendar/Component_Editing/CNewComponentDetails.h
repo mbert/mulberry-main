@@ -55,7 +55,9 @@ protected:
 		eTimingView_ID = 'TVIE',
 		
 		eLocation_ID = 'LOCA',
-		eDescription_ID = 'DESC'
+		eDescriptionFocus_ID = 'DESF',
+		eDescription_ID = 'DESC',
+		eUID_ID = 'UID '
 		
 	};
 	
@@ -64,7 +66,9 @@ protected:
 	CNewTimingPanel*		mTimingPanel;
 	
 	CTextFieldX*		mLocation;
+	LPane*              mDescriptionFocus;
 	CTextDisplay*		mDescription;
+	CTextFieldX*		mUID;
 	
 	virtual void		FinishCreateSelf();
 };

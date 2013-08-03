@@ -416,6 +416,7 @@ public:
 	CPreferenceValueMap<bool>								mHandleICS;				// Handle text/calendar internally
 	CPreferenceValueMap<bool>								mAutomaticIMIP;			// Send iMIPs automatically
 	CPreferenceValueMap<bool>								mAutomaticEDST;			// Upgrade timezones automatically
+	CPreferenceValueMap<bool>								mShowUID;               // Show UID property
 	CPreferenceValueMap<cdstring>							mDefaultCalendar;		// Default calendar to add new events to
 
 	// Attachment Prefs

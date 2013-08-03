@@ -52,6 +52,7 @@ const	PaneIDT		paneid_CalendarDisplayTime = 'DTIM';
 const	PaneIDT		paneid_CalendarHandleICS = 'HICS';
 const	PaneIDT		paneid_AutomaticIMIP = 'IMIP';
 const	PaneIDT		paneid_AutomaticEDST = 'EDST';
+const	PaneIDT		paneid_ShowUID = 'UID ';
 
 // Mesages
 
@@ -76,6 +77,7 @@ private:
 	LCheckBox*			mHandleICS;
 	LCheckBox*			mAutomaticIMIP;
 	LCheckBox*			mAutomaticEDST;
+	LCheckBox*			mShowUID;
 
 public:
 	enum { class_ID = 'Pcal' };

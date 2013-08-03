@@ -471,7 +471,8 @@ extern const char* cPrefsSection;
 		extern const char* c24HourTimeKey;				// New as of 4.0d1
 		extern const char* cHandleICSKey;				// New as of 4.0d1
 		extern const char* cAutomaticIMIPKey;			// New as of 4.0a5
-		extern const char* cAutomaticEDSTKey;			// New as of 4.0.8
+        extern const char* cAutomaticEDSTKey;			// New as of 4.0.8
+        extern const char* cShowUIDKey;                 // New as of 4.1a3
 		extern const char* cDefaultCalendarKey;			// New as of 4.0d1
 
 	extern const char* cAttachmentsSection;

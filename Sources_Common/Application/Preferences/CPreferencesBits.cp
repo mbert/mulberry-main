@@ -362,6 +362,7 @@ void CPreferences::_copy(const CPreferences &copy)
 	COPY(mHandleICS)
 	COPY(mAutomaticIMIP)
 	COPY(mAutomaticEDST)
+	COPY(mShowUID)
 	COPY(mDefaultCalendar)
 
 //--------------------Attachment Prefs
@@ -949,6 +950,7 @@ int CPreferences::operator==(const CPreferences& other) const
 	NOTEQUAL(mHandleICS)
 	NOTEQUAL(mAutomaticIMIP)
 	NOTEQUAL(mAutomaticEDST)
+	NOTEQUAL(mShowUID)
 	NOTEQUAL(mDefaultCalendar)
 
 	// Attachment Prefs
@@ -1446,6 +1448,7 @@ void CPreferences::DiffDirty()
 	SETDIRTY(mHandleICS)
 	SETDIRTY(mAutomaticIMIP)
 	SETDIRTY(mAutomaticEDST)
+	SETDIRTY(mShowUID)
 	SETDIRTY(mDefaultCalendar)
 
 	// Attachment Prefs

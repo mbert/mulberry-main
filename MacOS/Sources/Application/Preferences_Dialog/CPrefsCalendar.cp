@@ -70,6 +70,7 @@ void CPrefsCalendar::FinishCreateSelf(void)
 	mHandleICS = (LCheckBox*) FindPaneByID(paneid_CalendarHandleICS);
 	mAutomaticIMIP = (LCheckBox*) FindPaneByID(paneid_AutomaticIMIP);
 	mAutomaticEDST = (LCheckBox*) FindPaneByID(paneid_AutomaticEDST);
+	mShowUID = (LCheckBox*) FindPaneByID(paneid_ShowUID);
 
 	// Find super commander in view chain
 	LView* cparent = GetSuperView();
@@ -107,6 +108,7 @@ void CPrefsCalendar::SetPrefs(CPreferences* copyPrefs)
 	mHandleICS->SetValue(copyPrefs->mHandleICS.GetValue());
 	mAutomaticIMIP->SetValue(copyPrefs->mAutomaticIMIP.GetValue());
 	mAutomaticEDST->SetValue(copyPrefs->mAutomaticEDST.GetValue());
+	mShowUID->SetValue(copyPrefs->mShowUID.GetValue());
 }
 
 // Force update of prefs
@@ -143,6 +145,7 @@ void CPrefsCalendar::UpdatePrefs(void)
 	mCopyPrefs->mHandleICS.SetValue(mHandleICS->GetValue());
 	mCopyPrefs->mAutomaticIMIP.SetValue(mAutomaticIMIP->GetValue());
 	mCopyPrefs->mAutomaticEDST.SetValue(mAutomaticEDST->GetValue());
+	mCopyPrefs->mShowUID.SetValue(mShowUID->GetValue());
 }
 
 void CPrefsCalendar::SetHours(LClock* ctrl, uint32_t hours)
