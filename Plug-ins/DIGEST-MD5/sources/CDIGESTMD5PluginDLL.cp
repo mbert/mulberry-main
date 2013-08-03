@@ -800,8 +800,6 @@ long CDIGESTMD5PluginDLL::ProcessTag(SAuthPluginData* info)
 			if (::strncmpnocase(p, " (SASL ", 7) == 0)
 			{
 				// Now check respauth
-				p += 7;
-				
 				mState = eDone;
 				return eAuthDone;
 			}

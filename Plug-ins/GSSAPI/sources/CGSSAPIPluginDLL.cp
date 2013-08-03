@@ -286,7 +286,6 @@ long CGSSAPIPluginDLL::InitContext(SAuthPluginData* info)
 		}
 		
 		// Add IP address
-		size_t start_caps = ::strlen(actual_principal);
 		if (*mServer)
 			::strcat(actual_principal, mServer);
 		else
@@ -306,68 +305,9 @@ long CGSSAPIPluginDLL::InitContext(SAuthPluginData* info)
 		DisplayError(info, maj_stat, min_stat, __FILE__, __LINE__);
 	
 #if __dest_os == __mac_os
-	KLStatus kerr = ::KLAcquireTickets(NULL, NULL, NULL);
+	::KLAcquireTickets(NULL, NULL, NULL);
 #elif __dest_os == __mac_os_x
-    {
-        KLPrincipal kerb_user_id = NULL;
-        const char *user_id = GetUserID();
-        char *credCacheName = NULL;
-        KLStatus kerr = klNoErr;
-        if (user_id && *user_id)
-            /* Parse as V5 name.  The only difference is the instance format and this name
-               won't have an instance. */
-            kerr = ::KLCreatePrincipalFromString(user_id, kerberosVersion_V5, &kerb_user_id);
-
-        if (kerr == klNoErr)
-        {
-            /* See if there are tickets in the cache already and get some if not. */
-            KLBoolean foundTickets;
-            KLTime start_time, end_time;
-            time_t now;
-            
-            kerr = ::KLCacheHasValidTickets(kerb_user_id, kerberosVersion_Any, &foundTickets,
-                                            NULL, &credCacheName);
-            if (kerr == klNoErr && foundTickets) 
-            {
-                /* If we found tickets try to renew them if they are half gone.  Waiting 
-                   until they've expired (as indicated by a klCredentialsExpiredErr error) 
-                   won't work.  They can't be renewed then. */
-                kerr = ::KLTicketStartTime(kerb_user_id, kerberosVersion_Any, &start_time);
-                if (kerr == klNoErr)
-                    kerr = ::KLTicketExpirationTime(kerb_user_id, kerberosVersion_Any, &end_time);
-                time(&now);
-                if (now == -1)
-                    kerr = klParameterErr;
-                if (kerr != klNoErr || end_time-now < now-start_time)
-                    kerr = ::KLRenewInitialTickets(kerb_user_id, 0, NULL, NULL);
-            }
-            else if (kerr == klCredentialsExpiredErr)
-            {
-                /* Found expired tickets.  Renewing them probably won't work, but try anyway */
-                if (credCacheName != NULL)
-                    ::KLDisposeString(credCacheName);
-                kerr = ::KLRenewInitialTickets(kerb_user_id, 0, NULL, &credCacheName);
-            }
-            if (kerr != klNoErr || !foundTickets)
-            {
-                /* No tickets (or renewal failed), try to get some. */
-                if (credCacheName != NULL)
-                    ::KLDisposeString(credCacheName);
-                kerr = ::KLAcquireInitialTickets(kerb_user_id, 0, NULL, &credCacheName);
-            }
-        }
-        if (kerb_user_id != NULL)
-            ::KLDisposePrincipal(kerb_user_id);\
-        if (credCacheName != NULL && kerr == klNoErr)
-        {
-            maj_stat = ::gss_krb5_ccache_name(&min_stat, credCacheName, NULL);
-            if (maj_stat != GSS_S_COMPLETE)
-                DisplayError(info, maj_stat, min_stat, __FILE__, __LINE__);
-            kerr = ::KLDisposeString(credCacheName);
-        }
-        if (kerr != klNoErr)
-            DisplayKLError(kerr, __FILE__, __LINE__);
-    }
+	::KLAcquireInitialTickets(NULL, 0, NULL, NULL);
 #endif
 
 	return (maj_stat == GSS_S_COMPLETE);
@@ -377,25 +317,23 @@ long CGSSAPIPluginDLL::InitContext(SAuthPluginData* info)
 void CGSSAPIPluginDLL::CleanContext()
 {
 	// Clean up
-	OM_uint32 maj_stat;
 	OM_uint32 min_stat;
 
 	if (mGSSAPI_Context != GSS_C_NO_CONTEXT)
-		maj_stat = ::gss_delete_sec_context(&min_stat, &mGSSAPI_Context, GSS_C_NO_BUFFER);
+		::gss_delete_sec_context(&min_stat, &mGSSAPI_Context, GSS_C_NO_BUFFER);
 	mGSSAPI_Context = GSS_C_NO_CONTEXT;
 
 	if (mGSSAPI_ServerName != GSS_C_NO_NAME)
-		maj_stat = ::gss_release_name(&min_stat, &mGSSAPI_ServerName);
+		::gss_release_name(&min_stat, &mGSSAPI_ServerName);
 	mGSSAPI_ServerName = GSS_C_NO_NAME;
 }
 
 void CGSSAPIPluginDLL::DisplayError(SAuthPluginData* info, OM_uint32 maj_status, OM_uint32 min_status, const char* file, int line)
 {
-	OM_uint32 maj_stat;
 	OM_uint32 min_stat;
 	OM_uint32 mctx = 0;
 	gss_buffer_desc string_token;
-	maj_stat = ::gss_display_status(&min_stat, min_status, GSS_C_MECH_CODE,
+	::gss_display_status(&min_stat, min_status, GSS_C_MECH_CODE,
 										GSS_C_NULL_OID, &mctx, &string_token);
 
 	const char* err_title = "GSSAPI Plugin Error: ";
@@ -415,7 +353,7 @@ void CGSSAPIPluginDLL::DisplayError(SAuthPluginData* info, OM_uint32 maj_status,
 	else
 		::strcpy(info->data, err_title);
 
-	maj_stat = ::gss_release_buffer(&min_stat, &string_token);
+	::gss_release_buffer(&min_stat, &string_token);
 
   	mState = eError;
 }

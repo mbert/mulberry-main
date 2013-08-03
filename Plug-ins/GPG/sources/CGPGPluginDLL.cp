@@ -1841,8 +1841,8 @@ long CGPGPluginDLL::ProcessStatus(cdstring& status)
 		}
 		else if (!::strncmp(p, cNOPUBKEY, ::strlen(cNOPUBKEY)))
 		{
-			char* q = ::strtok(const_cast<char*>(p), " ");		// Token: NO_PUBKEY
-			q = ::strtok(NULL, "");	// Token: keyid
+			::strtok(const_cast<char*>(p), " ");		// Token: NO_PUBKEY
+			char* q = ::strtok(NULL, "");	// Token: keyid
 			if (::strlen(q) == 16)
 				q += 8;
 			cdstring errtxt("No Public Key (0x");
@@ -1857,8 +1857,8 @@ long CGPGPluginDLL::ProcessStatus(cdstring& status)
 			// Set flag only
 			mData->mDidSig = true;
 			
-			char* q = ::strtok(const_cast<char*>(p), " ");		// Token: GOODSIG
-			q = ::strtok(NULL, " ");	// Token: keyid
+			::strtok(const_cast<char*>(p), " ");		// Token: GOODSIG
+			char* q = ::strtok(NULL, " ");	// Token: keyid
 			if (::strlen(q) == 16)
 				q += 8;
 
@@ -1935,13 +1935,13 @@ long CGPGPluginDLL::ProcessKeyListOutput(cdstring& output)
 		if (line.compare_start("sec ") || line.compare_start("pub "))
 		{
 			cdstring id;
-			char* q = ::strtok(line, " ");	// sec
-			q = ::strtok(NULL, " ");		// id
+			::strtok(line, " ");	// sec
+			char* q = ::strtok(NULL, " ");		// id
 			if (::strchr(q, '/'))
 				id += ::strchr(q, '/') + 1;
 			else
 				id += q;
-			q = ::strtok(NULL, " ");		// date
+			::strtok(NULL, " ");		// date
 			cdstring name = ::strtok(NULL, "");		// name
 			name.trimspace();
 			
@@ -1966,8 +1966,8 @@ long CGPGPluginDLL::ProcessKeyListOutput(cdstring& output)
 		else if (line.compare_start("uid "))
 		{
 			cdstring id;
-			char* q = ::strtok(line, " ");	// uid
-			q = ::strtok(NULL, "");	// name
+			::strtok(line, " ");	// uid
+			char* q = ::strtok(NULL, "");	// name
 			
 			// Get current name
 			cdstring name(q);
@@ -1986,8 +1986,8 @@ long CGPGPluginDLL::ProcessKeyListOutput(cdstring& output)
 		else if (line.compare_start("sub ") || line.compare_start("ssb "))
 		{
 			cdstring id;
-			char* q = ::strtok(line, " ");	// sec
-			q = ::strtok(NULL, " ");		// id
+			::strtok(line, " ");	// sec
+			char* q = ::strtok(NULL, " ");		// id
 			if (::strchr(q, '/'))
 				id += ::strchr(q, '/') + 1;
 			else

@@ -140,6 +140,7 @@ int CCocoaSpellerPluginDLL::OpenDictionary(const char* name)
 
 int CCocoaSpellerPluginDLL::CloseDictionary(int dict)
 {
+    return 0;
 }
 
 int CCocoaSpellerPluginDLL::AddWord(const char* utf8)
@@ -185,7 +186,7 @@ int CCocoaSpellerPluginDLL::GetPage(const char* utf8, const char** buf, size_t* 
 const char* CCocoaSpellerPluginDLL::GetSuggestions(const char* utf8, long ctr)
 {
 	MyCFString cfstr(utf8, kCFStringEncodingUTF8);
-	CFArrayRef results = ::GuessesForWord(cfstr);
+	CFArrayRef results = ::CopyGuessesForWord(cfstr);
 	PPx::CFArray<CFStringRef> array(results, false);
 	mBuffer.clear();
 	for(long count = 0; count < array.GetCount(); count++)
@@ -371,7 +372,7 @@ int CCocoaSpellerPluginDLL::SetUserDictionaryPath(const char* path)
 int CCocoaSpellerPluginDLL::GetDictionaries(const char** dicts)
 {
 	mDictionaries.clear();
-	CFArrayRef results = ::AvailableLanguages();
+	CFArrayRef results = ::CopyAvailableLanguages();
 	PPx::CFArray<CFStringRef> array(results, false);
 	for(long count = 0; count < array.GetCount(); count++)
 	{

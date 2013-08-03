@@ -160,11 +160,11 @@ long CQuickmailAdbkIOPluginDLL::ImportAddresses(char* data)
 
 		// Last name will be at start
 		last_name = p;
-		char q = SkipTerm(&p);
+		SkipTerm(&p);
 		
 		// First name will be next
 		first_name = p;
-		q = SkipTerm(&p);
+		SkipTerm(&p);
 		
 		// Create whole name
 		::strcpy(whole_name, first_name);
@@ -172,14 +172,14 @@ long CQuickmailAdbkIOPluginDLL::ImportAddresses(char* data)
 		::strcat(whole_name, last_name);
 
 		// Gateway will be next - ignore
-		q = SkipTerm(&p);
+		SkipTerm(&p);
 
 		// Location will be next - ignore
-		q = SkipTerm(&p);
+		SkipTerm(&p);
 
 		// Email will be next
 		eaddr = p;
-		q = SkipTerm(&p);
+		char q = SkipTerm(&p);
 
 		// Create empty address
 		CAdbkIOPluginAddress addr;

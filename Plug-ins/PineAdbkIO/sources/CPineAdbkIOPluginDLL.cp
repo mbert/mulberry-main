@@ -174,17 +174,17 @@ long CPineAdbkIOPluginDLL::ImportAddresses(char* data)
 
 		// ADL will be at start
 		adl = p;
-		char q = SkipTerm(&p);
+		SkipTerm(&p);
 		
 		// Name will be next
 		name = p;
-		q = SkipTerm(&p);
+		SkipTerm(&p);
 
 		while(*p == ' ') p++;
 
 		// Get email address, addresses ot group
 		eaddr = p;
-		q = SkipTerm(&p);
+		char q = SkipTerm(&p);
 
 		// Now decide on group (inside '(...)' or comma separated)
 		if ((*eaddr == '(') || ::strchr(eaddr, ','))

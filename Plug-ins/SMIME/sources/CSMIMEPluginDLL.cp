@@ -1757,7 +1757,6 @@ void CSMIMEPluginDLL::GetNIDs(X509* cert, int gen_type, int nid, cdstrvect& resu
 		if (::X509_NAME_get_text_by_NID(xn, nid, x509_buf, sizeof(x509_buf)) != -1)
 		{
 			results.push_back(x509_buf);
-			result = true;
 		}
 	}
 }

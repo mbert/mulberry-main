@@ -205,7 +205,7 @@ long CVCardAdbkIOPluginDLL::DoImport(const char* fname)
 		}
 
 		// Do import
-		result = ImportAddresses((char*)data);
+		ImportAddresses((char*)data);
 		
 		// Finish with handle
 		::free(data);

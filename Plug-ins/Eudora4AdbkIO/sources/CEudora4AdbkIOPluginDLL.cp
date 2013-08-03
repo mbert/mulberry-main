@@ -609,7 +609,7 @@ CAdbkIOPluginDLL::SAdbkIOPluginAddress* CEudora4AdbkIOPluginDLL::AddressListPars
 		{
 		case '"':
 			// Cache for adl
-			adl = p++;
+			p++;
 
 			// Find match and terminate and step over
 			while(*p)
@@ -803,17 +803,14 @@ void CEudora4AdbkIOPluginDLL::ParseAddress(SAdbkIOPluginAddress* addr, const cha
 		{
 			// Goto end of address and terminate
 			q += ::strcspn(q, WHITE_SPACE);
-			bool more = false;
 			bool finished = false;
 			if ((*q == '\r') || (*q == '\n'))
 			{
 				finished = true;
-				more = true;
 			}
 			else if (*q == '\0')
 			{
 				finished = true;
-				more = false;
 			}
 			*q = '\0';
 			addr->mEmail = p;
@@ -825,8 +822,6 @@ void CEudora4AdbkIOPluginDLL::ParseAddress(SAdbkIOPluginAddress* addr, const cha
 				p = ::strgetbrastr(&q);
 
 				if (p) addr->mName = p;
-
-				more = (*q);
 			}
 
 			q++;

@@ -238,9 +238,6 @@ long CEudoraAdbkIOPluginDLL::ImportAddresses(char* data)
 			// Remove leading white space
 			while(*p == ' ') p++;
 			
-			// Set nick-name
-			adl = p;
-			
 			while(*p && (*p != ' ')) p++;
 			if (*p)
 				*p++ = '\0';
@@ -277,11 +274,8 @@ long CEudoraAdbkIOPluginDLL::ExportAddress(SAdbkIOPluginAddress* addr)
 	::fwrite(" ", 1, 1, mExportFile);
 
 	// Write user name
-	bool name = true;
 	if (addr->mName && *addr->mName)
 		AddressOut(addr->mName);
-	else
-		name = false;
 	
 	// Write email address
 	write = addr->mEmail;
@@ -381,7 +375,6 @@ CAdbkIOPluginDLL::SAdbkIOPluginAddress* CEudoraAdbkIOPluginDLL::AddressListParse
 	char* p = s;
 	while(*p == ' ') p++;
 	char* q = s;
-	char* adl = nil;
 	bool more = true;
 	SAdbkIOPluginAddress* list = nil;
 	long list_num = 0;
@@ -394,7 +387,7 @@ CAdbkIOPluginDLL::SAdbkIOPluginAddress* CEudoraAdbkIOPluginDLL::AddressListParse
 
 			case '"':
 				// Cache for adl
-				adl = p++;
+				p++;
 
 				// Find match and terminate and step over
 				while(*p)
@@ -495,7 +488,6 @@ CAdbkIOPluginDLL::SAdbkIOPluginAddress* CEudoraAdbkIOPluginDLL::AddressListParse
 				q = p;
 
 				// Wipe name
-				adl = nil;
 				break;
 
 			default:
@@ -589,17 +581,14 @@ void CEudoraAdbkIOPluginDLL::ParseAddress(SAdbkIOPluginAddress* addr, const char
 			{
 				// Goto end of address and terminate
 				q += ::strcspn(q, WHITE_SPACE);
-				bool more = false;
 				bool finished = false;
 				if ((*q == '\r') || (*q == '\n'))
 				{
 					finished = true;
-					more = true;
 				}
 				else if (*q == '\0')
 				{
 					finished = true;
-					more = false;
 				}
 				*q = '\0';
 				addr->mEmail = p;
@@ -611,8 +600,6 @@ void CEudoraAdbkIOPluginDLL::ParseAddress(SAdbkIOPluginAddress* addr, const char
 					p = ::strgetbrastr(&q);
 
 					if (p) addr->mName = p;
-
-					more = (*q);
 				}
 
 				q++;

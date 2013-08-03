@@ -158,7 +158,7 @@ ldif_parse_line(
 	*d = '\0';
 
 	if ( b64 ) {
-		char *byte = s;
+		char *byte;
 
 		if ( *s == '\0' ) {
 			/* no value is present, error out */

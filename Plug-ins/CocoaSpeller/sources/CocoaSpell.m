@@ -59,7 +59,7 @@ void LearnWord(CFStringRef word)
     [pool release];
 }
 
-CFArrayRef GuessesForWord(CFStringRef stringToGuess)
+CFArrayRef CopyGuessesForWord(CFStringRef stringToGuess)
 {
 	NSArray *guesses = NULL;
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -80,7 +80,7 @@ int SetLanguage(CFStringRef language)
 	return result;
 }
 
-CFStringRef Language(void)
+CFStringRef CopyLanguage(void)
 {
 	NSString* result = NULL;
 	
@@ -91,7 +91,7 @@ CFStringRef Language(void)
 	return (CFStringRef)result;
 }
 
-CFArrayRef AvailableLanguages(void)
+CFArrayRef CopyAvailableLanguages(void)
 {
 	NSArray *languages = NULL;
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];

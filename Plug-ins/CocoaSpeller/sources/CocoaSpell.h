@@ -16,11 +16,11 @@ void CloseSpellDocumentWithTag(int tag);
 CFRange CheckSpellingOfString(CFStringRef stringToCheck, int startingOffset, int tag);
 void IgnoreWord(CFStringRef wordToIgnore, int tag);
 void LearnWord(CFStringRef word);
-CFArrayRef GuessesForWord(CFStringRef stringToGuess);
+CFArrayRef CopyGuessesForWord(CFStringRef stringToGuess);
 
 int SetLanguage(CFStringRef language);
-CFStringRef Language(void);
-CFArrayRef AvailableLanguages(void);
+CFStringRef CopyLanguage(void);
+CFArrayRef CopyAvailableLanguages(void);
 
 #ifdef __cplusplus
 }
