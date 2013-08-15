@@ -30,7 +30,7 @@ wchar_t CUCS4::c_2_w(const unsigned char*& c)
 	unsigned char c4 = *c++;
 	
 	// Only handle 16-bit chars
-	if (mBigEndian && ((c1 != 0) || (c2 != 0)) || !mBigEndian && ((c3 != 0) || (c4 != 0)))
+	if ((mBigEndian && ((c1 != 0) || (c2 != 0))) || (!mBigEndian && ((c3 != 0) || (c4 != 0))))
 		return undefined_wcharmap;
 	
 	wchar_t	wc = mBigEndian ? ((c3 << 8) | c4) : ((c2 << 8) | c1);

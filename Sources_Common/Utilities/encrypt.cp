@@ -32,7 +32,10 @@ void nibble_swap(unsigned char* value)
 {
 	unsigned char* p = value;
 	while(*p)
-		*p++ = ((*p >> 4) & 0x0F) | ((*p << 4) & 0xF0);
+    {
+        unsigned char c = *p;
+		*p++ = ((c >> 4) & 0x0F) | ((c << 4) & 0xF0);
+    }
 }
 
 void encrypt_simple(char* value)
@@ -60,10 +63,11 @@ void cipher(unsigned char* value, size_t vlen, const unsigned char* key, size_t 
 	size_t kklen = klen;
 	while(vlen--)
 	{
+        unsigned char c = *value;
 		if (encrypt)
-			*value++ = *value + *q;
+			*value++ = c + *q;
 		else
-			*value++ = *value - *q;
+			*value++ = c - *q;
 
 		// Bump key
 		q++;

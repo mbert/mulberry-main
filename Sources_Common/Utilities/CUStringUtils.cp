@@ -744,11 +744,17 @@ void unistrlower(unichar_t* s1)
 
 	if (s1)
 		while(*s1)
-			*s1++ = unitolower(*s1);
+        {
+            unichar_t u = *s1;
+			*s1++ = unitolower(u);
+        }
 #else
 	if (s1--)
 		while(*++s1)
-			*s1 = unitolower(*s1);
+        {
+            unichar_t u = *s1;
+			*s1 = unitolower(u);
+        }
 #endif
 }
 
@@ -759,11 +765,17 @@ void unistrupper(unichar_t* s1)
 
 	if (s1)
 		while(*s1)
-			*s1++ = unitoupper(*s1);
+        {
+            unichar_t u = *s1;
+			*s1++ = unitoupper(u);
+        }
 #else
 	if (s1--)
 		while(*++s1)
-			*s1 = unitoupper(*s1);
+        {
+            unichar_t u = *s1;
+			*s1 = unitoupper(u);
+        }
 #endif
 }
 

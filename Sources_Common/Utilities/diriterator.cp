@@ -223,7 +223,7 @@ bool diriterator::next(const char** name)
 
 		// Ignore hidden files if not required
 		if (!mReturnHiddenFiles &&
-			(mCurrentDir && (((FinderInfo*)&finfo.finderInfo)->folder.finderFlags & kIsInvisible) ||
+			((mCurrentDir && (((FinderInfo*)&finfo.finderInfo)->folder.finderFlags & kIsInvisible)) ||
 			 (((FinderInfo*)&finfo.finderInfo)->file.finderFlags & kIsInvisible)))
 			continue;
 
