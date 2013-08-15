@@ -148,7 +148,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Mulberry v4.1a3, Copyright © Cyrus Daboo, 2006-2011.  All rights reserved.</string>
+	<string>Mulberry v4.1a3, Copyright © Cyrus Daboo, 2006-2013.  All rights reserved.</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>Mulberry Help</string>
 	<key>CFBundleHelpBookName</key>
@@ -198,11 +198,5 @@
 	<string>4.1a3</string>
 	<key>LSRequiresCarbon</key>
 	<true/>
-	<key>NSServices</key>
-	<array/>
-	<key>UTExportedTypeDeclarations</key>
-	<array/>
-	<key>UTImportedTypeDeclarations</key>
-	<array/>
 </dict>
 </plist>
