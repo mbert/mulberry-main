@@ -268,6 +268,8 @@ void CSIEVEClient::_ProcessCapability()
 					mExtensions = static_cast<CFilterProtocol::EExtension>(mExtensions | CFilterProtocol::eVacation);
 				else if (::strcmpnocase(q, cRELATIONAL) == 0)
 					mExtensions = static_cast<CFilterProtocol::EExtension>(mExtensions | CFilterProtocol::eRelational);
+				else if (::strcmpnocase(q, cIMAP4FLAGS) == 0)
+					mExtensions = static_cast<CFilterProtocol::EExtension>(mExtensions | CFilterProtocol::eIMAP4Flags);
 			}
 		}
 	}

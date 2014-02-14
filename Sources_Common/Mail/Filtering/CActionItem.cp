@@ -65,7 +65,8 @@ const char* cActionDescriptors[] =
 	 "Discard",
 	 "Reject",
 	 "Redirect",
-	 "FileInto",
+     "FileInto",
+     "SetFlag",
 	 "Vacation",
 	 NULL};
 
@@ -89,6 +90,7 @@ const char* cPrefsDescriptors[] =		// Due to duplicate 'Reject' actions above we
 	 "Reject_SIEVE",
 	 "Redirect",
 	 "FileInto",
+     "SetFlag",
 	 "Vacation",
 	 NULL};
 
@@ -137,6 +139,9 @@ void CActionItem::_copy(const CActionItem& copy)
 	case eSound:
 		mData = new CDataItem<COSStringMap>(*copy.GetOSStringMapData());
 		break;
+    case eSetFlag:
+        mData = new CDataItem<CActionFlags>(*copy.GetFlagData());
+        break;
 	case eVacation:
 		mData = new CDataItem<CActionVacation>(*copy.GetVacationData());
 		break;
@@ -216,7 +221,8 @@ void CActionItem::DescribeAction() const
 			CPreferences::sPrefs->GetFilterManager()->Log(what);
 		}
 		return;
-	case eFlagMessage:
+    case eFlagMessage:
+    case eSetFlag:
 		{
 			cdstring what("    Action: ");
 			what += cActionDescriptors[mType];
@@ -731,22 +737,27 @@ void CActionItem::GetSIEVEExtensions(CFilterProtocol::EExtension& ext) const
 {
 	switch(mType)
 	{
-	case eReject:
-	{
-		ext = static_cast<CFilterProtocol::EExtension>(ext | CFilterProtocol::eReject);
-		break;
-	}
-	case eFileInto:
-	{
-		ext = static_cast<CFilterProtocol::EExtension>(ext | CFilterProtocol::eFileInto);
-		break;
-	}
-	case eVacation:
-	{
-		ext = static_cast<CFilterProtocol::EExtension>(ext | CFilterProtocol::eVacation);
-		break;
-	}
-	default:;
+        case eReject:
+        {
+            ext = static_cast<CFilterProtocol::EExtension>(ext | CFilterProtocol::eReject);
+            break;
+        }
+        case eFileInto:
+        {
+            ext = static_cast<CFilterProtocol::EExtension>(ext | CFilterProtocol::eFileInto);
+            break;
+        }
+        case eSetFlag:
+        {
+            ext = static_cast<CFilterProtocol::EExtension>(ext | CFilterProtocol::eIMAP4Flags);
+            break;
+        }
+        case eVacation:
+        {
+            ext = static_cast<CFilterProtocol::EExtension>(ext | CFilterProtocol::eVacation);
+            break;
+        }
+        default:;
 	}
 }
 
@@ -776,14 +787,59 @@ void CActionItem::GenerateSIEVEScript(std::ostream& out) const
 		out << temp << ";";
 		break;
 	}
-	case eFileInto:
-	{
-		out << "fileinto ";
-		cdstring temp = GetStringData()->GetData();
-		temp.quote(true);
-		out << temp << ";";
-		break;
-	}
+    case eFileInto:
+    {
+        out << "fileinto ";
+        cdstring temp = GetStringData()->GetData();
+        temp.quote(true);
+        out << temp << ";";
+        break;
+    }
+    case eSetFlag:
+    {
+        out << "setflag ";
+        NMessage::EFlags flags = GetFlagData()->GetData().GetFlags();
+        cdstring temp;
+        if (flags & NMessage::eAnswered)
+        {
+            temp = "\\Answered";
+        }
+        else if (flags & NMessage::eFlagged)
+        {
+            temp = "\\Flagged";
+        }
+        else if (flags & NMessage::eDeleted)
+        {
+            temp = "\\Deleted";
+        }
+        else if (flags & NMessage::eSeen)
+        {
+            temp = "\\Seen";
+        }
+        else if (flags & NMessage::eDraft)
+        {
+            temp =  "\\Draft";
+        }
+        else if (flags & NMessage::eMDNSent)
+        {
+            temp =  "$MDNSent";
+        }
+        else if (flags & NMessage::eLabels)
+        {
+            // Scan over all labels and add each
+            for(int i = 0; i < NMessage::eMaxLabels; i++)
+            {
+                if (flags & (NMessage::eLabel1 << i))
+                {
+                    temp = CPreferences::sPrefs->mIMAPLabels.GetValue()[i];
+                    break;
+                }
+            }
+        }
+        temp.quote(true);
+        out << temp << ";";
+        break;
+    }
 	case eVacation:
 	{
 		out << "vacation";
@@ -839,54 +895,55 @@ bool CActionItem::SetInfo(char_stream& txt, NumVersion vers_prefs)
 {
 	char* p = txt.get();
 	mType = static_cast<EActionItem>(::strindexfind(p, cPrefsDescriptors, eNone));
-
+    
 	switch(mType)
 	{
-	case eNone:
-	case eExpunge:
-	case ePrint:
-	case eKeep:
-	case eDiscard:
-	default:
-		mData = NULL;
-		break;
-	case eFlagMessage:
-		mData = new CDataItem<CActionFlags>;
-		break;
-	case eCopyMessage:
-	case eMoveMessage:
-	case eAlert:
-	case eSpeak:
-	case eReject:
-	case eRedirect:
-	case eFileInto:
-		mData = new CDataItem<cdstring>;
-		break;
-	case eReplyMessage:
-		mData = new CDataItem<CActionReply>;
-		break;
-	case eForwardMessage:
-		mData = new CDataItem<CActionForward>;
-		break;
-	case eBounceMessage:
-		mData = new CDataItem<CActionBounce>;
-		break;
-	case eRejectMessage:
-		mData = new CDataItem<CActionReject>;
-		break;
-	case eSave:
-		mData = new CDataItem<bool>;
-		break;
-	case eSound:
-		mData = new CDataItem<COSStringMap>;
-		break;
-	case eVacation:
-		mData = new CDataItem<CActionVacation>;
-		break;
+        case eNone:
+        case eExpunge:
+        case ePrint:
+        case eKeep:
+        case eDiscard:
+        default:
+            mData = NULL;
+            break;
+        case eFlagMessage:
+        case eSetFlag:
+            mData = new CDataItem<CActionFlags>;
+            break;
+        case eCopyMessage:
+        case eMoveMessage:
+        case eAlert:
+        case eSpeak:
+        case eReject:
+        case eRedirect:
+        case eFileInto:
+            mData = new CDataItem<cdstring>;
+            break;
+        case eReplyMessage:
+            mData = new CDataItem<CActionReply>;
+            break;
+        case eForwardMessage:
+            mData = new CDataItem<CActionForward>;
+            break;
+        case eBounceMessage:
+            mData = new CDataItem<CActionBounce>;
+            break;
+        case eRejectMessage:
+            mData = new CDataItem<CActionReject>;
+            break;
+        case eSave:
+            mData = new CDataItem<bool>;
+            break;
+        case eSound:
+            mData = new CDataItem<COSStringMap>;
+            break;
+        case eVacation:
+            mData = new CDataItem<CActionVacation>;
+            break;
 	}
-
+    
 	if (mData)
 		mData->SetInfo(txt, vers_prefs);
-
+    
 	return true;
 }

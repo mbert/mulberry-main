@@ -27,12 +27,14 @@
 // Panes
 const	PaneIDT		paneid_RulesActionS = 1212;
 const	PaneIDT		paneid_RulesActionSPopup1 = 'POP1';
+const	PaneIDT		paneid_RulesActionSPopup2 = 'POP2';
 const	PaneIDT		paneid_RulesActionSText = 'TXT1';
 const	PaneIDT		paneid_RulesActionSMailboxPopup = 'MPOP';
 const	PaneIDT		paneid_RulesActionSTextBtn = 'TBTN';
 
 // Mesages
 const	MessageT	msg_RulesActionSPopup1 = 'POP1';
+const	MessageT	msg_RulesActionSPopup2 = 'POP2';
 const	MessageT	msg_RulesActionSMailboxPopup = 'MPOP';
 const	MessageT	msg_RulesActionSTextBtn = 'TBTN';
 
@@ -49,6 +51,7 @@ class CRulesActionSIEVE : public CRulesAction
 {
 private:
 	LPopupButton*		mPopup1;
+	LPopupButton*		mPopup2;
 	CTextFieldX*		mText;
 	CMailboxPopup*		mMailboxPopup;
 	LPushButton*		mOptionsBtn;
@@ -71,6 +74,8 @@ public:
 
 protected:
 	virtual void	FinishCreateSelf(void);					// Do odds & ends
+    
+	void	InitLabelNames();
 
 	void	OnSetAction(long item);
 	void	OnSetOptions();

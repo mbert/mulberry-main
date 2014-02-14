@@ -63,6 +63,7 @@ public:
 		eReject,					// cdstring
 		eRedirect,					// cdstring
 		eFileInto,					// cdstring
+        eSetFlag,                   // CActionFlags
 		eVacation,					// CActionVacation
 
 		eActionLast

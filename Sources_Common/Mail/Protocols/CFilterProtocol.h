@@ -36,7 +36,8 @@ public:
 		eReject		= 1L << 0,
 		eFileInto	= 1L << 1,
 		eVacation	= 1L << 2,
-		eRelational = 1L << 3
+		eRelational = 1L << 3,
+        eIMAP4Flags = 1L << 4
 	};
 
 			CFilterProtocol(CINETAccount* account);

@@ -132,6 +132,13 @@ void CFilterScript::GetSIEVEScript(cdstring& txt, EEndl line_end) const
 			out << "\"relational\"";
 			done_one = true;
 		}
+		if (ext & CFilterProtocol::eIMAP4Flags)
+		{
+			if (done_one)
+				out << ", ";
+			out << "\"imap4flags\"";
+			done_one = true;
+		}
 		out << "];" << get_endl(line_end) << get_endl(line_end);
 	}
 

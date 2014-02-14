@@ -161,6 +161,10 @@ void CRulesWindow::FinishCreateSelf()
 	// Get text traits resource
 	ResetTextTraits(CPreferences::sPrefs->mListTextTraits.GetValue().traits);
 
+    // Set type based on whether rules exist or not
+    mType = (CPreferences::sPrefs->GetFilterManager()->GetFilters(CFilterItem::eLocal).size() != 0) ? CFilterItem::eLocal : CFilterItem::eSIEVE;
+    OnTabs(mType + 1);
+
 	// Set status
 	SetOpen();
 
