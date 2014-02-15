@@ -33,6 +33,7 @@ const char* cREJECT =					"REJECT";
 const char* cFILEINTO =					"FILEINTO";
 const char* cVACATION =					"VACATION";
 const char* cRELATIONAL =				"RELATIONAL";
+const char* cIMAP4FLAGS =				"IMAP4FLAGS";
 
 // Capabilities
 const char* cSIEVE_IMPLEMENTATION =		"IMPLEMENTATION";
