@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -124,10 +124,10 @@
 		AF419A8F0AE9ABB600E19592 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = AF419A900AE9ABB600E19592 /* Build configuration list for PBXProject "EudoraAdbkIO" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -183,82 +183,18 @@
 		6E63D9031496D06400673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
 		6E63D9041496D06400673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
-				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = YES;
-				GCC_SHORT_ENUMS = NO;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
-				INFOPLIST_FILE = ../Common/Info.plst;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
-				INFOPLIST_PREPROCESS = YES;
-				OTHER_CFLAGS = "-fno-inline";
-				OTHER_LDFLAGS = (
-					"-multiply_defined",
-					warning,
-				);
-				PREBINDING = YES;
-				PRODUCT_NAME = EudoraAdbkIO;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		AF419A910AE9ABB600E19592 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
-			};
-			name = Debug;
-		};
-		AF419A9D0AE9ABB700E19592 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = YES;
-				GCC_SHORT_ENUMS = NO;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = ../Common/Info.plst;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
 				INFOPLIST_PREPROCESS = YES;
@@ -267,10 +203,7 @@
 					"-multiply_defined",
 					warning,
 				);
-				PREBINDING = YES;
 				PRODUCT_NAME = EudoraAdbkIO;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = bundle;
 			};

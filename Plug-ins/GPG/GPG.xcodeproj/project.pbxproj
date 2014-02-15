@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,9 +11,7 @@
 		AF8AAE670AE5C83700A94FD4 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8AAE5D0AE5C83700A94FD4 /* CPluginDLL.cp */; };
 		AF8AAE690AE5C83700A94FD4 /* CSecurityPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8AAE5F0AE5C83700A94FD4 /* CSecurityPluginDLL.cp */; };
 		AF8AAE6B0AE5C83700A94FD4 /* CGPGPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF8AAE610AE5C83700A94FD4 /* CGPGPluginDLL.cp */; };
-		AF8AAE810AE5C83B00A94FD4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8AAE800AE5C83B00A94FD4 /* Carbon.framework */; };
-		AF8AAE8D0AE5C83B00A94FD4 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8AAE8C0AE5C83B00A94FD4 /* CoreFoundation.framework */; };
-		AF8AAEB70AE5CB2200A94FD4 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF8AAEB60AE5CB2200A94FD4 /* libPluginLibrary.a */; };
+		AFECC92A176E1075006354FB /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFECC929176E1075006354FB /* libPluginLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +28,8 @@
 		AF8AAE770AE5C83B00A94FD4 /* CStringUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CStringUtils.h; path = ../../Sources_Common/Utilities/CStringUtils.h; sourceTree = SOURCE_ROOT; };
 		AF8AAE790AE5C83B00A94FD4 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 		AF8AAE7D0AE5C83B00A94FD4 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
-		AF8AAE800AE5C83B00A94FD4 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		AF8AAE8C0AE5C83B00A94FD4 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		AF8AAEAC0AE5CA2900A94FD4 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
-		AF8AAEB60AE5CB2200A94FD4 /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/libPluginLibrary.a; sourceTree = SOURCE_ROOT; };
+		AF8AAEAC0AE5CA2900A94FD4 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AFECC929176E1075006354FB /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,9 +37,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF8AAE810AE5C83B00A94FD4 /* Carbon.framework in Frameworks */,
-				AF8AAE8D0AE5C83B00A94FD4 /* CoreFoundation.framework in Frameworks */,
-				AF8AAEB70AE5CB2200A94FD4 /* libPluginLibrary.a in Frameworks */,
+				AFECC92A176E1075006354FB /* libPluginLibrary.a in Frameworks */,
+				AF657384136CAA930088690F /* Carbon.framework in Frameworks */,
+				AF657385136CAA930088690F /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +103,9 @@
 		AF8AAE7F0AE5C83B00A94FD4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF8AAE800AE5C83B00A94FD4 /* Carbon.framework */,
-				AF8AAE8C0AE5C83B00A94FD4 /* CoreFoundation.framework */,
+				AFECC929176E1075006354FB /* libPluginLibrary.a */,
+				AF657382136CAA930088690F /* Carbon.framework */,
+				AF657383136CAA930088690F /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,10 +137,10 @@
 		AF8AAE4A0AE5C83600A94FD4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = AF8AAE4B0AE5C83600A94FD4 /* Build configuration list for PBXProject "GPG" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -197,106 +194,31 @@
 		6E63D9061496D0B000673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
 		6E63D9071496D0B000673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
-				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = NO;
-				GCC_SHORT_ENUMS = NO;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
-				INFOPLIST_FILE = ../Common/Info.plst;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
-				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
-				OTHER_CFLAGS = "-fno-inline";
-				OTHER_CPLUSPLUSFLAGS = (
-					"-Wno-deprecated",
-					"$(OTHER_CFLAGS)",
-				);
-				PREBINDING = YES;
-				PRODUCT_NAME = GPG;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		AF8AAE4C0AE5C83600A94FD4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
-			};
-			name = Debug;
-		};
-		AF8AAE5A0AE5C83600A94FD4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.cpp;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = NO;
-				GCC_SHORT_ENUMS = NO;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = ../Common/Info.plst;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
 				INFOPLIST_PREPROCESS = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(SRCROOT)/../PluginLibrary/build/Debug",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
 				OTHER_CFLAGS = "-fno-inline";
-				OTHER_CPLUSPLUSFLAGS = (
-					"-Wno-deprecated",
-					"$(OTHER_CFLAGS)",
-				);
-				PREBINDING = YES;
 				PRODUCT_NAME = GPG;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = bundle;
 			};

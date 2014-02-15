@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,8 @@
 		AF4198770AE9A05D00E19592 /* CAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198640AE9A05D00E19592 /* CAdbkIOPluginDLL.cp */; };
 		AF4198790AE9A05D00E19592 /* CPineAdbkIOPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF4198660AE9A05D00E19592 /* CPineAdbkIOPluginDLL.cp */; };
 		AF41987B0AE9A05D00E19592 /* CStringUtils.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF41986A0AE9A05D00E19592 /* CStringUtils.cp */; };
-		AF4198800AE9A05E00E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF41987F0AE9A05E00E19592 /* Carbon.framework */; };
+		AF657391136CAB4F0088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657390136CAB4F0088690F /* Carbon.framework */; };
+		AFECC930176E1277006354FB /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFECC92F176E1277006354FB /* libPluginLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		AF41987F0AE9A05E00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		AF4198810AE9A05E00E19592 /* PluginDLLmain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginDLLmain.h; path = sources/PluginDLLmain.h; sourceTree = SOURCE_ROOT; };
 		AF4198850AE9A05E00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
+		AF657390136CAB4F0088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		AFECC92F176E1277006354FB /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF4198800AE9A05E00E19592 /* Carbon.framework in Frameworks */,
+				AFECC930176E1277006354FB /* libPluginLibrary.a in Frameworks */,
+				AF657391136CAB4F0088690F /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +98,8 @@
 		AF41987E0AE9A05E00E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF41987F0AE9A05E00E19592 /* Carbon.framework */,
+				AFECC92F176E1277006354FB /* libPluginLibrary.a */,
+				AF657390136CAB4F0088690F /* Carbon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,10 +131,10 @@
 		AF4198510AE9A05D00E19592 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = AF4198520AE9A05D00E19592 /* Build configuration list for PBXProject "PineAdbkIO" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -185,92 +190,31 @@
 		6E63D9181496D35F00673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
 		6E63D9191496D35F00673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = YES;
-				GCC_SHORT_ENUMS = NO;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
-				INFOPLIST_FILE = ../Common/Info.plst;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
-				INFOPLIST_PREPROCESS = YES;
-				OTHER_CFLAGS = "-fno-inline";
-				OTHER_LDFLAGS = (
-					"-multiply_defined",
-					warning,
-				);
-				PREBINDING = YES;
-				PRODUCT_NAME = PineAdbkIO;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		AF4198530AE9A05D00E19592 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
-			};
-			name = Debug;
-		};
-		AF41985F0AE9A05D00E19592 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = YES;
-				GCC_SHORT_ENUMS = NO;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = ../Common/Info.plst;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
 				INFOPLIST_PREPROCESS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../PluginLibrary/build/Debug",
+				);
 				OTHER_CFLAGS = "-fno-inline";
 				OTHER_LDFLAGS = (
 					"-multiply_defined",
 					warning,
 				);
-				PREBINDING = YES;
 				PRODUCT_NAME = PineAdbkIO;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = bundle;
 			};

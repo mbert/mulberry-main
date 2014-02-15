@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,9 +11,9 @@
 		AF419D150AEA700500E19592 /* CPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419D0C0AEA700500E19592 /* CPluginDLL.cp */; };
 		AF419D170AEA700500E19592 /* CSecurityPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419D0E0AEA700500E19592 /* CSecurityPluginDLL.cp */; };
 		AF419D190AEA700500E19592 /* CSMIMEPluginDLL.cp in Sources */ = {isa = PBXBuildFile; fileRef = AF419D100AEA700500E19592 /* CSMIMEPluginDLL.cp */; };
-		AF419D1C0AEA700500E19592 /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419D130AEA700500E19592 /* libPluginLibrary.a */; };
-		AF419D320AEA700A00E19592 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419D310AEA700A00E19592 /* Carbon.framework */; };
-		AF419D520AEA714900E19592 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF419D510AEA714900E19592 /* libcrypto.dylib */; };
+		AF65739A136CABD40088690F /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657398136CABD40088690F /* Carbon.framework */; };
+		AF65739B136CABD40088690F /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AF657399136CABD40088690F /* libcrypto.dylib */; };
+		AFECC932176E13BF006354FB /* libPluginLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFECC931176E13BF006354FB /* libPluginLibrary.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +34,10 @@
 		AF419D280AEA700A00E19592 /* CPluginInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CPluginInfo.h; path = ../Common/CPluginInfo.h; sourceTree = SOURCE_ROOT; };
 		AF419D2A0AEA700A00E19592 /* CURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CURL.h; path = ../../Sources_Common/Mail/URLs/CURL.h; sourceTree = SOURCE_ROOT; };
 		AF419D2E0AEA700A00E19592 /* CCharsetCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCharsetCodes.h; path = ../../Sources_Common/i18n/Charsets/CCharsetCodes.h; sourceTree = SOURCE_ROOT; };
-		AF419D310AEA700A00E19592 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		AF419D510AEA714900E19592 /* libcrypto.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = /Developer/SDKs/MacOSX10.4u.sdk/usr/lib/libcrypto.dylib; sourceTree = "<absolute>"; };
-		AF419DFF0AEA721F00E19592 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AF419DFF0AEA721F00E19592 /* MoreFilesX.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = MoreFilesX.h; path = ../../../Libraries/MoreFilesX/MoreFilesX.h; sourceTree = SOURCE_ROOT; };
+		AF657398136CABD40088690F /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		AF657399136CABD40088690F /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		AFECC931176E13BF006354FB /* libPluginLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPluginLibrary.a; path = ../PluginLibrary/build/Debug/libPluginLibrary.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF419D320AEA700A00E19592 /* Carbon.framework in Frameworks */,
-				AF419D1C0AEA700500E19592 /* libPluginLibrary.a in Frameworks */,
-				AF419D520AEA714900E19592 /* libcrypto.dylib in Frameworks */,
+				AFECC932176E13BF006354FB /* libPluginLibrary.a in Frameworks */,
+				AF65739A136CABD40088690F /* Carbon.framework in Frameworks */,
+				AF65739B136CABD40088690F /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +107,9 @@
 		AF419D300AEA700A00E19592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF419D310AEA700A00E19592 /* Carbon.framework */,
+				AFECC931176E13BF006354FB /* libPluginLibrary.a */,
+				AF657398136CABD40088690F /* Carbon.framework */,
+				AF657399136CABD40088690F /* libcrypto.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -138,10 +141,10 @@
 		AF419CFB0AEA700500E19592 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = AF419CFC0AEA700500E19592 /* Build configuration list for PBXProject "SMIME" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -195,101 +198,26 @@
 		6E63D9211496D40A00673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
 		6E63D9221496D40A00673AF6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					ppc,
-					i386,
-				);
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = NO;
-				GCC_SHORT_ENUMS = NO;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
-				INFOPLIST_FILE = ../Common/Info.plst;
-				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
-				INFOPLIST_PREPROCESS = YES;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
-				);
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/usr/lib\"";
-				OTHER_CFLAGS = "-fno-inline";
-				OTHER_CPLUSPLUSFLAGS = (
-					"-Wno-deprecated",
-					"$(OTHER_CFLAGS)",
-				);
-				OTHER_LDFLAGS = (
-					"-multiply_defined",
-					warning,
-				);
-				PREBINDING = YES;
-				PRODUCT_NAME = SMIME;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		AF419CFD0AEA700500E19592 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				SYMROOT = ../../MacOS/build;
-			};
-			name = Debug;
-		};
-		AF419D090AEA700500E19592 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
-				GCC_ALTIVEC_EXTENSIONS = NO;
-				GCC_CHAR_IS_UNSIGNED_CHAR = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = ../Common/Plugin_Prefix_MacOSXcode.h;
-				GCC_REUSE_STRINGS = NO;
-				GCC_SHORT_ENUMS = NO;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = NO;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_PARAMETER = NO;
-				GCC_WARN_UNUSED_VARIABLE = NO;
 				INFOPLIST_FILE = ../Common/Info.plst;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-include sources/Info.plst.def -include ../Common/InfoCommon.plst.def";
 				INFOPLIST_PREPROCESS = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(SRCROOT)/../PluginLibrary/build/Debug",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../PluginLibrary\"";
-				LIBRARY_SEARCH_PATHS_QUOTED_2 = "\"$(SYSTEM_DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/usr/lib\"";
 				OTHER_CFLAGS = "-fno-inline";
 				OTHER_CPLUSPLUSFLAGS = (
 					"-Wno-deprecated",
@@ -299,10 +227,7 @@
 					"-multiply_defined",
 					warning,
 				);
-				PREBINDING = YES;
 				PRODUCT_NAME = SMIME;
-				REZ_SCRIPT_TYPE = Roman;
-				REZ_SUPPRESS_REDECLARED_RESOURCE_TYPE_WARNINGS = NO;
 				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = bundle;
 			};
