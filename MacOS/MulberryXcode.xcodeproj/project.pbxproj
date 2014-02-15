@@ -11791,7 +11791,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sources/MulberryXcode_Prefix.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -11812,6 +11812,7 @@
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
 				OTHER_CPLUSPLUSFLAGS = "-fpermissive";
 				SDKROOT = macosx10.6;
+				SEPARATE_STRIP = NO;
 				VALID_ARCHS = i386;
 			};
 			name = Debug;
@@ -11841,6 +11842,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sources/MulberryXcode_Prefix.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -11861,7 +11863,12 @@
 				HEADER_SEARCH_PATHS = /Developer/Headers/FlatCarbon;
 				OTHER_CPLUSPLUSFLAGS = "-fpermissive";
 				SDKROOT = macosx10.6;
+<<<<<<< HEAD
 				SEPARATE_STRIP = YES;
+=======
+				SEPARATE_STRIP = NO;
+				VALID_ARCHS = i386;
+>>>>>>> 0bb2f99... Update version.
 			};
 			name = Release;
 		};

@@ -18,8 +18,8 @@
 
 // Common to all plugins
 //long cPluginVersion =				0x04002001;				// v4.0d1
-long cPluginVersion =				0x04014003;				// v4.1a3
-//long cPluginVersion =				0x04096001;				// v4.0.9b1
+//long cPluginVersion =				0x04104003;				// v4.1a3
+long cPluginVersion =				0x04106001;				// v4.1b1
 //long cPluginVersion =				0x04088000;				// v4.0.8
 const char* cPluginManufacturer =	"mulberrymail.com";
 
@@ -30,4 +30,4 @@ const char* cPluginManufacturer =	"mulberrymail.com";
 #elif __dest_os == __linux_os
 #define OS_ENDL "\n"
 #endif
-#define COPYRIGHT OS_ENDL OS_ENDL "Copyright Cyrus Daboo, 2006-2012."
+#define COPYRIGHT OS_ENDL OS_ENDL "Copyright Cyrus Daboo, 2006-2014."
