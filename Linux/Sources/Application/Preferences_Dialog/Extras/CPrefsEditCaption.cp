@@ -56,157 +56,131 @@ void CPrefsEditCaption::OnCreate()
         new JXTextButton("My Name", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,0, 80,20);
     assert( mBtn1 != NULL );
-    mBtn1->SetFontSize(10);
 
     mBtn2 =
         new JXTextButton("My Email", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,20, 80,20);
     assert( mBtn2 != NULL );
-    mBtn2->SetFontSize(10);
 
     mBtn3 =
         new JXTextButton("My Full", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,40, 80,20);
     assert( mBtn3 != NULL );
-    mBtn3->SetFontSize(10);
 
     mBtn4 =
         new JXTextButton("My First", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,60, 80,20);
     assert( mBtn4 != NULL );
-    mBtn4->SetFontSize(10);
 
     mBtn5 =
         new JXTextButton("Smart Name", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 80,0, 80,20);
     assert( mBtn5 != NULL );
-    mBtn5->SetFontSize(10);
 
     mBtn6 =
         new JXTextButton("Smart Email", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 80,20, 80,20);
     assert( mBtn6 != NULL );
-    mBtn6->SetFontSize(10);
 
     mBtn7 =
         new JXTextButton("Smart Full", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 80,40, 80,20);
     assert( mBtn7 != NULL );
-    mBtn7->SetFontSize(10);
 
     mBtn8 =
         new JXTextButton("Smart First", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 80,60, 80,20);
     assert( mBtn8 != NULL );
-    mBtn8->SetFontSize(10);
 
     mBtn9 =
         new JXTextButton("From Name", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 160,0, 80,20);
     assert( mBtn9 != NULL );
-    mBtn9->SetFontSize(10);
 
     mBtn10 =
         new JXTextButton("From Email", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 160,20, 80,20);
     assert( mBtn10 != NULL );
-    mBtn10->SetFontSize(10);
 
     mBtn11 =
         new JXTextButton("From Full", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 160,40, 80,20);
     assert( mBtn11 != NULL );
-    mBtn11->SetFontSize(10);
 
     mBtn12 =
         new JXTextButton("From First", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 160,60, 80,20);
     assert( mBtn12 != NULL );
-    mBtn12->SetFontSize(10);
 
     mBtn13 =
         new JXTextButton("To Name", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 240,0, 80,20);
     assert( mBtn13 != NULL );
-    mBtn13->SetFontSize(10);
 
     mBtn14 =
         new JXTextButton("To Email", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 240,20, 80,20);
     assert( mBtn14 != NULL );
-    mBtn14->SetFontSize(10);
 
     mBtn15 =
         new JXTextButton("To Full", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 240,40, 80,20);
     assert( mBtn15 != NULL );
-    mBtn15->SetFontSize(10);
 
     mBtn16 =
         new JXTextButton("To First", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 240,60, 80,20);
     assert( mBtn16 != NULL );
-    mBtn16->SetFontSize(10);
 
     mBtn17 =
         new JXTextButton("CC Name", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 320,0, 80,20);
     assert( mBtn17 != NULL );
-    mBtn17->SetFontSize(10);
 
     mBtn18 =
         new JXTextButton("CC Email", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 320,20, 80,20);
     assert( mBtn18 != NULL );
-    mBtn18->SetFontSize(10);
 
     mBtn19 =
         new JXTextButton("CC Full", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 320,40, 80,20);
     assert( mBtn19 != NULL );
-    mBtn19->SetFontSize(10);
 
     mBtn20 =
         new JXTextButton("CC First", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 320,60, 80,20);
     assert( mBtn20 != NULL );
-    mBtn20->SetFontSize(10);
 
     mBtn21 =
         new JXTextButton("Subject", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 400,0, 80,20);
     assert( mBtn21 != NULL );
-    mBtn21->SetFontSize(10);
 
     mBtn22 =
         new JXTextButton("Date Short", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 400,20, 80,20);
     assert( mBtn22 != NULL );
-    mBtn22->SetFontSize(10);
 
     mBtn23 =
         new JXTextButton("Date Long", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 400,40, 80,20);
     assert( mBtn23 != NULL );
-    mBtn23->SetFontSize(10);
 
     mBtn24 =
         new JXTextButton("Date Now", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 400,60, 80,20);
     assert( mBtn24 != NULL );
-    mBtn24->SetFontSize(10);
 
     mBtn25 =
         new JXTextButton("Page Number", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 480,0, 80,20);
     assert( mBtn25 != NULL );
-    mBtn25->SetFontSize(10);
 
     mSummary =
         new JXTextCheckbox("Print Summary Headers", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 400,80, 150,20);
     assert( mSummary != NULL );
-    mSummary->SetFontSize(10);
 
     mOkBtn =
         new JXTextButton("OK", window,
@@ -229,7 +203,6 @@ void CPrefsEditCaption::OnCreate()
         new JXStaticText("Header", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,85, 65,20);
     assert( obj1 != NULL );
-    obj1->SetFontSize(10);
     const JFontStyle obj1_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj1->SetFontStyle(obj1_style);
 
@@ -243,25 +216,21 @@ void CPrefsEditCaption::OnCreate()
         new JXTextRadioButton(1, "Message", mMessageDraft1,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,0, 80,20);
     assert( obj2 != NULL );
-    obj2->SetFontSize(10);
 
     JXTextRadioButton* obj3 =
         new JXTextRadioButton(2, "Draft", mMessageDraft1,
                     JXWidget::kHElastic, JXWidget::kVElastic, 90,0, 70,20);
     assert( obj3 != NULL );
-    obj3->SetFontSize(10);
 
     mCursorTop =
         new JXTextCheckbox("Cursor at Top", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 80,80, 170,20);
     assert( mCursorTop != NULL );
-    mCursorTop->SetFontSize(10);
 
     mUseBox1 =
         new JXTextCheckbox("Draw Box", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 320,80, 80,20);
     assert( mUseBox1 != NULL );
-    mUseBox1->SetFontSize(10);
 
     mEditHeader =
         new CTextInputDisplay(window,
@@ -272,7 +241,6 @@ void CPrefsEditCaption::OnCreate()
         new JXStaticText("Footer", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,195, 65,20);
     assert( obj4 != NULL );
-    obj4->SetFontSize(10);
     const JFontStyle obj4_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj4->SetFontStyle(obj4_style);
 
@@ -286,19 +254,16 @@ void CPrefsEditCaption::OnCreate()
         new JXTextRadioButton(1, "Message", mMessageDraft2,
                     JXWidget::kHElastic, JXWidget::kVElastic, 0,0, 80,20);
     assert( obj5 != NULL );
-    obj5->SetFontSize(10);
 
     JXTextRadioButton* obj6 =
         new JXTextRadioButton(2, "Draft", mMessageDraft2,
                     JXWidget::kHElastic, JXWidget::kVElastic, 90,0, 70,20);
     assert( obj6 != NULL );
-    obj6->SetFontSize(10);
 
     mUseBox2 =
         new JXTextCheckbox("Draw Box", window,
                     JXWidget::kHElastic, JXWidget::kVElastic, 320,190, 80,20);
     assert( mUseBox2 != NULL );
-    mUseBox2->SetFontSize(10);
 
     mEditFooter =
         new CTextInputDisplay(window,

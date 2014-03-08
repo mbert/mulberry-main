@@ -87,7 +87,6 @@ void CPrefsAccountAuth::OnCreate()
         new JXTextCheckbox("Use Client Certificate", obj1,
                     JXWidget::kFixedLeft, JXWidget::kFixedTop, 5,17, 145,20);
     assert( mUseTLSClientCert != NULL );
-    mUseTLSClientCert->SetFontSize(10);
 
     mTLSClientCert =
         new HPopupMenu("",obj1,

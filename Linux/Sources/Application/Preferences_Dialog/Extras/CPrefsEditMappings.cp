@@ -88,19 +88,16 @@ void CPrefsEditMappings::OnCreate()
         new JXTextButton("Add...", obj1,
                     JXWidget::kHElastic, JXWidget::kVElastic, 15,165, 60,20);
     assert( mAddBtn != NULL );
-    mAddBtn->SetFontSize(10);
 
     mChangeBtn =
         new JXTextButton("Change...", obj1,
                     JXWidget::kHElastic, JXWidget::kVElastic, 85,165, 60,20);
     assert( mChangeBtn != NULL );
-    mChangeBtn->SetFontSize(10);
 
     mDeleteBtn =
         new JXTextButton("Delete", obj1,
                     JXWidget::kHElastic, JXWidget::kVElastic, 155,165, 60,20);
     assert( mDeleteBtn != NULL );
-    mDeleteBtn->SetFontSize(10);
 
 // end JXLayout
 

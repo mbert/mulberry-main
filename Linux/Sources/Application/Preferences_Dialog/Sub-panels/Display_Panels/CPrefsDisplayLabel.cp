@@ -454,7 +454,6 @@ void CPrefsDisplayLabel::OnCreate()
         new JXTextButton("Set IMAP Label Names", this,
                     JXWidget::kHElastic, JXWidget::kVElastic, 20,275, 155,25);
     assert( mIMAPLabelsBtn != NULL );
-    mIMAPLabelsBtn->SetFontSize(10);
 
 // end JXLayout2
 

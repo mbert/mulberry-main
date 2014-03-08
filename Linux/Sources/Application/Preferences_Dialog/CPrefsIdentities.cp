@@ -79,25 +79,21 @@ void CPrefsIdentities::OnCreate()
         new JXTextButton("Add...", this,
                     JXWidget::kHElastic, JXWidget::kVElastic, 40,180, 70,20);
     assert( mAddBtn != NULL );
-    mAddBtn->SetFontSize(10);
 
     mChangeBtn =
         new JXTextButton("Change...", this,
                     JXWidget::kHElastic, JXWidget::kVElastic, 120,180, 70,20);
     assert( mChangeBtn != NULL );
-    mChangeBtn->SetFontSize(10);
 
     mDuplicateBtn =
         new JXTextButton("Duplicate", this,
                     JXWidget::kHElastic, JXWidget::kVElastic, 200,180, 70,20);
     assert( mDuplicateBtn != NULL );
-    mDuplicateBtn->SetFontSize(10);
 
     mDeleteBtn =
         new JXTextButton("Delete", this,
                     JXWidget::kHElastic, JXWidget::kVElastic, 280,180, 70,20);
     assert( mDeleteBtn != NULL );
-    mDeleteBtn->SetFontSize(10);
 
     mContextTied =
         new JXTextCheckbox("Use Tied Identities with New Drafts", this,

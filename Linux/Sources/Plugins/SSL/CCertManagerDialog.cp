@@ -94,25 +94,21 @@ void CCertManagerDialog::OnCreate()
         new JXTextButton("Import...", mTabs,
                     JXWidget::kFixedRight, JXWidget::kFixedBottom, 10,125, 70,25);
     assert( mImportBtn != NULL );
-    mImportBtn->SetFontSize(10);
 
     mViewBtn =
         new JXTextButton("View...", mTabs,
                     JXWidget::kFixedRight, JXWidget::kFixedBottom, 85,125, 70,25);
     assert( mViewBtn != NULL );
-    mViewBtn->SetFontSize(10);
 
     mDeleteBtn =
         new JXTextButton("Delete", mTabs,
                     JXWidget::kFixedRight, JXWidget::kFixedBottom, 160,125, 70,25);
     assert( mDeleteBtn != NULL );
-    mDeleteBtn->SetFontSize(10);
 
     JXStaticText* obj2 =
         new JXStaticText("Total:", mTabs,
                     JXWidget::kHElastic, JXWidget::kVElastic, 370,125, 40,20);
     assert( obj2 != NULL );
-    obj2->SetFontSize(10);
     const JFontStyle obj2_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj2->SetFontStyle(obj2_style);
 
@@ -120,7 +116,6 @@ void CCertManagerDialog::OnCreate()
         new CStaticText("", mTabs,
                     JXWidget::kHElastic, JXWidget::kVElastic, 415,125, 55,20);
     assert( mTotal != NULL );
-    mTotal->SetFontSize(10);
 
     JXDownRect* obj3 =
         new JXDownRect(mTabs,
@@ -136,7 +131,6 @@ void CCertManagerDialog::OnCreate()
         new JXStaticText("Subject:", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 5,15, 80,20);
     assert( obj5 != NULL );
-    obj5->SetFontSize(10);
     const JFontStyle obj5_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj5->SetFontStyle(obj5_style);
 
@@ -144,13 +138,11 @@ void CCertManagerDialog::OnCreate()
         new CStaticText("", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 85,15, 375,45);
     assert( mSubject != NULL );
-    mSubject->SetFontSize(10);
 
     JXStaticText* obj6 =
         new JXStaticText("Issuer:", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 5,65, 80,20);
     assert( obj6 != NULL );
-    obj6->SetFontSize(10);
     const JFontStyle obj6_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj6->SetFontStyle(obj6_style);
 
@@ -158,13 +150,11 @@ void CCertManagerDialog::OnCreate()
         new CStaticText("", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 85,65, 375,45);
     assert( mIssuer != NULL );
-    mIssuer->SetFontSize(10);
 
     JXStaticText* obj7 =
         new JXStaticText("Not Before:", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 5,115, 80,20);
     assert( obj7 != NULL );
-    obj7->SetFontSize(10);
     const JFontStyle obj7_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj7->SetFontStyle(obj7_style);
 
@@ -172,13 +162,11 @@ void CCertManagerDialog::OnCreate()
         new CStaticText("", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 85,115, 145,20);
     assert( mNotBefore != NULL );
-    mNotBefore->SetFontSize(10);
 
     JXStaticText* obj8 =
         new JXStaticText("Not After:", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 245,115, 70,20);
     assert( obj8 != NULL );
-    obj8->SetFontSize(10);
     const JFontStyle obj8_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj8->SetFontStyle(obj8_style);
 
@@ -186,13 +174,11 @@ void CCertManagerDialog::OnCreate()
         new CStaticText("", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 315,115, 145,20);
     assert( mNotAfter != NULL );
-    mNotAfter->SetFontSize(10);
 
     JXStaticText* obj9 =
         new JXStaticText("Fingerprint:", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 5,140, 80,20);
     assert( obj9 != NULL );
-    obj9->SetFontSize(10);
     const JFontStyle obj9_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj9->SetFontStyle(obj9_style);
 
@@ -200,13 +186,11 @@ void CCertManagerDialog::OnCreate()
         new CStaticText("", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 85,140, 375,20);
     assert( mFingerprint != NULL );
-    mFingerprint->SetFontSize(10);
 
     JXStaticText* obj10 =
         new JXStaticText("Location:", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 5,165, 80,20);
     assert( obj10 != NULL );
-    obj10->SetFontSize(10);
     const JFontStyle obj10_style(kTrue, kFalse, 0, kFalse, (GetColormap())->GetBlackColor());
     obj10->SetFontStyle(obj10_style);
 
@@ -214,7 +198,6 @@ void CCertManagerDialog::OnCreate()
         new CStaticText("", obj3,
                     JXWidget::kHElastic, JXWidget::kVElastic, 85,165, 375,30);
     assert( mLocation != NULL );
-    mLocation->SetFontSize(10);
 
 // end JXLayout
 
