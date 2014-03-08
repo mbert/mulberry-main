@@ -397,7 +397,7 @@ void CEnvelope::GenerateThreadData()
 	mSubjectNorm = NormaliseSubject(false);
 	mSubjectHash = mSubjectNorm.hash();
 	if (!mSubjectHash)
-		mSubjectHash = 0xFFFFFFFF;
+		mSubjectHash = -1;
 }
 
 // Get normalised subject data

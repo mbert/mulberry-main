@@ -373,7 +373,7 @@ unsigned long CFilterManager::GetManualIndex(unsigned long uid) const
 		}
 	}
 	
-	return 0xFFFFFFFF;
+	return -1;
 }
 
 unsigned long CFilterManager::GetManualUID(unsigned long index) const
@@ -389,7 +389,7 @@ unsigned long CFilterManager::GetManualUID(unsigned long index) const
 		}
 	}
 	
-	return 0xFFFFFFFF;
+	return -1;
 }
 
 const CFilterItem* CFilterManager::GetManualFilter(unsigned long uid) const

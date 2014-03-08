@@ -1530,7 +1530,7 @@ bool CMailAccountManager::AddFavourite(const cdstring& name, unsigned long index
 	cdstrpairvect dummy;
 	new_list->SyncList(dummy);
 
-	if (index == 0xFFFFFFFF)
+	if (index == -1)
 		mFavourites.push_back(new_list);
 	else
 		mFavourites.insert(mFavourites.begin() + index, new_list);
@@ -1543,7 +1543,7 @@ bool CMailAccountManager::AddFavourite(const cdstring& name, unsigned long index
 	{
 		CFavouriteItemList& list = CPreferences::sPrefs->mFavourites.Value();
 		CFavouriteItem item(name);
-		if (index == 0xFFFFFFFF)
+		if (index == -1)
 			list.push_back(item);
 		else
 			list.insert(list.begin() + index, item);

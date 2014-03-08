@@ -182,7 +182,7 @@ public:
 	bool IsRemoveableItemFavouriteType(const CMboxRefList* list) const;
 	bool IsWildcardFavouriteType(const CMboxRefList* list) const;
 
-	bool AddFavourite(const cdstring& name, unsigned long index = 0xFFFFFFFF, bool update_prefs = true);
+	bool AddFavourite(const cdstring& name, unsigned long index = -1, bool update_prefs = true);
 	void RenameFavourite(CMboxRefList* list, const cdstring& name, bool update_prefs = true);
 	void RemoveFavourite(CMboxRefList* list, bool update_prefs = true);
 

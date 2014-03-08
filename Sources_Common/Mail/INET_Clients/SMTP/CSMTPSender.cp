@@ -79,7 +79,7 @@ CSMTPSender::CSMTPSender(CINETAccount* account)
 	mAllowLog = true;
 	mESMTP = false;
 	mSize = false;
-	mSizeLimit = 0xFFFFFFFF;
+	mSizeLimit = -1;
 	mSTARTTLS = false;
 	mAUTH = false;
 	mDSN = false;
@@ -1139,7 +1139,7 @@ void CSMTPSender::SMTPInitCapability()
 	mDSN = false;
 	mSTARTTLS = false;
 	mSize = false;
-	mSizeLimit = 0xFFFFFFFF;
+	mSizeLimit = -1;
 }
 
 // Receive capability data - handle continuations
@@ -1198,7 +1198,7 @@ void CSMTPSender::SMTPReceiveCapability(char code)
 						
 						// SIZE 0 implies no limit so set to max_ulong
 						if ((errno == ERANGE) || (mSizeLimit == 0))
-							mSizeLimit = 0xFFFFFFFF;
+							mSizeLimit = -1;
 					}
 				}
 			}

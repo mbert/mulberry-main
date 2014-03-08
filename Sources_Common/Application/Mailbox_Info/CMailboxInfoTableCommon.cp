@@ -685,7 +685,7 @@ void CMailboxInfoTable::OnApplyRuleMailboxToolbar(const char* name)
 	{
 		unsigned long index = CPreferences::sPrefs->GetFilterManager()->GetManualIndex(uid);
 		
-		if (index != 0xFFFFFFFF)
+		if (index != -1)
 			DoApplyRuleMailbox(index);
 	}
 }

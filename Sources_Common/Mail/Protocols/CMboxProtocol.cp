@@ -1887,7 +1887,7 @@ void CMboxProtocol::OpenMbox(CMbox* mbox, bool update, bool examine)
 		for(CHierarchies::iterator iter = mHierarchies.begin(); (index < 0) && (iter != mHierarchies.end()); iter++)
 			index = (*iter)->FetchIndexOf(mbox);
 	}
-	bool new_mbox = (index == 0xFFFFFFFF);
+	bool new_mbox = (index == -1);
 
 	// Disconnected touch
 	if (IsDisconnected())
