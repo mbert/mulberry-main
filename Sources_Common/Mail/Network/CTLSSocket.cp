@@ -415,8 +415,13 @@ void CTLSSocket::TLSStartConnection()
 		mCertIssuer = str;
 
 		// Get cipher in use
+#if (OPENSSL_VERSION_NUMBER | 0xFF00000000) == 0x10000000
 		const SSL_CIPHER* cipher = ::SSL_get_current_cipher(m_tls);
-		
+#else
+		SSL_CIPHER* cipher = ::SSL_get_current_cipher(m_tls);
+        
+#endif
+        
 		char cipher_desc[256];
 		::SSL_CIPHER_description(cipher, cipher_desc, 256);
 		mCipher = cipher_desc;
