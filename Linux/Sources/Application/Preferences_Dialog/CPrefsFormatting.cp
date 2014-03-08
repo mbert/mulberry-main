@@ -172,32 +172,32 @@ void CPrefsFormatting::OnCreate()
 
 // end JXLayout1
 
-    mListFont->OnCreate();
+    mListFont->OnCreate(true);
     mListFont->CFontNameMenu::SetToPopupChoice();
     mListSize->OnCreate(mListFont);
     mListSize->CFontSizeMenu::SetToPopupChoice();
 
-    mDisplayFont->OnCreate();
+    mDisplayFont->OnCreate(true);
     mDisplayFont->CFontNameMenu::SetToPopupChoice();
     mDisplaySize->OnCreate(mDisplayFont);
     mDisplaySize->CFontSizeMenu::SetToPopupChoice();
 
-    mPrinterFont->OnCreate();
+    mPrinterFont->OnCreate(false);
     mPrinterFont->CFontNameMenu::SetToPopupChoice();
     mPrinterSize->OnCreate(mPrinterFont);
     mPrinterSize->CFontSizeMenu::SetToPopupChoice();
 
-    mCaptionFont->OnCreate();
+    mCaptionFont->OnCreate(true);
     mCaptionFont->CFontNameMenu::SetToPopupChoice();
     mCaptionSize->OnCreate(mCaptionFont);
     mCaptionSize->CFontSizeMenu::SetToPopupChoice();
 
-    mFixedFont->OnCreate();
+    mFixedFont->OnCreate(true, true);
     mFixedFont->CFontNameMenu::SetToPopupChoice();
     mFixedSize->OnCreate(mFixedFont);
     mFixedSize->CFontSizeMenu::SetToPopupChoice();
 
-    mHTMLFont->OnCreate();
+    mHTMLFont->OnCreate(true);
     mHTMLFont->CFontNameMenu::SetToPopupChoice();
     mHTMLSize->OnCreate(mHTMLFont);
     mHTMLSize->CFontSizeMenu::SetToPopupChoice();

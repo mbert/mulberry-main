@@ -71,9 +71,6 @@ private:
 	JString	GetFontName(const JIndex index) const;
 	void	SetFontName1(const JIndex index);
 
-	void	CacheScreenMenu(bool do_mono);
-	void	GetXFontNames(JPtrArray<JString>* fontNames);
-
 	// not allowed
 
 	CFontNameMenu(const CFontNameMenu& source);
