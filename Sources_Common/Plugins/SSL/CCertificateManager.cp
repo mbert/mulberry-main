@@ -57,6 +57,7 @@
 #include "diriterator.h"
 #include "cdfstream.h"
 
+#include <openssl/asn1.h>
 #include <openssl/evp.h>
 #include <openssl/pkcs12.h>
 #include <openssl/x509v3.h>
@@ -608,6 +609,7 @@ bool CCertificateManager::ImportCertificateFile(CCertificateManager::ECertificat
 			xcert.reset(::d2i_X509_bio(cert.get(), NULL));
 		}
 
+#ifdef ASN1_HEADER
 		else if (format == FORMAT_NETSCAPE)
 		{
 			// Need crlf converter for text file
@@ -669,6 +671,7 @@ bool CCertificateManager::ImportCertificateFile(CCertificateManager::ECertificat
 			ah->data = NULL;
 #endif
 		}
+#endif
 
 		// Do actual certificate import if one is left
 		if (xcert.get() != NULL)
