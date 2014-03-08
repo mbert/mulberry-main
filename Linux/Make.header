@@ -64,7 +64,7 @@ ifeq (${BUILD_STATIC},1)
 LINK_STATIC = -Wl,-Bstatic
 LINK_DYNAMIC = -Wl,-Bdynamic
 endif
-EXTRA_LINKS = -lpthread -ldl
+EXTRA_LINKS = -lpthread -ldl -lfontconfig
 ifeq ($(shell if [ -f /usr/lib/librt.so ]; then echo 1; else echo 0; fi),1)
 	EXTRA_LINKS := ${EXTRA_LINKS} -lrt
 endif
