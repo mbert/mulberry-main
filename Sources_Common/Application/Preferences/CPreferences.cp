@@ -983,6 +983,8 @@ const char cHDR_UACOMMENT_SYSNAME[] = "Win32";
 #elif __dest_os == __linux_os
 #if defined(__i386__)
 const char cHDR_UACOMMENT_CPU[] = "x86";
+#elif defined(__x86_64__)
+const char cHDR_UACOMMENT_CPU[] = "x86_64";
 #elif defined(sparc)
 const char cHDR_UACOMMENT_CPU[] = "SPARC";
 #elif defined(__PPC__)
