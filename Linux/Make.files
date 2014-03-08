@@ -925,6 +925,7 @@
 -prefix ../Sources_Common/Preferences_Store/Clients/
 .cpp CWebDAVPrefsClient
 -prefix ../Libraries/CICalendar/Source/
+.cpp CICalendarInit
 .cpp CITIPDefinitions
 .cpp CITIPProcessor
 .cpp CITIPScheduleResults
