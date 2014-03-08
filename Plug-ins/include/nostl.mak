@@ -13,12 +13,12 @@ CPP = g++
 LINKER = ${CPP}
 CFLAGS = -Wall -Wno-multichar -Wno-unused -Wno-unknown-pragmas \
 	-g \
-	-include ../Common/Plugin_Prefix_Linux.h -D_REENTRANT ${CINCS}
+	-include ../Common/Plugin_Prefix_Linux.h -fPIC -D_REENTRANT ${CINCS}
 
 DEPENDFLAGS = ${CFLAGS}
 MAKEMAKE = makemake
 
-LDFLAGS := -shared
+LDFLAGS := -shared -fPIC
 
 ifeq (${OSTYPE},solaris)
 LOADLIBES := -nodefaultlibs -lc -lm -lgcc -lresolv

@@ -45,6 +45,7 @@ documentation and/or software.
  */
 
 
+#include <stdint.h>
 
 #ifndef MD5_H
 
@@ -64,15 +65,7 @@ extern "C" {
 
 #ifndef UINT4
 
-#ifdef __alpha
-
-#define UINT4 unsigned int
-
-#else
-
-#define UINT4 unsigned long int
-
-#endif
+#define UINT4 uint32_t
 
 #endif
 

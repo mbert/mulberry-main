@@ -25,7 +25,9 @@
 #include "cdstring.h"
 
 cdstring GetVersionText(NumVersion vers);				// Get version as string
+cdstring GetVersionText(long vers);						// Get version as string
 short VersionTest(NumVersion vers1, long vers2);		// Check version number against long
+short VersionTest(long vers1, long vers2);				// Check version number against long
 
 unsigned long CRCCalculate(const char* text, unsigned long key);	// Calculate CRC code from text
 

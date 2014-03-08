@@ -42,4 +42,4 @@ $.${BIN}/%.o %.o: %.cp
 	 $(CPP) $(CFLAGS) -c -o $@ $<
 
 ${BIN}/md5c.o: ../CRAM-MD5/sources/md5/md5c.c ../CRAM-MD5/sources/md5/md5.h
-	 $(CC) -c -o $@ $<
+	 $(CC) -c -fPIC -o $@ $<

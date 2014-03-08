@@ -50,6 +50,8 @@
 #   define big_endian
 #  elif defined(__i386__)
 #   undef big_endian
+#  elif defined(__x86_64__)
+#   undef big_endian
 #  else
 #   error unknown endian
 #  endif

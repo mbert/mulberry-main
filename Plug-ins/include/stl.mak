@@ -38,7 +38,7 @@ endif
 
 CFLAGS = ${STL_INC} -Wall -Wno-multichar -Wno-unused -Wno-unknown-pragmas \
 	-g \
-	-include ../Common/Plugin_Prefix_Linux.h -D_REENTRANT ${CINCS}
+	-include ../Common/Plugin_Prefix_Linux.h -fPIC -D_REENTRANT ${CINCS}
 
 LINK_STATIC := -Wl,-Bstatic
 LINK_DYNAMIC := -Wl,-Bdynamic

@@ -22,6 +22,7 @@
 
 #include <cstddef>
 #include <vector>
+#include <stddef.h>
 
 // Classes
 

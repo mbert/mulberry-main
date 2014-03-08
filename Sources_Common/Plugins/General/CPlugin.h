@@ -145,7 +145,7 @@ public:
 	struct SPluginInfo
 	{
 		const char* mName;						// Name of plug-in
-		NumVersion	mVersion;					// Version number of plugin (as per Mac OS 'vers' rsrc)
+		long		mVersion;					// Version number of plugin (as per Mac OS 'vers' rsrc)
 		EPluginType	mType;						// Plug-in type
 		const char* mManufacturer;				// Manufacturer
 		const char* mDescription;				// Textual description
@@ -169,7 +169,7 @@ public:
 		CPluginInfo& operator=(const SPluginInfo& copy);
 
 		cdstring 	mName;						// Name of plug-in
-		NumVersion 	mVersion;					// Version number of plugin (as per Mac OS 'vers' rsrc)
+		long	 	mVersion;					// Version number of plugin (as per Mac OS 'vers' rsrc)
 		EPluginType	mType;						// Plug-in type
 		cdstring	mManufacturer;				// Manufacturer
 		cdstring	mDescription;				// Textual description
@@ -202,7 +202,7 @@ public:
 	// Get information
 	virtual const cdstring& GetName() const			// Returns the name of the plug-in
 		{ return mInfo.mName; }
-	virtual NumVersion GetVersion() const			// Returns the version number of the plug-in
+	virtual long GetVersion() const					// Returns the version number of the plug-in
 		{ return mInfo.mVersion; }
 	virtual EPluginType GetType() const				// Returns the type of the plug-in
 		{ return mInfo.mType; }

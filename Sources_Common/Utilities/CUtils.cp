@@ -23,6 +23,17 @@
 #include <string.h>
 
 // Check version number against long
+short VersionTest(long vers1, long vers2)
+{
+	if (vers1 > vers2)
+		return 1;
+	else if (vers1 < vers2)
+		return -1;
+	else
+		return 0;
+}
+
+// Check version number against long
 short VersionTest(NumVersion vers1, long vers2)
 {
 	unsigned char value;
@@ -57,6 +68,19 @@ short VersionTest(NumVersion vers1, long vers2)
 
 	return 0;
 }
+
+
+// Get version as string
+cdstring GetVersionText(long vers)
+{
+	NumVersion nvers;
+	nvers.majorRev = (vers >> 24) & 0x000000FF;
+	nvers.minorAndBugRev = (vers >> 16) & 0x000000FF;
+	nvers.stage = (vers >> 8) & 0x000000FF;
+	nvers.nonRelRev = (vers) & 0x000000FF;
+	return GetVersionText(nvers);
+}
+
 
 // Get version as string
 cdstring GetVersionText(NumVersion vers)

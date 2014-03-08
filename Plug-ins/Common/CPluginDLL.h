@@ -96,7 +96,7 @@ public:
 	struct SPluginInfo
 	{
 		const char* mName;						// Name of plug-in
-		long mVersion;							// Version number of plugin (as per Mac OS 'vers' rsrc)
+		long  mVersion;							// Version number of plugin (as per Mac OS 'vers' rsrc)
 		EPluginType mType;						// Plug-in type
 		const char* mManufacturer;				// Manufacturer
 		const char* mDescription;				// Textual description
