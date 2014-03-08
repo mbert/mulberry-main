@@ -22,6 +22,7 @@
 
 #include <cstddef>
 #include <vector>
+#include <stddef.h>
 
 class CListener;
 typedef std::vector<CListener*> CListenerList;
