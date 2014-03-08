@@ -53,7 +53,7 @@ public:
 		{ mTransparent = transparent; }
 
 			void	SetText(const cdstring& txt);				// UTF8 in
-			void	SetText(const char* txt, size_t size = 0xFFFFFFFF);	// UTF8 in
+			void	SetText(const char* txt, size_t size = -1);	// UTF8 in
 			void	SetText(const cdustring& txt);				// UTF16 in
 			void	SetNumber(long num);						// Number in
 

@@ -21,6 +21,8 @@ These notices must be retained in any copies of any part of this
 documentation and/or software.
  */
 
+#include <stdint.h>
+
 #ifndef MD5_H
 #define MD5_H 1
 
@@ -30,11 +32,7 @@ extern "C" {
 
 /* UINT4 defines a four byte word */
 #ifndef UINT4
-#ifdef __alpha
-#define UINT4 unsigned int
-#else
-#define UINT4 unsigned long int
-#endif
+#define UINT4 uint32_t
 #endif
 
 /* MD5 context. */

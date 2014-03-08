@@ -50,7 +50,7 @@ template <class T> void TPopupMenu<T>::TPopupMenuX(const JCoordinate	x,
 	this->SetUpdateAction(JXMenu::kDisableNone);
 
 	// Always listen to ourselves
-	ListenTo(this);
+	TPopupMenu<T>::ListenTo(this);
 }
 
 template <class T> void TPopupMenu<T>::SetValue(JIndex value)

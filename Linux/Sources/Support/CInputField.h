@@ -38,7 +38,7 @@ template <class T> CInputField<T>::CInputField(JXContainer* enclosure,
 												 const JCoordinate w, const JCoordinate h)
   :T(enclosure, hSizing, vSizing, x, y, w, h)
 {
-  SetBackColor(this->GetColormap()->GetWhiteColor());
+  this->SetBackColor(this->GetColormap()->GetWhiteColor());
   this->ShouldAllowDragAndDrop(kTrue);
 }
 
@@ -58,7 +58,7 @@ template <class T> CMultiInputField<T>::CMultiInputField(JXContainer* enclosure,
 												 const JCoordinate w, const JCoordinate h)
   :T(kFalse, kTrue, enclosure, hSizing, vSizing, x, y, w, h)
 {
-  SetBackColor(this->GetColormap()->GetWhiteColor());
+  this->SetBackColor(this->GetColormap()->GetWhiteColor());
   this->ShouldAllowDragAndDrop(kTrue);
 }
 

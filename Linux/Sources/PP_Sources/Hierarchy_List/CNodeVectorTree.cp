@@ -24,6 +24,7 @@
 #include <cstddef>
 #include "CNodeVectorTree.h"
 
+#include <stddef.h>
 
 // ---------------------------------------------------------------------------
 //		 CNodeVectorTree

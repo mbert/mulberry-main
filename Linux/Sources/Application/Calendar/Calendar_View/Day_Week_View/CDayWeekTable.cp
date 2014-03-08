@@ -769,11 +769,11 @@ void CDayWeekTable::ColumnateEvents()
 		column_usage.push_back(NULL);
 
 		// Add each start/end position
-		uint32_t col = 0;
+		uint32_t col2 = 0;
 		for(CDayEventList::const_iterator iter = list.begin(); iter != list.end(); iter++)
 		{
-			data.push_back(SEventInfo(*iter, true, col++, (*iter)->GetInstancePeriod().GetStart().GetPosixTime()));
-			data.push_back(SEventInfo(*iter, false, col++, (*iter)->GetInstancePeriod().GetEnd().GetPosixTime()));
+			data.push_back(SEventInfo(*iter, true, col2++, (*iter)->GetInstancePeriod().GetStart().GetPosixTime()));
+			data.push_back(SEventInfo(*iter, false, col2++, (*iter)->GetInstancePeriod().GetEnd().GetPosixTime()));
 		}
 		
 		// Sort by posix time

@@ -122,7 +122,7 @@ void CStaticText::SetText(const cdstring& all)
 // Set all text from utf8
 void CStaticText::SetText(const char* txt, size_t size)
 {
-	if ((txt != NULL) && (size == 0xFFFFFFFF))
+	if ((txt != NULL) && (size == -1))
 		size = ::strlen(txt);
 
 	cdustring utf16all(txt, size);
