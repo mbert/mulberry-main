@@ -218,6 +218,9 @@ protected:
 
 			void TCPCreateSocket();
 
+    virtual bool _ReceiveData(char* buf, long* len);			// Receive some data directly
+	virtual long _SendData(char* buf, long len);				// Send data
+
 			// Yielding
 			void TCPYield();
 			void TCPSelectYield(bool read, unsigned long secs = -1);

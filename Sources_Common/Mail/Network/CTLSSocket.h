@@ -22,11 +22,19 @@
 
 #include "CTCPSocket.h"
 
+#if __dest_os == __mac_os_x
+#define _OS_X_SECURITY
+#endif
+
+#ifdef _OS_X_SECURITY
+#include <Security/Security.h>
+#else
 //#include "openssl_.h"
 struct ssl_ctx_st;
 struct ssl_st;
 struct x509_st;
 struct evp_pkey_st;
+#endif
 
 class CTLSSocket : public CTCPSocket
 {
@@ -54,6 +62,9 @@ public:
 	virtual void TCPStartConnection();						// Active connect
 			void TLSStartConnection();						// Start TLS session
 
+    virtual void TCPCloseConnection();						// Close connect
+            void TLSCloseConnection();						// Close TLS session
+
 	// Receiving data
 	virtual void TCPReceiveData(char* buf, long* len);			// Receive some data
 
@@ -71,18 +82,28 @@ public:
 protected:
 	bool			mTLSOn;
 	int				mTLSType;
+#ifdef _OS_X_SECURITY
+    SSLContextRef   m_ctx;
+#else
 	ssl_ctx_st*		m_ctx;
 	ssl_st*			m_tls;
-	std::vector<int>		mCertErrors;
-	cdstring		mCertText;
-	cdstring		mCertSubject;
-	cdstring		mCertIssuer;
-	cdstring		mCipher;
 	x509_st*		mClientCert;
 	evp_pkey_st*	mClientPrivate;
-	
+#endif
+	std::vector<int>	mCertErrors;
+	cdstring            mCertText;
+	cdstring            mCertSubject;
+	cdstring            mCertIssuer;
+	cdstring            mCipher;
+
 	virtual void TLSReceiveData(char* buf, long* len);			// Receive some data
 	virtual void TLSSendData(char* buf, long len);				// Send data
+    
+private:
+#ifdef _OS_X_SECURITY
+	static OSStatus TLSReadFunc(SSLConnectionRef ref, void* data, size_t* len);
+	static OSStatus TLSWriteFunc(SSLConnectionRef ref, const void* data, size_t* len);
+#endif
 };
 
 #endif

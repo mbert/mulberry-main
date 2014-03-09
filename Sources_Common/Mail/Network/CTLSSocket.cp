@@ -27,7 +27,12 @@
 #include "CStringUtils.h"
 #include "CTCPException.h"
 
+#ifdef _OS_X_SECURITY
+#include "CAcceptCertDialog.h"
+#include "CTaskClasses.h"
+#else
 #include "openssl_.h"
+#endif
 
 #include <algorithm>
 
@@ -93,10 +98,14 @@ CTLSSocket::CTLSSocket()
 {
 	mTLSOn = false;
 	mTLSType = 0;
+#ifdef _OS_X_SECURITY
+	m_ctx = NULL;
+#else
 	m_ctx = NULL;
 	m_tls = NULL;
 	mClientCert = NULL;
 	mClientPrivate = NULL;
+#endif
 }
 
 // Copy constructor
@@ -105,14 +114,21 @@ CTLSSocket::CTLSSocket(const CTLSSocket& copy) :
 {
 	mTLSOn = false;
 	mTLSType = 0;
+#ifdef _OS_X_SECURITY
+	m_ctx = NULL;
+#else
 	m_ctx = NULL;
 	m_tls = NULL;
 	mClientCert = NULL;
 	mClientPrivate = NULL;
+#endif
 }
 
 CTLSSocket::~CTLSSocket()
 {
+#ifdef _OS_X_SECURITY
+	m_ctx = NULL;
+#else
 	m_ctx = NULL;
 	m_tls = NULL;
 
@@ -126,6 +142,7 @@ CTLSSocket::~CTLSSocket()
 		::EVP_PKEY_free(mClientPrivate);
 		mClientPrivate = NULL;
 	}
+#endif
 }
 
 void CTLSSocket::TCPClose()
@@ -133,8 +150,12 @@ void CTLSSocket::TCPClose()
 	// Inherited
 	CTCPSocket::TCPClose();
 
-	// Dispose of TLS specific items
 	mTLSOn = false;
+	// Dispose of TLS specific items
+#ifdef _OS_X_SECURITY
+    ::SSLDisposeContext(m_ctx);
+    m_ctx = NULL;
+#else
 	if (m_tls != NULL)
 	{
 		::SSL_free(m_tls);
@@ -155,6 +176,7 @@ void CTLSSocket::TCPClose()
 		::EVP_PKEY_free(mClientPrivate);
 		mClientPrivate = NULL;
 	}
+#endif
 }
 
 
@@ -165,7 +187,11 @@ void CTLSSocket::TCPClose()
 void CTLSSocket::TLSSetTLSOn(bool tls_on, int tls_type)
 {
 	// Only allow this to be switched on if TLS is actually present
-	if (CPluginManager::sPluginManager.HasSSL())
+#ifdef _OS_X_SECURITY
+    mTLSOn = tls_on;
+    mTLSType = tls_type;
+#else
+    if (CPluginManager::sPluginManager.HasSSL())
 	{
 		mTLSOn = tls_on;
 		mTLSType = tls_type;
@@ -183,11 +209,16 @@ void CTLSSocket::TLSSetTLSOn(bool tls_on, int tls_type)
 		CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPNoSSLPlugin);
 		throw CTCPException(CTCPException::err_TCPNoSSLPlugin);
 	}
+#endif
 }
 
 // Load and verify client cert data
 bool CTLSSocket::TLSSetClientCert(const cdstring& cert, const cdstring& passphrase)
 {
+#ifdef _OS_X_SECURITY
+    // TODO: SecureTransport::SSLSetCertificate
+    return true;
+#else
 	// Remove previous certs, if any
 	if (mClientCert != NULL)
 	{
@@ -222,6 +253,7 @@ bool CTLSSocket::TLSSetClientCert(const cdstring& cert, const cdstring& passphra
 	}
 	else
 		return true;
+#endif
 }
 
 // C O N N E C T I O N S ____________________________________________________________________________
@@ -250,11 +282,22 @@ void CTLSSocket::TCPStartConnection()
 		TLSStartConnection();
 }
 
+// End a connection with remote host
+void CTLSSocket::TCPCloseConnection()
+{
+	// Do SSL negotiation if switched on already
+	if (mTLSOn)
+		TLSCloseConnection();
+
+	// Do inherited
+	CTCPSocket::TCPCloseConnection();
+}
+
 // Receive data
 void CTLSSocket::TCPReceiveData(char* buf, long* len)
 {
 	// Look for existing TLS session
-	if (m_tls)
+	if (mTLSOn)
 		TLSReceiveData(buf, len);
 	else
 		CTCPSocket::TCPReceiveData(buf, len);
@@ -264,7 +307,7 @@ void CTLSSocket::TCPReceiveData(char* buf, long* len)
 void CTLSSocket::TCPSendData(char* buf, long len)
 {
 	// Look for existing TLS session
-	if (m_tls)
+	if (mTLSOn)
 		TLSSendData(buf, len);
 	else
 		CTCPSocket::TCPSendData(buf, len);
@@ -278,16 +321,157 @@ void CTLSSocket::TLSStartConnection()
 	// Begin a busy operation
 	StMailBusy busy_lock(&mBusy, &GetBusyDescriptor());
 
+    // Clear out any cached data
+    mCertErrors.clear();
+    mCertSubject = cdstring::null_str;
+    mCertIssuer = cdstring::null_str;
+    mCipher = cdstring::null_str;
+    
+#ifdef _OS_X_SECURITY
+    OSStatus err = ::SSLNewContext(false, &m_ctx);
+    if (err != noErr)
+    {
+        CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLError);
+        throw CTCPException(CTCPException::err_TCPSSLError);
+    }
+    
+    //err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocolAll);
+    switch(mTLSType)
+    {
+        case 1:
+        case 4:
+            err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocol3);
+            break;
+        case 2:
+            err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocol3Only);
+            break;
+        case 3:
+            err = ::SSLSetProtocolVersion(m_ctx, kTLSProtocol1Only);
+            break;
+    }
+    err = ::SSLSetSessionOption(m_ctx, kSSLSessionOptionBreakOnServerAuth, true);
+    err = ::SSLSetIOFuncs(m_ctx, TLSReadFunc, TLSWriteFunc);
+    if (err == noErr)
+    {
+        err = ::SSLSetConnection(m_ctx, this);
+    }
+    if (err != noErr)
+    {
+        ::SSLDisposeContext(m_ctx);
+        m_ctx = NULL;
+
+        CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLError);
+        throw CTCPException(CTCPException::err_TCPSSLError);
+    }
+    
+    while((err = ::SSLHandshake(m_ctx)) != noErr) {
+        if (err == errSSLWouldBlock) {
+            
+			// Yield while waiting to unblock
+			TCPSelectYield(true);
+        
+        } else if (err == errSSLServerAuthCompleted) {
+            
+            SecTrustRef trustRef;
+            err = ::SSLCopyPeerTrust(m_ctx, &trustRef);
+            if (err != noErr) {
+                ::SSLDisposeContext(m_ctx);
+                m_ctx = NULL;
+                
+                CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
+                throw CTCPException(CTCPException::err_TCPSSLCertError);
+            }
+
+            SecTrustResultType resultType;
+            err = ::SecTrustEvaluate(trustRef, &resultType);
+            if (err != noErr) {
+                ::SSLDisposeContext(m_ctx);
+                m_ctx = NULL;
+                
+                CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
+                throw CTCPException(CTCPException::err_TCPSSLCertError);
+            }
+
+            if ((resultType == kSecTrustResultConfirm) || (resultType == kSecTrustResultRecoverableTrustFailure)) {
+                CFArrayRef certs;
+                CSSM_TP_APPLE_EVIDENCE_INFO* statusChain;
+                ::SecTrustGetResult(trustRef, &resultType, &certs, &statusChain);
+                
+                SecCertificateRef certificate = (SecCertificateRef)::CFArrayGetValueAtIndex(certs, 0);
+
+                CSSM_TP_APPLE_CERT_STATUS AllStatusBits = statusChain[0].StatusBits;
+                if (AllStatusBits & CSSM_CERT_STATUS_EXPIRED) {
+                } else {
+                    
+                    //CCertificateManager::sCertificateManager->CertificateToString(server_cert, mCertText);
+                    
+                    CFErrorRef error;
+                    //CFStringRef subject = ::SecCertificateCopyShortDescription(NULL, certificate, &error);
+                    CFStringRef subject = ::SecCertificateCopySubjectSummary(certificate);
+                    mCertSubject = cdstring(subject);
+                    ::CFRelease(subject);
+
+                    cdstrvect errors;
+                    errors.push_back("Unknown");
+                    CAcceptCertTask* task = new CAcceptCertTask(mCertSubject, errors);
+                    int result = task->Go();
+                    if (result == CAcceptCertDialog::eAcceptSave) {
+                        // Confirm with user then continue
+                        resultType = kSecTrustResultProceed;
+                        err = ::SecCertificateAddToKeychain(certificate, NULL);
+                        if (err != noErr) {
+                            
+                        }
+                    } else if (result == CAcceptCertDialog::eAcceptOnce) {
+                        // Confirm with user then continue
+                        resultType = kSecTrustResultProceed;
+                    } else {
+                        resultType = kSecTrustResultFatalTrustFailure;
+                    }
+                }
+            }
+            ::CFRelease(trustRef);
+
+            if ((resultType == kSecTrustResultProceed) || (resultType == kSecTrustResultUnspecified)) {
+                // OK to continue
+                CFArrayRef certs;
+                ::SSLCopyPeerCertificates(m_ctx, &certs);
+                SecCertificateRef certificate = (SecCertificateRef)::CFArrayGetValueAtIndex(certs, 0);
+
+                //CCertificateManager::sCertificateManager->CertificateToString(server_cert, mCertText);
+                
+                CFStringRef subject = ::SecCertificateCopySubjectSummary(certificate);
+                mCertSubject = cdstring(subject);
+                ::CFRelease(subject);
+                
+//                const CSSM_X509_NAME* issuer = NULL;
+//                ::SecCertificateGetIssuer(certificate, &issuer);
+//                str = ::X509_NAME_oneline(X509_get_issuer_name(server_cert), x509_buf, BUFSIZ);
+//                if (!str)
+//                {
+//                    CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
+//                    throw CTCPException(CTCPException::err_TCPSSLCertError);
+//                }
+//                mCertIssuer = str;
+                ::CFRelease(certs);
+            } else {
+                CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
+                throw CTCPException(CTCPException::err_TCPSSLCertError);
+            }
+        } else {
+            ::SSLDisposeContext(m_ctx);
+            m_ctx = NULL;
+            
+            CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLError);
+            throw CTCPException(CTCPException::err_TCPSSLError);
+        }
+    }
+    
+#else
 	X509* server_cert = NULL;
 
 	try
 	{
-		// Clear out any cached data
-		mCertErrors.clear();
-		mCertSubject = cdstring::null_str;
-		mCertIssuer = cdstring::null_str;
-		mCipher = cdstring::null_str;
-
 		// Create context
 		switch(mTLSType)
 		{
@@ -464,7 +648,53 @@ void CTLSSocket::TLSStartConnection()
 		CLOG_LOGRETHROW;
 		throw;
 	}
+#endif
 }
+
+// Initiate a connection with remote host
+void CTLSSocket::TLSCloseConnection()
+{
+#ifdef _OS_X_SECURITY
+    ::SSLClose(m_ctx);
+#endif
+    
+}
+
+#ifdef _OS_X_SECURITY
+OSStatus CTLSSocket::TLSReadFunc(SSLConnectionRef ref, void* data, size_t* len)
+{
+    CTLSSocket* skt = const_cast<CTLSSocket*>(reinterpret_cast<const CTLSSocket*>(ref));
+    long lenread = *len;
+    try {
+        if (skt->CTCPSocket::_ReceiveData((char*)data, &lenread)) {
+            if (lenread == *len) {
+                *len = lenread;
+                return noErr;
+            } else {
+                *len = lenread;
+                return errSSLWouldBlock;
+            }
+        } else {
+            *len = 0;
+            return errSSLWouldBlock;
+        }
+    } catch (CTCPException& ex) {
+        return ex.error();
+    }
+    return noErr;
+}
+
+OSStatus CTLSSocket::TLSWriteFunc(SSLConnectionRef ref, const void* data, size_t* len)
+{
+    CTLSSocket* skt = const_cast<CTLSSocket*>(reinterpret_cast<const CTLSSocket*>(ref));
+    try {
+        skt->CTCPSocket::_SendData((char*)(data), *len);
+    } catch (CTCPException& ex) {
+        return ex.error();
+    }
+    return noErr;
+}
+#endif
 
 // Receive data
 void CTLSSocket::TLSReceiveData(char* buf, long* len)
@@ -475,6 +705,46 @@ void CTLSSocket::TLSReceiveData(char* buf, long* len)
 	// Yield before to get any user abort
 	TCPYield();
 
+#ifdef _OS_X_SECURITY
+    size_t read = 0;
+    OSStatus err;
+    while((err = ::SSLRead(m_ctx, buf, *len, &read)) != noErr) {
+        if (err == errSSLWouldBlock) {
+
+			// Partial read OK
+            if (read != 0)
+                break;
+
+            // Select yield while waiting to unblock
+            TCPSelectYield(true);
+
+        } else if ((err == errSSLClosedGraceful) || (err == errSSLClosedNoNotify)) {
+
+            TCPAbort(true);
+            
+            err = ECONNRESET;
+            
+            TCPHandleError(err);
+            
+            // Got an error => throw
+            CLOG_LOGTHROW(CTCPException, err);
+            throw CTCPException(err);
+
+        } else {
+
+            TCPAbort(true);
+            
+            TCPHandleError(err);
+            
+            // Throw error
+            CLOG_LOGTHROW(CTCPException, err);
+            throw CTCPException(err);
+            
+        }
+    }
+    
+    *len = read;
+#else
 	// Get any data present at the moment
 	int result;
 	while((result = ::SSL_read(m_tls, buf, *len)) == SOCKET_ERROR)
@@ -519,6 +789,7 @@ void CTLSSocket::TLSReceiveData(char* buf, long* len)
 	}
 
 	*len = result;
+#endif
 
 	// Reset tickle timer
 	TimerReset();
@@ -533,6 +804,36 @@ void CTLSSocket::TLSSendData(char* buf, long len)
 	// Yield before to get any user abort
 	TCPYield();
 
+#ifdef _OS_X_SECURITY
+	// Send data in blocks of buffer size
+	char* p = buf;
+	while(len)
+	{
+        size_t written = 0;
+        OSStatus err = ::SSLWrite(m_ctx, p, len, &written);
+        if (err == noErr)
+        {
+			// Adjust buffer
+			len -= written;
+			p += written;
+            
+        } else if (err == errSSLWouldBlock) {
+
+            // Yield while waiting to unblock
+            TCPSelectYield(false);
+            
+        } else {
+            TCPAbort(true);
+            
+            TCPHandleError(err);
+            
+            // Throw error
+            CLOG_LOGTHROW(CTCPException, err);
+            throw CTCPException(err);
+            
+        }
+    }
+#else
 	// Send data in blocks of buffer size
 	char* p = buf;
 	while(len)
@@ -573,6 +874,7 @@ void CTLSSocket::TLSSendData(char* buf, long len)
 			p += result;
 		}
 	}
+#endif
 
 	// Reset tickle timer
 	TimerReset();

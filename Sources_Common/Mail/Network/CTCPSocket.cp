@@ -1772,7 +1772,19 @@ void CTCPSocket::TCPReceiveData(char* buf, long* len)
 
 	// Yield before to get any user abort
 	TCPYield();
+    
+    while (!_ReceiveData(buf, len)) {
+        // Select yield while waiting to unblock
+        TCPSelectYield(true);
+    }
+    
+	// Reset tickle timer
+	TimerReset();
+}
 
+// Receive data
+bool CTCPSocket::_ReceiveData(char* buf, long* len)
+{
 	// Get any data present at the moment
 	int result;
 	while((result = ::recv(mSocket, buf, *len, 0)) == SOCKET_ERROR)
@@ -1781,10 +1793,7 @@ void CTCPSocket::TCPReceiveData(char* buf, long* len)
 
 		// Check for failure
 		if (err == EWOULDBLOCK)
-
-			// Select yield while waiting to unblock
-			TCPSelectYield(true);
-
+            return false;
 		else
 		{
 			TCPAbort(true);
@@ -1810,9 +1819,7 @@ void CTCPSocket::TCPReceiveData(char* buf, long* len)
 	}
 
 	*len = result;
-
-	// Reset tickle timer
-	TimerReset();
+    return true;
 }
 
 // S E N D I N G  D A T A  _____________________________________________________________________________________
@@ -1827,7 +1834,23 @@ void CTCPSocket::TCPSendData(char* buf, long len)
 
 	// Yield before to get any user abort
 	TCPYield();
+    
+    long result = 0;
+    while ((result = _SendData(buf, len)) != 0) {
+        // Select yield while waiting to unblock
+        TCPSelectYield(false);
+        
+        buf += result;
+        len += result;
+    }
+    
+	// Reset tickle timer
+	TimerReset();
+}
 
+// Send data
+long CTCPSocket::_SendData(char* buf, long len)
+{
 	// Send data in blocks of buffer size
 	char* p = buf;
 	while(len)
@@ -1843,7 +1866,7 @@ void CTCPSocket::TCPSendData(char* buf, long len)
 			if (err == EWOULDBLOCK)
 
 				// Select yield while waiting to unblock
-				TCPSelectYield(false);
+				return len;
 
 			else
 			{
@@ -1863,7 +1886,6 @@ void CTCPSocket::TCPSendData(char* buf, long len)
 			p += result;
 		}
 	}
-
-	// Reset tickle timer
-	TimerReset();
+    
+    return 0;
 }
