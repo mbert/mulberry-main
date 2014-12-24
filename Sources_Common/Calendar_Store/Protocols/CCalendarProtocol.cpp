@@ -1320,8 +1320,18 @@ bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 				rurls.push_back((*iter).first);
 			}
 
-			if (rurls.size() != 0)
-				mClient->_ReadComponents(node, cal, rurls);
+            while(rurls.size() != 0)
+            {
+                // Limit to at most 50 resources
+                cdstrvect rurls_batched;
+                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                {
+                    rurls_batched.push_back(rurls.back());
+                    rurls.pop_back();
+                }
+            
+				mClient->_ReadComponents(node, cal, rurls_batched);
+            }
 		}
 		
 		// Clear out cache recording
@@ -1581,8 +1591,18 @@ bool CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
 			}
 
 			// Read components from server into local cache as its a new one on the server
-			if (rurls.size() != 0)
-				mClient->_ReadComponents(node, cal, rurls);
+            while(rurls.size() != 0)
+            {
+                // Limit to at most 50 resources
+                cdstrvect rurls_batched;
+                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                {
+                    rurls_batched.push_back(rurls.back());
+                    rurls.pop_back();
+                }
+                
+                mClient->_ReadComponents(node, cal, rurls_batched);
+            }
 		}
 
 		// Clear out cache recording
