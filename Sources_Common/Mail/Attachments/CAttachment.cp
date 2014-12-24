@@ -555,6 +555,10 @@ const CAttachment* CAttachment::FirstDisplaySubPart(bool& skip_it, bool no_style
 						if (part_subtype > eContentSubHTML)
 							part_subtype = (CPreferences::sPrefs->showStyled.GetValue() ? eNoContentSubType : eContentSubXtoken);
 
+                        // Skip text with no content
+                        if ((*iter)->mContent.GetContentSize() <= 4)
+                            break;
+
 						// Get higher type if showing styled or style test is turned off
 						if ((no_style_test || CPreferences::sPrefs->showStyled.GetValue()) && (part_subtype > subtype) ||
 							// Get lower type if not showing styled
