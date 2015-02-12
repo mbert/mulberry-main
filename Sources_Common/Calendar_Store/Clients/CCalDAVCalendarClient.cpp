@@ -436,8 +436,20 @@ void CCalDAVCalendarClient::ReadCalendarComponents(const CCalendarStoreNode& nod
 		hrefs.push_back((*iter).first);
 	}
 
-	// Run the calendar-multiget report
-	ReadCalendarComponents(node, hrefs, cal);
+	// Run the calendar-multiget report in batches
+    while(hrefs.size() != 0)
+    {
+        // Limit to at most 50 resources
+        cdstrvect hrefs_batched;
+        while(hrefs.size() != 0 and hrefs_batched.size() < 50)
+        {
+            hrefs_batched.push_back(hrefs.back());
+            hrefs.pop_back();
+        }
+        
+        ReadCalendarComponents(node, hrefs_batched, cal);
+    }
+
 }
 
 void CCalDAVCalendarClient::ReadCalendarComponents(const CCalendarStoreNode& node, const cdstrvect& hrefs, iCal::CICalendar& cal)
