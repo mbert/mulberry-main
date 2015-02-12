@@ -1330,8 +1330,18 @@ void CAdbkProtocol::SyncComponentsFromServerFast(CAddressBook* adbk)
 				rurls.push_back((*iter).first);
 			}
 			
-			if (rurls.size() != 0)
-				cardclient->_ReadComponents(adbk, *vadbk, rurls);
+            while(rurls.size() != 0)
+            {
+                // Limit to at most 50 resources
+                cdstrvect rurls_batched;
+                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                {
+                    rurls_batched.push_back(rurls.back());
+                    rurls.pop_back();
+                }
+                
+                cardclient->_ReadComponents(adbk, *vadbk, rurls_batched);
+            }
 		}
 		
 		// Clear out cache recording
@@ -1574,8 +1584,18 @@ void CAdbkProtocol::SyncComponentsFromServerSlow(CAddressBook* adbk)
 			}
 
 			// Read components from server into local cache as its a new one on the server
-			if (rurls.size() != 0)
-				cardclient->_ReadComponents(adbk, *vadbk, rurls);
+            while(rurls.size() != 0)
+            {
+                // Limit to at most 50 resources
+                cdstrvect rurls_batched;
+                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                {
+                    rurls_batched.push_back(rurls.back());
+                    rurls.pop_back();
+                }
+                
+                cardclient->_ReadComponents(adbk, *vadbk, rurls_batched);
+            }
 		}
 
 		// Clear out cache recording
@@ -1793,13 +1813,17 @@ void CAdbkProtocol::RemovalOfAddress(CAddressBook* adbk)
 // Resolve address nick-name
 void CAdbkProtocol::ResolveAddress(CAddressBook* adbk, const char* nick_name, CAdbkAddress*& addr)
 {
-	mClient->_ResolveAddress(adbk, nick_name, addr);
+    // Always use the local cache if present, to make sure searches are fast
+    CAdbkClient* actual_client = (mCacheClient != NULL) ? mCacheClient : mClient;
+	actual_client->_ResolveAddress(adbk, nick_name, addr);
 }
 
 // Resolve group nick-name
 void CAdbkProtocol::ResolveGroup(CAddressBook* adbk, const char* nick_name, CGroup*& grp)
 {
-	mClient->_ResolveGroup(adbk, nick_name, grp);
+    // Always use the local cache if present, to make sure searches are fast
+    CAdbkClient* actual_client = (mCacheClient != NULL) ? mCacheClient : mClient;
+	actual_client->_ResolveGroup(adbk, nick_name, grp);
 }
 
 // Do search
@@ -1809,7 +1833,9 @@ void CAdbkProtocol::SearchAddress(CAddressBook* adbk,
 									const CAdbkAddress::CAddressFields& fields,
 									CAddressList& addr_list)
 {
-	mClient->_SearchAddress(adbk, name, match, fields, addr_list);
+    // Always use the local cache if present, to make sure searches are fast
+    CAdbkClient* actual_client = (mCacheClient != NULL) ? mCacheClient : mClient;
+	actual_client->_SearchAddress(adbk, name, match, fields, addr_list);
 }
 
 #pragma mark ____________________________ACLs
