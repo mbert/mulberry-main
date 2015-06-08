@@ -3706,11 +3706,6 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.2.0"
-                    {
-                    "Name" = "8:Microsoft .NET Framework 2.0"
-                    "ProductCode" = "8:Microsoft.Net.Framework.2.0"
-                    }
                 }
             }
         }
@@ -3731,18 +3726,13 @@
         "InstallerBootstrapper" = "3:2"
             "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
             {
-            "Enabled" = "11:TRUE"
+            "Enabled" = "11:FALSE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.2.0"
-                    {
-                    "Name" = "8:Microsoft .NET Framework 2.0"
-                    "ProductCode" = "8:Microsoft.Net.Framework.2.0"
-                    }
                 }
             }
         }
@@ -3762,14 +3752,6 @@
         {
             "LaunchCondition"
             {
-                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_E5B106BCC7C44F62BB0906475730EAEA"
-                {
-                "Name" = "8:.NET Framework"
-                "Message" = "8:[VSDNETMSG]"
-                "Version" = "8:2.0.50727"
-                "AllowLaterVersions" = "11:FALSE"
-                "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=9832"
-                }
             }
         }
         "File"
@@ -3976,7 +3958,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05D08F3EC1DD4885A109BA59E9AD19DC"
             {
-            "SourcePath" = "8:..\\..\\Debug\\NetscapeAdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\NetscapeAdbkIO.dll"
             "TargetName" = "8:NetscapeAdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -4416,7 +4398,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_109D67DF98904E60B24DE047B1EE8BFE"
             {
-            "SourcePath" = "8:..\\..\\Debug\\PineAdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\PineAdbkIO.dll"
             "TargetName" = "8:PineAdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -4556,7 +4538,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_13AD4A3FD5CE469D817D41928CFD3E91"
             {
-            "SourcePath" = "8:..\\..\\Debug\\DIGEST-MD5.dll"
+            "SourcePath" = "8:..\\..\\Release\\DIGEST-MD5.dll"
             "TargetName" = "8:DIGEST-MD5.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -5476,7 +5458,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_25CCC9DF0A1E44E1870DDE90E700A942"
             {
-            "SourcePath" = "8:..\\..\\Debug\\vCardAdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\vCardAdbkIO.dll"
             "TargetName" = "8:vCardAdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -5816,7 +5798,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3073AADCE0624E8D93E39E8F316ACDF5"
             {
-            "SourcePath" = "8:..\\..\\Debug\\GPG.dll"
+            "SourcePath" = "8:..\\..\\Release\\GPG.dll"
             "TargetName" = "8:GPG.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -8116,7 +8098,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5C037AF8BA3A4F869899B7E5983E164C"
             {
-            "SourcePath" = "8:..\\..\\Debug\\OEAdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\OEAdbkIO.dll"
             "TargetName" = "8:OEAdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -8996,7 +8978,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_705E4394CB48435E812F28990E05EC20"
             {
-            "SourcePath" = "8:..\\..\\Debug\\CRAM-MD5.dll"
+            "SourcePath" = "8:..\\..\\Release\\CRAM-MD5.dll"
             "TargetName" = "8:CRAM-MD5.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -9396,7 +9378,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_755B2F49878F49A295C1069B4D77344C"
             {
-            "SourcePath" = "8:..\\..\\Debug\\SSL.dll"
+            "SourcePath" = "8:..\\..\\Release\\SSL.dll"
             "TargetName" = "8:SSL.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -10316,7 +10298,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8BB6AE1EA0C540ADB97A3AEF4425D7EA"
             {
-            "SourcePath" = "8:..\\..\\Debug\\QuickmailProAdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\QuickmailProAdbkIO.dll"
             "TargetName" = "8:QuickmailProAdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -11676,7 +11658,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A4D1D34F8B874B6583D2018C384B4376"
             {
-            "SourcePath" = "8:..\\..\\Debug\\Mulberry.exe.embed.manifest"
+            "SourcePath" = "8:..\\..\\Release\\Mulberry.exe.embed.manifest"
             "TargetName" = "8:Mulberry.exe.embed.manifest"
             "Tag" = "8:"
             "Folder" = "8:_8AA110D64CBE48E3BE86A49E817B66F2"
@@ -12376,7 +12358,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B853E57079794909BEED4DA89487B76A"
             {
-            "SourcePath" = "8:..\\..\\Debug\\Mulberry.exe"
+            "SourcePath" = "8:..\\..\\Release\\Mulberry.exe"
             "TargetName" = "8:Mulberry.exe"
             "Tag" = "8:"
             "Folder" = "8:_8AA110D64CBE48E3BE86A49E817B66F2"
@@ -12516,7 +12498,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA80AB6AE4824E0B8633A248620A00C4"
             {
-            "SourcePath" = "8:..\\..\\Debug\\SMIME.dll"
+            "SourcePath" = "8:..\\..\\Release\\SMIME.dll"
             "TargetName" = "8:SMIME.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -13756,7 +13738,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D534B86D2AEE4E49B1D190467742DC98"
             {
-            "SourcePath" = "8:..\\..\\Debug\\QuickmailAdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\QuickmailAdbkIO.dll"
             "TargetName" = "8:QuickmailAdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -14576,7 +14558,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E1EFF6CE4809400D92FB1B7C9FB16850"
             {
-            "SourcePath" = "8:..\\..\\Debug\\Eudora4AdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\Eudora4AdbkIO.dll"
             "TargetName" = "8:Eudora4AdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -15596,7 +15578,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F72F66EDF191437A9C541FB3FF96E9C5"
             {
-            "SourcePath" = "8:..\\..\\Debug\\EudoraAdbkIO.dll"
+            "SourcePath" = "8:..\\..\\Release\\EudoraAdbkIO.dll"
             "TargetName" = "8:EudoraAdbkIO.dll"
             "Tag" = "8:"
             "Folder" = "8:_2EBD403100CB4439A6FB09B4EBA92F56"
@@ -16315,13 +16297,13 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Mulberry"
         "ProductCode" = "8:{087392B6-B93A-400D-A02F-87308EBC3AD8}"
-        "PackageCode" = "8:{AAE79531-9475-4051-B942-AF10F6CBB914}"
+        "PackageCode" = "8:{4753D9CC-362D-4DA2-A9F2-1357DF386774}"
         "UpgradeCode" = "8:{63401C1D-A801-486B-8F9C-7F2067BBA37E}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:4.0.0941"
+        "ProductVersion" = "8:4.1.003"
         "Manufacturer" = "8:mulberrymail.com"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -16440,12 +16422,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:600"
             "Transitive" = "11:FALSE"
             "Target" = "8:_B853E57079794909BEED4DA89487B76A"
             "Folder" = "8:_21FDEFC581DA455FBD3BFFBD3608C79C"
             "WorkingFolder" = "8:_8AA110D64CBE48E3BE86A49E817B66F2"
-            "Icon" = "8:"
+            "Icon" = "8:_B853E57079794909BEED4DA89487B76A"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C837F12F6EAF4B2BB9255DE3BAC9A6B0"
@@ -16454,12 +16436,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:600"
             "Transitive" = "11:FALSE"
             "Target" = "8:_B853E57079794909BEED4DA89487B76A"
             "Folder" = "8:_462A96BB83A443D6BB56DC69E73259B3"
             "WorkingFolder" = "8:_8AA110D64CBE48E3BE86A49E817B66F2"
-            "Icon" = "8:"
+            "Icon" = "8:_B853E57079794909BEED4DA89487B76A"
             "Feature" = "8:"
             }
         }
@@ -17024,34 +17006,6 @@
         }
         "MergeModule"
         {
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_453580CA29F047C686ED6C65FFC4848B"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:FALSE"
-            "SourcePath" = "8:C:\\Program Files (x86)\\Common Files\\Merge Modules\\Microsoft_VC90_CRT_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
-            "{CEE29DC0-9FBA-4B99-8D47-5BC643D9B626}:_7B874C2E361D41E8AE438C3508F12573"
-            {
-            "UseDynamicProperties" = "11:TRUE"
-            "IsDependency" = "11:FALSE"
-            "SourcePath" = "8:C:\\Program Files (x86)\\Common Files\\Merge Modules\\Microsoft_VC90_MFC_x86.msm"
-                "Properties"
-                {
-                }
-            "LanguageId" = "3:0"
-            "Exclude" = "11:FALSE"
-            "Folder" = "8:"
-            "Feature" = "8:"
-            "IsolateTo" = "8:"
-            }
         }
         "ProjectOutput"
         {

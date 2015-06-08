@@ -2297,7 +2297,6 @@ void cdstring::FromUTF8ToISO()
 			{
 				// Use iso-8859-15 code for Euro
 				sout.put((char)0xA4);
-				found_euro = true;
 			}
 			else if (wc > 0x00FF)
 				sout.put('?');

@@ -15,7 +15,8 @@ copy Debug\SMIME.dll Debug\Plug-ins
 copy Debug\SSL.dll Debug\Plug-ins
 copy Debug\vCardAdbkIO.dll Debug\Plug-ins
 
-copy Installer\Mulberry\Bits\Plug-ins\Timezones Debug\Plug-ins
+mkdir Debug\Plug-ins\Timezones
+copy Installer\Mulberry\Bits\Plug-ins\Timezones\*.ics Debug\Plug-ins\Timezones
 copy Installer\Mulberry\Bits\Plug-ins\CACerts Debug\Plug-ins
 
 mkdir Debug\Resources

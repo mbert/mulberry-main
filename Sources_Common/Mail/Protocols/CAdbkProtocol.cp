@@ -58,7 +58,7 @@
 #include <algorithm>
 #include <memory>
 
-#define USE_LOCAL_VCARDS
+// LPO #define USE_LOCAL_VCARDS
 
 #ifdef _MSC_VER
 // suppress warning: 'this' : used in base member initializer list
@@ -1334,7 +1334,7 @@ void CAdbkProtocol::SyncComponentsFromServerFast(CAddressBook* adbk)
             {
                 // Limit to at most 50 resources
                 cdstrvect rurls_batched;
-                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                while(rurls.size() != 0 && rurls_batched.size() < 50)
                 {
                     rurls_batched.push_back(rurls.back());
                     rurls.pop_back();
@@ -1588,7 +1588,7 @@ void CAdbkProtocol::SyncComponentsFromServerSlow(CAddressBook* adbk)
             {
                 // Limit to at most 50 resources
                 cdstrvect rurls_batched;
-                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                while(rurls.size() != 0 && rurls_batched.size() < 50)
                 {
                     rurls_batched.push_back(rurls.back());
                     rurls.pop_back();

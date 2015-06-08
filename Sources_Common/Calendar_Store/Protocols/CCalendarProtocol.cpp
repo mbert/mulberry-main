@@ -1335,7 +1335,7 @@ bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
             {
                 // Limit to at most 50 resources
                 cdstrvect rurls_batched;
-                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                while(rurls.size() != 0 && rurls_batched.size() < 50)
                 {
                     rurls_batched.push_back(rurls.back());
                     rurls.pop_back();
@@ -1606,7 +1606,7 @@ bool CCalendarProtocol::SyncComponentsFromServerSlow(const CCalendarStoreNode& n
             {
                 // Limit to at most 50 resources
                 cdstrvect rurls_batched;
-                while(rurls.size() != 0 and rurls_batched.size() < 50)
+                while(rurls.size() != 0 && rurls_batched.size() < 50)
                 {
                     rurls_batched.push_back(rurls.back());
                     rurls.pop_back();
