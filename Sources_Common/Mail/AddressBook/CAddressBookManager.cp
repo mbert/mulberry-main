@@ -45,6 +45,7 @@
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #include "CAddressDisplay.h"
 #include "CStringResources.h"
+#include "FullPath.h"
 #endif
 
 #include <algorithm>

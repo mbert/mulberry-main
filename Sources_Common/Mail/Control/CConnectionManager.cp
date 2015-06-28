@@ -41,7 +41,7 @@
 #if __dest_os == __win32_os
 #include <direct.h>
 //#include <sysenv_api.h>
-#include <shlobj.h>
+#include <ShFolder.h>
 #elif __dest_os == __linux_os
 #include <jDirUtil.h>
 #endif
