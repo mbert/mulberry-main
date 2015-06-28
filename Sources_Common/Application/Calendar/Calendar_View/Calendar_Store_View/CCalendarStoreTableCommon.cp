@@ -615,6 +615,9 @@ void CCalendarStoreTable::OnRefreshWebCalendar()
 		return;
 
 	DoToSelection((DoToSelectionPP) &CCalendarStoreTable::RefreshWebCalendar);
+	
+	// Reset all views
+	CCalendarView::ResetAll();
 }
 
 // Refresh specified item

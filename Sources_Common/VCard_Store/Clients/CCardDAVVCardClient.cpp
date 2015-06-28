@@ -544,7 +544,7 @@ void CCardDAVVCardClient::GetAddressBookComponents(CAddressBook* adbk, vCard::CV
 			result.trimspace();
 			
 			// Now look for text/vcard
-			if (result.compare("text/vcard") != 0)
+			if ((result.compare("text/vcard") != 0) && (result.compare("text/x-vcard") != 0))
 				continue;
 		}
 		

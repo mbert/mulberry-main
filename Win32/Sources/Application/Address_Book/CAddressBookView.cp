@@ -383,9 +383,19 @@ void CAddressBookView::OnGroupDraft()
 void CAddressBookView::OnAddrImport(UINT nID)
 {
 	// First get menu name
-	CMenu* menu = AfxGetApp()->m_pMainWnd->GetMenu();
-	CMenu* addr_menu = menu->GetSubMenu(4);
+	CMenu* menu = NULL;
+	CMenu* addr_menu = NULL;
 	CMenu* import_menu = NULL;
+ 	if (Is3Pane())
+	{	
+		menu = AfxGetApp()->m_pMainWnd->GetMenu();
+		addr_menu = menu->GetSubMenu(4);
+	}
+	else
+	{
+		menu = GetAddressBookWindow()->GetParentFrame()->GetMenu();
+		addr_menu = menu->GetSubMenu(2);
+	}
 	for(int i = 0; i < addr_menu->GetMenuItemCount(); i++)
 	{
 		if (addr_menu->GetMenuItemID(i) == IDM_ADDR_RENAME)
@@ -396,6 +406,7 @@ void CAddressBookView::OnAddrImport(UINT nID)
 	}
 	if (!import_menu)
 		return;
+	
 	cdstring name = CUnicodeUtils::GetMenuStringUTF8(import_menu, nID, MF_BYCOMMAND);
 	
 	// Now get plugin from manager
@@ -428,9 +439,19 @@ void CAddressBookView::OnAddrImport(UINT nID)
 void CAddressBookView::OnAddrExport(UINT nID)
 {
 	// First get menu name
-	CMenu* menu = AfxGetApp()->m_pMainWnd->GetMenu();
-	CMenu* addr_menu = menu->GetSubMenu(4);
+	CMenu* menu = NULL;
+	CMenu* addr_menu = NULL;
 	CMenu* export_menu = NULL;
+ 	if (Is3Pane())
+	{	
+		menu = AfxGetApp()->m_pMainWnd->GetMenu();
+		addr_menu = menu->GetSubMenu(4);
+	}
+	else
+	{
+		menu = GetAddressBookWindow()->GetParentFrame()->GetMenu();
+		addr_menu = menu->GetSubMenu(2);
+	}
 	for(int i = 0; i < addr_menu->GetMenuItemCount(); i++)
 	{
 		if (addr_menu->GetMenuItemID(i) == IDM_ADDR_RENAME)

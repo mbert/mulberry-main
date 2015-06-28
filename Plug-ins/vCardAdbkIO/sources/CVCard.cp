@@ -354,7 +354,9 @@ void CVCard::ReadItem(cdstring& str, bool old_version)
 		decoded = DecodeTextValue(value);
 	
 	// For v2.1 might have q-p encoding
-	if (old_version && ::count(item.GetParams().begin(), item.GetParams().end(), cdstrmultimap::value_type("TYPE", "QUOTED-PRINTABLE")))
+	if (old_version &&
+           (::count(item.GetParams().begin(), item.GetParams().end(), cdstrmultimap::value_type("TYPE", "QUOTED-PRINTABLE")) ||
+	        ::count(item.GetParams().begin(), item.GetParams().end(), cdstrmultimap::value_type("ENCODING", "QUOTED-PRINTABLE"))))
 	{
 		::qp_decode(decoded.c_str_mod());
 		::FilterEndls(decoded.c_str_mod());

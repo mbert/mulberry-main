@@ -55,16 +55,35 @@ bool CVCardEngine::ReadOne(std::istream& in, CAdbkIOPluginDLL::SAdbkIOPluginAddr
 
 		cdstrmap phonework;
 		phonework.insert(cdstrmap::value_type("TYPE", "WORK"));
-		phonework.insert(cdstrmap::value_type("TYPE", "VOICE"));
+		phonework.insert(cdstrmap::value_type("TYPE", "VOICE")); // TODO this is bogus because it is no multimap, the second is ignored
 		addr.mPhoneWork = vCard.CountItems("TEL", phonework) ? ::strdup(vCard.GetValue("TEL", phonework)) : NULL;
 
 		cdstrmap phonehome;
 		phonehome.insert(cdstrmap::value_type("TYPE", "HOME"));
-		phonehome.insert(cdstrmap::value_type("TYPE", "VOICE"));
+		phonehome.insert(cdstrmap::value_type("TYPE", "VOICE")); // TODO this is bogus because it is no multimap, the second is ignored
 		addr.mPhoneHome = vCard.CountItems("TEL", phonehome) ? ::strdup(vCard.GetValue("TEL", phonehome)) : NULL;
 
 		addr.mFax = vCard.CountItems("TEL", "TYPE", "FAX") ? ::strdup(vCard.GetValue("TEL", "TYPE", "FAX")) : NULL;
 
+		if (vCard.CountItems("TEL", "TYPE", "CELL"))
+		{
+			const char * cellPhone = ::strdup(vCard.GetValue("TEL", "TYPE", "CELL"));
+			if (addr.mPhoneHome == NULL)
+			{
+				addr.mPhoneHome = cellPhone;
+			}
+			else if (addr.mPhoneWork == NULL)
+			{
+				addr.mPhoneWork = cellPhone;
+			}
+			else if (addr.mFax == NULL)
+			{
+				addr.mFax = cellPhone;
+			}
+            /* else ???
+             * TODO make phone number a [type, value] list for arbitrary types of phone numbers
+             */
+		}
 		addr.mURL = vCard.CountItems("URL") ? ::strdup(vCard.GetValue("URL")) : NULL;
 		addr.mNotes = vCard.CountItems("NOTE") ? ::strdup(vCard.GetValue("NOTE")) : NULL;
 		

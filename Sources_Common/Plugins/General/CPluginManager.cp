@@ -786,11 +786,24 @@ void CPluginManager::AddAdbkIOPluginUI(CAdbkIOPlugin* plugin) const
 	// in a menu bar it will call SyncAdbkIOPluginMenu to add the plugins.
 
 #if 0
+	// Add import/export menu items
+	CMenu* menu = AfxGetApp()->m_pMainWnd->GetMenu();
+	CMenu* addr_menu = menu->GetSubMenu(4);
+	CMenu* import_menu = NULL;
+	CMenu* export_menu = NULL;
+
+	for(int i = 0; i < addr_menu->GetMenuItemCount(); i++)
+	{
+		if (addr_menu->GetMenuItemID(i) == IDM_ADDR_RENAME)
+		{
+			import_menu = addr_menu->GetSubMenu(i + 2);
+			export_menu = addr_menu->GetSubMenu(i + 3);
+			break;
+		}
+	}
+
 	if (plugin->DoesImport())
 	{
-		CMenu* menu = AfxGetApp()->m_pMainWnd->GetMenu();
-		CMenu* import_menu = menu->GetSubMenu(5)->GetSubMenu(6);
-
 		// Check for very first one
 		if (import_menu->GetMenuItemCount() == 1)
 		{
@@ -799,14 +812,12 @@ void CPluginManager::AddAdbkIOPluginUI(CAdbkIOPlugin* plugin) const
 			if (name.IsEmpty())
 				import_menu->DeleteMenu(IDM_AddressImportStart, MF_BYCOMMAND);
 		}
-		import_menu->AppendMenu(MF_STRING, IDM_AddressImportStart + import_menu->GetMenuItemCount(), plugin->GetUIName());
+		//import_menu->AppendMenu(MF_STRING, IDM_AddressImportStart + import_menu->GetMenuItemCount(), plugin->GetUIName());
+		CUnicodeUtils::AppendMenuUTF8(import_menu, MF_STRING, IDM_AddressImportStart + import_menu->GetMenuItemCount(), plugin->GetUIName());
 	}
 
 	if (plugin->DoesExport())
 	{
-		CMenu* menu = AfxGetApp()->m_pMainWnd->GetMenu();
-		CMenu* export_menu = menu->GetSubMenu(5)->GetSubMenu(7);
-
 		// Check for very first one
 		if (export_menu->GetMenuItemCount() == 1)
 		{
@@ -815,7 +826,8 @@ void CPluginManager::AddAdbkIOPluginUI(CAdbkIOPlugin* plugin) const
 			if (name.IsEmpty())
 				export_menu->DeleteMenu(IDM_AddressExportStart, MF_BYCOMMAND);
 		}
-		export_menu->AppendMenu(MF_STRING, IDM_AddressExportStart + export_menu->GetMenuItemCount(), plugin->GetUIName());
+		//export_menu->AppendMenu(MF_STRING, IDM_AddressExportStart + export_menu->GetMenuItemCount(), plugin->GetUIName());
+		CUnicodeUtils::AppendMenuUTF8(export_menu, MF_STRING, IDM_AddressExportStart + export_menu->GetMenuItemCount(), plugin->GetUIName());
 	}
 #endif
 #elif __dest_os == __linux_os

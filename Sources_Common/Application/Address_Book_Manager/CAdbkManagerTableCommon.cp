@@ -568,7 +568,7 @@ void CAdbkManagerTable::OnNewAddressBook(void)
 			}
 			else
 				new_name = create.name;
-			if (new_name[new_name.length() - 1] != '/')
+			if (new_name[new_name.length() - 1] != '/' && (!proto || !proto->IsLocalAdbk())) // LPO if ! USE_LOCAL_VCARDS
 				new_name += '/';
 
 			// Check and get proto from dialog
