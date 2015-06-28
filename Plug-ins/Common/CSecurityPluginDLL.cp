@@ -211,8 +211,15 @@ void CSecurityPluginDLL::ErrorReport(long err_no, const char* errtxt, const char
 		LogEntry(serr);
 	}
 	
-	// Get short error string for display to user
-	SetLastError(err_no, err_buf);
+	if (err_no == eSecurity_DubiousKey)
+	{
+		SetLastError(err_no, errtxt);
+	}
+	else
+	{
+		// Get short error string for display to user
+		SetLastError(err_no, err_buf);
+}
 }
 
 // Create temp files for data processing
@@ -602,6 +609,11 @@ long CSecurityPluginDLL::lendl_convert(const char* spec, cdstring* tspec, bool t
 		tspec = &temp;
 		*tspec = spec;
 		*tspec += ".tmp";
+		if (::rename(spec, tspec->c_str()))
+		{
+			REPORTERROR(eSecurity_UnknownError, "Failed to rename output file for endl conversion");
+			throw -1L;
+		}
 	}
 	else
 	{
@@ -626,13 +638,13 @@ long CSecurityPluginDLL::lendl_convert(const char* spec, cdstring* tspec, bool t
 	try
 	{
 		// Open old for read new for write
-		fin = ::fopen(spec, "rb");
+		fin = ::fopen(replace_original ? tspec->c_str() : spec, "rb");
 		if (!fin)
 		{
 			REPORTERROR(eSecurity_UnknownError, "Failed to open input file for endl conversion");
 			throw -1L;
 		}
-		fout = ::fopen(tspec->c_str(), "wb");
+		fout = ::fopen(replace_original ? spec : tspec->c_str(), "wb");
 		if (!fout)
 		{
 			REPORTERROR(eSecurity_UnknownError, "Failed to open output file for endl conversion");
@@ -740,15 +752,23 @@ long CSecurityPluginDLL::lendl_convert(const char* spec, cdstring* tspec, bool t
 		// Delete original and rename temp one
 		if (replace_original)
 		{
-			if (::remove(spec))
+			if (::remove(tspec->c_str_mod()))
 			{
-				REPORTERROR(eSecurity_UnknownError, "Failed to delete input file for endl conversion");
-				throw -1L;
-			}
-			if (::rename(tspec->c_str(), spec))
-			{
-				REPORTERROR(eSecurity_UnknownError, "Failed to rename output file for endl conversion");
-				throw -1L;
+#if __dest_os == __win32_os
+				struct stat sbuf;
+				if (::stat(tspec->c_str_mod(),&sbuf) != -1) // if it is not there ignore error!
+				{
+					// sometimes the temporary file is read-only; on Windows it can not be deleted in this case
+					chmod(tspec->c_str_mod(),_S_IREAD | _S_IWRITE);
+					if (::remove(tspec->c_str_mod()))
+					{
+#endif
+						REPORTERROR(eSecurity_UnknownError, "Failed to delete input file for endl conversion");
+						throw -1L;
+#if __dest_os == __win32_os
+					}
+				}
+#endif
 			}
 		}
 	}

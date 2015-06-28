@@ -908,10 +908,12 @@ void CMessageView::OnMessageVerifyDecrypt()
 				if (mItsMsg->GetCryptoInfo()->GetDidSignature() && mItsMsg->GetCryptoInfo()->GetSignatureOK())
 					CPreferences::sPrefs->mVerifyOKNotification.GetValue().DoNotification("UI::Message::MessageVerifyOK");
 			}
-				
-			// Show the secure info pane
-			SetSecretPane(*mItsMsg->GetCryptoInfo());
-			ShowSecretPane(true);
+			if (mItsMsg)
+			{
+				// Show the secure info pane
+				SetSecretPane(*mItsMsg->GetCryptoInfo());
+				ShowSecretPane(true);
+			}
 		}
 	}
 	catch(CNetworkException& ex)

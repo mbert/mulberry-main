@@ -1314,6 +1314,13 @@ void CMessageView::SetSecretPane(const CMessageCryptoInfo& info)
 				addr += " WARNING: Does not match From address";
 			}
 
+			if (!info.GetError().empty())
+			{
+				mSecureInfo.SetSelectionCharFormat(format_redplain);
+				
+				addr += info.GetError();
+			}
+
 			// Insert address data
 			mSecureInfo.InsertUTF8(addr);
 

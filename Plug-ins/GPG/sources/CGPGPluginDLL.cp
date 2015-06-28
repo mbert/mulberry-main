@@ -75,6 +75,7 @@ const char* cGNUPGStatus = "[GNUPG:] ";
 const char* cNEED_PASSPHRASE = "NEED_PASSPHRASE ";
 const char* cBAD_PASSPHRASE = "BAD_PASSPHRASE ";
 const char* cGOOD_PASSPHRASE = "GOOD_PASSPHRASE";
+const char* cTRUST_UNDEFINED = "TRUST_UNDEFINED";
 const char* cGOODSIG = "GOODSIG ";
 const char* cBADSIG = "BADSIG ";
 const char* cERRSIG = "ERRSIG ";
@@ -132,6 +133,10 @@ private:
 };
 #endif
 
+#if __dest_os == __win32_os
+static const char *gpg2ExeName = "\\gpg2.exe";
+#endif
+
 // Constructor
 CGPGPluginDLL::CGPGPluginDLL()
 {
@@ -147,7 +152,8 @@ CGPGPluginDLL::CGPGPluginDLL()
 
 	// Open the key for the full path
 	HKEY key;
-	if (::RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS)
+	if (::RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS
+		|| ::RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS)
 	{
 		// Determine the space required
 		DWORD bufsize = 0;
@@ -159,7 +165,15 @@ CGPGPluginDLL::CGPGPluginDLL()
 			// Get the key's named value
 			::RegQueryValueExA(key, "gpgProgram", 0, NULL, reinterpret_cast<unsigned char*>(mExePath.c_str_mod()), &bufsize);
 		}
+		else if (::RegQueryValueExA(key, "Install Directory", 0, NULL, NULL, &bufsize) == ERROR_SUCCESS)
+		{
+			// Reserve the space
+			mExePath.reserve(bufsize+strlen(gpg2ExeName)+1);
 		
+			// Get the key's named value
+			::RegQueryValueExA(key, "Install Directory", 0, NULL, reinterpret_cast<unsigned char*>(mExePath.c_str_mod()), &bufsize);
+			mExePath += gpg2ExeName;
+		}
 		// Close the key
 		::RegCloseKey(key);
 	}
@@ -1463,7 +1477,7 @@ long CGPGPluginDLL::CallGPG(cdstrvect& args, const char* passphrase, bool binary
 		}
 
 		// Check process return value
-		if (mData->mErrno)
+		if (mData->mErrno && mData->mErrno != eSecurity_DubiousKey)
 			result = 0;
 		else if (status != 0)
 		{
@@ -1486,8 +1500,9 @@ long CGPGPluginDLL::CallGPG(cdstrvect& args, const char* passphrase, bool binary
 			}
 		}
 		else
+		{
 			result = 1;
-		
+		}
 		win32_closepipes(outputfd);
 		win32_closepipes(errorfd);
 		win32_closepipes(statusfd);
@@ -1865,6 +1880,10 @@ long CGPGPluginDLL::ProcessStatus(cdstring& status)
 			// Add key id to list of signatures
 			mData->mSignatureKeys.push_back(q);
 		}
+		else if (!::strncmp(p, cTRUST_UNDEFINED, ::strlen(cTRUST_UNDEFINED)))
+		{
+			REPORTERROR(eSecurity_DubiousKey, " WARNING: Key has no trusted signature!");
+		}
 
 		// Look for next complete line
 		p = ::strchr(status.c_str(), os_endl[0]);
@@ -1968,10 +1987,19 @@ long CGPGPluginDLL::ProcessKeyListOutput(cdstring& output)
 			cdstring id;
 			::strtok(line, " ");	// uid
 			char* q = ::strtok(NULL, "");	// name
+			const char* r = NULL;
 			
 			// Get current name
 			cdstring name(q);
 			name.trimspace();
+			if ((name[(cdstring::size_type)0] == '[') && ((r = ::strchr(q, ']')) != NULL))
+			{
+				while (*r == ' ')
+					r++;
+				r++;
+				name = r;
+				name.trimspace();
+			}
 
 			// Skip if not a valid name
 			if (!name.empty() && (name[(cdstring::size_type)0] != '['))

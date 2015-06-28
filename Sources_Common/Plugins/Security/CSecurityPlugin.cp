@@ -1298,6 +1298,7 @@ bool CSecurityPlugin::VerifyMessage(CMessage* msg, CMessageCryptoInfo& info)
 			CRFC822Parser parser;
 			std::auto_ptr<CLocalMessage> lmsg(parser.MessageFromStream(buf_in));
 			buf_in.clear();
+			buf_in.close();
 
 			// Must have message
 			if (!lmsg.get() ||
@@ -1317,8 +1318,22 @@ bool CSecurityPlugin::VerifyMessage(CMessage* msg, CMessageCryptoInfo& info)
 			
 			// Write data into another temp file
 			{
+#if 1
+				cdifstream buf_in2(fin_path, std::ios_base::in|std::ios_base::binary);
 				cdofstream buf_out(fin_d_path, std::ios_base::out|std::ios_base::trunc|std::ios_base::binary);
-				::StreamCopy(buf_in, buf_out, data_start, data_length);
+				::StreamCopy(buf_in2, buf_out, data_start, data_length);
+#else
+				FILE *inf = fopen(fin_path.c_str(), "rb");
+				FILE *outf = fopen(fin_d_path.c_str(), "cb");
+				fseek(inf, data_start, SEEK_SET);
+				char buff[4096];
+				int read_size = 0;
+				for( int left_over = data_length; read_size == 4096; data_length -= read_size)
+				{
+					int read_size = fread(buff, 4096, 1, inf);
+					fwrite(buff, read_size, 1, outf);
+				}
+#endif
 			}
 			
 			// Grab signature into internal buffer
@@ -1417,6 +1432,15 @@ bool CSecurityPlugin::VerifyMessage(CMessage* msg, CMessageCryptoInfo& info)
 			info.SetSuccess(false);
 			CLOG_LOGTHROW(CGeneralException, -1);
 			throw CGeneralException(-1);
+		}
+		{
+			long err = eSecurity_NoErr;
+			char* error = NULL;
+			GetLastError(&err, &error);
+			if (err == eSecurity_DubiousKey)
+			{
+				info.SetError(error);
+			}
 		}
 		info.SetSuccess(result);
 		info.SetDidSignature(did_signature);
