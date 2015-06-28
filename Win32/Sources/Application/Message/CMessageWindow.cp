@@ -500,8 +500,10 @@ void CMessageWindow::OnSize(UINT nType, int cx, int cy)
 {
 	// Resize its splitter view to fit
 	CRect rect(0, 0, cx, cy);
-	mView.MoveWindow(rect);
-	
+	if (mView) // LPO
+	{
+		mView.MoveWindow(rect);
+	}
 	// Don't do immediate inherit as that changes the size of the sub-view
 	// which is not waht we want to change
 	CWnd::OnSize(nType, cx, cy);
@@ -632,7 +634,7 @@ void CMessageWindow::SetMessage(CMessage* theMsg)
 	else
 		theTitle.FromResource("UI::Message::NoSubject");
 
-	mText->GetDocument()->SetTitle(theTitle.win_str());
+	mText->CView::GetDocument()->SetTitle(theTitle.win_str()); // LPO without qualified call derived CRichEditView::GetDocument will throw debug assertion
 
 	// Allow deleted messages that appear as message is read in
 	mAllowDeleted = true;

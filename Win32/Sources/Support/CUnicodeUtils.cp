@@ -39,26 +39,26 @@ void CUnicodeUtils::SetWindowTextUTF8(HWND wnd, const cdstring& text)
 	::SetWindowTextW(wnd, cdustring(text));
 }
 
-void CUnicodeUtils::AppendMenuUTF8(CMenu* menu, UINT nID)
+void CUnicodeUtils::AppendMenuUTF8(CMenu* menu, UINT uFlags)
 {
-	::AppendMenuW(*menu, nID, 0, (const WCHAR*) NULL);
+	::AppendMenuW(menu->GetSafeHmenu(), uFlags, 0, (const WCHAR*) NULL);
 }
 
-void CUnicodeUtils::AppendMenuUTF8(CMenu* menu, UINT nID, UINT_PTR nIDNewItem, const cdstring& text)
+void CUnicodeUtils::AppendMenuUTF8(CMenu* menu, UINT uFlags, UINT_PTR nIDNewItem, const cdstring& text)
 {
-	::AppendMenuW(*menu, nID, nIDNewItem, cdustring(text));
+	::AppendMenuW(menu->GetSafeHmenu(), uFlags, nIDNewItem, cdustring(text));
 }
 
 // Add UTF8 text to menu
-void CUnicodeUtils::InsertMenuUTF8(CMenu* menu, UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem, const cdstring& text)
+void CUnicodeUtils::InsertMenuUTF8(CMenu* menu, UINT nPosition, UINT uFlags, UINT_PTR nIDNewItem, const cdstring& text)
 {
-	::InsertMenuW(*menu, nPosition, nFlags, nIDNewItem, cdustring(text));
+	::InsertMenuW(menu->GetSafeHmenu(), nPosition, uFlags, nIDNewItem, cdustring(text));
 }
 
 // Modify UTF8 text in menu
 void CUnicodeUtils::ModifyMenuUTF8(CMenu* menu, UINT nPosition, UINT nFlags, UINT_PTR nIDNewItem, const cdstring& text)
 {
-	::ModifyMenuW(*menu, nPosition, nFlags, nIDNewItem, cdustring(text));
+	::ModifyMenuW(menu->GetSafeHmenu(), nPosition, nFlags, nIDNewItem, cdustring(text));
 }
 
 // Get menu item text as utf8
@@ -69,7 +69,7 @@ cdstring CUnicodeUtils::GetMenuStringUTF8(const CMenu* menu, UINT nIDItem, UINT 
 	if (nStringLen > 0)
 	{
 		utf16.reserve(nStringLen);
-		::GetMenuStringW(*menu, nIDItem, utf16.c_str_mod(), nStringLen + 1, nFlags);
+		::GetMenuStringW(menu->GetSafeHmenu(), nIDItem, utf16.c_str_mod(), nStringLen + 1, nFlags);
 	}
 	
 	return utf16.ToUTF8();
