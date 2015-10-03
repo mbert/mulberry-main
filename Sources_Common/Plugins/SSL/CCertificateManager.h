@@ -36,6 +36,10 @@
 
 #include "ptrvector.h"
 
+#ifdef _OS_X_SECURITY
+#include <Security/Security.h>
+#endif
+
 // Classes
 class CCertificateStore;
 typedef ptrvector<CCertificateStore> CCertificateStoreList;
@@ -78,6 +82,10 @@ public:
 	bool CheckServerCertificate(const cdstring& server, std::vector<int>& errors, X509* server_cert);
 	bool AcceptableServer(const cdstring& server, X509* server_cert, const std::vector<int>& errors, const cdstrvect& error_txt);
 	bool CertificateToString(X509* server_cert, cdstring& txt);
+    
+#ifdef _OS_X_SECURITY
+    bool CertificateToString(SecCertificateRef certificate, cdstring& txt);
+#endif
 
 	// SMIME utilities
 	virtual void LoadSMIMERootCerts(X509_STORE* store);

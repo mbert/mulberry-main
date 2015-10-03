@@ -1308,6 +1308,11 @@ bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 					}
 					else if (cache_etag != server_etag)
 					{
+                        // Remove the cached component first
+                        cal.RemoveComponentByKey(cache_comp->GetMapKey());
+                        cache_comp = NULL;
+
+                        // Mark server component for refresh
 						rurls.push_back(cache_rurl);
 					}
 					changed.erase(server_rurl);

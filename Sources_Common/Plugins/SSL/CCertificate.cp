@@ -65,6 +65,31 @@ CCertificate::CCertificate(CCertificateStore* store, X509* cert, EVP_PKEY* pkey,
 	CacheData();
 }
 
+#ifdef _OS_X_SECURITY
+CCertificate::CCertificate(SecCertificateRef cert) :
+    mSubject(cdstring::null_str, false),
+    mIssuer(cdstring::null_str, false),
+    mValidityOK(false),
+    mValidity(NULL),
+    mHash(cdstring::null_str, false),
+    mFingerprint(cdstring::null_str, false),
+    mName(cdstring::null_str, false),
+    mCert(NULL),
+    mPKey(NULL),
+    mPassphrase(cdstring::null_str),
+    mStore(NULL)
+{
+    mDNS.second = false;
+    mEmail.second = false;
+    
+    // Convert the Security.framework object into an openssl X509 object
+    GetX509FromCertificateRef(cert);
+    
+    // Always cache data here if cert is provided
+    CacheData();
+}
+#endif
+
 CCertificate::CCertificate(CCertificateStore* store, const CCertificate& copy, bool add_ref) :
 	mSubject(copy.mSubject),
 	mIssuer(copy.mIssuer),
@@ -116,6 +141,24 @@ bool CCertificate::SubjectCompare(const CCertificate* cert1, const CCertificate*
 {
 	return cert1->GetSubject() < cert2->GetSubject();
 }
+
+#ifdef _OS_X_SECURITY
+// Convert Security.framework certificate to X509
+void CCertificate::GetX509FromCertificateRef(SecCertificateRef cert)
+{
+    CFDataRef certdata = ::SecCertificateCopyData(cert);
+
+    const unsigned char* certBytes = (const unsigned char *)::CFDataGetBytePtr(certdata);
+    X509* certX509 = ::d2i_X509(NULL, &certBytes, ::CFDataGetLength(certdata));
+    if (certX509 != NULL)
+    {
+        mCert = certX509;
+        CRYPTO_add(&mCert->references, 1, CRYPTO_LOCK_X509);
+    }
+
+    ::CFRelease(certdata);
+}
+#endif
 
 // Check for and load cert maager
 X509* CCertificate::GetCertificate(bool add_ref) const

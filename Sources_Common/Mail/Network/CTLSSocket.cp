@@ -19,6 +19,7 @@
 
 #include "CTLSSocket.h"
 
+#include "CCertificate.h"
 #include "CCertificateManager.h"
 #include "CLog.h"
 #include "CMailControl.h"
@@ -30,6 +31,7 @@
 #ifdef _OS_X_SECURITY
 #include "CAcceptCertDialog.h"
 #include "CTaskClasses.h"
+#include "openssl/pkcs12.h"
 #else
 #include "openssl_.h"
 #endif
@@ -100,6 +102,7 @@ CTLSSocket::CTLSSocket()
 	mTLSType = 0;
 #ifdef _OS_X_SECURITY
 	m_ctx = NULL;
+    mClientIdentity= NULL;
 #else
 	m_ctx = NULL;
 	m_tls = NULL;
@@ -116,6 +119,7 @@ CTLSSocket::CTLSSocket(const CTLSSocket& copy) :
 	mTLSType = 0;
 #ifdef _OS_X_SECURITY
 	m_ctx = NULL;
+    mClientIdentity = NULL;
 #else
 	m_ctx = NULL;
 	m_tls = NULL;
@@ -128,6 +132,12 @@ CTLSSocket::~CTLSSocket()
 {
 #ifdef _OS_X_SECURITY
 	m_ctx = NULL;
+    
+    if (mClientIdentity != NULL)
+    {
+        ::CFRelease(mClientIdentity);
+        mClientIdentity = NULL;
+    }
 #else
 	m_ctx = NULL;
 	m_tls = NULL;
@@ -216,7 +226,49 @@ void CTLSSocket::TLSSetTLSOn(bool tls_on, int tls_type)
 bool CTLSSocket::TLSSetClientCert(const cdstring& cert, const cdstring& passphrase)
 {
 #ifdef _OS_X_SECURITY
-    // TODO: SecureTransport::SSLSetCertificate
+#if 0
+    // Remove previous certs, if any
+    if (mClientIdentity != NULL)
+    {
+        ::CFRelease(mClientIdentity);
+        mClientIdentity = NULL;
+    }
+
+    // Get from our certificate store
+    X509* clientCert = CCertificateManager::sCertificateManager->FindCertificate(cert,  CCertificateManager::ePersonalCertificates, CCertificateManager::eByFingerprint);
+    EVP_PKEY* clientPrivate = CCertificateManager::sCertificateManager->LoadPrivateKey(cert, passphrase, CCertificateManager::eByFingerprint);
+
+    // Get PKCS12 data
+    const char* name = "client";
+    PKCS12* p12_openssl = ::PKCS12_create(const_cast<char*>(passphrase.c_str()), const_cast<char*>(name), clientPrivate, clientCert, NULL, 0, 0, 0, 0, 0);
+    unsigned char* p12 = NULL;
+    int p12_len = ::i2d_PKCS12(p12_openssl, &p12);
+
+    CFDataRef pkcs12 = ::CFDataCreate(kCFAllocatorDefault, p12, p12_len);
+    ::OPENSSL_free(p12);
+
+    // Convert to SecurityFramework identity
+    const void* keys[] = {kSecImportExportPassphrase};
+    CFStringRef passp = ::CFStringCreateWithCString(kCFAllocatorDefault, passphrase.c_str(), ::CFStringGetSystemEncoding());
+    const void* values[] = {passp};
+    CFDictionaryRef options = CFDictionaryCreate(kCFAllocatorDefault, keys, values, 1, NULL, NULL);
+
+    CFArrayRef items = NULL;
+    OSStatus err = ::SecPKCS12Import(pkcs12, options, &items);
+    if (err == noErr)
+    {
+        CFDictionaryRef identityDict = (CFDictionaryRef)::CFArrayGetValueAtIndex(items, 0);
+        mClientIdentity = (SecIdentityRef) ::CFDictionaryGetValue(identityDict, kSecImportItemIdentity);
+        ::CFRetain(mClientIdentity);
+    }
+    ::CFRelease(options);
+    ::CFRelease(passp);
+    ::CFRelease(pkcs12);
+
+    // Free stuff we don't need any more
+    ::X509_free(clientCert);
+    ::EVP_PKEY_free(clientPrivate);
+#endif
     return true;
 #else
 	// Remove previous certs, if any
@@ -315,6 +367,146 @@ void CTLSSocket::TCPSendData(char* buf, long len)
 
 #pragma mark ________________________________TLS Specific
 
+#ifdef _OS_X_SECURITY
+
+CSSM_BOOL compareOids(const CSSM_OID *oid1, const CSSM_OID *oid2)
+{
+    if ((oid1 == NULL) || (oid2 == NULL))
+        return CSSM_FALSE;
+    
+    if (oid1->Length != oid2->Length)
+        return CSSM_FALSE;
+    
+    if (::memcmp(oid1->Data, oid2->Data, oid1->Length))
+        return CSSM_FALSE;
+    
+    return CSSM_TRUE;
+}
+
+OSStatus trustCertificate(const SecCertificateRef certificate)
+{
+    bool found = false;
+    bool changed = false;
+    
+    // Get a copy of the trust settings array
+    CFArrayRef trustSettings = NULL;
+    OSStatus err = ::SecTrustSettingsCopyTrustSettings(certificate, kSecTrustSettingsDomainUser, &trustSettings);
+    
+    // Make or create a mutable copy
+    CFMutableArrayRef changeSettings = NULL;
+    if (err == noErr) {
+        changeSettings = ::CFArrayCreateMutableCopy(NULL, 0, trustSettings);
+    } else if (err == errSecItemNotFound) {
+        err = noErr;
+        changeSettings = ::CFArrayCreateMutable (NULL, 0, &kCFTypeArrayCallBacks);
+    }
+    
+    // Scan the trust settings looking for the  policy.
+    // If it's found check it's status and set it.
+    for (CFIndex trustCounter = 0; (err == noErr) && (trustCounter < ::CFArrayGetCount(changeSettings)); trustCounter++)
+    {
+        // Get one trust setting dictionary, make a mutable copy, then swap it for the mutable one
+        CFDictionaryRef oneTrustSetting = (CFDictionaryRef) ::CFArrayGetValueAtIndex(changeSettings, trustCounter);
+        CFMutableDictionaryRef changeTrustSetting = ::CFDictionaryCreateMutableCopy(NULL, 0, oneTrustSetting);
+        
+        if (changeTrustSetting)
+        {
+            // Change the immutable array to the mutable one
+            ::CFArraySetValueAtIndex(changeSettings, trustCounter, changeTrustSetting);
+            
+            // Look to see if it has a policy
+            SecPolicyRef policyRef;
+            if (::CFDictionaryGetValueIfPresent(changeTrustSetting, kSecTrustSettingsPolicy, (const void**)&policyRef ))
+            {
+                // Get the policy's OID
+                CSSM_OID oid;
+                if (::SecPolicyGetOID (policyRef, &oid) == noErr)
+                {
+                    // Policy is one we're interested in!
+                    if (compareOids( &oid, &CSSMOID_APPLE_TP_SSL) == CSSM_TRUE)
+                    {
+                        // Extract the trust value
+                        CFNumberRef numberRef;
+                        if (::CFDictionaryGetValueIfPresent(changeTrustSetting, kSecTrustSettingsResult, (const void**)&numberRef))
+                        {
+                            // Get the value
+                            SecTrustSettingsResult trustSettingResult;
+                            ::CFNumberGetValue(numberRef, kCFNumberSInt32Type, &trustSettingResult);
+                            
+                            // Is the trusted value what we want it to be?
+                            if (trustSettingResult != kSecTrustResultConfirm)
+                            {
+                                // it isn't so change it
+                                trustSettingResult = kSecTrustResultConfirm;
+                                numberRef = ::CFNumberCreate(NULL, kCFNumberSInt32Type, &trustSettingResult);
+                                ::CFDictionaryReplaceValue(changeTrustSetting, kSecTrustSettingsResult,numberRef);
+                                
+                                // Mark the certificate as needing saving back to the keychain
+                                changed = true;
+                            }
+                        }
+                        
+                        found = true;
+                    }
+                }
+            }
+        }
+    }
+    
+    // -------- If it hasn't got all the policies, add them ----------
+    if (!found)
+    {
+        // Create policy ref (by searching then getting the first)
+        SecPolicyRef policyRef = NULL;
+        SecPolicySearchRef policySearchRef = NULL;
+        err = ::SecPolicySearchCreate(CSSM_CERT_X_509v3, &CSSMOID_APPLE_TP_SSL, NULL, &policySearchRef);
+        if (err == noErr)
+            err = ::SecPolicySearchCopyNext(policySearchRef, &policyRef);
+        
+        if (err == noErr)
+        {
+            // Create the constraints dictionary
+            CFMutableDictionaryRef changeTrustSetting = ::CFDictionaryCreateMutable(NULL, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+            
+            // Add the policy we're interested in
+            ::CFDictionaryAddValue(changeTrustSetting, kSecTrustSettingsPolicy, policyRef);
+            
+            // Create and add the policies trusted status
+            SecTrustSettingsResult newTrustStatus;
+            newTrustStatus = kSecTrustResultConfirm;
+            CFNumberRef resultType = ::CFNumberCreate(NULL, kCFNumberSInt32Type, &newTrustStatus);
+            ::CFDictionaryAddValue(changeTrustSetting, kSecTrustSettingsResult, resultType);
+            
+            // Add the dictionary to the array
+            ::CFArrayAppendValue(changeSettings, changeTrustSetting);
+            
+            // Mark the certificate as needing saving back to the keychain
+            changed = TRUE;
+        }
+        
+        if (policyRef)
+            ::CFRelease(policyRef);
+        if (policySearchRef)
+            ::CFRelease(policySearchRef);
+        
+    }
+    
+    // -------- Write certificate back to the keychain (if it's changed) ----------
+    if ((err == noErr) && changed)
+    {
+        err = ::SecTrustSettingsSetTrustSettings(certificate, kSecTrustSettingsDomainUser, changeSettings);
+    }
+    
+    // -------- Clean up ---------
+    if (changeSettings)
+        ::CFRelease(changeSettings);
+    if (trustSettings)
+        ::CFRelease(trustSettings);
+    
+    return err;
+}
+#endif
+
 // Initiate a connection with remote host
 void CTLSSocket::TLSStartConnection()
 {
@@ -336,21 +528,34 @@ void CTLSSocket::TLSStartConnection()
     }
     
     //err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocolAll);
-    switch(mTLSType)
+    err = ::SSLSetProtocolVersionEnabled(m_ctx, kSSLProtocol2, false);
+    err = ::SSLSetProtocolVersionEnabled(m_ctx, kSSLProtocol3, false);
+//    switch(mTLSType)
+//    {
+//        case 1:
+//        case 4:
+//            err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocol3);
+//            break;
+//        case 2:
+//            err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocol3Only);
+//            break;
+//        case 3:
+//            err = ::SSLSetProtocolVersion(m_ctx, kTLSProtocol1Only);
+//            break;
+//    }
+    
+    if (mClientIdentity != NULL)
     {
-        case 1:
-        case 4:
-            err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocol3);
-            break;
-        case 2:
-            err = ::SSLSetProtocolVersion(m_ctx, kSSLProtocol3Only);
-            break;
-        case 3:
-            err = ::SSLSetProtocolVersion(m_ctx, kTLSProtocol1Only);
-            break;
+        const void* values[] = {mClientIdentity};
+        CFArrayRef ccerts = ::CFArrayCreate(kCFAllocatorDefault, values, 1, NULL);
+        err = ::SSLSetCertificate(m_ctx, ccerts);
+        ::CFRelease(ccerts);
     }
-    err = ::SSLSetSessionOption(m_ctx, kSSLSessionOptionBreakOnServerAuth, true);
-    err = ::SSLSetIOFuncs(m_ctx, TLSReadFunc, TLSWriteFunc);
+
+    if (err == noErr)
+        err = ::SSLSetSessionOption(m_ctx, kSSLSessionOptionBreakOnServerAuth, true);
+    if (err == noErr)
+        err = ::SSLSetIOFuncs(m_ctx, TLSReadFunc, TLSWriteFunc);
     if (err == noErr)
     {
         err = ::SSLSetConnection(m_ctx, this);
@@ -399,36 +604,33 @@ void CTLSSocket::TLSStartConnection()
                 
                 SecCertificateRef certificate = (SecCertificateRef)::CFArrayGetValueAtIndex(certs, 0);
 
-                CSSM_TP_APPLE_CERT_STATUS AllStatusBits = statusChain[0].StatusBits;
-                if (AllStatusBits & CSSM_CERT_STATUS_EXPIRED) {
-                } else {
-                    
-                    //CCertificateManager::sCertificateManager->CertificateToString(server_cert, mCertText);
-                    
-                    CFErrorRef error;
-                    //CFStringRef subject = ::SecCertificateCopyShortDescription(NULL, certificate, &error);
-                    CFStringRef subject = ::SecCertificateCopySubjectSummary(certificate);
-                    mCertSubject = cdstring(subject);
-                    ::CFRelease(subject);
-
-                    cdstrvect errors;
-                    errors.push_back("Unknown");
-                    CAcceptCertTask* task = new CAcceptCertTask(mCertSubject, errors);
-                    int result = task->Go();
-                    if (result == CAcceptCertDialog::eAcceptSave) {
-                        // Confirm with user then continue
-                        resultType = kSecTrustResultProceed;
-                        err = ::SecCertificateAddToKeychain(certificate, NULL);
-                        if (err != noErr) {
-                            
-                        }
-                    } else if (result == CAcceptCertDialog::eAcceptOnce) {
-                        // Confirm with user then continue
-                        resultType = kSecTrustResultProceed;
-                    } else {
-                        resultType = kSecTrustResultFatalTrustFailure;
-                    }
+                {
+                    CCertificate ccertificate(certificate);
+                    mCertText = ccertificate.StringCert();
+                    mCertSubject = ccertificate.GetSubject();
+                    mCertIssuer = ccertificate.GetIssuer();
                 }
+
+                cdstrvect errors;
+                errors.push_back("Unknown");
+                CAcceptCertTask* task = new CAcceptCertTask(mCertText, errors);
+                int result = task->Go();
+                if (result == CAcceptCertDialog::eAcceptSave) {
+                    // Confirm with user then continue
+                    err = ::SecCertificateAddToKeychain(certificate, NULL);
+                    if (err != noErr) {
+                        
+                    }
+                    err = ::trustCertificate(certificate);
+                    if (err == noErr)
+                        resultType = kSecTrustResultProceed;
+                } else if (result == CAcceptCertDialog::eAcceptOnce) {
+                    // Confirm with user then continue
+                    resultType = kSecTrustResultProceed;
+                } else {
+                    resultType = kSecTrustResultFatalTrustFailure;
+                }
+                resultType = kSecTrustResultProceed;
             }
             ::CFRelease(trustRef);
 
@@ -437,22 +639,14 @@ void CTLSSocket::TLSStartConnection()
                 CFArrayRef certs;
                 ::SSLCopyPeerCertificates(m_ctx, &certs);
                 SecCertificateRef certificate = (SecCertificateRef)::CFArrayGetValueAtIndex(certs, 0);
+                
+                {
+                    CCertificate ccertificate(certificate);
+                    mCertText = ccertificate.StringCert();
+                    mCertSubject = ccertificate.GetSubject();
+                    mCertIssuer = ccertificate.GetIssuer();
+                }
 
-                //CCertificateManager::sCertificateManager->CertificateToString(server_cert, mCertText);
-                
-                CFStringRef subject = ::SecCertificateCopySubjectSummary(certificate);
-                mCertSubject = cdstring(subject);
-                ::CFRelease(subject);
-                
-//                const CSSM_X509_NAME* issuer = NULL;
-//                ::SecCertificateGetIssuer(certificate, &issuer);
-//                str = ::X509_NAME_oneline(X509_get_issuer_name(server_cert), x509_buf, BUFSIZ);
-//                if (!str)
-//                {
-//                    CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
-//                    throw CTCPException(CTCPException::err_TCPSSLCertError);
-//                }
-//                mCertIssuer = str;
                 ::CFRelease(certs);
             } else {
                 CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
@@ -477,10 +671,8 @@ void CTLSSocket::TLSStartConnection()
 		{
 			case 1:
 			case 4:
+            case 2:
 				m_ctx = ::SSL_CTX_new(::SSLv23_client_method());
-				break;
-			case 2:
-				m_ctx = ::SSL_CTX_new(::SSLv3_client_method());
 				break;
 			case 3:
 				m_ctx = ::SSL_CTX_new(::TLSv1_client_method());
@@ -493,7 +685,7 @@ void CTLSSocket::TLSStartConnection()
 		}
 
 		// Work around all known bugs
-	    ::SSL_CTX_ctrl(m_ctx, SSL_CTRL_OPTIONS, SSL_OP_ALL, NULL);
+	    ::SSL_CTX_ctrl(m_ctx, SSL_CTRL_OPTIONS, SSL_OP_ALL | SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3, NULL);
 		
 		// Setup certificates
 		CCertificateManager::sCertificateManager->LoadSSLRootCerts(m_ctx);
@@ -579,24 +771,12 @@ void CTLSSocket::TLSStartConnection()
 		}
 
 		
-		CCertificateManager::sCertificateManager->CertificateToString(server_cert, mCertText);
-
-  		char x509_buf[BUFSIZ];
-		char* str = ::X509_NAME_oneline(X509_get_subject_name(server_cert), x509_buf, BUFSIZ);
-		if (!str)
-		{
-			CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
-			throw CTCPException(CTCPException::err_TCPSSLCertError);
-		}
-		mCertSubject = str;
-
-		str = ::X509_NAME_oneline(X509_get_issuer_name(server_cert), x509_buf, BUFSIZ);
-		if (!str)
-		{
-			CLOG_LOGTHROW(CTCPException, CTCPException::err_TCPSSLCertError);
-			throw CTCPException(CTCPException::err_TCPSSLCertError);
-		}
-		mCertIssuer = str;
+        {
+            CCertificate certificate(NULL, server_cert);
+            mCertText = certificate.StringCert();
+            mCertSubject = certificate.GetSubject();
+            mCertIssuer = certificate.GetIssuer();
+        }
 
 		// Get cipher in use
 #if (OPENSSL_VERSION_NUMBER | 0xFF00000000) == 0x10000000

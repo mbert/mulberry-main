@@ -37,6 +37,14 @@
 namespace NSSL
 {
 
+// ASN1_HEADER
+#ifdef ASN1_HEADER
+template<> void StSSLObject<ASN1_HEADER>::delete_obj()
+{
+	::ASN1_HEADER_free(mObj);
+}
+#endif
+
 // BIO
 template<> void StSSLObject<BIO>::delete_obj()
 {

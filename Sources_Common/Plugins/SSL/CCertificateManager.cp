@@ -641,7 +641,6 @@ bool CCertificateManager::ImportCertificateFile(CCertificateManager::ECertificat
 			const unsigned char* p = (unsigned char*) buf->data;
 			const unsigned char* op = p;
 
-#if 0 // KAP: until we find a suitable replacement in openssl-1.0 code
 			// First load the header
 			NSSL::StSSLObject<ASN1_HEADER> ah(::d2i_ASN1_HEADER(NULL, &p, (long)size));
 			if (ah.get() == NULL)
@@ -669,7 +668,6 @@ bool CCertificateManager::ImportCertificateFile(CCertificateManager::ECertificat
 
 			xcert.reset((X509 *)ah->data);
 			ah->data = NULL;
-#endif
 		}
 #endif
 
@@ -948,6 +946,17 @@ bool CCertificateManager::CertificateToString(X509* server_cert, cdstring& txt)
 	txt = cert.StringCert();
 	return true;
 }
+
+
+#ifdef _OS_X_SECURITY
+bool CCertificateManager::CertificateToString(SecCertificateRef certificate, cdstring& txt)
+{
+    // Get the fingerprint of the cert
+    CCertificate cert(certificate);
+    txt = cert.StringCert();
+    return true;
+}
+#endif
 
 // Locate certificate file for the corresponding user
 cdstring CCertificateManager::FindCertificateFile(const char* key, ECertificateType type, ECertificateLookupType lookup)

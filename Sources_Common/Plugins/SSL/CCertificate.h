@@ -32,6 +32,10 @@
 #ifndef __CCERTIFICATE__MULBERRY__
 #define __CCERTIFICATE__MULBERRY__
 
+#ifdef _OS_X_SECURITY
+#include <Security/Security.h>
+#endif
+
 #include "CCertificateManager.h"
 
 // Classes
@@ -60,9 +64,15 @@ public:
 	// Construct/destruct
 
 	CCertificate(CCertificateStore* store, X509* cert = NULL, EVP_PKEY* pkey = NULL, const cdstring* passphrase  = NULL);
+#ifdef _OS_X_SECURITY
+    CCertificate(SecCertificateRef cert);
+#endif
 	CCertificate(CCertificateStore* store, const CCertificate& copy, bool add_ref = false);
 	~CCertificate();
 
+#ifdef _OS_X_SECURITY
+    void GetX509FromCertificateRef(SecCertificateRef cert);
+#endif
 	X509* GetCertificate(bool add_ref = false) const;
 	void SetCertificate(X509* cert);
 	void ClearCertificate();

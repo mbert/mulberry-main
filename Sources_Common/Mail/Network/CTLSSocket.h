@@ -22,10 +22,6 @@
 
 #include "CTCPSocket.h"
 
-#if __dest_os == __mac_os_x
-#define _OS_X_SECURITY
-#endif
-
 #ifdef _OS_X_SECURITY
 #include <Security/Security.h>
 #else
@@ -84,6 +80,7 @@ protected:
 	int				mTLSType;
 #ifdef _OS_X_SECURITY
     SSLContextRef   m_ctx;
+    SecIdentityRef  mClientIdentity;
 #else
 	ssl_ctx_st*		m_ctx;
 	ssl_st*			m_tls;
