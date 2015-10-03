@@ -417,7 +417,7 @@ cdstring CEnvelope::NormaliseSubject(bool matching) const
 		bool was_space = false;
 		while(*p)
 		{
-			bool is_space = isspace(*p);
+			bool is_space = isspace((unsigned char)*p);
 			if (is_space && was_space)
 				p++;
 			else
@@ -447,7 +447,7 @@ cdstring CEnvelope::NormaliseSubject(bool matching) const
 			// Remove trailing space
 			while(p != end_p)
 			{
-				if (isspace(*end_p))
+				if (isspace((unsigned char)*end_p))
 				{
 					*end_p-- = 0;
 					changed = true;
@@ -475,7 +475,7 @@ cdstring CEnvelope::NormaliseSubject(bool matching) const
 			
 			// Step 3 - 
 			{
-				while(isspace(*p)) p++;
+				while(isspace((unsigned char)*p)) p++;
 
 				// *sub-blob
 				char* q = p;
@@ -490,7 +490,7 @@ cdstring CEnvelope::NormaliseSubject(bool matching) const
 						q = p;
 						break;
 					}
-					while(isspace(*q)) q++;
+					while(isspace((unsigned char)*q)) q++;
 				}
 				
 				// sub-refwd
@@ -498,13 +498,13 @@ cdstring CEnvelope::NormaliseSubject(bool matching) const
 					 !::strncmpnocase(q, "fwd", 3) && (q = q + 3) ||
 					 !::strncmpnocase(q, "fw", 2) && (q = q + 2)))
 				{
-					while(isspace(*q)) q++;
+					while(isspace((unsigned char)*q)) q++;
 					if (*q == '[')
 					{
 						while(*q && (*q != '[') && (*q != ']')) q++;
 						if (*q == ']')
 							q++;
-						while(isspace(*q)) q++;
+						while(isspace((unsigned char)*q)) q++;
 					}
 					if (*q == ':')
 					{
@@ -528,7 +528,7 @@ cdstring CEnvelope::NormaliseSubject(bool matching) const
 						q = p;
 						break;
 					}
-					while(isspace(*q)) q++;
+					while(isspace((unsigned char)*q)) q++;
 				}
 				if (*q && (p != q))
 				{

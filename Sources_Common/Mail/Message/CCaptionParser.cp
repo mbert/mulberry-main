@@ -302,13 +302,13 @@ void CCaptionParser::PutAddressCaption(std::ostream& out, EMode mode, const CAdd
 				start = ::strchr(start, ',') + 1;
 				
 			// Punt leading white space
-			while(*start && isspace(*start)) start++;
+			while(*start && isspace((unsigned char)*start)) start++;
 
 			// Get first word at this point
 			char* p = start;
 			while(*p)
 			{
-				if (isspace(*p))
+				if (isspace((unsigned char)*p))
 				{
 					*p = 0;
 					break;
