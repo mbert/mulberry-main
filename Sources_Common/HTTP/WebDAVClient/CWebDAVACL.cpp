@@ -53,6 +53,12 @@ CWebDAVACL::CWebDAVACL(CWebDAVSession* session, const cdstring& ruri, const CCal
 
 CWebDAVACL::~CWebDAVACL()
 {
+    // We own the request data and will delete it here
+    if (mRequestData != NULL)
+    {
+        delete mRequestData;
+        mRequestData = NULL;
+    }
 }
 
 void CWebDAVACL::InitRequestData()

@@ -62,7 +62,7 @@ public:
 	virtual void _UpdateSyncToken(const CCalendarStoreNode& node, iCal::CICalendar& cal) = 0;
 	virtual void _SizeCalendar(CCalendarStoreNode& node) = 0;
 
-	virtual void _ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed=false) = 0;
+	virtual bool _ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed=false) = 0;
 	virtual void _WriteFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal) = 0;
 
 	virtual bool _CanUseComponents() const = 0;

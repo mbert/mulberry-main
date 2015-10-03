@@ -65,7 +65,7 @@ protected:
 	virtual bool _CalendarChanged(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	virtual void _UpdateSyncToken(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 
-	virtual void _ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed=false);
+	virtual bool _ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed=false);
 	virtual void _WriteFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 
 	virtual bool _CanUseComponents() const;

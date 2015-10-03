@@ -914,7 +914,7 @@ bool CCalendarProtocol::CheckCalendar(const CCalendarStoreNode& node, iCal::CICa
 	}
 	else if (IsWebCalendar())
 	{
-		SubscribeFullCalendar(node, cal);
+		result = SubscribeFullCalendar(node, cal);
 	}
 	else
 	{
@@ -922,8 +922,8 @@ bool CCalendarProtocol::CheckCalendar(const CCalendarStoreNode& node, iCal::CICa
 		if ((mCacheClient != NULL) && !mCacheIsPrimary)
 		{
 			// Read in the calendar cache if it exists
-			if (mCacheClient->_TestCalendar(node))
-				mCacheClient->_ReadFullCalendar(node, cal);
+			//if (mCacheClient->_TestCalendar(node))
+			//	mCacheClient->_ReadFullCalendar(node, cal);
 
 			// Sync cache with server doing playback if needed
 			result = SyncFromServer(node, cal);
@@ -991,7 +991,11 @@ bool CCalendarProtocol::SyncFromServer(const CCalendarStoreNode& node, iCal::CIC
 		result = SyncComponentsFromServer(node, cal);
 	else
 		result = SyncFullFromServer(node, cal);
+    if (result)
+    {
 	Broadcast_Message(eBroadcast_RefreshNode, (void*)&node);
+        Broadcast_Message(iCal::CICalendar::eBroadcast_Changed, node.GetCalendar());
+    }
     return result;
 }
 
@@ -1314,6 +1318,7 @@ bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 
                         // Mark server component for refresh
 						rurls.push_back(cache_rurl);
+                        result = true;
 					}
 					changed.erase(server_rurl);
 				}
@@ -1323,6 +1328,7 @@ bool CCalendarProtocol::SyncComponentsFromServerFast(const CCalendarStoreNode& n
 			for(cdstrmap::const_iterator iter = changed.begin(); iter != changed.end(); iter++)
 			{
 				rurls.push_back((*iter).first);
+                result = true;
 			}
 
             while(rurls.size() != 0)
@@ -1715,16 +1721,16 @@ void CCalendarProtocol::WriteFullCalendar(const CCalendarStoreNode& node, iCal::
 	}
 }
 
-void CCalendarProtocol::SubscribeFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal)
+bool CCalendarProtocol::SubscribeFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal)
 {
 	// Always read from the main server
 	bool if_changed = !cal.GetETag().empty();
 	if (! if_changed)
 		cal.Clear();
-	mClient->_ReadFullCalendar(node, cal, if_changed);
+	bool changed = mClient->_ReadFullCalendar(node, cal, if_changed);
 
 	// Always keep disconnected cache in sync with server
-	if (mCacheClient != NULL)
+	if ((mCacheClient != NULL) && changed)
 	{
 		// Server always overwrites cache
 		if (mCacheClient->_TouchCalendar(node))
@@ -1734,6 +1740,8 @@ void CCalendarProtocol::SubscribeFullCalendar(const CCalendarStoreNode& node, iC
 		// Set sync time in node
 		node.SyncNow();
 	}
+    
+    return changed;
 }
 
 void CCalendarProtocol::PublishFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal)

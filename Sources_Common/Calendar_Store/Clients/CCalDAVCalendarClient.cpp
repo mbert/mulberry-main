@@ -383,7 +383,7 @@ void CCalDAVCalendarClient::ListCalendars(CCalendarStoreNode* root, const http::
 	}
 }
 
-void CCalDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed)
+bool CCalDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed)
 {
 	// Start UI action
 	StINETClientAction _action(this, "Status::Calendar::Reading", "Error::Calendar::OSErrReadCalendar", "Error::Calendar::NoBadReadCalendar", node.GetName());
@@ -415,11 +415,12 @@ void CCalDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iC
 		http::webdav::CWebDAVPropFindParser parser;
 		parser.ParseData(dout.GetData());
 		ReadCalendarComponents(node, parser, cal);
+        return true;
 	}
 	else
 	{
 		HandleHTTPError(request.get());
-		return;
+		return false;
 	}
 }
 
@@ -441,7 +442,7 @@ void CCalDAVCalendarClient::ReadCalendarComponents(const CCalendarStoreNode& nod
     {
         // Limit to at most 50 resources
         cdstrvect hrefs_batched;
-        while(hrefs.size() != 0 and hrefs_batched.size() < 50)
+        while(hrefs.size() != 0 && hrefs_batched.size() < 50)
         {
             hrefs_batched.push_back(hrefs.back());
             hrefs.pop_back();

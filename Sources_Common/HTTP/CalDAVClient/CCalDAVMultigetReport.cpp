@@ -43,6 +43,12 @@ CCalDAVMultigetReport::CCalDAVMultigetReport(CWebDAVSession* session, const cdst
 
 CCalDAVMultigetReport::~CCalDAVMultigetReport()
 {
+    // We own the request data and will delete it here
+    if (mRequestData != NULL)
+    {
+        delete mRequestData;
+        mRequestData = NULL;
+    }
 }
 
 

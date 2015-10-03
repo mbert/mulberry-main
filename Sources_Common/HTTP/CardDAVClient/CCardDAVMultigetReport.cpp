@@ -42,6 +42,12 @@ CCardDAVMultigetReport::CCardDAVMultigetReport(CWebDAVSession* session, const cd
 
 CCardDAVMultigetReport::~CCardDAVMultigetReport()
 {
+    // We own the request data and will delete it here
+    if (mRequestData != NULL)
+    {
+        delete mRequestData;
+        mRequestData = NULL;
+    }
 }
 
 

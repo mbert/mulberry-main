@@ -153,7 +153,7 @@ void CCertificate::GetX509FromCertificateRef(SecCertificateRef cert)
     if (certX509 != NULL)
     {
         mCert = certX509;
-        CRYPTO_add(&mCert->references, 1, CRYPTO_LOCK_X509);
+        //CRYPTO_add(&mCert->references, 1, CRYPTO_LOCK_X509);
     }
 
     ::CFRelease(certdata);
@@ -322,6 +322,8 @@ const cdstrpair CCertificate::GetValidity() const
 
 		// Make copy of times
 		mValidity = ::X509_VAL_new();
+        M_ASN1_TIME_free(mValidity->notBefore);
+        M_ASN1_TIME_free(mValidity->notAfter);
 		mValidity->notBefore = M_ASN1_TIME_dup(X509_get_notBefore(cert));
 		mValidity->notAfter = M_ASN1_TIME_dup(X509_get_notAfter(cert));
 		

@@ -51,6 +51,7 @@
 
 #if __dest_os == __mac_os || __dest_os == __mac_os_x
 #include "MyCFString.h"
+#include "FullPath.h"
 #include <UStandardDialogs.h>
 #elif __dest_os == __win32_os
 #include "CSDIFrame.h"
@@ -81,11 +82,18 @@ bool CAttachmentManager::CanQuit(cdstrvect& still_open)
 			(*iter).second.mSpec.Delete();
 			did_delete = true;
 		}
-		catch(...)
-		{
-			CLOG_LOGCATCH(...);
-
-		}
+        catch(OSStatus err)
+        {
+            CLOG_LOGCATCH(...);
+            if (err == fnfErr)
+                did_delete = true;
+            
+        }
+        catch(...)
+        {
+            CLOG_LOGCATCH(...);
+            
+        }
 #else
 		did_delete = !::remove_utf8((*iter).second.mSpec);
 #endif

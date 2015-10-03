@@ -733,7 +733,7 @@ void CWebDAVCalendarClient::SizeCalendar_HTTP(CCalendarStoreNode& node)
 	node.SetSize(request->GetContentLength());
 }
 
-void CWebDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed)
+bool CWebDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed)
 {
 	// Start UI action
 	StINETClientAction _action(this, "Status::Calendar::Reading", "Error::Calendar::OSErrReadCalendar", "Error::Calendar::NoBadReadCalendar", node.GetName());
@@ -747,7 +747,7 @@ void CWebDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iC
 		// Get account
 		CINETAccount* acct = GetPrivateAccount();
 		if (acct == NULL)
-			return;
+			return false;
 
 		// Set server address
 		acct->SetServerIP(parsed.Server());
@@ -796,6 +796,7 @@ void CWebDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iC
 	{
 	case http::eStatus_OK:
 		// Do default action
+        changed = true;
 		break;
 	case http::eStatus_NotModified:
 		// Nothing more to do
@@ -804,7 +805,7 @@ void CWebDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iC
 	default:
 		// Handle error and exit here
 		HandleHTTPError(request.get());
-		return;
+		return false;
 	}
 
 	if (changed)
@@ -845,16 +846,18 @@ void CWebDAVCalendarClient::_ReadFullCalendar(const CCalendarStoreNode& node, iC
 			break;
 		case eStatus_NotImplemented:
 			// Ignore failure
-			return;
+			return true;
 		default:
 			// Handle error and exit here
 			HandleHTTPError(optrequest.get());
-			return;
+			return true;
 		}
 
 		// Look for PUT
 		cal.SetReadOnly(!optrequest->IsAllowed(http::cRequestPUT));
 	}
+    
+    return changed;
 }
 
 void CWebDAVCalendarClient::_WriteFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal)

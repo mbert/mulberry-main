@@ -197,7 +197,11 @@ void CCalendarNotifier::ExecuteAlarm(iCal::CICalendarVAlarm* alarm)
 			const iCal::CICalendarVAlarm::CICalendarVAlarmDisplay* display = dynamic_cast<const iCal::CICalendarVAlarm::CICalendarVAlarmDisplay*>(alarm->GetActionData());
 			if (display != NULL)
 			{
-				CErrorHandler::PutNoteAlertRsrcTxt("UI::Calendar::AlertDisplay", display->GetDescription());
+                cdstring text = display->GetDescription();
+                cdstring summary = dynamic_cast<const iCal::CICalendarComponentRecur*>(alarm->GetEmbedder())->GetSummary();
+                text += os_endl;
+                text += summary;
+				CErrorHandler::PutNoteAlertRsrcTxt("UI::Calendar::AlertDisplay", text);
 			}
 		}
 		break;

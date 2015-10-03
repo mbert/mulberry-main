@@ -182,7 +182,7 @@ public:
 	void ReadFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal, bool if_changed=false);
 	void WriteFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 
-	void SubscribeFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
+	bool SubscribeFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 	void PublishFullCalendar(const CCalendarStoreNode& node, iCal::CICalendar& cal);
 
 	void AddComponent(const CCalendarStoreNode& node, iCal::CICalendar& cal, const iCal::CICalendarComponent& component);
