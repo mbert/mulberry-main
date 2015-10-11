@@ -858,11 +858,11 @@ CSearchItem* CSearchCriteriaLocal::ParseDate(bool sent) const
 	switch(mPopup2.GetValue())
 	{
 	case eDateMethod_Before:
-		return new CSearchItem(sent ? CSearchItem::eSentBefore : CSearchItem::eBefore, mDate.GetDate());
+		return new CSearchItem(sent ? CSearchItem::eSentBefore : CSearchItem::eBefore, (unsigned long)mDate.GetDate());
 	case eDateMethod_On:
-		return new CSearchItem(sent ? CSearchItem::eSentOn : CSearchItem::eOn, mDate.GetDate());
+		return new CSearchItem(sent ? CSearchItem::eSentOn : CSearchItem::eOn, (unsigned long)mDate.GetDate());
 	case eDateMethod_After:
-		return new CSearchItem(sent ? CSearchItem::eSentSince : CSearchItem::eSince, mDate.GetDate());
+		return new CSearchItem(sent ? CSearchItem::eSentSince : CSearchItem::eSince, (unsigned long)mDate.GetDate());
 
 	// Look at relative date popup
 	case eDateMethod_Is:
