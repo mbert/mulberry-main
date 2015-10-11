@@ -159,7 +159,7 @@ private:
 protected:
 	// message handlers
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	virtual int  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg BOOL OnToolTipText(UINT, NMHDR* pNMHDR, LRESULT* pResult);
 
 	DECLARE_MESSAGE_MAP()

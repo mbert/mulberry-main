@@ -244,7 +244,7 @@ int CHelpFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-int CHelpFrame::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CHelpFrame::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	return ToolHitTest(this, point, pTI);
 }
@@ -274,7 +274,7 @@ int CHelpMDIChildWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
-int CHelpMDIChildWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CHelpMDIChildWnd::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	return ToolHitTest(this, point, pTI);
 }

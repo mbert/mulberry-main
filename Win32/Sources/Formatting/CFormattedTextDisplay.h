@@ -40,7 +40,7 @@ public:
 	afx_msg void	OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg BOOL	OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 	afx_msg void	OnMouseMove(UINT nFlags, CPoint point);
-	virtual int		OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR		OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg BOOL	OnToolTipText(UINT, NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void	OnCaptureAddress();
 	

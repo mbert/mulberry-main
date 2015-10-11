@@ -82,7 +82,7 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnClose();
 	afx_msg void OnEndSession(BOOL bEnding);
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	afx_msg LRESULT OnNotifyCallback(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnWinsockDnrCallback(WPARAM wParam, LPARAM lParam);
 	afx_msg LRESULT OnWinsockSelectCallback(WPARAM wParam, LPARAM lParam);

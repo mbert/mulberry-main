@@ -68,7 +68,7 @@ void CNetworkResetError::OnDestroy()
 	CErrorDialog::OnDestroy();
 }
 
-void CNetworkResetError::OnTimer(UINT nIDEvent)
+void CNetworkResetError::OnTimer(UINT_PTR nIDEvent)
 {
 	if ((nIDEvent == mTimerID) && CTCPSocket::CheckConnectionState())
 		EndDialog(IDOK);

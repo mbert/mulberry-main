@@ -324,7 +324,7 @@ void CFormattedTextDisplay::OnCaptureAddress()
 
 #pragma mark ____________________________________Tooltips
 
-int CFormattedTextDisplay::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CFormattedTextDisplay::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	CRect words;
 	GetRichEditCtrl().GetRect(words);

@@ -282,7 +282,7 @@ void CMulberryWindow::OnEndSession(BOOL bEnding)
 	}
 }
 
-void CMulberryWindow::OnTimer(UINT nIDEvent)
+void CMulberryWindow::OnTimer(UINT_PTR nIDEvent)
 {
 	// Do periodic chore
 	if (CMulberryApp::sApp->sMailCheck && ((nIDEvent == mTimerID1) || (nIDEvent == mTimerID2)))

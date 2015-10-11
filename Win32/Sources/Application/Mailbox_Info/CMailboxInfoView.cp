@@ -574,7 +574,7 @@ void CMailboxInfoView::SyncQuickSearch()
 }
 
 // Called during idle
-void CMailboxInfoView::OnTimer(UINT nIDEvent)
+void CMailboxInfoView::OnTimer(UINT_PTR nIDEvent)
 {
 	// See if we are equal or greater than trigger
 	if (nIDEvent == mTimerID)

@@ -84,7 +84,7 @@ BOOL CChangePswdDialog::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
-void CChangePswdDialog::OnTimer(UINT nIDEvent)
+void CChangePswdDialog::OnTimer(UINT_PTR nIDEvent)
 {
 	if ((::GetKeyState(VK_CAPITAL) & 0x0001) ^ mCaps)
 	{

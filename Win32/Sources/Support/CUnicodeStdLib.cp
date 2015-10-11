@@ -76,7 +76,11 @@ int mkdir_utf8(const char *path)
 int _MSL_CDECL stat_utf8(const char *path_utf8, struct stat *buf) _MSL_CANT_THROW
 {
 	cdustring utf16(path_utf8);
+#ifndef  _WIN64
 	return _wstat(utf16.c_str(), (struct _stat32*)buf);
+#else
+	return _wstat(utf16.c_str(), (struct _stat64i32*)buf);
+#endif
 } 
 
 /* check accessibility of a file */

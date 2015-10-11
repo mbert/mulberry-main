@@ -12,6 +12,9 @@
 		<Platform
 			Name="Win32"
 		/>
+		<Platform
+			Name="x64"
+		/>
 	</Platforms>
 	<ToolFiles>
 	</ToolFiles>
@@ -157,6 +160,172 @@
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
 				TargetMachine="1"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="2"
+			UseOfATL="2"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)Sources&quot;;&quot;$(ProjectDir)So$(ProjectDir)..\..\..\Libraries\openssl\inc32urces\Application&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager\Address_Book_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Address_Search&quot;;&quot;$(ProjectDir)Sources\Application\Calendar&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Event_ToDo_Preview&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Free_Busy_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Component_Editing&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Utilities&quot;;&quot;$(ProjectDir)Sources\Application\Find_Replace&quot;;&quot;$(ProjectDir)Sources\Application\General&quot;;&quot;$(ProjectDir)Sources\Application\Letter&quot;;&quot;$(ProjectDir)Sources\Application\Macros&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)Sources\Application\Message&quot;;&quot;$(ProjectDir)Sources\Application\Other_Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Edit_Identities&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Extras&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Address_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Authentication_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Calendar_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\IMAP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Local_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\POP3_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Remote_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SIEVE_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SMTP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Address_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Alerts_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Attachment_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Display_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Letter_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Mailbox_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Message_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Spelling_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Rules&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Action Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Search&quot;;&quot;$(ProjectDir)Sources\Application\Server&quot;;&quot;$(ProjectDir)Sources\Application\Server\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Server\Browse_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Server\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)Sources\Application\Speech&quot;;&quot;$(ProjectDir)Sources\Application\Status&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Accounts&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Items&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Options Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Preview&quot;;&quot;$(ProjectDir)Sources\Application\Windows&quot;;&quot;$(ProjectDir)Sources\VCPP&quot;;&quot;$(ProjectDir)Sources\Formatting&quot;;&quot;$(ProjectDir)Sources\Plugins&quot;;&quot;$(ProjectDir)Sources\Plugins\General&quot;;&quot;$(ProjectDir)Sources\Plugins\Security&quot;;&quot;$(ProjectDir)Sources\Plugins\Spelling&quot;;&quot;$(ProjectDir)Sources\Plugins\SSL&quot;;&quot;$(ProjectDir)Sources\PP_Sources&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Hierarchy List&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Streams&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Tables&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Undoable&quot;;&quot;$(ProjectDir)Sources\Support&quot;;&quot;$(ProjectDir)Sources\Support\Table&quot;;&quot;$(ProjectDir)Sources\Support\Text&quot;;&quot;$(ProjectDir)Sources\Support\Toolbars&quot;;&quot;$(ProjectDir)Resources&quot;;&quot;$(ProjectDir)..\Sources_Common&quot;;&quot;$(ProjectDir)..\Sources_Common\Application&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Free_Busy_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Letter&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Preferences&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Rules&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Server&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Three_Pane&quot;;&quot;$(ProjectDir)..\Sources_Common\Automation&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Notifications&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Formatting&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CalDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CardDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\HTTPClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\WebDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\ISO2022&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\TwoByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Address&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\AddressBook&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Attachments&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Control&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Extensions&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filtering&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filters&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\ACAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMSP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\LDAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\Password&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SMTP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Local_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Network&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Search&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Recording&quot;;&quot;$(ProjectDir)..\Sources_Common\Preferences_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\AddressBooks&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Authentication&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Configuration&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\PasswordChange&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Security&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Spelling&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\Sources_Common\Resources&quot;;&quot;$(ProjectDir)..\Sources_Common\Support&quot;;&quot;$(ProjectDir)..\Sources_Common\Support\Toolbars&quot;;&quot;$(ProjectDir)..\Sources_Common\Tasks&quot;;&quot;$(ProjectDir)..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store\Clients&quot;;&quot;$(ProjectDir)..\Libraries\CICalendar\Source&quot;;&quot;$(ProjectDir)..\Libraries\vCard\Source&quot;;&quot;$(ProjectDir)..\Libraries\XMLLib\Source&quot;;&quot;$(ProjectDir)..\Plug-ins\CRAM-MD5\sources\md5&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;;&quot;$(VCInstallDir)atlmfc\src\mfc&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__VCPP__"
+				MinimalRebuild="true"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="MulberryUnicode.pch++"
+				BrowseInformation="1"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312"
+				ForcedIncludeFiles="MulberryUnicode.pch++"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				LinkLibraryDependencies="false"
+				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib RichEd20.Lib WINMM.Lib libeay32.lib"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="C:\Users\lpogrell\Libraries\openssl\out32d;&quot;C:\Program Files (x86)\Microsoft Speech SDK 5.1\Lib\i386&quot;"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				TargetMachine="17"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCManifestTool"
+			/>
+			<Tool
+				Name="VCXDCMakeTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCFxCopTool"
+			/>
+			<Tool
+				Name="VCAppVerifierTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="call &quot;$(ProjectDir)postbuild.bat&quot;"
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="2"
+			UseOfATL="2"
+			CharacterSet="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+				TargetEnvironment="3"
+			/>
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories="&quot;$(ProjectDir)Sources&quot;;&quot;$(ProjectDir)Sources\Application&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)Sources\Application\Address_Book_Manager\Address_Book_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Address_Search&quot;;&quot;$(ProjectDir)Sources\Application\Calendar&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Event_ToDo_Preview&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Free_Busy_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Component_Editing&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Calendar\Utilities&quot;;&quot;$(ProjectDir)Sources\Application\Find_Replace&quot;;&quot;$(ProjectDir)Sources\Application\General&quot;;&quot;$(ProjectDir)Sources\Application\Letter&quot;;&quot;$(ProjectDir)Sources\Application\Macros&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)Sources\Application\Message&quot;;&quot;$(ProjectDir)Sources\Application\Other_Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Edit_Identities&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Extras&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Address_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Authentication_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Calendar_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\IMAP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Local_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\POP3_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\Remote_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SIEVE_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Account_Panels\SMTP_Account_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Address_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Alerts_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Attachment_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Display_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Letter_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Mailbox_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Message_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Preferences_Dialog\Sub-panels\Spelling_Panels&quot;;&quot;$(ProjectDir)Sources\Application\Rules&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Action Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Rules\Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Search&quot;;&quot;$(ProjectDir)Sources\Application\Server&quot;;&quot;$(ProjectDir)Sources\Application\Server\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Server\Browse_Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Server\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\Dialogs&quot;;&quot;$(ProjectDir)Sources\Application\Mailbox_Properties&quot;;&quot;$(ProjectDir)Sources\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)Sources\Application\Speech&quot;;&quot;$(ProjectDir)Sources\Application\Status&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Accounts&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Items&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Options Dialog&quot;;&quot;$(ProjectDir)Sources\Application\Three Pane\Preview&quot;;&quot;$(ProjectDir)Sources\Application\Windows&quot;;&quot;$(ProjectDir)Sources\VCPP&quot;;&quot;$(ProjectDir)Sources\Formatting&quot;;&quot;$(ProjectDir)Sources\Plugins&quot;;&quot;$(ProjectDir)Sources\Plugins\General&quot;;&quot;$(ProjectDir)Sources\Plugins\Security&quot;;&quot;$(ProjectDir)Sources\Plugins\Spelling&quot;;&quot;$(ProjectDir)Sources\Plugins\SSL&quot;;&quot;$(ProjectDir)Sources\PP_Sources&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Hierarchy List&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Streams&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Tables&quot;;&quot;$(ProjectDir)Sources\PP_Sources\Undoable&quot;;&quot;$(ProjectDir)Sources\Support&quot;;&quot;$(ProjectDir)Sources\Support\Table&quot;;&quot;$(ProjectDir)Sources\Support\Text&quot;;&quot;$(ProjectDir)Sources\Support\Toolbars&quot;;&quot;$(ProjectDir)Resources&quot;;&quot;$(ProjectDir)..\Sources_Common&quot;;&quot;$(ProjectDir)..\Sources_Common\Application&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Address_Book_Manager&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Store_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Calendar_Window&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Day_Week_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Month_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Summary_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\ToDo_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Calendar\Calendar_View\Year_View&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Letter&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Mailbox_Info&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Preferences&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Rules&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Server&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\SMTP_Queue&quot;;&quot;$(ProjectDir)..\Sources_Common\Application\Three_Pane&quot;;&quot;$(ProjectDir)..\Sources_Common\Automation&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Notifications&quot;;&quot;$(ProjectDir)..\Sources_Common\Calendar_Store\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Formatting&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CalDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\CardDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\HTTPClient&quot;;&quot;$(ProjectDir)..\Sources_Common\HTTP\WebDAVClient&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\ISO2022&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\OneByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\TwoByte&quot;;&quot;$(ProjectDir)..\Sources_Common\i18n\Charsets\Converters\Unicode&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Address&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\AddressBook&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Attachments&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Charsets&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Control&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Extensions&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filtering&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Filters&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\ACAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\IMSP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\LDAP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\Password&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SIEVE\SIEVE&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\INET_Clients\SMTP&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Local_Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Mailbox&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Message&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Network&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Protocols&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\Search&quot;;&quot;$(ProjectDir)..\Sources_Common\Mail\URLs&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Mail&quot;;&quot;$(ProjectDir)..\Sources_Common\Offline\Recording&quot;;&quot;$(ProjectDir)..\Sources_Common\Preferences_Store\Clients&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\AddressBooks&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Authentication&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Configuration&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\General&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\PasswordChange&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Security&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\Spelling&quot;;&quot;$(ProjectDir)..\Sources_Common\Plugins\SSL&quot;;&quot;$(ProjectDir)..\Sources_Common\Resources&quot;;&quot;$(ProjectDir)..\Sources_Common\Support&quot;;&quot;$(ProjectDir)..\Sources_Common\Support\Toolbars&quot;;&quot;$(ProjectDir)..\Sources_Common\Tasks&quot;;&quot;$(ProjectDir)..\Sources_Common\Utilities&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store&quot;;&quot;$(ProjectDir)..\Sources_Common\VCard_Store\Clients&quot;;&quot;$(ProjectDir)..\Libraries\CICalendar\Source&quot;;&quot;$(ProjectDir)..\Libraries\vCard\Source&quot;;&quot;$(ProjectDir)..\Libraries\XMLLib\Source&quot;;&quot;$(ProjectDir)..\Plug-ins\CRAM-MD5\sources\md5&quot;;&quot;C:\Program Files\Microsoft Speech SDK 5.1\Include&quot;;&quot;$(VCInstallDir)atlmfc\src\mfc&quot;;&quot;$(ProjectDir)..\..\Libraries\openssl\inc32&quot;"
+				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;__VCPP__"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="MulberryUnicode.pch++"
+				WarningLevel="3"
+				DebugInformationFormat="3"
+				DisableSpecificWarnings="4068;4018;4800;4996;4267;4244;4312"
+				ForcedIncludeFiles="MulberryUnicode.pch++"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib RichEd20.Lib WINMM.Lib"
+				LinkIncremental="2"
+				AdditionalLibraryDirectories="&quot;C:\Program Files\Microsoft Speech SDK 5.1\Lib\i386&quot;"
+				GenerateDebugInformation="true"
+				SubSystem="2"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				TargetMachine="17"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -908,6 +1077,22 @@
 						Name="VCCustomBuildTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\utilities\CCharSpecials.h"
@@ -1064,6 +1249,22 @@
 						Name="VCCustomBuildTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\calendar\calendar_view\day_week_view\CDayWeekTable.h"
@@ -1202,6 +1403,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -1348,6 +1565,22 @@
 						Name="VCCustomBuildTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\mail\charsets\CFontMapper.h"
@@ -1362,6 +1595,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -1804,6 +2053,22 @@
 						Name="VCCustomBuildTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\i18n\charsets\converters\iso2022\CISO2022_CN.h"
@@ -2226,6 +2491,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -2668,6 +2949,22 @@
 						Name="VCCustomBuildTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\preferences_dialog\sub-panels\account_panels\local_account_panels\CPrefsLocalOptions.h"
@@ -2952,6 +3249,22 @@
 						Name="VCCustomBuildTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\rules\CRulesWindow.h"
@@ -2970,6 +3283,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -3002,6 +3331,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -3314,6 +3659,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -3844,6 +4205,22 @@
 						Name="VCCustomBuildTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\calendar\calendar_view\year_view\CYearTable.h"
@@ -3898,6 +4275,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -5204,6 +5597,22 @@
 						CompileAs="2"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\three pane\accounts\C3PaneAccounts.cp"
@@ -5326,6 +5735,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -5944,6 +6369,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\i18n\charsets\CCharsetManager.cp"
@@ -5962,6 +6403,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -6120,6 +6577,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\calendar\calendar_view\day_week_view\CDayWeekTable.cp"
@@ -6252,6 +6725,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\address_book\CEditGroupDialog.cp"
@@ -6322,6 +6811,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -6408,6 +6913,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\mail\charsets\CFontMapper.cp"
@@ -6422,6 +6943,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -6848,6 +7385,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\i18n\charsets\converters\iso2022\CISO2022_CN.cp"
@@ -7248,6 +7801,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\mail\attachments\CMIMEContent.cp"
@@ -7298,6 +7867,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -7398,6 +7983,14 @@
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -7756,6 +8349,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\preferences_dialog\sub-panels\account_panels\local_account_panels\CPrefsLocalOptions.cp"
@@ -8044,6 +8653,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\rules\CRulesWindow.cp"
@@ -8062,6 +8687,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -8098,6 +8739,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -8254,6 +8911,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -8438,6 +9111,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -8964,6 +9653,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\sources\application\calendar\calendar_view\year_view\CYearTable.cp"
@@ -9016,6 +9721,22 @@
 						CompileAs="2"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						CompileAs="2"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath="..\sources_common\memdebug.cp"
@@ -9030,6 +9751,22 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					ExcludedFromBuild="true"
 					>
 					<Tool
@@ -9064,6 +9801,22 @@
 						Name="VCCLCompilerTool"
 					/>
 				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
+					ExcludedFromBuild="true"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\Sources\MulberryUnicode.cp"
@@ -9080,6 +9833,26 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="MulberryUnicode.pch++"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalIncludeDirectories=""
+						UsePrecompiledHeader="1"
+						PrecompiledHeaderThrough="MulberryUnicode.pch++"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
@@ -9183,6 +9956,24 @@
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						ObjectFile="$(IntDir)\$(InputName)1.obj"
+						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|x64"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						ObjectFile="$(IntDir)\$(InputName)1.obj"
+						XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"

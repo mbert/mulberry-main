@@ -562,7 +562,7 @@ void CLetterWindow::OnKillFocus(CWnd* pNewWnd)
 	//SetTarget(GetSuperCommander());
 }
 
-void CLetterWindow::OnTimer(UINT nIDEvent)
+void CLetterWindow::OnTimer(UINT_PTR nIDEvent)
 {
 	// Do periodic chore
 	if (nIDEvent == mTimerID)

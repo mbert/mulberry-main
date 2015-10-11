@@ -121,7 +121,7 @@ void CUserPswdDialog::OnDestroy(void)
 	CHelpDialog::OnDestroy();
 }
 
-void CUserPswdDialog::OnTimer(UINT nIDEvent)
+void CUserPswdDialog::OnTimer(UINT_PTR nIDEvent)
 {
 	if ((::GetKeyState(VK_CAPITAL) & 0x0001) ^ mCaps)
 	{

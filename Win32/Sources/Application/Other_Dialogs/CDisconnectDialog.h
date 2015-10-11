@@ -97,7 +97,7 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(CDisconnectDialog)
 	virtual BOOL OnInitDialog();
-	virtual int DoModal();
+	virtual INT_PTR DoModal();
 	virtual void OnOK();
 	afx_msg void OnDisconnectAll();
 	afx_msg void OnDisconnectNew();

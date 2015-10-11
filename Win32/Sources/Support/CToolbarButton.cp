@@ -461,7 +461,7 @@ void CToolbarButton::OnShowWindow(BOOL bShow, UINT nStatus)
 
 #pragma mark ____________________________________Tooltips
 
-int CToolbarButton::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CToolbarButton::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	CRect rect;
 	GetClientRect(rect);

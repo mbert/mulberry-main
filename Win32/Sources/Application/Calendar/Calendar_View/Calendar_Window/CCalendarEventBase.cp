@@ -641,7 +641,7 @@ void CCalendarEventBase::DrawVertFrame(CDC* pDC, CRect& rect)
 
 #pragma mark ____________________________________Tooltips
 
-int CCalendarEventBase::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CCalendarEventBase::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	CRect rect;
 	GetClientRect(rect);

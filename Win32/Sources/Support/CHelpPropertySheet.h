@@ -33,7 +33,7 @@ public:
 	CHelpPropertySheet(LPCTSTR pszCaption, CWnd* pParent = NULL);   // standard constructor
 	CHelpPropertySheet(UINT nIDCaption, CWnd* pParent = NULL);   	// standard constructor
 
-	virtual int DoModal();
+	virtual INT_PTR DoModal();
 
 // Implementation
 protected:

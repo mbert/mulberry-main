@@ -1394,7 +1394,7 @@ void CTable::HiliteCellInactively(const STableCell& inCell, bool inHilite)
 
 #pragma mark ____________________________________Tooltips
 
-int CTable::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CTable::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	// Do tooltips only if user wants them
 	if (CPreferences::sPrefs->mDetailedTooltips.GetValue())

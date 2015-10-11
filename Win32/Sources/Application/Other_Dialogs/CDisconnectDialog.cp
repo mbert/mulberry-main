@@ -454,7 +454,7 @@ void CDisconnectDialog::OnOK()
 	EndDialog(IDOK);
 }
 
-int CDisconnectDialog::DoModal()
+INT_PTR CDisconnectDialog::DoModal()
 {
 	// Do inherited
 	return CHelpDialog::DoModal();
@@ -478,7 +478,7 @@ void CDisconnectDialog::PoseDialog()
 		dlog.SetDetails(!disconnecting);
 		
 		// Let DialogHandler process events
-		int result = dlog.DoModal();
+		INT_PTR result = dlog.DoModal();
 		
 		// Get twist state
 		sIsTwisted = dlog.mMailboxListPanel.mTwisted;

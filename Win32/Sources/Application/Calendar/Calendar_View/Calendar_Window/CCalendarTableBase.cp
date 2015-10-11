@@ -73,7 +73,7 @@ void CCalendarTableBase::OnCreateNew()
 	Broadcast_Message(eBroadcast_CreateNew, NULL);
 }
 
-void CCalendarTableBase::OnTimer(UINT nIDEvent)
+void CCalendarTableBase::OnTimer(UINT_PTR nIDEvent)
 {
 	Idle();
 }

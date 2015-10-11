@@ -48,7 +48,7 @@ BEGIN_MESSAGE_MAP(CHelpPropertySheet, CPropertySheet)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-int CHelpPropertySheet::DoModal()
+INT_PTR CHelpPropertySheet::DoModal()
 {
 	// Need to do special hack to get this to work when IE 4 is NOT present
 	// MFC headers & lib compiled with _WIN32_IE >= 0x0400

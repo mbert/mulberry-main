@@ -88,7 +88,7 @@ protected:
 	afx_msg void OnMove(int x, int y);
 	afx_msg LRESULT OnSetCheck(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);
-	virtual int  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 
 	DECLARE_MESSAGE_MAP()
 };

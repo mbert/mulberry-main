@@ -363,7 +363,7 @@ void CToDoItem::OnCompleted()
 
 #pragma mark ____________________________________Tooltips
 
-int CToDoItem::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
+INT_PTR CToDoItem::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
 {
 	// Only if real to do
 	if (mType != eToDo)

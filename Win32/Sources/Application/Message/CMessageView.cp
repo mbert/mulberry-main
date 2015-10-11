@@ -1476,7 +1476,7 @@ void CMessageView::RemovePrintSummary()
 #pragma mark ____________________________Timer
 
 // Called during idle
-void CMessageView::OnTimer(UINT nIDEvent)
+void CMessageView::OnTimer(UINT_PTR nIDEvent)
 {
 	// See if we are equal or greater than trigger
 	if (nIDEvent == mTimerID)

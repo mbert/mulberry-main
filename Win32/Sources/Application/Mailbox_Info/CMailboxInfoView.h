@@ -158,7 +158,7 @@ protected:
 	afx_msg void OnQuickSearchSavedPopup();
 	afx_msg void OnQuickSearchCancel();
 	afx_msg void OnWindowsShowQuickSearch();
-	afx_msg void OnTimer(UINT nIDEvent);
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	DECLARE_MESSAGE_MAP()
 };
 

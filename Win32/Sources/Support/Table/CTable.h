@@ -265,7 +265,7 @@ protected:
 	virtual void HandleContextMenu(CWnd*, CPoint point);
 	afx_msg void OnSetFocus(CWnd* pOldWnd);
 	afx_msg void OnKillFocus(CWnd* pNewWnd);
-	virtual int  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg BOOL OnToolTipText(UINT, NMHDR* pNMHDR, LRESULT* pResult);
 
 	DECLARE_MESSAGE_MAP()

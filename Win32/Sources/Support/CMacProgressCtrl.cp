@@ -709,7 +709,7 @@ BOOL CMacProgressCtrl::GetIndeterminate()
 
 //-------------------------------------------------------------------
 //
-void CMacProgressCtrl::OnTimer(UINT nIDEvent) 
+void CMacProgressCtrl::OnTimer(UINT_PTR nIDEvent) 
 //
 // Return Value:	None.
 //

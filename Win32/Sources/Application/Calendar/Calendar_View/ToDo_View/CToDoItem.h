@@ -97,7 +97,7 @@ protected:
 	// message handlers
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
-	virtual int  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR  OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	afx_msg BOOL OnToolTipText(UINT, NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);			// Handle character
 	afx_msg	void OnLButtonDown(UINT nFlags, CPoint point);				// Clicked somewhere

@@ -72,7 +72,7 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(CHelpFrame)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	virtual int OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
@@ -89,7 +89,7 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(CHelpFrame)
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	virtual int OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
+	virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

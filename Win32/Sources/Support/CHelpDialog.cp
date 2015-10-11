@@ -63,7 +63,7 @@ BOOL CHelpDialog::OnHelpInfo(HELPINFO* pHelpInfo)
 }
 
 #ifdef __MULBERRY
-int CHelpDialog::DoModal()
+INT_PTR CHelpDialog::DoModal()
 {
 	CSDIFrame::EnterModal(this);
 	int result = 0;

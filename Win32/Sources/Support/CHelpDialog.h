@@ -35,7 +35,7 @@ public:
 	CHelpDialog(UINT nID, CWnd* pParent = NULL);   // standard constructor
 	
 #ifdef __MULBERRY
-	virtual int DoModal();
+	virtual INT_PTR DoModal();
 #endif
 
 // Implementation

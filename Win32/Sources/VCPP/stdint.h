@@ -57,8 +57,11 @@ typedef long long  int_fast64_t;
 typedef unsigned long long   uint_fast64_t;
 
 /* 7.18.1.4  Integer types capable of holding object pointers */
+#ifndef _INTPTR_T_DEFINED
 typedef int intptr_t;
 typedef unsigned uintptr_t;
+#define _INTPTR_T_DEFINED
+#endif
 
 /* 7.18.1.5  Greatest-width integer types */
 typedef long long  intmax_t;
