@@ -314,7 +314,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/Def:&quot;SSL.def&quot;"
-				AdditionalDependencies="$(ProjectDir)..\..\..\Libraries\openssl\out32s\libeay32.lib $(ProjectDir)..\..\..\Libraries\openssl\out32s\ssleay32.lib WSOCK32.lib"
+				AdditionalDependencies="&quot;$(ProjectDir)..\..\..\Libraries\openssl-1.0.2d\out32\libeay32.lib&quot; &quot;$(ProjectDir)..\..\..\Libraries\openssl-1.0.2d\out32\ssleay32.lib&quot; WSOCK32.lib crypt32.lib"
 				LinkIncremental="2"
 				IgnoreAllDefaultLibraries="false"
 				IgnoreDefaultLibraryNames="libcmt.lib"

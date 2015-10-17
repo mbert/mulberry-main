@@ -156,7 +156,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkLibraryDependencies="false"
-				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib WINMM.Lib libeay32.lib"
+				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib WINMM.Lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="C:\Users\lpogrell\Libraries\openssl-1.0.2d\out32dll;&quot;C:\Program Files\Microsoft SDKs\Windows\v7.0\Lib\x64&quot;"
 				GenerateDebugInformation="true"
@@ -185,7 +185,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="call &quot;$(ProjectDir)postbuild.bat&quot;"
+				CommandLine="call &quot;$(ProjectDir)postbuild64.bat&quot;"
 			/>
 		</Configuration>
 		<Configuration
@@ -316,7 +316,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib RichEd20.Lib WINMM.Lib"
+				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib WINMM.Lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;C:\Program Files\Microsoft Speech SDK 5.1\Lib\i386&quot;"
 				GenerateDebugInformation="true"

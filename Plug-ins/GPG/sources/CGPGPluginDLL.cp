@@ -153,7 +153,12 @@ CGPGPluginDLL::CGPGPluginDLL()
 	// Open the key for the full path
 	HKEY key;
 	if (::RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS
-		|| ::RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS)
+		|| ::RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS
+#if defined(_WIN64)
+		|| ::RegOpenKeyExA(HKEY_CURRENT_USER, "Software\\Wow6432Node\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS // GPG is only in 32 bit version available
+		|| ::RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\Wow6432Node\\GNU\\GnuPG", 0, KEY_READ, &key) == ERROR_SUCCESS
+#endif
+		)
 	{
 		// Determine the space required
 		DWORD bufsize = 0;
