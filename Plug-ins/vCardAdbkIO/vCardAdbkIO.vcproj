@@ -230,7 +230,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="&quot;$(ProjectDir)..\PluginLibrary\$(ConfigurationName)\PluginLib.lib&quot;"
+				AdditionalDependencies="&quot;$(ProjectDir)..\PluginLibrary\$(PlatformName)\$(ConfigurationName)\PluginLib.lib&quot;"
 				OutputFile="$(OutDir)\$(ProjectName).dll"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
@@ -309,7 +309,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="&quot;$(ProjectDir)..\PluginLibrary\$(ConfigurationName)\PluginLib.lib&quot;"
+				AdditionalDependencies="&quot;$(ProjectDir)..\PluginLibrary\$(PlatformName)\$(ConfigurationName)\PluginLib.lib&quot;"
 				OutputFile="$(OutDir)\$(ProjectName).dll"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
