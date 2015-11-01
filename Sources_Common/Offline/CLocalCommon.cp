@@ -802,7 +802,7 @@ void MakeSafeFileName(cdstring& name)
 		}
 
 		// alnum is OK
-		if (isalnum(*p))
+		if (isalnum((unsigned char)*p))
 			p++;
 		else
 		{
