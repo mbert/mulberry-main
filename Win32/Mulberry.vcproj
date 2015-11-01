@@ -71,7 +71,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				LinkLibraryDependencies="false"
-				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib WINMM.Lib libeay32.lib"
+				AdditionalDependencies="sapi.lib WinInet.Lib IPHlpApi.Lib WINMM.Lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="C:\Users\lpogrell\Libraries\openssl\out32d;&quot;C:\Program Files (x86)\Microsoft Speech SDK 5.1\Lib\i386&quot;"
 				GenerateDebugInformation="true"
