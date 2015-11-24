@@ -570,7 +570,7 @@ int CSecurityPluginDLL::mkstemp(fspec ftemp, bool open_fd)
 
 		// Create/open the temp file
 		if (open_fd)
-			fd = ::open(tmp.c_str(), O_CREAT | O_RDWR | O_BINARY);
+			fd = ::open(tmp.c_str(), O_CREAT | O_RDWR | O_BINARY, _S_IREAD | _S_IWRITE /* file should be writeable after closing */);
 		else
 			fd = 1;
 	}
