@@ -94,8 +94,10 @@ void CAddressFieldText::SetDetails(const cdstring& title, int type, const cdstri
     mOriginalData = data;
 
     CUnicodeUtils::SetWindowTextUTF8(&mTitle, title);
-    if (type != 0)
+    if (mUsesType && (type != 0))
+	{
         mType.SetValue(IDM_ADDRESSADVANCED_TYPE_1 + type - 1);
+	}
     mData.SetText(data);
 }
 
@@ -106,8 +108,10 @@ bool CAddressFieldText::GetDetails(int& newtype, cdstring& newdata)
     if (mUsesType)
     {
         newtype = mType.GetValue() - IDM_ADDRESSADVANCED_TYPE_1 + 1;
-        if (newtype != mOriginalType)
+        if ((mOriginalType != 0) && (newtype != mOriginalType))
+		{
             changed = true;
+		}
     }
 
     newdata = mData.GetText();
