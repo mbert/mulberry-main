@@ -180,7 +180,9 @@ bool CVCard::Read(istream& in)
 					return false;
 				
 				// Look for fold
-				if (line.length() && isspace(line[(cdstring::size_type)0]))
+				if (line.length() 
+					&& (isspace(line[(cdstring::size_type)0])
+						|| (old_version && line[(cdstring::size_type)0] == '='))) // old version may contain QP that continues on next line
 				{
 					// Add to existing line
 					unfoldedline += &line[(cdstring::size_type)1];
@@ -567,8 +569,11 @@ cdstring CVCard::DecodeTextAddrValue(const cdstring& str)
 	cdstring result;
 	for(cdstrvect::const_iterator iter = items.begin(); iter != items.end(); iter++)
 	{
-		if (result.length())
-			result += os_endl;
+		if (!iter->empty())
+		{
+			if (result.length())
+				result += os_endl;
+		}
 		result += *iter;
 	}
 	
