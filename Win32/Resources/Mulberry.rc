@@ -4544,6 +4544,7 @@ BEGIN
         MENUITEM "Refresh &Web Calendar",       IDM_CALENDAR_REFRESHWEBCAL
         MENUITEM "U&pload Web Calendar",        IDM_CALENDAR_UPLOADWEBCAL
         MENUITEM SEPARATOR
+        MENUITEM "L&ogin",                      IDM_CALENDAR_LOGIN
         MENUITEM "C&heck Calendar",             IDM_CALENDAR_CHECK
         MENUITEM SEPARATOR
         MENUITEM "Refresh &List",               IDM_CALENDAR_REFRESH
