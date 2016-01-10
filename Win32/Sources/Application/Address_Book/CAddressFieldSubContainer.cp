@@ -134,6 +134,12 @@ void CAddressFieldSubContainer::SetAddress(const CAdbkAddress* addr)
         else if (mType == eEmail)
         {
             CAdbkAddress::emailmap emails = addr->GetEmails();
+			if (emails.empty())
+			{
+				// may be there is only a default address, look for it:
+				cdstring default_addr = addr->GetEmail(CAdbkAddress::eDefaultEmailType);
+				emails = addr->GetEmails();
+			}
             for(CAdbkAddress::emailmap::const_iterator iter = emails.begin(); iter != emails.end(); iter++)
             {
                 CAddressFieldText* field = static_cast<CAddressFieldText*>(AddField());
