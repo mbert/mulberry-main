@@ -570,7 +570,13 @@ int CSecurityPluginDLL::mkstemp(fspec ftemp, bool open_fd)
 
 		// Create/open the temp file
 		if (open_fd)
+		{
+#if __dest_os == __win32_os
 			fd = ::open(tmp.c_str(), O_CREAT | O_RDWR | O_BINARY, _S_IREAD | _S_IWRITE /* file should be writeable after closing */);
+#else
+			fd = ::open(tmp.c_str(), O_CREAT | O_RDWR | O_BINARY);
+#endif
+		}
 		else
 			fd = 1;
 	}
